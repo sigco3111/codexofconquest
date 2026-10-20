@@ -78,6 +78,7 @@ keys and quests that can never complete.
 Every image is a crop of the running game, captured from the test harness by
 [`src/tools/capture-screens.mjs`](src/tools/capture-screens.mjs) — not mockups.
 Re-generate them any time with `node src/tools/capture-screens.mjs`.
+For a whole run in pictures — origin to quests, fights, rests and saves — see the [**feature guide**](docs/FEATURE_GUIDE.md).
 
 ### ⚔️ Combat on an advantaged d20
 
