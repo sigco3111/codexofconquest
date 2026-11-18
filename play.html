@@ -4352,7 +4352,7 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
           </div>
           <div class="buy-item" style="margin-top:6px">
             <div>
-              <div class="buy-item-desc">🫧 Healing Potion — 150gp</div>
+              <div class="buy-item-desc">🫧 중급 치료 물약 — 150gp</div>
               <div class="buy-item-heal">HP 25 회복 · 레벨 5–9용</div>
             </div>
             <button class="btn-buy-potion" data-tier="healing">구매</button>
@@ -24166,7 +24166,7 @@ function storyVendorToggle() {
     ov.classList.remove('visible');
   } else {
     const autoSold = _autoSellDuplicates();
-    if (autoSold > 0) storyMsg('💰 Auto-sold duplicate gear for ' + autoSold + 'gp.');
+    if (autoSold > 0) storyMsg('💰 중복 장비를 자동으로 팔았습니다. +' + autoSold + 'gp.');
     storyUpdateStatus();
     storyRenderVendor();
     ov.classList.add('visible');
@@ -24175,13 +24175,13 @@ function storyVendorToggle() {
 
 function storyRenderVendor() {
   const node = NODE_MAP[S_story.currentCode];
-  document.getElementById('vendor-npc').textContent = node.npc || 'Merchant';
+  document.getElementById('vendor-npc').textContent = node.npc || '상인';
   const sellable = S_story.inventory.filter(i => i.sell > 0);
   const list = document.getElementById('vendor-sell-list');
   list.innerHTML = '';
   const total = sellable.reduce((s, i) => s + i.sell, 0);
   if (sellable.length === 0) {
-    list.innerHTML = '<div id="vendor-empty">No trophies to sell.</div>';
+    list.innerHTML = '<div id="vendor-empty">판매할 전리품이 없습니다.</div>';
   } else {
     sellable.forEach(item => {
       const row = document.createElement('div');
@@ -24192,7 +24192,7 @@ function storyRenderVendor() {
     });
   }
   document.getElementById('vendor-sell-total').textContent =
-    total > 0 ? 'Total: ' + total + 'gp' : '';
+    total > 0 ? '합계: ' + total + 'gp' : '';
   document.getElementById('btn-sell-all').disabled = sellable.length === 0;
   const equippedTiers = new Set([
     S_story.equippedMainWeapon ? S_story.equippedMainWeapon.tier : null,
@@ -30591,7 +30591,7 @@ function _grantExplorationXp(node) {
   _checkLevelUp();
   const _lvls = _levelUpQueue.slice();   // capture before the deferred UI reads the shared queue
   setTimeout(() => {
-    storyMsg('🧭 New ground. +' + xp + ' XP for reaching ' + (node.label || node.code) + '.');
+    storyMsg('🧭 새로운 땅. ' + (node.label || node.code) + '에 도달해 +' + xp + ' XP');
     if (_lvls.length > 0) _showLevelUpModal(_lvls[0]);
   }, 0);
 }
@@ -36444,8 +36444,8 @@ function storyRender(node, prefix) {
     }
     if (VENDOR_NODES.has(node.code)) {
       worldCards.push(_mkCard({
-        lbl: 'SHOP', main: '🛒 Vendor: ' + (node.npc || 'Merchant'),
-        btn: 'Shop', btnClass: 'btn-talk',
+        lbl: '상점', main: '🛒 상인: ' + (node.npc || '상인'),
+        btn: '상점', btnClass: 'btn-talk',
         btnClick: storyVendorToggle
       }));
     }
@@ -36788,7 +36788,7 @@ document.addEventListener('pointerdown', function _organResume() {
 // The act the story gates on (storyAct), as the sidebar prints it. The act badge above it
 // names the region underfoot (ACT_NAMES[node.act]), which is a different thing.
 function _storyActLabel() {
-  return 'Act ' + ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'][Math.min(8, Math.max(1, S_story.storyAct || 1)) - 1];
+  return ['1막','2막','3막','4막','5막','6막','7막','8막'][Math.min(8, Math.max(1, S_story.storyAct || 1)) - 1];
 }
 
 function storyUpdateStatus() {
