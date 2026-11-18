@@ -6894,7 +6894,7 @@ function _resolveQuestUQF(questId) {
   const _outText = pass ? (typeof q.passText === 'function' ? q.passText() : q.passText)
                         : (typeof q.failText === 'function' ? q.failText() : q.failText);
   _appendStoryHcard({
-    round: 'Day ' + (S_story.day || 1),
+    round: (S_story.day || 1) + '일차',
     actor: ({ combat:'FIGHT', delivery:'DELIVER', escort:'ESCORT', dialogue:'TALK' })[q.type] || 'ROLL',   // §ARCH-01 W4/W5 typed resolvers
     formula: 'd20(' + roll.d20 + ') + ' + (sc.skill || sc.stat) + '(' + modStr + ') + Prof(+' + roll.prof + ')' + iodineStr + lmStr,
     outcome: roll.total + ' vs DC ' + sc.dc + ' — ' + (pass ? 'PASS ✓' : 'FAIL'),
@@ -23507,7 +23507,7 @@ function _talkToNpc(key) {
   if (_npcFavor(key) >= 1) { storyMsg('🤝 ' + name + ' already counts you a friend.'); return; }
   if (!S_story.npcTalk) S_story.npcTalk = {};
   const t = S_story.npcTalk[key] || { count: 0, lastDay: 0 };
-  if (t.lastDay === S_story.day) { storyMsg('💬 You have said your piece with ' + name + ' today. Come back another day.'); return; }
+  if (t.lastDay === S_story.day) { storyMsg('💬 ' + name + ': 오늘 할 이야기를 마쳤습니다. 다른 날에 다시 오세요.'); return; }
   t.count += 1; t.lastDay = S_story.day;
   S_story.npcTalk[key] = t;
   if (t.count >= TALK_TO_FRIENDLY) _setNpcFavor(key, 1);   // fires the "looks at you differently" msg + dearFriendBits check; never above 1
@@ -23883,7 +23883,7 @@ function storyCheckContinue() {
     const node = NODE_MAP[save.currentCode] || NODE_MAP['LHR'];
     const loc = node.label.split(' — ')[0];
     document.getElementById('continue-sub').textContent =
-      'Day ' + save.day + ' of 49  ·  ' + loc + '  ·  ' + save.inventory.length + ' item(s)';
+      save.day + '일차 / 49  ·  ' + loc + '  ·  아이템 ' + save.inventory.length + '개';
     document.getElementById('story-continue-modal').classList.add('visible');
     return true;
   } catch(e) { return false; }
@@ -23937,7 +23937,7 @@ function storyVoidDefeat(type) {
   document.getElementById('defeat-flavor').textContent = copy.flavor;
   document.getElementById('def-level').textContent     = 'Level ' + (S_story.level || 1);
   document.getElementById('def-xp').textContent        = (S_story.xp || 0).toLocaleString() + ' XP';
-  document.getElementById('def-day').textContent       = 'Day ' + S_story.day + ' of 49';
+  document.getElementById('def-day').textContent       = S_story.day + '일차 / 49';
   document.getElementById('def-shards').textContent    = (S_story.shards || 0) + ' / 7';
   document.getElementById('def-gold').textContent      = (S_story.gold || 0) + 'gp';
   document.getElementById('def-battles').textContent   = Object.keys(S_story.defeatedBattles || {}).length;
@@ -24046,7 +24046,7 @@ function storyNewGamePlus() {
     const where  = [...new Set(bodies.map(q => q.nodeName))].join(', ');
     const ok = window.confirm('⚠ You still have ' + bodies.length + ' unrecovered '
       + (bodies.length === 1 ? 'body' : 'bodies') + ' out there (' + where + ') carrying '
-      + items + ' item(s) and ' + gp + ' gp. Beginning New Game+ leaves them behind forever.\n\n'
+      + items + '개와 ' + gp + 'gp. 뉴 게임+를 시작하면 모두 영원히 남겨두게 됩니다.\n\n'
       + 'Begin New Game+ anyway?');
     if (!ok) return;   // player chose to retrieve first — NG+ aborted, nothing wiped
   }
@@ -24328,7 +24328,7 @@ function storySellAll() {
   S_story.gold += total;
   storyUpdateStatus();
   storyRenderVendor();
-  storyMsg('💰 Sold ' + sellable.length + ' item(s) for ' + total + 'gp.');
+  storyMsg('💰 아이템 ' + sellable.length + '개를 ' + total + 'gp에 팔았습니다.');
 }
 
 function storySellEquipment() {
@@ -26098,7 +26098,7 @@ function _storyDeathSaveFall() {
   S_story.tattoos = (S_story.tattoos || []).concat([{
     type: 'tattoo', subtype: 'death', icon: '💀',
     lvl: S_story.level || 1, name: 'Fallen', sell: 0, drop: false,
-    desc: 'Day ' + S_story.day + ' · ' + _dHourStr + ' · ' + nodeName,
+    desc: S_story.day + '일차 · ' + _dHourStr + ' · ' + nodeName,
     deathDay: S_story.day, deathHour: _dHour,
     deathNode: nodeCode, deathNodeName: nodeName,
     corpseQuestId: corpseQuest.id,
@@ -26132,7 +26132,7 @@ function _storyDeathSaveFall() {
   const _cpNode = NODE_MAP[S_story.currentCode];
   const _cpName = _cpNode ? _cpNode.label.split(' — ')[0] : (S_story.checkpointNode || 'your checkpoint');
   const _bodyParts = [];
-  if (bodyItems.length)            _bodyParts.push(bodyItems.length + ' item(s)');
+  if (bodyItems.length)            _bodyParts.push(bodyItems.length + '개');
   if (corpseQuest.goldDropped)     _bodyParts.push(corpseQuest.goldDropped + ' gp');
   const _totalThings = bodyItems.length + (corpseQuest.goldDropped ? 1 : 0);
   const _them = _totalThings > 1 ? 'them' : 'it';
@@ -26158,7 +26158,7 @@ function _storyRetrieveCorpse(questId) {
   storyUpdateStatus();
   storyRender(NODE_MAP[S_story.currentCode],
     '🦴 Remains recovered at ' + q.nodeName + ' — '
-    + q.items.length + ' item(s) returned · +' + q.goldDropped + ' gp recovered.');
+    + q.items.length + '개 회수 · +' + q.goldDropped + 'gp 되찾음.');
 }
 
 // §CELL-13 (re-applied 2026-07-03): storySetHearthHome / storyUseTransmort removed —
@@ -28431,7 +28431,7 @@ function storyCheckVictory(node) {
   const battles    = Object.keys(S_story.defeatedBattles || {}).length;
   const curse      = _curseScore();
   const ebReturns  = Object.values(S_story.ebReturnDone || {}).filter(Boolean).length;
-  document.getElementById('vic-day').textContent    = 'Day ' + S_story.day + ' of 49';
+  document.getElementById('vic-day').textContent    = S_story.day + '일차 / 49';
   document.getElementById('vic-hp').textContent     = S_story.hp + ' / ' + S_story.hpMax;
   document.getElementById('vic-gold').textContent   = S_story.gold + 'gp';
   document.getElementById('vic-items').textContent  = S_story.inventory.length;
@@ -30541,7 +30541,7 @@ function _rollKeyEvent(id) {
   const passed = total >= evt.dc;
   const modStr = (mod >= 0 ? '+' : '') + mod;
   _appendStoryHcard({
-    round: 'Day ' + (S_story.day || 1),
+    round: (S_story.day || 1) + '일차',
     actor: evt.abilityLabel.toUpperCase(),
     formula: 'd20(' + d20 + ') + ' + evt.abilityLabel + '(' + modStr + ') + Prof(+' + prof + ')',
     outcome: total + ' vs DC ' + evt.dc + ' — ' + (passed ? 'PASS ✓' : 'FAIL ✗'),
@@ -31372,7 +31372,7 @@ function storyRenderQuests() {
         div.appendChild(titleRow);
         const descDiv = document.createElement('div');
         descDiv.className = 'quest-desc';
-        descDiv.textContent = q.items.length + ' item(s) · ' + q.goldDropped + ' gp — return to collect.';
+        descDiv.textContent = q.items.length + '개 · ' + q.goldDropped + 'gp — 되찾으러 오세요.';
         div.appendChild(descDiv);
         const hintDiv = document.createElement('div');
         hintDiv.className = 'quest-hint';
@@ -31767,7 +31767,7 @@ function storyRenderInventory() {
     days.forEach(d => {
       const dayRow = document.createElement('div');
       dayRow.style.cssText = 'display:flex;align-items:center;gap:6px;padding:6px 0 3px;font-size:10px;letter-spacing:0.5px;text-transform:uppercase;color:#7a5f2c;';
-      dayRow.innerHTML = '<span>Day ' + d + '</span>'
+      dayRow.innerHTML = '<span>' + d + '일차</span>'
         + '<span style="flex:1;height:1px;background:#3a2c12;"></span>'
         + '<span style="color:#5a481f">' + byDay.get(d).length + '</span>';
       list.appendChild(dayRow);
@@ -31828,7 +31828,7 @@ function storyRenderInventory() {
     worldNotes.forEach(note => {
       const div = document.createElement('div');
       div.className = 'journal-entry world';
-      div.textContent = 'Day ' + (note.day || 1) + ' — ' + note.text;
+      div.textContent = (note.day || 1) + '일차 — ' + note.text;
       list.appendChild(div);
     });
   }
@@ -36197,7 +36197,7 @@ function storyRender(node, prefix) {
             lbl: _flav.lbl,
             main: _flav.icon + q.title,
             hint: blocked
-              ? '⏳ Retry available: Day ' + retryDay
+              ? '⏳ 재시도 가능: ' + retryDay + '일차'
               : _label + ' (' + modStr + ') vs DC ' + _dc,
             tag: blocked ? null : 'DC ' + _dc,
             btn: blocked ? null : _flav.verb,
@@ -36330,7 +36330,7 @@ function storyRender(node, prefix) {
     const { sec, body } = _mkSection(null, '🦴', 'Remains');
     S_story.corpsesQuests.filter(q => q.nodeCode === node.code).forEach(q => {
       body.appendChild(_mkCard({
-        lbl: 'CORPSE', main: q.items.length + ' item(s)',
+        lbl: '시신', main: q.items.length + '개',
         sub: q.goldDropped + 'gp recovered',
         btn: 'Retrieve', btnClass: 'btn-hunt',
         btnClick: () => _storyRetrieveCorpse(q.id)
@@ -36906,7 +36906,7 @@ function _renderCorpseChip() {
   const named = bodies.slice(0, CORPSE_TITLE_MAX);
   const rest  = bodies.length - named.length;
   el.title = 'Your remains lie out in the world — click to open the map. '
-    + named.map(q => q.nodeName + ' (' + (q.items || []).length + ' item(s), '
+    + named.map(q => q.nodeName + ' (' + (q.items || []).length + '개, '
         + (q.goldDropped || 0) + ' gp)').join(' · ')
     + (rest > 0 ? ' · and ' + rest + ' more' : '');
   el.style.display = '';
@@ -36938,7 +36938,7 @@ function _renderObjectiveChip() {
   // No red alarm; only a soft amber within 3 days of the real (rarely-hit) cap.
   const day = S_story.day || 1;
   const dayEl = document.getElementById('obj-day');
-  dayEl.innerHTML = '☀ Day <b>' + day + '</b>/' + DAY_DEADLINE;
+  dayEl.innerHTML = '☀ <b>' + day + '</b>/' + DAY_DEADLINE + '일차';
   dayEl.className = 'obj-leg' + _dayAlarm(day);
 }
 
@@ -36970,7 +36970,7 @@ function storySleep(node) {
     }
   }
   document.getElementById('sleep-cost-preview').textContent = costText;
-  document.getElementById('sleep-day-preview').textContent = 'Day ' + S_story.day + ' → Day ' + (S_story.day + 1) + ' of 49';
+  document.getElementById('sleep-day-preview').textContent = S_story.day + '일차 → ' + (S_story.day + 1) + '일차 / 49';
   const warn = document.getElementById('sleep-warning');
   const confirmBtn = document.getElementById('btn-sleep-confirm');
   if (cost > 0 && S_story.gold < cost) {
@@ -37107,7 +37107,7 @@ function storyConfirmSleep() {
 function storyCheckVoidTide() {
   const event = VOID_TIDE_EVENTS[S_story.day];
   if (!event) return;
-  document.getElementById('void-day-badge').textContent = 'Day ' + S_story.day + ' of 49';
+  document.getElementById('void-day-badge').textContent = S_story.day + '일차 / 49';
   document.getElementById('void-title').textContent = event.title;
   document.getElementById('void-text').textContent = event.text;
   // Increment void pressure at each tide event (Layer 59: mercy window)
@@ -37425,7 +37425,7 @@ function _graveNote(code) {
   if (!here.length) return '';
   const items = here.reduce((s, q) => s + (q.items || []).length, 0);
   const gold  = here.reduce((s, q) => s + (q.goldDropped || 0), 0);
-  return '  \u00b7  \u{1F9B4} Your remains \u2014 ' + items + ' item(s), ' + gold + ' gp';
+  return '  \u00b7  \u{1F9B4} 당신의 유해 \u2014 ' + items + '개, ' + gold + 'gp';
 }
 
 function _renderMapGrid() {
