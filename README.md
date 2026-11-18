@@ -1,400 +1,108 @@
-<!-- SPDX-License-Identifier: MIT — Copyright (c) 2026 Paul Richeson -->
+<!-- SPDX-License-Identifier: MIT - Copyright (c) 2026 Paul Richeson -->
 
-# CODEX OF CONQUEST — a single-file adventure RPG
+# Codex of Conquest 한국어 번역판
 
-The entire game — combat engine, world map, NPC dialogue, quest system, save
-system, hundreds of monsters, dozens of terrains, and 8 acts of story — lives
-inside one HTML file. No server, no build step, no install. Open it and play.
+[게임 실행](https://sigco3111.github.io/codexofconquest/play.html) · [소개 페이지](https://sigco3111.github.io/codexofconquest/) · [English README](README.en.md)
 
-> A dying courier presses a bloodstained map into your hand and says one word:
-> *"Sweelinck."* Seven scholar-kings each carried one Shard of the Codex into
-> hiding before they died, and the seals that bind the Void are weakening. The
-> Void is not a fog of consuming darkness. It is a conqueror — it advances where
-> the defenders are thin. You have a sword, a coin purse, and forty-nine days.
+> **번역 진행 중인 중간판입니다. 완역판이 아닙니다.**
+> 메뉴와 전투·아이템·퀘스트 제목 등부터 번역하고, 지역 묘사·NPC 대화·퀘스트 본문을 이어서 작업합니다. 아직 여러 화면에 영어가 남아 있습니다.
 
----
+## 게임 소개
 
-## Quick start
+`play.html` 파일 하나에 전투, 지도, NPC, 퀘스트, 저장 기능이 들어 있는 텍스트 어드벤처 RPG입니다. 원작은 8막으로 구성되며, 주사위 결과와 수정치를 화면에서 확인하는 전투를 사용합니다. 이야기는 피 묻은 지도를 건네받는 데서 시작합니다. 코덱스 조각을 찾고 공허의 위협에 맞서며, 게임 속 49일을 관리합니다.
 
-### ▶ Play it in your browser — nothing to install
+싱글플레이에는 계정이나 별도 서버가 필요하지 않습니다. 멀티플레이와 콘텐츠 편집 도구는 별도 기능이며, 한국어 싱글플레이를 시작하기 위한 필수 조건이 아닙니다.
 
-**https://vonglurt.github.io/codexofconquest/**
+## 현재 번역 범위
 
-That is the current build, served from GitHub Pages. It runs entirely in your
-browser; saves live in `localStorage` on your own machine and nothing is
-uploaded anywhere.
+2026-11-18 작업 기준입니다. 아래는 작업한 범위이며, 각 범주의 모든 영어가 제거됐다는 뜻은 아닙니다.
 
-### ⬇ Download the game — one file, yours offline
+| 구분 | 현재 상태 |
+| --- | --- |
+| 기본 메뉴·HUD·캐릭터·인벤토리·지도 | 번역 반영, 실화면에서 발견되는 잔여 문구 계속 수정 중 |
+| 전투 | 공격·명중·피해·HP 기록, 상태이상, 행동 안내 등 번역 반영 |
+| 상점 | 물약·방패·특별 재고, 가격·구매·판매·레벨 제한 문구 번역 반영 |
+| 이름·제목 | 지역·몬스터·아이템·퀘스트 제목 번역 반영, 추가 누락 검사 중 |
+| 지역 장문 묘사 | 추출한 `NODE_MAP.text` 107개 중 52개 번역 반영 |
+| 지역별 패널·NPC 대화·퀘스트 본문 | 대부분 미번역, 순차 작업 예정 |
+| 편집 도구·개발 문서 | 이번 플레이 화면 번역의 완료 범위에 포함하지 않음 |
 
-Right-click and **Save Link As…** →
-[**play.html**](https://raw.githubusercontent.com/vonglurt/codexofconquest/main/play.html) (~5.5 MB)
+`HP`, `AC`, `DC`, `STR` 같은 능력치 약어, `XP`, `gp`, `d20` 같은 주사위 표기는 유지합니다. 게임 제목과 원작자·라이선스 표기도 유지합니다.
 
-Or from a terminal:
+## 시작하기
 
-```bash
-curl -L -O https://raw.githubusercontent.com/vonglurt/codexofconquest/main/play.html
-open play.html          # macOS   ·   xdg-open on Linux   ·   start on Windows
-```
+### 브라우저에서 실행
 
-Double-click it, drag it onto a browser window, or `File → Open`. It is
-genuinely self-contained — email it to someone, put it on a USB stick, or serve
-it from any static host. No server, no build step, no account.
+1. [한국어 게임](https://sigco3111.github.io/codexofconquest/play.html)을 엽니다.
+2. 저장 기록이 있으면 **여정 계속**, 처음이면 **새 게임**을 선택합니다.
+3. 캐릭터를 만들고 이야기 화면에서 지역을 살펴봅니다.
+4. 대화·퀘스트·상점·전투 등 해당 지역의 버튼을 선택합니다.
 
-### 📦 The whole source
+배포 직후 옛 화면이 보이면 페이지를 새로고침하세요. **저장 데이터를 지우거나 사이트 데이터를 초기화할 필요는 없습니다.**
 
-- **Repository:** <https://github.com/vonglurt/codexofconquest>
-- **Clone it:** `git clone https://github.com/vonglurt/codexofconquest.git`
-- **Zip:** <https://github.com/vonglurt/codexofconquest/archive/refs/heads/main.zip>
-- **Releases:** <https://github.com/vonglurt/codexofconquest/releases>
+### 파일로 실행
 
-### 🛠 Then build a world of your own
-
-The authoring tool ships with the game. Open
-[**edit.html**](https://vonglurt.github.io/codexofconquest/edit.html) — a visual editor for **nodes, terrains,
-monsters, quests, NPCs and mission bits**, the flags the world reads to know
-what has already happened.
-
-Start small and you will see it working in minutes:
-
-1. Run the API server — `make wbapi` (or `make edit`, which opens both).
-2. Add a node, give it a terrain and a description.
-3. Wire a road to somewhere that already exists.
-4. Write a three-step quest arc in the Mission Builder.
-5. Reload `play.html` and walk to it.
-
-> **The editor wants the API.** Opened straight off disk it will warn you: the
-> browser blocks the reads and writes it needs, so loading a world from file is
-> not supported. Start the server first — `make wbapi` — then reload.
-
-Quests, nodes, terrains, monsters and mission bits are **data**, not code, so
-most content work never touches the engine. When you are ready, `make check`
-runs the gate chain that looks for dead links, unreachable nodes, duplicate
-keys and quests that can never complete.
-
----
-
-## Screenshots
-
-Every image is a crop of the running game, captured from the test harness by
-[`src/tools/capture-screens.mjs`](src/tools/capture-screens.mjs) — not mockups.
-Re-generate them any time with `node src/tools/capture-screens.mjs`.
-For a whole run in pictures — origin to quests, fights, rests and saves — see the [**feature guide**](docs/FEATURE_GUIDE.md).
-
-### ⚔️ Combat on an advantaged d20
-
-![Combat on an advantaged d20](assets/screenshots/06-battle.png)
-
-The die, the modifier, the target and the result — `d20 +6 vs AC 13 (1d8+3)`. Attack roll, skill check and saving throw are the same three buttons all game.
-
-### 🎭 Character creation
-
-![Character creation](assets/screenshots/01-character-creation.png)
-
-Choose an origin, then spend a 27-point budget in the open. The costs are printed on the screen: 9→1, 10→2, 11→3, 12→4, 13→5, 14→7, 15→9.
-
-### 🧮 Stat point allocation
-
-![Stat point allocation](assets/screenshots/02-stat-point-buy.png)
-
-Every modifier updates as you spend. Nothing is rolled behind your back.
-
-### 📋 The character sheet
-
-![The character sheet](assets/screenshots/04-character-sheet.png)
-
-Six abilities, proficiency, AC and max HP — plus Luck as a seventh stat that behaves like none of the others.
-
-### 🏆 Victory
-
-![Victory](assets/screenshots/09-victory.png)
-
-A fight ends and the banner says so. What it paid — XP, gold, drops — lands in the log behind it.
-
-### 💀 Death saves
-
-![Death saves](assets/screenshots/08-death-saves.png)
-
-Drop to zero and you are *dying*, not dead. Three successes or three failures on a d20, rolled where you can see them.
-
-### 🎒 Inventory
-
-![Inventory](assets/screenshots/03-inventory.png)
-
-Sorted by what a thing is for. Every item says what it does and what it is worth.
-
-### 🎣 Fishing gear and bait
-
-![Fishing gear and bait](assets/screenshots/05-fishing.png)
-
-Shore, reeds and deep water unlock separately; day and night hold different species.
-
-### ⭐ Level up
-
-![Level up](assets/screenshots/07-level-up.png)
-
-Roll the hit die yourself — d10 plus your CON modifier. The feature you gained is named, and the sheet shows what changed.
-
----
-
-## What this project is
-
-`play.html` is the single source of truth: a ~37,000-line HTML file that
-*is* the game. Everything else in this repository exists to **author, document,
-test, and host** that one file:
-
-- **Docs** keep a two-way sync with the HTML — every data structure has a home
-  document, every doc entry traces back to a line in the HTML.
-- **The WBAPI server** (`wbapi-server.js`) is an optional local REST API that
-  reads the HTML and writes edits back in place, so content can be authored via
-  `edit.html` / `./bin/api` instead of editing 37k lines by hand.
-- **Tests** (`src/tests/`, `src/scripts/`) guard the world's invariants.
-
-If you only want to play, you never need any of that — just open the HTML.
-
----
-
-## Running it as a project
-
-### 1. Play locally (no tooling)
-
-Open `play.html` in a browser. Done.
-
-### 2. Host it (share it with others)
-
-Because the game is a single static file, any static file server works:
+저장소에서 `play.html`을 내려받아 브라우저로 열 수 있습니다. 실행에 빌드 도구는 필요하지 않습니다.
 
 ```bash
-# Python (already on macOS/Linux) — serves the current directory at :8000
-python3 -m http.server 8000
-# then visit http://localhost:8000/play.html
-
-# …or Node's one-liner static server
-npx serve .
+git clone https://github.com/sigco3111/codexofconquest.git
+cd codexofconquest
 ```
 
-To publish on the web, upload `play.html` to any static host (GitHub
-Pages, Netlify, an S3 bucket, a plain nginx/Apache directory). No backend
-required. Rename it to `play.html` if you want it served at the site root.
+그 뒤 `play.html`을 브라우저에 끌어다 놓거나 파일 열기로 실행합니다. 내려받은 파일은 다시 내려받기 전까지 업데이트되지 않습니다.
 
-### 3. Run the authoring / API server (content editing)
+## 기본 조작
 
-The World Builder API server lets you edit the game's data programmatically and
-through `edit.html`. You need **Node.js**.
+- **스토리**: 현재 지역의 묘사, 대화, 조우, 퀘스트를 확인합니다.
+- **가방 / I**: 보유 아이템과 장비를 확인합니다. 상점에서 산 방패는 가방에서 장착합니다.
+- **퀘스트 / Q**: 진행 중인 퀘스트를 확인합니다.
+- **지도 / M**: 주변 지도와 월드 지도를 엽니다. 방향 버튼이나 지도 타일로 이동합니다.
+- **일지 / J**: 진행 중 얻은 기록을 확인합니다.
+- **캐릭터**: 능력치와 장비 정보를 확인합니다.
+- **전투**: 조우 카드에서 전투를 열고 시작합니다. 공격, 보조 무기, 보너스 행동, 도주 등의 선택지를 사용합니다.
 
-```bash
-# Install Node (macOS, via Homebrew — https://brew.sh)
-brew install node
+단축키가 입력란에 걸리거나 화면 상태에 따라 작동하지 않을 때는 해당 버튼을 사용하세요. 모든 규칙과 퀘스트 해설은 원작의 [영문 README](README.en.md)와 [플레이 가이드](docs/FEATURE_GUIDE.md)를 참고할 수 있습니다. 이 문서들은 아직 영어입니다.
 
-# Install dev dependencies (Playwright for tests, Anthropic SDK)
-npm install
+## 저장 데이터 주의
 
-# Start the WBAPI server on http://localhost:1367
-./bin/wbapi start        # start | stop | restart | status
-#   (equivalently: npm start  →  node wbapi-server.js)
+진행 기록은 브라우저의 `localStorage`에 저장됩니다. 다음은 서로 다른 저장 공간일 수 있습니다.
 
-# Talk to it from the CLI
-./bin/api ping
-./bin/api help
-./bin/api list node
+- 원작 사이트와 이 한국어 포크 사이트
+- 다른 브라우저 또는 다른 브라우저 프로필
+- 웹 주소로 연 게임과 내려받은 로컬 파일
 
-# Author visually: open edit.html in a browser while the server runs
-```
+브라우저의 사이트 데이터를 삭제하면 진행 기록도 지워질 수 있습니다. 번역판이 자동으로 원작 사이트의 저장 기록을 가져오는 것은 아닙니다. 저장 호환성 전체를 검증했다는 의미로 이 중간판을 사용하지 마세요.
 
-The server reads and rewrites `play.html` in place. See
-**[CONTRIBUTING.md](CONTRIBUTING.md)** for the API-first authoring workflow and
-the WBAPI hazards to know before editing, and **`docs/api/`** for the full API
-reference.
+## 검증 현황
 
-### Tests
+번역 배치마다 인라인 JavaScript 문법 검사를 실행합니다. 배포된 게임에서는 저장 후 이어하기, 실제 주사위 전투와 한국어 로그, 지역 묘사, 상점 표시를 확인했습니다.
 
-```bash
-npm test                # Playwright integration suite
-npm run check:walk      # world-invariant CI gates (mover/terrain/roads/rooms)
-npm run test:mud        # MUD server-protocol harness
-```
+상점의 막별 재고 검사는 별도의 테스트 세션을 6막·친밀도 조건으로 초기화해 수행했습니다. 캠페인을 처음부터 6막까지 완주한 검사가 아닙니다. 북로 잡화 구매 시 20gp 차감, 아이템·구매 플래그 생성, 판매 시 15gp 지급과 아이템 제거를 확인했습니다. 특별 상품 구매 직후 판매 목록이 갱신되지 않던 문제도 수정했습니다.
 
-> ⚠️ Stop the WBAPI server before running Playwright suites
-> (`./bin/wbapi stop`) — see the Test-Run Rules in
-> [CONTRIBUTING.md](CONTRIBUTING.md).
+전체 퀘스트의 번역·분기·완주 검증은 아직 진행 전입니다. 이 저장소의 전체 원작 테스트 모음을 모두 통과했다고 주장하지 않습니다.
 
----
+## 주요 파일
 
-## Repository layout
+| 파일 | 용도 |
+| --- | --- |
+| `play.html` | 실제 게임과 한국어 번역 데이터 |
+| `index.html` | 한국어 소개 및 실행 페이지 |
+| `README.md` | 한국어 안내와 번역 진행 상황 |
+| `README.en.md` | 원래 영문 README 보존본 |
+| `edit.html` | 원작 콘텐츠 편집 도구. 별도 API 서버 필요 |
+| `src/`, `docs/` | 원작 개발 코드·테스트·문서 |
 
-```
-play.html        ← THE GAME (single file — open this to play)
-edit.html       ← visual authoring tool (needs the WBAPI server)
+## 개발 도구와 멀티플레이
 
-# Launch / ops scripts (root)
-api.sh                  ← WBAPI CLI wrapper  (→ src/api/wb.js)
-wbapi-toggle.sh         ← start/stop/restart the WBAPI server
-say.sh · sayd.sh        ← narration helpers
-monitor-snapshots.py · watch-snapshots.sh · archive-snapshots.sh
-                        ← snapshot pipeline + server keepalive (root-anchored)
+이 저장소에는 원작의 편집 도구와 서버 코드도 남아 있습니다. `edit.html`의 읽기·쓰기는 별도 WBAPI 서버를 전제로 하므로, 파일을 여는 것만으로 모든 편집 기능이 동작하는 것은 아닙니다. 설치·서버 실행·테스트 명령은 [영문 README](README.en.md)와 [기여 안내](CONTRIBUTING.md)를 참고하세요.
 
-# WBAPI server bundle (Node — must stay at root together)
-wbapi-server.js         ← the REST API server (reads/writes the HTML)
-wbapi-core.js  mover.js  rooms.js  duel.js  mesh.js   ← required modules
-roads-pins.json  walk-geo-gazetteer.json  peers.txt   ← data the server reads
-package.json  node_modules/
+멀티플레이 역시 별도 서버 연결을 사용하는 선택 기능입니다. 연결 기능을 누르지 않아도 싱글플레이를 할 수 있습니다.
 
-# Core documentation (kept in two-way sync with the HTML)
-index.md                ← master index + cross-reference table (start here)
-world.md  story.md  mechanics.md  monsters.md  maps.md  quest.md
-prompt.md               ← operating directive: how to build/add content (read before contributing)
-CONTRIBUTING.md         ← development policies & directives
-BACKLOG.md              ← outstanding work / to-do list
-plan-archive.md         ← archived completed work
+## 원작 및 라이선스
 
-# Folders
-docs/                   ← reference docs: spec/ story/ src/api/ mechanics/ notes/
-docs/lab-reports/            ← design lab reports (one per major arc/system)
-src/importers/              ← ⚠️ archaic one-shot content importers (historical)
-src/tools/                  ← standalone dev/CLI utilities
-src/sources/                ← narrative source texts
-1367-sources/           ← imported source-book material
-src/scripts/                ← invariant/CI check scripts (npm run check:*)
-src/tests/                  ← Playwright integration + MUD harness
-src/api/                    ← wb.js (the WBAPI CLI implementation)
-maps/ · milepoints/ · ledger/   ← map assets, snapshots/logs, economy ledger
-```
+- 원작: [vonglurt/codexofconquest](https://github.com/vonglurt/codexofconquest)
+- 한국어 포크: [sigco3111/codexofconquest](https://github.com/sigco3111/codexofconquest)
+- 원작 저작권: Copyright (c) 2026 Paul Richeson
+- 라이선스: MIT. 자세한 조건은 저장소의 [LICENSE](LICENSE)를 확인하세요.
 
----
-
-## Documentation system
-
-This repo maintains a **two-way sync** between `play.html` and the
-markdown docs: every data structure in the HTML has a home document, and every
-documented item traces back to a line in the HTML.
-
-| Doc | Contents |
-|-----|----------|
-| **`index.md`** | Master index, cross-reference table, doc-health badge — **read this first** |
-| `world.md` | NODE_MAP, WORLD_DB, NPC profiles, quest IDs |
-| `story.md` | All nodes, acts, narrative flow, branching |
-| `mechanics.md` | Combat engine, XP table, conditions, economy, save format, multiplayer |
-| `monsters.md` | MONSTER_POOL entries + terrain coverage |
-| `maps.md` | Grid layout, road net, room layer, node network |
-| `quest.md` | Quest catalogue (UQF format) |
-| `prompt.md` | **Operating directive** — how to take a BACKLOG item from spec to shipped content (work loop · API · inserting pattern · invariants). Read before contributing. |
-| `CONTRIBUTING.md` | How to work in this repo — API-first, cell-first, free-movement, test rules, lab-report policy |
-| `BACKLOG.md` | Outstanding / planned work |
-
-Deeper reference lives under **`docs/`** (`spec/`, `story/`, `src/api/`,
-`mechanics/`, `notes/`), and **`docs/lab-reports/`** captures design decisions and
-implementation findings per major arc or system. See `index.md` for the full
-list.
-
----
-
-## Player guide
-
-### Enter Story Mode
-
-Open the game and click **Story Mode**. You arrive in Birka — a city on the edge
-of something wrong. The Void is rising. You have 49 days.
-
-### Moving through the world
-
-The world is a MUD-style coordinate grid. Each press of **N / E / S / W** moves
-you one cell. Named locations appear when your cell matches a known node; between
-them you walk through open terrain. The world is freely traversable — quests
-never block a road.
-
-| Command | Action |
-|---------|--------|
-| **N / E / S / W** | Move one grid cell |
-| **Wait** | Rest at your location (costs time) |
-| **Hunt** | Enter the wilderness to find an encounter |
-
-Move toward quest markers, talk to everyone, and read what NPCs say — their
-dialogue changes as your relationship with them grows. Click a distant map tile
-to auto-travel there.
-
-### Combat
-
-Encounters (or choosing **Hunt**) start combat automatically. Roll initiative,
-then take turns: **Attack**, **Dodge**, **Use Item**, or **Flee**. A natural
-**20** crits (double damage dice); a **1** fumbles. At 0 HP you make **death
-saving throws** — three successes stabilize, three failures end the run (and drop
-your loose loot as a recoverable corpse where you fell).
-
-### Leveling & NPCs
-
-Defeating monsters earns XP toward Fighter Champion features (Action Surge,
-Second Wind, crit improvements). The cap is **Level 20**. Raising an NPC's
-favorability unlocks new dialogue, story context, and the best ending. The
-ending notices what you *shared*, not just what you killed.
-
-### Saving
-
-The game autosaves to `localStorage` after every meaningful action. Use
-**Export Save** to back up a run and **Import Save** to restore it.
-
----
-
-## License
-
-MIT. Fork it. Extend it. Write Level 21. See [LICENSE](LICENSE) for full text.
-
----
-*© 2026 Paul Richeson — MIT License.*
-
----
-
----
-
-## Layout
-
-```
-index.html          project landing page (start here)
-play.html           THE GAME — one file, no build, no server
-edit.html           visual world/quest/mission-bit editor
-Makefile            every way to start things
-run.sh              the single entry point the Makefile delegates to
-bin/                shortcuts: ./bin/run, ./bin/play, ./bin/wbapi, ./bin/check …
-src/                all implementation + the node project
-  package.json      npm manifest lives HERE (see src/NODE.md)
-  node_modules/     gitignored
-  js/               engine + WBAPI server modules
-  server/           start-wbapi.sh — announces where node runs, then execs it
-  api/ scripts/ tools/ bin/ importers/ tests/ config/ sources/
-docs/               design/ backlog/ lab-reports/ api/ maps/ mechanics/ notes/ spec/
-build/              generated + runtime output (gitignored)
-vendor/             working material, not published (gitignored)
-```
-
-### Running it
-
-```
-make            # list every target
-make run        # API + monitor in terminals, opens the landing page
-make play       # API + monitor, opens the game
-make edit
-make wbapi      # just the node API server, announcing its working dir
-make check      # the full gate chain
-make install    # restore src/node_modules
-make purge      # remove node_modules + build output
-make stop
-```
-
-To just play, open `play.html`. Nothing else is required.
-
-**Where the node project lives:** `package.json`, `package-lock.json` and
-`node_modules/` are in **`src/`**, not the repo root — see [src/NODE.md](src/NODE.md).
-Node resolves a bare `require()` by walking *up* from the calling file, and the code
-needing external packages is spread across `src/tests` (Playwright, 81 call sites) and
-`src/js` + `src/api` (the Anthropic SDK). `src/` is the deepest placement where all of
-them still resolve; anything deeper and the tests fail to load. Run npm from `src/`, or
-use the make targets from anywhere.
-
-## Author
-
-**Paul Richeson** — sole copyright holder; see [LICENSE](LICENSE).
-
-Built across 1,472 commits between 2026-05-24 and 2026-08-23. Much of the drafting
-was done by Anthropic's Claude models, engaged as a contracted service and working
-under the author's direction — a sub-contractor relationship that carries no
-independent authorship claim. See
-[CONTRIBUTING.md](CONTRIBUTING.md#authorship-and-ai-contribution).
-
+이 포크는 원작의 크레딧과 라이선스를 유지합니다. 번역 중인 비공식 한국어판이며, 원작의 공식 한국어 지원을 뜻하지 않습니다.
