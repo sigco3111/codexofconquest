@@ -10108,7 +10108,7 @@ function describeCell(world, pos) {
     } else if (world.roadCells.has(nk) || world.laneCells.has(nk)) {
       const kind = world.roadCells.has(nk) ? 'road' : 'lane';
       const dest = __roadDestination(world, pos, dk, 40);
-      const word = kind === 'lane' ? 'sea-lane' : 'road';
+      const word = kind === 'lane' ? '뱃길' : '길';
       exits.push({
         dir: dk, kind,
         label: word,
@@ -36418,7 +36418,7 @@ function storyRender(node, prefix) {
       const _npcCard = _mkCard({
         lbl: 'NPC', main: '🧙 ' + node.npc,
         hint: _npcDial ? '대화 가능' : '',
-        btn: _npcDial ? 'Talk' : null,
+        btn: _npcDial ? '대화' : null,
         btnClass: 'btn-talk',
         btnClick: () => {
           const _talkBtn = _npcCard.querySelector('.story-card-btn');
