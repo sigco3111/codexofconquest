@@ -24362,12 +24362,12 @@ const POTION_TIERS = { // → doc: docs/mechanics/mechanics-economy.md §Vendor 
 function storyBuyPotion(tier) {
   const p = POTION_TIERS[tier];
   if (!p) return;
-  if (S_story.gold < p.cost) { storyBlock('💰 금화가 부족해요. ' + p.name + ' costs ' + p.cost + 'gp.'); return; }
+  if (S_story.gold < p.cost) { storyBlock('💰 금화가 부족해요. ' + p.name + ' 가격 ' + p.cost + 'gp.'); return; }
   S_story.gold -= p.cost;
   S_story.inventory.push({ name:p.name, icon:p.icon, type:'potion', code:'vendor', sell:0 });
   storyUpdateStatus();
   storyRenderVendor();
-  storyMsg(p.icon + ' Bought ' + p.name + '. Drink it from inventory to restore ' + p.heal + ' HP.');
+  storyMsg(p.icon + ' ' + p.name + ' 구매. 가방에서 마시면 HP ' + p.heal + ' 회복.');
 }
 
 function storyBuyShield(tier) {
@@ -24375,12 +24375,12 @@ function storyBuyShield(tier) {
   if (!s) return;
   const lv = S_story.level || 1;
   if (lv < (s.minLevel || 1)) { storyBlock('🔒 ' + s.name + ' requires Level ' + s.minLevel + '.'); return; }
-  if (S_story.gold < s.cost) { storyBlock('💰 금화가 부족해요. ' + s.name + ' costs ' + s.cost + 'gp.'); return; }
+  if (S_story.gold < s.cost) { storyBlock('💰 금화가 부족해요. ' + s.name + ' 가격 ' + s.cost + 'gp.'); return; }
   S_story.gold -= s.cost;
   S_story.inventory.push({ ...s, code:'vendor' });
   storyUpdateStatus();
   storyRenderVendor();
-  storyMsg(s.icon + ' Bought ' + s.name + ' (+' + s.acBonus + ' AC). Equip it from inventory. Sells for ' + s.sell + 'gp.');
+  storyMsg(s.icon + ' ' + s.name + ' 구매 (+' + s.acBonus + ' AC). 가방에서 장착하세요. 판매가 ' + s.sell + 'gp.');
 }
 
 function _renderVendorShields() {
@@ -24399,14 +24399,14 @@ function _renderVendorShields() {
     const info = document.createElement('div');
     info.innerHTML = '<div class="buy-item-desc">' + s.icon + ' ' + s.name + ' — ' + s.cost + 'gp</div>'
       + '<div class="buy-item-heal">+' + s.acBonus + ' AC'
-      + (locked ? ' · <span style="color:#C21717">Requires Level ' + s.minLevel + '</span>' : ' · equip from inventory')
+      + (locked ? ' · <span style="color:#C21717">레벨 ' + s.minLevel + ' 필요</span>' : ' · 구매 후 가방에서 장착')
       + '</div>';
     row.appendChild(info);
     const btn = document.createElement('button');
     btn.className = 'btn-buy-shield';
-    if (owned)  { btn.textContent = isEquip ? 'Equipped' : 'Owned'; btn.disabled = true; }
+    if (owned)  { btn.textContent = isEquip ? '장착 중' : '보유 중'; btn.disabled = true; }
     else if (locked) { btn.textContent = 'Lv ' + s.minLevel; btn.disabled = true; }
-    else { btn.textContent = 'Buy'; btn.addEventListener('click', () => storyBuyShield(s.tier)); }
+    else { btn.textContent = '구매'; btn.addEventListener('click', () => storyBuyShield(s.tier)); }
     row.appendChild(btn);
     container.appendChild(row);
   });
@@ -24415,21 +24415,21 @@ function _renderVendorShields() {
 function storyBuyFlashbang() {
   const f = COMBAT_ITEMS.find(i => i.type === 'flashbang');
   if (!f) return;
-  if (S_story.gold < f.cost) { storyBlock('💰 금화가 부족해요. Flashbang costs ' + f.cost + 'gp.'); return; }
+  if (S_story.gold < f.cost) { storyBlock('💰 금화가 부족해요. 섬광탄 가격 ' + f.cost + 'gp.'); return; }
   S_story.gold -= f.cost;
   S_story.inventory.push({ ...f, code:'vendor' });
   storyUpdateStatus();
   storyRenderVendor();
-  storyMsg('💥 Bought Flashbang — throw it in battle (bonus action) for guaranteed ADV on your next attack. Sells for ' + f.sell + 'gp.');
+  storyMsg('💥 섬광탄 구매 - 전투에서 던지면(보너스 행동) 다음 공격에 확정 유리(ADV). 판매가 ' + f.sell + 'gp.');
 }
 
 function storyBuyWhiskey() {
-  if (S_story.gold < 5) { storyBlock('💰 금화가 부족해요. 거친 위스키 costs 5gp.'); return; }
+  if (S_story.gold < 5) { storyBlock('💰 금화가 부족해요. 독한 위스키 가격 5gp.'); return; }
   S_story.gold -= 5;
   S_story.inventory.push({name:'거친 위스키',icon:'🥃',type:'consumable_misc',sell:2});
   storyUpdateStatus();
   storyRenderVendor();
-  storyMsg('🥃 Bought 거친 위스키. ★ Social — each NPC reacts differently if you visit them while it\'s in effect. Take it into the Undercity pit fight for a... memorable outcome.');
+  storyMsg('🥃 독한 위스키 구매. ★ 사교 - 효과가 남은 채로 NPC를 찾아가면 저마다 다르게 반응해요. 언더시티 구덩이 싸움에 가져가면... 잊지 못할 결과가.');
 }
 
 function storyEnter() {
@@ -24491,7 +24491,7 @@ const SHIELD_ITEMS = [ // → doc: docs/mechanics/mechanics-combat.md §Combat I
   { tier:'small_shield',       name:'작은 방패',       icon:'🛡', type:'shield', acBonus:1, cost:50,   sell:30,   minLevel:1  },
   { tier:'kite_shield',        name:'연형 방패',        icon:'🛡', type:'shield', acBonus:2, cost:150,  sell:90,   minLevel:1  },
   { tier:'magic_shield',       name:'마법 방패',       icon:'✨', type:'shield', acBonus:3, cost:600,  sell:300,  minLevel:5  },
-  { tier:'large_magic_shield', name:'Large 마법 방패', icon:'🔰', type:'shield', acBonus:4, cost:1500, sell:750,  minLevel:10 },
+  { tier:'large_magic_shield', name:'대형 마법 방패', icon:'🔰', type:'shield', acBonus:4, cost:1500, sell:750,  minLevel:10 },
   { tier:'legendary_shield',   name:'전설의 방패',   icon:'🔰', type:'shield', acBonus:5, cost:3000, sell:1500, minLevel:15 },
   { tier:'ancient_shield',     name:'고대 방패',     icon:'🌟', type:'shield', acBonus:6, cost:6000, sell:3000, minLevel:20 },
 ];
