@@ -7056,7 +7056,7 @@ function _showReturnRow(enemyName, dropLine) {
     const _rests = () => S_story.shortRests || 0;
     const _updateHeal = () => {
       if (S_story.hp >= S_story.hpMax / 2 || _rests() <= 0) { healBtn.remove(); return; }
-      healBtn.textContent = '🩹 Short Rest — Heal  (' + _hpPct() + '% HP · ' + _rests() + ' rest' + (_rests() === 1 ? '' : 's') + ' left)';
+      healBtn.textContent = '🩹 짧은 휴식 — 회복  (' + _hpPct() + '% HP · 남은 휴식 ' + _rests() + '회)';
       healBtn.disabled = false;
     };
     _updateHeal();
@@ -7122,13 +7122,13 @@ function refreshLeftPanel() {
     badge.textContent = note;
   } else if (eff === 'dis') {
     badge.classList.add('show-dis');
-    let note = 'DISADVANTAGE';
+    let note = '불리';
     if (S.player.adv !== 'norm' && S.opp.adv !== 'norm') note += ' (double→single)';
     badge.textContent = note;
   } else {
     if (S.player.adv !== 'norm' && S.opp.adv !== 'norm') {
       badge.classList.add('show-cancelled');
-      badge.textContent = 'NORM (cancelled)';
+      badge.textContent = '보통 (상쇄됨)';
     } else {
       badge.classList.add('show-norm');
     }
@@ -7310,7 +7310,7 @@ function doPlayerAttack(attackNum, total) {
   const chipsEl   = document.getElementById('you-dmg-chips');
   const modBk     = document.getElementById('player-mod-bk');
   if (attackNum === 1) chipsEl.innerHTML = '';
-  if (total > 1) modBk.textContent = `Attack ${attackNum} of ${total}`;
+  if (total > 1) modBk.textContent = `공격 ${attackNum}/${total}회`;
 
   animateDie(heroEl, 20, d20Val, glowClass, () => {
     S.lastHit = { hit: isHit, crit: isCrit, nat1: isNat1 };
@@ -7351,7 +7351,7 @@ function doPlayerAttack(attackNum, total) {
     if (attackNum < total) {
       setTimeout(() => doPlayerAttack(attackNum + 1, total), 400);
     } else {
-      if (total > 1) modBk.textContent = 'd20 + mod + prof vs AC';
+      if (total > 1) modBk.textContent = 'd20 + 수정치 + 숙련 vs AC';
       disableAllRollBtns(false);
     }
   });
@@ -7405,7 +7405,7 @@ function enterDeathSaves() {
   document.getElementById('player-roll-btn').style.display = 'none';
   document.getElementById('death-save-btn').style.display = '';
   document.getElementById('ds-status').className = 'ds-status';
-  document.getElementById('ds-status').textContent = 'Roll d20 — 10+ succeeds';
+  document.getElementById('ds-status').textContent = 'd20 굴림 — 10 이상 성공';
   updateDsPips();
 }
 
@@ -7444,11 +7444,11 @@ function rollDeathSave() {
       updateDsPips();
       if (S.deathSaves.failures >= 3) {
         statusEl.className = 'ds-status dead'; statusEl.textContent = '💀 사망';
-        cardOutcome = 'NAT 1 — 2 failures — Dead';
+        cardOutcome = 'NAT 1 — 2회 실패 — 사망';
       } else {
         statusEl.className = 'ds-status';
-        statusEl.textContent = `NAT 1 — 2 failures (${S.deathSaves.failures}/3)`;
-        cardOutcome = `NAT 1 — 2 failures (${S.deathSaves.failures}/3)`;
+        statusEl.textContent = `NAT 1 — 2회 실패 (${S.deathSaves.failures}/3)`;
+        cardOutcome = `NAT 1 — 2회 실패 (${S.deathSaves.failures}/3)`;
       }
     } else if (_dsEffective >= 10) {
       S.deathSaves.successes++;
@@ -7469,8 +7469,8 @@ function rollDeathSave() {
         cardOutcome = `${d20Val} — 3 failures — Dead`;
       } else {
         statusEl.className = 'ds-status';
-        statusEl.textContent = `${d20Val} — Failure (${S.deathSaves.failures}/3)`;
-        cardOutcome = `${d20Val} — Failure (${S.deathSaves.failures}/3)`;
+        statusEl.textContent = `${d20Val} — 실패 (${S.deathSaves.failures}/3)`;
+        cardOutcome = `${d20Val} — 실패 (${S.deathSaves.failures}/3)`;
       }
     }
 
@@ -7501,7 +7501,7 @@ function rollMainDamage() {
   if (doSneak) {
     S.sneak.active = false;
     const sb = document.getElementById('sneak-active-btn');
-    if (sb) { sb.textContent = '🗡 Sneak: OFF'; sb.classList.remove('active'); }
+    if (sb) { sb.textContent = '🗡 기습: 꺼짐'; sb.classList.remove('active'); }
   }
 
   recordRolls(S.weapon.die, dmgRolls);
@@ -8272,7 +8272,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!S.sneak.enabled) {
       S.sneak.active = false;
       const sb = document.getElementById('sneak-active-btn');
-      sb.textContent = '🗡 Sneak: OFF'; sb.classList.remove('active');
+      sb.textContent = '🗡 기습: 꺼짐'; sb.classList.remove('active');
     }
   });
   document.getElementById('sneak-count').addEventListener('input', () => {
@@ -8282,7 +8282,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!S.sneak.enabled) return;
     S.sneak.active = !S.sneak.active;
     const btn = document.getElementById('sneak-active-btn');
-    btn.textContent = `🗡 Sneak: ${S.sneak.active ? 'ON' : 'OFF'}`;
+    btn.textContent = `🗡 기습: ${S.sneak.active ? '켜짐' : '꺼짐'}`;
     btn.classList.toggle('active', S.sneak.active);
   });
 
@@ -28854,8 +28854,8 @@ function _mpRenderMapPresence() {
   const write = writable.length ? '<div class="mp-hint">✉ Write privately to: ' + writable.map(p =>
     '<button class="mp-trade-btn" title="Send a private message" onclick="mpDmTo(MP.remotes[\'' + p.pid + '\'])">✉ ' + _mpEsc(p.name) + '</button>').join(' ') + '</div>' : '';
   if (!players.length) {
-    el.innerHTML = '🟢 Connected as ' + _mpEsc(MP.name || '?') + ' · nobody else in this cell'
-      + (remotes ? ' · ' + remotes + ' traveler(s) elsewhere in the world.' : '.') + write;
+    el.innerHTML = '🟢 접속: ' + _mpEsc(MP.name || '?') + ' · 이 칸에는 다른 사람이 없습니다'
+      + (remotes ? ' · 세계 다른 곳에 여행자 ' + remotes + '명.' : '.') + write;
     return;
   }
   el.innerHTML = '🟢 <b>' + _mpEsc(MP.name || '?') + '</b> · Also here: '
@@ -29725,7 +29725,7 @@ function _mpRenderPresence() {
   // §MESH-01j: a ⚔ duel button too — SAME-origin players only in v1 (remote
   // entries carry a `server` tag; cross-origin duels are a later rung).
   // Index-addressed onclick so player names never enter the JS attribute.
-  el.innerHTML = '👥 Also here: ' + MP.players.map((p, i) =>
+  el.innerHTML = '👥 함께 있는 사람: ' + MP.players.map((p, i) =>
     _mpEsc(label(p)) + (p.ledgerPid && p.kind !== 'sentry'
       ? ' <button class="mp-trade-btn" title="Offer a trade" onclick="mpTradeOpen(MP.players[' + i + '])">⇄</button>'
         + (MP.act ? '<button class="mp-trade-btn" title="Send a private message" onclick="mpDmTo(MP.players[' + i + '])">✉</button>' : '')
@@ -30819,7 +30819,7 @@ function _storyEbNpcModal(ebCode) {
     const passed = total >= 17;
 
     const rollLineEl = document.getElementById('eb-npc-cha-roll-line');
-    rollLineEl.innerHTML = 'CHA CHECK — DC 17 &nbsp;·&nbsp; Rolled ' + roll + ' ' + modStr + ' = <strong>' + total + '</strong> &nbsp;' + (passed ? '✓ PASSED' : '✗ FAILED');
+    rollLineEl.innerHTML = 'CHA 판정 — DC 17 &nbsp;·&nbsp; 굴림 ' + roll + ' ' + modStr + ' = <strong>' + total + '</strong> &nbsp;' + (passed ? '✓ 성공' : '✗ 실패');
     rollLineEl.className = passed ? 'cha-pass' : '';
     rollLineEl.style.display = '';
 
@@ -31016,11 +31016,11 @@ function storyFishing() {
         baitSearch.style.display = 'none'; baitSearch.innerHTML = '';
         castBtn.style.display = '';
         if (total < dc) {
-          rollEl.innerHTML = '<strong>Survival:</strong> ' + die + (Math.floor(wisMod) >= 0 ? '+' : '') + Math.floor(wisMod) + ' = ' + total + ' vs DC ' + dc + ' — <span style="color:#e04040">Fail</span>';
+          rollEl.innerHTML = '<strong>생존:</strong> ' + die + (Math.floor(wisMod) >= 0 ? '+' : '') + Math.floor(wisMod) + ' = ' + total + ' vs DC ' + dc + ' — <span style="color:#e04040">실패</span>';
           rollEl.style.display = ''; lakeText.textContent = 'Nothing useful found.'; _renderBait(); return;
         }
         const bait = BAIT_TABLES[loc][Math.floor(Math.random() * 6)];
-        rollEl.innerHTML = '<strong>Survival:</strong> ' + die + (Math.floor(wisMod) >= 0 ? '+' : '') + Math.floor(wisMod) + ' = ' + total + ' vs DC ' + dc + ' — <span style="color:#60e060">Pass</span><br>Found: ' + bait.icon + ' <strong>' + bait.name + '</strong>';
+        rollEl.innerHTML = '<strong>생존:</strong> ' + die + (Math.floor(wisMod) >= 0 ? '+' : '') + Math.floor(wisMod) + ' = ' + total + ' vs DC ' + dc + ' — <span style="color:#60e060">성공</span><br>발견: ' + bait.icon + ' <strong>' + bait.name + '</strong>';
         rollEl.style.display = '';
         const ei = (S_story.inventory||[]).findIndex(i => i.name === bait.name && i.type === 'bait');
         if (ei >= 0) { S_story.inventory[ei].count = (S_story.inventory[ei].count || 1) + 1; }
