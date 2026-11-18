@@ -24248,7 +24248,7 @@ function _renderPachelbelSpecials() {
         S_story.inventory.push({name:si.name,icon:si.icon,type:'misc',sell:si.sell,desc:si.desc});
         storyUpdateStatus();
         storyMsg('파헬벨은 별말 없이 거래를 마친다.');
-        _renderPachelbelSpecials();
+        storyRenderVendor();
       });
       sRow.appendChild(sBtn);
       section.appendChild(sRow);
@@ -24280,7 +24280,7 @@ function _renderPachelbelSpecials() {
           desc:"공인 회수업자의 도구 세트. 물건의 출처를 확인하고 기록한다. 어떻게 손에 넣었는지는 묻지 않는다."});
         storyUpdateStatus();
         storyMsg('파헬벨은 말없이 도구 세트를 밀어준다. 관리가 잘돼 있다. 당신 전에 누군가가 아끼던 물건이다.');
-        _renderPachelbelSpecials();
+        storyRenderVendor();
       });
       row.appendChild(btn);
       section.appendChild(row);
@@ -24310,7 +24310,7 @@ function _renderPachelbelSpecials() {
       S_story.inventory.push({name:noqItem.name,icon:noqItem.icon,type:'misc',sell:noqItem.sell,desc:noqItem.desc});
       storyUpdateStatus();
       storyMsg('파헬벨: “묻지 않아요.” 진심이다.');
-      _renderPachelbelSpecials();
+      storyRenderVendor();
     });
     row2.appendChild(btn2);
     section.appendChild(row2);
