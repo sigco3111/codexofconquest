@@ -8356,7 +8356,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // ◆◆◆ WORLDBUILDER:NODE_MAP:START ◆◆◆
 const NODE_MAP = { // → doc: maps.md §NODE_MAP
   // ── ACT I — BIRKA
-  LHR:{ num:1,  code:'LHR', name:'city',            label:"City Streets — Birka",       act:1, text:"비르카는 겹겹이 깨어난다. 시장 수레가 먼저 움직이고, 바퀴는 어제와 같은 바퀴자국을 찾아간다. 성문 등잔은 아침을 정하지 못한 하늘 아래 흐릿하게 타고 있다. 자갈은 밤의 습기에 젖어 있고, 역청과 생선과 차가운 돌 냄새가 난다.\n\n도시는 고유한 리듬을 지킨다 — 모퉁이 기둥, 등불 점화인, 말없이 교대하는 파수꾼. 한 모퉁이에 경비대장 야엘 샤이데만이 서 있다. 도시 색 제복에 반듯한 어깨, 한 손에는 펼친 근무 일지. 다른 사람이 숨 쉬듯 거리를 기록한다. 그녀는 아무것도 놓치지 않고, 아무것도 서두르지 않는다.\n\n분수 옆 게시판에는 공고가 펄럭인다. 언덕 아래 하층 구역은 셔터를 내린 채다. 이 위쪽에서는 누가 준비됐든 아니든, 늘 그래왔듯 그저 하루가 시작된다.", npc:'City Guard Captain', battle:null, loot:'Bloodstained Map', sleep:false,
+  LHR:{ num:1,  code:'LHR', name:'city',            label:"도시 거리 — 비르카",       act:1, text:"비르카는 겹겹이 깨어난다. 시장 수레가 먼저 움직이고, 바퀴는 어제와 같은 바퀴자국을 찾아간다. 성문 등잔은 아침을 정하지 못한 하늘 아래 흐릿하게 타고 있다. 자갈은 밤의 습기에 젖어 있고, 역청과 생선과 차가운 돌 냄새가 난다.\n\n도시는 고유한 리듬을 지킨다 — 모퉁이 기둥, 등불 점화인, 말없이 교대하는 파수꾼. 한 모퉁이에 경비대장 야엘 샤이데만이 서 있다. 도시 색 제복에 반듯한 어깨, 한 손에는 펼친 근무 일지. 다른 사람이 숨 쉬듯 거리를 기록한다. 그녀는 아무것도 놓치지 않고, 아무것도 서두르지 않는다.\n\n분수 옆 게시판에는 공고가 펄럭인다. 언덕 아래 하층 구역은 셔터를 내린 채다. 이 위쪽에서는 누가 준비됐든 아니든, 늘 그래왔듯 그저 하루가 시작된다.", npc:'City Guard Captain', battle:null, loot:'Bloodstained Map', sleep:false,
     board:true,
   },
   BMA:{ num:51, code:'BMA', name:'city_slums',     label:'비르카 빈민가',                act:1, text:"The alleys north of the Birka market are too narrow for carts and too cramped for anything to move through quickly. This is their primary defense. The refuse heaps at each junction attract every pest the city produces — rats in the lower layers, cockroach swarms in the dry section above, wasps where the heat concentrates in the overhang. The city does not come here to clean. The city does not come here.\n\nThree children are playing a dare game at the gutter crossroads when you arrive. The rules are visible in how they stand: one touches the leech-covered stones, two watch. They have run this game long enough to know exactly how close you can get before a leech detaches and looks for warmer purchase.\n\nThey don't look at you when you pass. In the slums, ignoring strangers is the social courtesy — it means you have decided not to be a problem.\n\nThe road south goes to the Unbanked Quarter. The children don't go south.", npc:null, battle:null, loot:null, sleep:false,
@@ -24805,20 +24805,20 @@ function _updateBattleOverlay() {
 
   // Initiative note (L16-G: spell ADV indicator)
   document.getElementById('sbo-init-note').textContent =
-    'Init: you ' + S_story.battlePRoll + ' vs opp ' + S_story.battleERoll +
-    (S_story.surpriseAdvantage ? ' · Stealth ADV ready!' : '') +
-    (S_story.spellAdvantageReady ? ' · 📜 Spell ADV ready!' : '');
+    '선공: 나 ' + S_story.battlePRoll + ' vs 상대 ' + S_story.battleERoll +
+    (S_story.surpriseAdvantage ? ' · 은신 ADV 준비!' : '') +
+    (S_story.spellAdvantageReady ? ' · 📜 주문 ADV 준비!' : '');
 
   // AP row (L17-F)
   const apVal  = document.getElementById('sbo-ap-value');
   const apHint = document.getElementById('sbo-ap-hint');
   if (apVal && apHint) {
     if (!S_story.usedMainAttack) {
-      apVal.textContent  = '1.5'; apHint.textContent = 'Attack · or Pass to open bonus (heal / flee)';
+      apVal.textContent  = '1.5'; apHint.textContent = '공격 · 넘기기로 보너스 행동 열기 (치료 / 도주)';
     } else if (!S_story.usedBonusAction) {
-      apVal.textContent  = '0.5'; apHint.textContent = 'Bonus: heal · offhand · spell · flee · pass';
+      apVal.textContent  = '0.5'; apHint.textContent = '보너스: 치료 · 보조 무기 · 주문 · 도주 · 넘기기';
     } else {
-      apVal.textContent  = '0';   apHint.textContent = 'Turn resolving…';
+      apVal.textContent  = '0';   apHint.textContent = '차례 처리 중…';
     }
   }
 
@@ -24918,7 +24918,7 @@ function _renderSboPotions() {
     row.appendChild(btn);
   });
   if (!row.children.length) {
-    row.innerHTML = '<span style="font-size:10px;color:var(--dim)">No healing potions</span>';
+    row.innerHTML = '<span style="font-size:10px;color:var(--dim)">치료 물약 없음</span>';
   }
 }
 
@@ -26003,7 +26003,7 @@ function _storyEnterDeathSaves() {
   const badge = document.getElementById('sbo-turn-badge');
   badge.textContent = '☠ 죽어가는 중';
   badge.className = 'enemy-turn';
-  _sboLog('You have fallen to 0 HP. Roll Death Saving Throws — 10+ succeeds.');
+  _sboLog('HP가 0이 됐어요. 죽음 내성을 굴리세요. 10 이상이면 성공해요.');
 }
 
 function _storyRollDeathSave() {
@@ -31935,7 +31935,7 @@ const NODE_PANELS = [
     text:'\u2693 The water here is absolutely still. Two wanted ships at anchor, no hostility between them. Something glows below. The gulls have gone. The fish are clustering oddly.' },
   { id:'story-ci-tagline', nodes:['LHR'],
     css:'text-align:center;border-left:none;border-top:1px solid #40607a;padding:10px 14px 8px;font-style:normal;color:#fea712;letter-spacing:0.05em;',
-    html:'LETS GO &mdash; Codex of Conquest: Curse of Knowledge<br><span style="font-size:10px;color:#9ab0c0;letter-spacing:0.02em;">CodexOfConquest.com &middot; MIT Public Domain</span>' },
+    html:'출발하자 &mdash; Codex of Conquest: 지식의 저주<br><span style="font-size:10px;color:#9ab0c0;letter-spacing:0.02em;">CodexOfConquest.com &middot; MIT Public Domain</span>' },
   // §LXII: AO — name-change notice on first arrival post-commission. §VM-01-G1-FIX: the original
   // once-guard was !visited['HTY'], but storyCollectLoot flips visited[code] earlier in the same
   // render, so the panel was dead since it shipped. A dedicated once-flag restores the authored
@@ -35974,13 +35974,13 @@ function storyRender(node, prefix) {
 
   // ── ENCOUNTER section ──────────────────────────────
   if (node.battle) {
-    const { sec, body } = _mkSection(null, '⚔', 'Encounter');
+    const { sec, body } = _mkSection(null, '⚔', '조우');
     const defeated = !!S_story.defeatedBattles[node.code];
     const isFinal = _finalBattleReady(node.code);   // §VM-01-G-FU-f2: node-field predicate, one copy
     if (defeated) {
-      body.appendChild(_mkCard({ lbl: 'BATTLE', main: node.battle.label, tag: '✓ Defeated', tagClass: 'transferred', done: true }));
+      body.appendChild(_mkCard({ lbl: '전투', main: node.battle.label, tag: '✓ 격파 완료', tagClass: 'transferred', done: true }));
     } else {
-      const lbl = isFinal ? '⚔ THE FINAL BATTLE — Commander Bruhns' : node.battle.label;
+      const lbl = isFinal ? '⚔ 최종 결전 - 브룬스 사령관' : node.battle.label;
       let _battleAccordion = null;
       const _battleCard = _mkCard({
         lbl: '전투', main: lbl,
@@ -36148,7 +36148,7 @@ function storyRender(node, prefix) {
       .map(([id]) => ({ id, q: QUEST_DB[id] }))
       .filter(e => e.q);
     if (activeEntries.length) {
-      const { sec, body } = _mkSection(null, '📋', 'Quests');
+      const { sec, body } = _mkSection(null, '📋', '퀘스트');
       activeEntries.slice(0, 6).forEach(({ id, q }) => {
         // ── roll-resolved quests: Ceremonia Roll card ──
         // §ARCH-01 W8a: stat/skill/dc are read from the quest's skill_check bit —
