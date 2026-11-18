@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <!-- SPDX-License-Identifier: MIT — Copyright (c) 2026 Paul Richeson -->
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="data:,">
-<title>Codex of Conquest — Combat &amp; Adventure Tracker</title>
+<title>Codex of Conquest — 전투 &amp; 모험 트래커</title>
 <style>
 /* ── CSS Variables — Desert Codex Palette ──────────────── */
 :root {
@@ -53,7 +53,7 @@
 
 /* ── Reset / Base ──────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { height: 100%; background: var(--bg); color: var(--text); font-family: 'Courier New', Courier, monospace; font-size: 13px; overflow: hidden; }
+html, body { height: 100%; background: var(--bg); color: var(--text); font-family: 'Courier New', 'D2Coding', 'Noto Sans Mono CJK KR', 'Nanum Gothic Coding', Courier, monospace; font-size: 13px; overflow: hidden; }
 
 /* ── App Shell ─────────────────────────────────────────── */
 #app { display: flex; flex-direction: column; height: 100vh; }
@@ -3390,18 +3390,18 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
   <!-- ── Header ── -->
   <div id="header">
     <h1>⚔ Codex of Conquest</h1>
-    <span id="practice-badge">⚙ PRACTICE</span>
-    <span class="round-badge">Round <span id="round-display">1</span></span>
-    <button id="story-mode-btn">🗺 Story</button>
-    <button id="new-combat-btn">New Combat</button>
+    <span id="practice-badge">⚙ 연습</span>
+    <span class="round-badge">라운드 <span id="round-display">1</span></span>
+    <button id="story-mode-btn">🗺 스토리</button>
+    <button id="new-combat-btn">새 전투</button>
   </div>
   <div class="az-divider"></div>
   <div id="battle-victory-banner">
     <div>
-      <div id="bvb-text">⚔ VICTORY!</div>
+      <div id="bvb-text">⚔ 승리!</div>
       <div id="bvb-drop"></div>
     </div>
-    <button id="btn-return-story">▶ Return to Story →</button>
+    <button id="btn-return-story">▶ 스토리로 돌아가기 →</button>
   </div>
 
   <!-- ── Main Body ── -->
@@ -3411,56 +3411,56 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
     <div id="left-panel">
 
       <!-- Initiative -->
-      <button class="btn-sm" id="initiative-btn">⚡ Initiative</button>
-      <div id="initiative-bar"><span class="init-label">INITIATIVE</span><span class="init-sep">—</span><span style="color:var(--dim);font-size:10px">roll to set order</span></div>
+      <button class="btn-sm" id="initiative-btn">⚡ 선공</button>
+      <div id="initiative-bar"><span class="init-label">선공</span><span class="init-sep">—</span><span style="color:var(--dim);font-size:10px">굴려서 순서 정하기</span></div>
 
       <hr class="divider">
 
       <!-- Opponent section -->
-      <div class="section-lbl red">⚔ OPPONENT</div>
+      <div class="section-lbl red">⚔ 상대</div>
       <div class="pip-row">
-        <div class="pip"><span class="pip-key">NAME</span><span class="pip-val" id="opp-name-pip">—</span></div>
+        <div class="pip"><span class="pip-key">이름</span><span class="pip-val" id="opp-name-pip">—</span></div>
         <div class="pip"><span class="pip-key">AC</span><span class="pip-val" id="opp-ac-pip">—</span></div>
         <div class="pip"><span class="pip-key">HP</span><span class="pip-val" id="opp-hp-pip">—</span></div>
-        <div class="pip"><span class="pip-key">ATK</span><span class="pip-val" id="opp-atk-pip">—</span></div>
+        <div class="pip"><span class="pip-key">공격</span><span class="pip-val" id="opp-atk-pip">—</span></div>
       </div>
       <div class="hp-bar-wrap">
         <div class="hp-bar-fill" id="enemy-hp-bar" style="width:100%;background:var(--red-lt)"></div>
         <div class="hp-bar-txt" id="enemy-hp-txt">—</div>
       </div>
       <div class="adv-row" id="opp-adv-row">
-        <button class="adv-btn" data-side="opp" data-val="dis">DIS</button>
-        <button class="adv-btn active-norm" data-side="opp" data-val="norm">NORM</button>
-        <button class="adv-btn" data-side="opp" data-val="adv">ADV</button>
+        <button class="adv-btn" data-side="opp" data-val="dis">불리</button>
+        <button class="adv-btn active-norm" data-side="opp" data-val="norm">보통</button>
+        <button class="adv-btn" data-side="opp" data-val="adv">유리</button>
       </div>
       <div class="cond-row">
-        <span class="cond-lbl">COND</span>
+        <span class="cond-lbl">상태</span>
         <select class="cond-select" id="opp-condition" data-side="opp">
-          <option value="none">— none —</option>
+          <option value="none">— 없음 —</option>
           <optgroup label="ADV to attack (debuffed)">
-            <option value="prone">Prone</option>
-            <option value="restrained">Restrained</option>
-            <option value="blinded">Blinded</option>
-            <option value="paralyzed">Paralyzed</option>
-            <option value="stunned">Stunned</option>
-            <option value="grappled">Grappled</option>
-            <option value="petrified">Petrified</option>
-            <option value="jammed">Jammed 🔌</option>
-            <option value="emp_stunned">EMP Stunned 🔌</option>
-            <option value="corrupted">Corrupted 🔌</option>
+            <option value="prone">넘어짐</option>
+            <option value="restrained">속박</option>
+            <option value="blinded">실명</option>
+            <option value="paralyzed">마비</option>
+            <option value="stunned">기절</option>
+            <option value="grappled">붙잡힘</option>
+            <option value="petrified">석화</option>
+            <option value="jammed">재밍 🔌</option>
+            <option value="emp_stunned">EMP 기절 🔌</option>
+            <option value="corrupted">오염 🔌</option>
           </optgroup>
           <optgroup label="DIS to attack (buffed)">
-            <option value="dodge">Dodge</option>
-            <option value="half_cover">Half Cover</option>
+            <option value="dodge">회피</option>
+            <option value="half_cover">반엄폐</option>
           </optgroup>
         </select>
       </div>
-      <button class="btn-sm-red" id="opp-roll-btn">Roll Opponent</button>
+      <button class="btn-sm-red" id="opp-roll-btn">상대 굴리기</button>
 
       <hr class="divider">
 
       <!-- You section -->
-      <div class="section-lbl gold">🎲 YOU</div>
+      <div class="section-lbl gold">🎲 플레이어</div>
       <div class="hp-bar-wrap">
         <div class="hp-bar-fill" id="player-hp-bar" style="width:100%;background:linear-gradient(90deg, #7A4A1A, #C9920E, #F7C93C)"></div>
         <div class="hp-bar-txt" id="player-hp-txt">—</div>
@@ -3470,60 +3470,60 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
         <div class="pip"><span class="pip-key">PROF</span><span class="pip-val" id="your-prof-pip">—</span></div>
       </div>
       <div class="adv-row" id="player-adv-row">
-        <button class="adv-btn" data-side="player" data-val="dis">DIS</button>
-        <button class="adv-btn active-norm" data-side="player" data-val="norm">NORM</button>
-        <button class="adv-btn" data-side="player" data-val="adv">ADV</button>
+        <button class="adv-btn" data-side="player" data-val="dis">불리</button>
+        <button class="adv-btn active-norm" data-side="player" data-val="norm">보통</button>
+        <button class="adv-btn" data-side="player" data-val="adv">유리</button>
       </div>
       <div class="cond-row">
-        <span class="cond-lbl">COND</span>
+        <span class="cond-lbl">상태</span>
         <select class="cond-select" id="player-condition" data-side="player">
-          <option value="none">— none —</option>
+          <option value="none">— 없음 —</option>
           <optgroup label="DIS on attack (debuffs)">
-            <option value="poisoned">Poisoned</option>
-            <option value="frightened">Frightened</option>
-            <option value="exhausted">Exhausted</option>
-            <option value="hexed">Hexed</option>
-            <option value="cursed">Cursed</option>
-            <option value="virus_infected">Virus Infected 🔌</option>
-            <option value="system_hacked">System Hacked 🔌</option>
-            <option value="overloaded">Overloaded 🔌</option>
+            <option value="poisoned">중독</option>
+            <option value="frightened">공포</option>
+            <option value="exhausted">탈진</option>
+            <option value="hexed">헹굿</option>
+            <option value="cursed">저주</option>
+            <option value="virus_infected">바이러스 감염 🔌</option>
+            <option value="system_hacked">시스템 해킹 🔌</option>
+            <option value="overloaded">과부하 🔌</option>
           </optgroup>
           <optgroup label="ADV on attack (buffs)">
-            <option value="invisible">Invisible</option>
-            <option value="raging">Raging</option>
-            <option value="blessed">Blessed</option>
-            <option value="stealth_mode">Stealth Mode 🔌</option>
+            <option value="invisible">투명</option>
+            <option value="raging">분노</option>
+            <option value="blessed">축복</option>
+            <option value="stealth_mode">은신 모드 🔌</option>
           </optgroup>
         </select>
       </div>
       <div class="adv-badge show-norm" id="player-adv-badge"></div>
 
-      <button class="roll-btn-main" id="player-roll-btn">⚔ ROLL ATTACK</button>
-      <button class="btn-death" id="death-save-btn" style="display:none">💀 DEATH SAVE</button>
+      <button class="roll-btn-main" id="player-roll-btn">⚔ 공격 굴리기</button>
+      <button class="btn-death" id="death-save-btn" style="display:none">💀 죽음의 저항</button>
       <div class="multi-atk-row">
-        <span class="multi-atk-lbl">ATTACKS</span>
+        <span class="multi-atk-lbl">공격</span>
         <button class="multi-atk-btn active" data-atk="1">1</button>
         <button class="multi-atk-btn" data-atk="2">2</button>
         <button class="multi-atk-btn" data-atk="3">3</button>
         <button class="multi-atk-btn" data-atk="4">4</button>
       </div>
-      <button class="btn-sm" id="roll-dmg-btn">🗡 Roll Damage</button>
+      <button class="btn-sm" id="roll-dmg-btn">🗡 피해 굴리기</button>
       <div class="dmg-mult-row" id="dmg-mult-row">
         <button class="dmg-mult-btn active" data-mult="1">×1</button>
         <button class="dmg-mult-btn" data-mult="2">×2</button>
         <button class="dmg-mult-btn" data-mult="3">×3</button>
         <button class="dmg-mult-btn" data-mult="4">×4</button>
       </div>
-      <button class="tog-btn" id="auto-damage-btn">Auto-Damage: OFF</button>
-      <button class="tog-btn tog-purple" id="sneak-active-btn" style="display:none">🗡 Sneak: OFF</button>
+      <button class="tog-btn" id="auto-damage-btn">자동 피해: 끔</button>
+      <button class="tog-btn tog-purple" id="sneak-active-btn" style="display:none">🗡 기습: 끔</button>
 
-      <button class="btn-sm" id="offhand-roll-btn">↩ Off-hand</button>
-      <button class="btn-sm" id="heal-btn">💚 Heal</button>
-      <button class="btn-sm" id="bonus-roll-btn">+ Bonus Roll</button>
+      <button class="btn-sm" id="offhand-roll-btn">↩ 보조 무기</button>
+      <button class="btn-sm" id="heal-btn">💚 회복</button>
+      <button class="btn-sm" id="bonus-roll-btn">+ 보너스 굴림</button>
 
       <hr class="divider">
 
-      <div class="qd-section-lbl">Quick Dice</div>
+      <div class="qd-section-lbl">빠른 주사위</div>
       <div class="qd-row">
         <button class="qd-btn" data-qd="4">d4</button>
         <button class="qd-btn" data-qd="6">d6</button>
@@ -3555,27 +3555,27 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
 
         <!-- Opponent Zone -->
         <div class="zone" id="opp-zone">
-          <div class="zone-label">⚔ OPPONENT</div>
+          <div class="zone-label">⚔ 상대</div>
           <div class="cond-badge" id="opp-cond-badge"></div>
           <div class="zone-center">
             <div class="d20-hero" id="opp-d20-hero"></div>
-            <div class="outcome-banner ob-idle" id="opp-outcome">waiting…</div>
+            <div class="outcome-banner ob-idle" id="opp-outcome">대기 중…</div>
             <div class="dmg-chips" id="opp-dmg-chips"></div>
           </div>
           <div class="dmg-notes" id="opp-dmg-notes"></div>
           <div class="res-row" id="opp-res-row">
-            <button class="res-btn" data-zone="opp" data-mod="0.5">½ RES</button>
-            <button class="res-btn active-norm" data-zone="opp" data-mod="1">NORM</button>
-            <button class="res-btn" data-zone="opp" data-mod="2">×2 VULN</button>
+            <button class="res-btn" data-zone="opp" data-mod="0.5">½ 저항</button>
+            <button class="res-btn active-norm" data-zone="opp" data-mod="1">보통</button>
+            <button class="res-btn" data-zone="opp" data-mod="2">×2 취약</button>
           </div>
         </div>
 
         <!-- Player Zone -->
         <div class="zone" id="you-zone">
-          <div class="zone-label">🎲 YOU</div>
+          <div class="zone-label">🎲 플레이어</div>
           <div class="cond-badge" id="you-cond-badge"></div>
           <div id="death-save-ui" style="display:none">
-            <div class="ds-title">💀 DYING</div>
+            <div class="ds-title">💀 죽어가는 중</div>
             <div class="ds-pips-row">
               <span class="ds-pip-lbl succ">✓</span>
               <span class="ds-pip" id="ds-s0"></span>
@@ -3586,19 +3586,19 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
               <span class="ds-pip" id="ds-f1"></span>
               <span class="ds-pip" id="ds-f2"></span>
             </div>
-            <div class="ds-status" id="ds-status">Roll d20 — 10+ succeeds</div>
+            <div class="ds-status" id="ds-status">d20 굴림 — 10 이상 성공</div>
           </div>
           <div class="zone-center">
             <div class="d20-hero" id="you-d20-hero"></div>
-            <div class="mod-bk" id="player-mod-bk">d20 + mod + prof vs AC</div>
+            <div class="mod-bk" id="player-mod-bk">d20 + 수정치 + 숙련 vs AC</div>
             <div class="outcome-banner ob-idle" id="you-outcome">— vs AC —</div>
             <div class="dmg-chips" id="you-dmg-chips"></div>
           </div>
           <div class="dmg-notes" id="you-dmg-notes"></div>
           <div class="res-row" id="you-res-row">
-            <button class="res-btn" data-zone="you" data-mod="0.5">½ RES</button>
-            <button class="res-btn active-norm" data-zone="you" data-mod="1">NORM</button>
-            <button class="res-btn" data-zone="you" data-mod="2">×2 VULN</button>
+            <button class="res-btn" data-zone="you" data-mod="0.5">½ 저항</button>
+            <button class="res-btn active-norm" data-zone="you" data-mod="1">보통</button>
+            <button class="res-btn" data-zone="you" data-mod="2">×2 취약</button>
           </div>
         </div>
 
@@ -3610,16 +3610,16 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
 
           <!-- Roll Mode -->
           <div class="cfg-section">
-            <h3>Roll Mode</h3>
+            <h3>굴림 방식</h3>
             <div class="tab-row" id="roll-mode-tabs">
-              <button class="tab-btn active" data-mode="attack">Attack Roll</button>
-              <button class="tab-btn" data-mode="skill">Skill Check</button>
-              <button class="tab-btn" data-mode="save">Saving Throw</button>
+              <button class="tab-btn active" data-mode="attack">공격 굴림</button>
+              <button class="tab-btn" data-mode="skill">기술 판정</button>
+              <button class="tab-btn" data-mode="save">내성 굴림</button>
             </div>
             <div id="mode-attack-content">
               <div class="cfg-grid">
                 <div class="cfg-field">
-                  <label>Ability</label>
+                  <label>능력치</label>
                   <select id="atk-ability">
                     <option value="str">STR</option>
                     <option value="dex" selected>DEX</option>
@@ -3630,7 +3630,7 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
                   </select>
                 </div>
                 <div class="cfg-field">
-                  <label>Extra Mod</label>
+                  <label>추가 수정치</label>
                   <input type="number" id="atk-extra-mod" value="0" min="-10" max="20">
                 </div>
               </div>
@@ -3638,14 +3638,14 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
             <div id="mode-skill-content" style="display:none">
               <div class="cfg-grid">
                 <div class="cfg-field">
-                  <label>Skill</label>
+                  <label>기술</label>
                   <select id="skill-select">
-                    <option value="str">Athletics (STR)</option>
-                    <option value="dex">Acrobatics (DEX)</option>
-                    <option value="dex">Stealth (DEX)</option>
-                    <option value="int">Arcana (INT)</option>
-                    <option value="wis">Perception (WIS)</option>
-                    <option value="cha">Persuasion (CHA)</option>
+                    <option value="str">운동 (STR)</option>
+                    <option value="dex">곡예 (DEX)</option>
+                    <option value="dex">은신 (DEX)</option>
+                    <option value="int">비전 (INT)</option>
+                    <option value="wis">감지 (WIS)</option>
+                    <option value="cha">설득 (CHA)</option>
                   </select>
                 </div>
                 <div class="cfg-field">
@@ -3657,7 +3657,7 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
             <div id="mode-save-content" style="display:none">
               <div class="cfg-grid">
                 <div class="cfg-field">
-                  <label>Ability</label>
+                  <label>능력치</label>
                   <select id="save-ability">
                     <option value="str">STR</option>
                     <option value="dex">DEX</option>
@@ -3677,32 +3677,32 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
 
           <!-- Character Sheet -->
           <div class="cfg-section">
-            <h3>Character Sheet</h3>
+            <h3>캐릭터 시트</h3>
             <div class="cfg-grid">
               <div class="cfg-field">
-                <label>Level</label>
+                <label>레벨</label>
                 <input type="number" id="char-level" value="5" min="1" max="20">
               </div>
               <div class="cfg-field">
-                <label>Prof Bonus</label>
+                <label>숙련 보너스</label>
                 <input type="number" id="char-prof" value="3" min="2" max="6">
               </div>
               <div class="cfg-field">
-                <label>Your AC</label>
+                <label>내 AC</label>
                 <input type="number" id="char-ac" value="16" min="1" max="30">
               </div>
               <div class="cfg-field">
-                <label>Max HP</label>
+                <label>최대 HP</label>
                 <input type="number" id="char-maxhp" value="45" min="1" max="999">
               </div>
             </div>
             <div class="cfg-field" style="margin-top:5px">
               <label class="check-row">
-                <input type="checkbox" id="char-prof-override"> Override prof bonus manually
+                <input type="checkbox" id="char-prof-override"> 숙련 보너스 수동 설정
               </label>
             </div>
             <div style="margin-top:8px">
-              <div style="font-size:10px;color:var(--dim);margin-bottom:5px">Ability Scores</div>
+              <div style="font-size:10px;color:var(--dim);margin-bottom:5px">능력치</div>
               <div class="ability-grid">
                 <div class="ability-card">
                   <label>STR</label>
@@ -3740,23 +3740,23 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
 
           <!-- Weapon / Damage -->
           <div class="cfg-section">
-            <h3>Weapon / Damage</h3>
+            <h3>무기 / 피해</h3>
             <div class="cfg-grid">
               <div class="cfg-field" style="grid-column:span 2">
-                <label>Weapon Name</label>
+                <label>무기 이름</label>
                 <input type="text" id="weapon-name" value="Shortsword">
               </div>
             </div>
             <div class="cfg-grid" style="margin-top:6px">
               <div class="cfg-field">
-                <label class="check-row"><input type="checkbox" id="weapon-finesse" checked> Finesse</label>
+                <label class="check-row"><input type="checkbox" id="weapon-finesse" checked> 교묘</label>
               </div>
               <div class="cfg-field">
-                <label class="check-row"><input type="checkbox" id="weapon-prof" checked> Proficient</label>
+                <label class="check-row"><input type="checkbox" id="weapon-prof" checked> 숙련</label>
               </div>
             </div>
             <div class="cfg-field" style="margin-top:6px">
-              <label>Damage Die</label>
+              <label>피해 주사위</label>
               <div class="die-select-row" id="weapon-die-sel">
                 <button class="die-opt" data-die="4">d4</button>
                 <button class="die-opt" data-die="6" >d6</button>
@@ -3768,25 +3768,25 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
             </div>
             <div class="cfg-grid" style="margin-top:6px">
               <div class="cfg-field">
-                <label>Count</label>
+                <label>개수</label>
                 <input type="number" id="weapon-count" value="1" min="1" max="10">
               </div>
               <div class="cfg-field">
-                <label>Flat Modifier</label>
+                <label>고정 수정치</label>
                 <input type="number" id="weapon-flatmod" value="0" min="-10" max="20">
               </div>
             </div>
             <hr class="divider" style="margin-top:8px">
             <div class="cfg-field">
-              <label class="check-row"><input type="checkbox" id="sneak-enabled"> Sneak Attack</label>
+              <label class="check-row"><input type="checkbox" id="sneak-enabled"> 기습 공격</label>
             </div>
             <div class="cfg-grid" id="sneak-cfg-row" style="margin-top:4px;display:none">
               <div class="cfg-field">
-                <label>Sneak Dice</label>
+                <label>기습 주사위</label>
                 <input type="number" id="sneak-count" value="3" min="1" max="20">
               </div>
               <div class="cfg-field">
-                <label>Auto (⌊lvl/2⌋)</label>
+                <label>자동 (⌊레벨/2⌋)</label>
                 <div id="sneak-auto-lbl" style="font-size:11px;color:var(--dim);padding-top:18px">2d6</div>
               </div>
             </div>
@@ -3794,12 +3794,12 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
 
           <!-- Off-hand / Second Attack -->
           <div class="cfg-section">
-            <h3>Off-hand / Second Attack</h3>
+            <h3>보조 무기 / 두 번째 공격</h3>
             <div class="cfg-field">
-              <label class="check-row"><input type="checkbox" id="offhand-shield"> Using Shield (disables off-hand)</label>
+              <label class="check-row"><input type="checkbox" id="offhand-shield"> 방패 사용 (보조 무기 비활성)</label>
             </div>
             <div class="cfg-field" style="margin-top:6px">
-              <label>Off-hand Die</label>
+              <label>보조 무기 주사위</label>
               <div class="die-select-row" id="offhand-die-sel">
                 <button class="die-opt active" data-die="4">d4</button>
                 <button class="die-opt" data-die="6">d6</button>
@@ -3810,18 +3810,18 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
             </div>
             <div class="cfg-grid" style="margin-top:6px">
               <div class="cfg-field">
-                <label>Count</label>
+                <label>개수</label>
                 <input type="number" id="offhand-count" value="1" min="1" max="10">
               </div>
             </div>
-            <div class="note-txt" style="margin-top:4px">No ability mod on off-hand damage (rules as written)</div>
+            <div class="note-txt" style="margin-top:4px">보조 무기 피해에 능력치 수정치 없음 (룰 원문 기준)</div>
           </div>
 
           <!-- Bonus / Extra Damage -->
           <div class="cfg-section">
-            <h3>Bonus / Extra Damage</h3>
+            <h3>보너스 / 추가 피해</h3>
             <div class="cfg-field">
-              <label>Bonus Die</label>
+              <label>보너스 주사위</label>
               <div class="die-select-row" id="bonus-die-sel">
                 <button class="die-opt active" data-die="4">d4</button>
                 <button class="die-opt" data-die="6">d6</button>
@@ -3832,20 +3832,20 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
             </div>
             <div class="cfg-grid" style="margin-top:6px">
               <div class="cfg-field">
-                <label>Count</label>
+                <label>개수</label>
                 <input type="number" id="bonus-count" value="1" min="1" max="10">
               </div>
               <div class="cfg-field">
-                <label class="check-row" style="margin-top:18px"><input type="checkbox" id="bonus-exploding"> Exploding</label>
+                <label class="check-row" style="margin-top:18px"><input type="checkbox" id="bonus-exploding"> 폭발 주사위</label>
               </div>
             </div>
           </div>
 
           <!-- Healing -->
           <div class="cfg-section">
-            <h3>Healing</h3>
+            <h3>회복</h3>
             <div class="cfg-field">
-              <label>Heal Die</label>
+              <label>회복 주사위</label>
               <div class="die-select-row" id="heal-die-sel">
                 <button class="die-opt" data-die="4">d4</button>
                 <button class="die-opt" data-die="6">d6</button>
@@ -3855,11 +3855,11 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
             </div>
             <div class="cfg-grid" style="margin-top:6px">
               <div class="cfg-field">
-                <label>Count</label>
+                <label>개수</label>
                 <input type="number" id="heal-count" value="1" min="1" max="6">
               </div>
               <div class="cfg-field">
-                <label>Flat Mod</label>
+                <label>고정 수정치</label>
                 <input type="number" id="heal-flat" value="0" min="-10" max="20">
               </div>
             </div>
@@ -3867,124 +3867,124 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
 
           <!-- Opponent -->
           <div class="cfg-section">
-            <h3>Opponent</h3>
+            <h3>상대</h3>
             <div class="cfg-field">
-              <label>Encounter Location</label>
+              <label>조우 장소</label>
               <select id="terrain-select">
-                <option value="">— choose terrain —</option>
+                <option value="">— 지형 선택 —</option>
                 <optgroup label="⚔ Urban / Town">
-                  <option value="city">🏙 City Streets</option>
-                  <option value="alley">🌑 Dark Alley</option>
-                  <option value="docks">⚓ Harbor Docks</option>
-                  <option value="market_quarter">🛒 Market Quarter</option>
-                  <option value="blacksmith_qtr">🔨 Blacksmith Quarter</option>
-                  <option value="scholars_qtr">📚 Scholar's Quarter</option>
-                  <option value="cyberpunk_streets">🔌 Cyberpunk Neon Streets</option>
-                  <option value="soviet_checkpoint">☭ Nevsky Checkpoint</option>
-                  <option value="komsomol_school">🎖 Komsomol School</option>
-                  <option value="gladiator_zavod">⚙ Gulag Gladiator Zavod</option>
-                  <option value="skill_fabrika">🧠 The Skill Fabrika</option>
-                  <option value="soviet_transit">🚉 Rzhev Transit Waystation</option>
+                  <option value="city">🏙 도시 거리</option>
+                  <option value="alley">🌑 어두운 골목</option>
+                  <option value="docks">⚓ 항구 부두</option>
+                  <option value="market_quarter">🛒 시장 지구</option>
+                  <option value="blacksmith_qtr">🔨 대장간 지구</option>
+                  <option value="scholars_qtr">📚 학자 지구</option>
+                  <option value="cyberpunk_streets">🔌 사이버펑크 네온 거리</option>
+                  <option value="soviet_checkpoint">☭ 넵스키 검문소</option>
+                  <option value="komsomol_school">🎖 콤소몰 학교</option>
+                  <option value="gladiator_zavod">⚙ 굴라크 검투사 자보드</option>
+                  <option value="skill_fabrika">🧠 스킬 파브리카</option>
+                  <option value="soviet_transit">🚉 르제프 환승 정거장</option>
                 </optgroup>
                 <optgroup label="🍺 Social / Indoor">
-                  <option value="storefront">🏪 Market District</option>
-                  <option value="bar">🍺 Tavern Brawl</option>
-                  <option value="inn">🛏 Inn — Night</option>
-                  <option value="tavern">🍷 Tavern — Common Room</option>
-                  <option value="outhouse">🪣 Outhouse / Privy</option>
-                  <option value="merchant_ship">🚢 Merchant Ship</option>
+                  <option value="storefront">🏪 상점가</option>
+                  <option value="bar">🍺 주막 난투</option>
+                  <option value="inn">🛏 여관 — 밤</option>
+                  <option value="tavern">🍷 주막 — 공용 홀</option>
+                  <option value="outhouse">🪣 뒷간</option>
+                  <option value="merchant_ship">🚢 상선</option>
                 </optgroup>
                 <optgroup label="💀 Undead / Dark">
-                  <option value="crypt">⚰ Crypt</option>
-                  <option value="catacombs">💀 Catacombs</option>
-                  <option value="vampire_castle">🧛 Vampire Castle</option>
+                  <option value="crypt">⚰ 지하 묘지</option>
+                  <option value="catacombs">💀 카타콤</option>
+                  <option value="vampire_castle">🧛 뱀파이어 성</option>
                 </optgroup>
                 <optgroup label="🐀 Underground / Caves">
-                  <option value="sewers">🐀 Sewer Underbelly</option>
-                  <option value="goblin_cave">👺 Goblin Warrens</option>
-                  <option value="pirate_cave">☠ Pirate Cave</option>
-                  <option value="monster_cave">🐉 Monster Den</option>
-                  <option value="sea_cavern">🦀 Sea Cavern</option>
+                  <option value="sewers">🐀 하수도 깊은 곳</option>
+                  <option value="goblin_cave">👺 고블린 소굴</option>
+                  <option value="pirate_cave">☠ 해적 동굴</option>
+                  <option value="monster_cave">🐉 몬스터 소굴</option>
+                  <option value="sea_cavern">🦀 바다 동굴</option>
                 </optgroup>
                 <optgroup label="🌿 Wilderness">
-                  <option value="forest">🌲 Forest / Trees</option>
-                  <option value="jungle">🌿 Dense Jungle</option>
-                  <option value="swamp">🐊 Murky Swamp</option>
-                  <option value="hag_swamp">🧙 Hag's Domain</option>
-                  <option value="beach">🏖 Tropical Beach</option>
-                  <option value="midlands">🌾 Plains &amp; Midlands</option>
-                  <option value="highlands">🏔 Irish Highlands</option>
-                  <option value="mountains">⛰ High Mountains</option>
+                  <option value="forest">🌲 숲</option>
+                  <option value="jungle">🌿 밀림</option>
+                  <option value="swamp">🐊 늪지</option>
+                  <option value="hag_swamp">🧙 마녀의 영역</option>
+                  <option value="beach">🏖 열대 해변</option>
+                  <option value="midlands">🌾 평원과 중부 지대</option>
+                  <option value="highlands">🏔 아일랜드 고원</option>
+                  <option value="mountains">⛰ 고산</option>
                 </optgroup>
                 <optgroup label="🏜 Harsh Terrain">
-                  <option value="desert">🏜 Desert Wastes</option>
-                  <option value="desert_caravan">🐪 Desert Caravan</option>
-                  <option value="arctic">❄ Arctic Wastes</option>
+                  <option value="desert">🏜 사막 황야</option>
+                  <option value="desert_caravan">🐪 사막 대상</option>
+                  <option value="arctic">❄ 북극 황야</option>
                 </optgroup>
                 <optgroup label="🌊 Water / Ocean">
-                  <option value="ocean">🌊 Ocean Depths</option>
-                  <option value="islands">🏝 Island Shore</option>
-                  <option value="atlantis">🔱 Atlantis — Sunken City</option>
-                  <option value="freshwater_lake">🏞 Freshwater Lake & River</option>
-                  <option value="deep_sea">🐋 Deep Sea Trench</option>
+                  <option value="ocean">🌊 대양 심부</option>
+                  <option value="islands">🏝 섬 해안</option>
+                  <option value="atlantis">🔱 아틀란티스 — 가라앉은 도시</option>
+                  <option value="freshwater_lake">🏞 민물 호수와 강</option>
+                  <option value="deep_sea">🐋 심해 해구</option>
                 </optgroup>
                 <optgroup label="🏛 Mythic / Historical">
-                  <option value="greek_agora">🏛 Greek Agora</option>
-                  <option value="camelot">⚔ Camelot — Arthurian</option>
-                  <option value="oriental_palace">🏯 Oriental Dragon Palace</option>
+                  <option value="greek_agora">🏛 그리스 아고라</option>
+                  <option value="camelot">⚔ 카멜롯 — 아서왕</option>
+                  <option value="oriental_palace">🏯 동양 용궁</option>
                 </optgroup>
                 <optgroup label="✨ Fantastical">
-                  <option value="heavenly_clouds">☁ Heavenly Clouds</option>
-                  <option value="cosmic_realm">🌌 Cosmic Realm</option>
+                  <option value="heavenly_clouds">☁ 천상의 구름</option>
+                  <option value="cosmic_realm">🌌 우주의 영역</option>
                 </optgroup>
               </select>
             </div>
             <div class="cfg-field">
-              <label>Select Monster</label>
+              <label>몬스터 선택</label>
               <select id="terrain-enemy-select" disabled>
-                <option>— select location first —</option>
+                <option>— 먼저 장소 선택 —</option>
               </select>
             </div>
             <div class="cfg-field">
-              <label>Favorites</label>
+              <label>즐겨찾기</label>
               <select id="enemy-select">
-                <option value="custom">— Custom —</option>
+                <option value="custom">— 직접 설정 —</option>
                 <optgroup label="Training / Trivial">
-                  <option value="dummy">Training Dummy (AC 10, HP 20)</option>
-                  <option value="prone_commoner">Prone Commoner (AC 8, HP 4)</option>
-                  <option value="giant_rat">Giant Rat (AC 12, HP 7)</option>
+                  <option value="dummy">훈련 허수아비 (AC 10, HP 20)</option>
+                  <option value="prone_commoner">쓰러진 평민 (AC 8, HP 4)</option>
+                  <option value="giant_rat">거대 쥐 (AC 12, HP 7)</option>
                 </optgroup>
                 <optgroup label="Easy">
-                  <option value="zombie">Zombie (AC 8, HP 22)</option>
-                  <option value="kobold">Kobold (AC 12, HP 5)</option>
-                  <option value="npc_vendor">NPC Vendor (AC 10, HP 9)</option>
-                  <option value="cultist">Cultist (AC 12, HP 9)</option>
+                  <option value="zombie">좀비 (AC 8, HP 22)</option>
+                  <option value="kobold">코볼트 (AC 12, HP 5)</option>
+                  <option value="npc_vendor">NPC 상인 (AC 10, HP 9)</option>
+                  <option value="cultist">광신도 (AC 12, HP 9)</option>
                 </optgroup>
                 <optgroup label="Medium">
-                  <option value="giant_spider">Giant Spider (AC 14, HP 26)</option>
-                  <option value="wolf">Wolf (AC 13, HP 11)</option>
-                  <option value="skeleton">Skeleton (AC 13, HP 13)</option>
-                  <option value="orc" selected>Orc (AC 13, HP 15)</option>
-                  <option value="goblin">Goblin (AC 15, HP 7)</option>
+                  <option value="giant_spider">거대 거미 (AC 14, HP 26)</option>
+                  <option value="wolf">늑대 (AC 13, HP 11)</option>
+                  <option value="skeleton">해골 병사 (AC 13, HP 13)</option>
+                  <option value="orc" selected>오크 (AC 13, HP 15)</option>
+                  <option value="goblin">고블린 (AC 15, HP 7)</option>
                 </optgroup>
                 <optgroup label="Hard">
-                  <option value="hobgoblin">Hobgoblin (AC 18, HP 11)</option>
-                  <option value="gnoll">Gnoll (AC 15, HP 22)</option>
-                  <option value="berserker">Berserker (AC 13, HP 67)</option>
-                  <option value="bandit_captain">Bandit Captain (AC 15, HP 65)</option>
+                  <option value="hobgoblin">홉고블린 (AC 18, HP 11)</option>
+                  <option value="gnoll">놀 (AC 15, HP 22)</option>
+                  <option value="berserker">광전사 (AC 13, HP 67)</option>
+                  <option value="bandit_captain">산적 두목 (AC 15, HP 65)</option>
                 </optgroup>
                 <optgroup label="Deadly">
-                  <option value="troll">Troll (AC 15, HP 84)</option>
-                  <option value="veteran">Veteran (AC 17, HP 58)</option>
-                  <option value="knight">Knight (AC 18, HP 52)</option>
-                  <option value="stone_golem">Stone Golem (AC 17, HP 178)</option>
-                  <option value="ancient_dragon">Ancient Dragon (AC 22, HP 546)</option>
+                  <option value="troll">트롤 (AC 15, HP 84)</option>
+                  <option value="veteran">베테랑 (AC 17, HP 58)</option>
+                  <option value="knight">기사 (AC 18, HP 52)</option>
+                  <option value="stone_golem">돌 골렘 (AC 17, HP 178)</option>
+                  <option value="ancient_dragon">고대 드래곤 (AC 22, HP 546)</option>
                 </optgroup>
               </select>
             </div>
             <div class="cfg-grid" style="margin-top:6px">
               <div class="cfg-field">
-                <label>Name</label>
+                <label>이름</label>
                 <input type="text" id="opp-custom-name" value="Orc">
               </div>
               <div class="cfg-field">
@@ -3992,16 +3992,16 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
                 <input type="number" id="opp-custom-ac" value="13" min="1" max="30">
               </div>
               <div class="cfg-field">
-                <label>Max HP</label>
+                <label>최대 HP</label>
                 <input type="number" id="opp-custom-maxhp" value="15" min="1" max="9999">
               </div>
               <div class="cfg-field">
-                <label>Atk Bonus</label>
+                <label>공격 보너스</label>
                 <input type="number" id="opp-custom-atk" value="5" min="-5" max="20">
               </div>
             </div>
             <div class="cfg-field" style="margin-top:6px">
-              <label>Damage Die</label>
+              <label>피해 주사위</label>
               <div class="die-select-row" id="opp-die-sel">
                 <button class="die-opt" data-die="4">d4</button>
                 <button class="die-opt" data-die="6" >d6</button>
@@ -4012,11 +4012,11 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
             </div>
             <div class="cfg-grid" style="margin-top:6px">
               <div class="cfg-field">
-                <label>Dmg Count</label>
+                <label>피해 개수</label>
                 <input type="number" id="opp-dmg-count" value="1" min="1" max="10">
               </div>
               <div class="cfg-field">
-                <label>Dmg Flat</label>
+                <label>피해 고정</label>
                 <input type="number" id="opp-dmg-flat" value="3" min="0" max="20">
               </div>
             </div>
@@ -4024,7 +4024,7 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
 
           <!-- ═══ HISTOGRAM ═══ -->
           <div id="histogram-strip">
-            <h3>📊 Roll Histogram — last 100 per die <button id="clear-stats-btn">Clear Stats</button></h3>
+            <h3>📊 굴림 분포 — 주사위별 최근 100회 <button id="clear-stats-btn">기록 지우기</button></h3>
             <div id="histogram-inner"></div>
           </div>
 
@@ -4045,7 +4045,7 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
 
     <!-- ═══ HISTORY PANEL ═══ -->
     <div id="history-panel">
-      <div id="history-title">Combat Log</div>
+      <div id="history-title">전투 기록</div>
       <div id="hcard-container"></div>
     </div>
 
@@ -4057,9 +4057,9 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
 
     <!-- Left sidebar: act + vitals + equipment + travel log + nav -->
     <div id="story-left">
-      <div id="story-act-badge">— Act I —</div>
+      <div id="story-act-badge">— 1막 —</div>
 
-      <div class="sidebar-section-lbl">Character</div>
+      <div class="sidebar-section-lbl">캐릭터</div>
       <!-- Vitals group: HP bar + Level -->
       <div class="sidebar-group">
         <div class="stat-row">
@@ -4068,43 +4068,43 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
         </div>
         <div id="s-hp-bar-wrap"><div id="s-hp-bar-fill"></div></div>
         <div class="stat-row">
-          <span class="stat-lbl">⭐ Level</span>
+          <span class="stat-lbl">⭐ 레벨</span>
           <span class="stat-val" id="s-level">1</span>
         </div>
       </div>
 
-      <div class="sidebar-section-lbl">Equipped</div>
+      <div class="sidebar-section-lbl">장비</div>
       <!-- Equipment group: main weapon + offhand/shield -->
       <div class="sidebar-group" id="s-equipment-group">
         <div class="weapon-row">
-          <span id="s-weapon-main-name" class="weapon-name">— no weapon —</span>
+          <span id="s-weapon-main-name" class="weapon-name">— 무기 없음 —</span>
           <span id="s-weapon-main-stat" class="weapon-stat"></span>
         </div>
         <div class="weapon-row">
-          <span id="s-weapon-off-name" class="weapon-name">— no offhand —</span>
+          <span id="s-weapon-off-name" class="weapon-name">— 보조 무기 없음 —</span>
           <span id="s-weapon-off-stat" class="weapon-stat"></span>
         </div>
       </div>
 
-      <div class="sidebar-section-lbl">Resources</div>
+      <div class="sidebar-section-lbl">자원</div>
       <!-- Resources group: potions, gold, shards, void, day, rest -->
       <div class="sidebar-group">
-        <div class="stat-row"><span class="stat-lbl">🧪 Potions</span><span class="stat-val" id="s-potions">×0</span></div>
-        <div class="stat-row"><span class="stat-lbl">💰 Gold</span><span class="stat-val" id="s-gold">50gp</span></div>
-        <div class="stat-row"><span class="stat-lbl">📅 Day</span><span class="stat-val" id="s-day">1/49</span></div>
-        <div class="stat-row"><span class="stat-lbl">📜 Story</span><span class="stat-val" id="s-story-act" title="The campaign act: one per shard held. The badge above names the region you stand in.">Act I</span></div>
-        <div class="stat-row"><span class="stat-lbl">🌙 Rest</span><span class="stat-val" id="s-rests">3/3</span></div>
-        <div class="stat-row"><span class="stat-lbl">⏱ Hours</span><span class="stat-val" id="s-hours">0h</span></div>
-        <div class="stat-row"><span class="stat-lbl">😴 Awake</span><span class="stat-val" id="s-awake">0h</span></div>
+        <div class="stat-row"><span class="stat-lbl">🧪 물약</span><span class="stat-val" id="s-potions">×0</span></div>
+        <div class="stat-row"><span class="stat-lbl">💰 골드</span><span class="stat-val" id="s-gold">50gp</span></div>
+        <div class="stat-row"><span class="stat-lbl">📅 일차</span><span class="stat-val" id="s-day">1/49</span></div>
+        <div class="stat-row"><span class="stat-lbl">📜 스토리</span><span class="stat-val" id="s-story-act" title="The campaign act: one per shard held. The badge above names the region you stand in.">1막</span></div>
+        <div class="stat-row"><span class="stat-lbl">🌙 휴식</span><span class="stat-val" id="s-rests">3/3</span></div>
+        <div class="stat-row"><span class="stat-lbl">⏱ 시간</span><span class="stat-val" id="s-hours">0h</span></div>
+        <div class="stat-row"><span class="stat-lbl">😴 깨어 있음</span><span class="stat-val" id="s-awake">0h</span></div>
       </div>
 
       <!-- Secondary stats + nav buttons -->
       <div id="story-status">
-        <div class="stat-row"><span class="stat-lbl">🎒 Items</span><span class="stat-val" id="s-inv-count">0</span></div>
-        <div class="stat-row" id="s-dis-row" style="display:none"><span class="stat-lbl">😴 DIS</span><span class="stat-val danger" id="s-dis-count"></span></div>
-        <div class="stat-row"><span class="stat-lbl">⚠ Notoriety</span><span class="stat-val" id="s-notoriety">3</span></div>
-        <div class="stat-row"><span class="stat-lbl">🏁 CP</span><span class="stat-val" id="s-checkpoint">Start</span></div>
-        <div class="stat-row"><span class="stat-lbl">🎵 Organ</span><button class="stat-val" id="s-organ" onclick="_organToggle()" style="background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer" title="Play the organ under the story">off</button></div>
+        <div class="stat-row"><span class="stat-lbl">🎒 아이템</span><span class="stat-val" id="s-inv-count">0</span></div>
+        <div class="stat-row" id="s-dis-row" style="display:none"><span class="stat-lbl">😴 불리</span><span class="stat-val danger" id="s-dis-count"></span></div>
+        <div class="stat-row"><span class="stat-lbl">⚠ 악명</span><span class="stat-val" id="s-notoriety">3</span></div>
+        <div class="stat-row"><span class="stat-lbl">🏁 CP</span><span class="stat-val" id="s-checkpoint">시작</span></div>
+        <div class="stat-row"><span class="stat-lbl">🎵 오르간</span><button class="stat-val" id="s-organ" onclick="_organToggle()" style="background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer" title="Play the organ under the story">끔</button></div>
       </div>
     </div>
 
@@ -4124,29 +4124,29 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
       <!-- ── Sheet Tab Bar ── -->
       <div id="story-sheet-tab-bar">
         <button class="sheet-tab st-active" data-sheet="sheet-story">
-          <span class="st-icon">📖</span><span>Story</span>
+          <span class="st-icon">📖</span><span>스토리</span>
         </button>
         <button class="sheet-tab" data-sheet="sheet-inventory">
-          <span class="st-icon">📦</span><span>Bag</span>
+          <span class="st-icon">📦</span><span>가방</span>
           <span class="st-badge" id="stab-inv-badge"></span>
           <span class="st-key">I</span>
         </button>
         <button class="sheet-tab" data-sheet="sheet-quests">
-          <span class="st-icon">📋</span><span>Quests</span>
+          <span class="st-icon">📋</span><span>퀘스트</span>
           <span class="st-badge" id="stab-quest-badge"></span>
           <span class="st-key">Q</span>
         </button>
         <button class="sheet-tab" data-sheet="sheet-map">
-          <span class="st-icon">🗺</span><span>Map</span>
+          <span class="st-icon">🗺</span><span>지도</span>
           <span class="st-key">M</span>
         </button>
         <button class="sheet-tab" data-sheet="sheet-journal">
-          <span class="st-icon">📔</span><span>Journal</span>
+          <span class="st-icon">📔</span><span>일지</span>
           <span class="st-badge" id="stab-journal-badge"></span>
           <span class="st-key">J</span>
         </button>
         <button class="sheet-tab" data-sheet="sheet-character">
-          <span class="st-icon">👤</span><span>Char</span>
+          <span class="st-icon">👤</span><span>캐릭터</span>
         </button>
       </div>
 
@@ -4155,22 +4155,22 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
 
       <!-- LOCATION section — static, always shown -->
       <div class="story-section">
-        <div class="story-section-hd">📍 Location</div>
+        <div class="story-section-hd">📍 위치</div>
         <div class="story-section-body">
           <div class="story-section-card" id="story-location-hd-card">
             <div style="flex:1">
               <div id="story-node-header" style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap">
                 <span id="s-node-num">01</span>
-                <span id="s-node-name">City Streets — Birka</span>
-                <span id="s-node-act">Act I</span>
+                <span id="s-node-name">도시 거리 — 비르카</span>
+                <span id="s-node-act">1막</span>
               </div>
               <!-- §PLAY-01-A The Courier's Map — persistent objective (Froberger's map) -->
               <div id="objective-chip" title="Return all 7 Codex Shards, reach Level 20, and defeat Commander Auros at the Codex. Time is generous — the seals hold well past any honest journey; the Void gains only slowly, and only while you sleep.">
                 <span class="obj-shards" id="obj-shards"></span>
                 <span class="obj-sep">·</span>
-                <span class="obj-leg" id="obj-lvl">⭐ Lv <b>1</b>/20</span>
+                <span class="obj-leg" id="obj-lvl">⭐ 레벨 <b>1</b>/20</span>
                 <span class="obj-sep">·</span>
-                <span class="obj-leg" id="obj-day">☀ Day <b>1</b>/49</span>
+                <span class="obj-leg" id="obj-day">☀ 일차 <b>1</b>/49</span>
               </div>
               <!-- §DEATH-01 Inc B — persistent "you have a body out there" signal; click opens the Map -->
               <div id="corpse-chip" style="display:none" onclick="storyMapToggle()"></div>
@@ -4178,7 +4178,7 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
           </div>
           <div id="story-farewell" style="display:none;"></div>
           <!-- anything mounted after this card is transient: _clearStoryTransient() removes it on every render -->
-          <div class="story-section-card" id="story-text-box" style="display:block">Arriving in Birka…</div>
+          <div class="story-section-card" id="story-text-box" style="display:block">비르카에 도착하는 중…</div>
         </div>
       </div>
 
@@ -4191,7 +4191,7 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
 
       <!-- §MESH-02(h) — accumulating multi-user chat history (toggled by 💬) -->
       <div id="mp-chat-panel" style="display:none">
-        <div id="mp-chat-panel-hd">💬 Chat history <span style="color:var(--dim);font-weight:400">— everyone, everywhere, kept across reloads</span>
+        <div id="mp-chat-panel-hd">💬 대화 기록 <span style="color:var(--dim);font-weight:400">— 모든 사람, 모든 장소, 새로고침 후에도 유지</span>
           <button onclick="mpChatToggle()" style="float:right">✕</button></div>
         <div id="mp-chat-list"></div>
       </div>
@@ -4200,7 +4200,7 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
       <div id="mp-bar">
         <button id="mp-toggle" onclick="mpToggle(event)" title="Multiplayer — click: connect · Shift+click: server browser / paste magnet">🌐</button>
         <button id="mp-chat-toggle" onclick="mpChatToggle()" title="Chat history">💬<span id="mp-chat-badge"></span></button>
-        <span id="mp-status">off</span>
+        <span id="mp-status">끔</span>
         <span id="mp-presence"></span>
         <input id="mp-chat-input" placeholder="say…" maxlength="500" style="display:none"
                onkeydown="if(event.key==='Enter')mpSay();else if(event.key==='Escape')mpDmTo(null)">
@@ -4209,14 +4209,13 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
       <!-- §MESH-01-FU 2 — server browser / join-by-magnet (Shift+🌐, or auto-opens on failed connect) -->
       <div id="mp-browser-modal">
         <div id="mp-browser-card">
-          <h3>🌐 WORLD SERVERS</h3>
-          <div class="mp-hint">Paste a friend's magnet (<code>coc:?…</code>), a tracker URL, or a server URL —
-            then join a same-world server. Joining only sets your multiplayer server; it never changes your game.</div>
+          <h3>🌐 월드 서버</h3>
+          <div class="mp-hint">친구의 마그넷(<code>coc:?…</code>), 트래커 URL 또는 서버 URL을 붙여넣고 같은 월드의 서버에 접속하세요. 접속은 멀티플레이 서버만 설정할 뿐 게임 데이터는 바뀌지 않습니다.</div>
           <input id="mp-magnet-input" placeholder="coc:?p=…&amp;ev=…&amp;wh=…&amp;tr=…  ·  or  http://host:1367"
                  onkeydown="if(event.key==='Enter')mpResolveMagnet()">
           <div style="display:flex;gap:8px">
-            <button id="mp-browser-resolve" onclick="mpResolveMagnet()">🔭 Find servers</button>
-            <button onclick="mpBrowserClose()">✕ Close</button>
+            <button id="mp-browser-resolve" onclick="mpResolveMagnet()">🔭 서버 찾기</button>
+            <button onclick="mpBrowserClose()">✕ 닫기</button>
           </div>
           <div id="mp-browser-note" class="mp-hint"></div>
           <div id="mp-server-rows"></div>
@@ -4226,15 +4225,15 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
       <!-- §MESH-01i slice 2b — trade modal (ledger-backed; server-authoritative) -->
       <div id="mp-trade-modal">
         <div id="mp-trade-card">
-          <h3 id="mp-trade-title">⇄ TRADE</h3>
+          <h3 id="mp-trade-title">⇄ 거래</h3>
           <div id="mp-trade-note" class="mp-hint"></div>
           <div id="mp-trade-cols">
-            <div><div class="mp-trade-hd">You give</div><div id="mp-trade-give"></div></div>
-            <div><div class="mp-trade-hd">You receive</div><div id="mp-trade-want"></div></div>
+            <div><div class="mp-trade-hd">내가 주는 것</div><div id="mp-trade-give"></div></div>
+            <div><div class="mp-trade-hd">내가 받는 것</div><div id="mp-trade-want"></div></div>
           </div>
           <div style="display:flex;gap:8px">
-            <button id="mp-trade-primary" onclick="mpTradePrimary()">Propose</button>
-            <button onclick="mpTradeCancel()">✕ Close</button>
+            <button id="mp-trade-primary" onclick="mpTradePrimary()">제안</button>
+            <button onclick="mpTradeCancel()">✕ 닫기</button>
           </div>
         </div>
       </div>
@@ -4242,13 +4241,13 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
       <!-- §MESH-01j — duel modal (commit-reveal handshake + DUEL:CORE replay playback) -->
       <div id="mp-duel-modal">
         <div id="mp-duel-card">
-          <h3 id="mp-duel-title">⚔ DUEL</h3>
+          <h3 id="mp-duel-title">⚔ 결투</h3>
           <div id="mp-duel-note" class="mp-hint"></div>
           <div id="mp-duel-log"></div>
           <div style="display:flex;gap:8px;align-items:center">
-            <button id="mp-duel-primary" onclick="mpDuelPrimary()">Accept</button>
-            <button onclick="mpDuelClose()">✕ Close</button>
-            <label class="mp-hint" style="margin-left:auto;cursor:pointer"><input type="checkbox" id="mp-duel-pvpoff" onchange="mpDuelPvpToggle(this.checked)"> 🚫 decline all duels</label>
+            <button id="mp-duel-primary" onclick="mpDuelPrimary()">수락</button>
+            <button onclick="mpDuelClose()">✕ 닫기</button>
+            <label class="mp-hint" style="margin-left:auto;cursor:pointer"><input type="checkbox" id="mp-duel-pvpoff" onchange="mpDuelPvpToggle(this.checked)"> 🚫 모든 결투 거절</label>
           </div>
         </div>
       </div>
@@ -4260,22 +4259,22 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
       <!-- ── Sheet: Inventory ── -->
       <div id="sheet-inventory" class="story-sheet">
         <div id="inv-header">
-          <span id="inv-title">🎒 Inventory</span>
-          <button id="btn-inv-close">✕ Close [I]</button>
+          <span id="inv-title">🎒 인벤토리</span>
+          <button id="btn-inv-close">✕ 닫기 [I]</button>
         </div>
         <div id="inv-status-bar">
-          <span class="inv-stat-pill"><span class="inv-stat-lbl">🔮 Shards</span><span class="inv-stat-val" id="s-shards">0/7</span></span>
-          <span class="inv-stat-pill void-pill"><span class="inv-stat-lbl">🌑 Void</span><span class="inv-stat-val" id="s-void">0/10</span></span>
+          <span class="inv-stat-pill"><span class="inv-stat-lbl">🔮 조각</span><span class="inv-stat-val" id="s-shards">0/7</span></span>
+          <span class="inv-stat-pill void-pill"><span class="inv-stat-lbl">🌑 공허</span><span class="inv-stat-val" id="s-void">0/10</span></span>
         </div>
         <div id="inv-list">
-          <div id="inv-empty">No items yet. Explore nodes to collect loot.</div>
+          <div id="inv-empty">아직 아이템이 없습니다. 노드를 탐험해 전리품을 모으세요.</div>
         </div>
       </div>
 
       <!-- ── Pre-Battle overlay (Layer 4 / Layer 11) ── -->
       <div id="story-prebatt-overlay">
         <div id="prebatt-header">
-          <span id="prebatt-title">⚔ Pre-Battle</span>
+          <span id="prebatt-title">⚔ 전투 준비</span>
           <span id="prebatt-subtitle"></span>
           <span id="prebatt-gold-display"></span>
         </div>
@@ -4284,108 +4283,108 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
         <div id="prebatt-dis-warning"></div>
         <!-- Tab switcher -->
         <div id="prebatt-tabs">
-          <button class="prebatt-tab active" data-tab="plain">⚔ Fight</button>
-          <button class="prebatt-tab" data-tab="cond">💣 Condition</button>
-          <button class="prebatt-tab" data-tab="stealth">🎭 Stealth</button>
+          <button class="prebatt-tab active" data-tab="plain">⚔ 싸우기</button>
+          <button class="prebatt-tab" data-tab="cond">💣 상태 이상</button>
+          <button class="prebatt-tab" data-tab="stealth">🎭 은신</button>
         </div>
         <!-- Plain Fight tab -->
         <div class="prebatt-section active-tab" id="prebatt-sec-plain">
-          <div id="prebatt-plain-desc">Enter combat directly — no special opener or gold cost.</div>
+          <div id="prebatt-plain-desc">바로 전투 시작 — 특별한 선제 행동이나 골드 비용 없음.</div>
         </div>
         <!-- Condition opener tab (gold cost) -->
         <div class="prebatt-section" id="prebatt-sec-cond">
-          <div id="prebatt-cond-hd">Choose a Condition Opener — costs gold</div>
+          <div id="prebatt-cond-hd">상태 이상 선제 선택 — 골드 소모</div>
           <div id="prebatt-cond-list"></div>
           <div id="prebatt-cost-preview"></div>
-          <div id="prebatt-selected-hd">Selected Effects</div>
+          <div id="prebatt-selected-hd">선택된 효과</div>
           <div id="prebatt-summary"></div>
         </div>
         <!-- Stealth/Surprise tab -->
         <div class="prebatt-section" id="prebatt-sec-stealth">
-          <div id="prebatt-stealth-desc">Roll d20 vs a random DC (5–16) — roughly 25–80% chance of success. Pass → you go first with ADV on your first attack. Fail → no effect, no gold cost. Free to attempt.</div>
-          <button id="btn-stealth-attempt">🎭 Attempt Stealth Check</button>
+          <div id="prebatt-stealth-desc">무작위 DC(5–16)에 대해 d20 굴림 — 성공 확률 대략 25–80%. 성공 → 첫 공격에 유리(ADV)를 얻고 선공. 실패 → 효과 없음, 골드 소모 없음. 무료로 시도 가능.</div>
+          <button id="btn-stealth-attempt">🎭 은신 판정 시도</button>
           <div id="prebatt-stealth-result"></div>
         </div>
         <div id="prebatt-actions">
-          <button id="btn-start-battle">⚔ Start Battle</button>
-          <button id="btn-prebatt-cancel" title="Leave without fighting — no cost, no penalty">← Retreat (safe)</button>
+          <button id="btn-start-battle">⚔ 전투 시작</button>
+          <button id="btn-prebatt-cancel" title="Leave without fighting — no cost, no penalty">← 후퇴 (안전)</button>
         </div>
       </div>
 
       <!-- ── Sleep overlay (Layer 5) ── -->
       <div id="story-sleep-overlay">
         <div id="sleep-header">
-          <span id="sleep-title">🛏 Rest</span>
+          <span id="sleep-title">🛏 휴식</span>
           <span id="sleep-node-name"></span>
         </div>
         <div id="sleep-details">
-          <div class="sleep-row"><span class="sleep-lbl">HP restored</span><span class="sleep-val restore" id="sleep-hp-preview"></span></div>
-          <div class="sleep-row"><span class="sleep-lbl">Cost</span><span class="sleep-val cost" id="sleep-cost-preview"></span></div>
-          <div class="sleep-row"><span class="sleep-lbl">Day advances</span><span class="sleep-val day" id="sleep-day-preview"></span></div>
+          <div class="sleep-row"><span class="sleep-lbl">HP 회복</span><span class="sleep-val restore" id="sleep-hp-preview"></span></div>
+          <div class="sleep-row"><span class="sleep-lbl">비용</span><span class="sleep-val cost" id="sleep-cost-preview"></span></div>
+          <div class="sleep-row"><span class="sleep-lbl">날짜 진행</span><span class="sleep-val day" id="sleep-day-preview"></span></div>
         </div>
         <div id="sleep-warning"></div>
         <div id="sleep-actions">
-          <button id="btn-sleep-confirm">🛏 Rest and Continue</button>
-          <button id="btn-sleep-cancel">Stay up</button>
+          <button id="btn-sleep-confirm">🛏 휴식하고 계속</button>
+          <button id="btn-sleep-cancel">깨어 있기</button>
         </div>
       </div>
 
       <!-- ── Vendor overlay (Layer 8) ── -->
       <div id="story-vendor-overlay">
         <div id="vendor-header">
-          <span id="vendor-title">🛒 Vendor</span>
+          <span id="vendor-title">🛒 상인</span>
           <span id="vendor-npc"></span>
-          <button id="btn-vendor-close">✕ Close</button>
+          <button id="btn-vendor-close">✕ 닫기</button>
         </div>
-        <div id="vendor-sell-hd">Sell Trophies</div>
+        <div id="vendor-sell-hd">트로피 판매</div>
         <div id="vendor-sell-list"></div>
         <div id="vendor-sell-total"></div>
-        <button id="btn-sell-all">💰 Sell All Trophies</button>
-        <button id="btn-sell-equipment">⚔ Sell Equipment</button>
-        <div id="vendor-buy-hd">Buy Items</div>
+        <button id="btn-sell-all">💰 트로피 모두 판매</button>
+        <button id="btn-sell-equipment">⚔ 장비 판매</button>
+        <div id="vendor-buy-hd">아이템 구매</div>
         <div id="vendor-buy-section">
           <div class="buy-item">
             <div>
-              <div class="buy-item-desc">🧪 Minor Healing Potion — 50gp</div>
-              <div class="buy-item-heal">Restores 10 HP · for Lv 1–4</div>
+              <div class="buy-item-desc">🧪 하급 치료 물약 — 50gp</div>
+              <div class="buy-item-heal">HP 10 회복 · 레벨 1–4용</div>
             </div>
-            <button class="btn-buy-potion" data-tier="minor">Buy</button>
+            <button class="btn-buy-potion" data-tier="minor">구매</button>
           </div>
           <div class="buy-item" style="margin-top:6px">
             <div>
               <div class="buy-item-desc">🫧 Healing Potion — 150gp</div>
-              <div class="buy-item-heal">Restores 25 HP · for Lv 5–9</div>
+              <div class="buy-item-heal">HP 25 회복 · 레벨 5–9용</div>
             </div>
-            <button class="btn-buy-potion" data-tier="healing">Buy</button>
+            <button class="btn-buy-potion" data-tier="healing">구매</button>
           </div>
           <div class="buy-item" style="margin-top:6px">
             <div>
-              <div class="buy-item-desc">💜 Greater Healing Potion — 400gp</div>
-              <div class="buy-item-heal">Restores 50 HP · for Lv 10–14</div>
+              <div class="buy-item-desc">💜 상급 치료 물약 — 400gp</div>
+              <div class="buy-item-heal">HP 50 회복 · 레벨 10–14용</div>
             </div>
-            <button class="btn-buy-potion" data-tier="greater">Buy</button>
+            <button class="btn-buy-potion" data-tier="greater">구매</button>
           </div>
           <div class="buy-item" style="margin-top:6px">
             <div>
-              <div class="buy-item-desc">✨ Superior Healing Potion — 1000gp</div>
-              <div class="buy-item-heal">Restores 100 HP · for Lv 15–20</div>
+              <div class="buy-item-desc">✨ 최상급 치료 물약 — 1000gp</div>
+              <div class="buy-item-heal">HP 100 회복 · 레벨 15–20용</div>
             </div>
-            <button class="btn-buy-potion" data-tier="superior">Buy</button>
+            <button class="btn-buy-potion" data-tier="superior">구매</button>
           </div>
           <div id="vendor-shield-list" style="border-top:1px solid var(--border);padding-top:8px;margin-top:10px"></div>
           <div class="buy-item" style="margin-top:10px;border-top:1px solid var(--border);padding-top:8px">
             <div>
-              <div class="buy-item-desc">💥 Flashbang — 150gp</div>
-              <div class="buy-item-heal">Bonus action · guaranteed ADV on next attack · no offhand</div>
+              <div class="buy-item-desc">💥 섬광탄 — 150gp</div>
+              <div class="buy-item-heal">보너스 행동 · 다음 공격에 확정 유리(ADV) · 보조 무기 불가</div>
             </div>
-            <button id="btn-buy-flashbang">Buy</button>
+            <button id="btn-buy-flashbang">구매</button>
           </div>
           <div id="vendor-whiskey-section" class="buy-item" style="margin-top:6px;display:none">
             <div>
-              <div class="buy-item-desc">🥃 Rough Whiskey — 5gp <span style="color:#7A4A10;font-size:10px">★ Social</span></div>
-              <div class="buy-item-heal">Hold it entering battle · drunk fight at the Undercity pit</div>
+              <div class="buy-item-desc">🥃 독한 위스키 — 5gp <span style="color:#7A4A10;font-size:10px">★ 사교</span></div>
+              <div class="buy-item-heal">전투 진입 시 소지 · 언더시티 구덩이에서 취중 싸움</div>
             </div>
-            <button id="btn-buy-whiskey">Buy</button>
+            <button id="btn-buy-whiskey">구매</button>
           </div>
         </div>
       </div>
@@ -4393,75 +4392,75 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
       <!-- ── Sheet: Quests ── -->
       <div id="sheet-quests" class="story-sheet">
         <div id="quest-header">
-          <span id="quest-panel-title">📋 Quests</span>
-          <button id="btn-quest-close">✕ Close [Q]</button>
+          <span id="quest-panel-title">📋 퀘스트</span>
+          <button id="btn-quest-close">✕ 닫기 [Q]</button>
         </div>
         <div id="quest-list"></div>
         <div id="quest-create-section">
-          <div class="quest-section-hd">⊕ Create Custom Quest</div>
+          <div class="quest-section-hd">⊕ 커스텀 퀘스트 만들기</div>
           <div id="quest-create-ui">
             <select id="quest-terrain-select">
-              <option value="">— pick terrain —</option>
-              <option value="city">🏙 City Streets</option>
-              <option value="alley">🌑 Dark Alley</option>
-              <option value="docks">⚓ Harbor Docks</option>
-              <option value="market_quarter">🛒 Market Quarter</option>
-              <option value="blacksmith_qtr">🔨 Blacksmith Quarter</option>
-              <option value="scholars_qtr">📚 Scholar's Quarter</option>
-              <option value="cyberpunk_streets">🔌 Cyberpunk Streets</option>
-              <option value="soviet_checkpoint">☭ Nevsky Checkpoint</option>
-              <option value="komsomol_school">🎖 Komsomol School</option>
-              <option value="gladiator_zavod">⚙ Gulag Gladiator Zavod</option>
-              <option value="skill_fabrika">🧠 The Skill Fabrika</option>
-              <option value="soviet_transit">🚉 Rzhev Transit Waystation</option>
-              <option value="storefront">🏪 Market District</option>
-              <option value="bar">🍺 Tavern Brawl</option>
-              <option value="inn">🛏 Inn</option>
-              <option value="tavern">🍷 Tavern</option>
-              <option value="crypt">⚰ Crypt</option>
-              <option value="catacombs">💀 Catacombs</option>
-              <option value="vampire_castle">🧛 Vampire Castle</option>
-              <option value="sewers">🐀 Sewers</option>
-              <option value="goblin_cave">👺 Goblin Warrens</option>
-              <option value="pirate_cave">☠ Pirate Cave</option>
-              <option value="monster_cave">🐉 Monster Den</option>
-              <option value="sea_cavern">🦀 Sea Cavern</option>
-              <option value="forest">🌲 Forest</option>
-              <option value="jungle">🌿 Jungle</option>
-              <option value="swamp">🐊 Swamp</option>
-              <option value="hag_swamp">🧙 Hag's Domain</option>
-              <option value="beach">🏖 Beach</option>
-              <option value="midlands">🌾 Midlands</option>
-              <option value="highlands">🏔 Highlands</option>
-              <option value="mountains">⛰ Mountains</option>
-              <option value="desert">🏜 Desert</option>
-              <option value="desert_caravan">🐪 Desert Caravan</option>
-              <option value="arctic">❄ Arctic</option>
-              <option value="ocean">🌊 Ocean</option>
-              <option value="islands">🏝 Islands</option>
-              <option value="atlantis">🔱 Atlantis</option>
-              <option value="freshwater_lake">🏞 Freshwater Lake</option>
-              <option value="deep_sea">🐋 Deep Sea</option>
-              <option value="merchant_ship">🚢 Merchant Ship</option>
-              <option value="greek_agora">🏛 Greek Agora</option>
-              <option value="camelot">⚔ Camelot</option>
-              <option value="oriental_palace">🏯 Oriental Palace</option>
-              <option value="heavenly_clouds">☁ Heavenly Clouds</option>
-              <option value="cosmic_realm">🌌 Cosmic Realm</option>
+              <option value="">— 지형 선택 —</option>
+              <option value="city">🏙 도시 거리</option>
+              <option value="alley">🌑 어두운 골목</option>
+              <option value="docks">⚓ 항구 부두</option>
+              <option value="market_quarter">🛒 시장 지구</option>
+              <option value="blacksmith_qtr">🔨 대장간 지구</option>
+              <option value="scholars_qtr">📚 학자 지구</option>
+              <option value="cyberpunk_streets">🔌 사이버펑크 거리</option>
+              <option value="soviet_checkpoint">☭ 넵스키 검문소</option>
+              <option value="komsomol_school">🎖 콤소몰 학교</option>
+              <option value="gladiator_zavod">⚙ 굴라크 검투사 자보드</option>
+              <option value="skill_fabrika">🧠 스킬 파브리카</option>
+              <option value="soviet_transit">🚉 르제프 환승 정거장</option>
+              <option value="storefront">🏪 상점가</option>
+              <option value="bar">🍺 주막 난투</option>
+              <option value="inn">🛏 여관</option>
+              <option value="tavern">🍷 주막</option>
+              <option value="crypt">⚰ 지하 묘지</option>
+              <option value="catacombs">💀 카타콤</option>
+              <option value="vampire_castle">🧛 뱀파이어 성</option>
+              <option value="sewers">🐀 하수도</option>
+              <option value="goblin_cave">👺 고블린 소굴</option>
+              <option value="pirate_cave">☠ 해적 동굴</option>
+              <option value="monster_cave">🐉 몬스터 소굴</option>
+              <option value="sea_cavern">🦀 바다 동굴</option>
+              <option value="forest">🌲 숲</option>
+              <option value="jungle">🌿 밀림</option>
+              <option value="swamp">🐊 늪지</option>
+              <option value="hag_swamp">🧙 마녀의 영역</option>
+              <option value="beach">🏖 해변</option>
+              <option value="midlands">🌾 중부 지대</option>
+              <option value="highlands">🏔 고원</option>
+              <option value="mountains">⛰ 산</option>
+              <option value="desert">🏜 사막</option>
+              <option value="desert_caravan">🐪 사막 대상</option>
+              <option value="arctic">❄ 북극</option>
+              <option value="ocean">🌊 대양</option>
+              <option value="islands">🏝 섬</option>
+              <option value="atlantis">🔱 아틀란티스</option>
+              <option value="freshwater_lake">🏞 민물 호수</option>
+              <option value="deep_sea">🐋 심해</option>
+              <option value="merchant_ship">🚢 상선</option>
+              <option value="greek_agora">🏛 그리스 아고라</option>
+              <option value="camelot">⚔ 카멜롯</option>
+              <option value="oriental_palace">🏯 동양 궁전</option>
+              <option value="heavenly_clouds">☁ 천상의 구름</option>
+              <option value="cosmic_realm">🌌 우주의 영역</option>
             </select>
-            <button id="btn-create-quest">📍 Set Waypoint</button>
+            <button id="btn-create-quest">📍 경유지 설정</button>
           </div>
         </div>
         <!-- §MESH-01g: hireling guide bot — single-player companion (daily fee, extra
              attacker die, "follow me" auto-travel to the active quest). -->
         <div id="hireling-section">
-          <div class="quest-section-hd">🧭 Hired Guide</div>
+          <div class="quest-section-hd">🧭 고용한 안내인</div>
           <div id="hireling-body"></div>
         </div>
         <!-- §MESH-01h: sentry bots — server-owned guards posted at a junction that
              suppress encounters + auto-assist any battle in their cell. -->
         <div id="sentry-section">
-          <div class="quest-section-hd">🛡 Sentries</div>
+          <div class="quest-section-hd">🛡 파수꾼</div>
           <div id="sentry-body"></div>
         </div>
       </div>
@@ -4469,8 +4468,8 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
       <!-- ── Sheet: Character ── -->
       <div id="sheet-character" class="story-sheet">
         <div id="char-sheet-header">
-          <span id="char-sheet-title">👤 Character</span>
-          <button id="btn-char-close">✕ Close</button>
+          <span id="char-sheet-title">👤 캐릭터</span>
+          <button id="btn-char-close">✕ 닫기</button>
         </div>
         <div id="char-sheet-body"></div>
       </div>
@@ -4478,8 +4477,8 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
       <!-- ── Sheet: Journal Browse ── -->
       <div id="sheet-journal" class="story-sheet">
         <div id="sheet-journal-hd">
-          <span>📖 Froberger's Journal — <span id="jov-count">0/17</span> entries found</span>
-          <button id="btn-journal-sheet-close">✕ Close [J]</button>
+          <span>📖 프로베르거의 일지 — <span id="jov-count">0/17</span> 개 항목 발견</span>
+          <button id="btn-journal-sheet-close">✕ 닫기 [J]</button>
         </div>
         <div id="jov-entry-list"></div>
       </div>
@@ -4487,154 +4486,143 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
       <!-- ── Sheet: World Map ── -->
       <div id="sheet-map" class="story-sheet">
         <div id="sheet-map-hd">
-          <span id="map-title">🗺 Maps</span>
-          <button id="btn-map-sheet-close">✕ Close [M]</button>
+          <span id="map-title">🗺 지도</span>
+          <button id="btn-map-sheet-close">✕ 닫기 [M]</button>
         </div>
         <!-- §MESH-02b: Map-sheet sub-tabs — Connect/Discover/Lists panes filled by §MESH-02 c/d/e -->
         <div id="map-subtab-bar">
-          <button class="map-subtab msub-active" data-msub="msub-map"><span class="st-icon">🗺</span> Local</button>
-          <button class="map-subtab" data-msub="msub-world"><span class="st-icon">🌍</span> World</button>
-          <button class="map-subtab" data-msub="msub-full"><span class="st-icon">🛰</span> Full</button>
-          <button class="map-subtab" data-msub="msub-connect"><span class="st-icon">🌐</span> Multiplayer</button>
-          <button class="map-subtab" data-msub="msub-discover"><span class="st-icon">🔭</span> Discover</button>
-          <button class="map-subtab" data-msub="msub-lists"><span class="st-icon">🛡</span> Lists</button>
+          <button class="map-subtab msub-active" data-msub="msub-map"><span class="st-icon">🗺</span> 주변</button>
+          <button class="map-subtab" data-msub="msub-world"><span class="st-icon">🌍</span> 월드</button>
+          <button class="map-subtab" data-msub="msub-full"><span class="st-icon">🛰</span> 전체</button>
+          <button class="map-subtab" data-msub="msub-connect"><span class="st-icon">🌐</span> 멀티플레이</button>
+          <button class="map-subtab" data-msub="msub-discover"><span class="st-icon">🔭</span> 찾기</button>
+          <button class="map-subtab" data-msub="msub-lists"><span class="st-icon">🛡</span> 목록</button>
         </div>
         <div id="msub-map" class="map-subpane msub-active">
         <div id="map-main-area">
           <div id="map-grid"></div>
         </div>
-        <div id="map-node-info">Click any tile to travel there. Hover to see its name.</div>
+        <div id="map-node-info">타일을 클릭하면 그곳으로 이동합니다. 이름은 마우스를 올리면 보입니다.</div>
         </div><!-- /msub-map -->
         <div id="msub-world" class="map-subpane">
           <!-- §MP-MAPTABS: player-centered regional overview (61×41 window), responsive + click-to-travel -->
-          <div id="world-tab-hd" class="maptab-hd">🌍 REGIONAL WORLD — <span style="color:#ff5030">■ you</span> · click any tile to travel</div>
+          <div id="world-tab-hd" class="maptab-hd">🌍 지역 월드 — <span style="color:#ff5030">■ 나</span> · 타일을 클릭해 이동</div>
           <div id="world-tab-wrap"><canvas id="world-tab-canvas" width="600" height="400" title="Click a tile to travel"></canvas></div>
         </div><!-- /msub-world -->
         <div id="msub-full" class="map-subpane">
           <!-- §MP-MAPTABS: the whole world (rows 0–89 × cols 140–255), responsive + click-to-travel -->
-          <div id="full-map-hd" class="maptab-hd">🛰 FULL WORLD — <span style="color:#e0c040">▭ world panel</span> · <span style="color:#ffd700">▭ local map</span> · <span style="color:#ff5030">■ you</span> · click any tile to travel</div>
+          <div id="full-map-hd" class="maptab-hd">🛰 전체 월드 — <span style="color:#e0c040">▭ 월드 패널</span> · <span style="color:#ffd700">▭ 주변 지도</span> · <span style="color:#ff5030">■ 나</span> · 타일을 클릭해 이동</div>
           <div id="full-map-wrap"><canvas id="full-map-canvas" width="464" height="360" title="Click a tile to travel"></canvas></div>
         </div><!-- /msub-full -->
         <div id="msub-connect" class="map-subpane">
           <!-- §MESH-02c: status card + connect controls; reuses mpToggle/mpJoin/mpResolveMagnet -->
           <div id="mc-status-card">
-            <div><span class="mc-k">Server</span><span id="mc-server">—</span></div>
-            <div><span class="mc-k">Status</span><span id="mc-state">🔴 not connected</span></div>
-            <div><span class="mc-k">World</span><span id="mc-world">—</span></div>
-            <div><span class="mc-k">Build</span><span id="mc-build">—</span></div>
+            <div><span class="mc-k">서버</span><span id="mc-server">—</span></div>
+            <div><span class="mc-k">상태</span><span id="mc-state">🔴 연결 안 됨</span></div>
+            <div><span class="mc-k">월드</span><span id="mc-world">—</span></div>
+            <div><span class="mc-k">빌드</span><span id="mc-build">—</span></div>
           </div>
-          <div class="mp-hint">Paste a server (<code>host:port</code> or URL) or a friend's magnet (<code>coc:?…</code>).
-            Connect joins a server directly; Find servers asks a tracker for same-world servers.
-            Joining only sets your multiplayer server — it never changes your game.</div>
+          <div class="mp-hint">서버(<code>호스트:포트</code> 또는 URL) 또는 친구의 마그넷(<code>coc:?…</code>)을 붙여넣으세요. Connect는 서버에 바로 접속하고, Find servers는 트래커에서 같은 월드의 서버를 찾습니다. 접속은 멀티플레이 서버만 설정할 뿐 게임 데이터는 바뀌지 않습니다.</div>
           <input id="mc-server-input" placeholder="http://host:1367  ·  host:1367  ·  coc:?p=…&amp;wh=…&amp;tr=…"
                  onkeydown="if(event.key==='Enter')mcConnect()">
           <div style="display:flex;gap:8px;flex-wrap:wrap">
-            <button id="mc-btn-connect" onclick="mcConnect()">🔌 Connect</button>
-            <button id="mc-btn-find" onclick="mcFind()">🔭 Find servers</button>
-            <button id="mc-btn-disconnect" onclick="mcDisconnect()">✕ Disconnect</button>
+            <button id="mc-btn-connect" onclick="mcConnect()">🔌 접속</button>
+            <button id="mc-btn-find" onclick="mcFind()">🔭 서버 찾기</button>
+            <button id="mc-btn-disconnect" onclick="mcDisconnect()">✕ 연결 해제</button>
           </div>
           <div id="mc-note" class="mp-hint"></div>
           <div id="mc-server-rows"></div>
 
           <!-- §MP-MAP: presence toggle + who's-here -->
-          <div class="mp-section-hd">📢 Presence</div>
+          <div class="mp-section-hd">📢 위치 공개</div>
           <label class="mp-adv-row"><input type="checkbox" id="mp-advertise-cb" checked onchange="mpSetAdvertise(this.checked)">
-            <span>Advertise my position</span>
-            <span class="mp-hint" style="margin-left:auto">off = you stop moving on others' maps</span></label>
-          <div id="mp-map-presence" class="mp-map-presence">Not connected.</div>
+            <span>내 위치 알리기</span>
+            <span class="mp-hint" style="margin-left:auto">끔 = 다른 사람 지도에서 내 움직임이 멈춤</span></label>
+          <div id="mp-map-presence" class="mp-map-presence">연결되지 않았습니다.</div>
 
           <!-- §MP-MAP: local + world chat -->
-          <div class="mp-section-hd">💬 Chat</div>
+          <div class="mp-section-hd">💬 채팅</div>
           <div id="mp-chat-scope-bar">
-            <button class="mp-scope-btn mp-scope-active" data-scope="local" onclick="mpChatScope('local')">📍 Local</button>
-            <button class="mp-scope-btn" data-scope="world" onclick="mpChatScope('world')">🌍 World</button>
+            <button class="mp-scope-btn mp-scope-active" data-scope="local" onclick="mpChatScope('local')">📍 주변</button>
+            <button class="mp-scope-btn" data-scope="world" onclick="mpChatScope('world')">🌍 월드</button>
           </div>
           <div id="mp-map-chat-list" class="mp-map-chat-list"></div>
           <input id="mp-map-chat-input" placeholder="say to the room… (Enter)" maxlength="500"
                  onkeydown="if(event.key==='Enter')mpSayMap();else if(event.key==='Escape')mpDmTo(null)">
-          <div class="mp-hint">Local = players within ~10 cells of you · World = everyone. Chat is never saved to your
-            game — it lives in your browser cache (last 200 lines, oldest dropped first). ✉ beside a player sends a
-            private line that only their browser can open.</div>
+          <div class="mp-hint">주변 = 내 주변 약 10칸 안의 플레이어 · 월드 = 전원. 채팅은 게임에 저장되지 않고 브라우저 캐시에만 남습니다(최근 200줄, 오래된 것부터 삭제). 플레이어 옆의 ✉를 누르면 그 사람의 브라우저에서만 열리는 비공개 메시지를 보냅니다.</div>
         </div>
         <div id="msub-discover" class="map-subpane">
           <!-- §MESH-02d: local port scan (D6) · tracker/magnet resolve · server-list sources (D4) -->
-          <div class="mp-hint">Find servers three ways: scan this machine's ports (1360–1380), ask a tracker
-            or magnet, or load a server list from a URL. A source marked <b>auto</b> loads when this pane
-            opens — but only if its host is on your whitelist (🛡 Lists). Joining never changes your game.</div>
+          <div class="mp-hint">서버를 찾는 세 가지 방법: 이 기기의 포트(1360–1380) 스캔, 트래커나 마그넷 조회, URL에서 서버 목록 불러오기. 다음 표시가 된 소스: <b>자동</b> 는 이 창을 열 때 자동으로 불러옵니다 — 단, 호스트가 허용 목록(🛡 목록)에 있을 때만. 접속해도 게임 데이터는 바뀌지 않습니다.</div>
           <input id="md-find-input" placeholder="tracker / server URL  ·  host:port  ·  coc:?…"
                  onkeydown="if(event.key==='Enter')mdFind()">
           <div style="display:flex;gap:8px;flex-wrap:wrap">
-            <button id="md-btn-scan" onclick="mdScanLocal()">🖥 Scan this machine</button>
-            <button id="md-btn-find" onclick="mdFind()">🔭 Find servers</button>
+            <button id="md-btn-scan" onclick="mdScanLocal()">🖥 이 기기 스캔</button>
+            <button id="md-btn-find" onclick="mdFind()">🔭 서버 찾기</button>
           </div>
           <div id="md-note" class="mp-hint"></div>
           <div id="md-server-rows"></div>
-          <div class="md-sec-hd">📜 SERVER-LIST SOURCES</div>
+          <div class="md-sec-hd">📜 서버 목록 소스</div>
           <input id="md-source-input" placeholder="https://example.com/servers.txt  — host:port / URL / coc:?… per line, or a JSON array"
                  onkeydown="if(event.key==='Enter')mdAddSource()">
           <div style="display:flex;gap:8px;flex-wrap:wrap">
-            <button id="md-btn-addsrc" onclick="mdAddSource()">＋ Add source</button>
+            <button id="md-btn-addsrc" onclick="mdAddSource()">＋ 소스 추가</button>
           </div>
           <div id="md-source-rows"></div>
         </div>
         <div id="msub-lists" class="map-subpane">
           <!-- §MESH-02e: client quick-lists · server ACL editor · peer blocklist preview→merge (D2/D3) -->
-          <div class="mp-hint">Quick-lists live in this browser and shape what you see and join. The server ACL
-            is the mesh gate itself, edited on your own server. A friend's shared blocklist is fetched,
-            previewed, and merged only when you click — never auto-imported.</div>
-          <div class="md-sec-hd">🚫 MY BLACKLIST</div>
-          <div class="mp-hint">Hidden from every server list; Join refuses them. Entries: <code>host:port</code>, serverId, or world hash.</div>
+          <div class="mp-hint">빠른 목록은 이 브라우저에 저장되며 보이는 것과 접속 대상을 결정합니다. 서버 ACL은 메시 게이트 그 자체로, 자신의 서버에서 편집합니다. 친구가 공유한 차단 목록은 가져와서 미리 보고, 클릭할 때만 병합됩니다 — 자동으로 가져오지 않습니다.</div>
+          <div class="md-sec-hd">🚫 내 차단 목록</div>
+          <div class="mp-hint">모든 서버 목록에서 숨기고 접속을 거부합니다. 항목: <code>호스트:포트</code>, serverId 또는 월드 해시.</div>
           <input id="ml-black-input" placeholder="host:port · serverId · world hash"
                  onkeydown="if(event.key==='Enter')mlAddEntry('black')">
-          <div style="display:flex;gap:8px;flex-wrap:wrap"><button id="ml-black-add" onclick="mlAddEntry('black')">＋ Add</button></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap"><button id="ml-black-add" onclick="mlAddEntry('black')">＋ 추가</button></div>
           <div id="ml-black-rows"></div>
-          <div class="md-sec-hd">✅ MY WHITELIST</div>
-          <div class="mp-hint">Hosts trusted to auto-load server-list sources in 🔭 Discover. Entries: <code>host</code> or <code>host:port</code>.</div>
+          <div class="md-sec-hd">✅ 내 허용 목록</div>
+          <div class="mp-hint">🔭 찾기에서 서버 목록 소스를 자동으로 불러올 신뢰 호스트. 항목: <code>호스트</code> 또는 <code>호스트:포트</code>.</div>
           <input id="ml-white-input" placeholder="host · host:port"
                  onkeydown="if(event.key==='Enter')mlAddEntry('white')">
-          <div style="display:flex;gap:8px;flex-wrap:wrap"><button id="ml-white-add" onclick="mlAddEntry('white')">＋ Add</button></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap"><button id="ml-white-add" onclick="mlAddEntry('white')">＋ 추가</button></div>
           <div id="ml-white-rows"></div>
-          <div class="md-sec-hd">🛡 SERVER ACL (mesh-acl.json)</div>
+          <div class="md-sec-hd">🛡 서버 ACL (mesh-acl.json)</div>
           <div id="ml-acl-note" class="mp-hint"></div>
           <div id="ml-acl-editor" style="display:none">
             <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
-              <label>mode
+              <label>모드
                 <select id="ml-acl-mode">
-                  <option value="open">open</option>
-                  <option value="allowlist">allowlist</option>
+                  <option value="open">개방</option>
+                  <option value="allowlist">허용 목록</option>
                 </select></label>
-              <label><input type="checkbox" id="ml-acl-share"> share my blocklist</label>
-              <button id="ml-acl-save" onclick="mlAclSave()">💾 Save to server</button>
+              <label><input type="checkbox" id="ml-acl-share"> 내 차단 목록 공유</label>
+              <button id="ml-acl-save" onclick="mlAclSave()">💾 서버에 저장</button>
             </div>
             <div id="ml-acl-grid">
-              <label>block serverIds<textarea id="ml-acl-blockServerIds" placeholder="one per line"></textarea></label>
-              <label>block IPs<textarea id="ml-acl-blockIps" placeholder="one per line"></textarea></label>
-              <label>block world hashes<textarea id="ml-acl-blockWorldHashes" placeholder="one per line"></textarea></label>
-              <label>allow serverIds<textarea id="ml-acl-allowServerIds" placeholder="one per line"></textarea></label>
-              <label>allow IPs<textarea id="ml-acl-allowIps" placeholder="one per line"></textarea></label>
-              <label>allow world hashes<textarea id="ml-acl-allowWorldHashes" placeholder="one per line"></textarea></label>
-              <label>trusted pack authors<textarea id="ml-acl-allowAuthors" placeholder="one public key per line"></textarea></label>
+              <label>serverId 차단<textarea id="ml-acl-blockServerIds" placeholder="one per line"></textarea></label>
+              <label>IP 차단<textarea id="ml-acl-blockIps" placeholder="one per line"></textarea></label>
+              <label>월드 해시 차단<textarea id="ml-acl-blockWorldHashes" placeholder="one per line"></textarea></label>
+              <label>serverId 허용<textarea id="ml-acl-allowServerIds" placeholder="one per line"></textarea></label>
+              <label>IP 허용<textarea id="ml-acl-allowIps" placeholder="one per line"></textarea></label>
+              <label>월드 해시 허용<textarea id="ml-acl-allowWorldHashes" placeholder="one per line"></textarea></label>
+              <label>신뢰하는 팩 제작자<textarea id="ml-acl-allowAuthors" placeholder="one public key per line"></textarea></label>
             </div>
-            <div class="mp-hint">A quest pack signed by a trusted author is accepted as soon as it is fetched, and it still has to pass review before it lands.</div>
+            <div class="mp-hint">신뢰하는 제작자가 서명한 퀘스트 팩은 가져오는 즉시 수락되며, 적용 전에 검토를 통과해야 합니다.</div>
             <div id="ml-acl-save-note" class="mp-hint"></div>
           </div>
-          <div class="md-sec-hd">📥 A FRIEND'S SHARED BLOCKLIST</div>
-          <div class="mp-hint">Fetch a peer's published blocklist (sharing is their opt-in), preview the counts,
-            then merge into <b>your</b> blacklist — only on your click.</div>
+          <div class="md-sec-hd">📥 친구가 공유한 차단 목록</div>
+          <div class="mp-hint">상대가 공개한 차단 목록(공유는 상대의 선택)을 가져와 개수를 확인한 뒤 다음에 병합: <b>내</b> 차단 목록 — 클릭할 때만 병합됩니다.</div>
           <input id="ml-peer-input" placeholder="http://host:port  ·  host:port"
                  onkeydown="if(event.key==='Enter')mlPeerFetch()">
-          <div style="display:flex;gap:8px;flex-wrap:wrap"><button id="ml-peer-fetch" onclick="mlPeerFetch()">📥 Fetch</button></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap"><button id="ml-peer-fetch" onclick="mlPeerFetch()">📥 가져오기</button></div>
           <div id="ml-peer-note" class="mp-hint"></div>
           <div id="ml-peer-preview"></div>
-          <div class="md-sec-hd">🔑 MOVE THIS CHARACTER TO ANOTHER BROWSER</div>
-          <div class="mp-hint">A character's trade identity is a key that never leaves the browser that made it.
-            In the new browser, load the save and press Request; in the old one, paste that code and press Authorize;
-            back in the new one, paste the answer and press Accept.</div>
+          <div class="md-sec-hd">🔑 이 캐릭터를 다른 브라우저로 옮기기</div>
+          <div class="mp-hint">캐릭터의 거래 신원은 만든 브라우저를 떠나지 않는 키입니다. 새 브라우저에서 세이브를 불러오고 Request를 누르고, 이전 브라우저에서 그 코드를 붙여넣고 Authorize를 누른 뒤, 다시 새 브라우저에서 답을 붙여넣고 Accept를 누르세요.</div>
           <textarea id="ml-xfer-code" placeholder="paste a codex-req1. or codex-xfer1. code"></textarea>
           <div style="display:flex;gap:8px;flex-wrap:wrap">
-            <button onclick="mlTransfer('request')">📋 Request</button>
-            <button onclick="mlTransfer('authorize')">✍ Authorize</button>
-            <button onclick="mlTransfer('accept')">✅ Accept</button>
+            <button onclick="mlTransfer('request')">📋 요청</button>
+            <button onclick="mlTransfer('authorize')">✍ 승인</button>
+            <button onclick="mlTransfer('accept')">✅ 수락</button>
           </div>
           <div id="ml-xfer-note" class="mp-hint"></div>
         </div>
@@ -4652,19 +4640,19 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
 
     <!-- Navigate -->
     <div class="bot-section" id="bot-nav">
-      <div class="bot-section-hd">NAVIGATE</div>
+      <div class="bot-section-hd">이동</div>
       <div class="bot-section-body">
-        <button id="btn-inventory">📦 Inventory [I]</button>
-        <button id="btn-quest">📋 Quests [Q] <span id="s-quest-count"></span></button>
-        <button id="btn-story-map">🗺 Map [M]</button>
-        <button id="btn-character">👤 Character</button>
-        <button id="btn-journal-browse">📖 Journal <span id="s-journal-count"></span></button>
+        <button id="btn-inventory">📦 인벤토리 [I]</button>
+        <button id="btn-quest">📋 퀘스트 [Q] <span id="s-quest-count"></span></button>
+        <button id="btn-story-map">🗺 지도 [M]</button>
+        <button id="btn-character">👤 캐릭터</button>
+        <button id="btn-journal-browse">📖 일지 <span id="s-journal-count"></span></button>
       </div>
     </div>
 
     <!-- Compass -->
     <div class="bot-section" id="bot-compass">
-      <div class="bot-section-hd">COMPASS</div>
+      <div class="bot-section-hd">나침반</div>
       <div class="bot-section-body" style="display:flex;align-items:center;justify-content:center;flex:1">
         <div id="story-nav-left">
           <div id="story-dpad">
@@ -4684,10 +4672,10 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
 
     <!-- Local Map -->
     <div class="bot-section" id="bot-local">
-      <div class="bot-section-hd">LOCAL</div>
+      <div class="bot-section-hd">주변</div>
       <div class="bot-section-body" style="display:flex;align-items:center;justify-content:center;flex:1;padding:4px">
         <div id="story-mini-map">
-          <div id="mini-map-title" style="display:none">LOCAL</div>
+          <div id="mini-map-title" style="display:none">주변</div>
           <div id="mini-map-grid"></div>
         </div>
       </div>
@@ -4695,10 +4683,10 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
 
     <!-- World Map -->
     <div class="bot-section" id="bot-world">
-      <div class="bot-section-hd">WORLD</div>
+      <div class="bot-section-hd">월드</div>
       <div class="bot-section-body" style="display:flex;align-items:center;justify-content:center;flex:1;padding:4px">
         <div id="story-world-map">
-          <div id="world-map-title" style="display:none">◉ WORLD MAP</div>
+          <div id="world-map-title" style="display:none">◉ 월드 지도</div>
           <div id="world-map-grid"></div>
           <div id="world-map-legend"></div>
         </div>
@@ -4707,7 +4695,7 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
 
     <!-- Globe — the ENTIRE world (§NAV-01e) -->
     <div class="bot-section" id="bot-globe">
-      <div class="bot-section-hd">GLOBE</div>
+      <div class="bot-section-hd">전구</div>
       <div class="bot-section-body" style="display:flex;align-items:center;justify-content:center;flex:1;padding:4px">
         <canvas id="globe-map-canvas" width="232" height="180" style="cursor:pointer" title="Click anywhere to travel there"></canvas>
       </div>
@@ -4715,10 +4703,10 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
 
     <!-- Exits -->
     <div class="bot-section" id="bot-exits">
-      <div class="bot-section-hd">EXITS</div>
+      <div class="bot-section-hd">출구</div>
       <div class="bot-section-body" style="flex:1;padding:6px 8px">
         <div id="story-nsew">
-          <div id="nsew-title" style="display:none">EXITS</div>
+          <div id="nsew-title" style="display:none">출구</div>
           <div class="exit-line" id="exit-N"></div>
           <div class="exit-line" id="exit-E"></div>
           <div class="exit-line" id="exit-W"></div>
@@ -4733,7 +4721,7 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
 
     <!-- Combat Log -->
     <div id="story-bottom-log">
-      <div id="story-history-title">Combat Log</div>
+      <div id="story-history-title">전투 기록</div>
       <div id="story-hcard-container"></div>
     </div>
 
@@ -4744,26 +4732,26 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
   <!-- ── Void Tide modal (Layer 5) ── -->
   <div id="story-void-modal">
     <div id="void-card">
-      <div id="void-hd">⚠ Void Tide Event</div>
+      <div id="void-hd">⚠ 공허의 물결 사건</div>
       <div id="void-day-badge"></div>
       <div id="void-title"></div>
       <div id="void-text"></div>
-      <button id="btn-void-close">Acknowledge →</button>
+      <button id="btn-void-close">확인 →</button>
     </div>
   </div>
 
   <!-- ── Outcome modal (Layer 4) ── -->
   <div id="story-outcome-modal">
     <div id="outcome-card">
-      <div id="outcome-hd">⚔ Battle Outcome</div>
+      <div id="outcome-hd">⚔ 전투 결과</div>
       <div id="outcome-enemy-name"></div>
       <div class="outcome-field">
-        <label>HP remaining:</label>
+        <label>남은 HP:</label>
         <input type="number" id="outcome-hp-input" min="0" max="999" value="30">
       </div>
       <div id="outcome-actions">
-        <button id="btn-outcome-win">Victory! Apply HP →</button>
-        <button id="btn-outcome-retreat">Retreat (no defeat)</button>
+        <button id="btn-outcome-win">승리! HP 적용 →</button>
+        <button id="btn-outcome-retreat">후퇴 (패배 아님)</button>
       </div>
     </div>
   </div>
@@ -4771,10 +4759,10 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
   <!-- ── NPC Dialogue modal ── -->
   <div id="story-npc-modal">
     <div id="npc-card">
-      <div id="npc-card-hd">🧙 NPC — Dialogue Hook</div>
+      <div id="npc-card-hd">🧙 NPC — 대화 갈고리</div>
       <div id="npc-card-name"></div>
       <div id="npc-card-text"></div>
-      <button id="btn-npc-close">Continue →</button>
+      <button id="btn-npc-close">계속 →</button>
     </div>
   </div>
 
@@ -4783,28 +4771,28 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
   <!-- ── Journal modal (Layer 3) ── -->
   <div id="story-journal-modal">
     <div id="journal-card">
-      <div id="journal-entry-hd">📔 Froberger's Journal</div>
+      <div id="journal-entry-hd">📔 프로베르거의 일지</div>
       <div id="journal-text"></div>
-      <div id="journal-must-tag">— Sweelinck knew you were coming before Froberger died. Read this aloud.</div>
-      <button id="btn-journal-close">Continue →</button>
+      <div id="journal-must-tag">— Sweelinck은 프로베르거가 죽기 전부터 당신이 올 것을 알고 있었습니다. 이것을 소리 내어 읽으세요.</div>
+      <button id="btn-journal-close">계속 →</button>
     </div>
   </div>
 
   <!-- ── Yugurt Lake — Fishing Modal ── -->
   <div id="story-fishing-modal">
     <div id="fishing-card">
-      <div id="fishing-card-hd">🎣 Yugurt Lake — Cast Your Line</div>
-      <div id="fishing-lake-text">Still water. Something large moves below. The rod is ready.</div>
+      <div id="fishing-card-hd">🎣 유구르트 호수 — 낚싯줄 던지기</div>
+      <div id="fishing-lake-text">잔잔한 물. 아래에서 무언가 큰 것이 움직입니다. 낚싯대는 준비됐습니다.</div>
       <div id="fishing-roll-result" style="display:none"></div>
       <div id="fishing-fish-reveal" style="display:none"></div>
       <div id="fishing-zone-dcs" style="font-size:11px;color:#1A3040;padding:3px 8px;margin-bottom:4px;"></div>
       <div id="fishing-bait-status" style="display:none;font-size:12px;color:#6090b0;padding:5px 8px;background:#030e18;border-radius:4px;border:1px solid #1a3a4a;margin-bottom:6px;"></div>
       <div id="fishing-bait-search" style="display:none;flex-direction:column;gap:5px;margin-bottom:6px;"></div>
       <div id="fishing-card-actions">
-        <button id="btn-fishing-abandon">Leave Lake</button>
-        <button id="btn-fishing-findbait" style="padding:7px 12px;border-radius:4px;border:1px solid #1a4a3a;background:transparent;color:#406050;font-size:12px;font-weight:600;cursor:pointer;">🌿 Find Bait</button>
-        <button id="btn-fishing-recast" style="display:none">🎣 Throw Back</button>
-        <button id="btn-fishing-cast">🎣 Cast Line</button>
+        <button id="btn-fishing-abandon">호수 떠나기</button>
+        <button id="btn-fishing-findbait" style="padding:7px 12px;border-radius:4px;border:1px solid #1a4a3a;background:transparent;color:#406050;font-size:12px;font-weight:600;cursor:pointer;">🌿 미끼 찾기</button>
+        <button id="btn-fishing-recast" style="display:none">🎣 놓아주기</button>
+        <button id="btn-fishing-cast">🎣 낚싯줄 던지기</button>
       </div>
     </div>
   </div>
@@ -4813,7 +4801,7 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
   <!-- ── Epic Battleground NPC negotiation modal (Layer 39) ── -->
   <div id="story-eb-npc-modal">
     <div id="eb-npc-card">
-      <div id="eb-npc-card-hd">🗡 EPIC QUEST</div>
+      <div id="eb-npc-card-hd">🗡 에픽 퀘스트</div>
       <div id="eb-npc-name-row">
         <span id="eb-npc-name"></span>
         <span id="eb-npc-occupation"></span>
@@ -4821,12 +4809,12 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
       <div id="eb-npc-wound"></div>
       <div id="eb-npc-opening"></div>
       <div id="eb-npc-boss-row">
-        <span id="eb-npc-boss-tier">⚠ DEADLY</span>
+        <span id="eb-npc-boss-tier">⚠ 치명적</span>
         <span id="eb-npc-boss-name"></span>
       </div>
       <div id="eb-npc-warning"></div>
       <div id="eb-npc-payment-section">
-        <div id="eb-npc-payment-label">Payment offered:</div>
+        <div id="eb-npc-payment-label">제안된 보수:</div>
         <div id="eb-npc-payment-amount"></div>
         <div id="eb-npc-negotiate-line" style="display:none"></div>
       </div>
@@ -4835,12 +4823,12 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
         <div id="eb-npc-anger-text"></div>
         <div id="eb-npc-calm-text"></div>
         <div id="eb-npc-damage-text"></div>
-        <button id="btn-eb-npc-anger-continue">He's Fine — Continue →</button>
+        <button id="btn-eb-npc-anger-continue">괜찮습니다 — 계속 →</button>
       </div>
       <div id="eb-npc-actions">
-        <button id="btn-eb-npc-cancel">✕ Walk Away</button>
-        <button id="btn-eb-npc-negotiate">🤝 Negotiate</button>
-        <button id="btn-eb-npc-accept">💰 Accept</button>
+        <button id="btn-eb-npc-cancel">✕ 자리를 뜨기</button>
+        <button id="btn-eb-npc-negotiate">🤝 협상</button>
+        <button id="btn-eb-npc-accept">💰 수락</button>
       </div>
     </div>
   </div>
@@ -4848,11 +4836,11 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
   <!-- ── Continue modal (Layer 6) ── -->
   <div id="story-continue-modal">
     <div id="continue-card">
-      <div id="continue-hd">⚔ The Shattered Codex</div>
+      <div id="continue-hd">⚔ 산산조각 난 코덱스</div>
       <div id="continue-sub"></div>
       <div id="continue-actions">
-        <button id="btn-continue-load">▶ Continue Journey</button>
-        <button id="btn-continue-new">New Game</button>
+        <button id="btn-continue-load">▶ 여정 계속</button>
+        <button id="btn-continue-new">새 게임</button>
       </div>
     </div>
   </div>
@@ -4860,37 +4848,33 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
   <!-- ── §PLAY-01-A The Courier's Map — one-time opening frame (courier's voice) ── -->
   <div id="story-courier-modal">
     <div id="courier-card">
-      <div id="courier-hd">🗺 A Map Pressed Into Your Hand</div>
+      <div id="courier-hd">🗺 손에 쥐여진 지도</div>
       <div id="courier-body">
-        A young man in a brown courier's satchel rounds the corner too fast and collapses at your feet,
-        his coat dark with blood. He folds a stained map into your hand and says one word before his eyes
-        close: <em>"Sweelinck."</em><br><br>
-        The map shows four towns and seven symbols in faded ink. He found six of the seven Codex Shards and
-        died carrying the last leg. <em>The map had to reach someone. That someone is you.</em> Finish what
-        the courier could not:
+        갈색 전령 가방을 멘 청년이 모퉁이를 너무 빨리 돌아 나오다 당신의 발밑에 쓰러집니다. 외투가 피로 검게 물들어 있습니다. 그는 얼룩진 지도를 당신의 손에 쥐여주고 눈이 감기기 전 한 마디를 남깁니다: <em>"Sweelinck."</em><br><br>
+        지도에는 네 개의 마을과 바랜 잉크로 그린 일곱 개의 기호가 있습니다. 그는 일곱 개의 코덱스 조각 중 여섯을 찾았고, 마지막 조각을 운반하다 쓰러졌습니다. <em>지도는 반드시 누군가에게 닿아야 했습니다. 그 누군가가 바로 당신입니다.</em> 전령이 이루지 못한 것을 끝내세요:
       </div>
       <div id="courier-goals">
-        <div><span class="cg-icon">🔮</span> Recover all <b>7 Codex Shards</b> — the seven faded symbols.</div>
-        <div><span class="cg-icon">⭐</span> Grow strong enough to face what guards them — <b>reach Level 20</b>.</div>
-        <div><span class="cg-icon">⚔</span> Defeat <b>Commander Auros</b> at the Codex and seal the Void.</div>
-        <div><span class="cg-icon">☀</span> Take the <b>time you need</b> — the seals will hold a long while yet. The Void gains only slowly, and only while you sleep; it will not rush you.</div>
+        <div><span class="cg-icon">🔮</span> 전부 회수 <b>7개의 코덱스 조각</b> — 바랜 일곱 개의 기호.</div>
+        <div><span class="cg-icon">⭐</span> 그것을 지키는 존재와 맞설 만큼 강해지세요 — <b>레벨 20 달성</b>.</div>
+        <div><span class="cg-icon">⚔</span> 격파 <b>사령관 아우로스</b> 를 코덱스에서 물리치고 공허를 봉인하세요.</div>
+        <div><span class="cg-icon">☀</span> 시간은 <b>필요한 만큼 쓰세요</b> — 봉인은 아직 오래 버틸 것입니다. 공허는 당신이 잠든 동안에만 아주 서서히 커질 뿐, 당신을 재촉하지 않습니다.</div>
       </div>
-      <button id="btn-courier-begin">Take the map →</button>
+      <button id="btn-courier-begin">지도 받기 →</button>
     </div>
   </div>
 
   <!-- ── Character Creation modal ── -->
   <div id="story-charcreate-modal">
     <div id="charcreate-card">
-      <div id="charcreate-hd">⚔ Choose Your Origin</div>
-      <div id="charcreate-sub">Your tattoos record every level-up decision.<br>They outlive you — the body remembers.</div>
+      <div id="charcreate-hd">⚔ 출신 선택</div>
+      <div id="charcreate-sub">당신의 문신은 모든 레벨업 선택을 기록합니다.<br>그것은 당신보다 오래 남습니다 — 몸이 기억합니다.</div>
       <div id="charcreate-tabs">
-        <button class="cc-tab active" data-mode="custom">🎨 Custom Build</button>
-        <button class="cc-tab" data-mode="hard">💀 Hard Mode</button>
+        <button class="cc-tab active" data-mode="custom">🎨 커스텀 빌드</button>
+        <button class="cc-tab" data-mode="hard">💀 하드 모드</button>
       </div>
       <div id="cc-custom-panel">
-        <div id="cc-budget-row">Build points: <span id="cc-pts-left">27</span> / 27</div>
-        <button id="cc-std-array" class="cc-tab">📐 Standard Array — 15 · 14 · 13 · 12 · 10 · 8</button>
+        <div id="cc-budget-row">빌드 포인트: <span id="cc-pts-left">27</span> / 27</div>
+        <button id="cc-std-array" class="cc-tab">📐 표준 배열 — 15 · 14 · 13 · 12 · 10 · 8</button>
         <div id="cc-stat-grid">
           <div class="cc-stat-row" data-stat="str">
             <span class="cc-stat-lbl">STR</span>
@@ -4935,26 +4919,26 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
             <span class="cc-stat-mod" id="cc-mod-cha">−1</span>
           </div>
         </div>
-        <div id="cc-cost-note">Max 15 per stat · costs: 9→1, 10→2, 11→3, 12→4, 13→5, 14→7, 15→9</div>
+        <div id="cc-cost-note">능력치당 최대 15 · 비용: 9→1, 10→2, 11→3, 12→4, 13→5, 14→7, 15→9</div>
       </div>
       <div id="cc-hard-panel" style="display:none">
         <div id="cc-hard-scores">STR 10 · DEX 8 · CON 8<br>INT 8 · WIS 8 · CHA 8</div>
-        <div id="cc-hard-flavor">"Begin with nothing. Every tattoo is earned."</div>
+        <div id="cc-hard-flavor">"아무것도 없이 시작한다. 모든 문신은 쟁취하는 것이다."</div>
       </div>
-      <button id="btn-charcreate-begin">Begin Journey →</button>
+      <button id="btn-charcreate-begin">여정 시작 →</button>
     </div>
   </div>
 
   <!-- ── Game Over modal (Layer 6) ── -->
   <div id="story-gameover-modal">
     <div id="gameover-card">
-      <div id="gameover-hd">☠ You Have Fallen</div>
-      <div id="gameover-sub">The Void claims another soul.</div>
+      <div id="gameover-hd">☠ 쓰러졌습니다</div>
+      <div id="gameover-sub">공허가 또 하나의 영혼을 거둬갔습니다.</div>
       <div id="gameover-cp"></div>
       <div id="gameover-chronicle"></div>
       <div id="gameover-actions">
-        <button id="btn-gameover-respawn">↩ Respawn at Checkpoint</button>
-        <button id="btn-gameover-new">New Game</button>
+        <button id="btn-gameover-respawn">↩ 체크포인트에서 부활</button>
+        <button id="btn-gameover-new">새 게임</button>
       </div>
     </div>
   </div>
@@ -4965,14 +4949,14 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
       <div id="defeat-hd"></div>
       <div id="defeat-flavor"></div>
       <div id="defeat-stats">
-        <div class="def-stat"><span class="def-lbl">Level reached</span><span class="def-val" id="def-level"></span></div>
-        <div class="def-stat"><span class="def-lbl">XP earned</span><span class="def-val" id="def-xp"></span></div>
-        <div class="def-stat"><span class="def-lbl">Day reached</span><span class="def-val" id="def-day"></span></div>
-        <div class="def-stat"><span class="def-lbl">Shards collected</span><span class="def-val" id="def-shards"></span></div>
-        <div class="def-stat"><span class="def-lbl">Gold at end</span><span class="def-val" id="def-gold"></span></div>
-        <div class="def-stat"><span class="def-lbl">Battles won</span><span class="def-val" id="def-battles"></span></div>
+        <div class="def-stat"><span class="def-lbl">도달 레벨</span><span class="def-val" id="def-level"></span></div>
+        <div class="def-stat"><span class="def-lbl">획득 XP</span><span class="def-val" id="def-xp"></span></div>
+        <div class="def-stat"><span class="def-lbl">도달 일차</span><span class="def-val" id="def-day"></span></div>
+        <div class="def-stat"><span class="def-lbl">모은 조각</span><span class="def-val" id="def-shards"></span></div>
+        <div class="def-stat"><span class="def-lbl">최종 골드</span><span class="def-val" id="def-gold"></span></div>
+        <div class="def-stat"><span class="def-lbl">전투 승리</span><span class="def-val" id="def-battles"></span></div>
       </div>
-      <button id="btn-defeat-new">↩ New Game</button>
+      <button id="btn-defeat-new">↩ 새 게임</button>
     </div>
   </div>
 
@@ -4981,33 +4965,33 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
   <div id="story-battle-overlay">
     <!-- Layer 39: Epic Battleground danger banner (hidden unless isEpicBattleground) -->
     <div id="sbo-epic-banner" style="display:none">
-      <span id="sbo-epic-danger">⚠ DANGER: EPIC</span>
+      <span id="sbo-epic-danger">⚠ 위험: 에픽</span>
       <span id="sbo-epic-boss-name"></span>
       <div id="sbo-epic-warning"></div>
     </div>
     <div id="sbo-header">
-      <span id="sbo-title">⚔ BATTLE</span>
-      <span id="sbo-round">Round 1</span>
-      <span id="sbo-turn-badge">YOUR TURN</span>
-      <button id="btn-sbo-advanced" title="Reveal God Mode / Practice debug panels">⚙ God Mode</button>
+      <span id="sbo-title">⚔ 전투</span>
+      <span id="sbo-round">라운드 1</span>
+      <span id="sbo-turn-badge">내 차례</span>
+      <button id="btn-sbo-advanced" title="Reveal God Mode / Practice debug panels">⚙ 신 모드</button>
     </div>
     <div class="az-divider"></div>
     <div id="sbo-combat-row">
       <div class="sbo-fighter enemy">
-        <div class="sbo-label">Opponent</div>
+        <div class="sbo-label">상대</div>
         <div class="sbo-name" id="sbo-enemy-name">—</div>
         <div class="sbo-stat-row">
           <div class="sbo-stat">AC <strong id="sbo-enemy-ac">—</strong></div>
-          <div class="sbo-stat">ATK <strong id="sbo-enemy-atk">—</strong></div>
-          <div class="sbo-stat">DMG <strong id="sbo-enemy-dmg">—</strong></div>
+          <div class="sbo-stat">공격 <strong id="sbo-enemy-atk">—</strong></div>
+          <div class="sbo-stat">피해 <strong id="sbo-enemy-dmg">—</strong></div>
         </div>
         <div class="sbo-hp-bar"><div class="sbo-hp-fill" id="sbo-enemy-hp-fill" style="width:100%"></div></div>
         <div class="sbo-hp-text" id="sbo-enemy-hp-text">— / —</div>
         <div class="sbo-condition" id="sbo-enemy-cond"></div>
       </div>
       <div class="sbo-fighter player">
-        <div class="sbo-label">You</div>
-        <div class="sbo-name" id="sbo-player-name">Adventurer</div>
+        <div class="sbo-label">나</div>
+        <div class="sbo-name" id="sbo-player-name">모험가</div>
         <div class="sbo-stat-row">
           <div class="sbo-stat">AC <strong id="sbo-player-ac">—</strong></div>
         </div>
@@ -5020,28 +5004,28 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
     <div id="sbo-ap-row">
       <span id="sbo-ap-label">⚡</span>
       <span id="sbo-ap-value">1.5</span>
-      <span id="sbo-ap-hint">Main action available</span>
+      <span id="sbo-ap-hint">주 행동 사용 가능</span>
     </div>
     <div id="sbo-action-row">
-      <button class="sbo-btn sbo-btn-attack" id="btn-sbo-attack">⚔ Attack</button>
-      <button class="sbo-btn sbo-btn-offhand" id="btn-sbo-offhand" style="display:none">🗡 Offhand</button>
-      <button class="sbo-btn sbo-btn-surge" id="btn-sbo-surge" style="display:none" title="Action Surge — take a second full attack action (once per battle)">⚡ Surge</button>
-      <button class="sbo-btn sbo-btn-flee" id="btn-sbo-flee">🏃 Flee</button>
-      <button class="sbo-btn sbo-btn-wimper" id="btn-sbo-wimper">😬 Pass</button>
+      <button class="sbo-btn sbo-btn-attack" id="btn-sbo-attack">⚔ 공격</button>
+      <button class="sbo-btn sbo-btn-offhand" id="btn-sbo-offhand" style="display:none">🗡 보조 무기</button>
+      <button class="sbo-btn sbo-btn-surge" id="btn-sbo-surge" style="display:none" title="Action Surge — take a second full attack action (once per battle)">⚡ 급습</button>
+      <button class="sbo-btn sbo-btn-flee" id="btn-sbo-flee">🏃 도망</button>
+      <button class="sbo-btn sbo-btn-wimper" id="btn-sbo-wimper">😬 패스</button>
     </div>
     <div id="sbo-potion-row"></div>
     <div id="sbo-spell-row"></div>
     <div id="sbo-shield-row" style="display:none">
       <span>🛡</span>
       <span id="sbo-shield-name"></span>
-      <button id="btn-sbo-unequip-shield" class="sbo-btn-shield">Unequip (0.5 AP)</button>
+      <button id="btn-sbo-unequip-shield" class="sbo-btn-shield">장비 해제 (0.5 AP)</button>
     </div>
     <div id="sbo-death-save-panel" style="display:none">
-      <div id="sbo-ds-hd">☠ Death Saving Throws</div>
-      <div id="sbo-ds-sub">Roll d20 — 10+ succeeds · 3 successes: crawl away · 3 failures: fall</div>
+      <div id="sbo-ds-hd">☠ 죽음의 내성 굴림</div>
+      <div id="sbo-ds-sub">d20 굴림 — 10 이상 성공 · 3회 성공: 기어서 탈출 · 3회 실패: 쓰러짐</div>
       <div id="sbo-ds-pips">
         <div class="sbo-ds-pip-group">
-          <span class="sbo-ds-lbl sbo-ds-succ">✓ Successes</span>
+          <span class="sbo-ds-lbl sbo-ds-succ">✓ 성공</span>
           <div class="sbo-ds-row">
             <div class="sbo-ds-pip" id="sbo-ds-s0"></div>
             <div class="sbo-ds-pip" id="sbo-ds-s1"></div>
@@ -5049,7 +5033,7 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
           </div>
         </div>
         <div class="sbo-ds-pip-group">
-          <span class="sbo-ds-lbl sbo-ds-fail">✗ Failures</span>
+          <span class="sbo-ds-lbl sbo-ds-fail">✗ 실패</span>
           <div class="sbo-ds-row">
             <div class="sbo-ds-pip" id="sbo-ds-f0"></div>
             <div class="sbo-ds-pip" id="sbo-ds-f1"></div>
@@ -5058,30 +5042,30 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
         </div>
       </div>
       <div id="sbo-ds-result"></div>
-      <button id="btn-sbo-ds-roll" class="sbo-btn sbo-btn-attack">🎲 Roll Death Save</button>
+      <button id="btn-sbo-ds-roll" class="sbo-btn sbo-btn-attack">🎲 죽음의 저항 굴리기</button>
     </div>
     <div id="sbo-log"></div>
   </div>
   <!-- Refocus bar shown when battle overlay is minimized -->
   <div id="sbo-refocus-bar">
-    ⚔ Battle in progress —
-    <button id="btn-sbo-refocus">▲ Return to Focus View</button>
+    ⚔ 전투 진행 중 —
+    <button id="btn-sbo-refocus">▲ 집중 화면으로 돌아가기</button>
   </div>
 
   <!-- ── Story Battle Victory Overlay (Layer 11) ── -->
   <div id="story-victory-overlay">
     <div id="svo-card">
-      <div id="svo-hd">⚔ Victory!</div>
+      <div id="svo-hd">⚔ 승리!</div>
       <div id="svo-enemy"></div>
       <div id="svo-xp"></div>
       <div id="svo-xp-total"></div>
       <div id="svo-levelup" style="display:none"></div>
       <div id="svo-heal"></div>
       <div id="svo-gold"></div>
-      <div id="svo-drops-hd">Drops</div>
+      <div id="svo-drops-hd">전리품</div>
       <div id="svo-drops-list"></div>
-      <div id="svo-no-drops" style="display:none">No drops this encounter.</div>
-      <button id="btn-svo-return">▶ Back to Quest</button>
+      <div id="svo-no-drops" style="display:none">이번 조우에서는 전리품이 없습니다.</div>
+      <button id="btn-svo-return">▶ 퀘스트로 돌아가기</button>
     </div>
   </div>
 
@@ -5098,35 +5082,35 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
   </div>
 
   <div id="ng-plus-title-overlay" style="display:none">
-    <div id="ng-plus-title-text">Sweelinck is waiting.</div>
+    <div id="ng-plus-title-text">Sweelinck이 기다리고 있습니다.</div>
   </div>
 
 
   <div id="story-victory-modal">
     <div id="victory-card">
-      <div id="victory-badge">The Shattered Codex — Complete</div>
-      <div id="victory-hd">The Codex is Reforged</div>
-      <div id="victory-flavor">The seven shards collapse inward. A pulse of white light rolls across Birka. The void pressure drops to nothing. Commander Bruhns lowers her sword and looks at you the way people look at history.</div>
+      <div id="victory-badge">산산조각 난 코덱스 — 완료</div>
+      <div id="victory-hd">코덱스가 다시 벼려졌습니다</div>
+      <div id="victory-flavor">일곱 조각이 안으로 무너져 모아집니다. 하얀 빛의 파동이 비르카 전체를 훑고 지나갑니다. 공허의 압력이 완전히 사라집니다. Bruhns 사령관이 검을 내리며, 사람들이 역사를 바라보는 눈빛으로 당신을 바라봅니다.</div>
       <div id="victory-ending" style="display:none"></div>
       <div id="victory-question" style="display:none"></div>
       <div id="victory-stats">
-        <div class="vic-stat"><span class="vic-lbl">Day completed</span><span class="vic-val" id="vic-day"></span></div>
-        <div class="vic-stat"><span class="vic-lbl">HP remaining</span><span class="vic-val" id="vic-hp"></span></div>
-        <div class="vic-stat"><span class="vic-lbl">Gold remaining</span><span class="vic-val" id="vic-gold"></span></div>
-        <div class="vic-stat"><span class="vic-lbl">Items collected</span><span class="vic-val" id="vic-items"></span></div>
-        <div class="vic-stat"><span class="vic-lbl">Quests completed</span><span class="vic-val" id="vic-quests"></span></div>
-        <div class="vic-stat"><span class="vic-lbl">Level reached</span><span class="vic-val" id="vic-level"></span></div>
-        <div class="vic-stat"><span class="vic-lbl">XP earned</span><span class="vic-val" id="vic-xp"></span></div>
-        <div class="vic-stat"><span class="vic-lbl">Battles won</span><span class="vic-val" id="vic-battles"></span></div>
-        <div class="vic-stat"><span class="vic-lbl">Shards gathered</span><span class="vic-val" id="vic-shards"></span></div>
-        <div class="vic-stat"><span class="vic-lbl">People returned to</span><span class="vic-val" id="vic-returns"></span></div>
-        <div class="vic-stat"><span class="vic-lbl">Covenant Standing</span><span class="vic-val" id="vic-standing"></span></div>
+        <div class="vic-stat"><span class="vic-lbl">완료 일차</span><span class="vic-val" id="vic-day"></span></div>
+        <div class="vic-stat"><span class="vic-lbl">남은 HP</span><span class="vic-val" id="vic-hp"></span></div>
+        <div class="vic-stat"><span class="vic-lbl">남은 골드</span><span class="vic-val" id="vic-gold"></span></div>
+        <div class="vic-stat"><span class="vic-lbl">모은 아이템</span><span class="vic-val" id="vic-items"></span></div>
+        <div class="vic-stat"><span class="vic-lbl">완료한 퀘스트</span><span class="vic-val" id="vic-quests"></span></div>
+        <div class="vic-stat"><span class="vic-lbl">도달 레벨</span><span class="vic-val" id="vic-level"></span></div>
+        <div class="vic-stat"><span class="vic-lbl">획득 XP</span><span class="vic-val" id="vic-xp"></span></div>
+        <div class="vic-stat"><span class="vic-lbl">전투 승리</span><span class="vic-val" id="vic-battles"></span></div>
+        <div class="vic-stat"><span class="vic-lbl">모은 조각</span><span class="vic-val" id="vic-shards"></span></div>
+        <div class="vic-stat"><span class="vic-lbl">돌아간 사람들</span><span class="vic-val" id="vic-returns"></span></div>
+        <div class="vic-stat"><span class="vic-lbl">성약 평판</span><span class="vic-val" id="vic-standing"></span></div>
       </div>
       <div id="victory-epilogue" style="display:none">
-        <div class="vic-epilogue-title">What happened after.</div>
+        <div class="vic-epilogue-title">그 후의 이야기.</div>
         <div id="vic-epilogue-entries"></div>
       </div>
-      <button id="btn-victory-close">— The End —</button>
+      <button id="btn-victory-close">— 끝 —</button>
     </div>
   </div>
 
@@ -5139,26 +5123,26 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
   <!-- ── Level-Up Modal (Layer 21) ── -->
   <div id="story-levelup-modal">
     <div id="lu-card">
-      <div id="lu-badge">⭐ LEVEL UP ⭐</div>
+      <div id="lu-badge">⭐ 레벨 업 ⭐</div>
       <div id="lu-lvl-num">1</div>
       <div id="lu-feature-name">—</div>
       <div id="lu-feature-desc"></div>
 
       <div id="lu-hp-section">
-        <div class="lu-hp-lbl">Hit Die (d10 + CON mod)</div>
-        <button id="btn-lu-roll-hp">🎲 Roll d10</button>
-        <div id="lu-hp-roll-result" style="display:none">Rolled <span id="lu-hp-die">—</span> + CON <span id="lu-hp-con">—</span> = <span id="lu-hp-total" class="lu-highlight">—</span></div>
-        <div id="lu-hpmax-new" style="display:none">Max HP now: —</div>
+        <div class="lu-hp-lbl">히트 다이 (d10 + CON 수정치)</div>
+        <button id="btn-lu-roll-hp">🎲 d10 굴리기</button>
+        <div id="lu-hp-roll-result" style="display:none">굴림 결과 <span id="lu-hp-die">—</span> + CON <span id="lu-hp-con">—</span> = <span id="lu-hp-total" class="lu-highlight">—</span></div>
+        <div id="lu-hpmax-new" style="display:none">현재 최대 HP: —</div>
       </div>
       <div id="lu-bonus-hp-section" style="display:none">
-        <div class="lu-hp-lbl">Body Bonus Die (d10)</div>
-        <button id="btn-lu-roll-bonus-hp">🎲 Roll Bonus d10</button>
-        <div id="lu-bonus-hp-result" style="display:none">Bonus <span id="lu-bonus-hp-die">—</span> HP — Max HP now: <span id="lu-bonus-hpmax-new">—</span></div>
+        <div class="lu-hp-lbl">신체 보너스 주사위 (d10)</div>
+        <button id="btn-lu-roll-bonus-hp">🎲 보너스 d10 굴리기</button>
+        <div id="lu-bonus-hp-result" style="display:none">보너스 <span id="lu-bonus-hp-die">—</span> HP — 현재 최대 HP: <span id="lu-bonus-hpmax-new">—</span></div>
       </div>
 
       <div id="lu-asi-section" style="display:none">
-        <div id="lu-asi-header">Ability Score Improvement</div>
-        <div id="lu-asi-points-row">Points to spend: <span id="lu-asi-remaining">2</span></div>
+        <div id="lu-asi-header">능력치 상승</div>
+        <div id="lu-asi-points-row">사용 가능 포인트: <span id="lu-asi-remaining">2</span></div>
         <div id="lu-asi-btns">
           <button class="lu-asi-btn" data-stat="str">STR +1</button>
           <button class="lu-asi-btn" data-stat="dex">DEX +1</button>
@@ -5184,9 +5168,9 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
       </div>
 
       <div id="lu-xp-bar-wrap"><div id="lu-xp-bar-fill" style="width:0%"></div></div>
-      <div id="lu-xp-status">Level 1 · 0 XP</div>
+      <div id="lu-xp-status">레벨 1 · 0 XP</div>
 
-      <button id="btn-lu-continue" disabled>Continue →</button>
+      <button id="btn-lu-continue" disabled>계속 →</button>
     </div>
   </div>
 
