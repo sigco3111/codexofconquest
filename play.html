@@ -24224,11 +24224,11 @@ function _renderPachelbelSpecials() {
   // S51: Seasonal/Act-gated stock — appears regardless of fav, based on world progression
   const S51_ITEMS = [
     { minAct:3, name:'북로 잡화', icon:'📦', cost:20, sell:15,
-      label:'📦 북로 잡화 — 20gp', desc:'Came in on the north road. No name on the seller.', flagBought:'s51NorthRoadBought' },
+      label:'📦 북로 잡화 — 20gp', desc:'북쪽 길로 들어온 물건. 판매자의 이름은 남지 않았다.', flagBought:'s51NorthRoadBought' },
     { minAct:5, name:"전령의 사본첩", icon:'📄', cost:35, sell:22,
-      label:"📄 전령의 사본첩 — 35gp", desc:'Something became available when it stopped being needed. Ask him what that means.', flagBought:'s51ManifoldBought' },
-    { minAct:6, name:'Last Stock (Sealed)', icon:'🔒', cost:55, sell:40,
-      label:'🔒 Last Stock (Sealed) — 55gp', desc:"His back inventory. He says: 'I don't know what's in it. That's the price.'", flagBought:'s51LastStockBought' }
+      label:"📄 전령의 사본첩 — 35gp", desc:'필요가 없어지자 구할 수 있게 된 물건. 무슨 뜻인지는 그에게 물어보자.', flagBought:'s51ManifoldBought' },
+    { minAct:6, name:'마지막 재고 (봉인됨)', icon:'🔒', cost:55, sell:40,
+      label:'🔒 마지막 재고 (봉인됨) — 55gp', desc:"그의 안쪽 창고 재고. 그는 말한다. ‘안에 뭐가 들었는지는 몰라요. 그래서 그 가격이에요.’", flagBought:'s51LastStockBought' }
   ];
   S51_ITEMS.forEach(si => {
     if (act >= si.minAct && !S_story[si.flagBought] && !(S_story.inventory||[]).some(i => i.name === si.name)) {
@@ -24236,18 +24236,18 @@ function _renderPachelbelSpecials() {
       sRow.className = 'buy-item';
       sRow.style.cssText = 'margin-top:6px;';
       sRow.innerHTML = '<div><div class="buy-item-desc">' + si.label
-        + ' <span style="color:#3A2010;font-size:10px">new</span></div>'
+        + ' <span style="color:#3A2010;font-size:10px">신상품</span></div>'
         + '<div class="buy-item-heal">' + si.desc + '</div></div>';
       const sBtn = document.createElement('button');
       sBtn.className = 'vendor-buy-btn';
-      sBtn.textContent = 'Buy';
+      sBtn.textContent = '구매';
       sBtn.addEventListener('click', () => {
-        if (S_story.gold < si.cost) { storyBlock('Not enough gold.'); return; }
+        if (S_story.gold < si.cost) { storyBlock('금화가 부족해요.'); return; }
         S_story.gold -= si.cost;
         S_story[si.flagBought] = true;
         S_story.inventory.push({name:si.name,icon:si.icon,type:'misc',sell:si.sell,desc:si.desc});
         storyUpdateStatus();
-        storyMsg('Pachelbel completes the transaction without commentary.');
+        storyMsg('파헬벨은 별말 없이 거래를 마친다.');
         _renderPachelbelSpecials();
       });
       sRow.appendChild(sBtn);
@@ -24268,18 +24268,18 @@ function _renderPachelbelSpecials() {
     if (!alreadyOwns && !alreadyUsed) {
       const row = document.createElement('div');
       row.className = 'buy-item';
-      row.innerHTML = '<div><div class="buy-item-desc">🔧 레종의 도구 — 50gp <span style="color:#5A4010;font-size:10px">★ Salvage</span></div>'
-        + '<div class="buy-item-heal">Certified kit — reveals provenance of found items</div></div>';
+      row.innerHTML = '<div><div class="buy-item-desc">🔧 레종의 도구 — 50gp <span style="color:#5A4010;font-size:10px">★ 회수</span></div>'
+        + '<div class="buy-item-heal">공인 도구 세트 - 발견한 물건의 출처를 밝혀준다</div></div>';
       const btn = document.createElement('button');
       btn.className = 'vendor-buy-btn';
-      btn.textContent = 'Buy';
+      btn.textContent = '구매';
       btn.addEventListener('click', () => {
-        if (S_story.gold < 50) { storyBlock('Not enough gold.'); return; }
+        if (S_story.gold < 50) { storyBlock('금화가 부족해요.'); return; }
         S_story.gold -= 50;
         S_story.inventory.push({name:"레종의 도구",icon:'🔧',type:'key_item',sell:0,
-          desc:"A certified salvager's toolkit. Identifies and documents item provenance. No questions asked about how you found things."});
+          desc:"공인 회수업자의 도구 세트. 물건의 출처를 확인하고 기록한다. 어떻게 손에 넣었는지는 묻지 않는다."});
         storyUpdateStatus();
-        storyMsg('Pachelbel slides it across without a word. The toolkit is well-maintained. Someone took care of it before you.');
+        storyMsg('파헬벨은 말없이 도구 세트를 밀어준다. 관리가 잘돼 있다. 당신 전에 누군가가 아끼던 물건이다.');
         _renderPachelbelSpecials();
       });
       row.appendChild(btn);
@@ -24288,9 +24288,9 @@ function _renderPachelbelSpecials() {
   }
   // Friendly (fav >= 1): one rotating "no questions" item per gameDay cycle
   const NO_Q_ITEMS = [
-    {name:'자물쇠 도구 세트',icon:'🗝',cost:8,sell:12,desc:'A standard set. No questions about the doors.',label:'🗝 자물쇠 도구 세트 — 8gp'},
-    {name:"나그네의 지도",icon:'🗺',cost:10,sell:8,desc:'Route markings someone else made. Useful if you trust them.',label:"🗺 나그네의 지도 — 10gp"},
-    {name:"전령의 인장",icon:'📋',cost:12,sell:10,desc:'A recent settlement document. Moves through checkpoints without inspection.',label:"📋 전령의 인장 — 12gp"}
+    {name:'자물쇠 도구 세트',icon:'🗝',cost:8,sell:12,desc:'평범한 도구 세트. 어느 문에 쓸지는 묻지 않는다.',label:'🗝 자물쇠 도구 세트 — 8gp'},
+    {name:"나그네의 지도",icon:'🗺',cost:10,sell:8,desc:'누군가가 표시해놓은 경로. 그 사람을 믿는다면 쓸 만하다.',label:"🗺 나그네의 지도 — 10gp"},
+    {name:"전령의 인장",icon:'📋',cost:12,sell:10,desc:'최근에 작성된 합의 문서. 검문소에서 검사 없이 통과한다.',label:"📋 전령의 인장 — 12gp"}
   ];
   const noqIdx = (S_story.gameDay || 0) % NO_Q_ITEMS.length;
   const noqItem = NO_Q_ITEMS[noqIdx];
@@ -24299,17 +24299,17 @@ function _renderPachelbelSpecials() {
     const row2 = document.createElement('div');
     row2.className = 'buy-item';
     row2.style.cssText = 'margin-top:6px;';
-    row2.innerHTML = '<div><div class="buy-item-desc">' + noqItem.label + ' <span style="color:#3A2010;font-size:10px">no questions</span></div>'
+    row2.innerHTML = '<div><div class="buy-item-desc">' + noqItem.label + ' <span style="color:#3A2010;font-size:10px">묻지 않음</span></div>'
       + '<div class="buy-item-heal">' + noqItem.desc + '</div></div>';
     const btn2 = document.createElement('button');
     btn2.className = 'vendor-buy-btn';
-    btn2.textContent = 'Buy';
+    btn2.textContent = '구매';
     btn2.addEventListener('click', () => {
-      if (S_story.gold < noqItem.cost) { storyBlock('Not enough gold.'); return; }
+      if (S_story.gold < noqItem.cost) { storyBlock('금화가 부족해요.'); return; }
       S_story.gold -= noqItem.cost;
       S_story.inventory.push({name:noqItem.name,icon:noqItem.icon,type:'misc',sell:noqItem.sell,desc:noqItem.desc});
       storyUpdateStatus();
-      storyMsg('Pachelbel: "No questions." He means it.');
+      storyMsg('파헬벨: “묻지 않아요.” 진심이다.');
       _renderPachelbelSpecials();
     });
     row2.appendChild(btn2);
