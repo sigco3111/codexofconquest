@@ -31920,19 +31920,19 @@ const NODE_PANELS = [
   { id:'story-ow-eel', nodes:['NWI'],
     when:st => !!st.warmthEelEscorted,
     css:'margin-top:10px;border-left-color:#2a5a2a;color:#70b880;font-size:12px;',
-    text:'\u2705 The eel is gone south. The water is choppy again. Both pirate crews are still here, watching the horizon. The Saltwick mate is teaching the Redmast man a figure-eight knot. They are going to fight each other again eventually. Not today.' },
+    text:'✅ 장어는 남쪽으로 갔다. 물은 다시 거칠어졌다. 두 해적 선단은 여전히 여기서 지평선을 지켜본다. 솔트윅 선원이 레드마스트 선원에게 8자 매듭을 가르치고 있다. 둘은 언젠가 다시 싸우게 될 것이다. 오늘은 아니다.' },
   { id:'story-ow-eel', nodes:['NWI'],
     when:st => !st.warmthEelEscorted && !!st.warmthEelFound,
     css:'margin-top:10px;border-left-color:#2a3a6a;color:#8090c8;font-size:12px;',
-    text:'\u{1F7E1} The Warmth Eel is below \u2014 sixty feet, amber, slow arcs under both keels. It belongs in deep water. The sea route and the fish stocks both require it to move. WIS Nature DC 14 to guide it south toward the trench depth.' },
+    text:'🟡 온기 장어가 아래에 있다. 예순 피트 아래, 호박색으로, 두 용골 밑으로 느린 호를 그리며. 그것은 깊은 물에 있어야 한다. 뱃길과 어장 모두 그것이 이동하기를 필요로 한다. WIS 자연 DC 14로 해구 수심을 향해 남쪽으로 이끌 수 있다.' },
   { id:'story-ow-eel', nodes:['NWI'],
     when:st => !st.warmthEelEscorted && !st.warmthEelFound && !!st.seaStrangenessNoticed,
     css:'margin-top:10px;border-left-color:#3a3a2a;color:#a8a860;font-size:12px;',
-    text:'\u{1F7E1} Something large glows below the hull. Amber, moving slowly. The pirates from both ships are watching it over the rail. None of them appear to be trying to hurt each other. INT Investigation DC 13 to identify the creature.' },
+    text:'🟡 큰 무언가가 선체 아래에서 빛난다. 호박색으로, 느리게 움직인다. 두 배의 해적들이 난간 너머로 그것을 지켜본다. 어느 쪽도 서로를 해치려 하지 않는다. INT 조사 DC 13으로 그 생물을 식별할 수 있다.' },
   { id:'story-ow-eel', nodes:['NWI'],
     when:st => !st.warmthEelEscorted && !st.warmthEelFound && !st.seaStrangenessNoticed,
     css:'margin-top:10px;border-left-color:#3a2a2a;color:#c08060;font-size:12px;',
-    text:'\u2693 The water here is absolutely still. Two wanted ships at anchor, no hostility between them. Something glows below. The gulls have gone. The fish are clustering oddly.' },
+    text:'⚓ 이곳의 물은 완전히 고요하다. 수배 중인 배 두 척이 닻을 내리고, 적대는 없다. 아래에서 무언가가 빛난다. 갈매기는 떠났다. 물고기가 이상하게 무리 지어 모인다.' },
   { id:'story-ci-tagline', nodes:['LHR'],
     css:'text-align:center;border-left:none;border-top:1px solid #40607a;padding:10px 14px 8px;font-style:normal;color:#fea712;letter-spacing:0.05em;',
     html:'출발하자 &mdash; Codex of Conquest: 지식의 저주<br><span style="font-size:10px;color:#9ab0c0;letter-spacing:0.02em;">CodexOfConquest.com &middot; MIT Public Domain</span>' },
@@ -31943,17 +31943,17 @@ const NODE_PANELS = [
   { id:'story-ao-namechange', nodes:['HTY'],
     when:st => st.commissionReceived && !st.aoNameNoticeSeen, once:'aoNameNoticeSeen',
     css:'margin-top:10px;border-left-color:#a07030;font-style:italic;color:#e0c890;font-size:12px;',
-    text:'He is called Paul here for the first time. He will be called Saul again once, by someone who does not know the road. It will not fit.' },
+    text:'그는 여기서 처음으로 바울이라 불린다. 한 번 더 사울이라 불릴 것이다. 그 길을 모르는 누군가에 의해. 그리고 그 이름은 맞지 않을 것이다.' },
   // §LIX: KS — conversion fires on first arrival (quest_road_damascus auto-completes on next storyCheckQuests)
   { id:'story-ks-conversion', nodes:['DAM'],
     when:st => !st.saulConverted, once:'saulConverted',
     css:'margin-top:10px;border-left-color:#8080a0;font-style:italic;color:#c0c8d8;font-size:13px;',
-    text:'The road was well-maintained for the first half day. After the stones gave way to packed earth the escort fell back to march-pace. The dust was the same colour as the sky — noon, flat white, no shadow to navigate by.\n\nThe light, when it came, was not theatrical. It did not arrive with sound. It arrived with the absolute certainty of a fact that had already been true and was simply now being acknowledged. The road did not change. The dust did not change. The sky did not change.\n\nSaul of Tarsus fell.\n\nWhen he looked up, he could not see. The escort commander was asking him something. He said: Lead me to the city. He meant Damascus. He meant: I cannot complete this journey on my own and I require assistance. Both things were true for the first time simultaneously.\n\nThe warrants are still in his coat. He will not use them again.' },
+    text:'첫 반나절은 길이 잘 닦여 있었다. 돌길이 다진 흙길로 바뀌자 호위는 행군 속도로 물러났다. 먼지는 하늘과 같은 색이었다. 한낮, 평평한 흰색, 길을 잴 그림자도 없이.\n\n빛이 왔을 때, 그것은 연극적이지 않았다. 소리와 함께 오지 않았다. 이미 사실이었던 것이 이제야 인정되고 있다는 절대적인 확신과 함께 왔다. 길은 변하지 않았다. 먼지도, 하늘도 변하지 않았다.\n\n타르수스의 사울이 쓰러졌다.\n\n그가 고개를 들었을 때, 볼 수 없었다. 호위 대장이 무언가를 묻고 있었다. 그가 말했다. 도시로 데려다 주세요. 다마스쿠스를 뜻했다. 그 뜻은 이랬다. 나는 이 여정을 혼자 완수할 수 없으며 도움이 필요하다. 두 가지가 처음으로 동시에 사실이었다.\n\n영장은 여전히 그의 외투 안에 있다. 그는 그것을 다시 사용하지 않을 것이다.' },
   // §LXIV/§PAUL-01: LT — stoning aftermath shows once quest_stoning_lystra resolves
   { id:'story-lt-stoning', nodes:['KYA'],
     when:st => st.stoningEvent,
     css:'margin-top:10px;border-left-color:#803030;font-style:italic;color:#d8a0a0;font-size:12px;',
-    text:'He is on the ground outside the city. He is not dead. He gets up.\n\nTimael is still in the market square. He has been there the whole time. He does not explain why. He says: where are you going next?\n\n"He got up and went back into the city."\n\nHP: 1. You cannot be healed above 1 while in Lystra.' },
+    text:'그는 성 밖 땅바닥에 있다. 죽지 않았다. 일어난다.\n\n티마엘은 여전히 시장 광장에 있다. 줄곧 거기 있었다. 이유를 설명하지 않는다. 그가 말한다. 다음에는 어디로 가요?\n\n\u201c그는 일어나 도시로 돌아갔다.\u201d\n\nHP: 1. 루스트라에 있는 동안 1 이상으로 회복될 수 없다.' },
   // §SIREN-01: navigator speaks in a different register — the quest_sea_overseer approach teaser,
   // gated off once the fog resolves either flag. §VM-01-G1-FIX: originally keyed to 'LJ3', a dead
   // node code no NODE_MAP entry ever carried, so this panel had NEVER rendered; remapped to LSO
@@ -31962,7 +31962,7 @@ const NODE_PANELS = [
   { id:'story-lso-trigger', nodes:['LSO'],
     when:st => !st.seaOverseerMet && !st.charmResisted,
     css:'margin-top:10px;border-left-color:#2a3a4a;background:#06080a;color:#9ab0c0;font-style:italic;font-size:12px;',
-    text:'After the serpent crossing the navigator is at the wheel. They are attentive to the compass in the ordinary way.\n\nThey are also, in a second and quieter register, speaking to something in the water to the east. Brief exchanges. Their lips barely move. They are not aware of it.\n\nThe fog bank four miles east has been there all day. It has no seasonal explanation.\n\nThere is something in the fog that knows you have come through three courts.' },
+    text:'바다뱀 횡단 이후 항해사는 키를 잡고 있다. 보통의 방식으로 나침반에 주의를 기울인다.\n\n그들은 또한, 두 번째 더 조용한 어조로, 동쪽 물속의 무언가와 이야기하고 있다. 짧은 교환들. 입술이 거의 움직이지 않는다. 본인들은 알지 못한다.\n\n동쪽 사 마일의 안개 둑은 하루 종일 거기 있었다. 계절로는 설명되지 않는다.\n\n안개 속에는 당신이 세 궁정을 지나온 것을 아는 무언가가 있다.' },
   // §SIREN-01: LCA — arc close, betrayal count
   { id:'story-lca-close', nodes:['LCA'],
     css:'margin-top:10px;border-left-color:#3a3a5a;font-style:italic;color:#c0c0d8;font-size:12px;',
@@ -32119,20 +32119,20 @@ const NODE_PANELS = [
   { id:'story-hunt-lh', nodes:['KSU'],
     when:st => st.huntHookReceived && !st.lakeClueFound,
     css:'margin-top:10px;border-left-color:#2a4a5a;color:#7ab0c0;font-size:12px;',
-    text:'🔍 The recovered boat hull is at the dock. The Guild master says: spirit marks. The marks are at the waterline on the port side. INT Investigation DC 12 to read what made them. See quest panel to attempt the check.' },
+    text:'🔍 회수한 선체가 부두에 있다. 조합장이 말한다. 영혼 자국입니다. 자국은 좌현 수선에 있다. INT 조사 DC 12로 무엇이 만든 자국인지 읽어 낼 수 있다. 판정을 시도하려면 퀘스트 패널을 볼 것.' },
   { id:'story-hunt-lh', nodes:['KSU'],
     when:st => st.huntHookReceived && st.lakeClueFound,
     css:'margin-top:10px;border-left-color:#3a5a2a;color:#80b870;font-size:12px;',
-    text:'✅ Hull examined. The marks are physical — claw drag, waterline grip. Not spirit work. A creature. The tracks north will show where it goes.' },
+    text:'✅ 선체 조사 완료. 자국은 물리적이다. 발톱 끌림, 수선을 움켜쥔 흔적. 영혼의 소행이 아니다. 생물이다. 북쪽의 흔적이 행방을 보여 줄 것이다.' },
   // §HUNT-01: LN — trail investigation panel at ALF
   { id:'story-hunt-ln', nodes:['ALF'],
     when:st => st.lakeClueFound && !st.lakeLairLocated,
     css:'margin-top:10px;border-left-color:#2a4a5a;color:#7ab0c0;font-size:12px;',
-    text:'🔍 The north shore path is disturbed. Mud scuffed, shelf edge worn. Something has been moving in and out of the water here regularly. WIS Perception DC 13 to read the direction and locate the den. See quest panel to attempt the check.' },
+    text:'🔍 북쪽 해안 길이 어수선하다. 진흙이 헝클어지고 선반 가장자리가 닳아 있다. 무언가가 이곳에서 규칙적으로 물을 드나들고 있다. WIS 감지 DC 13으로 방향을 읽고 굴을 찾을 수 있다. 판정을 시도하려면 퀘스트 패널을 볼 것.' },
   { id:'story-hunt-ln', nodes:['ALF'],
     when:st => st.lakeClueFound && st.lakeLairLocated,
     css:'margin-top:10px;border-left-color:#3a5a2a;color:#80b870;font-size:12px;',
-    text:'✅ Trail read. Three of them — from the track spacing. They denned at the shelf collapse. North Shore Den is accessible.' },
+    text:'✅ 흔적 판독 완료. 세 마리다. 발자국 간격으로 볼 때. 선반 붕괴 지점에 굴을 만들었다. 북쪽 해안 굴에 들어갈 수 있다.' },
   // ── §VM-01-G-FU-c: the two §ALCHEMY-01 button-less panels (Class A, 2 states each) — the DUS
   // else-leg shape: two entries share one DOM id with mutually exclusive `when`s, each `css` the
   // state's own cssText verbatim. Sibling analysis (the G-FU-b WRO rule): nothing co-renders
@@ -32146,16 +32146,16 @@ const NODE_PANELS = [
   { id:'story-alch-is', nodes:['PDL'],
     when:st => st.roenAtSea && st.roenOracleRead,
     css:'margin-top:10px;border-left-color:#2a5a3a;color:#70b880;font-size:12px;',
-    text:'✅ "The water that has already been cleared — the loch. The kelpie was cleared. The water was cleared." Roen is very still. "My grandmother\'s backyard. She was describing the backyard." He folds both readings together. "She was not speaking in metaphors. She was speaking in Highland geography."' },
+    text:'✅ \u201c이미 맑아진 물. 호수요. 켈피는 정화됐고, 물은 맑아졌어요.\u201d 로엔이 몹시 가만히 있다. \u201c할머니의 뒷마당. 할머니는 뒷마당을 말씀하신 거예요.\u201d 그가 두 판독을 겹쳐 접는다. \u201c비유로 말씀하신 게 아니었어요. 하이랜드 지리로 말씀하신 겁니다.\u201d' },
   // §ALCHEMY-01: ML — The Lost Stone at MLA
   { id:'story-alch-ml', nodes:['MLA'],
     when:st => st.roenOracleRead && !st.roenMaltaCrisis,
     css:'margin-top:10px;border-left-color:#2a4a5a;color:#6090b0;font-size:12px;',
-    text:'🐑 Roen dropped the stone in the Malta harbor. Not on purpose. He can see it on the floor — it\'s glowing slightly amber in the shallows. He\'s sitting on the dock with the expression of a man who has just dropped forty years of his grandmother\'s advice into a Mediterranean port. "I can see it. I can\'t reach it." He sits. "I think this is a sign. WIS Insight DC 12 to help me count what I have rather than what\'s on the harbor floor."' },
+    text:'🐑 로엔이 돌을 몰타 항구에 떨어뜨렸다. 일부러가 아니다. 바닥에 보인다. 얕은 물에서 옅게 호박색으로 빛나고 있다. 그는 부두에 앉아, 할머니의 사십 년 조언을 지중해 항구에 빠뜨린 사람의 표정을 하고 있다. \u201c보여요. 닿지 않아요.\u201d 그가 앉는다. \u201c이건 신호 같아요. WIS 통찰 DC 12로, 항구 바닥에 있는 것 대신 내가 가진 것을 세도록 도와주세요.\u201d' },
   { id:'story-alch-ml', nodes:['MLA'],
     when:st => st.roenOracleRead && st.roenMaltaCrisis,
     css:'margin-top:10px;border-left-color:#2a5a3a;color:#70b880;font-size:12px;',
-    text:'✅ The stone was retrieved by a fisherman who dove without being asked and handed it back. "You dropped it." No charge. Gone before Roen remembered to thank him. Roen has been thinking about this ever since. "Always do your best. That was enough for the whole harbor. I should do my best. That will be enough for the whole journey."' },
+    text:'✅ 돌은 부탁하지도 않았는데 잠수한 어부가 건져 돌려주었다. \u201c이거 떨어뜨리셨어요.\u201d 요금 없음. 로엔이 감사를 떠올리기 전에 사라졌다. 로엔은 그 뒤로 줄곧 그것을 곱씹고 있다. \u201c항상 최선을 다하라. 그 한마디면 온 항구에 충분했어요. 나도 최선을 다해야겠어요. 그러면 이 여정 전체에 충분할 거예요.\u201d' },
   // ── §VM-01-G-FU-d: the §SPARK-01 MS panel — the harbor stack's only button-less block
   // (Class A, 3 states, pure text). Sibling analysis (the G-FU-b WRO rule), golden-verified:
   // SEN's other afterend co-renders (story-whodunit2-ms, the alch-sen-ship hook) both insert
@@ -32168,15 +32168,15 @@ const NODE_PANELS = [
   { id:'story-spark-ms', nodes:['SEN'],
     when:st => st.pipMet && !st.bioluminescentParasiteFound,
     css:'margin-top:10px;border-left-color:#2a3a6a;color:#8090c8;font-size:12px;',
-    text:'🟡 Pip is in your pack. On its left ear: Clot — a blood tick, large for its kind, amber glow on its dorsal side. In the hold, rat catcher Brannick stands surrounded by rats. The rats are calm. Brannick seems pleased. The cargo of imported perfumes smells unusual.' },
+    text:'🟡 핍이 당신의 배낭에 있다. 왼쪽 귀에는 클롯. 피 진드기로, 종류치고 큰 몸집에 등쪽은 호박색 빛이다. 선창에는 쥐잡이 브래닉이 쥐들에 둘러싸여 서 있다. 쥐들은 차분하다. 브래닉은 만족스러워 보인다. 수입 향수 화물이 이상한 냄새를 풍긴다.' },
   { id:'story-spark-ms', nodes:['SEN'],
     when:st => st.pipMet && st.bioluminescentParasiteFound && !st.whodunitSolved,
     css:'margin-top:10px;border-left-color:#2a3a6a;color:#8090c8;font-size:12px;',
-    text:'🔍 The Warmth is identified. The colony is somewhere in the cargo hold. The captain wants answers before Tilbury port. Brannick is available to testify. The perfume vats are warm — the ideal colony environment. Trace the chain: Clot → Pip → the hold → the vats.' },
+    text:'🔍 온기체가 식별됐다. 군락은 선창 어딘가에 있다. 선장은 틸버리 항구 전에 답을 원한다. 브래닉이 증언할 수 있다. 향수 탱크는 따뜻하다. 이상적인 군락 환경이다. 연쇄를 추적하라: 클롯 → 핍 → 선창 → 탱크.' },
   { id:'story-spark-ms', nodes:['SEN'],
     when:st => st.pipMet && st.bioluminescentParasiteFound && st.whodunitSolved,
     css:'margin-top:10px;border-left-color:#2a5a2a;color:#70b880;font-size:12px;',
-    text:'✅ Mystery solved. The Warmth bloomed in the perfume vats. The cargo is commercially ruined and spiritually interesting. Brannick and the rats are fine. The captain has the Letter of Safe Passage ready. Inspector Wren-Pembury is on deck, thinking.' },
+    text:'✅ 미스터리 해결. 온기체는 향수 탱크에서 피어났다. 화물은 상업적으로는 망했고 영적으로는 흥미롭다. 브래닉과 쥐들은 무사하다. 선장은 안전 통행 서한을 준비해 두었다. 렌펨버리 감독관이 갑판에서 생각에 잠겨 있다.' },
   // ── §VM-01-G-FU-e: the §LXX stack's button-less surfaces. Sibling analysis (the G-FU-b WRO
   // rule), golden-verified: nothing else co-renders afterend at DA2/DA3/DSF — no npc-row (no
   // BIRKA_NPC_PROFILES profile homes there; the resident voices in NPC_DIALOGUE render as a
@@ -32200,7 +32200,7 @@ const NODE_PANELS = [
     when:st => st.forgeActivated && !st.seaElementCrafted
                && !(st.inventory||[]).some(i => i.name === 'Charged Iodine Salt' || i.name === 'Iodine Salt'),
     css:'margin-top:8px;border-left-color:#6a4a1a;color:#c09050;font-size:11px;',
-    text:'🧂 The forge is active. The mechanism is ready. The process requires Iodine Salt — plain or charged. The reduction completes in the forge heat.' },
+    text:'🧂 용광로가 가동 중이다. 장치가 준비됐다. 과정에는 아이오딘 소금이 필요하다. 일반 또는 대전된 것. 환원은 용광로의 열기에서 완료된다.' },
 ];
 
 // §VM-01-G1: render every NODE_PANELS entry active for this node. Runs immediately after the
