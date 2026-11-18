@@ -3482,7 +3482,7 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
             <option value="poisoned">중독</option>
             <option value="frightened">공포</option>
             <option value="exhausted">탈진</option>
-            <option value="hexed">헹굿</option>
+            <option value="hexed">주술</option>
             <option value="cursed">저주</option>
             <option value="virus_infected">바이러스 감염 🔌</option>
             <option value="system_hacked">시스템 해킹 🔌</option>
@@ -3985,7 +3985,7 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
             <div class="cfg-grid" style="margin-top:6px">
               <div class="cfg-field">
                 <label>이름</label>
-                <input type="text" id="opp-custom-name" value="Orc">
+                <input type="text" id="opp-custom-name" value="오크">
               </div>
               <div class="cfg-field">
                 <label>AC</label>
@@ -4697,7 +4697,7 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
     <div class="bot-section" id="bot-globe">
       <div class="bot-section-hd">전구</div>
       <div class="bot-section-body" style="display:flex;align-items:center;justify-content:center;flex:1;padding:4px">
-        <canvas id="globe-map-canvas" width="232" height="180" style="cursor:pointer" title="Click anywhere to travel there"></canvas>
+        <canvas id="globe-map-canvas" width="232" height="180" style="cursor:pointer" title="아무 곳이나 클릭하면 그곳으로 이동"></canvas>
       </div>
     </div>
 
@@ -5221,7 +5221,7 @@ const S = {
   terrain: '',
   enemy: {
     key: 'orc',
-    name: 'Orc', ac: 13, maxHp: 15, atk: 5,
+    name: '오크', ac: 13, maxHp: 15, atk: 5,
     dmgDie: 8, dmgCount: 1, dmgFlat: 3,
   },
   histoData: {
@@ -7523,12 +7523,12 @@ function rollMainDamage() {
         if (S.autoDamage) { S.opp.hp = Math.max(0, S.opp.hp - finalDmg); refreshLeftPanel(); }
         const displayDmg = S.opp.dmgMod !== 1 ? `${combined}→${finalDmg}` : String(finalDmg);
         outcomeEl.className = 'outcome-banner ' + (isCrit ? 'ob-crit' : 'ob-hit');
-        outcomeEl.innerHTML = `<span class="ob-total">${isCrit ? '★ 크리티컬' : '🗡 피해'}: ${displayDmg}${modSuffix} (+ SNEAK: ${sneakTotal})${S.autoDamage ? '' : ' (not applied)'}</span>`;
+        outcomeEl.innerHTML = `<span class="ob-total">${isCrit ? '★ 크리티컬' : '🗡 피해'}: ${displayDmg}${modSuffix} (+ SNEAK: ${sneakTotal})${S.autoDamage ? '' : ' (미적용)'}</span>`;
         appendCard({
           round: S.round, actor: 'YOU',
           formula: `${dmgBaseFormula} + ${S.sneak.count}d6 SNEAK`,
           outcome: `${isCrit ? '★ Crit' : '🗡 Damage'}: ${displayDmg}${modSuffix}`,
-          dmg: `Weapon: ${weaponTotal} + Sneak: ${sneakTotal}${S.autoDamage ? ` — Enemy HP: ${S.opp.hp}/${S.opp.maxHp}` : ' (Auto-Damage OFF)'}`,
+          dmg: `무기: ${weaponTotal} + 기습: ${sneakTotal}${S.autoDamage ? ` — 적 HP: ${S.opp.hp}/${S.opp.maxHp}` : ' (자동 피해 끔)'}`,
         });
         disableAllRollBtns(false);
       });
@@ -7539,12 +7539,12 @@ function rollMainDamage() {
       if (S.autoDamage) { S.opp.hp = Math.max(0, S.opp.hp - finalDmg); refreshLeftPanel(); }
       const displayDmg = S.opp.dmgMod !== 1 ? `${weaponTotal}→${finalDmg}` : String(finalDmg);
       outcomeEl.className = 'outcome-banner ' + (isCrit ? 'ob-crit' : 'ob-hit');
-      outcomeEl.innerHTML = `<span class="ob-total">${isCrit ? '★ 크리티컬' : '🗡 피해'}: ${displayDmg}${modSuffix}${S.autoDamage ? '' : ' (not applied)'}</span>`;
+      outcomeEl.innerHTML = `<span class="ob-total">${isCrit ? '★ 크리티컬' : '🗡 피해'}: ${displayDmg}${modSuffix}${S.autoDamage ? '' : ' (미적용)'}</span>`;
       appendCard({
         round: S.round, actor: 'YOU',
         formula: dmgBaseFormula,
-        outcome: `${isCrit ? '★ Crit damage' : '🗡 Damage'}: ${displayDmg}${modSuffix}`,
-        dmg: S.autoDamage ? `Enemy HP: ${S.opp.hp}/${S.opp.maxHp}` : '(Auto-Damage OFF — HP not reduced)',
+        outcome: `${isCrit ? '★ 크리티컬 피해' : '🗡 피해'}: ${displayDmg}${modSuffix}`,
+        dmg: S.autoDamage ? `적 HP: ${S.opp.hp}/${S.opp.maxHp}` : '(자동 피해 끔 — HP 감소 없음)',
       });
       disableAllRollBtns(false);
     }
@@ -7651,7 +7651,7 @@ function offhandRoll() {
           formula: `Off-hand d20(${d20Val})+${atkMod+profB}=${atkTotal} vs AC ${S.enemy.ac}`,
           outcome: outcomeText,
           dmg: isHit
-            ? `Damage: ${displayDmg}${modSuffix} (${S.offhand.count}d${S.offhand.die}, no mod)${S.autoDamage ? ` — Enemy HP: ${S.opp.hp}/${S.opp.maxHp}` : ' (Auto-Damage OFF)'}`
+            ? `피해: ${displayDmg}${modSuffix} (${S.offhand.count}d${S.offhand.die}, 수정치 없음)${S.autoDamage ? ` — 적 HP: ${S.opp.hp}/${S.opp.maxHp}` : ' (자동 피해 끔)'}`
             : '',
         });
         disableAllRollBtns(false);
@@ -7693,9 +7693,9 @@ function bonusRoll() {
     appendCard({
       round: S.round,
       actor: 'BONUS',
-      formula: `${S.bonus.count}d${S.bonus.die}${S.bonus.exploding ? ' (exploding)' : ''}`,
-      outcome: `Bonus Damage: ${totalDmg}`,
-      dmg: `Rolls: [${dmgRolls.join(', ')}]`,
+      formula: `${S.bonus.count}d${S.bonus.die}${S.bonus.exploding ? ' (폭발)' : ''}`,
+      outcome: `보너스 피해: ${totalDmg}`,
+      dmg: `주사위: [${dmgRolls.join(', ')}]`,
     });
     disableAllRollBtns(false);
   });
@@ -7741,7 +7741,7 @@ function rollHeal() {
       actor: 'HEAL',
       formula: `${S.heal.count}d${S.heal.die}${flatStr}`,
       outcome: `+ Heal: ${total}`,
-      dmg: `Rolls: [${rolls.join(', ')}]`,
+      dmg: `주사위: [${rolls.join(', ')}]`,
     });
     disableAllRollBtns(false);
   });
@@ -7898,7 +7898,7 @@ function newCombat() {
 
   document.getElementById('hcard-container').innerHTML = '';
   document.getElementById('initiative-bar').innerHTML =
-    '<span class="init-label">INITIATIVE</span><span class="init-sep">—</span><span style="color:var(--dim);font-size:10px">roll to set order</span>';
+    '<span class="init-label">선공</span><span class="init-sep">—</span><span style="color:var(--dim);font-size:10px">굴려서 순서 결정</span>';
 
   // Reset adv buttons
   document.querySelectorAll('.adv-btn').forEach(b => {
@@ -8143,7 +8143,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('auto-damage-btn').addEventListener('click', () => {
     S.autoDamage = !S.autoDamage;
     const btn = document.getElementById('auto-damage-btn');
-    btn.textContent = `Auto-Damage: ${S.autoDamage ? 'ON' : 'OFF'}`;
+    btn.textContent = `자동 피해: ${S.autoDamage ? '켬' : '끔'}`;
     btn.classList.toggle('active', S.autoDamage);
   });
 
@@ -10112,7 +10112,7 @@ function describeCell(world, pos) {
       exits.push({
         dir: dk, kind,
         label: word,
-        hint: dest ? 'toward ' + __roomShortLabel(world.nodeLabel(dest.code)) + ' (' + dest.steps + ')' : 'an unmarked stretch',
+        hint: dest ? '방향: ' + __roomShortLabel(world.nodeLabel(dest.code)) + ' (' + dest.steps + ')' : 'an unmarked stretch',
         steps: dest ? dest.steps : null,
       });
     } else {
@@ -36177,7 +36177,7 @@ function storyRender(node, prefix) {
           const _flav = ({ combat:   { lbl:'FIGHT',   icon:'⚔ ',  verb:'Fight',          cls:'btn-fight' },
                            delivery: { lbl:'DELIVER', icon:'📦 ', verb:'Deliver',        cls:'btn-hunt' },
                            escort:   { lbl:'ESCORT',  icon:'🛡 ', verb:'Escort',         cls:'btn-hunt' },
-                           dialogue: { lbl:'TALK',    icon:'💬 ', verb:'Talk',           cls:'btn-talk' } })[q.type]
+                           dialogue: { lbl:'TALK',    icon:'💬 ', verb:'대화',           cls:'btn-talk' } })[q.type]
                         || { lbl:'ROLL', icon:'🎲 ', verb:'세레모니아 굴리기', cls:'btn-talk' };
           // §CEREMO-ACC: the roll no longer fires straight off the card button.
           // Tapping it accordions the details down (vignette · roll breakdown ·
@@ -36274,7 +36274,7 @@ function storyRender(node, prefix) {
             btnClass = 'btn-fight';
             btnClick = () => isFinal ? storyPreFinalBattle() : storyPreBattle(wpNode);
           } else if (!atDest) {
-            btn = '📍 Navigate';
+            btn = '📍 안내';
             btnClass = 'btn-rest';
             btnClick = () => { S_story.waypoint = q.waypointNode; storyMsg('📍 Waypoint: ' + (wpNode ? wpNode.label.split(' — ')[0] : q.waypointNode)); _updateWaypointBtn(); };
           }
@@ -36307,7 +36307,7 @@ function storyRender(node, prefix) {
         sub: '→ ' + b.destShort + (b.legStr ? '  ·  ' + b.legStr : '') + (b.rewardStr ? '  ·  ' + b.rewardStr : '')
              + (b.void && b.voidStanding ? '  ·  🗡️+' + b.voidStanding + ' standing' : ''),
         hint: b.rumorLine || 'Posted by the 진홍 영장.',   // FU5: terrain-synthesized when no authored q.rumor
-        btn: b.void ? 'Hunt it' : 'Take', btnClass: 'btn-rest',
+        btn: b.void ? '사냥하기' : '수락', btnClass: 'btn-rest',
         btnClick: ((id) => () => _acceptBounty(id))(b.id),
       })));
       row.appendChild(sec);
@@ -36378,7 +36378,7 @@ function storyRender(node, prefix) {
             : nearestDist + '칸 거리 — 경유지를 설정하면 안내',
           tag: wpSetHere ? '📍 이동 중' : nearestDist + '칸',
           tagClass: wpSetHere ? 'transferred' : '',
-          btn: wpSetHere ? 'Clear' : 'Waypoint', btnClass: 'btn-rest',
+          btn: wpSetHere ? '해제' : '경유지', btnClass: 'btn-rest',
           btnClick: () => {
             if (S_story.waypoint === nearest.code) {
               S_story.waypoint = null;
@@ -36400,7 +36400,7 @@ function storyRender(node, prefix) {
       hint: rests > 0 ? '⏱ 1시간 · HD 굴리기 · HP 회복' : '남은 짧은 휴식 없음',
       tag: rests + '/3 left',
       tagClass: rests === 0 ? '' : '',
-      btn: rests > 0 ? 'Short Rest' : null,
+      btn: rests > 0 ? '짧은 휴식' : null,
       btnClass: 'btn-rest',
       btnClick: () => storyShortRest(node.code)
     }));
@@ -38297,9 +38297,9 @@ function _renderWorldMiniMap() {
   const leg = document.getElementById('world-map-legend');
   if (leg && !leg.childElementCount) {
     const LEG = [
-      ['Sea', '#0a2a4a'], ['Water', '#1d6a8f'], ['Road', '#c8b98c'], ['City', '#7a7a82'],
-      ['Forest', '#1f5f33'], ['Plains', '#6e7a30'], ['Desert', '#b08a3e'], ['Mtn', '#6a6058'],
-      ['Swamp', '#45521f'], ['Snow', '#a8c0cc'], ['Coast', '#c2a85e'],
+      ['바다', '#0a2a4a'], ['물', '#1d6a8f'], ['길', '#c8b98c'], ['도시', '#7a7a82'],
+      ['숲', '#1f5f33'], ['평원', '#6e7a30'], ['사막', '#b08a3e'], ['산', '#6a6058'],
+      ['늪', '#45521f'], ['설원', '#a8c0cc'], ['해안', '#c2a85e'],
     ];
     leg.innerHTML = LEG.map(([n, c]) =>
       '<span class="wm-leg"><i style="background:' + c + '"></i>' + n + '</span>').join('');
@@ -38348,7 +38348,7 @@ function _updateExitLinks() {
       if (btn) btn.disabled = true;
       el.className = 'exit-line';
       el.removeAttribute('onclick');
-      el.innerHTML = '<span class="exit-none">— (none)</span>';
+      el.innerHTML = '<span class="exit-none">— (없음)</span>';
       return;
     }
     const destCode = cellCode(`${nr},${nc}`);
