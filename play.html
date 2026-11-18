@@ -6670,11 +6670,12 @@ function buildCard(entry) {
   const card = document.createElement('div');
   card.className = 'hcard';
   const colors = { YOU: 'var(--gold)', OPP: 'var(--red-lt)', BONUS: 'var(--purple)', FREE: '#5588aa', HEAL: 'var(--grn-lt)', VICTORY: 'var(--gold)' };
+  const _actorKr = { YOU:'플레이어', OPP:'상대', BONUS:'보너스', FREE:'자유', HEAL:'회복', VICTORY:'승리' };
   card.style.borderLeftColor = colors[entry.actor] || 'var(--dim)';
 
   card.innerHTML = `
-    <div class="hc-round">Round ${entry.round}</div>
-    <div class="hc-actor" style="color:${colors[entry.actor] || 'var(--text)'}">${entry.actor}</div>
+    <div class="hc-round">라운드 ${entry.round}</div>
+    <div class="hc-actor" style="color:${colors[entry.actor] || 'var(--text)'}">${_actorKr[entry.actor] || entry.actor}</div>
     <div class="hc-roll">${entry.formula}</div>
     <div class="hc-outcome">${entry.outcome}</div>
     ${entry.dmg ? `<div class="hc-dmg">${entry.dmg}</div>` : ''}
@@ -7323,7 +7324,7 @@ function doPlayerAttack(attackNum, total) {
 
     let totalLine, outcomeClass, outcomeText;
     if (isNat1) {
-      totalLine    = atkTag + 'AUTO-MISS';
+      totalLine    = atkTag + '자동 빗나감';
       outcomeClass = 'ob-miss';
       outcomeText  = cardTag + '✗ NAT 1 — 빗나감';
     } else if (isCrit) {
@@ -7609,7 +7610,7 @@ function offhandRoll() {
                    ' = ' + atkTotal;
 
     if (isNat1) {
-      totalLine   = 'AUTO-MISS';
+      totalLine   = '자동 빗나감';
       outcomeClass = 'ob-miss';
       outcomeText  = '✗ 보조 무기 NAT 1';
     } else if (isCrit) {
@@ -7619,7 +7620,7 @@ function offhandRoll() {
       dmgRolls = rollN(S.offhand.die, S.offhand.count * 2);
       totalDmg = Math.max(0, dmgRolls.reduce((a,b)=>a+b,0));
     } else if (isHit) {
-      totalLine   = modStr + `  ↩ HIT vs AC ${S.enemy.ac}`;
+      totalLine   = modStr + `  ↩ 명중 vs AC ${S.enemy.ac}`;
       outcomeClass = 'ob-hit';
       outcomeText  = `↩ 보조 무기 명중`;
       dmgRolls = rollN(S.offhand.die, S.offhand.count);
@@ -7826,7 +7827,7 @@ function oppRoll() {
     const atkStr = (S.enemy.atk >= 0 ? '+' : '') + S.enemy.atk + ' = ' + atkTotal;
 
     if (isNat1) {
-      totalLine   = 'AUTO-MISS';
+      totalLine   = '자동 빗나감';
       outcomeClass = 'ob-miss';
       outcomeText  = '✗ 적 NAT 1';
     } else if (isCrit) {
@@ -7836,15 +7837,15 @@ function oppRoll() {
       dmgRolls = rollN(S.enemy.dmgDie, S.enemy.dmgCount * 2);
       totalDmg = Math.max(0, dmgRolls.reduce((a,b)=>a+b,0) + S.enemy.dmgFlat);
     } else if (isHit) {
-      totalLine   = atkStr + `  ⚔ HIT vs your AC ${S.char.ac}`;
+      totalLine   = atkStr + `  ⚔ 명중 vs 내 AC ${S.char.ac}`;
       outcomeClass = 'ob-hit';
       outcomeText  = `⚔ 적 명중 (${atkTotal} vs AC ${S.char.ac})`;
       dmgRolls = rollN(S.enemy.dmgDie, S.enemy.dmgCount);
       totalDmg = Math.max(0, dmgRolls.reduce((a,b)=>a+b,0) + S.enemy.dmgFlat);
     } else {
-      totalLine   = atkStr + `  ✗ 빗나감 vs your AC ${S.char.ac}`;
+      totalLine   = atkStr + `  ✗ 빗나감 vs 내 AC ${S.char.ac}`;
       outcomeClass = 'ob-miss';
-      outcomeText  = `✗ ENEMY MISS (${atkTotal} vs AC ${S.char.ac})`;
+      outcomeText  = `✗ 적 빗나감 (${atkTotal} vs AC ${S.char.ac})`;
     }
 
     setOutcomeDie(outcomeEl, d20Val, totalLine, outcomeClass);
@@ -7863,9 +7864,9 @@ function oppRoll() {
         appendCard({
           round: S.round - 1,
           actor: 'OPP',
-          formula: `d20(${d20Val})+${S.enemy.atk}=${atkTotal} vs your AC ${S.char.ac}`,
+          formula: `d20(${d20Val})+${S.enemy.atk}=${atkTotal} vs 내 AC ${S.char.ac}`,
           outcome: outcomeText,
-          dmg: `You take ${displayDmg}${modSuffix} dmg — Your HP: ${S.player.hp}/${S.player.maxHp}`,
+          dmg: `받은 피해 ${displayDmg}${modSuffix} — 내 HP: ${S.player.hp}/${S.player.maxHp}`,
         });
         disableAllRollBtns(false);
       });
@@ -7875,7 +7876,7 @@ function oppRoll() {
       appendCard({
         round: S.round - 1,
         actor: 'OPP',
-        formula: `d20(${d20Val})+${S.enemy.atk}=${atkTotal} vs your AC ${S.char.ac}`,
+        formula: `d20(${d20Val})+${S.enemy.atk}=${atkTotal} vs 내 AC ${S.char.ac}`,
         outcome: outcomeText,
         dmg: '',
       });
@@ -24763,7 +24764,7 @@ function _updateBattleOverlay() {
   const pb  = S_story.pendingBattle;
   const isPlayer = (S_story.battleTurn === 'player');
 
-  document.getElementById('sbo-round').textContent   = 'Round ' + S_story.battleRound;
+  document.getElementById('sbo-round').textContent   = '라운드 ' + S_story.battleRound;
   const badge = document.getElementById('sbo-turn-badge');
   badge.textContent = isPlayer ? '당신의 차례' : '적의 차례';
   badge.className = isPlayer ? '' : 'enemy-turn';
@@ -24953,7 +24954,7 @@ function _renderSboSpells() {
     const btn = document.createElement('button');
     if (item.type === 'spell') {
       btn.className = 'sbo-btn-spell';
-      btn.title = 'DC ' + dc + ' skill check (d20 vs your AC−2) — pass = ADV on next attack';
+      btn.title = 'DC ' + dc + ' skill check (d20 vs 내 AC−2) — pass = ADV on next attack';
       btn.innerHTML = item.icon + ' ' + item.name;
       btn.addEventListener('click', () => _storyUseSpellScroll(idx));
       row.appendChild(btn);
@@ -25026,8 +25027,8 @@ function _storyAdvanceToBonus(source) {
   // Player has used their main action — 0.5 AP remains for a bonus action
   const hasBonus = _playerHasBonusOptions();
   _updateBattleOverlay();
-  const prefix = source === 'pass' ? 'Main action passed —' : 'Attack done —';
-  _sboLog(prefix + (hasBonus ? ' bonus action: heal / offhand / spell / flee (safe) / pass.' : ' press Pass to end turn.'));
+  const prefix = source === 'pass' ? '주행동 생략 -' : '공격 완료 -';
+  _sboLog(prefix + (hasBonus ? ' 보너스 행동: 치료 / 보조 무기 / 주문 / 도주(안전) / 넘기기.' : ' 넘기기를 눌러 차례를 끝내세요.'));
 }
 
 function _extraAttackCount() {
@@ -25117,13 +25118,13 @@ function _overlayPlayerAttack() {
       refreshLeftPanel();
       _statTally('dmgDealt', finalDmg);
       _statTally('attacksHit', 1);
-      logMsg = lbl + (isCrit ? '★ 크리티컬! ' : '✓ 명중! ') + atkTotal + ' vs AC ' + S.enemy.ac + ' — ' + finalDmg + ' dmg dealt.' + (_fsBonus > 0 ? ' [+' + _fsBonus + ' first strike]' : '');
+      logMsg = lbl + (isCrit ? '★ 크리티컬! ' : '✓ 명중! ') + atkTotal + ' vs AC ' + S.enemy.ac + ' — ' + finalDmg + ' 피해.' + (_fsBonus > 0 ? ' [+' + _fsBonus + ' 선제타격]' : '');
     }
     appendCard({ round: S.round, actor:'YOU',
       formula: 'd20(' + d20Val + ')+' + atkMod + '(mod)+' + profB + '(prof)' + (allyAtk ? '+' + allyAtk + '(ally)' : '') + '=' + atkTotal,
-      outcome: isNat1 ? 'NAT 1 — MISS' : (isHit ? (isCrit?'★ 크리티컬':'✓ 명중') + ' vs AC ' + S.enemy.ac : '✗ 빗나감'),
-      dmg: finalDmg ? 'Enemy HP: ' + S.opp.hp + '/' + S.opp.maxHp : '' });
-    _sboLog('YOUR ATTACK: ' + logMsg);
+      outcome: isNat1 ? 'NAT 1 — 빗나감' : (isHit ? (isCrit?'★ 크리티컬':'✓ 명중') + ' vs AC ' + S.enemy.ac : '✗ 빗나감'),
+      dmg: finalDmg ? '적 HP: ' + S.opp.hp + '/' + S.opp.maxHp : '' });
+    _sboLog('내 공격: ' + logMsg);
 
     if (S.opp.hp <= 0) {
       S_story.usedMainAttack = true; S_story.usedRealAttack = true;
@@ -25273,7 +25274,7 @@ function _storyEnemyTurn() {
   if (isNat1) {
     logMsg = '✗ 적 NAT 1 — 빗나감!';
   } else if (!isHit) {
-    logMsg = '✓ Enemy miss. ' + atkTotal + ' vs your AC ' + S.char.ac;
+    logMsg = '✓ Enemy miss. ' + atkTotal + ' vs 내 AC ' + S.char.ac;
   } else {
     const dmgCount = isCrit ? S.enemy.dmgCount * 2 : S.enemy.dmgCount;
     const dmgRolls = rollN(S.enemy.dmgDie, dmgCount);
@@ -25284,12 +25285,12 @@ function _storyEnemyTurn() {
     refreshLeftPanel();
     storyUpdateStatus();
     _statTally('dmgReceived', finalDmg);
-    logMsg = (isCrit ? '★ 적 크리티컬! ' : '⚔ Enemy hit! ') + atkTotal + ' vs your AC ' + S.char.ac + ' — ' + finalDmg + ' dmg taken!';
+    logMsg = (isCrit ? '★ 적 크리티컬! ' : '⚔ 적 명중! ') + atkTotal + ' vs 내 AC ' + S.char.ac + ' — ' + finalDmg + ' 피해를 받았습니다!';
   }
   appendCard({ round: S.round, actor:'OPP',
     formula: 'd20(' + d20Val + ')+' + S.enemy.atk + '=' + atkTotal + ' vs AC ' + S.char.ac,
-    outcome: isNat1 ? 'ENEMY NAT 1' : (isHit ? (isCrit?'★ 적 크리티컬':'⚔ 적 명중') : '✗ 빗나감'),
-    dmg: finalDmg ? 'You take ' + finalDmg + ' — Your HP: ' + S.player.hp + '/' + S.player.maxHp : '' });
+    outcome: isNat1 ? '적 NAT 1' : (isHit ? (isCrit?'★ 적 크리티컬':'⚔ 적 명중') : '✗ 빗나감'),
+    dmg: finalDmg ? '받은 피해 ' + finalDmg + ' — 내 HP: ' + S.player.hp + '/' + S.player.maxHp : '' });
   S_story.battleRound++;
   // Condition round countdown (L16-B)
   if (S_story.conditionRoundsLeft > 0) {
@@ -25302,9 +25303,9 @@ function _storyEnemyTurn() {
   // Spell ADV expiry (L17-K)
   if (S_story.spellAdvantageReady) {
     S_story.spellAdvantageReady = false;
-    logMsg += ' · 📜 Spell ADV expired.';
+    logMsg += ' · 📜 주문 ADV 만료.';
   }
-  _sboLog('ENEMY ATTACKS: ' + logMsg);
+  _sboLog('적 공격: ' + logMsg);
   _updateBattleOverlay();
   if (S.player.hp <= 0) {
     S.player.hp = 0;
@@ -25832,9 +25833,9 @@ function _storyFleeMutual() {
   }
   _updateBattleOverlay();
   storyUpdateStatus();
-  const msg = '🏃 Fled at start of round — mutual exchange! You: '
-    + (pHit ? pDmg + ' dmg dealt' : 'miss' + (pEffortXp ? ' (+' + pEffortXp + ' XP effort)' : '')) + ' · Enemy: '
-    + (eHit ? eDmg + ' dmg taken' : 'miss') + '.';
+  const msg = '🏃 라운드 시작 시 도주 - 양측 교환! 나: '
+    + (pHit ? pDmg + ' 피해' : '빗나감' + (pEffortXp ? ' (노력 +' + pEffortXp + ' XP)' : '')) + ' · 적: '
+    + (eHit ? eDmg + ' 피해' : '빗나감') + '.';
   _sboLog(msg);
   if (S.player.hp <= 0) {
     S.player.hp = 0; S_story.hp = 0;
@@ -29000,9 +29001,9 @@ function _hirelingStrike() {
   }
   appendCard({ round: S.round, actor: 'ALLY',
     formula: 'd20(' + res.d20 + ')+' + (h.atkBonus || 0) + '=' + res.total,
-    outcome: res.nat1 ? 'NAT 1 — MISS' : (res.hit ? (res.crit ? '★ 크리티컬' : '✓ 명중') + ' vs AC ' + S.enemy.ac : '✗ 빗나감'),
-    dmg: dmg ? 'Enemy HP: ' + S.opp.hp + '/' + S.opp.maxHp : '' });
-  _sboLog('HIRELING: ' + msg);
+    outcome: res.nat1 ? 'NAT 1 — 빗나감' : (res.hit ? (res.crit ? '★ 크리티컬' : '✓ 명중') + ' vs AC ' + S.enemy.ac : '✗ 빗나감'),
+    dmg: dmg ? '적 HP: ' + S.opp.hp + '/' + S.opp.maxHp : '' });
+  _sboLog('용병: ' + msg);
   return dmg;
 }
 
@@ -29032,9 +29033,9 @@ function _sentryStrike() {
   }
   appendCard({ round: S.round, actor: 'SENTRY',
     formula: 'd20(' + res.d20 + ')+' + (h.atkBonus || 0) + '=' + res.total,
-    outcome: res.nat1 ? 'NAT 1 — MISS' : (res.hit ? (res.crit ? '★ 크리티컬' : '✓ 명중') + ' vs AC ' + S.enemy.ac : '✗ 빗나감'),
-    dmg: dmg ? 'Enemy HP: ' + S.opp.hp + '/' + S.opp.maxHp : '' });
-  _sboLog('SENTRY: ' + msg);
+    outcome: res.nat1 ? 'NAT 1 — 빗나감' : (res.hit ? (res.crit ? '★ 크리티컬' : '✓ 명중') + ' vs AC ' + S.enemy.ac : '✗ 빗나감'),
+    dmg: dmg ? '적 HP: ' + S.opp.hp + '/' + S.opp.maxHp : '' });
+  _sboLog('파수병: ' + msg);
   return dmg;
 }
 
@@ -34766,7 +34767,7 @@ function _nodeHookSsjTournament(node, { row, _mkSection, _mkCard }) {
             _tourAccordion = acc;
             _card.insertAdjacentElement('afterend', acc);
             requestAnimationFrame(() => _tourAccordion && _tourAccordion.classList.add('open'));
-            if (_btn) _btn.textContent = 'Close';
+            if (_btn) _btn.textContent = '닫기';
           }
         });
         body.appendChild(_card);
@@ -35982,9 +35983,9 @@ function storyRender(node, prefix) {
       const lbl = isFinal ? '⚔ THE FINAL BATTLE — Commander Bruhns' : node.battle.label;
       let _battleAccordion = null;
       const _battleCard = _mkCard({
-        lbl: 'BATTLE', main: lbl,
-        hint: '⏱ 1 hour · combat',
-        tag: '1h', btn: isFinal ? '🔥 FINAL FIGHT' : 'Fight', btnClass: 'btn-fight',
+        lbl: '전투', main: lbl,
+        hint: '⏱ 1시간 · 전투',
+        tag: '1h', btn: isFinal ? '🔥 최종 결전' : '전투', btnClass: 'btn-fight',
         btnClick: () => {
           if (isFinal) { storyPreFinalBattle(); return; }
           const _fightBtn = _battleCard.querySelector('.story-card-btn');
@@ -35992,7 +35993,7 @@ function storyRender(node, prefix) {
             _battleAccordion.classList.remove('open');
             const _c = _battleAccordion; setTimeout(() => _c.remove(), 270);
             _battleAccordion = null;
-            if (_fightBtn) _fightBtn.textContent = 'Fight';
+            if (_fightBtn) _fightBtn.textContent = '전투';
             return;
           }
           const acc = document.createElement('div');
@@ -36002,7 +36003,7 @@ function storyRender(node, prefix) {
           const mp = MONSTER_POOL[node.battle.key] || EPIC_BOSS_POOL[node.battle.key];
           if (mp) {
             const t = (mp.tier||'medium').toLowerCase();
-            const tLbl = {trivial:'TRIVIAL',easy:'EASY',medium:'MEDIUM',hard:'HARD',deadly:'DEADLY ⚠'}[t]||t.toUpperCase();
+            const tLbl = {trivial:'하찮음',easy:'쉬움',medium:'보통',hard:'어려움',deadly:'치명적 ⚠'}[t]||t.toUpperCase();
             const threatRow = document.createElement('div');
             threatRow.className = 'battle-threat-row';
             threatRow.innerHTML = '<span class="threat-tier threat-' + t + '">' + tLbl + '</span>'
@@ -36021,12 +36022,12 @@ function storyRender(node, prefix) {
           const condBtn = document.createElement('button');
           condBtn.className = 'story-card-btn btn-hunt';
           condBtn.style.flex = '1';
-          condBtn.textContent = '💣 Condition';
+          condBtn.textContent = '💣 상태이상';
 
           const stealthBtn = document.createElement('button');
           stealthBtn.className = 'story-card-btn btn-hunt';
           stealthBtn.style.flex = '1';
-          stealthBtn.textContent = '🎭 Stealth';
+          stealthBtn.textContent = '🎭 은신';
           stealthBtn.addEventListener('click', () => {
             _stealthOn = !_stealthOn;
             stealthBtn.classList.toggle('btn-active', _stealthOn);
@@ -36091,7 +36092,7 @@ function storyRender(node, prefix) {
           // Start Battle button
           const startBtn = document.createElement('button');
           startBtn.className = 'story-card-btn btn-fight battle-start-btn';
-          startBtn.textContent = '⚔ Start Battle';
+          startBtn.textContent = '⚔ 전투 시작';
           startBtn.addEventListener('click', () => {
             _preBattNode = node;
             _availableConds = avail;
@@ -36101,7 +36102,7 @@ function storyRender(node, prefix) {
               acc.classList.remove('open');
               const _c = acc; setTimeout(() => _c.remove(), 270);
               _battleAccordion = null;
-              if (_fightBtn) _fightBtn.textContent = 'Fight';
+              if (_fightBtn) _fightBtn.textContent = '전투';
               storyCommitBattle();
             };
             if (_stealthOn) {
@@ -36118,19 +36119,19 @@ function storyRender(node, prefix) {
           // Retreat
           const retreatEl = document.createElement('div');
           retreatEl.className = 'battle-retreat-link';
-          retreatEl.textContent = '← Retreat (safe)';
+          retreatEl.textContent = '← 후퇴 (안전)';
           retreatEl.addEventListener('click', () => {
             acc.classList.remove('open');
             const _c = acc; setTimeout(() => _c.remove(), 270);
             _battleAccordion = null;
-            if (_fightBtn) _fightBtn.textContent = 'Fight';
+            if (_fightBtn) _fightBtn.textContent = '전투';
           });
           acc.appendChild(retreatEl);
 
           _battleAccordion = acc;
           _battleCard.insertAdjacentElement('afterend', acc);
           requestAnimationFrame(() => _battleAccordion && _battleAccordion.classList.add('open'));
-          if (_fightBtn) _fightBtn.textContent = 'Close';
+          if (_fightBtn) _fightBtn.textContent = '닫기';
         }
       });
       body.appendChild(_battleCard);
@@ -36174,7 +36175,7 @@ function storyRender(node, prefix) {
           // §ARCH-01 W4/W5: typed quest cards — combat/delivery/escort/dialogue UQF
           // quests resolve through the same roll machinery with a typed presentation
           // (hybrid + skill_check keep the plain ROLL card).
-          const _flav = ({ combat:   { lbl:'FIGHT',   icon:'⚔ ',  verb:'Fight',          cls:'btn-fight' },
+          const _flav = ({ combat:   { lbl:'전투',   icon:'⚔ ',  verb:'전투',          cls:'btn-fight' },
                            delivery: { lbl:'DELIVER', icon:'📦 ', verb:'Deliver',        cls:'btn-hunt' },
                            escort:   { lbl:'ESCORT',  icon:'🛡 ', verb:'Escort',         cls:'btn-hunt' },
                            dialogue: { lbl:'TALK',    icon:'💬 ', verb:'대화',           cls:'btn-talk' } })[q.type]
@@ -36257,7 +36258,7 @@ function storyRender(node, prefix) {
               _ceremAcc = acc;
               _ceremCard.insertAdjacentElement('afterend', acc);
               requestAnimationFrame(() => _ceremAcc && _ceremAcc.classList.add('open'));
-              if (_btn) _btn.textContent = 'Close';
+              if (_btn) _btn.textContent = '닫기';
             },
           });
           body.appendChild(_ceremCard);
@@ -36436,7 +36437,7 @@ function storyRender(node, prefix) {
               + '<div class="npc-talk-name">— ' + (_npcDial.nameFn ? _npcDial.nameFn() : _npcDial.name) + '</div>';
             _npcCard.insertAdjacentElement('afterend', _talkAccordion);
             requestAnimationFrame(() => _talkAccordion && _talkAccordion.classList.add('open'));
-            if (_talkBtn) _talkBtn.textContent = 'Close';
+            if (_talkBtn) _talkBtn.textContent = '닫기';
           }
         }
       });
@@ -37208,7 +37209,7 @@ function _renderPreBatt() {
       || (_preBattNode.battle && EPIC_BOSS_POOL[_preBattNode.battle.key]);
     if (mp) {
       const tier  = (mp.tier || 'medium').toLowerCase();
-      const tLabel = { trivial:'TRIVIAL', easy:'EASY', medium:'MEDIUM', hard:'HARD', deadly:'DEADLY ⚠' }[tier] || tier.toUpperCase();
+      const tLabel = { trivial:'하찮음', easy:'쉬움', medium:'보통', hard:'어려움', deadly:'치명적 ⚠' }[tier] || tier.toUpperCase();
       threatEl.innerHTML =
         '<span class="threat-tier threat-' + tier + '">' + tLabel + '</span>'
         + 'AC ' + (mp.ac || '?')
