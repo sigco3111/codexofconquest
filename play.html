@@ -7046,7 +7046,7 @@ function _showReturnRow(enemyName, dropLine) {
   // Return to Story button
   const retBtn = document.createElement('button');
   retBtn.className = 'rts-btn-story';
-  retBtn.textContent = '▶ Return to Story →';
+  retBtn.textContent = '▶ 스토리로 돌아가기 →';
   retBtn.addEventListener('click', () => { row.remove(); storyEnter(); });
   row.appendChild(retBtn);
   // Heal button (HP < 50%)
@@ -7443,7 +7443,7 @@ function rollDeathSave() {
       S.deathSaves.failures = Math.min(3, S.deathSaves.failures + 2);
       updateDsPips();
       if (S.deathSaves.failures >= 3) {
-        statusEl.className = 'ds-status dead'; statusEl.textContent = '💀 DEAD';
+        statusEl.className = 'ds-status dead'; statusEl.textContent = '💀 사망';
         cardOutcome = 'NAT 1 — 2 failures — Dead';
       } else {
         statusEl.className = 'ds-status';
@@ -7454,7 +7454,7 @@ function rollDeathSave() {
       S.deathSaves.successes++;
       updateDsPips();
       if (S.deathSaves.successes >= 3) {
-        statusEl.className = 'ds-status stable'; statusEl.textContent = '✓ STABLE';
+        statusEl.className = 'ds-status stable'; statusEl.textContent = '✓ 안정';
         cardOutcome = `${d20Val}${_dsBonus ? '+'+_dsBonus : ''} — 3 successes — Stable (unconscious)`;
       } else {
         statusEl.className = 'ds-status';
@@ -7465,7 +7465,7 @@ function rollDeathSave() {
       S.deathSaves.failures++;
       updateDsPips();
       if (S.deathSaves.failures >= 3) {
-        statusEl.className = 'ds-status dead'; statusEl.textContent = '💀 DEAD';
+        statusEl.className = 'ds-status dead'; statusEl.textContent = '💀 사망';
         cardOutcome = `${d20Val} — 3 failures — Dead`;
       } else {
         statusEl.className = 'ds-status';
@@ -7907,7 +7907,7 @@ function newCombat() {
   });
 
   document.getElementById('opp-outcome').className = 'outcome-banner ob-idle';
-  document.getElementById('opp-outcome').textContent = 'waiting…';
+  document.getElementById('opp-outcome').textContent = '대기 중…';
   document.getElementById('you-outcome').className = 'outcome-banner ob-idle';
   document.getElementById('you-outcome').textContent = '— vs AC —';
   document.getElementById('opp-d20-hero').innerHTML = '';
@@ -8042,12 +8042,12 @@ function populateTerrainEnemies(terrainId) {
   const sel = document.getElementById('terrain-enemy-select');
   sel.innerHTML = '';
   sel.disabled = !terrainId;
-  if (!terrainId) { sel.innerHTML = '<option>— select location first —</option>'; return; }
+  if (!terrainId) { sel.innerHTML = '<option>— 먼저 위치를 고르세요 —</option>'; return; }
   const terrain = WORLD_DB[terrainId];
   if (!terrain) return;
 
   const TIER_ORDER  = ['trivial','easy','medium','hard','deadly'];
-  const TIER_LABELS = { trivial:'⬥ Trivial', easy:'◈ Easy', medium:'◆ Medium', hard:'◉ Hard', deadly:'★ Deadly' };
+  const TIER_LABELS = { trivial:'⬥ 사소함', easy:'◈ 쉬움', medium:'◆ 보통', hard:'◉ 어려움', deadly:'★ 치명적' };
 
   const byTier = {};
   for (const t of TIER_ORDER) byTier[t] = [];
@@ -8055,7 +8055,7 @@ function populateTerrainEnemies(terrainId) {
 
   const placeholder = document.createElement('option');
   placeholder.value = '';
-  placeholder.textContent = '— pick a monster —';
+  placeholder.textContent = '— 몬스터를 고르세요 —';
   sel.appendChild(placeholder);
 
   for (const tier of TIER_ORDER) {
@@ -9349,7 +9349,7 @@ const NODE_MAP = { // → doc: maps.md §NODE_MAP
 const NODE_CODE_BACKFILLED = new Set(Object.keys(NODE_MAP).filter(k => !NODE_MAP[k].code));
 Object.keys(NODE_MAP).forEach(k => { if (!NODE_MAP[k].code) NODE_MAP[k].code = k; });
 
-const ACT_NAMES =['','Act I — Birka','Act II — Tilbury','Act III — The Wilds','Act IV — The Deep','Act V — Visby','Act VI — Desert','Act VII — Mythic Circuit','Act VIII — The Reckoning'];
+const ACT_NAMES =['','1막 — 비르카','2막 — 틸버리','3막 — 황야','4막 — 심연','5막 — 비스뷔','6막 — 사막','7막 — 신화 순례','8막 — 결산'];
 
 /* Grid coordinates — spaced layout r:1–41, c:2–60 (Chebyshev ≥ 2 between all nodes) */
 // ◆◆◆ WORLDBUILDER:NODE_COORDS:START ◆◆◆
@@ -24010,8 +24010,8 @@ function storyNewGame(startScores) {
   S_story.equippedMainWeapon = Object.assign({}, STARTER_POINTY_STICK);
   S_story.equippedWeapon     = Object.assign({}, STARTER_FLINT_DAGGER);
   S_story.inventory.push(Object.assign({}, STARTER_DAGGER));
-  S_story.inventory.push({ name:'Minor Healing Potion', icon:'🧪', type:'potion', sell:25, code:'start' });
-  S_story.inventory.push({ name:'Minor Healing Potion', icon:'🧪', type:'potion', sell:25, code:'start' });
+  S_story.inventory.push({ name:'소형 치유 물약', icon:'🧪', type:'potion', sell:25, code:'start' });
+  S_story.inventory.push({ name:'소형 치유 물약', icon:'🧪', type:'potion', sell:25, code:'start' });
   // L43-S: seed Froberger's Last Note in a random EB node
   const _ebPool = ['PRN','INV','SDR','PMO','FLR','KUN','ACE','IST','SOF','BEG','OTP','WAW','CAI','MCT','SJO','KTM','RKV','MAD','HAV','TBS'];
   S_story.frobergerNoteNode = _ebPool[Math.floor(_seededNext() * _ebPool.length)];
@@ -24086,8 +24086,8 @@ function storyNewGamePlus() {
   S_story.equippedMainWeapon = Object.assign({}, STARTER_POINTY_STICK);
   S_story.equippedWeapon     = Object.assign({}, STARTER_FLINT_DAGGER);
   S_story.inventory.push(Object.assign({}, STARTER_DAGGER));
-  S_story.inventory.push({ name:'Minor Healing Potion', icon:'🧪', type:'potion', sell:25, code:'start' });
-  S_story.inventory.push({ name:'Minor Healing Potion', icon:'🧪', type:'potion', sell:25, code:'start' });
+  S_story.inventory.push({ name:'소형 치유 물약', icon:'🧪', type:'potion', sell:25, code:'start' });
+  S_story.inventory.push({ name:'소형 치유 물약', icon:'🧪', type:'potion', sell:25, code:'start' });
   const _ebPool = ['PRN','INV','SDR','PMO','FLR','KUN','ACE','IST','SOF','BEG','OTP','WAW','CAI','MCT','SJO','KTM','RKV','MAD','HAV','TBS'];
   S_story.frobergerNoteNode = _ebPool[Math.floor(_seededNext() * _ebPool.length)];
   _continueChecked = true;
@@ -24353,10 +24353,10 @@ function storySellEquipment() {
 }
 
 const POTION_TIERS = { // → doc: docs/mechanics/mechanics-economy.md §Vendor System
-  minor:    { name:'Minor Healing Potion',    icon:'🧪', heal:10,  cost:50   },
-  healing:  { name:'Healing Potion',          icon:'🫧', heal:25,  cost:150  },
-  greater:  { name:'Greater Healing Potion',  icon:'💜', heal:50,  cost:400  },
-  superior: { name:'Superior Healing Potion', icon:'✨', heal:100, cost:1000 },
+  minor:    { name:'소형 치유 물약',    icon:'🧪', heal:10,  cost:50   },
+  healing:  { name:'치유 물약',          icon:'🫧', heal:25,  cost:150  },
+  greater:  { name:'대형 치유 물약',  icon:'💜', heal:50,  cost:400  },
+  superior: { name:'최상급 치유 물약', icon:'✨', heal:100, cost:1000 },
 };
 
 function storyBuyPotion(tier) {
@@ -24591,10 +24591,10 @@ function _rollD100Loot() {
     const roll = Math.min(99, Math.floor(_seededNext() * 100)); // §VM-01-B: seeded stream
     const row  = _d100Result(roll);
 
-    if (row._type === 'potion_minor')    return { name:'Minor Healing Potion',    icon:'🧪', type:'potion',    sell:25  };
-    if (row._type === 'potion')          return { name:'Healing Potion',           icon:'🫧', type:'potion',    sell:75  };
-    if (row._type === 'potion_greater')  return { name:'Greater Healing Potion',   icon:'💜', type:'potion',    sell:200 };
-    if (row._type === 'potion_superior') return { name:'Superior Healing Potion',  icon:'✨', type:'potion',    sell:500 };
+    if (row._type === 'potion_minor')    return { name:'소형 치유 물약',    icon:'🧪', type:'potion',    sell:25  };
+    if (row._type === 'potion')          return { name:'치유 물약',           icon:'🫧', type:'potion',    sell:75  };
+    if (row._type === 'potion_greater')  return { name:'대형 치유 물약',   icon:'💜', type:'potion',    sell:200 };
+    if (row._type === 'potion_superior') return { name:'최상급 치유 물약',  icon:'✨', type:'potion',    sell:500 };
     if (row._type === 'scroll')          return { name:'Spell Scroll',             icon:'📜', type:'spell',     sell:50  };
     if (row._type === 'flashbang')       return { name:'Flashbang',                icon:'💥', type:'flashbang', sell:75  };
     if (row._type === 'gold') {
@@ -24615,7 +24615,7 @@ function _rollD100Loot() {
     }
   }
   // Fallback after 3 failed rerolls
-  return { name:'Minor Healing Potion', icon:'🧪', type:'potion', sell:25 };
+  return { name:'소형 치유 물약', icon:'🧪', type:'potion', sell:25 };
 }
 
 /* ── Monster weapon drops ── */
@@ -31337,7 +31337,7 @@ function storyRenderQuests() {
       div.appendChild(descDiv);
       const wpBtn = document.createElement('button');
       wpBtn.className = 'quest-set-wp-btn active-wp';
-      wpBtn.innerHTML = '📍 Active Waypoint' + _wpDistTag(customWp.node);
+      wpBtn.innerHTML = '📍 활성 경유지' + _wpDistTag(customWp.node);
       wpBtn.addEventListener('click', () => { S_story.waypoint = customWp.node; _updateWaypointBtn(); });
       div.appendChild(wpBtn);
       div.appendChild(document.createTextNode(' '));
@@ -32588,7 +32588,7 @@ function _nodeHookMimicMeadows(node) {
       const _nameDiv = document.createElement('div');
       _nameDiv.style.cssText = 'display:flex;gap:6px;align-items:center;flex-wrap:wrap;';
       const _nameInput = document.createElement('input');
-      _nameInput.type = 'text'; _nameInput.placeholder = 'Name your mimic...';
+      _nameInput.type = 'text'; _nameInput.placeholder = '미믹의 이름을 지어주세요...';
       _nameInput.style.cssText = 'font-size:11px;padding:3px 6px;background:var(--panel2);border:1px solid var(--border);color:var(--text);border-radius:4px;flex:1;min-width:120px;';
       const _nameBtn = document.createElement('button');
       _nameBtn.className = 'story-card-btn'; _nameBtn.textContent = '📦 Give a name';
@@ -33614,10 +33614,10 @@ function _nodeHookCdgKenickieMarket(node, { cqDiv }) {
             makeItem: () => ({ name:'Live Shallows Minnow', icon:'🐠', type:'bait', count:1, sell:2, catchBonus:3, typeBonus:0, advantage:false, sizeUp:true }) },
           { label:'Minor Healing Potion', icon:'🧪', price:45,
             desc:'Heals 10hp. 10% off. Community pricing.',
-            makeItem: () => ({ name:'Minor Healing Potion', icon:'🧪', type:'potion', heal:10, sell:15 }) },
+            makeItem: () => ({ name:'소형 치유 물약', icon:'🧪', type:'potion', heal:10, sell:15 }) },
           { label:'Healing Potion', icon:'🫧', price:135,
             desc:'Heals 25hp. 10% off. Community pricing.',
-            makeItem: () => ({ name:'Healing Potion', icon:'🫧', type:'potion', heal:25, sell:35 }) },
+            makeItem: () => ({ name:'치유 물약', icon:'🫧', type:'potion', heal:25, sell:35 }) },
         ];
         const shopDiv = document.createElement('div');
         shopDiv.id = 'kenickie-shop-div';
@@ -35270,7 +35270,7 @@ function storyRender(node, prefix) {
         e42Div.style.cssText = 'margin-top:10px;border-left-color:#a0702a;';
         e42Div.innerHTML = '<div style="color:#f0c070;font-weight:700;margin-bottom:6px;">📖 Froberger\'s Journal — Entry 42</div>'
           + '<div style="font-size:12px;color:#bba;margin-bottom:8px;">The page is blank. His handwriting fills forty-one entries. This one — the last — is empty. He left it for someone else. You are the someone else.</div>'
-          + '<textarea id="entry42-textarea" placeholder="Write Entry 42, or leave this blank." style="width:100%;height:80px;background:#0e0a06;color:#ddc;border:1px solid #5c3311;border-radius:3px;padding:6px;font-size:12px;resize:vertical;box-sizing:border-box;"></textarea>'
+          + '<textarea id="entry42-textarea" placeholder="42번 항목을 쓰거나, 비워 두세요." style="width:100%;height:80px;background:#0e0a06;color:#ddc;border:1px solid #5c3311;border-radius:3px;padding:6px;font-size:12px;resize:vertical;box-sizing:border-box;"></textarea>'
           + '<div style="display:flex;gap:6px;margin-top:6px;">'
           + '<button class="inv-use-btn" id="entry42-write-btn">✍️ Write it.</button>'
           + '<button class="inv-use-btn" id="entry42-blank-btn">— Leave it blank.</button>'
@@ -35409,7 +35409,7 @@ function storyRender(node, prefix) {
       + 'A rune in the stone here predates everything else in the Unbanked Quarter. It has one word above it in Scholar King notation: <em>SPEAK</em>. The rune will accept one thing: a secret. Something true. Something not yet said aloud.<br><br>'
       + 'If you speak it, the rune records it. It will appear in the ending — anonymous, undated, just the truth you said here.'
       + '</div>'
-      + '<textarea id="sg-secret-input" placeholder="Type your secret here..." style="width:100%;height:60px;background:#1a1a2a;color:#ccc;border:1px solid #5a4060;border-radius:3px;padding:6px;font-size:12px;box-sizing:border-box;resize:vertical;"></textarea>'
+      + '<textarea id="sg-secret-input" placeholder="비밀을 입력하세요..." style="width:100%;height:60px;background:#1a1a2a;color:#ccc;border:1px solid #5a4060;border-radius:3px;padding:6px;font-size:12px;box-sizing:border-box;resize:vertical;"></textarea>'
       + '<div style="display:flex;gap:8px;margin-top:6px;flex-wrap:wrap;">'
       + '<button class="inv-use-btn" id="sg-speak-btn">🔮 Speak it aloud</button>'
       + '<button class="inv-use-btn" style="background:#2a2a2a;" id="sg-pass-btn">— Walk past without speaking.</button>'
