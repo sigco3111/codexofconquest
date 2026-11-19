@@ -10629,7 +10629,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     // so it has in-degree 2 (a confluence at the diamond's base), order-independent. df_01 carries
     // no onward unlock → terminal leaf, no cycle. Referred here from the fork apex (quest_hunt_01).
     onComplete:[
-      { kind:'narrative', msg:"🪧 The kelpie sinks and does not surface; the loch road is clear for the first time in two seasons. Word runs down the coast ahead of you: Dunfall — its doors shut all this while because the same water-thing held the ford below the town — has opened its harbor again, and Mairén Fionn is back at the dock. A bounty surfaces on the Warrant's Board." },
+      { kind:'narrative', msg:'🪧 켈피가 가라앉고 다시 떠오르지 않는다. 두 계절 만에 처음으로 호숫길이 열렸다. 소문이 당신보다 앞서 해안을 따라 달린다. 던폴이, 그 물의 것이 마을 아래 여울목을 쥐고 있는 동안 줄곧 문을 닫았던 던폴이 다시 항구를 열었고, 마이렌 피온이 부두로 돌아왔다고. 영장 게시판에 현상금이 올라왔다.' },
       { kind:'unlock', quests:['quest_df_01'] } ], // §ARCH-01 W7c · §BOARD-01-FU6 diamond convergence (left arm)
     desc:"Elder Fionn's village has been terrorised for two seasons. The kelpie controls the water road.",
     hint:'아일랜드 고원지대의 호수 나루에서 싸워라.',
@@ -13378,7 +13378,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
           { kind:'narrative', msg:'🔍 모더스의 자리는 두 출구 모두를 조망한다. 눈앞의 방으로는 최적이다.\n\n위층의 영장 회관, 여섯 달 동안 독립 판결 열일곱 건. 모더스의 심사 없음. 샤먼은 내려올 필요가 없었다. 둘 다 문을 지켜보는 동안 구조가 바뀌고 있다.\n\n모더스는 교착에서 지고 있는 것이 아니다. 석 달 전에 이미 졌고, 계단 위를 올려다보지 않았다.\n\n로엔, 조용히. 『바닥이 전장이 아니다.』\n\n아들리의 W4 조각 수집. 지식 항목 추가. +300 XP.' },
         ],
         onFail:[
-          { kind:'narrative', msg:'The power balance between Mordus\'s floor and the Warrant Hall above is clear in the room\'s tension. Both figures are focused on the immediate. The longer timeline and what the stalemate is costing isn\'t resolving from this angle.' },
+          { kind:'narrative', msg:'모더스의 층과 위층 영장 회관 사이의 힘의 균형은 방 안의 긴장에 분명히 드러난다. 두 인물 모두 눈앞에 집중하고 있다. 더 긴 시간축과 이 교착이 치르는 비용은 이 각도에서는 읽히지 않는다.' },
         ],
       },
     ],
@@ -13401,10 +13401,10 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
           { kind:'mission_bit', flag:'wisPage5_form' },
           { kind:'flag_write', set:['wisArchiveLetter'] },
           { kind:'reward', xp:300, knowledge:'Ardley W5 — Formlessness: The Stoic at Athens argued that persistence in argument is virtue — changing positions is capitulation. Roen noted the Stoic had changed positions twice in the last hour and called both changes \'refinements.\' The Stoic fell silent. Roen: "Releasing the argument is not capitulation if the argument was wrong." The Stoic wrote this down and offered a letter of introduction to the Visby archive — the only library that keeps Ardley\'s full catalogue.' },
-          { kind:'narrative', msg:'🧠 The Stoic\'s argument has three layers. The epistemological claim that arrived twenty minutes ago contradicts the property rights layer. He has been arguing two incompatible positions without noticing.\n\nYou ask which layer he began with.\n\nHe pauses. Then: "I see it."\n\nRoen: "Releasing the argument is not capitulation if the argument was wrong."\n\nThe Stoic writes this down. He hands you a letter of introduction to the Visby archive. The archivist there keeps Ardley\'s full catalogue.\n\nArdley\'s W5 fragment collected. Knowledge entry added. Stoic\'s archive letter acquired. +300 XP.' },
+          { kind:'narrative', msg:'🧠 스토아학파 철학자의 논증은 세 겹이다. 이십 분 전에 도달한 인식론적 주장이 소유권 겹과 모순된다. 그는 깨닫지 못한 채 양립할 수 없는 두 입장을 동시에 논하고 있었다.\n\n당신이 어느 겹에서 시작했는지 묻는다.\n\n그가 멈칫한다. 이어서. 『알겠다.』\n\n로엔. 『논증이 틀렸다면 논증을 놓는 것은 항복이 아니다.』\n\n스토아학파 철학자가 이 말을 받아 적는다. 그가 비스뷔 문서고의 소개장을 건넨다. 그곳 기록관이 아들리의 전체 목록을 보관하고 있다.\n\n아들리의 W5 조각 수집. 지식 항목 추가. 스토아학파 철학자의 문서고 소개장 획득. +300 XP.' },
         ],
         onFail:[
-          { kind:'narrative', msg:'The debate structure has three layers but the incompatibility between them isn\'t visible from inside the argument yet. The Stoic is committed to all three simultaneously. The pivot moment hasn\'t surfaced.' },
+          { kind:'narrative', msg:'논쟁의 구조는 세 겹이지만 겹들 사이의 양립 불가는 논증 안에서는 아직 보이지 않는다. 스토아학파 철학자는 셋 모두에 동시에 묶여 있다. 전환점은 아직 떠오르지 않았다.' },
         ],
       },
     ],
@@ -13428,10 +13428,10 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
         onPass:[
           { kind:'mission_bit', flag:'wisPage6_shadow' },
           { kind:'reward', xp:350, items:[{ name:'Shadow Shard', icon:'\u{1F52E}', type:'misc', desc:"A fragment of the VS mirror room, offered freely after you accepted what it reflected. It reflects nothing now \u2014 whatever was in it has been named. The room behind it is quiet.", sell:25 }], knowledge:"Ardley W6 \u2014 The Shadow: The mirror room in Visby's lower archive reflects a pattern the visitor has been navigating around \u2014 not a lie, not a flaw, but a part of the self that operates below acknowledgment. Roen gave it a formal nod. The mirror offered a shard. Accepting the shadow's observation is not defeat. It is the end of the cost of suppressing it." },
-          { kind:'narrative', msg:'\u{1F52E} The room below the archive has a mirror that should not exist here \u2014 polished obsidian, standing, no frame.\n\nIt shows you something. What it shows is specific and accurate. It names a pattern you have been navigating around for a long time.\n\nYou give it a formal nod. The mirror fractures cleanly at the center, offering a single shard. The room behind it goes quiet.' },
+          { kind:'narrative', msg:'🔮 문서고 아래 방에는 이곳에 있어서는 안 될 거울이 있다. 틀 없이 서 있는, 닦아낸 흑요석.\n\n거울이 당신에게 무언가를 보여 준다. 그것이 보여 주는 것은 구체적이고 정확하다. 당신이 오랫동안 빙 돌아 피해 다닌 배열에 이름을 붙인다.\n\n당신이 정중히 고갯짓한다. 거울이 중심에서 깨끗하게 갈라지며 파편 하나를 내놓는다. 그 뒤의 방이 조용해진다.' },
         ],
         onFail:[
-          { kind:'narrative', msg:'\u{1F52E} The mirror shows you something, and you look past it. Not a refusal \u2014 a reflex, the same one Ardley wrote the chapter about. The obsidian holds. The room stays cold.\n\nCome back when you can hold the look, or descend and fight what is standing in it.' },
+          { kind:'narrative', msg:'🔮 거울이 당신에게 무언가를 보여 주지만, 당신은 그것을 지나쳐 본다. 거부가 아니라 반사다. 아들리가 그 장에서 쓴 바로 그 반사다. 흑요석은 버틴다. 방은 차가운 채다.\n\n시선을 견딜 수 있을 때 돌아오거나, 내려가서 그 안에 서 있는 것과 싸워라.' },
         ],
       },
     ],
@@ -13459,7 +13459,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
 
   // ── Layer 55: Visby Underground quests ──
   quest_vs_01: { id:'quest_vs_01', type:'side', schema:'UQF-1.0', gate:{}, bits:[], completion:{ flags:['vsDebtProbed'] }, title:'솔박: 수집가',
-    onComplete:[ { kind:'flag_write', set:['vsDebtProbed'] }, { kind:'favor', npc:"solvak", set:1 }, { kind:'narrative', msg:'💬 Mordus\'s position recorded. Solvak is Friendly.' } ], // §ARCH-01 W7c
+    onComplete:[ { kind:'flag_write', set:['vsDebtProbed'] }, { kind:'favor', npc:"solvak", set:1 }, { kind:'narrative', msg:'💬 모더스의 입장이 기록되었다. 솔박이 우호적이 되었다.' } ], // §ARCH-01 W7c
     desc:"Debt Agent Solvak has been outside Visby six weeks with a 2,000gp debt and no leverage. You might have some.",
     hint:'비스뷔에 들어가 군주 모르두스에게 실종된 무기 선적에 대해 이야기하라.',
     activateNode:'VS', onActivate:null, // §VM-01-G3 — the Layer-55 stanza's act≥5 leg was structurally dead (actNumber = node.act, and VS is an act-2 node), so on-node it never fired; the arc self-paces through Solvak's buttons
@@ -13471,14 +13471,14 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     rumor:"A collector in Visby is owed, and the debtor has stopped answering his door. The Warrant wants the matter probed before it turns loud. Ask Solvak.",
   },
   quest_vs_02: { id:'quest_vs_02', type:'side', schema:'UQF-1.0', gate:{ flags:['vsDebtProbed'] }, bits:[], completion:{ flags:['vsWeaponsFound'] }, title:'이바: 중개인',
-    onComplete:[ { kind:'flag_write', set:['vsWeaponsFound'] }, { kind:'favor', npc:"yva", set:1 }, { kind:'narrative', msg:'🖤 Hollow Hands weapons trail found. Yva is Friendly.' },
+    onComplete:[ { kind:'flag_write', set:['vsWeaponsFound'] }, { kind:'favor', npc:"yva", set:1 }, { kind:'narrative', msg:'🖤 속빈 손 무기 흔적 발견. 이바가 우호적이 되었다.' },
       // §BOARD-01-FU6 (through-flow) — this quest is the referral graph's first THROUGH-NODE: it is
       // BOTH a merge target (in-degree 2, from quest_pachelbel_shipment + quest_couperin_lute's
       // convergence edges) AND a source (out-degree 1, here). That makes the network a general DAG —
       // referral flow passes THROUGH merges, not just fans out into sinks. Yva reads the two marks →
       // they are Hollow Hands paper → the debt behind them is Mordus's (quest_vs_03), the terminal
       // LEAF (no onward unlock → acyclic). Purely additive; vs_03 keeps gate:{}, stays board-postable.
-      { kind:'narrative', msg:'🖋️ Yva turns the marks under her lamp and stops pretending she can\'t read them. "Hollow Hands — the same hand that sealed what you brought me also signed a transit seal I brokered for a warlord six weeks gone: Mordus, camped outside Visby, still owing on it and still not knowing what the mark will cost him." She names the debt behind the marks. A bounty surfaces on the Warrant\'s Board.' },
+      { kind:'narrative', msg:'🖋️ 이바가 표식들을 등잔 아래에서 돌려 보다가 읽지 못하는 척하기를 멈춘다. 『속빈 손. 당신이 가져온 것을 봉인한 그 손이, 내가 여섯 주 전에 한 전쟁군주를 위해 중개한 통과 인장에도 서명했어. 모더스, 비스뷔 바깥에 진을 친 자. 아직 빚을 갚지 않았고, 그 표식이 그에게 무엇을 요구할지 아직 모른다.』 그녀가 표식들 뒤의 빚을 밝힌다. 영장 게시판에 현상금이 올라왔다.' },
       { kind:'unlock', quests:['quest_vs_03'] } ], // §ARCH-01 W7c · §BOARD-01-FU6 through-flow edge
     desc:"Yva is inside the Goblin Caves. The Hollow Hands have marked her stall. She knows where the weapons went — for 50gp.",
     hint:'고블린 동굴 안에서 이바를 찾아라.',
@@ -13491,7 +13491,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     rumor:"Two odd goods are converging on Visby, both stamped with the same unreadable mark. Yva the broker knows what it means. The Warrant wants her reading.",
   },
   quest_vs_03: { id:'quest_vs_03', type:'side', schema:'UQF-1.0', gate:{ flags:['vsWeaponsFound'] }, bits:[], completion:{ flags:['vsDebtSettled'] }, title:'모르두스가 지불하다',
-    onComplete:[ { kind:'flag_write', set:['vsDebtSettled','vsShamanKnown'] }, { kind:'reward', gold:400 }, { kind:'narrative', msg:'💰 +400gp from Solvak. Debt settled. The shaman is named — but not found.' } ], // §ARCH-01 W7c
+    onComplete:[ { kind:'flag_write', set:['vsDebtSettled','vsShamanKnown'] }, { kind:'reward', gold:400 }, { kind:'narrative', msg:'💰 솔박에게서 +400gp. 빚은 정산되었다. 샤먼의 이름은 밝혀졌다. 하지만 찾지는 못했다.' } ], // §ARCH-01 W7c
     desc:"Mordus saw the Hollow Hands Seal. He paid sideways. Bring the transit seal to Solvak.",
     hint:'공허한 손의 인장을 지니고 비스뷔 밖의 솔바크에게 돌아가라.',
     activateNode:"VS", onActivate:null, // §VM-01-G3 — deduped; the vsWeaponsFound gate keeps the board's in-sequence promise (supersedes the FU6 "keeps gate:{}" note now that VS is a live node)
@@ -13545,7 +13545,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     npc:'recruiter_volkov',
   },
   quest_kg_03: { id:'quest_kg_03', type:'side', schema:'UQF-1.0', gate:{ flags:['kgManifestDelivered'] }, bits:[], completion:{ countMin:[{ path:'monsterKills.komsomol_cadet', min:4 }] }, title:'로시코바: 격투 마루',
-    onComplete:[ { kind:'reward', xp:200, gold:40 }, { kind:'narrative', msg:'🎖️ Roshkova pins a Red Star to your collar.' } ],
+    onComplete:[ { kind:'reward', xp:200, gold:40 }, { kind:'narrative', msg:'🎖️ 로시코바가 당신의 옷깃에 붉은 별을 달아 준다.' } ],
     itemChain:[{action:'grant',name:'Red Star Pin',icon:'⭐',type:'trophy',sell:0,silent:true}],
     desc:'Roshkova walks you onto the sparring floor. "Four cadets. They will not go easy and neither will you. Beat them clean — no cheap shots, no ganging. The School does not correct softness; it corrects sloppiness."',
     hint:'학교 스파링장에서 콤소몰 생도 4명을 이겨라.',
@@ -13577,7 +13577,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     npc:'pit-master_grimka',
   },
   quest_kg_06: { id:'quest_kg_06', type:'side', schema:'UQF-1.0', gate:{ questsDone:['quest_kg_05'] }, bits:[], completion:{ countMin:[{ path:'monsterKills.gladiator_bot', min:3 },{ path:'monsterKills.zavod_sparbot', min:3 }] }, title:'그림카: 깨끗한 대진표',
-    onComplete:[ { kind:'reward', xp:300, gold:60 }, { kind:'narrative', msg:'🏆 Grimka hands you a Clean-Card Trophy — and a stripped reactor core bound for the Fabrika.' } ],
+    onComplete:[ { kind:'reward', xp:300, gold:60 }, { kind:'narrative', msg:'🏆 그림카가 클린 카드 트로피와 파브리카로 보낼 벗겨낸 원자로 코어를 건넨다.' } ],
     itemChain:[{action:'grant',name:'Clean-Card Trophy',icon:'🏆',type:'trophy',sell:0,silent:true},{action:'grant',name:'Stripped Reactor Core',icon:'☢️',type:'quest',sell:0,silent:true}],
     desc:'"A full card," Grimka says. "Three gladiator-bots, three sparbots, all of it clean. Do that and the pit knows your name." He nods at a decommissioned core on the rack. "Win it and I will send the stripped core west with you — the Fabrika wants it."',
     hint:'완전한 무결 카드를 달성하라: 검투사봇 3대와 자보드 스파봇 3대.',
@@ -13611,7 +13611,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     npc:'technician_iosif',
   },
   quest_kg_09: { id:'quest_kg_09', type:'side', schema:'UQF-1.0', gate:{ questsDone:['quest_kg_08'] }, bits:[], completion:{ countMin:[{ path:'monsterKills.trainer_bot_prime', min:1 }] }, title:'이오시프: 의자',
-    onComplete:[{kind:'reward',xp:500,gold:80},{kind:'mission_bit',flag:'kgSimCleared',label:'프라임 코어'},{kind:'narrative',msg:'💽 Iosif certifies your run and prints a Skill-Chit.'}],
+    onComplete:[{kind:'reward',xp:500,gold:80},{kind:'mission_bit',flag:'kgSimCleared',label:'프라임 코어'},{kind:'narrative',msg:'💽 이오시프가 당신의 런을 인증하고 스킬 칩을 출력한다.'}],
     itemChain:[{action:'grant',name:'Certified Skill-Chit',icon:'🪪',type:'quest',sell:0,silent:true}],
     desc:'Iosif seats you in the chair and jacks you in. "Standard sim. Should be routine." The regulator light flickers red. "...that should not. The Trainer-Bot is fighting at full — the chair is writing faster than it reads. Ride it out or I pull you. Your call, recruit."',
     hint:'시뮬레이션 과부하를 버텨라 — 훈련봇 프라임을 쓰러뜨려라.',
@@ -13623,7 +13623,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     npc:'technician_iosif',
   },
   quest_kg_10: { id:'quest_kg_10', type:'side', schema:'UQF-1.0', gate:{ flags:['kgSimCleared'] }, bits:[], completion:{ itemsAll:['Certified Skill-Chit'], atNode:'TVR' }, title:'레나: 인증과 보급',
-    onComplete:[ { kind:'reward', xp:220, gold:40 }, { kind:'narrative', msg:'🥫 Lena stamps your chit and hands you a warm Field Ration.' } ],
+    onComplete:[ { kind:'reward', xp:220, gold:40 }, { kind:'narrative', msg:'🥫 레나가 당신의 칩에 도장을 찍고 따뜻한 야전 식량을 건넨다.' } ],
     itemChain:[{action:'grant',name:'Field Ration',icon:'🥫',type:'potion',heal:20,sell:0,silent:true}],
     desc:'보급관 레나 checks your chit against the manifest and starts refilling your pack. "Iosif certified you — good. You have earned a proper resupply and a hot ration. Sit, eat, and then we talk about the road east."',
     hint:'Bring the Certified Skill-Chit to 보급관 레나 at the Rzhev Waystation (TVR).',
@@ -13644,12 +13644,12 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   // ── Layer 44 — Ally Cat Arc quests ──
   quest_cat_01: { id:'quest_cat_01', type:'side', schema:'UQF-1.0', gate:{}, bits:[], completion:{ countMin:[{ path:'catKills.stray_alley_cat', min:5 },{ path:'catKills.fluffy_cat', min:3 }] }, title:'지미: 새 긁힘 자국',
-    onComplete:[ { kind:'reward', gold:200 }, { kind:'narrative', msg:'💰 +200gp from Jimmy. The Cat Quarter breathes easier.' } ], // §ARCH-01 W7c
+    onComplete:[ { kind:'reward', gold:200 }, { kind:'narrative', msg:'💰 지미에게서 +200gp. 캣 쿼터가 숨을 돌린다.' } ], // §ARCH-01 W7c
     desc:"Jimmy Two-Tails wants the Cat Quarter settled. Clear the riff-raff — 5 strays and 3 fluffies.",
     hint:'캣 쿼터에서 할당량이 채워질 때까지 싸워라.',
     killGoals:[{key:'stray_alley_cat',need:5,label:'뒷골목 길고양이'},{key:'fluffy_cat',need:3,label:'복슬복슬 고양이'}],
     activateNode:'CDG', // §VM-01-G3 — the Layer-44 storyRender stanzas are retired; the chain sequencing lives in the gates below (the appended duplicate activateNode fields had made the whole chain activate at once)
-    onActivate:{ msg:'Jimmy Two-Tails adjusts the brim of his tiny fedora.\n\n"Listen. LISTEN. I\'m gonna tell you somethin\' and I\'m only gonna say it once."\n\nHe leans forward.\n\n"You want to help this neighborhood? Clear out the riff-raff. Five strays. Three fluffies. They\'re harmless but they set a tone and the tone ain\'t good. Capisce? You do this, we talk about the bigger problems. Deal?"\n\n📋 Quest: The New Scratch — accepted.', delayMs:500 },
+    onActivate:{ msg:'지미 투테일즈가 자그마한 페도라 챙을 고쳐 쓴다.\n\n『들어. 들어보라고. 딱 한 번만 말할 거야.』\n\n그가 몸을 앞으로 기울인다.\n\n『이 동네를 돕고 싶다고? 그럼 잡것들을 정리해. 뒷골목 길고양이 다섯 마리. 복슬복슬 고양이 세 마리. 해롭지는 않지만 분위기를 만들고 그 분위기가 안 좋아. 알겠어? 이걸 해치우면 더 큰 문제를 얘기하자고. 어때?』\n\n📋 퀘스트 수락. 지미: 새 긁힘 자국.', delayMs:500 },
     waypointNode:'CDG', reward:200,
     disposition:'"You done good, kid. Real professional. The neighborhood\'s already calmer. Relatively. For cats." — Jimmy Two-Tails',
     passText:"You done good, kid. Real professional. The neighborhood is already calmer. Relatively. For cats.",
@@ -13657,12 +13657,12 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     npc:"jimmy",
   },
   quest_cat_02: { id:'quest_cat_02', type:'side', schema:'UQF-1.0', gate:{ questsDone:['quest_cat_01'] }, bits:[], completion:{ countMin:[{ path:'catKills.beefy_tom', min:3 }], itemsAll:[{ name:'금 간 발톱', min:3 }] }, title:'지미: 근육질 일',
-    onComplete:[ { kind:'reward', gold:350 }, { kind:'narrative', msg:'💰 +350gp from Jimmy. Sandy Scratchpad Mewlino has joined the Cat Quarter.' } ], // §ARCH-01 W7c
+    onComplete:[ { kind:'reward', gold:350 }, { kind:'narrative', msg:'💰 지미에게서 +350gp. 샌디 스크래치패드 뮬리노가 캣 쿼터에 합류했다.' } ], // §ARCH-01 W7c
     desc:"Three Beefy Toms are running muscle for a rival outfit. Take them down and collect the proof.",
     hint:'건장한 톰 3마리를 죽이고 금 간 발톱을 모아라.',
     killGoals:[{key:'beefy_tom',need:3,label:'근육질 수고양이'}],
     activateNode:'CDG',
-    onActivate:{ msg:'Jimmy: "Good work. Now. Beefy Toms — three of \'em — been running muscle for an outside operation. Take \'em down. Keep the claws. Three claws. I wanna see the proof."\n\n📋 Quest: Beefy Business — accepted.', delayMs:600 },
+    onActivate:{ msg:'지미. 『잘했어. 자. 근육질 수고양이 세 마리가 바깥 조직의 힘자랑 노릇을 하고 있어. 처리해. 발톱은 가져와. 발톱 세 개. 증거를 보고 싶으니까.』\n\n📋 퀘스트 수락. 지미: 근육질 일.', delayMs:600 },
     waypointNode:'CDG', reward:350,
     disposition:'"Those guys were affiliated. You just stepped into something bigger than strays, sweetheart." — Sandy Scratchpad Mewlino',
     passText:"Those guys were affiliated. You just stepped into something bigger than strays, sweetheart.",
@@ -13676,7 +13676,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'두목 고양이(카포) 1마리와 보스 레이디 두목 1마리를 죽여라.',
     killGoals:[{key:'honcho_cat_m',need:1,label:'두목 고양이 (카포)'},{key:'honcho_cat_f',need:1,label:'여두목 혼초'}],
     activateNode:'CDG',
-    onActivate:{ msg:'Sandy "Scratchpad" Mewlino is here now. Tortoiseshell fur, eyes like she\'s already three moves ahead of you.\n\n"Sweetheart. You think this is about territory? This is about RESPECT. There\'s a Capo and a Boss Lady circling each other two blocks north. You kill \'em SEPARATE. Let \'em merge — and I promise you, a Taz Devil is nobody\'s problem they wanted.\n\nAlso — Don Fluffissimo. He\'s been sending his Merchant Cats into MY neighborhood. With Corrupted Cats for backup. Void-touched. Disgusting. He needs to be handled."\n\n📋 Quest: Honcho Problems — accepted.\n📋 Quest: Fat Cats Don\'t Tip — accepted.\n📋 Quest: Void Strays — accepted.', delayMs:700 }, // announces the 03/05/void trio that co-activates on cat_02's completion
+    onActivate:{ msg:'샌디 스크래치패드 뮬리노가 와 있다. 삼색 털, 이미 당신보다 세 수 앞을 보는 듯한 눈.\n\n『자기야. 이게 영역 싸움 같아? 이건 존중의 문제야. 두 블록 북쪽에서 카포 하나와 보스 레이디 하나가 서로를 맴돌고 있어. 따로따로 죽여. 합치게 두면, 장담하는데 타즈 데빌은 그 누구도 원한 문제가 아니게 돼.\n\n그리고. 돈 플러피시모. 걔가 자기 상인 고양이들을 내 동네에 들이고 있어. 타락한 고양이들을 뒷받침으로 데리고서. 공허에 물든 것들. 역겨워. 처리해야 해.』\n\n📋 퀘스트 수락. 샌디: 두목 문제.\n📋 퀘스트 수락. 샌디: 뚱보 고양이는 팁을 안 준다.\n📋 퀘스트 수락. 샌디: 공허의 길고양이.', delayMs:700 }, // announces the 03/05/void trio that co-activates on cat_02's completion
     waypointNode:'CDG', reward:500,
     disposition:'"Kid, I told you. SEPARATE. You kill \'em SEPARATE. The merge thing is NOT a mechanic I enjoy." — Jimmy Two-Tails',
     passText:"I told you. SEPARATE. The merge thing is NOT a mechanic I enjoy. They are down and separate.",
@@ -13714,7 +13714,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     desc:"Three Taz Devils merged at the fish market. The Cat-King has awoken. You\'re the hero. You go.",
     hint:'캣 쿼터에서 고양이 왕을 쓰러뜨려라.',
     activateNode:'CDG',
-    onActivate:{ msg:'Tommy No-Ears DeVito is pacing at the alley entrance, fur standing on end.\n\n"Three Taz Devils merged at the fish market. THREE. It\'s a KING. I\'m not going anywhere near that. You\'re the hero. You go."', delayMs:600 },
+    onActivate:{ msg:'토미 노이어즈 드비토가 골목 입구를 오가며 서성인다. 털이 곤두서 있다.\n\n『생선 시장에서 타즈 데빌 셋이 합쳐졌어. 셋이라고. 왕이야. 나는 그 근처에도 안 가. 영웅은 너잖아. 네가 가.』', delayMs:600 },
     waypointNode:'CDG', reward:1500,
     disposition:'"Listen. I want you to know something. You did good. Real good. You\'re like... honorary Ally Cat now. Don\'t tell nobody. It ain\'t a thing we advertise." — Jimmy Two-Tails',
     passText:"You did good. Real good. You are honorary Ally Cat now. Do not tell nobody. It is not a thing they advertise.",
@@ -13722,7 +13722,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     npc:"jimmy",
   },
   quest_cat_void: { id:'quest_cat_void', type:'side', schema:'UQF-1.0', gate:{ questsDone:['quest_cat_02'] }, bits:[], completion:{ countMin:[{ path:'catKills.corrupted_cat', min:5 }] }, title:'샌디: 공허의 길고양이',
-    onComplete:[ { kind:'reward', gold:400 }, { kind:'narrative', msg:'💰 +400gp from Sandy. The Void Strays are cleared.' } ], // §ARCH-01 W7c
+    onComplete:[ { kind:'reward', gold:400 }, { kind:'narrative', msg:'💰 샌디에게서 +400gp. 공허의 길고양이들이 정리되었다.' } ], // §ARCH-01 W7c
     desc:"Strays in the Cat Quarter's back lanes have gone wrong. Wrong eyes, wrong fur. Sandy doesn't like it in her neighborhood.",
     hint:'캣 쿼터에서 타락한 고양이 5마리를 죽여라.',
     killGoals:[{key:'corrupted_cat',need:5,label:'타락한 고양이'}],
@@ -13753,7 +13753,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     passText:"He built that rack himself, the second season. The rubble has been cleared. The Corrupted Cats are gone.",
     failText:"Five Corrupted Cats are still holding the rubble at Fishmonger Row. Clear them to find what they carry.",
     npc:"connie_tuna",
-    onComplete:[{kind:'reward',gold:500,items:[{name:'Old Tuna Account Book',icon:'📒',type:'key_item',sell:0,desc:'A worn ledger. Every vendor on Fishmonger\'s Row — who owed what, who paid forward. Vincenzo\'s page is the last completed entry. The pages after it are blank.'}]},{kind:'favor',npc:'aldo_sardino',add:1},{kind:'unlock',quests:['quest_la_riva_03']},{kind:'narrative',msg:'💰 +500gp. The rubble is quieter now.\n\nAldo Sardino steps out from between two collapsed stalls. He has been here the whole time.\n\n"I found the net in the rubble of my stall. Three days after. I folded it." He does not look at Connie. "I\'ve been carrying it since."\n\nHe reaches inside his coat. He puts the folded net down on the nearest intact piece of counter. Then he reaches under his arm and draws out a ledger — battered, squared, the handwriting on the cover formal.\n\n"Every vendor on the row. Who owed what. Who paid. Vincenzo\'s page is the last one." He holds it out to you. "Take it to Kenickie. He\'s the one who knew Vincenzo\'s operation. He should hold it."\n\n📒 Old Tuna Account Book obtained.\n📋 Quest: The Account Book — accepted.'}],
+    onComplete:[{kind:'reward',gold:500,items:[{name:'Old Tuna Account Book',icon:'📒',type:'key_item',sell:0,desc:'A worn ledger. Every vendor on Fishmonger\'s Row — who owed what, who paid forward. Vincenzo\'s page is the last completed entry. The pages after it are blank.'}]},{kind:'favor',npc:'aldo_sardino',add:1},{kind:'unlock',quests:['quest_la_riva_03']},{kind:'narrative',msg:'💰 +500gp. 잔해가 조용해졌다.\n\n알도 사르디노가 무너진 노점 두 개 사이에서 걸어 나온다. 그는 줄곧 여기 있었다.\n\n『그물은 내 노점 잔해에서 찾았어. 사흘 뒤에. 접어 뒀지.』 그는 코니를 보지 않는다. 『그 뒤로 계속 품고 다녔어.』\n\n그가 외투 안으로 손을 넣는다. 접힌 그물을 가장 가까운 온전한 진열대 조각 위에 내려놓는다. 이어서 팔 아래에서 장부 하나를 꺼낸다. 낡고, 모서리가 반듯하고, 표지 필체는 격식 있다.\n\n『이 거리의 노점상 전부. 누가 뭘 빚졌는지. 누가 갚았는지. 빈첸초의 페이지가 마지막이야.』 그가 당신에게 내민다. 『케니키에게 가져가. 그가 빈첸초의 장사를 알던 사람이야. 그가 가져야 해.』\n\n📒 Old Tuna Account Book 획득.\n📋 퀘스트 수락. 알도: 회계 장부.'}],
   },
   quest_la_riva_03: { id:'quest_la_riva_03', type:'side', schema:'UQF-1.0', gate:{}, bits:[], completion:{ flags:['laRivaComplete'] }, title:'알도: 회계 장부',
     desc:"Aldo Sardino has kept the account book since the row came down. Vincenzo's page is the last completed entry. He wants it to go to someone who knew Vincenzo.",
@@ -13769,7 +13769,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   quest_fishing_guide: { id:'quest_fishing_guide', type:'side', schema:'UQF-1.0', gate:{}, bits:[], completion:{ countMin:[{ path:'fishingCatchLog', min:1 }], atNode:'SSJ' }, title:'어부: 자세히 들어라',
     onComplete:[ // §ARCH-01 W7c — item stays a lazy _legacy_fn: FISHING_GUIDE_TEXT is declared below QUEST_DB
       { kind:'_legacy_fn', fn:S => { S.inventory.push({ name:'Fishing Guide', icon:'📖', type:'readable', sell:0, readText:FISHING_GUIDE_TEXT }); } },
-      { kind:'narrative', msg:'📖 Fishing Guide received. Zone DCs now visible in the fishing modal.' },
+      { kind:'narrative', msg:'📖 낚시 안내서 수령. 이제 낚시 창에서 지역 난이도가 보인다.' },
     ],
     desc:"The Fisherman at Yugurt Cabin has a guide. Not a pamphlet — eleven years of fieldwork compressed into something small enough to fold. He doesn\'t offer it to people who ask. He offers it to people who have already been out on the lake and come back with the particular look of someone who now understands what they didn\'t know before they went.",
     hint:'Cast your line at 유구르트 호수 at least once, then return to the Fisherman.',
@@ -13793,7 +13793,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     npc:"emmer",
   },
   quest_horned_shark: { id:'quest_horned_shark', type:'side', schema:'UQF-1.0', gate:{ flags:['fishingYugurtFavour'] }, bits:[], completion:{ flags:['hornedSharkSlain'] }, title:'정오의 지점',
-    onComplete:[ { kind:'reward', gold:300 }, { kind:'narrative', msg:'💰 +300gp. 🦷 The Noon Point is yours now.' } ], // §ARCH-01 W7c
+    onComplete:[ { kind:'reward', gold:300 }, { kind:'narrative', msg:'💰 +300gp. 🦷 정오 지점은 이제 당신의 것이다.' } ], // §ARCH-01 W7c
     desc:"The Noon Point marker stands where the bank rope ends and the shark's territory begins. Every angler at Yugurt knows it. The ones who fish past it are not more skilled — they have simply decided the marker is someone else's problem. You have been past it. The lake has registered you. The shark hunts this water. You are in this water.",
     hint:'Hunt the Horned Shark at 유구르트 호수.',
     activateNode:'BOO', 
@@ -13804,7 +13804,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     npc:"the_fisherman",
   },
   quest_shale_drop: { id:'quest_shale_drop', type:'side', schema:'UQF-1.0', gate:{ flags:['eelSkinPouchActive'] }, bits:[], completion:{ flags:['shaleDropFound'] }, title:'셰일 낙하', // §XLIX
-    onComplete:[ { kind:'reward', gold:250 }, { kind:'narrative', msg:'💰 +250gp. 📋 Y. Gurt Field Survey found.' } ], // §ARCH-01 W7c
+    onComplete:[ { kind:'reward', gold:250 }, { kind:'narrative', msg:'💰 +250gp. 📋 Y. 구르트 현지 조사서 발견.' } ], // §ARCH-01 W7c
     itemChain:[{action:'grant',name:'Y. Gurt Field Survey', icon:'📋', type:'readable', sell:0, readText:"Y. GURT — YUGURT LAKE SURVEY\nFirst Circle Field Record, Pre-Codex Year 3\nClassification: Naturalist Assessment — Freshwater Taxonomy\n\nLake dimensions: 2.4km × 0.9km. Maximum depth: 31 meters at the northwest basin. The shale formation below the northwest bank extends below the waterline for an undetermined depth — further survey required.\n\nDocumented species: 20 surface and mid-water, 3 confirmed deep-water (unclassified), 1 depth specimen observed on descent into northwest shale formation. See Annex 4: 'the light-producing variety; do not pursue below 25m without additional crew.'\n\nSurveyor notation (Y. Gurt, Nat. First Circle): The lake has developed a self-regulating predator hierarchy without Scholar Kings intervention. I recommend no intervention. It is doing this correctly on its own. I also recommend I be permitted to stay here rather than return to the archive for the classification review. The archive will continue without me. The lake will require observation.\n\nThe request was not approved.\n\nI stayed anyway.",silent:true}], // §EDITOR-01-D-FU(b) b2b
     desc:"There is a crack in the bank at 유구르트 호수 where the shale drops away below the waterline. You have been past it without a light. The Eel Skin Pouch gives you one. The lake floor is older than the water above it. What has been sitting in the dark down there has been sitting in the dark for a very long time.",
     hint:'Enter The Shale Drop from 유구르트 호수 (requires Eel Skin Pouch) and defeat the Cave Lurker.',
@@ -13947,7 +13947,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
       { kind:'_legacy_fn', fn:S => { if (!S.guide01WisGranted) { S.abilityScores = S.abilityScores || {}; S.abilityScores.wis = Math.min(20, (S.abilityScores.wis || 12) + 1); S.guide01WisGranted = true; } } },
       { kind:'flag_write', set:['emmerComplete'] },
       { kind:'favor', npc:'emmer', set:2 },
-      { kind:'narrative', msg:'🎣 Rod of Self-Discovery obtained. WIS +1. Emmer is Dear Friend.' },
+      { kind:'narrative', msg:'🎣 Rod of Self-Discovery 획득. WIS +1. 에머가 절친이 되었다.' },
     ],
     itemChain:[{action:'grant',name:'Rod of Self-Discovery', icon:'🎣', type:'weapon', atkBonus:1, dmgDie:4, dmgCount:1, dmgFlat:0, minLevel:1, sell:0, desc:'+1 ATK, 1d4. The rod the Fisherman kept inside. It was not a fishing rod. It was a proof of concept.',silent:true}], // §EDITOR-01-D-FU(b) b2b
     passText:"You will need to try to be the person you want to become. And then, one morning, you already are. The arc is closed.",
@@ -21165,7 +21165,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
 
   // ── §NPC_DIALOGUE batch rescue — Layer 41 Birka Arc + dungeon approach quests ──
   quest_slums_cleanup: { id:'quest_slums_cleanup', type:'side', schema:'UQF-1.0', gate:{}, bits:[], completion:{ countMin:[{ path:'slStalksWon', min:3 }] }, title:'야엘: 빈민가 소탕',
-    onComplete:[ { kind:'reward', gold:80 }, { kind:'favor', npc:'yael', set:1 }, { kind:'narrative', msg:'💰 +80gp from Yael. Guard Favor granted.' } ], // §ARCH-01 W7c
+    onComplete:[ { kind:'reward', gold:80 }, { kind:'favor', npc:'yael', set:1 }, { kind:'narrative', msg:'💰 야엘에게서 +80gp. 경비 호의가 주어졌다.' } ], // §ARCH-01 W7c
     desc:"Yael Scheidemann runs the Birka Slums detail because she asked for it and because nobody else did. She will know when it is done because she always knows — she has been watching this street since before you arrived on it. Three encounters. Come back when it is finished and she will not say thank you, which in her particular register means something closer to it than most people's explicit gratitude.",
     hint:'북쪽 비르카 슬럼으로 가서 해충을 정리하라.',
     activateNode:'LHR', 
@@ -21174,14 +21174,14 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     npc:"yael",
   },
   quest_brynn_firewood: { id:'quest_brynn_firewood', type:'side', schema:'UQF-1.0', gate:{ favorMin:{ brynn:1 } }, bits:[], completion:{ flags:['brynnFirewoodDelivered'] }, title:'브린: 장작',
-    onComplete:[ { kind:'favor', npc:'brynn', add:1 }, { kind:'narrative', msg:'🪵 Brynn noted the pile is full. She will not forget.' } ], // §ARCH-01 W7c
+    onComplete:[ { kind:'favor', npc:'brynn', add:1 }, { kind:'narrative', msg:'🪵 브린이 더미가 가득 찬 것을 기록했다. 그녀는 잊지 않을 것이다.' } ], // §ARCH-01 W7c
     desc:"The woodpile behind the inn is lower than it should be for the season. Brynn has not mentioned it. She has been watching the pile the way she watches everything — noting, not asking. It is cold in the upper rooms on the east side. She put the guests who asked no questions on the east side.",
     hint:'첫 여관에서 브린이 장작을 패고 쌓는 것을 도와라.',
     activateNode:'TLL',
     npc:"brynn",
   },
   quest_brynn_ledger: { id:'quest_brynn_ledger', type:'side', schema:'UQF-1.0', gate:{}, bits:[], completion:{ itemsAll:['Worn Ledger Book'], atNode:'TLL' }, title:'브린: 사라진 장부',
-    onComplete:[ { kind:'favor', npc:'brynn', set:1 }, { kind:'narrative', msg:'🛏 Brynn offers 3 free nights. Friendly!' },
+    onComplete:[ { kind:'favor', npc:'brynn', set:1 }, { kind:'narrative', msg:'🛏 브린이 무료 숙박 3박을 제공한다. 우호적!' },
       // §BOARD-01-FU6 branch edge — the network's FIRST FORK: one completion posts TWO onward
       // bounties (a two-target `unlock`, the opcode's first multi-quest author). Brynn's recovered
       // ledger has two open entries pointing two ways — the scholar's revoked record (Isolde @NUE)
@@ -21210,12 +21210,12 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     npc:"yael",
   },
   quest_couperin_lute: { id:'quest_couperin_lute', type:'side', schema:'UQF-1.0', gate:{}, bits:[], completion:{ itemsAll:["Quill's Lute"], atNode:'MHQ' }, npc:'quill', title:"퀼: 전당포에 맡긴 류트",
-    onComplete:[ { kind:'reward', gold:40 }, { kind:'favor', npc:'quill', set:1 }, { kind:'narrative', msg:'💰 +40gp + cipher scrap from Quill.' },
+    onComplete:[ { kind:'reward', gold:40 }, { kind:'favor', npc:'quill', set:1 }, { kind:'narrative', msg:'💰 퀼에게서 +40gp + Cipher Scrap.' },
       // §BOARD-01-FU6 (convergence) — the SECOND source that unlocks quest_vs_02 (Yva the Broker @VS).
       // See the twin edge on quest_pachelbel_shipment: this cipher scrap and that sealed box both carry
       // the same fence's mark, so both roads terminate at the one broker who can read it. Idempotent
       // unlock → order-independent; vs_02 stays a leaf (no onward unlock, no cycle). Purely additive.
-      { kind:'narrative', msg:'🖋️ The Warrant reader tilts Quill\'s Cipher Scrap to the lamp and goes still — a broker\'s mark, inked small in the corner, the kind only one fence in the Baltic still signs. "That tab was never Pachelbel\'s to hold. It was brokered, and the broker signs her paper: Yva, Visby, the goblin caves. She reads marks the way you read a road." A matching bounty surfaces on the Warrant\'s Board.' },
+      { kind:'narrative', msg:'🖋️ 영장 담당자가 퀼의 Cipher Scrap을 등잔 쪽으로 기울이다가 얼어붙는다. 중개인의 표식, 구석에 작게 찍힌 잉크 자국. 발트해에서 장물아비 한 사람만이 아직 찍는 종류다. 『그 외상 장부는 원래 파헬벨이 가질 것이 아니었다. 중개된 것이고, 중개인은 자기 서류에 서명한다. 이바, 비스뷔, 고블린 동굴. 그녀는 표식을 읽는다, 네가 길을 읽는 것처럼.』 대응하는 현상금이 영장 게시판에 올라왔다.' },
       { kind:'unlock', quests:['quest_vs_02'] } ], // §ARCH-01 W7c · §BOARD-01-FU6 convergence edge
     itemChain:[{action:'take',name:"Quill's Lute",all:true},{action:'grant',name:'Cipher Scrap',icon:'📜',type:'key',sell:0,silent:true}], // §EDITOR-01-D-FU(b) b2a
     desc:"Tomas Couperin's lute has been in Pachelbel's inventory for eleven days. He pawned it against a drink tab — a transaction he does not regret exactly, but which he replays in a particular way every morning. The lute does not play without him. The drink is gone. The tab is the only thing that remained, and now the lute is not his. The asking is the part he cannot bring himself to do.",
@@ -21226,14 +21226,14 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     rumor:"A pawned lute, and a scrap of cipher tucked in the sound-hole the broker swears is nothing. The Warrant does not deal in nothing. Recover both.",
   },
   quest_pachelbel_shipment: { id:'quest_pachelbel_shipment', type:'side', schema:'UQF-1.0', gate:{}, bits:[], completion:{ itemsAll:['Sealed Scholar Box'], atNode:'LLA' }, npc:'pachelbel', title:'파헬벨: 학자 상자',
-    onComplete:[ { kind:'reward', gold:60 }, { kind:'favor', npc:'pachelbel', set:1 }, { kind:'narrative', msg:'💰 +60gp from Pachelbel. Friendly!' },
+    onComplete:[ { kind:'reward', gold:60 }, { kind:'favor', npc:'pachelbel', set:1 }, { kind:'narrative', msg:'💰 파헬벨에게서 +60gp. 우호적!' },
       // §BOARD-01-FU6 (convergence) — one of TWO sources that unlock the SAME target (quest_vs_02,
       // Yva the Broker @VS). The network's first CONFLUENCE: two distant Birka cases — this sealed box
       // and Quill's cipher scrap — both yield an unreadable broker's mark, and only Yva reads marks.
       // Two roads, one destination (in-degree 2). The unlock is idempotent (handler at ~21801 no-ops a
       // target already posted), so whichever case you close SECOND is a safe no-op. vs_02 carries no
       // onward unlock → the confluence terminates (no cycle). Purely additive; vs_02 keeps gate:{}.
-      { kind:'narrative', msg:'🖋️ The Warrant clerk turns the Sealed Scholar Box once and stops at the wax — a broker\'s mark, not a scholar\'s seal. "Addressed to a man the registers forgot. Only one hand in the Baltic still reads a seal cut like this: Yva, who keeps a stall in the Visby goblin caves and knows what every mark means. Take her the box." A matching bounty surfaces on the Warrant\'s Board.' },
+      { kind:'narrative', msg:'🖋️ 영장 직원이 학자 상자를 한 번 돌리다가 밀랍에서 멈춘다. 중개인의 표식이다, 학자의 인장이 아니다. 『명부가 잊은 사나이 앞으로 되어 있어. 이렇게 파인 인장을 아직 읽을 수 있는 손은 발트해에 하나뿐이야. 이바, 비스뷔 고블린 동굴에 노점을 두고 모든 표식의 뜻을 아는 자. 그녀에게 상자를 가져가.』 대응하는 현상금이 영장 게시판에 올라왔다.' },
       { kind:'unlock', quests:['quest_vs_02'] } ], // §ARCH-01 W7c · §BOARD-01-FU6 convergence edge
     itemChain:[{action:'take',name:'Sealed Scholar Box',all:true}], // §EDITOR-01-D-FU(b) b2a
     desc:"Pachelbel does not deal in debts he did not originate. The Scholar Box has been in his back inventory for four months — sealed, addressed, belonging to someone who paid for it and then stopped existing in any record he can find. He wants it out of his problem. He does not say why it bothers him that it is still there. You can see that it does.",
@@ -21244,7 +21244,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     rumor:"A scholar's box came through sealed with a mark no one at the docks can read. The Warrant wants it carried to someone who can.",
   },
   quest_pit_training: { id:'quest_pit_training', type:'side', schema:'UQF-1.0', gate:{}, bits:[], completion:{ countMin:[{ path:'pitTrainingWins', min:3 }] }, npc:'crov', title:'베크만: 구덩이 훈련',
-    onComplete:[{kind:'favor',npc:'crov',set:1},{kind:'favor',npc:'crov',add:2},{kind:'narrative',msg:'🏆 Pit Legend Token earned. Weckmann is impressed.'}], // §ARCH-01 W7c
+    onComplete:[{kind:'favor',npc:'crov',set:1},{kind:'favor',npc:'crov',add:2},{kind:'narrative',msg:'🏆 Pit Legend Token 획득. 베크만이 감탄했다.'}], // §ARCH-01 W7c
     itemChain:[{action:'grant',name:'Pit Legend Token',icon:'🏆',type:'token',sell:30,silent:true}], // §EDITOR-01-D-FU(b) b2a
     desc:"Weckmann trains whoever survives the floor. Not whoever asks. Not whoever pays. Whoever survives. He will be watching. He will correct what he sees. He will not encourage, because encouragement is for people who need to be told they are doing it right. He corrects because he believes you can do it right. Three fights in the Neon Undercity.",
     hint:'네온 지하도시에서 전투 3회 승리.',
@@ -21292,13 +21292,13 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     npc:"yael",
   },
   quest_city_watch_patrol: { id:'quest_city_watch_patrol', type:'side', schema:'UQF-1.0', gate:{ favorMin:{ yael:1 } }, bits:[], completion:{ flags:['patrolRouteComplete'] }, title:'동선',
-    onComplete:[ { kind:'reward', gold:50, xp:150 }, { kind:'favor', npc:'yael', add:1 }, { kind:'narrative', msg:'💰 +50gp + 150 XP. Yael notes the route was covered.' } ], // §ARCH-01 W7c
+    onComplete:[ { kind:'reward', gold:50, xp:150 }, { kind:'favor', npc:'yael', add:1 }, { kind:'narrative', msg:'💰 +50gp + 150 XP. 야엘이 경로가 순찰되었음을 기록했다.' } ], // §ARCH-01 W7c
     hint:'야엘의 순찰 경로를 순서대로 걸어라: 도시 거리 — 비르카 (LHR) → 첫 여관 (TLL) → 비르카 주막 (MHQ).',
     activateNode:'LHR',
     npc:"yael",
   },
   quest_pit_debut: { id:'quest_pit_debut', type:'side', schema:'UQF-1.0', gate:{}, bits:[], completion:{ countMin:[{ path:'pitTrainingWins', min:1 }] }, title:'첫 피',
-    onComplete:[ { kind:'reward', gold:100, xp:250 }, { kind:'narrative', msg:'🥊 First Blood! +100gp +250 XP — The Pit knows your face now.' } ], // §ARCH-01 W7c
+    onComplete:[ { kind:'reward', gold:100, xp:250 }, { kind:'narrative', msg:'🥊 첫 피! +100gp +250 XP. 이제 구덩이가 네 얼굴을 안다.' } ], // §ARCH-01 W7c
     hint:'네온 지하도시에서 첫 구덩이 싸움에 승리하라.',
     activateNode:'HKG',
     npc:"crov",
@@ -21753,7 +21753,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     npc:"auros",
   },
   quest_d0206_a5: { id:'quest_d0206_a5', type:'skill_check', title:'제5막 — 표지의 이름',
-    onComplete:[ { kind:'narrative', msg:'⚗ Scholar King\'s Workshop complete. The name on the cover is yours.' } ], // §ARCH-01 W7c
+    onComplete:[ { kind:'narrative', msg:'⚗ 학자 왕의 작업장 완료. 표지의 이름은 당신의 것이다.' } ], // §ARCH-01 W7c
       // ⚠ dead in legacy too: skill_check quests never reach 'complete' in storyCheckQuests (§DUNGEON-01 gap)
     hint:'이것이 뜻하는 것을 받아들여라.',
     schema:'UQF-1.0',
@@ -21799,7 +21799,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     npc:"archivus_sweelinck",
   },
   quest_d0208_a4: { id:'quest_d0208_a4', type:'skill_check', title:'제4막 — 먹이주기',
-    onComplete:[ { kind:'narrative', msg:'🧸 The Mother Mimic opened her lid. Mimic\'s Cache obtained.' } ], // §ARCH-01 W7c
+    onComplete:[ { kind:'narrative', msg:'🧸 어미 미믹이 뚜껑을 열었다. Mimic\'s Cache 획득.' } ], // §ARCH-01 W7c
       // ⚠ dead in legacy too: skill_check quests never reach 'complete' in storyCheckQuests (§DUNGEON-01 gap)
     hint:'그 동전을 새끼 미믹에게 돌려줘라, 어미가 보는 앞에서.',
     schema:'UQF-1.0',
@@ -21819,7 +21819,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     npc:"archivus_sweelinck",
   },
   quest_d0208_a5: { id:'quest_d0208_a5', type:'skill_check', title:'제5막 — 이름',
-    onComplete:[ { kind:'narrative', msg:'📦 Baby Mimic companion joined. Name it at the Mimic Meadows.' } ], // §ARCH-01 W7c
+    onComplete:[ { kind:'narrative', msg:'📦 Baby Mimic 동료가 합류했다. 미믹 초원에서 이름을 지어 주세요.' } ], // §ARCH-01 W7c
       // ⚠ dead in legacy too: skill_check quests never reach 'complete' in storyCheckQuests (§DUNGEON-01 gap)
     hint:'그 애완동물을 받아들여라.',
     schema:'UQF-1.0',
@@ -21835,7 +21835,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   quest_math_01: { id:"quest_math_01", type:"side", title:"아무 의미 없는 숫자", desc:"A scriptorium record in Jerusalem documents the moment zero arrived from Baghdad in the ninth century — one number that means nothing, enables everything. Al-Khwarizmi used it in 830. Fibonacci carried it west in 1202. The original treatise is now in the Zero Corridor, the passage where zero entered European mathematics. Collect it.", hint:'사건의 지평선 정거장 북쪽, 제로 회랑에서 Zero Treatise를 찾아라.', passText:"Zero Treatise collected. The number that means nothing, retrieved from the corridor where it changed everything.", failText:"The Zero Treatise is in the Zero Corridor. Enter through the Neon Undercity east panel and climb to the Event Horizon Station, then north.", activateNode:"JRS", waypointNode:"ZERO", xpAward:350, reward:300,
     schema:"UQF-1.0",
     bits:[],
-    onComplete:[{kind:'reward',gold:300},{kind:'narrative',msg:'💰 +300gp — tucked into the treatise, a copyist\'s fee from the Liber Abaci ledger, uncollected since 1202.'},{kind:'narrative',msg:'🧮 In the treatise margin, a later hand: ask what the snowflake knows. A matching bounty surfaces on the Warrant\'s Board.'},{kind:'unlock',quests:['quest_math_02']}], /* §BOARD-01-FU6 referral edge */
+    onComplete:[{kind:'reward',gold:300},{kind:'narrative',msg:'💰 +300gp. 논문 사이에 끼어 있던 필사료, 1202년부터 수령되지 않은 산반서 장부의 몫.'},{kind:'narrative',msg:'🧮 논문 여백의 뒷날 필적. 눈송이가 아는 것을 물어라. 대응하는 현상금이 영장 게시판에 올라왔다.'},{kind:'unlock',quests:['quest_math_02']}], /* §BOARD-01-FU6 referral edge */
     gate:{},
     completion:{itemsAll:['Zero Treatise'],atNode:'ZERO'},
     rumor:"The Warrant is buying a treatise on a number that means nothing and enables everything. It waits in the Zero Corridor. Bring it out.",
@@ -21844,7 +21844,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   quest_math_02: { id:"quest_math_02", type:"side", title:"눈송이가 아는 것", desc:"The station tells you: a snowflake has exactly twelve symmetries — six rotations, six reflections — which is dihedral group D6. This is the smallest non-trivial example of what the Monster's Manifold contains. The manuscript proving the connection is on the central plinth, east of the station. Collect it.", hint:'사건의 지평선 정거장 동쪽, 괴물의 다양체에서 12-Symmetry Manuscript를 찾아라.', passText:"12-Symmetry Manuscript collected. The snowflake's six-fold symmetry, the small example of the Monster Group.", failText:"The 12-Symmetry Manuscript is in the Monster's Manifold, one step east of the Event Horizon Station.", activateNode:"EHZ", waypointNode:"MONS", xpAward:400, reward:350,
     schema:"UQF-1.0",
     bits:[],
-    onComplete:[{kind:'reward',gold:350},{kind:'narrative',msg:'💰 +350gp — the north wall, grudgingly: "You perceived three of them correctly. That deserves something."'},{kind:'narrative',msg:'🧮 The manuscript folds open to a second plate: twelve symmetries were the small example — now weigh the quintic, the equation that defeats every radical. A new bounty surfaces on the Warrant\'s Board.'},{kind:'unlock',quests:['quest_math_03']}], /* §BOARD-01-FU6 referral edge */
+    onComplete:[{kind:'reward',gold:350},{kind:'narrative',msg:'💰 +350gp. 북쪽 벽이 마지못해 말한다. 『셋을 정확히 알아보았다. 그 정도는 인정해야지.』'},{kind:'narrative',msg:'🧮 필사본이 두 번째 판으로 펼쳐진다. 열두 대칭은 작은 예시였다. 이제 오차 방정식을 재라, 모든 근호를 물리치는 방정식을. 영장 게시판에 새 현상금이 올라왔다.'},{kind:'unlock',quests:['quest_math_03']}], /* §BOARD-01-FU6 referral edge */
     gate:{},
     completion:{itemsAll:['12-Symmetry Manuscript'],atNode:'MONS'},
     rumor:"A manuscript in the Monster's Manifold claims a snowflake and a monster share the same twelve symmetries. The Warrant wants the proof, not the whisper.",
@@ -21853,7 +21853,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   quest_math_03: { id:"quest_math_03", type:"side", title:"5차 방정식의 불가능성", desc:"A ledger entry at the Bruges Cloth Hall references the Hamadani Failure Record — a ninth-century Persian document logging seventeen attempts to solve the quintic equation by radicals. Hamadani failed. Abel proved in 1823 that failure was the only possible outcome: the quintic cannot be solved by radicals. The record is at the Event Horizon Station, filed under results that required five centuries to be understood.", hint:'사건의 지평선 정거장에서 Hamadani Failure Record를 찾아라. 네온 지하도시 동쪽 패널로 들어가라.', passText:"Hamadani Failure Record collected. Seventeen documented failures, each one a step toward the proof of impossibility.", failText:"The Hamadani Failure Record is at the Event Horizon Station. The panel is in the east wall of the Neon Undercity.", activateNode:"OST", waypointNode:"EHZ", xpAward:400, reward:350,
     schema:"UQF-1.0",
     bits:[],
-    onComplete:[{kind:'reward',gold:350},{kind:'narrative',msg:'💰 +350gp — the station: "Conservation law. Hamadani\'s effort is conserved. You carry it now."'},{kind:'narrative',msg:'🧮 Impossibility, filed and understood. Pinned beneath the record: three counting systems, west in Jerusalem, still waiting for the number they never carried. A new bounty surfaces on the Warrant\'s Board.'},{kind:'unlock',quests:['quest_math_04']}], /* §BOARD-01-FU6 referral edge */
+    onComplete:[{kind:'reward',gold:350},{kind:'narrative',msg:'💰 +350gp. 관측소가 말한다. 『보존 법칙. 하마다니의 노력은 보존된다. 이제 네가 그것을 나른다.』'},{kind:'narrative',msg:'🧮 불가능성이 기록되고 이해되었다. 기록 아래 고정되어 있다. 세 개의 계수 체계, 서쪽 예루살렘에서, 자신들이 담지 못한 수를 아직 기다리며. 영장 게시판에 새 현상금이 올라왔다.'},{kind:'unlock',quests:['quest_math_04']}], /* §BOARD-01-FU6 referral edge */
     gate:{},
     completion:{itemsAll:['Hamadani Failure Record'],atNode:'EHZ'},
     rumor:"Seventeen scholars broke themselves on the quintic, and every failure was the only answer there was. The record of it is worth carrying out. The Warrant is asking.",
@@ -21862,7 +21862,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   quest_math_04: { id:"quest_math_04", type:"side", title:"세기 퀘스트", desc:"Three counting systems passed through Jerusalem: Greek sphere reckoning from the Antikythera calculation tradition, Byzantine ledger numerals from the imperial tax offices, Roman surveyor notation from the engineering corps. Each system worked. None of them had zero. The documents were copied here and sent west, where they eventually met the number they had been missing. The complete bundle is in the Zero Corridor.", hint:'사건의 지평선 정거장 북쪽, 제로 회랑에서 Counting Document Bundle을 찾아라.', passText:"Counting Document Bundle collected. Three civilizations counting toward the same number, finally assembled.", failText:"The Counting Document Bundle is in the Zero Corridor. Reach the Event Horizon Station through the Neon Undercity, then go north.", activateNode:"JRS", waypointNode:"ZERO", xpAward:500, reward:500,
     schema:"UQF-1.0",
     bits:[],
-    onComplete:[{kind:'reward',gold:500},{kind:'narrative',msg:'💰 +500gp — three surveyors\' wages, three civilizations, one settlement — compounded.'},{kind:'narrative',msg:'🧮 Three civilizations, one settlement. One page remains, and it does not read like the others — a difference of exactly 1 that no one can explain, waiting in Cantor\'s Attic. A new bounty surfaces on the Warrant\'s Board.'},{kind:'unlock',quests:['quest_math_05']}], /* §BOARD-01-FU6 referral edge */
+    onComplete:[{kind:'reward',gold:500},{kind:'narrative',msg:'💰 +500gp. 측량사 셋의 품삯, 세 문명, 하나의 정산. 복리로.'},{kind:'narrative',msg:'🧮 세 문명, 하나의 정산. 한 페이지가 남았고, 그것은 다른 것들처럼 읽히지 않는다. 아무도 설명하지 못하는 정확히 1의 차이가 칸토어의 다락에서 기다린다. 영장 게시판에 새 현상금이 올라왔다.'},{kind:'unlock',quests:['quest_math_05']}], /* §BOARD-01-FU6 referral edge */
     gate:{},
     completion:{itemsAll:['Counting Document Bundle'],atNode:'ZERO'},
     rumor:"Three counting systems passed through Jerusalem and not one held a zero. The Warrant wants the bundle that proves it — the Zero Corridor keeps it.",
@@ -21871,7 +21871,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   quest_math_05: { id:"quest_math_05", type:"side", title:"문샤인 메모", desc:"The Monster's Manifold produces a whisper: the j-function, which describes torus geometry in elliptic curve theory, matches the Monster Group's dimensions with impossible precision. The smallest representation is 196,883-dimensional. The j-function's first non-trivial coefficient is 196,884. The difference is 1. John McKay noticed this in 1978. No one knows why it is true. The memo documenting the observation is in Cantor's Attic.", hint:'사건의 지평선 정거장 북동쪽, 칸토어의 다락에서 Moonshine Memo를 찾아라.', passText:"Moonshine Memo collected. The Monster Group's impossible moonshine, documented by Johannes von Weisheit before anyone had language for it.", failText:"The Moonshine Memo is in Cantor's Attic, north of the Monster's Manifold.", activateNode:"MONS", waypointNode:"CNTR", xpAward:600, reward:600,
     schema:"UQF-1.0",
     bits:[],
-    onComplete:[{kind:'reward',gold:600},{kind:'narrative',msg:'💰 +600gp — the difference between 196,883 and 196,884 is 1. The gold, however, is real.'}],
+    onComplete:[{kind:'reward',gold:600},{kind:'narrative',msg:'💰 +600gp. 196,883과 196,884의 차이는 1이다. 하지만 금은 진짜다.'}],
     gate:{},
     completion:{itemsAll:['Moonshine Memo'],atNode:'CNTR'},
     rumor:"A memo in Cantor's Attic ties a curve's geometry to a monster's dimensions with no right to be so exact. The Warrant collects impossible coincidences. Fetch it.",
