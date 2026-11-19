@@ -21698,7 +21698,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     activateNode:'TLS', gate:{ battles:['TLS'] },
     retryable:true,
     vignetteText:'Sweelinck\'s Last Question waits. Not from him — he is not here. From the loop itself, which has been carrying the question since the first run. It has one answer. You have been carrying it too.',
-    passText:() => 'The loop closes. The Shard is yours. The Codex holds.' + (S_story.priorCarrierSeen ? '\n\n"The blank page is not blank. The Prior Carrier left their answer here. You are leaving yours."' : ''),
+    passText:() => '루프가 닫힌다. 샤드는 당신의 것이다. 코덱스는 버틴다.' + (S_story.priorCarrierSeen ? '\n\n『빈 페이지는 비어 있지 않다. 이전 운반인이 여기에 자신의 답을 남겼다. 당신은 당신의 답을 남기고 있다.』' : ''),
     failText:'"The question waits. It has waited before. It will wait until you mean it." Retry.',
     bits:[{ kind:'skill_check', stat:'CHA', skill:'Persuasion', dc:12,
       onPass:[{ kind:'mission_bit', flag:'d0210_complete' }, { kind:'reward', xp:500, gold:200, items:[{name:"Loop Closure Seal", desc:'질문에 답했을 때 당신의 손에 나타난 룬. 천천히 옅어진다. 남아 있는 동안 고리는 기억한다.', icon:'🔮'}] }, { kind:'_legacy_fn', fn:() => { S_story.loopHeartComplete = true; } }], onFail:[] }],
