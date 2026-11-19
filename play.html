@@ -26860,17 +26860,17 @@ function _tourRoll(bonus) { // → doc: docs/archive/plan-archive-verbatim-2026-
 
 // ── Layer 63: Froberger Memorial ──
 const FROBERGER_MEMORIAL_TEXT = { // → doc: world.md §The Froberger Memorial (4 unlock layers; LHR crossroads stone)
-  base:        'FROBERGER\nChronicler of the Road\nWalked every corridor in Birka\nHis notes are still right',
-  yael_friendly: '\n\n"He was the one who told me what was happening\n in the Unbanked Quarter before anyone else would.\n The story didn\'t die with him."\n                                    — Y.S.',
-  dear_friend:   '\n\nThe Ivory Circle formally requested the stone be removed in 1312.\nThe city refused.',
-  post_cipher:   '\n\nBeneath the main inscription, faint letters in a different hand:\n"First Contact: F.B. — the chronicler who drew the map\n before the Circle drew the borders."',
+  base:        '프로베르거\n길의 기록자\n비르카의 모든 회랑을 걸은 자\n그의 기록은 여전히 옳다',
+  yael_friendly: '\n\n"언뱅크트 구역에서 무슨 일이 일어나는지\n 누구보다 먼저 내게 말해 준 사람이었다.\n 그 이야기는 그와 함께 죽지 않았다."\n                                    — Y.S.',
+  dear_friend:   '\n\n아이보리 서클이 1312년에 이 비석의 철거를 공식 요청했다.\n도시는 거절했다.',
+  post_cipher:   '\n\n주 비문 아래, 다른 필체의 희미한 글자:\n"최초 접촉: F.B. — 서클이 경계를 긋기 전에\n 지도를 그린 기록자."',
 };
 const FROBERGER_MEMORIAL_BOOK = [ // → doc: world.md §The Froberger Memorial (5 anonymous entries; player adds via MEMORIAL_PLAYER_CHOICES)
-  { attr: '',                            text: 'I bring fresh water. Every week.' },
-  { attr: 'B.M.',                        text: 'He had credit at the inn until the last. I never called it in.' },
-  { attr: 'W. of the Crossroads Forge',  text: 'He watched every training session from the bench across the road. Never bet on anyone.' },
-  { attr: '',                            text: 'He was right about the Tide.' },
-  { attr: '',                            text: 'The thirty-second corridor. Map checks out.' },
+  { attr: '',                            text: '나는 매주 새 물을 가져다놓는다.' },
+  { attr: 'B.M.',                        text: '그는 마지막까지 여관에 외상이 있었다. 나는 한 번도 갚으라 하지 않았다.' },
+  { attr: 'W. of the Crossroads Forge',  text: '그는 길 건너 벤치에서 모든 훈련을 지켜보았다. 누구에게도 내기를 걸지 않았다.' },
+  { attr: '',                            text: '조수에 대해 그가 옳았다.' },
+  { attr: '',                            text: '서른두 번째 회랑. 지도와 일치한다.' },
 ];
 const MEMORIAL_PLAYER_CHOICES = [ // → doc: world.md §The Froberger Memorial (3 options; NG+ adds '아직 맞아요.')
   '지도를 위해.',
@@ -27458,10 +27458,10 @@ const NPC_EPILOGUES = { // → doc: story.md §Epilogue (per-NPC fav-gated epilo
 };
 
 const FROBERGER_EPILOGUE = { // → doc: story.md §Epilogue (Froberger memorial epilogue addendum; covenant/journal states)
-  covenant:  "Froberger's last entry was Entry 41: 돌아와요. He wrote it in the same ink as the others. He left it where you'd find it. He did not come back. But he wrote it down so you would know it was possible.",
-  imperfect: "Froberger's last entry was a warning. You read it. You almost heeded it. Almost is how most things start.",
-  efficient: "Froberger's last entry was a warning. You did not read it, or read it and did not stop. The warning is still there. The next one will find it.",
-  cursed:    "Froberger never finished his last entry. Someone found it and left it where you found it. That someone was also very good at their work. They did not stay long either."
+  covenant:  '프로베르거의 마지막 항목은 제41항: 돌아와요. 그는 다른 항목들과 같은 잉크로 그것을 썼다. 당신이 찾을 곳에 남겨 두었다. 그는 돌아오지 않았다. 하지만 그것이 가능하다는 것을 당신이 알도록 적어 두었다.',
+  imperfect: '프로베르거의 마지막 항목은 경고였다. 당신은 그것을 읽었다. 거의 따를 뻔했다. 대부분의 일은 「거의」에서 시작된다.',
+  efficient: '프로베르거의 마지막 항목은 경고였다. 당신은 읽지 않았거나, 읽고도 멈추지 않았다. 경고는 아직 그곳에 있다. 다음 사람이 그것을 찾을 것이다.',
+  cursed:    '프로베르거는 마지막 항목을 끝내지 못했다. 누군가 그것을 찾아 당신이 발견한 곳에 두었다. 그 누군가도 자기 일에 아주 능한 사람이었다. 그들도 오래 머물지 않았다.'
 };
 
 const NPC_NG_PLUS_GREETINGS = { // → doc: docs/story/story-arc-ngplus.md §NPC Memory Lines
@@ -27867,61 +27867,61 @@ function _buildWeckmannLog() {
 
 /* ── Layer 45: Web of Connections Consts ── */
 const FROBERGER_TRACES = { // → doc: world.md §Froberger Traces (6 NPC memories; minFav + visit-count gated, then part of the Dear Friend pool)
-  yael:     { minFav:2, visitTrigger:3, text:"A researcher came through once. Froberger, he said. Knew every patrol route by the second day. Left without saying why. I assumed it was urgent. It usually is, with that type." },
-  brynn:    { minFav:3, visitTrigger:1, text:"He stayed in room 6. Very quiet. Read all night — I could see the light under the door. I brought him water twice. He said thank you both times. He left early. He didn't say goodbye, but he left the room cleaner than he found it. I think that's what he could manage." },
-  quill:    { minFav:2, visitTrigger:2, text:"He came in once, sat at the back, didn't request anything. Just listened. At the end he said: 'You're good.' I said thank you. He said: 'I mean technically. There's something else. You'll find it or you won't.' And he left. I've been thinking about what the something else is ever since." },
-  pachelbel:{ minFav:2, visitTrigger:2, text:"He looked at the code on the wall for a long time. Then he said: '진심이시네요.' Not a question. I said yes. He said: 'That's rarer than you think.' He bought one item. Left. I ran his description past three contacts afterward. Nobody had a file on him. I respected that." },
-  crov:     { minFav:3, visitTrigger:2, text:"Watched three fights. Didn't place a bet. At the end he asked me how long I'd been running the pit. I told him. He said: 'You still grieve it, don't you. That's why you run it clean.' I asked how he knew. He said: 'You watch the fighters like you're watching for something specific.' He wasn't wrong. I didn't ask him how he knew that." },
-  auros:    { minFav:2, visitTrigger:1, text:"He read my whole depth survey in one session. Three hours. No questions. At the end he said: 'The rate of change is accelerating. You have maybe two years before the first surface event.' I asked what he meant. He said he'd seen it three other places. He left before I could ask what happened to those places. I've been assuming the worst ever since. The data supports it." }
+  yael:     { minFav:2, visitTrigger:3, text:'한 연구자가 지나간 적이 있어. 프로베르거라고 했지. 이틀째 되는 날 모든 순찰 동선을 꿰고 있었어. 이유를 말하지 않고 떠났지. 급한 일이겠거니 했어. 그런 부류는 보통 그렇거든.' },
+  brynn:    { minFav:3, visitTrigger:1, text:'그는 6번 방에 묵었어요. 아주 조용한 분이었죠. 밤새 책을 읽었어요 — 문 밑으로 불빛이 보였거든요. 물을 두 번 갖다 드렸는데 두 번 다 고맙다고 하셨어요. 이른 아침에 떠났죠. 작별 인사는 없었지만, 방은 들어올 때보다 깨끗하게 치워 두고 갔어요. 그게 그분이 할 수 있는 최선이었나 봐요.' },
+  quill:    { minFav:2, visitTrigger:2, text:'한 번 와서 뒷자리에 앉아 아무것도 청하지 않았어. 그냥 듣기만 했지. 끝나고 나서 말하더라: 『잘하시네요.』 고맙다고 했어. 그러자 『기교적으로요. 다른 무언가가 있어요. 찾든지 못 찾든지 하겠지만.』 그리고 떠났어. 그 「다른 무언가」가 뭔지 그때부터 지금까지 생각하고 있어.' },
+  pachelbel:{ minFav:2, visitTrigger:2, text:'그는 벽의 규약을 오랫동안 바라보았다. 그러고는 말했다: 『진심이시네요.』 묻는 말이 아니었다. 나는 그렇다고 했다. 그가 말했다: 『생각보다 드문 겁니다.』 물건 하나를 사고 떠났다. 이후 그의 인상착의를 아는 사람 세 군데에 확인해 봤다. 그에 대한 기록은 어디에도 없었다. 나는 그것을 존중했다.' },
+  crov:     { minFav:3, visitTrigger:2, text:'세 판을 지켜봤다. 내기는 걸지 않았다. 끝나고 나서 내게 이 구덩이를 얼마나 운영했냐고 물었다. 대답해 줬지. 그가 말했다: 『아직도 애도하고 있죠. 그래서 깨끗하게 운영하는 거고.』 어떻게 알았냐고 물었다. 『당신은 무언가 특정한 것을 찾는 것처럼 선수들을 봅니다.』 틀린 말이 아니었다. 어떻게 그걸 아는지는 묻지 않았다.' },
+  auros:    { minFav:2, visitTrigger:1, text:'그는 내 심도 측량 보고서 전체를 한 자리에서 읽었다. 세 시간. 질문 하나 없이. 끝에서 그가 말했다: 『변화율이 가속하고 있습니다. 첫 지표 사건까지 앞으로 2년 정도입니다.』 무슨 뜻이냐고 물었다. 다른 세 곳에서 봤다고 했다. 그곳들이 어떻게 됐는지 묻기 전에 떠났다. 나는 그때부터 최악을 상정하고 있다. 데이터가 그것을 뒷받침한다.' }
 };
 
 const NPC_CROSS_REFS = { // → doc: world.md §Cross-References (21 lines; every-3rd-visit injection at fav >= 1)
   yael: [
-    { fav:1, text:"Brynn's been running that inn alone for six years. Nobody asks if she's managing. I ask. She says fine. I ask again. She says fine and pours tea. I count the tea as the real answer." },
-    { fav:2, text:"If something happens to this city, Brynn will keep the inn open. That's not a prediction — that's a fact about who she is. I've been making sure the district stays stable partly because of that." },
-    { fav:1, text:"Weckmann's pit is one of the only clean operations in the district. I don't go in — conflict of interest — but I pay attention to who comes out. Mostly they come out standing. That's not nothing." },
-    { fav:1, text:"Gigault runs the bread stall on Conclave Way. She goes home an hour early when there's going to be trouble. I use her schedule to calibrate mine." },
-    { fav:2, text:"I know what moves through Pachelbel's back room. He has never once tried to hide it from me, and a man who doesn't hide it from the guard captain isn't moving anything this city needs protecting from. That's the line. He hasn't crossed it. So I walk past." }
+    { fav:1, text:'브린이 저 여관을 혼자 꾸린 지 여섯 해야. 괜찮냐고 묻는 사람이 없어. 내가 물어. 괜찮대. 다시 물어. 괜찮다고 하면서 차를 따라 줘. 나는 그 차를 진짜 대답으로 세어.' },
+    { fav:2, text:'이 도시에 무슨 일이 생기면 브린은 여관 문을 계속 열 거야. 예측이 아니라 그 사람이 어떤 사람인지에 대한 사실이야. 내가 이 구역을 안정시키는 이유의 일부가 그거야.' },
+    { fav:1, text:'베크만의 구덩이는 이 구역에서 드물게 깨끗한 운영이야. 나는 안 들어가 — 이해충돌이니까 — 하지만 누가 나오는지는 봐. 대부분 멀쩡히 서서 나와. 그게 작은 게 아니야.' },
+    { fav:1, text:'지골이 비밀회의로에서 빵 노점을 해. 무슨 일이 터질 때면 한 시간 일찍 집에 가. 나는 그녀의 일정으로 내 일정을 조율해.' },
+    { fav:2, text:'파헬벨의 뒷방에 뭐가 드나드는지 나는 알아. 그는 한 번도 내게 숨기려 한 적이 없고, 경비대장에게 숨기지 않는 사람이 옮기는 물건은 이 도시가 막아야 할 물건이 아니야. 선은 거기야. 그는 넘지 않았어. 그래서 나는 지나쳐 가.' }
   ],
   brynn: [
-    { fav:1, text:"Yael comes in on Tuesday nights. Always the corner table. Doesn't want food. Sits for an hour. I don't ask. I just make sure the fire's warm and nobody bothers her." },
-    { fav:2, text:"She filed something last month. Wouldn't tell me what. She looked like someone who had just done the thing they should have done ten years ago. I know that look. I've been working on my version of it." },
-    { fav:1, text:"I asked Quill to play something slow last month. He came by the next evening. Didn't charge me. Played for forty minutes. He knows exactly when to stop." },
-    { fav:2, text:"Quill is going to be fine. He's already fine, actually. He just doesn't know it yet because the debt number is still in his head. Once that's gone — he'll play like he used to." },
-    { fav:1, text:"Gigault's the one who notices when the city is wrong before anyone else does." }
+    { fav:1, text:'야엘은 화요일 밤에 와요. 항상 구석 자리죠. 음식은 원하지 않아요. 한 시간쯤 앉아 있어요. 나는 묻지 않아요. 불이 따뜻한지, 아무도 그녀를 귀찮게 하지 않는지 챙길 뿐이에요.' },
+    { fav:2, text:'지난달에 그녀가 뭔가를 올렸어요. 뭔지는 말해 주지 않았지만. 십 년 전에 했어야 할 일을 이제 막 끝낸 사람의 얼굴이었어요. 나는 그 얼굴을 알아요. 나도 내 몫의 그것을 준비하고 있거든요.' },
+    { fav:1, text:'지난달에 퀼에게 느린 곡을 부탁했어요. 다음 날 저녁에 왔더라고요. 돈도 받지 않고 마흔 분을 연주했어요. 그는 언제 멈춰야 하는지 정확히 알아요.' },
+    { fav:2, text:'퀼은 괜찮아질 거예요. 사실 이미 괜찮아요. 빚 숫자가 아직 머리에 남아 있어서 본인만 모를 뿐이죠. 그게 사라지면 — 예전처럼 연주할 거예요.' },
+    { fav:1, text:'지골은 누구보다 먼저 도시가 잘못돼 가는 걸 알아채는 사람이에요.' }
   ],
   quill:    [
-    { fav:1, text:"Pachelbel and I have a history. He lent me money when the Guild first came after me. He says it wasn't a loan. I say it was. We've been having this argument for four years. I think we both like having it." },
-    { fav:2, text:"Pachelbel's code is real. I've tested it — accidentally. He turned down a deal I set up because the margin was wrong by his code's standards. He didn't tell me. He just did. That's when I understood the code isn't performance." },
-    { fav:1, text:"Brynn asked for something slow last Tuesday. I was there Wednesday. She was doing the books while I played. She didn't look up. She looked less tired by the time I stopped. I count that." }
+    { fav:1, text:'파헬벨과 나는 인연이 있어. 길드가 처음 나를 쫓아왔을 때 그가 돈을 빌려줬지. 그는 빌려준 게 아니라고 하고, 나는 빌려준 거라고 해. 우리는 이 논쟁을 4년째 하고 있어. 둘 다 이 논쟁을 즐기는 것 같아.' },
+    { fav:2, text:'파헬벨의 규약은 진짜야. 시험해 본 적이 있어 — 우연히. 내가 마련한 거래를 규약 기준으로 마진이 안 맞는다고 거절하더라고. 내게 말하지도 않았어. 그냥 그랬지. 그때 알았어. 규약은 쇼가 아니라는 걸.' },
+    { fav:1, text:'브린이 지난 화요일에 느린 곡을 부탁했어. 나는 수요일에 갔지. 내가 연주하는 동안 그녀는 장부를 정리하고 있었어. 고개를 들지는 않더라고. 내가 멈출 때쯤엔 덜 지쳐 보였어. 나는 그걸 세어.' }
   ],
   pachelbel: [
-    { fav:1, text:"Quill says it wasn't a loan. It was. I let him say it wasn't because the alternative is that it was a gift, and Quill's too proud for gifts. So it's a loan we both know will never be repaid. That works fine." },
-    { fav:2, text:"He's going to pay it back eventually. Not because he has to — because he'll want to. When he does I'll tell him to put it toward the next license payment. He'll argue. I'll win. It'll be fine." },
-    { fav:2, text:"Yael walks past my door twice a week. Never comes in. She knows exactly what's in the back room — I make sure there's nothing in it she'd have to stop. Neither of us has ever said that out loud. We don't need to." }
+    { fav:1, text:'퀼은 빚이 아니라고 한다. 빚이 맞다. 빚이 아니라고 말하게 두는 이유는, 그렇지 않으면 그것은 선물이 되고 퀼은 선물을 받기엔 자존심이 너무 세기 때문이다. 그래서 우리 둘 다 갚지 않을 것을 아는 빚이 됐다. 그걸로 충분하다.' },
+    { fav:2, text:'그는 언젠가 갚을 것이다. 갚아야 해서가 아니라 갚고 싶어질 것이기에. 그러면 다음 면허 납부에 보태라고 말할 것이다. 그는 반박할 것이다. 내가 이길 것이다. 잘될 것이다.' },
+    { fav:2, text:'야엘은 일주일에 두 번 내 가게 앞을 지난다. 들어오지는 않는다. 그녀는 뒷방에 뭐가 있는지 정확히 안다 — 그녀가 막아야 할 것은 없도록 내가 챙긴다. 우리 둘 다 그 말을 입 밖에 낸 적은 없다. 그럴 필요가 없다.' }
   ],
   crov:     [
-    { fav:1, text:"The guard captain checks on the pit results without checking on the pit. Smart. She knows what she needs to know without knowing what she can't unknow. I respect the line she's drawn." },
-    { fav:1, text:"Auros does her surveys at the bottom of the Undercity access shaft. I hear the equipment. I don't ask. She doesn't ask about the pit. We work in parallel. That's a good arrangement." },
-    { fav:2, text:"She found something down there six months ago. I could tell by the way she came back up. She didn't say what. I didn't ask. But I've been keeping the pit fighters away from the north corner of the shaft since then." }
+    { fav:1, text:'경비대장은 구덩이를 확인하지 않으면서 구덩이 결과는 확인한다. 영리하지. 알 수 없는 것은 모른 채로 두면서 알아야 할 것은 아는 거야. 그녀가 그은 선을 존중해.' },
+    { fav:1, text:'아우로스는 지하도시 연결 통로 맨 아래에서 측량을 해. 장비 소리가 들려. 나는 묻지 않아. 그녀도 구덩이에 대해 묻지 않고. 우리는 평행선으로 일해. 좋은 관계야.' },
+    { fav:2, text:'그녀가 여섯 달 전에 아래에서 뭔가를 찾았어. 올라오는 걸음으로 알 수 있었지. 뭔지는 말하지 않았어. 나도 묻지 않았고. 하지만 그때부터 선수들이 통로 북쪽 구석에 가지 않도록 하고 있어.' }
   ],
   auros:  [
-    { fav:1, text:"Weckmann cleared the north access corridor last season without being asked. I think he knew I needed it clear. He didn't say anything. That's his way." },
-    { fav:2, text:"I've been using the fighters he trains for depth security when the survey goes past the first threshold. They're calm under pressure. Whatever he's teaching them, it works down there too." }
+    { fav:1, text:'베크만이 지난 시즌에 북쪽 접근 회랑을 시키지도 않았는데 비워 줬어. 내가 비워야 한다는 걸 알았나 봐. 아무 말도 안 했어. 그게 그 사람 방식이야.' },
+    { fav:2, text:'측량이 첫 임계점을 넘을 때는 그가 훈련시킨 선수들을 심부 경비에 쓰고 있어. 압박 속에서도 침착해. 그가 뭘 가르치는지는 몰라도, 아래에서도 통해.' }
   ]
 };
 
-const NIVERS_DIALOGUE = "Evening.";
+const NIVERS_DIALOGUE = "저녁이오.";
 
 // Latest arc beat first, day parity last: every condition above the parity entry is a
 // permanent latch, so the first match that can ever be true is the only one a player
 // would ever see. Ordering them newest-first makes the line advance with the story.
 const YAEL_PATROL_NODES = [ // → doc: world.md §Yael's Patrol Arc
-  { condition: () => !!(S_story.yaelNamedReportDelivered), nodeSlug:'MSY', line:"The second report is filed. I'm not watching to see if it disappears." },
-  { condition: () => _npcFavor('yael') >= 3 && (S_story.storyAct || 1) >= 3, nodeSlug:'MHQ', line:"Checking on Quill. Don't tell him." },
-  { condition: () => !!(S_story.yaelEscortUsed), nodeSlug:'TLL', line:"I walk this route now. It adds six minutes. Worth it." },
-  { condition: () => !!(S_story.quests && S_story.quests['quest_slums_cleanup'] === 'complete'), nodeSlug:'BMA', line:"Showing my face. They should see someone who isn't making a report." },
-  { condition: () => (S_story.gameDay || 0) % 2 === 1, nodeSlug:'MSY', line:"Eastern check. You're traveling late." }
+  { condition: () => !!(S_story.yaelNamedReportDelivered), nodeSlug:'MSY', line:'두 번째 보고서는 올렸어. 사라지는지 지켜보지는 않을 거야.' },
+  { condition: () => _npcFavor('yael') >= 3 && (S_story.storyAct || 1) >= 3, nodeSlug:'MHQ', line:'퀼을 보러 가는 중이야. 그에게는 말하지 마.' },
+  { condition: () => !!(S_story.yaelEscortUsed), nodeSlug:'TLL', line:'이제 이 동선으로 다녀. 6분이 더 걸려. 그럴 가치가 있어.' },
+  { condition: () => !!(S_story.quests && S_story.quests['quest_slums_cleanup'] === 'complete'), nodeSlug:'BMA', line:'얼굴을 비추는 중이야. 보고서를 쓰지 않는 사람도 보여 줘야 하니까.' },
+  { condition: () => (S_story.gameDay || 0) % 2 === 1, nodeSlug:'MSY', line:'동쪽 점검이야. 늦게까지 이동하는군.' }
 ];
 
 const WECKMANN_TRAINING_LOG = // → doc: world.md §Weckmann Training Log (Layer 68b — contains riot funding evidence; yaelNamedReport cross-ref)
