@@ -12427,7 +12427,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // (seaStrangenessNoticed + 100xp + msg) kept verbatim — engine fires it on the UQF completion path.
   quest_sea_01: { id:'quest_sea_01', schema:'UQF-1.0', type:'side',
     title:'잔잔한 바다',
-    desc:'Three miles east of Tilbury the sea stops moving. Two pirate ships — the Redmast and the Saltwick Dockmasters\' brig — are anchored together. One crew is teaching the other to splice rope. This is not normal.',
+    desc:'틸버리 동쪽 3마일에서 바다가 움직임을 멈춘다. 해적선 두 척, 레드마스트와 솔트윅 도크마스터의 브리그가 나란히 닻을 내렸다. 한 선원들이 다른 쪽에 밧줄 이음을 가르치고 있다. 정상이 아니다.',
     hint:'틸버리 스타에서 동쪽 먼바다로 항해하라.',
     activateNode:'SEN', gate:{},
     completion:{ atNode:'NWI' }, bits:[],
@@ -12448,7 +12448,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // bitLabel) → mission_bit{flag}; _legacy_fn carries +200gp/+200xp/knowledge/msg.
   quest_sea_02: { id:'quest_sea_02', schema:'UQF-1.0', type:'skill_check',
     title:'온기 장어',
-    desc:'Something is below the hull. Amber glow, fifty feet down, longer than both ships. It has been here for eight days. The calm is its doing. Investigate.',
+    desc:'선체 아래에 무언가가 있다. 호박색 빛, 쉰 피트 아래, 두 배보다 길다. 여드레째 여기 있다. 이 무풍은 그것의 소행이다. 조사하라.',
     hint:'물과 빛을 연구하라. INT 조사 DC 13.',
     activateNode:'NWI', gate:{ flags:['seaStrangenessNoticed'] }, retryable:true,
     bits:[
@@ -12478,7 +12478,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // Debt Note + msg.
   quest_sea_03: { id:'quest_sea_03', schema:'UQF-1.0', type:'skill_check',
     title:'호위',
-    desc:'The Warmth Eel belongs in deep water — far enough that it cannot disrupt the trade lane, warm enough to stay content. The fish stocks and the shipping route both require it to move. Moving it requires patience and the right approach.',
+    desc:'온기 장어는 깊은 물에 있어야 한다. 무역 항로를 방해하지 못할 만큼 멀리, 만족할 만큼 따뜻한 곳에. 어장과 항로 모두 그것이 옮겨가길 필요로 한다. 옮기려면 인내와 올바른 접근이 필요하다.',
     hint:'뱀장어를 더 깊은 물로 유도하라. WIS 자연 DC 14.',
     activateNode:'NWI', gate:{ flags:['warmthEelFound'] }, retryable:true,
     bits:[
@@ -12491,7 +12491,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
             S_story.gold = (S_story.gold||0) + 400;
             S_story.xp = (S_story.xp||0) + 400;
             const inv = S_story.inventory = S_story.inventory || [];
-            inv.push({ name:'Joint Pirate Debt Note', icon:'⚓', type:'misc', desc:'Signed by both the Redmast Quartermaster and the Saltwick Dockmasters\' First Mate. Redeemable for one favour each at sea. The two crews agreed on this without being asked.', sell:0 });
+            inv.push({ name:'Joint Pirate Debt Note', icon:'⚓', type:'misc', desc:'레드마스트 선장관과 솔트윅 도크마스터의 일등 항해사 양쪽의 서명. 바다에서 각각 한 번씩 부탁을 청할 수 있다. 두 선원단은 부탁받지 않고 이것에 합의했다.', sell:0 });
             storyMsg('⚓ The eel responds to the approach: slow movement parallel to its direction, no sudden actions, presence acknowledged but not threatening. After forty minutes it adjusts its arc, heading south into the trench depth.\n\nThe water begins to chop again within twenty minutes. The gulls return. A fish breaks the surface.\n\nThe Redmast Quartermaster and the Saltwick First Mate both come to the rail. They have apparently discussed this.\n\n"You moved it without hurting it," the Quartermaster says. "We owe you."\n\n"Both of us," says the Mate. He looks like this surprises him somewhat.\n\nThey produce a joint note, which they sign together. The ink is slightly different colours.\n\nJoint Pirate Debt Note added. +400gp. +400 XP. Sea route OW→LW now clear. Both pirate crews: allied.');
           } },
         ],
@@ -12526,7 +12526,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_sb_fight: { id:'quest_sb_fight', schema:'UQF-1.0', type:'side',
     title:'승선 및 소탕',
-    desc:'The gangplanks are out. The privateer crew is coming across. Clear the intercept brig.',
+    desc:'통선판이 내려졌다. 사략 선원들이 건너오고 있다. 차단 브리그를 정리하라.',
     hint:'요격 지점에서 사략선 선원들을 쓰러뜨려라.',
     activateNode:'GCI', gate:{ flags:['sbApproachSeen'], flagEquals:{ sbChosenRole:'fight' } },
     completion:{ battles:['SB_PRIVATEER'] }, bits:[],
@@ -12582,7 +12582,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // onFail _legacy_fn flips sbChosenRole→'fight'.
   quest_sb_examine: { id:'quest_sb_examine', schema:'UQF-1.0', type:'skill_check',
     title:'사략장을 읽어라',
-    desc:'Keel held the Commission long enough to read. INT Investigation DC 11 to find the flaw — every forged Letter of Marque has one.',
+    desc:'킬이 위임장을 읽을 만큼 오래 쥐고 있었다. 허점을 찾으려면 INT 조사 DC 11. 위조된 사략 허가장에는 모두 하나씩 있다.',
     hint:'난간에서 위임장 페넌트를 조사하라. INT 조사 DC 11.',
     activateNode:'GCI', gate:{ flags:['sbApproachSeen'], flagEquals:{ sbChosenRole:'examine' } }, retryable:false,
     bits:[
@@ -12615,7 +12615,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // ── §PORT-02: Dunfall quests ──
   quest_df_01: { id:'quest_df_01', type:'side',
     schema:'UQF-1.0', gate:{}, bits:[], completion:{ flags:['dunfallAccessed'] }, title:'열린 항구',
-    desc:'Dunfall kept its doors closed while the kelpie held the ford. Three men did not come back. With the kelpie gone, the harbor is open again and Mairén Fionn is at the dock.',
+    desc:'던폴은 켈피가 여울목을 쥐고 있는 동안 문을 닫고 있었다. 세 사람이 돌아오지 않았다. 켈피가 사라지고 항구가 다시 열렸으며 마이렌 피온이 부두에 있다.',
     hint:'고원지대 호수의 켈피를 처리한 뒤 던폴에 도착하라.',
     activateNode:'DNF', 
     waypointNode:'DNF', reward:0,
@@ -12651,7 +12651,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
           S_story.gold = (S_story.gold||0) + 100;
           S_story.xp = (S_story.xp||0) + 250;
           const inv = S_story.inventory = S_story.inventory || [];
-          inv.push({ name:'Highland Herb Pouch', icon:'🌿', type:'consumable', desc:'Dried moorland herbs from the Dunfall upper pasture — yarrow, bog myrtle, and something Mairén will not name. Medicinal on the coast. Trade value: high. Available only through Dunfall.', sell:40 });
+          inv.push({ name:'Highland Herb Pouch', icon:'🌿', type:'consumable', desc:'던폴 고지 목초지의 말린 무어랜드 약초. 야로, 늪머틀, 그리고 마이렌이 이름을 대지 않는 무언가. 연안에서 약용. 교역 가치: 높음. 던폴을 통해서만 구할 수 있다.', sell:40 });
           storyMsg('The exchange Mairén is looking for is not gold-to-goods — it is acknowledgment-to-goods. She wants to know that you understand the three men who did not come back, that the closed-door period was real, that the harbor opening is a decision not a default.\n\nYou understand this without being told. She notices.\n\nShe places the herb pouch on the dock ledge.\n\n"The myrtle is from the upper pasture. You won\'t find it below the loch. The name of the third ingredient is Dunfall\'s." She does not say it is secret. She says it is theirs.\n\nHighland Herb Pouch added. +100gp equivalent. +250 XP.');
         } },
       ],
@@ -12710,7 +12710,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
           S_story.gold = (S_story.gold||0) + 600;
           S_story.xp = (S_story.xp||0) + 400;
           const inv = S_story.inventory = S_story.inventory || [];
-          inv.push({ name:'Saltwick Bill of Lading', icon:'📄', type:'misc', desc:'A Saltwick bill of lading — unsigned, undated, and valid at six ports that share Dorit\'s definition of \'valid\'. Goods listed: \'sundries\'. The sundries are yours to define.', sell:0 });
+          inv.push({ name:'Saltwick Bill of Lading', icon:'📄', type:'misc', desc:'솔트윅 선하증권. 서명도 날짜도 없지만, 도릿의 『유효』 정의를 공유하는 여섯 항구에서 유효하다. 적하 목록: 『잡화』. 잡화의 정의는 당신의 몫이다.', sell:0 });
           storyMsg('Dorit closes her ledger — the one in her head.\n\n"The consignment was twelve crates of amber glass. Decorative. No value except to whoever ordered them. The buyer was using a Tilbury address. The Tilbury address was a chandler\'s shop that closed the morning of the delivery."\n\nShe looks at you.\n\n"The chandler\'s name was Pembury. No relation, probably. There are a lot of Pemburys."\n\nShe opens a drawer. Places a bill of lading on the dock ledge between you.\n\n"For your trouble. Goods: sundries. You decide what that means."\n\nSaltwick Bill of Lading added. +600gp. +400 XP.');
         } },
       ],
@@ -12780,7 +12780,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_hunt2_03: { id:'quest_hunt2_03', schema:'UQF-1.0', type:'skill_check',
     title:'잠든 초소',
-    desc:'The tether rings at the relay sleeping post have been worn in an unusual pattern. INT Investigation DC 13 to understand what used them.',
+    desc:'중계 숙영지의 고리에 비정상적인 마모 무늬가 있다. 무엇이 사용했는지 이해하려면 INT 조사 DC 13.',
     hint:'동쪽 굽이의 잠든 초소를 조사하라. INT 조사 DC 13.',
     activateNode:'BNX', gate:{ flags:['bendRoadClue'] }, retryable:false,
     bits:[
@@ -12809,14 +12809,14 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // double-count, preserved verbatim (see project_open_gaps).
   quest_hunt2_04: { id:'quest_hunt2_04', schema:'UQF-1.0', type:'side',
     title:'마녀 몰아내기',
-    desc:'A Night Hag has been riding the relay horses from the sleeping post at the bend. The horses cannot use this road while she holds the territory. Clear the post.',
+    desc:'밤 마녀가 굽이의 숙영지에서 중계 말들을 타고 있다. 그녀가 그 구역을 쥐고 있는 한 말들은 이 길을 쓸 수 없다. 숙영지를 정리하라.',
     hint:'동쪽 굽이에서 밤 마녀와 대치하라.',
     activateNode:'BNX', gate:{ flags:['bendLairFound'] },
     completion:{ battles:['BN_NIGHTHAG'] }, bits:[],
     onComplete:[
       { kind:'flag_write', set:['hagDefeated2'] },
       { kind:'reward', xp:600, gold:400 },
-      { kind:'reward', items:[{ name:'Relay Station Token', icon:'🪙', type:'misc', desc:'A brass token stamped with the Birka relay authority mark. The station master gives one to anyone who clears a road obstruction. Redeemable for one night\'s lodging at any relay station on the eastern road.', sell:20 }],
+      { kind:'reward', items:[{ name:'Relay Station Token', icon:'🪙', type:'misc', desc:'비르카 중계 권한 표식이 찍힌 황동 토큰. 중계소장은 길의 장애물을 치운 사람에게 하나씩 준다. 동부 길의 어느 중계소에서나 하룻밤 숙박으로 교환할 수 있다.', sell:20 }],
         knowledge:"Night Hag, Eastern Bend: A night hag had claimed the relay sleeping post north of J1, riding the station horses nightly and leaving them unable to work. The road warden bandit theory was wrong. Investigation: territory line + spiral tether wear + heel-only handprint. Resolution: hag driven out, relay road open." },
       { kind:'narrative', msg:'✅ 숙영지에서 마녀가 사라졌다.\n\n한 시간 안에 중계소장이 도착한다. 황동 토큰, 비르카 중계 권한 표식을 가져왔다. 격식 없이 건넨다. 『말들이 오늘 아침 굽이를 지나갔소. 나흘 만에 처음이오.』\n\n순찰대의 산적설에 대해서는 아무 말도 하지 않는다.\n\n중계소 토큰이 소지품에 추가. +400gp. +600 XP. 동부 중계로 확보.' },
     ],
@@ -12829,7 +12829,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // ── §HUNT-01: What's In The Lake quests ──
   quest_hunt_01: { id:'quest_hunt_01', schema:'UQF-1.0', type:'side',
     title:'호수 속의 무언가',
-    desc:'Three fishing boats have not returned from the north end of the lake. The Guild has placed spirit offerings. The Elder Fisherwoman does not believe in the spirit. She believes in the drag marks.',
+    desc:'낚싯배 세 척이 호수 북쪽 끝에서 돌아오지 않았다. 길드가 영물 제물을 놓았다. 노파 어부는 영물을 믿지 않는다. 그녀는 끌린 자국을 믿는다.',
     hint:'남쪽 해안 부두의 연로한 여성 어부와 이야기하라.',
     activateNode:'HFT', gate:{},
     completion:{ flags:['huntHookReceived'] }, bits:[],
@@ -12854,7 +12854,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_hunt_02: { id:'quest_hunt_02', schema:'UQF-1.0', type:'skill_check',
     title:'선체의 비늘 자국',
-    desc:'A recovered boat from the north end has marks on its hull. The Guild reads them as spirit signs. INT Investigation DC 12 to read them correctly.',
+    desc:'북쪽 끝에서 회수된 배의 선체에 자국들이 있다. 길드는 영물의 표시로 읽는다. 정확히 읽으려면 INT 조사 DC 12.',
     hint:'호수 항구에서 인양된 선체를 조사하라. INT 조사 DC 12.',
     activateNode:'KSU', gate:{ flags:['huntHookReceived'] }, retryable:false,
     bits:[
@@ -12883,7 +12883,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_hunt_03: { id:'quest_hunt_03', schema:'UQF-1.0', type:'skill_check',
     title:'북쪽으로 난 끌린 자국',
-    desc:'The north shore path shows disturbance. WIS Perception DC 13 to read the track pattern and locate where the creature returns to den.',
+    desc:'북쪽 기슭 길에 훼손 흔적이 있다. WIS 지각 DC 13으로 발자국 배열을 읽고 생물이 소굴로 돌아가는 곳을 찾아라.',
     hint:'북쪽 해안 오솔길에서 추적하라. WIS 감지 DC 13.',
     activateNode:'ALF', gate:{ flags:['lakeClueFound'] }, retryable:false,
     bits:[
@@ -12912,14 +12912,14 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // double-count, preserved verbatim (see project_open_gaps).
   quest_hunt_04: { id:'quest_hunt_04', schema:'UQF-1.0', type:'side',
     title:'북쪽 소굴',
-    desc:'Three drowners have denned at the shelf collapse since the rock fell this season. The boats stopped returning after they moved in. Clear the den.',
+    desc:'이번 계절 암석이 무너진 뒤로 드라우너 셋이 선반 붕괴지에 소굴을 틀었다. 그들이 들어온 뒤로 배들이 돌아오지 않는다. 소굴을 정리하라.',
     hint:'북쪽 소굴로 가서 소탕하라.',
     activateNode:'VAW', gate:{ flags:['lakeLairLocated'] },
     completion:{ battles:['LD_DROWNERS'] }, bits:[],
     onComplete:[
       { kind:'flag_write', set:['drownersDefeated'] },
       { kind:'reward', xp:500, gold:500 },
-      { kind:'reward', items:[{ name:'Drowned Compass', icon:'🧭', type:'misc', desc:'Found in the den with the wrecked boat timbers. A brass compass sealed in lake sediment. Still points north. The Guild captain\'s name is scratched into the case.', sell:80 }],
+      { kind:'reward', items:[{ name:'Drowned Compass', icon:'🧭', type:'misc', desc:'난파선 목재와 함께 소굴에서 발견되었다. 호수 퇴적물에 봉인된 황동 나침반. 아직 북쪽을 가리킨다. 길드 선장의 이름이 케이스에 새겨져 있다.', sell:80 }],
         knowledge:'Lake Monster Hunt: Three drowners moved into the north shore shelf den after the rock collapse this season. All three boats were taken from below. The Guild captain\'s compass was in the den. The Guild\'s spirit theory was wrong from the first offering.' },
       { kind:'narrative', msg:'✅ 소굴이 정리되었다.\n\n드라우너 셋은 기회주의자들이었다. 암석 붕괴와 함께 도착해, 길드가 남쪽 기슭에서 물고기를 바치는 동안 북쪽 끝에 자리를 잡았다.\n\n암반 선반 아래 잔해 속에 황동 나침반. 퇴적물에 봉인된 채 아직도 북쪽을 가리킨다. 길드 선장의 이름이 케이스에 새겨져 있다.\n\n물에 빠진 나침반이 소지품에 추가. +500gp. +500 XP. 지식 항목 추가.' },
     ],
@@ -12936,7 +12936,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // completion ← completeFn, bits:[]. reward:0/waypointNode kept as-is (inert completeItems:[] swept in W8a).
   quest_spark2_01: { id:'quest_spark2_01', schema:'UQF-1.0', type:'side',
     title:'감독관의 문제',
-    desc:'A Commissioner of the Inland Revenue has arrived at Dunfall by Crown directive to assess harbor taxes. His credentials are inconsistent. The dock cat has been sitting directly on the assessment ledger since he arrived.',
+    desc:'국내세입청 감사관이 왕실 지령으로 던폴에 도착해 항구 세금을 평가한다. 그의 자격증은 앞뒤가 맞지 않는다. 부두 고양이는 그가 도착한 뒤로 줄곧 평가 장부 바로 위에 앉아 있다.',
     hint:'던폴에서 할바르드 펜 감독관과 이야기하라.',
     activateNode:'DNF', gate:{ flags:['dunfallAccessed'] },
     completion:{ flags:['spark2HookReceived'] }, bits:[],
@@ -12952,7 +12952,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // Fish Scale / msg; onFail (msg only) via _legacy_fn. retryable:true.
   quest_spark2_02: { id:'quest_spark2_02', schema:'UQF-1.0', type:'skill_check',
     title:'브람과 장부',
-    desc:'The dock cat is Bram. He has been on Mairén\'s ledger for three years. He watches a specific point on the south dock wall. WIS Animal Handling DC 11 to understand what Bram is watching — it is not the Commissioner.',
+    desc:'부두 고양이는 브람이다. 삼 년째 마이렌의 장부에 올라 있다. 그는 남쪽 부두 벽의 특정한 지점을 지켜본다. 브람이 보는 것을 이해하려면 WIS 동물 다루기 DC 11. 감사관이 아니다.',
     hint:'던폴 부두에서 브람이 지켜보는 것을 읽어 내라. WIS 동물 조련 DC 11.',
     activateNode:'DNF', gate:{ flags:['spark2HookReceived'] }, retryable:true,
     bits:[
@@ -12963,7 +12963,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
             S_story.bramBefriended = true;
             S_story.xp = (S_story.xp||0) + 150;
             const inv = S_story.inventory = S_story.inventory || [];
-            inv.push({ name:"Bram's Fish Scale", icon:'🐟', type:'misc', desc:'A single scale from the morning catch. Bram placed it near your hand — not a gift, an endorsement. Dunfall cats give these only to people who notice what they are actually watching.', sell:0 });
+            inv.push({ name:"Bram's Fish Scale", icon:'🐟', type:'misc', desc:'아침 어획의 비늘 한 조각. 브람이 당신의 손 가까이 놓았다. 선물이 아니라 인정이다. 던폴 고양이들은 자신들이 실제로 보는 것을 알아차리는 사람에게만 이것을 준다.', sell:0 });
             storyMsg('🐟 Bram is not watching the Commissioner. He is watching a point on the south dock wall — where the fish market sweep leaves grain husks at the joint where stone meets wood.\n\nSomething is there. Something small.\n\nBram places one fish scale near your hand with the gravity of a cat making a formal statement.\n\nThe Commissioner notes you are "communicating with the obstruction." His appointment certificate, visible in his open case, lists the Western Revenue Office, Third Circuit — an office that closed thirteen years ago.\n\nBram\'s Fish Scale added. +150 XP. Quest: Bram Leads South now active.');
           } },
         ],
@@ -12983,7 +12983,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // §ARCH-01 Wave 1k — migrated legacy → UQF v1.0 (2026-06-28). Structural side quest, no onComplete.
   quest_spark2_03: { id:'quest_spark2_03', schema:'UQF-1.0', type:'side',
     title:'브람, 남쪽으로',
-    desc:'Bram leads you to the fish market sweep pile — a grain-husk mound behind the south dock wall joint. At the center: Oat. A harbor mouse, white-gray, sitting in someone else\'s grain with complete serenity.',
+    desc:'브람이 당신을 생선 시장 쓸이 더미로 이끈다. 남쪽 부두 벽 이음새 뒤의 곡물 껍질 언덕. 중심에 오트. 항구 쥐, 흰회색, 남의 곡물 위에 완전한 평정으로 앉아 있다.',
     hint:'브람을 따라 던폴 남쪽 부두의 오트에게 가라.',
     activateNode:'DNF', gate:{ flags:['bramBefriended'] },
     completion:{ flags:['oatMet'] }, bits:[],
@@ -13000,7 +13000,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // Drift Spore / msg.
   quest_spark2_04: { id:'quest_spark2_04', schema:'UQF-1.0', type:'skill_check',
     title:'오트가 나르는 것',
-    desc:'Oat has a faint amber glow on his left ear — a drift spore colony from the loch shallows. Related to the Deep Warmth Eel chemistry, but airborne. INT Nature DC 12 to identify what the colony is doing to the dock ecosystem.',
+    desc:'오트의 왼쪽 귀에 희미한 호박색 빛. 호수 얕은 물의 부유 포자 군집. 깊은 온기 장어 화학과 관련되었지만 공중 부유형. 이 군집이 부두 생태계에 하는 일을 파악하려면 INT 자연 DC 12.',
     hint:'오트의 귀에 붙은 부유 포자를 확인하라. INT 자연 DC 12.',
     activateNode:'DNF', gate:{ flags:['oatMet'] }, retryable:false,
     bits:[
@@ -13015,7 +13015,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
             const inv = S_story.inventory = S_story.inventory || [];
             const obIdx = inv.findIndex(i => i.name === "Oat's Harbor Bead");
             if (obIdx !== -1) inv.splice(obIdx, 1);
-            inv.push({ name:'Dunfall Drift Spore', icon:'✨', type:'misc', desc:'A pinch of amber spore in a small clay vial — harvested from Oat\'s left ear by Bram, using one claw with unusual precision. Related to Deep Warmth Eel chemistry. Airborne. Mild social harmonization. Do not inhale more than necessary.', sell:0 });
+            inv.push({ name:'Dunfall Drift Spore', icon:'✨', type:'misc', desc:'작은 진흙 병에 담긴 호박색 포자 한 꼬집. 브람이 비정상적으로 정밀한 발톱 하나로 오트의 왼쪽 귀에서 채취했다. 깊은 온기 장어 화학과 관련. 공중 부유. 온화한 사회적 조화. 필요 이상으로 들이마시지 마라.', sell:0 });
             storyMsg('✨ The glow on Oat\'s ear is a drift spore colony from the loch shallows. Same chemistry family as Clot\'s Glow and the Deep Warmth Eel — but airborne, dispersed by small mammals in the shore reeds.\n\nWithin six feet: mild social harmonization. Gentling, not compulsion.\n\nThe Commissioner has been in the drift radius for two days. His inconsistencies are not deception — they are three identities held simultaneously by a man who was given a new name and cannot entirely let go of the other two.\n\nBram harvests the spore from Oat\'s ear with one claw. He places the sealed vial on the dock ledge. Oat watches. The Commissioner says something about his grandfather\'s commission.\n\nOat\'s Harbor Bead consumed. Dunfall Drift Spore added. Knowledge entry added. +200 XP.');
           } },
         ],
@@ -13035,7 +13035,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // §ARCH-01 Wave 1k — migrated legacy → UQF v1.0 (2026-06-28). Structural side quest, no onComplete.
   quest_spark2_05: { id:'quest_spark2_05', schema:'UQF-1.0', type:'side',
     title:'펜 감독관의 세 가지 이름',
-    desc:'Three inconsistencies: the Inland Revenue Division that does not exist, the Highland Fleet his grandfather commanded that does not exist, the appointment certificate from an office that closed before his appointment date. Commissioner Halvard Fehn is holding three identities and losing track of which one he is today.',
+    desc:'세 가지 모순. 존재하지 않는 국내세입청 산하 부서. 그의 할아버지가 지휘했다는, 존재하지 않는 고지대 함대. 그의 임명일 이전에 폐쇄된 관청이 발급한 임명장. 할바르드 펜 감사관은 세 개의 정체를 쥐고 오늘이 어느 쪽인지 헤아리지 못하고 있다.',
     hint:'던폴에서 세 가지 모순을 들어 펜 감독관과 대치하라.',
     activateNode:'DNF', gate:{ flags:['brimFound'] },
     completion:{ flags:['fehnConfessed'] }, bits:[],
@@ -13054,7 +13054,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // +1200xp) — kept verbatim (see project_open_gaps).
   quest_bilge_01: { id:'quest_bilge_01', schema:'UQF-1.0', type:'side',
     title:'선창에서 사라진 것',
-    desc:'Three items are gone from the Tilbury Star\'s cargo hold: a cask of rendered tallow, two rope coils, and the eastern crossing charts. Crewman Delt was found in the bilge with no memory of six hours. The cook says it was the passenger.',
+    desc:'틸버리 스타의 화물칸에서 세 가지가 사라졌다. 렌더링한 수지 통 하나, 밧줄 두 꾸러미, 동부 횡단 해도. 선원 델트가 빌지에서 여섯 시간의 기억이 없는 채 발견되었다. 요리사는 승객이라고 한다.',
     hint:'틸버리 스타 안의 실종 화물을 조사하라.',
     activateNode:'SEN', gate:{ flags:['saltwickAccessed'] },
     completion:{ flags:['whodunit2HookReceived'] }, bits:[],
@@ -13067,7 +13067,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
 
   quest_bilge_02: { id:'quest_bilge_02', schema:'UQF-1.0', type:'skill_check',
     title:'항구의 배수로',
-    desc:'The bilge drain on the port side has been disturbed — the iron grate moved from inside. Cold-water smell underneath that is not standard bilge. INT Investigation DC 12 to identify what came through.',
+    desc:'좌현의 빌지 배수구가 훼손되었다. 쇠 창살이 안쪽에서 움직여졌다. 아래에서 표준 빌지가 아닌 냉수 냄새. 무엇이 통과했는지 파악하려면 INT 조사 DC 12.',
     hint:'틸버리 스타의 좌현 빌지 배수구를 조사하라. INT 조사 DC 12.',
     activateNode:'SEN', gate:{ flags:['whodunit2HookReceived'] }, retryable:false,
     bits:[
@@ -13097,7 +13097,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
 
   quest_bilge_03: { id:'quest_bilge_03', schema:'UQF-1.0', type:'skill_check',
     title:'델트가 기억하는 것',
-    desc:'Delt remembers cold from below — not darkness. A smell he cannot place. A sound he describes as "a reading sound." The eastern charts were on top of the tallow cask; the creature moved them aside. WIS Insight DC 13 to confirm what his sensory memories describe.',
+    desc:'델트는 어둠이 아니라 아래에서 오는 차가움을 기억한다. 짚을 수 없는 냄새. 그가 『읽는 소리』라고 표현하는 소리. 동부 해도는 수지 통 위에 있었고 그 생물이 옆으로 치웠다. 그의 감각 기억이 묘사하는 것을 확인하려면 WIS 통찰 DC 13.',
     hint:'델트에게 빌지에서 보낸 시간에 대해 물어라. WIS 통찰 DC 13.',
     activateNode:'SEN', gate:{ flags:['whodunit2ClueFound'] }, retryable:false,
     bits:[
@@ -13127,14 +13127,14 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // double-count, preserved verbatim (see project_open_gaps).
   quest_bilge_04: { id:'quest_bilge_04', schema:'UQF-1.0', type:'side',
     title:'빌지 소탕',
-    desc:'Two sea spawn entered the Tilbury Star\'s bilge through the port drain during the Saltwick hull repair. The cook\'s theory was wrong. Clear the bilge before the eastern crossing.',
+    desc:'솔트윅 선체 수리 동안 바다 스폰 두 마리가 좌현 배수구로 틸버리 스타의 빌지에 들어왔다. 요리사의 이론은 틀렸다. 동부 횡단 전에 빌지를 정리하라.',
     hint:'빌지로 내려가 바다 스폰을 소탕하라.',
     activateNode:'SEN', gate:{ flags:['whodunit2WitnessRead'] },
     completion:{ battles:['MS_BILGE'] }, bits:[],
     onComplete:[
       { kind:'flag_write', set:['whodunit2Solved'] },
       { kind:'reward', xp:600, gold:600 },
-      { kind:'reward', items:[{ name:'Sea Spawn Scale Fragment', icon:'🐚', type:'misc', desc:'Dark grey scale from the bilge sea spawn — evidence of the hull breach. The captain added to the ship\'s log: "Port drain sealed with copper mesh." The passenger Ord is owed an apology. The cook has declined to give one.', sell:13 }],
+      { kind:'reward', items:[{ name:'Sea Spawn Scale Fragment', icon:'🐚', type:'misc', desc:'빌지 바다 스폰의 어두운 회색 비늘. 선체 침입의 증거. 선장이 항해 일지에 덧붙였다. 『좌현 배수구, 구리망으로 봉함.』 승객 오드에게는 사과가 빚져 있다. 요리사는 사과를 거절했다.', sell:13 }],
         knowledge:'Bilge Mystery Solved: Two sea spawn entered the Tilbury Star during the Saltwick hull repair. Took tallow (food) and rope (nesting). Charts displaced but undamaged. Crewman Delt proximity-sedated, not harmed. Cook\'s theory (passenger Ord) was wrong. The cook has not acknowledged this.' },
       { kind:'narrative', msg:'✅ 빌지가 정리되었다.\n\n바다 스폰은 한 마리가 아니라 두 마리였다. 두 번째가 첫날 안에 배수구를 통해 따라 들어왔다. 평형수 구석에 밧줄이 말려 있다. 임시 둥지. 수지 통은 속이 파였다. 해도들은 손상 없이 쌓여 있다.\n\n승객 오드가 안전 신호가 떨어지자 선실에서 나온다. 빌지 출입구를 본다. 요리사를 본다. 요리사는 사과하지 않는다. 오드도 캐묻지 않는다. 기념품으로 수지 통을 달라고 한다. 선장이 거절한다. 그는 담담히 받아들인다.\n\n바다 스폰 비늘 조각 추가. +600gp. +600 XP. 지식 항목 추가. 빌지 확보. 동부 횡단로 장애물 없음.' },
     ],
@@ -13152,7 +13152,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // (alch_07), which gates the §WISDOM-01 wis arc. Zero engine changes.
   quest_alch_01: { id:'quest_alch_01', schema:'UQF-1.0', type:'side',
     title:'양치기의 꿈',
-    desc:'A shepherd from the Irish Highlands has been waiting at the crossroads since dawn. He has a smooth stone his grandmother gave him and a fortune teller\'s reading that says the gold is "below the water that has already been cleared." He wants to follow someone who looks like they know where they\'re going.',
+    desc:'아일랜드 고지대의 양치기가 새벽부터 교차로에서 기다리고 있다. 할머니가 주신 매끈한 돌 하나와, 금이 『이미 맑아진 물 아래』 있다는 점술가의 풀이를 가지고 있다. 그는 어디로 가는지 아는 것처럼 보이는 사람을 따라가고 싶어 한다.',
     hint:'아일랜드 고원지대 교차로에서 로엔을 만나라.',
     activateNode:'KIR', gate:{},
     completion:{ flags:['roenMet'] }, bits:[],
@@ -13165,7 +13165,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
 
   quest_alch_02: { id:'quest_alch_02', schema:'UQF-1.0', type:'side',
     title:'정오의 평원',
-    desc:'Roen is standing in the noon plain watching his shadow disappear. He has a theory about this. The theory connects to his grandmother, the shadow of the self, and the second agreement. He would like to discuss it.',
+    desc:'로엔이 정오의 평원에 서서 자신의 그림자가 사라지는 것을 보고 있다. 그에게는 이것에 대한 이론이 있다. 이론은 그의 할머니, 자아의 그림자, 그리고 두 번째 약속과 연결된다. 그는 이야기하고 싶어 한다.',
     hint:'로엔과 함께 평원과 중부를 지나 여행하라.',
     activateNode:'MAN', gate:{ flags:['roenMet'] },
     completion:{ flags:['roenMidlandsWisdom'] }, bits:[],
@@ -13178,7 +13178,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
 
   quest_alch_03: { id:'quest_alch_03', schema:'UQF-1.0', type:'side',
     title:'배는 기억한다',
-    desc:'Roen at the rail of the Tilbury Star. The stone is heavy in his pocket over open water. He has observations about ships, assumptions, and the difference between going somewhere and knowing where you are going.',
+    desc:'틸버리 스타의 난간의 로엔. 돌은 먼 바다 위에서 그의 주머니 속에서 무겁다. 그는 배, 가정, 그리고 어디로 가는 것과 어디로 가는지 아는 것의 차이에 대한 관찰을 가지고 있다.',
     hint:'틸버리 스타를 타고 로엔과 함께 바다를 건너라.',
     activateNode:'SEN', gate:{ flags:['roenMidlandsWisdom'] },
     completion:{ flags:['roenAtSea'] }, bits:[],
@@ -13191,7 +13191,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
 
   quest_alch_04: { id:'quest_alch_04', schema:'UQF-1.0', type:'skill_check',
     title:'오라클의 판독',
-    desc:'The Oracle has given Roen a reading. It uses almost exactly the same words as the fortune teller in Birka. Roen is convinced this means the Mediterranean. CHA Persuasion DC 11 to help him hear what the oracle actually said.',
+    desc:'오라클이 로엔에게 풀이를 내렸다. 비르카의 점술가와 거의 정확히 같은 말을 쓴다. 로엔은 이것이 지중해를 뜻한다고 확신한다. 오라클이 실제로 말한 것을 듣도록 도우려면 CHA 설득 DC 11.',
     hint:'오라클의 섬에서 로엔과 함께 오라클의 판독을 해석하라. CHA 설득 DC 11.',
     activateNode:'PDL', gate:{ flags:['roenAtSea'] }, retryable:true,
     bits:[
@@ -13219,7 +13219,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
 
   quest_alch_05: { id:'quest_alch_05', schema:'UQF-1.0', type:'skill_check',
     title:'잃어버린 돌',
-    desc:'Roen dropped the Philosophy Stone into the Malta harbor. He can see it on the floor. He\'s sitting on the dock having an existential crisis about what it means. WIS Insight DC 12 to help him count what he has instead of what\'s on the harbor floor.',
+    desc:'로엔이 철학의 돌을 몰타 항구에 떨어뜨렸다. 바닥에 있는 것이 보인다. 그는 부두에 앉아 그것이 무엇을 의미하는지에 대한 실존적 위기를 겪고 있다. 항구 바닥에 있는 것 대신 자신이 가진 것을 세도록 도우려면 WIS 통찰 DC 12.',
     hint:'몰타에서 로엔의 위기를 헤쳐 나가도록 도와라. WIS 통찰 DC 12.',
     activateNode:'MLA', gate:{ flags:['roenOracleRead'] }, retryable:true,
     bits:[
@@ -13248,7 +13248,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
 
   quest_alch_06: { id:'quest_alch_06', schema:'UQF-1.0', type:'side',
     title:'스토아학파의 금',
-    desc:'At the Areopagus in Athens, near the altar to an unknown god: an old man who has been on the same stone since before the city\'s current magistrates were born. He heard Roen\'s problem and immediately said: "You\'ve already found it." He has more to say.',
+    desc:'아테네의 아레오바고, 이름 없는 신의 제단 근처. 이 도시의 현직 치안관들이 태어나기 전부터 같은 돌 위에 있던 노인. 그는 로엔의 문제를 듣자마자 말했다. 『너는 이미 찾았다.』 그에게는 더 할 말이 있다.',
     hint:'로엔을 아테네의 아레오바고로 데려가라.',
     activateNode:'ATH', gate:{ flags:['roenMaltaCrisis'] },
     completion:{ flags:['roenAlchemistMet'] }, bits:[],
@@ -13261,7 +13261,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
 
   quest_alch_07: { id:'quest_alch_07', schema:'UQF-1.0', type:'side',
     title:'금이 고향이었다',
-    desc:'Roen has returned to the Irish Highlands. The kelpie is gone. The loch is clear. His grandmother\'s Philosophy Stone has been a loch-stone all along — a fragment of the bioluminescent colony below the loch that concentrates trace gold from the highland runoff. The fortune teller was right. The grandmother was right. He needs to put it in the water.',
+    desc:'로엔이 아일랜드 고지대로 돌아왔다. 켈피는 사라졌다. 호수는 맑다. 할머니의 철학의 돌은 줄곧 호수의 돌이었다. 고지대 유출수에서 미량의 금을 농축하는 호수 아래 발광 군집의 파편. 점술가가 맞았다. 할머니가 맞았다. 그는 그것을 물에 넣어야 한다.',
     hint:'로엔과 함께 아일랜드 고원지대로 돌아가 그가 호수에 돌을 떨어뜨리는 것을 지켜봐라.',
     activateNode:'KIR', gate:{ flags:['roenAlchemistMet'] },
     completion:{ flags:['personalLegendComplete'] }, bits:[],
@@ -13277,7 +13277,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // quest: declarative gate (activation) + completion (replaces completeFn).
   quest_wis_00: { id:'quest_wis_00', schema:'UQF-1.0', type:'side',
     title:'필사본 미끼',
-    desc:'Roen has appeared in Visby with a tattered portfolio. The underground guild archive holds a copy of a suppressed text: "A Complete Account of Human Nature in Its Unreformed State, Vol. I" by Master Fenn Ardley — a court historian dismissed after naming the court treasurer\'s behavior patterns publicly. The treasurer scattered the text. Sixteen years later, his family lost the city dock contracts to a Baltic competitor who had read a dispersed copy. Six more sections survive, scattered across the world. Roen: "He was right. That\'s why they scattered it."',
+    desc:'로엔이 너덜너덜한 서류철을 들고 비스뷔에 나타났다. 지하 길드 문서고에는 금서의 사본이 있다. 펜 아들리 대가의 『교정되지 않은 상태의 인간 본성에 대한 완전한 기록, 제1권』. 궁정 재무관의 행동 양식을 공개적으로 지목했다가 파면된 궁정 역사가. 재무관은 그 책을 흩뿌렸다. 십육 년 뒤, 그의 가문은 흩어진 사본을 읽은 발트해 경쟁자에게 도시 부두 계약을 빼앗겼다. 여섯 개의 절이 더 살아남아 세계에 흩어져 있다. 로엔. 『그가 맞았어. 그래서 그들이 흩뿌린 거야.』',
     hint:'비스뷔에서 로엔을 찾아 아들리의 파편 수집을 시작하라.',
     activateNode:'VS', gate:{ flags:['personalLegendComplete'] },
     completion:{ flags:['wisHookReceived'] }, bits:[],
@@ -13295,7 +13295,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // the knowledge entry, narrative carries the verbatim storyMsg.
   quest_wis_01: { id:'quest_wis_01', schema:'UQF-1.0', type:'skill_check',
     title:'가면 점검',
-    desc:'Ardley W1 — The Law of Role-playing: "Everyone wears a social mask. What you look for is not the lie beneath — it is the gap. The moment when the performance requires more effort than usual. That effort is the tell." Roen: "There is a cloth merchant at the Tilbury dock who holds bolts of fabric the way my grandfather held a lamb — like something that could run." Silas Vance, third berth. His hands are rope-calloused, not bale-calloused. WIS Insight DC 13: read the gap.',
+    desc:'아들리 W1. 역할 연기의 법칙. 『모든 사람은 사회적 가면을 쓴다. 당신이 찾아야 할 것은 아래의 거짓말이 아니라 틈이다. 연기가 평소보다 더 많은 노력을 요구하는 순간. 그 노력이 새어 나오는 곳이다.』 로엔. 『틸버리 부두에 옷감 한 필을 내 할아버지가 어린 양을 잡듯이, 달아날 수 있는 것처럼 쥐는 옷감 상인이 있어.』 사일러스 밴스, 세 번째 계류장. 그의 손은 짐꾼의 굳은살이 아니라 밧줄 굳은살이다. WIS 통찰 DC 13. 틈을 읽어라.',
     hint:'틸버리 부두에서 사일러스 밴스의 손을 읽어라. WIS 통찰 DC 13.',
     activateNode:'LCY', gate:{ flags:['wisHookReceived'] }, retryable:false,
     bits:[
@@ -13319,7 +13319,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // §ARCH-01 Phase 3 — migrated legacy → UQF v1.0 (2026-06-28). Parity: +250xp, no gold.
   quest_wis_02: { id:'quest_wis_02', schema:'UQF-1.0', type:'skill_check',
     title:'도리트가 이미 알던 것',
-    desc:'Ardley W2 — The Law of Aggression: "Aggression does not announce itself. It dresses as patience, as courtesy, as professional neutrality. The tell is small: voice drops one register when they say a name, they touch an object before they answer. These are the leak." Roen: "Dorit touched the docking ledger four times while you were talking. Not to write anything. Just to touch it. I have been thinking about what that means for several days." WIS Insight DC 12: read what she is protecting.',
+    desc:'아들리 W2. 공격성의 법칙. 『공격성은 스스로 알리지 않는다. 인내로, 예의로, 직업적 중립으로 위장한다. 새어 나오는 곳은 작다. 이름을 말할 때 목소리가 한 톤 낮아지거나, 대답하기 전에 물건을 만지는 것. 이것들이 샌다.』 로엔. 『도릿이 네가 말하는 동안 접안 장부를 네 번 만졌어. 뭘 쓰려고도 아니고. 그냥 만지려고. 그게 무슨 뜻인지 며칠째 생각하고 있어.』 WIS 통찰 DC 12. 그녀가 지키는 것을 읽어라.',
     hint:'솔트윅 부두에서 도릿의 몸짓을 읽어라. WIS 통찰 DC 12.',
     activateNode:'MME', gate:{ flags:['wisHookReceived','saltwickAccessed'] }, retryable:false,
     bits:[
@@ -13343,7 +13343,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // §ARCH-01 Phase 3 — migrated legacy → UQF v1.0 (2026-06-28). INT Investigation DC 11, +300xp.
   quest_wis_03: { id:'quest_wis_03', schema:'UQF-1.0', type:'skill_check',
     title:'해도실',
-    desc:'Ardley W3 — Discover Each Man\'s Thumbscrew: "Every person has one thing they are trying to protect above all others. Look for the thing they never mention — the omission is more revealing than the declaration. Their thumbscrew is the thing that makes them go quiet." Roen: "Keel talked about the commission. She talked about the eastern run. She talked about the date. She did not talk about the navigator. Not once." SB chart room. INT Investigation DC 11: read what she left and what she took.',
+    desc:'아들리 W3. 각자의 지렛대를 찾아라. 『모든 사람에게는 무엇보다 지키려는 것이 하나 있다. 절대 언급하지 않는 것을 찾아라. 생략이 선언보다 더 많이 드러낸다. 그들의 지렛대는 그들을 조용하게 만드는 것이다.』 로엔. 『킬은 위임장을 이야기했어. 동부 항해를 이야기했어. 날짜를 이야기했어. 항해사는 이야기하지 않았어. 한 번도.』 SB 해도실. INT 조사 DC 11. 그녀가 남긴 것과 가져간 것을 읽어라.',
     hint:'SB의 해도실을 조사하라. INT 조사 DC 11.',
     activateNode:'GCI', gate:{ flags:['wisHookReceived','sbResolved'] }, retryable:false,
     bits:[
@@ -13367,7 +13367,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // §ARCH-01 Phase 3 — migrated legacy → UQF v1.0 (2026-06-28). INT Investigation DC 12, +300xp.
   quest_wis_04: { id:'quest_wis_04', schema:'UQF-1.0', type:'skill_check',
     title:'교착의 대가',
-    desc:'Ardley W4 — The Law of Shortsightedness: "The present moment is always vivid and always incomplete. The person who can ask \'what will this look like in three years?\' is rare. The guild man who takes the good deal today rarely asks what it will cost his successor." Roen: "The warlord and the shaman have been watching each other for six months. I asked the barman what they\'re waiting for. He said: \'for the other one to move first.\' I asked what happens if neither moves. He did not know." At Visby\'s Broken Tooth: INT Investigation DC 12. Name what the stalemate is actually costing.',
+    desc:'아들리 W4. 근시의 법칙. 『현재는 항상 생생하고 항상 불완전하다. 삼 년 뒤에 어떻게 보일까를 물을 수 있는 사람은 드물다. 오늘 좋은 거래를 하는 길드 사람은 그것이 후임에게 무엇을 요구할지 거의 묻지 않는다.』 로엔. 『전쟁군주와 샤먼이 여섯 달째 서로를 지켜보고 있어. 바텐더에게 뭘 기다리냐고 물었더니, 상대가 먼저 움직이기를 기다린대. 둘 다 안 움직이면 어떻게 되냐고 물었더니 몰라.』 비스뷔의 부러진 이에서. INT 조사 DC 12. 이 교착이 실제로 치르는 비용에 이름을 붙여라.',
     hint:'비스뷔의 부러진 이빨 주막에서 모르두스-주술사 교착 상태를 읽어 내라. INT 조사 DC 12.',
     activateNode:'BK', gate:{ flags:['wisHookReceived'] }, retryable:false,
     bits:[
@@ -13392,7 +13392,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // extra wisArchiveLetter flag (separate flag_write bit) alongside +300xp.
   quest_wis_05: { id:'quest_wis_05', schema:'UQF-1.0', type:'skill_check',
     title:'철학자의 선회',
-    desc:'Ardley W5 — Assume Formlessness: "The man who has committed to a position and found it untenable has two choices: defend it anyway, or release it. The first is called dignity. The second is called intelligence. They feel identical from the outside. Only the person inside knows which one they are doing." Roen: "The philosopher and I argued for two hours about whether gold has intrinsic value or is a social agreement. I was right, then wrong, then right again from the other direction. At some point I stopped knowing which direction I was arguing from. This felt like progress." At Athens — a Stoic has a position that was correct three premises ago. WIS Insight DC 12: recognize when to release it.',
+    desc:'아들리 W5. 무형을 가정하라. 『입장에 몰두했다가 유지할 수 없음을 깨달은 자에게는 두 가지 선택이 있다. 그래도 방어하거나, 놓아주거나. 첫 번째는 존엄이라 불린다. 두 번째는 지성이라 불린다. 밖에서 보면 똑같이 느껴진다. 안에 있는 사람만이 어느 쪽을 하고 있는지 안다.』 로엔. 『철학자와 금에 내재 가치가 있는지 사회적 합의인지 두 시간 논쟁했어. 내가 맞았다가, 틀렸다가, 반대쪽에서 다시 맞았어. 어느 순간 어느 방향에서 논하는지 모르게 됐어. 이게 진전처럼 느껴졌어.』 아테네에서. 세 전제 전에 옳았던 입장을 가진 스토아학파 철학자가 있다. WIS 통찰 DC 12. 언제 놓아야 하는지 알아차려라.',
     hint:'아테네의 철학적 논쟁에 들어가라. WIS 통찰 DC 12.',
     activateNode:'ATH', gate:{ flags:['wisHookReceived','roenAlchemistMet'] }, retryable:false,
     bits:[
@@ -13419,7 +13419,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // VS_SHADOW construct (fight) — set by the VS storyRender block, unchanged.
   quest_wis_06: { id:'quest_wis_06', schema:'UQF-1.0', type:'skill_check',
     title:'그림자 방',
-    desc:'Ardley W6 — The Law of Repression: "The parts of yourself you have refused to examine do not disappear. They operate below the surface. They surface as overreactions, as inexplicable preferences, as patterns you cannot explain. The shadow is not your enemy — it is the part of you that has been waiting to be named." Roen: "There is a room in the lower level I have been in four times now. It shows you something. I will not say what it showed me. It was accurate, though. I gave it a formal nod. It seemed appropriate." The shadow room at Visby. Accept the reflection (Shadow Shard awarded) or fight the shadow construct.',
+    desc:'아들리 W6. 억압의 법칙. 『살펴보기를 거부한 자신의 부분들은 사라지지 않는다. 수면 아래에서 작동한다. 과잉 반응으로, 설명할 수 없는 선호로, 설명할 수 없는 양식으로 떠오른다. 그림자는 적이 아니다. 이름 불리기를 기다려 온 당신의 일부다.』 로엔. 『아래층에 방이 하나 있는데 네 번째 가 봤어. 거울이 뭔가를 보여 줘. 나한테 뭘 보여 줬는지는 말 안 할 거야. 정확하긴 했어. 정중히 고갯짓했어. 적절해 보였거든.』 비스뷔의 그림자 방. 반영을 받아들이거나(그림자 파편 지급) 그림자 구조물과 싸워라.',
     hint:'비스뷔의 그림자 방에 들어가라. VS의 스토리 패널에서 선택하라: 받아들이기(WIS 통찰 DC 14) 또는 싸우기.',
     activateNode:'VS', gate:{ flags:['visbyUnderground'] }, retryable:true,
     completion:{ flagsAny:['wisPage6_shadow'], battles:['VS_SHADOW'] },
@@ -13547,7 +13547,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   quest_kg_03: { id:'quest_kg_03', type:'side', schema:'UQF-1.0', gate:{ flags:['kgManifestDelivered'] }, bits:[], completion:{ countMin:[{ path:'monsterKills.komsomol_cadet', min:4 }] }, title:'로시코바: 격투 마루',
     onComplete:[ { kind:'reward', xp:200, gold:40 }, { kind:'narrative', msg:'🎖️ 로시코바가 당신의 옷깃에 붉은 별을 달아 준다.' } ],
     itemChain:[{action:'grant',name:'Red Star Pin',icon:'⭐',type:'trophy',sell:0,silent:true}],
-    desc:'Roshkova walks you onto the sparring floor. "Four cadets. They will not go easy and neither will you. Beat them clean — no cheap shots, no ganging. The School does not correct softness; it corrects sloppiness."',
+    desc:'로시코바가 당신을 대련장으로 이끈다. 『견습생 넷. 봐주지 않을 거고 너도 봐주지 마. 깨끗이 이겨. 치사한 수도, 다구리도 없이. 학교는 나약함을 고치지 않는다. 성긴 것을 고칠 뿐이다.』',
     hint:'학교 스파링장에서 콤소몰 생도 4명을 이겨라.',
     killGoals:[{key:'komsomol_cadet',need:4,label:'콤소몰 생도'}], killCounter:'monsterKills',
     activateNode:'KMS', waypointNode:'KMS', reward:40,
@@ -13557,7 +13557,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     npc:'commissar-instructor_roshkova',
   },
   quest_kg_04: { id:'quest_kg_04', type:'skill_check', schema:'UQF-1.0', gate:{ questsDone:['quest_kg_03'] }, retryable:true, bits:[{ kind:'skill_check', stat:'WIS', skill:'Insight', dc:10, onPass:[{ kind:'mission_bit', flag:'kgFormsPassed', label:'서류 심사 통과' }, { kind:'reward', xp:180, gold:0 }], onFail:[] }], title:'로시코바: 깨끗이 지기',
-    desc:'Roshkova sets you against the third form — the one built to beat you. "Everyone loses this one. What I am grading is HOW. Read the form, take the fall straight, no excuse and no flinch. A cadet who cannot lose cleanly cannot win cleanly."',
+    desc:'로시코바가 당신을 세 번째 형과 붙인다. 너를 이기기 위해 만들어진 형. 『모두 이 형에 진다. 내가 채점하는 것은 어떻게 지는가다. 형을 읽고, 낙법을 바로 받고, 변명도 움찔함도 없이. 깨끗이 지지 못하는 견습생은 깨끗이 이기지도 못한다.』',
     hint:'서류를 읽고 깨끗하게 패배를 받아들여라 (WIS · 통찰, DC 10). 될 때까지 몇 번이든 재시도하라.',
     activateNode:'KMS', waypointNode:'KMS', reward:0,
     disposition:'"You lost the third form and you lost it straight — no excuse, no flinch. A cadet who cannot lose cleanly cannot win cleanly. The School corrects you. It does not judge you. Go east." — 정치교관 로시코바',
@@ -13579,7 +13579,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   quest_kg_06: { id:'quest_kg_06', type:'side', schema:'UQF-1.0', gate:{ questsDone:['quest_kg_05'] }, bits:[], completion:{ countMin:[{ path:'monsterKills.gladiator_bot', min:3 },{ path:'monsterKills.zavod_sparbot', min:3 }] }, title:'그림카: 깨끗한 대진표',
     onComplete:[ { kind:'reward', xp:300, gold:60 }, { kind:'narrative', msg:'🏆 그림카가 클린 카드 트로피와 파브리카로 보낼 벗겨낸 원자로 코어를 건넨다.' } ],
     itemChain:[{action:'grant',name:'Clean-Card Trophy',icon:'🏆',type:'trophy',sell:0,silent:true},{action:'grant',name:'Stripped Reactor Core',icon:'☢️',type:'quest',sell:0,silent:true}],
-    desc:'"A full card," Grimka says. "Three gladiator-bots, three sparbots, all of it clean. Do that and the pit knows your name." He nods at a decommissioned core on the rack. "Win it and I will send the stripped core west with you — the Fabrika wants it."',
+    desc:'『풀 카드.』 그림카가 말한다. 『검투 봇 셋, 대련 봇 셋, 전부 깨끗이. 해내면 구덩이가 네 이름을 안다.』 그가 선반의 폐기 코어를 턱으로 가리킨다. 『이기면 벗겨낸 코어를 너와 함께 서쪽으로 보내 주지. 파브리카가 원한다.』',
     hint:'완전한 무결 카드를 달성하라: 검투사봇 3대와 자보드 스파봇 3대.',
     killGoals:[{key:'gladiator_bot',need:3,label:'녹슨 검투사 봇'},{key:'zavod_sparbot',need:3,label:'자보드 스파봇'}], killCounter:'monsterKills',
     activateNode:'ZVD', waypointNode:'ZVD', reward:60,
@@ -13601,7 +13601,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   quest_kg_08: { id:'quest_kg_08', type:'side', schema:'UQF-1.0', gate:{ flags:['kgCoreDelivered'] }, bits:[], completion:{ countMin:[{ path:'monsterKills.fabrika_enforcer', min:3 }] }, title:'이오시프: 마루 치우기',
     onComplete:[ { kind:'reward', xp:250, gold:50 }, { kind:'narrative', msg:'🧠 이오시프가 피질 션트를 장착해 준다.' } ],
     itemChain:[{action:'grant',name:'피질 션트',icon:'🧠',type:'trophy',sell:0,silent:true}],
-    desc:'Iosif powers up the training floor. "The enforcers guard the chairs — three of them, running hot. Put them down and I can seat you safely. They do not feel honor, but you will fight them with it anyway. That is for you, not them."',
+    desc:'이오시프가 훈련장에 전원을 넣는다. 『집행관들이 의자를 지킨다. 셋, 과열된 상태다. 쓰러뜨려라. 그러면 안전하게 앉혀 주지. 그들은 명예를 느끼지 못하지만, 너는 명예를 가지고 그들과 싸울 것이다. 그것은 그들이 아니라 너를 위한 것이다.』',
     hint:'기술 파브리카 바닥에서 파브리카 집행관 3명을 쓰러뜨려라.',
     killGoals:[{key:'fabrika_enforcer',need:3,label:'파브리카 집행관'}], killCounter:'monsterKills',
     activateNode:'FBR', waypointNode:'FBR', reward:50,
@@ -13613,7 +13613,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   quest_kg_09: { id:'quest_kg_09', type:'side', schema:'UQF-1.0', gate:{ questsDone:['quest_kg_08'] }, bits:[], completion:{ countMin:[{ path:'monsterKills.trainer_bot_prime', min:1 }] }, title:'이오시프: 의자',
     onComplete:[{kind:'reward',xp:500,gold:80},{kind:'mission_bit',flag:'kgSimCleared',label:'프라임 코어'},{kind:'narrative',msg:'💽 이오시프가 당신의 런을 인증하고 스킬 칩을 출력한다.'}],
     itemChain:[{action:'grant',name:'Certified Skill-Chit',icon:'🪪',type:'quest',sell:0,silent:true}],
-    desc:'Iosif seats you in the chair and jacks you in. "Standard sim. Should be routine." The regulator light flickers red. "...that should not. The Trainer-Bot is fighting at full — the chair is writing faster than it reads. Ride it out or I pull you. Your call, recruit."',
+    desc:'이오시프가 당신을 의자에 앉히고 잭을 꽂는다. 『표준 시뮬레이션. 일상이어야 한다.』 조절기 표시등이 빨갛게 깜빡인다. 『…저건 아닌데. 트레이너 봇이 최대 출력으로 싸우고 있다. 의자가 읽는 것보다 빨리 쓰고 있어. 버티거나 내가 널 뽑는다. 네 선택이다, 신병.』',
     hint:'시뮬레이션 과부하를 버텨라 — 훈련봇 프라임을 쓰러뜨려라.',
     killGoals:[{key:'trainer_bot_prime',need:1,label:'고장 난 훈련 봇'}], killCounter:'monsterKills',
     activateNode:'FBR', waypointNode:'FBR', reward:80,
