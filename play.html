@@ -11277,7 +11277,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // ── §LXI: Jerusalem return + Tarsus ──
   quest_hellenists_jerusalem: { id:'quest_hellenists_jerusalem', type:'side', schema:'UQF-1.0', gate:{ flags:['barnachVouchedHR'] }, bits:[], completion:{ flags:['hellenistsThreaten'] }, title:'보름',
     onComplete:[ { kind:'narrative', msg:'⚡ +150 XP. 보름. 긴장이 풀렸다. 바르나흐가 말했다. 가라.' } ], // §ARCH-01 W7c
-    desc:"He stays fifteen days. He speaks in the assembly halls. He argues with people who disagree with him — he is very good at arguing, and the conversion did not change this about him, which is a point of some reflection. On the fifteenth day, the Hellenists gather near the gate. Barnach says: go.",
+    desc:'그는 보름을 머문다. 집회장에서 말한다. 그와 의견이 다른 사람들과 논쟁한다. 그는 논쟁에 매우 능하고, 회심이 그의 이 점을 바꾸지 않았다. 숙고할 만한 지점이다. 보름째 되는 날, 헬레니스트들이 성문 근처에 모인다. 바르나흐가 말한다. 가라.',
     hint:'예루살렘에 머물라. 바르나흐의 소식을 기다려라 — 보름.',
     activateNode:'JRS', 
     xpAward:150, waypointNode:'JRS', reward:0,
@@ -11288,7 +11288,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_barnach_finds: { id:'quest_barnach_finds', type:'side', schema:'UQF-1.0', gate:{ flags:['hellenistsThreaten'] }, bits:[], completion:{ flags:['barnachFoundPaul'] }, title:'찾아 헤맨 일 년',
     onComplete:[ { kind:'narrative', msg:'🛤️ +100 XP. 바르나흐가 그를 찾았다. 일 년의 수색. 여정이 재개된다. 안티오크는 서쪽이다.' } ], // §ARCH-01 W7c
-    desc:"Barnach has been looking for a year. He found him in the tentmaking quarter in the afternoon. He said: it\'s time. There was no skill check. No argument. Just: it\'s time. That was sufficient.",
+    desc:'바르나흐는 일 년을 찾았다. 오후에 장막 만드는 구역에서 그를 찾았다. 그가 말했다. 때가 됐다. 판정도 없었다. 논쟁도 없었다. 그저, 때가 됐다. 그것으로 충분했다.',
     hint:'타르수스의 바르나흐와 이야기하라.',
     activateNode:'ADA', 
     xpAward:100, waypointNode:'ADA', reward:0,
@@ -11301,7 +11301,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   quest_ezzir: { id:'quest_ezzir', type:'skill_check', schema:'UQF-1.0', gate:{ flags:['commissionReceived'] }, bits:[{ kind:'skill_check', stat:'WIS', skill:'Insight', dc:14, onPass:[{ kind:'mission_bit', flag:'ezzirConfronted', label:'에지르 대치' }, { kind:'reward', xp:200 }], onFail:[] }], title:'마법사의 반대',
     onComplete:[ { kind:'narrative', msg:'🗝️ +200 XP. 에지르가 비켜섰다. 총독이 지켜보고 있다. 문이 열렸다.' } ], // §ARCH-01 W7c
       // ⚠ dead in legacy too: skill_check quests never reach 'complete' in storyCheckQuests (§DUNGEON-01 gap)
-    desc:"Ezzir has the governor's ear. He has been in the governor's service for six years and knows where to stand. He is standing between Paul and the governor. The governor is watching. He is watching the way a man watches two arguments he has not yet decided between.",
+    desc:'에지르는 총독의 귀를 가지고 있다. 여섯 해를 총독 밑에서 일하며 어디에 서야 하는지 안다. 그는 바울과 총독 사이에 서 있다. 총독이 지켜보고 있다. 아직 어느 쪽으로도 결정하지 않은 두 논증을 보는 사람의 시선으로.',
     hint:'에지르를 지나쳐 말하라. 총독과의 첫 말을 그에게 뺏기지 마라.',
     activateNode:'CI2',
     retryable:true, retryGateDays:1,
@@ -11314,7 +11314,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   quest_governor_cyprus: { id:'quest_governor_cyprus', type:'skill_check', schema:'UQF-1.0', gate:{ flags:['ezzirConfronted'] }, bits:[{ kind:'skill_check', stat:'CHA', skill:'Persuasion', dc:11, onPass:[{ kind:'mission_bit', flag:'govCopperConverted', label:'키프로스 총독' }, { kind:'reward', xp:250 }], onFail:[] }], title:'총독의 경청',
     onComplete:[ { kind:'narrative', msg:'🏛️ +250 XP. 총독은 이유도 모른 채 삼백 년간 제단을 돌봐 왔다. 이제는 안다.' } ], // §ARCH-01 W7c
       // ⚠ dead in legacy too: skill_check quests never reach 'complete' in storyCheckQuests (§DUNGEON-01 gap)
-    desc:"Ezzir has stepped aside. The governor reads widely and holds opinions about ideas. He has an altar in the corner of his room — three hundred years old, maintained by every governor before him. He does not know why he maintains it. He is about to find out.",
+    desc:'에지르가 비켜섰다. 총독은 널리 읽고 사상에 대한 의견을 가지고 있다. 그의 방 모서리에는 제단이 있다. 삼백 년 된, 그 이전의 모든 총독이 돌봐 온. 그는 왜 돌보는지 모른다. 이제 곧 알게 된다.',
     hint:'키프로스 총독과 이야기하라.',
     activateNode:'CI2',
     retryable:true,
@@ -11332,7 +11332,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
         else say('🚶 +200 XP. The man did not stand. The city is unchanged. The man went home.'); } },
     ],
       // ⚠ dead in legacy too: skill_check quests never reach 'complete' in storyCheckQuests (§DUNGEON-01 gap)
-    desc:"The man at the gate has been there his entire life. He has a condition of the feet. He has made his peace with it. He is watching Paul specifically, the way someone watches a person they have been waiting for without knowing they were waiting.",
+    desc:'성문의 사람은 평생 거기 있었다. 발에 병이 있다. 그것과 화해했다. 그는 바울을 유독 주목한다. 자신이 기다리고 있었는지도 모른 채 기다려 온 사람을 보는 시선으로.',
     hint:'관문의 남자가 당신을 지켜보고 있다.',
     activateNode:'KYA',
     retryable:false,
@@ -11351,7 +11351,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   quest_stoning_lystra: { id:'quest_stoning_lystra', type:'skill_check', title:'죽은 채로 남겨지다',
     onComplete:[ { kind:'narrative', msg:'🪨 +100 XP. 그가 일어섰다. 다른 이들은 모두 떠났다. 티마엘은 남기로 했다.' } ], // §ARCH-01 W7c
       // ⚠ dead in legacy too: skill_check quests never reach 'complete' in storyCheckQuests (§DUNGEON-01 gap)
-    desc:"The crowd that called Paul a god has become the crowd that stones one. Both responses are to the same event — they had expected a god; what they got was a correction. Some crowds do not accept corrections.\n\nThe square is filling. They know his face. They do not know yours yet.",
+    desc:'바울을 신이라 부른 군중이 그를 돌로 치는 군중이 되었다. 두 반응 모두 같은 사건에 대한 것이다. 신을 기대했는데, 온 것은 정정이었다. 어떤 군중은 정정을 받아들이지 않는다.\n\n광장이 차고 있다. 그들은 그의 얼굴을 안다. 당신의 얼굴은 아직 모른다.',
     hint:'군중 속에 틈을 만들어라. 첫 돌이 던져지기 전에 바울을 빼내라.',
     schema:'UQF-1.0',
     activateNode:'KYA',
@@ -11369,7 +11369,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // ── §LXII: The Sending ──
   quest_antioch_commission: { id:'quest_antioch_commission', type:'side', schema:'UQF-1.0', gate:{ flags:['barnachFoundPaul'] }, bits:[], completion:{ flags:['commissionReceived'] }, title:'파견',
     onComplete:[ { kind:'narrative', msg:'⚡ +150 XP. 임무를 받았다. 바르나흐와 실라르가 동행한다. 사명이 단순한 것은 일이 단순하지 않기 때문이다.' } ], // §ARCH-01 W7c
-    desc:"Antioch is where the first journey forms. Barnach is here. Silar is here. The commission comes from the assembly — the first time Paul has been sent somewhere by a body of people rather than going by his own authority. He is accountable to the people who sent him and to the people he will find. He finds this clarifying.",
+    desc:'안티오크는 첫 여정이 형성되는 곳이다. 바르나흐가 여기 있다. 실라르가 여기 있다. 임무는 회중에게서 온다. 바울이 자기 권위가 아니라 사람들의 단체에 의해 어딘가로 보내지는 처음이다. 그는 자신을 보낸 사람들에게도, 만나게 될 사람들에게도 책임이 있다. 그는 이것이 명료하게 느껴진다.',
     hint:'안티오크의 공회 장로 요아흐와 이야기하라.',
     activateNode:'HTY', 
     xpAward:150, waypointNode:'HTY', reward:0,
@@ -11380,7 +11380,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   // ── §LXV: Philippi — Lyra's Conversion + The Prison ──
   quest_philippi: { id:'quest_philippi', type:'side', schema:'UQF-1.0', gate:{ flags:['commissionReceived'] }, bits:[], completion:{ flags:['lyraConverted'] }, title:'자주빛 상인',
-    desc:"Lyra sells purple cloth from the bridge. She has been watching Paul from across the bridge for two days before she speaks. When she speaks it is because she has already decided. The earthquake comes later. Every door opens.",
+    desc:'리라가 다리에서 자주색 옷감을 판다. 말을 걸기 전 이틀 동안 다리 건너에서 바울을 지켜보았다. 그녀가 말할 때는 이미 결정했기 때문이다. 지진은 나중에 온다. 모든 문이 열린다.',
     hint:'빌립보의 뤼라와 이야기하라.',
     activateNode:'KVA', 
     xpAward:150, waypointNode:'KVA', reward:0,
@@ -11391,7 +11391,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   // ── §PAUL-01: Philippi — The Prison ──
   quest_prison_phillam: { id:'quest_prison_phillam', type:'skill_check', schema:'UQF-1.0', gate:{ flags:['lyraConverted'] }, bits:[{ kind:'skill_check', stat:'WIS', skill:'Insight', dc:12, onPass:[{ kind:'mission_bit', flag:'phillippiJailerConverted', label:'빌립보 간수' }, { kind:'reward', xp:200 }], onFail:[] }], title:'일곱 계단, 그리고 다섯',
-    desc:"The earthquake opens every door in the city prison. The chains come loose from the walls. The guards are awake. The jailer is awake. He draws his sword — not for you, for himself. Under Roman protocol, a jailer whose prisoners escape answers with his life. He has already decided how to answer.\n\nEvery prisoner in the block is free, in the technical sense, at midnight. Paul and Silar have not moved. Paul is still singing. You are in the cell across the corridor and you are free to leave.",
+    desc:'지진이 도시 감옥의 모든 문을 연다. 사슬이 벽에서 풀린다. 파수꾼들은 깨어 있다. 간수도 깨어 있다. 그가 칼을 뽑는다. 당신들을 향해서가 아니라 자신을 향해서. 로마 규약상, 죄수를 놓친 간수는 목숨으로 답한다. 그는 어떻게 답할지 이미 정했다.\n\n구역의 모든 죄수가, 기술적인 의미에서, 자정에 자유다. 바울과 실라르는 움직이지 않았다. 바울은 아직 노래하고 있다. 당신은 복도 건너 방에 있고 떠날 수 있다.',
     hint:'문이 열리면 — 머물러라. 간수가 행동하기 전에 그를 읽어라.',
     activateNode:'KVA',
     retryable:false,
@@ -11403,7 +11403,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   // ── §LXVI: Athens — The Unknown Altar ──
   quest_areopagus: { id:'quest_areopagus', type:'skill_check', schema:'UQF-1.0', gate:{}, bits:[{ kind:'skill_check', stat:'CHA', skill:'Persuasion', dc:13, onPass:[{ kind:'mission_bit', flag:'areopagusSpeech', label:'아레오파고스 연설' }, { kind:'reward', xp:200 }], onFail:[] }], title:'알 수 없는 이에게',
-    desc:"There is an altar at the east end of the market that reads: TO AN UNKNOWN ONE. It has been there for two hundred years. Nobody knows who built it or what it was for. Paul has been standing in front of it for a long time. The Market Steward wants to know why.\n\nBefore he takes the steps, you walk the hall. Two exits: the colonnade south and the market gate east. Both open. You note the distance to each.",
+    desc:'시장 동쪽 끝에 제단이 있다. 새겨진 글: 알지 못하는 이에게. 이백 년째 거기 있다. 누가 무엇을 위해 세웠는지 아무도 모른다. 바울이 오래 그 앞에 서 있다. 시장 관리인이 이유를 알고 싶어 한다.\n\n그가 계단을 오르기 전, 당신은 홀을 걷는다. 출구 둘: 남쪽 기둥 회랑과 동쪽 시장 문. 둘 다 열려 있다. 각각까지의 거리를 새긴다.',
     hint:'아레오바고에서 말하라. 그들이 이미 세운 것에서 시작하라.',
     activateNode:'ATH',
     retryable:false,
@@ -11415,7 +11415,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   // ── §LXVII: Ephesus — The Riot ──
   quest_ephesus_riot: { id:'quest_ephesus_riot', type:'skill_check', schema:'UQF-1.0', gate:{}, bits:[{ kind:'skill_check', stat:'CHA', skill:'Persuasion', dc:12, onPass:[{ kind:'mission_bit', flag:'demetriusRiotEscaped', label:'에베소 폭동' }, { kind:'reward', xp:175 }], onFail:[] }], title:'은세공사의 모임',
-    desc:"Demetrius runs the craftsmen's guild. The guild makes temple models. Paul has been here three years and the guild has noticed. The meeting Demetrius called has spilled out of the market hall. The market hall was not large enough.",
+    desc:'데메트리우스가 장인 길드를 운영한다. 길드는 신전 모형을 만든다. 바울이 삼 년째 여기 있고 길드가 알아차렸다. 데메트리우스가 소집한 회의가 시장 홀에서 넘쳐 나왔다. 시장 홀이 충분히 크지 않았다.',
     hint:'에베소의 데메트리오스 폭동을 헤쳐 나가라.',
     activateNode:'EF2',
     retryable:false,
@@ -11427,7 +11427,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   // ── §LXVIII: Corinth — The Letters ──
   quest_corinth_letters: { id:'quest_corinth_letters', type:'side', schema:'UQF-1.0', gate:{}, bits:[], completion:{ flags:['corinthLettersWritten'] }, title:'천막 천과 편지들',
-    desc:"Prisca and Akil hire Paul when he arrives because he knows the tentmaking trade. He earns his room in canvas. He stays eighteen months. He writes letters to the cities he has already been to. Some of them are the most important things he will ever write. He does not know which ones yet.",
+    desc:'프리스카와 아킬이 바울이 도착하자 그를 고용한다. 장막 만드는 기술을 알기 때문이다. 그는 방세를 캔버스로 번다. 열여덟 달을 머문다. 이미 다녀온 도시들에 편지를 쓴다. 그중 일부는 그가 평생 쓸 가장 중요한 것들이다. 어떤 것인지는 아직 모른다.',
     hint:'고린도에서 프리스카와 아킬과 함께 머물라.',
     activateNode:'ZTH', 
     xpAward:200, waypointNode:'ZTH', reward:0,
@@ -11438,7 +11438,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   // ── §LXIX: Rome — House Arrest ──
   quest_rome_arrest: { id:'quest_rome_arrest', type:'side', schema:'UQF-1.0', gate:{ flags:['maltaSnakeEvent'] }, bits:[], completion:{ flags:['romeArrestBegun'] }, title:'빌린 집',
-    desc:"House arrest in a rented house. He can receive visitors, which he does, constantly. He can write letters, which he does, constantly. He cannot leave, which he does not. The arc does not end here. It stops here.",
+    desc:'전세 낸 집에서의 가택 연금. 방문객을 받을 수 있고, 실제로 끊임없이 받는다. 편지를 쓸 수 있고, 실제로 끊임없이 쓴다. 떠날 수는 없고, 실제로 떠나지 않는다. 여정은 여기서 끝나지 않는다. 여기서 멈출 뿐이다.',
     hint:'로마에 도달해 티마엘과 이야기하라.',
     activateNode:'FCO', 
     xpAward:300, waypointNode:'FCO', reward:0,
@@ -11456,7 +11456,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   quest_basket_damascus: { id:'quest_basket_damascus', type:'skill_check', title:'벽 너머',
     onComplete:[ { kind:'narrative', msg:'🧺 +150 XP. 아래로. 길. 어둠. 떠나는 자는 도착했던 자와 달라 보인다.' } ], // §ARCH-01 W7c
       // ⚠ dead in legacy too: skill_check quests never reach 'complete' in storyCheckQuests (§DUNGEON-01 gap)
-    desc:"The magistrate of Damascus has issued a detention order. The warrant authority has turned against the warrant-carrier. The gate is watched. The wall is not.\n\nThe rope is knotted cloth — not planned, improvised from what is in the room. You make seven knots yourself and test each one against the window frame. The basket is market-grade, meant for vegetables. It will hold the weight if the descent is controlled. You know this because you have lowered things before and you know what controlled means.",
+    desc:'다마스쿠스 치안관이 구금 명령을 내렸다. 영장 권한이 영장 소지자에게 등을 돌렸다. 성문은 감시된다. 성벽은 감시되지 않는다.\n\n밧줄은 매듭진 천이다. 계획된 것이 아니라 방 안에 있는 것으로 즉흥한. 당신은 일곱 매듭을 직접 묶고 하나하나 창틀에 걸어 시험한다. 바구니는 시장 등급, 채소용이다. 하강이 통제되면 무게를 견딘다. 당신은 전에 무언가를 내려 본 적이 있어 통제가 무슨 뜻인지 안다.',
     hint:'담장 너머로 그를 내려라. 밧줄을 잡아라. 경비는 문에 있지 담장에는 없다 — 아직은.',
     schema:'UQF-1.0',
     activateNode:'DAM',
@@ -11473,7 +11473,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   // ── §PAUL-01: Malta — The Shipwreck ──
   quest_shipwreck_melta: { id:'quest_shipwreck_melta', type:'skill_check', schema:'UQF-1.0', gate:{}, bits:[{ kind:'skill_check', stat:'STR', skill:'Athletics', dc:12, onPass:[{ kind:'mission_bit', flag:'shipwreckSurvived', label:'몰타 난파' }, { kind:'reward', xp:250 }], onFail:[] }], title:'이백칠십육',
-    desc:"Paul has directed everyone on the ship to eat before the hull goes. Fourteen days without food, the storm unrelenting, the constant pumping. He breaks bread. You distribute the rest — 276 people, moving deck, high weather, each one receiving something before the ship goes into the shallows.\n\nThe soldiers want to kill the prisoners — standard protocol, no escaped prisoner on their watch. You stand in the way. The centurion stops his soldiers because he wants to save Paul, and Paul gets out, but you are the reason the moment pauses long enough for the centurion to make the order.\n\nEveryone goes in the water. The count at the start and the count at the end should be the same number.",
+    desc:'바울이 선체가 가라앉기 전에 모두 먹으라 지시했다. 열나흘 동안 먹지 못하고, 폭풍은 그치지 않고, 물 퍼내기는 계속. 그가 빵을 뗀다. 당신이 나머지를 나눈다. 276명, 움직이는 갑판, 거친 날씨, 배가 얕은 물로 들어가기 전 모두가 무언가를 받는다.\n\n병사들이 죄수들을 죽이려 한다. 표준 규약, 자기 근무 중 도주자를 남기지 않는다. 당신이 막아선다. 백인대장이 바울을 살리고 싶어 병사들을 멈추고, 바울은 빠져나온다. 하지만 백인대장이 명령을 내릴 만큼 순간이 멈춘 것은 당신 때문이다.\n\n모두가 물에 들어간다. 시작의 숫자와 끝의 숫자는 같아야 한다.',
     hint:'모두가 해안에 닿도록 도와라. 인원을 계속 세어라.',
     activateNode:'MLA',
     retryable:false,
@@ -11485,7 +11485,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   // ── §PAUL-01: Malta — The Snake ──
   quest_snake_melta: { id:'quest_snake_melta', type:'side', schema:'UQF-1.0', gate:{ flags:['shipwreckSurvived'] }, bits:[], completion:{ flags:['maltaSnakeEvent'] }, title:'그것은 아무것도 하지 않았다',
-    desc:"A viper comes out of the brush when the wood is gathered for the fire. The heat of the fire, the disturbance of 276 people making camp on an unfamiliar beach. It fastens to his hand.\n\nThe islanders have reached a theory: he is a murderer. He survived the sea, so the sea did not judge him — but the land has found him at the fire. This theory is internally consistent given what the islanders know, which is what they can see from the beach.\n\nHe shakes the snake into the fire.\n\nHis hand does not swell. He does not fall. He goes back to building the fire.",
+    desc:'모닥불에 땔 나무를 모을 때 덤불에서 독사가 나온다. 불의 열기, 낯선 해변에서 야영하는 276명의 소란. 그것이 그의 손에 달라붙는다.\n\n섬 사람들은 이론에 도달했다. 그는 살인자다. 바다에서 살아남았으니 바다는 그를 심판하지 않았다. 하지만 땅이 모닥불에서 그를 찾았다. 이 이론은 섬 사람들이 아는 것, 해변에서 보이는 것 안에서는 내적으로 일관된다.\n\n그가 뱀을 불 속에 털어 넣는다.\n\n그의 손은 붓지 않는다. 쓰러지지 않는다. 그는 모닥불을 쌓던 일로 돌아간다.',
     hint:'지켜봐라. 이번에는 당신이 할 일이 없다.',
     activateNode:'MLA', 
     xpAward:150, waypointNode:'MLA', reward:0,
@@ -11502,7 +11502,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // checkFailFlag → onFail:[]. Pass/fail flags are read directly by the LC1–LC4/LSO NPC quoteFns
   // and the LJ3/betrayalCount blocks — mission_bit sets the flag + grants the token identically.
   quest_aurel_tide: { id:'quest_aurel_tide', type:'skill_check', title:'조수 시간표',
-    desc:"Lady Aurel administers the harbor from the harbormaster's tower. She is never not working. The tide tables are open on her desk. She is glad you have come. She will see you at the next window. The warmth is genuine. The warmth is given in installments.",
+    desc:'아우렐 부인이 항만관리관 탑에서 항구를 관리한다. 그녀는 일하지 않는 때가 없다. 조수표가 그녀의 책상 위에 펼쳐져 있다. 그녀는 당신이 온 것을 기뻐한다. 다음 창구 시간에 만나자고 한다. 온기는 진짜다. 온기는 할부로 주어진다.',
     hint:'오렐 항의 항구 시간표에서 규칙을 읽어 내라.',
     schema:'UQF-1.0',
     activateNode:'LC1',
@@ -11518,7 +11518,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     npc:"lady_aurel",
   },
   quest_calice_bridge: { id:'quest_calice_bridge', type:'skill_check', title:'안뜰의 수레바퀴',
-    desc:"The drawbridge chain hangs visible from the court window. Lady Calice says: perhaps at the evening tide. She says it the way someone says something true in a technical sense. The evening tide exists. The wheel is in the courtyard. The wheel is not locked.",
+    desc:'도개교 사슬이 궁정 창에서 보인다. 칼리스 부인이 말한다. 아마 저녁 조수에. 기술적인 의미로 사실인 것을 말하는 사람의 말투로. 저녁 조수는 존재한다. 바퀴는 뜰에 있다. 바퀴는 잠기지 않았다.',
     hint:'칼리스 항에서 다리 장치를 찾아라.',
     schema:'UQF-1.0',
     activateNode:'LC2',
@@ -11534,7 +11534,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     npc:"lady_calice",
   },
   quest_mireille_ami: { id:'quest_mireille_ami', type:'skill_check', title:'자격을 말하라',
-    desc:"Lady Mireille introduces you to her court as her most trusted companion before the herald can speak your name and title. The court receives this. The frame is set. Your name is still your name. The role, however, was assigned before you could claim one.",
+    desc:'미레유 부인이 전령이 당신의 이름과 칭호를 부르기 전에 당신을 가장 신뢰하는 동반자로 궁정에 소개한다. 궁정이 이것을 받아들인다. 틀이 놓였다. 당신의 이름은 여전히 당신의 이름이다. 그러나 역할은 당신이 주장하기 전에 배정되었다.',
     hint:'미레유 항의 법정에서 이름과 직위를 밝혀라.',
     schema:'UQF-1.0',
     activateNode:'LC3',
@@ -11550,7 +11550,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     npc:"lady_mireille",
   },
   quest_solen_horizon: { id:'quest_solen_horizon', type:'skill_check', title:'오지 않는 배',
-    desc:"Lady Solen points at a ship on the horizon and names it. Her captain returns soon with the letters of passage. The fishermen at the dock have watched that ship for three seasons. It has not moved. No one who comes to Port Solen for the letters goes to the dock first.",
+    desc:'솔렌 부인이 지평선의 배를 가리켜 이름을 댄다. 그녀의 선장이 곧 통행 서한들을 가지고 돌아온다. 부두의 어부들은 그 배를 세 계절째 지켜봤다. 배는 움직이지 않았다. 서한을 찾아 솔렌 항에 오는 사람은 누구도 부두에 먼저 가지 않는다.',
     hint:'솔렌 항 부두의 어부들에게 수평선의 배에 대해 물어라.',
     schema:'UQF-1.0',
     activateNode:'LC4',
@@ -11566,7 +11566,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     npc:"lady_solen",
   },
   quest_sea_overseer: { id:'quest_sea_overseer', type:'skill_check', title:'안개 속의 목소리',
-    desc:"The navigator has been speaking in a different register since the serpent crossing. In the fog bank east of the passage, a voice speaks directly — no intermediary. It knows about every court. It has been in the water ahead of you the entire time. It offers to make the fourth court unnecessary.",
+    desc:'항해사가 뱀의 횡단 이후 다른 음조로 말하고 있다. 수로 동쪽 안개 띠에서 목소리가 직접 말한다. 중간자 없이. 그것은 모든 궁정에 대해 안다. 줄곧 당신보다 앞의 물에 있었다. 네 번째 궁정을 필요 없게 만들어 주겠다고 한다.',
     hint:'뱀의 통로 동쪽 안개 속 목소리에게 당신의 입장을 밝혀라.',
     schema:'UQF-1.0',
     activateNode:'LSO',
@@ -11738,7 +11738,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_glut_06: { id:'quest_glut_06', type:'side', title:'펼친 손',
     schema:'UQF-1.0',
-    desc:"The jar Glut gave you at first arrival has been in your coat since HG1. You are back at the pool. The gesture is simple.",
+    desc:'처음 도착했을 때 글럿이 준 단지가 HG1 이후 줄곧 당신의 외투에 있었다. 당신은 웅덩이로 돌아왔다. 손짓은 간단하다.',
     hint:'글럿의 선물을 먹이 못으로 돌려보내라.',
     activateNode:'HG1', gate:{ flags:['glut_gift_held'] },
     completion:{ flags:['glutGiftReturned'] }, bits:[],
@@ -12295,7 +12295,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
             S_story.gold = (S_story.gold||0) + 100;
             S_story.xp = (S_story.xp||0) + 100;
             const inv = S_story.inventory = S_story.inventory || [];
-            inv.push({ name:"Smalt's Trust", icon:'🐟', type:'misc', desc:"A dried salt fish, dropped by Smalt the harbor cat when befriended. First token of the Harmony Chain. Smalt will consume it later as an endorsement.", sell:5 });
+            inv.push({ name:"Smalt's Trust", icon:'🐟', type:'misc', desc:'말린 소금 생선. 친구가 된 항구 고양이 스몰트가 떨어뜨린 것. 조화의 사슬의 첫 표식. 스몰트는 나중에 인정의 표시로 그것을 먹을 것이다.', sell:5 });
             storyMsg('🐟 Smalt considers you for a long moment. Then she drops the dried salt fish she was sitting on and steps onto your boot.\n\nShe is not afraid. She never was. She was waiting for someone to stop trying to fix her and simply arrive.\n\nInspector Wren-Pembury makes a note in his ledger. The note is wrong.\n\nSmalt\'s Trust added to inventory. +100gp. +100 XP.');
           } },
         ],
@@ -12338,7 +12338,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // _grantMissionBit(flag, undefined). _legacy_fn carries +200gp/+200xp/Clot's Glow/knowledge/msg.
   quest_spark_03: { id:'quest_spark_03', schema:'UQF-1.0', type:'skill_check',
     title:'클롯의 계시',
-    desc:"Pip travels with you aboard the Tilbury Star. On Pip's left ear: Clot, a blood tick, large for its kind, with an amber glow on its dorsal side. The rat catcher Brannick is in the hold. He is surrounded by rats. The rats are calm.",
+    desc:'핍이 틸버리 스타에서 당신과 동행한다. 핍의 왼쪽 귀에는 클롯. 혈액 진드기, 종류치고 크고, 등쪽에 호박색 빛. 쥐잡이 브래닉이 선창에 있다. 쥐들에게 둘러싸여 있다. 쥐들은 차분하다.',
     hint:'혈액 진드기를 조사하라. WIS 의학 또는 자연 DC 13.',
     activateNode:'SEN', gate:{ flags:['pipMet'] }, retryable:true,
     bits:[
@@ -12350,7 +12350,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
             S_story.gold = (S_story.gold||0) + 200;
             S_story.xp = (S_story.xp||0) + 200;
             const inv = S_story.inventory = S_story.inventory || [];
-            inv.push({ name:"Clot's Glow", icon:'🟡', type:'misc', desc:"A bioluminescent pustule left by the blood tick Clot. The Warmth made visible. Warm amber light, 30ft radius, 1 hour. Single use.", sell:50 });
+            inv.push({ name:"Clot's Glow", icon:'🟡', type:'misc', desc:'혈액 진드기 클롯이 남긴 발광 혹. 온기가 보이게 된 것. 따뜻한 호박색 빛, 반경 30피트, 1시간. 일회용.', sell:50 });
             S_story.knowledge = S_story.knowledge || [];
             S_story.knowledge.push("The Warmth: a colonial microorganism producing mild social bonding chemistry. Transmits through close contact. Non-toxic. Makes hosts warmly friendly toward creatures they encounter. Thrives in warm liquid environments. Not hostile. Extremely agreeable.");
             storyMsg('🟡 Clot detaches cleanly when you examine it — no resistance. The pustule it leaves glows warm amber.\n\nThe organism inside is colonial. Under examination: it produces a compound structurally similar to oxytocin. It makes hosts feel warmly friendly toward other creatures they encounter. Clot has been on Pip for two months. Pip and Smalt have been friends for two months.\n\nBrannick has been in the hold for ten days. The rats have not bitten him once.\n\nThe Warmth identified. Knowledge entry added. Clot\'s Glow added to inventory. +200gp. +200 XP.');
@@ -12369,7 +12369,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // (no bitLabel) + _legacy_fn (+300gp/+300xp/Letter of Safe Passage/msg).
   quest_spark_04: { id:'quest_spark_04', schema:'UQF-1.0', type:'skill_check',
     title:'증기선의 범인은 누구',
-    desc:"The captain of the Tilbury Star needs answers. The imported perfume cargo has spoiled commercially. It smells warm, personal, and extremely agreeable — not what perfume merchants ordered. This is a who done it. The monster is somewhere in the hold.",
+    desc:'틸버리 스타의 선장에게 답이 필요하다. 수입 향수 화물이 상업적으로 변질되었다. 냄새는 따뜻하고, 인간적이고, 지극히 유쾌하다. 향수 상인들이 주문한 것이 아니다. 이것은 범인 찾기다. 괴물은 선창 어딘가에 있다.',
     hint:'화물창을 조사하라. 클롯에서 향료 통으로 이어지는 사슬을 추적하라. INT 조사 DC 14.',
     activateNode:'SEN', gate:{ flags:['bioluminescentParasiteFound'] }, retryable:true,
     bits:[
@@ -12381,7 +12381,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
             S_story.gold = (S_story.gold||0) + 300;
             S_story.xp = (S_story.xp||0) + 300;
             const inv = S_story.inventory = S_story.inventory || [];
-            inv.push({ name:'Letter of Safe Passage', icon:'📜', type:'misc', desc:"Signed by the captain of the Tilbury Star. Valid at Tilbury and connected ports. Acknowledges the player's service in resolving the Warmth incident.", sell:0 });
+            inv.push({ name:'Letter of Safe Passage', icon:'📜', type:'misc', desc:'틸버리 스타 선장의 서명. 틸버리와 연결 항구들에서 유효. 온기 사건 해결에 대한 플레이어의 공로를 인정한다.', sell:0 });
             storyMsg('🔍 The chain runs: Clot (Pip\'s tick, 2 months) → Pip wandering the hold during the voyage → the warm perfume vats (ideal colony environment) → full Warmth bloom in three casks.\n\nThe "murder victim" is forty-seven bottles of Merchant\'s Reserve Floral. They now smell like the feeling of finding someone you didn\'t know you missed.\n\nThe monster is identified. It is not dangerous. It makes things friendly. The perfumes are commercially ruined and spiritually interesting.\n\nBrannick says: "I was going to file a report. I kept not wanting to."\n\nLetter of Safe Passage received from the captain. +300gp. +300 XP.');
           } },
         ],
@@ -12409,7 +12409,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
       { kind:'reward', xp:400, gold:400 },
       { kind:'item_remove', name:"King's Writ (Counterfeit)" },
       // (Pip's Friendship Bead: returned, then kept — net zero, bead stays)
-      { kind:'reward', items:[{ name:'Letter of True Passage', icon:'📜', type:'misc', desc:"Aldous the Fencer's real authority document. Valid at six ports including Tilbury, Visby, and Malta. A genuine credential from a genuine black market contact.", sell:0 }] },
+      { kind:'reward', items:[{ name:'Letter of True Passage', icon:'📜', type:'misc', desc:'펜싱꾼 알도스의 진짜 권한 문서. 틸버리, 비스뷔, 몰타를 포함한 여섯 항구에서 유효. 진짜 암시장 연줄의 진짜 자격 증명.', sell:0 }] },
       { kind:'flag_write', set:['harmonyChainComplete'] },
       { kind:'narrative', msg:'📜 알도스가 왕의 칙서를 찢는다.\n\n천천히. 조심스럽게 한 번 찢고, 또 한 번 찢은 뒤 남은 것을 접어 부두 계류주 위에 올려둔다. 외투 주머니에서 핍의 우정 구슬을 꺼낸다(틸버리 스타 시절부터 품고 다니던 것이다) 당신의 손에 얹는다.\n\n『내 이름은 알도스다. 제독은 존재하지 않는다. 영지도 존재하지 않는다. 솔트윅은 존재한다. 존재하지 않았으면 좋겠지만. 내가 여기 여섯 달 있는 이유는, 내가 훨씬 더 짧게 있기를 바라는 자들이 있기 때문이다. 나는 증언했다. 왕실은 나에게 인쇄기와 새 이름을 주었다. 렌-펨버리는 충분히 중요해 보이는 첫 조합이었다.』\n\n그는 부탁받지도 않았는데 안전 통행 서한을 써 준다.\n\n『여섯 항구에 연줄이 있다. 어떤 적하목록에도 없는 것이 필요하면 나에게 말하면 된다.』\n\n조화의 사슬 완성. 스몰트, 핍, 클롯, 온기체, 알도스. 다섯 존재, 모두 이제 친구다.\n\n안전 통행 서한 추가. +400gp. +400 XP. 알도스가 동맹이 되었다.' },
     ],
@@ -12533,7 +12533,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     onComplete:[
       { kind:'flag_write', set:['sbResolved'] },
       { kind:'reward', xp:400, gold:200 },
-      { kind:'reward', items:[{ name:'Letter of Marque (Keel)', icon:'📜', type:'misc', desc:"Captain Vera Keel's Commission letter — recovered from the privateer brig's chart room after the intercept. The Eastern Reach seal date is fourteen months stale. Valid at three eastern ports that haven\'t checked the records.", sell:15 }] },
+      { kind:'reward', items:[{ name:'Letter of Marque (Keel)', icon:'📜', type:'misc', desc:'베라 킬 선장의 위임장. 차단 후 사략 브리그의 해도실에서 회수. 동부 리치 인장 날짜는 열네 달 지났다. 기록을 확인하지 않은 동부 항구 세 곳에서 유효.', sell:15 }] },
       { kind:'narrative', msg:'✅ 사략 선원들이 정리되었다. 브리그는 항해 동안 당신의 것이다.\n\n해도실에는 위임장. 동부 리치의 인장. 날짜는 열네 달 지났다. 발급 관청은 이 위임장이 제시되기 전에 해산되었다.\n\n틸버리 스타의 선장이 편지를 회수해 해도 탁자 위에 놓는다. 그녀는 킬에 대해 아무 말도 하지 않는다. 동쪽으로 항로를 잡는다.\n\n사략 허가장(킬) 추가. +200gp. +400 XP.' },
     ],
     disposition:'"She was testing the eastern run. Whatever she was looking for — she didn\'t find it here." — Tilbury Star Captain, afterward',
@@ -12547,7 +12547,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // and sb_fight's flagEquals gate now activates — the branch fallthrough is preserved).
   quest_sb_parley: { id:'quest_sb_parley', schema:'UQF-1.0', type:'skill_check',
     title:'그들의 선장과 대화하라',
-    desc:"Keel came to the rail herself. That's unusual — privateers send their first officer for boarding calls. She wants a conversation. CHA Persuasion DC 12 to negotiate passage without grappling hooks.",
+    desc:'킬이 직접 난간으로 나왔다. 이례적이다. 사략들은 갹선 통보에 일등 항해사를 보낸다. 그녀는 대화를 원한다. 갈고리 없이 항해를 협상하려면 CHA 설득 DC 12.',
     hint:'널빤지가 놓이기 전에 킬 선장과 협상하라. CHA 설득 DC 12.',
     activateNode:'GCI', gate:{ flags:['sbApproachSeen'], flagEquals:{ sbChosenRole:'parley' } }, retryable:false,
     bits:[
@@ -12560,7 +12560,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
             S_story.gold = (S_story.gold||0) - 80;
             S_story.xp = (S_story.xp||0) + 350;
             const inv = S_story.inventory = S_story.inventory || [];
-            inv.push({ name:'Letter of Marque (Keel)', icon:'📜', type:'misc', desc:"Captain Vera Keel's Commission letter, endorsed and counter-signed. Authorizes bearer to claim passage rights on the eastern run. Keel added a personal notation: 'not to be used against the Saltwick route.' She seemed amused by her own generosity.", sell:0 });
+            inv.push({ name:'Letter of Marque (Keel)', icon:'📜', type:'misc', desc:'베라 킬 선장의 위임장, 승인 및 부서명 완료. 소지자에게 동부 항로 통항권을 청구할 권한을 준다. 킬이 개인 주석을 달았다. 『솔트윅 항로를 상대로는 사용할 수 없음.』 자신의 관대함이 재미있어 보였다.', sell:0 });
             storyMsg('Keel keeps the pennant raised throughout the conversation. She is not threatening — she is establishing the frame.\n\nYou name the frame back to her: she is not here for the Star\'s cargo. She is here because someone told her the Star has been running a specific item for three crossings and she wants to know what it is.\n\nKeel is quiet.\n\n"Eighty gold," she says. "For the crossing question not becoming a boarding question." She lowers the pennant. "And I\'ll sign the Commission letter for you. You\'ll find it useful at the eastern ports." She sounds sincere. She probably is.\n\nThe gap stays open. The gangplanks stay racked.\n\n-80gp. Letter of Marque (Keel) added. +350 XP. No boarding.');
           } },
         ],
@@ -12594,7 +12594,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
             S_story.sbResolved = true;
             S_story.xp = (S_story.xp||0) + 300;
             const inv = S_story.inventory = S_story.inventory || [];
-            inv.push({ name:'Letter of Marque (Keel)', icon:'📜', type:'misc', desc:"Captain Vera Keel's Commission letter. The issuing authority seal is from the Eastern Reach harbor office — which has been dissolved for fourteen months. Keel knew you would find it. She was testing whether you would say so.", sell:0 });
+            inv.push({ name:'Letter of Marque (Keel)', icon:'📜', type:'misc', desc:'베라 킬 선장의 위임장. 발급 관청의 인장은 동부 리치 항구 관청의 것이다. 열네 달 전에 해산된. 킬은 당신이 그것을 찾을 것을 알았다. 당신이 그렇게 말할지 시험한 것이다.', sell:0 });
             storyMsg('The Commission seal is from the Eastern Reach harbor office.\n\nThe Eastern Reach harbor office dissolved fourteen months ago. A dissolved office cannot issue an active Commission. Keel\'s Letter of Marque is not forged — it was real when it was issued — but it has no standing authority behind it now.\n\nYou call it across the gap. You say it exactly once, without elaboration.\n\nKeel is quiet for a long time.\n\n"You read fast." She throws the Letter across the gap. It lands on the Star\'s deck with the seal face up. "Keep it. It\'ll get you past three eastern ports that haven\'t updated their records yet."\n\nThe intercept brig comes about. The pennant comes down.\n\nLetter of Marque (Keel) added. +300 XP. No boarding. The flaw was planted — she was testing you.');
           } },
         ],
@@ -12635,7 +12635,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // fail storyMsg closure (retryable:true ⇒ no fail flag). Pure parity, zero engine changes.
   quest_df_02: { id:'quest_df_02', type:'skill_check', schema:'UQF-1.0',
     title:'소금값',
-    desc:"Dunfall's market runs on barter. Mairén will trade Highland herb pouches — medicinal, rare on the coast — for a fair exchange. WIS Insight DC 11 to understand what fair means in a loch-harbor economy.",
+    desc:'던폴의 시장은 물물교환으로 돌아간다. 마이렌이 고지대 약초 주머니를 공정한 교환으로 내준다. 약용, 연안에서는 희귀. 호수-항구 경제에서 공정이 무슨 뜻인지 이해하려면 WIS 통찰 DC 11.',
     hint:'던폴에서 마이렌과 거래하라. WIS 통찰 DC 11.',
     activateNode:'DNF', gate:{ flags:['dunfallAccessed'] },
     retryable:true,
@@ -12665,7 +12665,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // ── §PORT-01: Saltwick quests ──
   quest_sk_01: { id:'quest_sk_01', type:'side',
     schema:'UQF-1.0', gate:{}, bits:[], completion:{ flags:['saltwickAccessed'] }, title:'기록되지 않은 항구',
-    desc:"Saltwick runs on vouches. A Letter of True Passage from Aldous works here — he listed Saltwick as one of his six valid ports. So does the joint debt note from the pirate crews. Either credential opens the dock. Neither is paperwork the Crown can read.",
+    desc:'솔트윅은 보증으로 돌아간다. 알도스의 안전 통행 서한이 여기서 통한다. 그는 솔트윅을 자신의 유효 항구 여섯 곳 중 하나로 적었다. 해적 선원단의 공동 차용 증서도 마찬가지다. 어느 쪽이든 부두를 연다. 어느 쪽도 왕실이 읽을 수 있는 서류가 아니다.',
     hint:'신임장을 지니고 솔트윅에 도착하라. 알더스의 편지도, 해적 연합 쪽지도 통한다.',
     activateNode:'MME', 
     waypointNode:'MME', reward:0,
@@ -12676,7 +12676,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_sk_hull: { id:'quest_sk_hull', type:'side',
     schema:'UQF-1.0', gate:{ flags:['saltwickAccessed'] }, bits:[], completion:{ flags:['shipRepaired'] }, title:'금 간 선판',
-    desc:"The Tilbury Star has been running with a cracked strake on the port hull for three crossings. The captain knows. She hasn't reported it because Tilbury dry dock costs more than the revenue margin. Saltwick has a dry dock that doesn't ask about the cargo while the ship is in it.",
+    desc:'틸버리 스타는 세 번의 항해 동안 좌현 선체에 금이 간 외판을 달고 다녔다. 선장은 안다. 틸버리 건조선고가 수익 마진보다 비싸서 보고하지 않았다. 솔트윅에는 배가 들어 있는 동안 화물을 묻지 않는 건조선고가 있다.',
     hint:'솔트윅의 건조 선고에서 틸버리 스타를 수리하라. 비용: 200골드.',
     activateNode:'MME', 
     onComplete:[
@@ -12694,7 +12694,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // gold/xp/item/storyMsg closure → _legacy_fn, fail storyMsg → onFail, retryable ⇒ no fail flag).
   quest_sk_02: { id:'quest_sk_02', type:'skill_check', schema:'UQF-1.0',
     title:'사라진 위탁 화물',
-    desc:"While the Saltwick Dockmasters' brig was at the Warmth Calm, a consignment went missing from the Saltwick dock warehouse. Dorit knows what it was. She needs someone who can ask the right questions at Tilbury without producing paperwork.",
+    desc:'솔트윅 도크마스터의 브리그가 온기 무풍에 있는 동안 솔트윅 부두 창고에서 위탁 화물 하나가 사라졌다. 도릿은 그것이 무엇이었는지 안다. 서류를 만들지 않고 틸버리에서 올바른 질문을 할 수 있는 사람이 필요하다.',
     hint:'솔트윅에서 도릿에게 실종된 위탁 화물에 대해 물어라. CHA 설득 DC 12.',
     activateNode:'MME', gate:{ flags:['saltwickAccessed'] },
     retryable:true,
@@ -12729,7 +12729,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // verbatim (see project_open_gaps memory).
   quest_hunt2_01: { id:'quest_hunt2_01', schema:'UQF-1.0', type:'side',
     title:'중계로의 경고',
-    desc:"Tessie has run the J1 fork road six years. Yesterday the relay horses stopped two hundred paces before the bend and refused to go further. Road wardens say bandits. Tessie doesn't believe it. Neither does the mud.",
+    desc:'테시는 J1 갈림길을 여섯 해 달렸다. 어제 중계 말들이 굽이 이백 보 앞에서 멈춰 더 가기를 거부했다. 순찰대는 산적이라 한다. 테시는 믿지 않는다. 진흙도 마찬가지다.',
     hint:'테시의 경고를 후속 조사하라. 갈림길 북쪽 도로를 살펴라.',
     activateNode:'WRO', gate:{},
     completion:{ flags:['huntHook2Received'] }, bits:[],
@@ -12751,7 +12751,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_hunt2_02: { id:'quest_hunt2_02', schema:'UQF-1.0', type:'skill_check',
     title:'길 읽기',
-    desc:"The hoof marks in the bend mud tell a specific story. The horses didn't panic — they stopped. WIS Perception DC 11 to read what stopped them.",
+    desc:'굽이 진흙 속의 말발굽 자국이 특정한 이야기를 말한다. 말들은 겁먹지 않았다. 멈췄다. 무엇이 그들을 멈췄는지 읽으려면 WIS 지각 DC 11.',
     hint:'J1 교차로에서 북쪽으로 향하는 발굽 자국을 조사하라. WIS 감지 DC 11.',
     activateNode:'WRO', gate:{ flags:['huntHook2Received'] }, retryable:false,
     bits:[
@@ -13427,7 +13427,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
       { kind:'skill_check', stat:'WIS', skill:'Insight', dc:14,
         onPass:[
           { kind:'mission_bit', flag:'wisPage6_shadow' },
-          { kind:'reward', xp:350, items:[{ name:'Shadow Shard', icon:'\u{1F52E}', type:'misc', desc:"A fragment of the VS mirror room, offered freely after you accepted what it reflected. It reflects nothing now \u2014 whatever was in it has been named. The room behind it is quiet.", sell:25 }], knowledge:"Ardley W6 \u2014 The Shadow: The mirror room in Visby's lower archive reflects a pattern the visitor has been navigating around \u2014 not a lie, not a flaw, but a part of the self that operates below acknowledgment. Roen gave it a formal nod. The mirror offered a shard. Accepting the shadow's observation is not defeat. It is the end of the cost of suppressing it." },
+          { kind:'reward', xp:350, items:[{ name:'Shadow Shard', icon:'\u{1F52E}', type:'misc', desc:'VS 거울 방의 파편. 그것이 비춘 것을 받아들인 뒤에 자유로이 주어진. 이제 아무것도 비추지 않는다. 안에 있던 것은 이름이 붙었다. 그 뒤의 방은 조용하다.', sell:25 }], knowledge:"Ardley W6 \u2014 The Shadow: The mirror room in Visby's lower archive reflects a pattern the visitor has been navigating around \u2014 not a lie, not a flaw, but a part of the self that operates below acknowledgment. Roen gave it a formal nod. The mirror offered a shard. Accepting the shadow's observation is not defeat. It is the end of the cost of suppressing it." },
           { kind:'narrative', msg:'🔮 문서고 아래 방에는 이곳에 있어서는 안 될 거울이 있다. 틀 없이 서 있는, 닦아낸 흑요석.\n\n거울이 당신에게 무언가를 보여 준다. 그것이 보여 주는 것은 구체적이고 정확하다. 당신이 오랫동안 빙 돌아 피해 다닌 배열에 이름을 붙인다.\n\n당신이 정중히 고갯짓한다. 거울이 중심에서 깨끗하게 갈라지며 파편 하나를 내놓는다. 그 뒤의 방이 조용해진다.' },
         ],
         onFail:[
@@ -13446,7 +13446,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // compound AND(all five page flags) ∧ (wisPage6_shadow OR defeated VS_SHADOW).
   quest_wis_07: { id:'quest_wis_07', schema:'UQF-1.0', type:'side',
     title:'아드리의 책',
-    desc:"Roen is at the Visby archive with all six sections of Ardley's manuscript laid out. He has been arranging them by theme, then by date, then by theme again. All six sections were written in the same year — the year before Ardley was dismissed. He says the treasurer's dynasty held the dock contracts for sixteen years, then lost them to a Baltic competitor who had read a dispersed copy of the text. Roen: \"The laws worked whether or not anyone wanted them to.\"",
+    desc:'로엔이 비스뷔 문서고에 아들리 원고의 여섯 절을 모두 펼쳐 놓고 있다. 주제별로 정렬했다가, 연대순으로, 다시 주제별로. 여섯 절 모두 같은 해에 쓰였다. 아들리가 파면되기 전 해. 그는 말한다. 재무관의 왕조는 십육 년간 부두 계약을 쥐고 있다가, 그 책의 흩어진 사본을 읽은 발트해 경쟁자에게 빼앗겼다고. 로엔. 『법칙들은 누가 원하든 원하지 않든 작동했어.』',
     hint:'아들리의 파편 여섯 개를 모두 찾아 비스뷔로 돌아가라.',
     activateNode:'VS', gate:{ flags:['wisHookReceived'] },
     completion:{ flags:['wisPage1_masks','wisPage2_aggression','wisPage3_thumbscrew','wisPage4_sight','wisPage5_form'], flagsAny:['wisPage6_shadow'], battles:['VS_SHADOW'] }, bits:[],
@@ -13460,7 +13460,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // ── Layer 55: Visby Underground quests ──
   quest_vs_01: { id:'quest_vs_01', type:'side', schema:'UQF-1.0', gate:{}, bits:[], completion:{ flags:['vsDebtProbed'] }, title:'솔박: 수집가',
     onComplete:[ { kind:'flag_write', set:['vsDebtProbed'] }, { kind:'favor', npc:"solvak", set:1 }, { kind:'narrative', msg:'💬 모더스의 입장이 기록되었다. 솔박이 우호적이 되었다.' } ], // §ARCH-01 W7c
-    desc:"Debt Agent Solvak has been outside Visby six weeks with a 2,000gp debt and no leverage. You might have some.",
+    desc:'채권 추심인 솔박이 이천 골드의 채권과 지렛대 없음을 가지고 여섯 주째 비스뷔 밖에 있다. 당신은 좀 가지고 있을지도 모른다.',
     hint:'비스뷔에 들어가 군주 모르두스에게 실종된 무기 선적에 대해 이야기하라.',
     activateNode:'VS', onActivate:null, // §VM-01-G3 — the Layer-55 stanza's act≥5 leg was structurally dead (actNumber = node.act, and VS is an act-2 node), so on-node it never fired; the arc self-paces through Solvak's buttons
     waypointNode:'VS', reward:0,
@@ -13480,7 +13480,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
       // LEAF (no onward unlock → acyclic). Purely additive; vs_03 keeps gate:{}, stays board-postable.
       { kind:'narrative', msg:'🖋️ 이바가 표식들을 등잔 아래에서 돌려 보다가 읽지 못하는 척하기를 멈춘다. 『속빈 손. 당신이 가져온 것을 봉인한 그 손이, 내가 여섯 주 전에 한 전쟁군주를 위해 중개한 통과 인장에도 서명했어. 모더스, 비스뷔 바깥에 진을 친 자. 아직 빚을 갚지 않았고, 그 표식이 그에게 무엇을 요구할지 아직 모른다.』 그녀가 표식들 뒤의 빚을 밝힌다. 영장 게시판에 현상금이 올라왔다.' },
       { kind:'unlock', quests:['quest_vs_03'] } ], // §ARCH-01 W7c · §BOARD-01-FU6 through-flow edge
-    desc:"Yva is inside the Goblin Caves. The Hollow Hands have marked her stall. She knows where the weapons went — for 50gp.",
+    desc:'이바는 고블린 동굴 안에 있다. 속빈 손이 그녀의 노점에 표시했다. 그녀는 무기가 어디로 갔는지 안다. 50gp에.',
     hint:'고블린 동굴 안에서 이바를 찾아라.',
     activateNode:"VS", onActivate:null, // §VM-01-G3 — deduped (authored null + appended "VS"); the vsDebtProbed gate keeps board posting AND the newly-revived VS node in-sequence
     waypointNode:'TRD', reward:0,
@@ -13492,7 +13492,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_vs_03: { id:'quest_vs_03', type:'side', schema:'UQF-1.0', gate:{ flags:['vsWeaponsFound'] }, bits:[], completion:{ flags:['vsDebtSettled'] }, title:'모르두스가 지불하다',
     onComplete:[ { kind:'flag_write', set:['vsDebtSettled','vsShamanKnown'] }, { kind:'reward', gold:400 }, { kind:'narrative', msg:'💰 솔박에게서 +400gp. 빚은 정산되었다. 샤먼의 이름은 밝혀졌다. 하지만 찾지는 못했다.' } ], // §ARCH-01 W7c
-    desc:"Mordus saw the Hollow Hands Seal. He paid sideways. Bring the transit seal to Solvak.",
+    desc:'모더스가 속빈 손의 인장을 보았다. 그는 옆으로 치워 냈다. 통과 인장을 솔박에게 가져가라.',
     hint:'공허한 손의 인장을 지니고 비스뷔 밖의 솔바크에게 돌아가라.',
     activateNode:"VS", onActivate:null, // §VM-01-G3 — deduped; the vsWeaponsFound gate keeps the board's in-sequence promise (supersedes the FU6 "keeps gate:{}" note now that VS is a live node)
     waypointNode:'VS', reward:400,
@@ -13511,7 +13511,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
         else if (S.vsShamanPersuaded) say('🔑 Persuasion path: the sub-clan returned to Mordus. The chain is known.');
         else say('🔑 Combat path: the sub-clan scattered. The Hollow Hands have no direction.'); } },
     ],
-    desc:"The Warden has been at the Mountain Pass for two hundred years, executing a mandate that was already wrong when it arrived. Everyone who has come close enough to understand this has been turned away or worse. You have the Constructor's Log. You have Froberger's notes. You have the names of all four links in the chain. The Warden does not know any of this. The question is not whether you can explain it — the question is whether something that has been wrong for two centuries can recognize its own wrongness when someone finally holds up the record.",
+    desc:'감시자는 이백 년째 산길에 있다. 도착했을 때 이미 틀린 임무를 집행하며. 이것을 이해할 만큼 가까이 온 자는 모두 돌려보내졌거나 더 나빴다. 당신은 The Constructor\'s Log를 가지고 있다. 프로버거의 기록을 가지고 있다. 사슬의 네 고리 모두의 이름을 가지고 있다. 감시자는 이 어느 것도 모른다. 문제는 당신이 설명할 수 있는가가 아니다. 이백 년 틀려 온 것이 마침내 누군가 기록을 들이밀 때 자신의 틀림을 알아볼 수 있는가다.',
     hint:'MT 터널에 들어가 간수와 대치하라. 건설자의 일지가 있다면 가져가라.',
     activateNode:null, 
     waypointNode:'GVA', reward:600,
@@ -13645,7 +13645,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // ── Layer 44 — Ally Cat Arc quests ──
   quest_cat_01: { id:'quest_cat_01', type:'side', schema:'UQF-1.0', gate:{}, bits:[], completion:{ countMin:[{ path:'catKills.stray_alley_cat', min:5 },{ path:'catKills.fluffy_cat', min:3 }] }, title:'지미: 새 긁힘 자국',
     onComplete:[ { kind:'reward', gold:200 }, { kind:'narrative', msg:'💰 지미에게서 +200gp. 캣 쿼터가 숨을 돌린다.' } ], // §ARCH-01 W7c
-    desc:"Jimmy Two-Tails wants the Cat Quarter settled. Clear the riff-raff — 5 strays and 3 fluffies.",
+    desc:'지미 투테일즈가 캣 쿼터의 정리를 원한다. 잡것들을 치워라. 뒷골목 길고양이 5마리와 복슬복슬 고양이 3마리.',
     hint:'캣 쿼터에서 할당량이 채워질 때까지 싸워라.',
     killGoals:[{key:'stray_alley_cat',need:5,label:'뒷골목 길고양이'},{key:'fluffy_cat',need:3,label:'복슬복슬 고양이'}],
     activateNode:'CDG', // §VM-01-G3 — the Layer-44 storyRender stanzas are retired; the chain sequencing lives in the gates below (the appended duplicate activateNode fields had made the whole chain activate at once)
@@ -13658,7 +13658,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_cat_02: { id:'quest_cat_02', type:'side', schema:'UQF-1.0', gate:{ questsDone:['quest_cat_01'] }, bits:[], completion:{ countMin:[{ path:'catKills.beefy_tom', min:3 }], itemsAll:[{ name:'금 간 발톱', min:3 }] }, title:'지미: 근육질 일',
     onComplete:[ { kind:'reward', gold:350 }, { kind:'narrative', msg:'💰 지미에게서 +350gp. 샌디 스크래치패드 뮬리노가 캣 쿼터에 합류했다.' } ], // §ARCH-01 W7c
-    desc:"Three Beefy Toms are running muscle for a rival outfit. Take them down and collect the proof.",
+    desc:'근육질 수고양이 세 마리가 라이벌 조직의 힘자랑 노릇을 하고 있다. 처리하고 증거를 확보하라.',
     hint:'건장한 톰 3마리를 죽이고 금 간 발톱을 모아라.',
     killGoals:[{key:'beefy_tom',need:3,label:'근육질 수고양이'}],
     activateNode:'CDG',
@@ -13672,7 +13672,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   quest_cat_03: { id:'quest_cat_03', type:'side', schema:'UQF-1.0', gate:{ questsDone:['quest_cat_02'] }, bits:[], completion:{ countMin:[{ path:'catKills.honcho_cat_m', min:1 },{ path:'catKills.honcho_cat_f', min:1 }] }, title:'샌디: 두목 문제',
     onComplete:[ { kind:'reward', gold:500 }, { kind:'narrative', msg:'💰 +500gp + 라인스톤 목줄 전리품.' } ], // §ARCH-01 W7c
     itemChain:[{action:'grant',name:'라인스톤 목줄',icon:'💎',type:'trophy',sell:0,silent:true}], // §EDITOR-01-D-FU(b) b2a
-    desc:"A Capo and a Boss Lady are circling each other. Kill them SEPARATE — let them merge and you\'re dealing with a Taz Devil.",
+    desc:'카포 하나와 보스 레이디 하나가 서로를 맴돌고 있다. 따로따로 죽여라. 합치게 두면 타즈 데빌을 상대하게 된다.',
     hint:'두목 고양이(카포) 1마리와 보스 레이디 두목 1마리를 죽여라.',
     killGoals:[{key:'honcho_cat_m',need:1,label:'두목 고양이 (카포)'},{key:'honcho_cat_f',need:1,label:'여두목 혼초'}],
     activateNode:'CDG',
@@ -13686,7 +13686,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   quest_cat_04: { id:'quest_cat_04', type:'side', schema:'UQF-1.0', gate:{ questsDone:['quest_cat_03'] }, bits:[], completion:{ battles:['CQ_TAZ'] }, title:'지미: 회오리가 올 때',
     onComplete:[ { kind:'reward', gold:750 }, { kind:'narrative', msg:'💰 +750gp + 털뭉치 왕관 전리품. 토미 노이어스는 더는 두고 보지 않는다.' } ], // §ARCH-01 W7c
     itemChain:[{action:'grant',name:'털뭉치 왕관',icon:'🌀',type:'trophy',sell:0,silent:true}], // §EDITOR-01-D-FU(b) b2a
-    desc:"Two Honchos merged. A Taz Devil — Furball Tornado — is loose in the Cat Quarter. Take it down.",
+    desc:'두목 둘이 합쳐졌다. 타즈 데빌, 털뭉치 회오리가 캣 쿼터에 풀려났다. 처리하라.',
     hint:'캣 쿼터에서 태즈 데빌을 쓰러뜨려라.',
     activateNode:'CDG', onActivate:null,
     waypointNode:'CDG', reward:750,
