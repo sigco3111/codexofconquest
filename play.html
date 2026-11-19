@@ -6978,7 +6978,7 @@ function battKillEvent() {
   // §CROWN-01 Amendment A: kelp + seaweed drops from swamp sea monsters
   if (S_story.active && ['sea_serpent','sea_witch','giant_eel','sea_demon','kraken_spawn','sea_hag'].includes(S.enemy.key)) {
     S_story.inventory = S_story.inventory || [];
-    S_story.inventory.push({ name:'Swamp Kelp', icon:'🌿', sell:3, type:'craft', desc:'Sea kelp from the swamp. Burns to iodine salt at the inn hearth.' });
+    S_story.inventory.push({ name:'늪지 다시마', icon:'🌿', sell:3, type:'craft', desc:'늪에서 난 바다 다시마. 여관 난로에서 태우면 아이오딘 소금이 된다.' });
   }
   if (S_story.active && ['sea_spawn','kelpie','giant_octopus','electric_eel','sea_snake'].includes(S.enemy.key)) {
     S_story.inventory = S_story.inventory || [];
@@ -10559,7 +10559,7 @@ const NPC_DIALOGUES = { // → doc: docs/story/story-arc-npc-dialogues.md
 const QUEST_DB = { // → doc: quest.md §Quest Format
   mq_1: { id:'mq_1', type:'main', schema:'UQF-1.0', gate:{}, bits:[], completion:{ items:['Trade Seal (Shard #1)'] }, title:'핏자국 지도를 따라',
     desc:'A dying courier pressed a map into your hands. He said one word — "Sweelinck" — as if that word would explain everything that came before it. You do not know what came before it. The map is bloodstained on the upper right corner. The blood is not yours. Follow the trail.',
-    hint:'Seek Magistra Muffat at the Tilbury docks.',
+    hint:'마지스트라 머펏을 틸버리 부두에서 찾아라.',
     passText:'Muffat takes the map and unfolds it on the dock counter. She does not ask how you came by it. She asks if you have time to hear what is on the other side.',
     failText:'The docks are empty at this hour. Whatever Sweelinck sent has not yet arrived.',
     activateNode:'LHR', waypointNode:'LCY',
@@ -10567,7 +10567,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   mq_2: { id:'mq_2', type:'main', schema:'UQF-1.0', gate:{}, bits:[], completion:{ items:['Grove Token (Shard #2)'] }, title:'알드릭 수사를 찾아서',
     desc:'Magistra Muffat says: Aldric has the second shard. She says this with the certainty of someone who has not been wrong about this kind of thing before, which makes it harder to ask what she might be wrong about. He was last seen entering the eastern forest. He has not come out. The crow-marked trees are his — he put them there so he could find his way back.',
-    hint:"Follow the crow-marked trees into Aldric's forest.",
+    hint:'까마귀 표시가 된 나무들을 따라 알드릭의 숲으로 들어가라.',
     passText:'Aldric is sitting at the root of the seventh marked tree. He has been here long enough to have questions but not long enough to have stopped expecting answers. He hands over the grove token without being asked.',
     failText:'The crow marks lead further into the trees. Aldric has not come back this way.',
     activateNode:'LCY', waypointNode:'FRO',
@@ -10575,7 +10575,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   mq_3: { id:'mq_3', type:'main', schema:'UQF-1.0', gate:{}, bits:[], completion:{ items:['Tidal Rune (Shard #3)'] }, title:'남쪽 바닷길',
     desc:"The Crones know the sea road is not yours to use without their leave. They have decided — for reasons they did not explain and would not explain if asked — to allow it. The Runed Stone changes hands. Find Captain Draketide at the beach. She has been waiting at this particular crossing for six years. She did not know she was waiting for this.",
-    hint:'Signal with three torch flashes after dark.',
+    hint:'어두워진 뒤 횃불을 세 번 번쩍여 신호하라.',
     passText:'The ship is there when you signal. Draketide says she knew the rune would come this way. She does not explain how she knew. The tidal rune changes hands on the beach in the dark.',
     failText:'Three flashes. No answer. The crossing is closed until conditions change.',
     activateNode:'SDQ', waypointNode:'RAI',
@@ -10583,7 +10583,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   mq_4: { id:'mq_4', type:'main', schema:'UQF-1.0', gate:{}, bits:[], completion:{ items:['진홍 영장 (Shard #4)'] }, title:'고블린 주술사',
     desc:"Warlord Mordus does not ask for help. He states a problem and looks at you until you understand that you are the solution. The Void shaman holds Shard #4 as a ritual focus — which means the shaman believes it is a source of power rather than a seal on something much worse. He is wrong about what he has. That is what makes him vulnerable.",
-    hint:'Enter the goblin warrens. The shaman is their false god.',
+    hint:'고블린 소굴로 들어가라. 주술사는 그들의 거짓 신이다.',
     passText:'The shaman has been told all his life that the shard is power. It is not power. He learns this when you take it.',
     failText:'The warrens drove you out. Mordus does not say anything. He is still looking at you.',
     activateNode:'BK', waypointNode:'TRD',
@@ -10591,7 +10591,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   mq_5: { id:'mq_5', type:'main', schema:'UQF-1.0', gate:{}, bits:[], completion:{ items:['모래 암호 (Shard #5)'] }, title:'지니의 속박',
     desc:"이자도르 알라순 has spent eleven years studying the djinn who has held Shard #5 for two centuries. He will take you there — not because he trusts you with it, but because there is no other way to settle a question that has been eating at him for eleven years: whether something that has held a thing for two centuries understands what it is holding, or whether it is simply holding it because no one has yet asked it to stop.",
-    hint:'Defeat or negotiate with the djinn in the deep desert.',
+    hint:'깊은 사막의 지니를 쓰러뜨리거나 협상하라.',
     passText:'The djinn held the cipher for two centuries because no one asked it to stop. You asked. It considers this for a moment. Then it stops.',
     failText:'The djinn is still holding it. Izador says this is not the last approach.',
     activateNode:'DOH', waypointNode:'DOH',
@@ -10599,7 +10599,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   mq_6: { id:'mq_6', type:'main', schema:'UQF-1.0', gate:{}, bits:[], completion:{ items:['Codex Shard #6','Weimar Fragment (Shard #7)'] }, title:'신화 순환로',
     desc:"Oracle Kassiphane has been holding these coordinates for longer than she will say. She names them now because you have earned the naming — not by asking but by being the kind of person who came this far with six. The Oriental Palace. The Scholars' Quarter. She says them as if they are the last two words of a sentence she has been composing for years.",
-    hint:'Defeat the Jade Construct for Shard #6. Then find Archivus Sweelinck.',
+    hint:'파편 #6을 얻으려면 비취 구조물을 쓰러뜨려라. 그리고 기록관 스베일링크를 찾아라.',
     passText:"The Jade Construct falls. In the 학자 구역, Sweelinck has already laid out two chairs. He knew the circuit would close today.",
     failText:'The circuit is incomplete. Kassiphane says come back when you have the sixth.',
     activateNode:'HER', waypointNode:'BKK',
@@ -10607,7 +10607,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   mq_7: { id:'mq_7', type:'main', schema:'UQF-1.0', gate:{}, bits:[], completion:{ items:['VICTORY'] }, title:'결산',
     desc:"Sweelinck has been holding the Weimar Fragment since before you were born. He knew it would take this long. He has the method and the shard and now he has the person who earned both. Return to Birka. The Convergence is gathering above the city — the Void does not wait for dawn and Sweelinck says dawn would be better, and what Sweelinck says about timing has never yet been wrong.",
-    hint:'Reach the Cosmic Realm with all 7 shards before the 7th new moon.',
+    hint:'일곱 번째 신월이 뜨기 전에 파편 7개를 모두 지니고 우주의 영역에 도달하라.',
     passText:'The Convergence begins. Sweelinck steps back. This part is yours.',
     failText:'The sky over Birka is wrong. The seventh new moon is coming. Return before it does.',
     activateNode:'NUE', waypointNode:'TLS',
@@ -10615,7 +10615,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   sq_1: { id:'sq_1', type:'side', schema:'UQF-1.0', gate:{}, bits:[], completion:{ items:['Trade Seal (Shard #1)'] }, title:'사라진 상인들',
     desc:"Innkeeper Brynn's two merchants vanished near the harbor. Something isn't right with the Trade Seal.",
-    hint:'Ask Magistra Muffat at the Tilbury docks.',
+    hint:'틸버리 부두의 마지스트라 머펏에게 물어라.',
     passText:'The Trade Seal is not just a merchant document. Muffat explains this quietly while you stand at her counter. It never was.',
     failText:'The harbor has no record of two merchants by those names. The investigation continues.',
     activateNode:'TLL', waypointNode:'LCY',
@@ -10632,7 +10632,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
       { kind:'narrative', msg:"🪧 The kelpie sinks and does not surface; the loch road is clear for the first time in two seasons. Word runs down the coast ahead of you: Dunfall — its doors shut all this while because the same water-thing held the ford below the town — has opened its harbor again, and Mairén Fionn is back at the dock. A bounty surfaces on the Warrant's Board." },
       { kind:'unlock', quests:['quest_df_01'] } ], // §ARCH-01 W7c · §BOARD-01-FU6 diamond convergence (left arm)
     desc:"Elder Fionn's village has been terrorised for two seasons. The kelpie controls the water road.",
-    hint:'Battle at the loch crossing in the Irish Highlands.',
+    hint:'아일랜드 고원지대의 호수 나루에서 싸워라.',
     passText:'The kelpie does not leave the loch. It sinks. The water road is clear. Elder Fionn says thank you by not saying anything at all.',
     failText:'The kelpie is still in the shallows. The village does not cross the loch after dark.',
     activateNode:'KIR', waypointNode:'KIR',
@@ -10641,7 +10641,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   sq_battling: { id:'sq_battling', type:'side', schema:'UQF-1.0', gate:{}, bits:[], completion:{ countMin:[{ path:'dropsCollected', min:3 }] }, title:'전투 — 명성을 쌓아라',
     desc:'You have won battles. Now collect the proof — take 3 weapon drops from fallen enemies.',
-    hint:'Defeat enemies in story battles and return to Story Mode for the Victory outcome.',
+    hint:'스토리 전투에서 적을 쓰러뜨리고 스토리 모드로 돌아가 승리 결과를 얻어라.',
     passText:'The fence at the Rough Bar takes the weapons without appraising them. He already knows what they are worth. So do you.',
     failText:'Three drops. You need three. The fence is still waiting.',
     activateNode:'LHR', waypointNode:null,
@@ -10649,7 +10649,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   sq_leveling: { id:'sq_leveling', type:'side', schema:'UQF-1.0', gate:{}, bits:[], completion:{ countMin:[{ path:'defeatedBattles', min:5 }] }, title:'레벨업 — 전쟁의 전리품',
     desc:'Survive 5 story battles. Experience is written in blood and victory.',
-    hint:'Win 5 battles via the Victory outcome in Story Mode.',
+    hint:'스토리 모드에서 승리 결과로 전투 5회를 이겨라.',
     passText:'Five battles. You have survived enough to be dangerous. The fifth one felt different — not easier, but cleaner.',
     failText:'Not five yet. Keep moving.',
     activateNode:'LHR', waypointNode:null,
@@ -10682,7 +10682,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_ew_primary: { id:'quest_ew_primary', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ battles:['PMO'] }, title:'마녀 어미의 요람',
     desc:"대마녀 여왕 waits at the Hag Mother's Cradle. Wane is waiting for your return.",
-    hint:'Wane, Hag Swamp. Enter the cradle to the west.',
+    hint:'웨인, 마녀 늪. 서쪽의 요람으로 들어가라.',
     activateNode:'SDQ', waypointNode:'PMO',
     passText:"The Hag Mother comes apart slowly, then all at once. The cradle stops humming.",
     failText:"The cradle still hums. The 대마녀 여왕 is inside it. Wane is at PMO.",
@@ -10810,7 +10810,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_eg_primary: { id:'quest_eg_primary', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ battles:['TBS'] }, title:'공허 주술사의 성소',
     desc:"공허 대주술사 카즈라스 waits at the Void Shaman's Sanctum. Warlord Mordus is waiting for your return.",
-    hint:'Warlord Kael Mordus, Birka Keep. Enter the sanctum to the north.',
+    hint:'군주 카엘 모르두스, 비르카 성. 북쪽의 성소로 들어가라.',
     activateNode:'BK', waypointNode:'TBS',
     passText:"Kazrath's sanctum collapses inward. Warlord Mordus will want to know it is done.",
     failText:"Kazrath still holds the sanctum. Warlord Mordus is at TBS.",
@@ -10843,7 +10843,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_ew_return: { id:'quest_ew_return', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ flagsPath:['ebReturnDone.PMO'] }, title:'귀환: 웨인',
     desc:'Return to Wane at Hag Swamp for payment. The Crones are waiting.',
-    hint:'Find Wane at Hag Swamp to the west.',
+    hint:'서쪽 마녀 늪에서 웨인을 찾아라.',
     passText:"Wane says nothing. She exhales once, slowly. That is all she had to do.",
     failText:"Wane is at PMO. The Hag Mother is still in the cradle.",
     activateNode:'SDQ', waypointNode:'SDQ', reward:200,
@@ -10875,7 +10875,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_ea_return: { id:'quest_ea_return', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ flagsPath:['ebReturnDone.IST'] }, title:'귀환: 드레이크타이드 선장',
     desc:'Return to 셀린 드레이크타이드 선장 at Atlantis for payment. She is reading in the archive.',
-    hint:'Find Captain Draketide at Atlantis to the north.',
+    hint:'북쪽 아틀란티스에서 드레이크타이드 선장을 찾아라.',
     passText:"Draketide grins once. Then he starts making lists. He has been waiting to make lists.",
     failText:"Draketide is at IST. The scriptorium is still locked.",
     activateNode:'RAI', waypointNode:'RAI', reward:300,
@@ -10971,7 +10971,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_eg_return: { id:'quest_eg_return', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ flagsPath:['ebReturnDone.TBS'] }, title:'귀환: 군주 모르두스',
     desc:'Return to Warlord Kael Mordus at Birka Keep for payment. He is reading the journal.',
-    hint:'Find Warlord Kael Mordus at Birka Keep to the north.',
+    hint:'북쪽 비르카 성에서 군주 카엘 모르두스를 찾아라.',
     passText:"Mordus does not celebrate. He just starts planning. That is how you know it is done.",
     failText:"Mordus is at TBS. Kazrath still holds the sanctum.",
     activateNode:'BK', waypointNode:'BK', reward:400,
@@ -10983,7 +10983,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   quest_ng_01: { id:'quest_ng_01', type:'side', schema:'UQF-1.0', gate:{ countMin:[{ path:'ngPlusRun', min:1 }] }, bits:[], completion:{ countMin:[{ path:'ngMemoryDelivered', min:3 }] }, title:'프로베르거: 기억된 길',
     onComplete:[ { kind:'reward', gold:500 }, { kind:'narrative', msg:'💰 +500gp. The city remembers. So do they.' } ], // §ARCH-01 W7c
     desc:"You have been here before. The city does not announce this — the city does not announce anything. But the three people who matter have been here too, and they looked up when you came around the corner before you were close enough to be recognized, and this is how you know the city remembers. Go to them. They are not the same as when you left. Neither are you. This is not a problem. This is what the second visit is for.",
-    hint:'Visit three NPCs you have reached Dear Friend status with.',
+    hint:'절친한 친구 단계에 도달한 NPC 세 명을 방문하라.',
     activateNode:'LHR', onActivate:null, boardExempt:true,
     waypointNode:'LHR', reward:500,
     disposition:'"The journal says: the world does not reset. The people do not reset. Only the monsters reset. You have always been here." — Froberger, Entry 41 marginal note',
@@ -10992,7 +10992,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   quest_ng_02: { id:'quest_ng_02', type:'side', schema:'UQF-1.0', gate:{ countMin:[{ path:'ngPlusRun', min:1 }], flags:['priorQuestMinusOne'] }, bits:[], completion:{ flags:['entry42Written'] }, title:'프로베르거: 열린 페이지',
     onComplete:[ { kind:'narrative', msg:'📖 Entry 42 is in the journal.' } ], // §ARCH-01 W7c — reward is the act itself
     desc:"Froberger's journal ends at forty-one. The forty-second page is blank — not torn, not missing, blank. He stopped there on purpose. You can tell because the previous entry ends mid-thought and the blank page comes after it like an answer to a question he decided not to answer himself. He knew someone would come back a second time with enough of the story to fill it. That someone is whoever is holding this journal now.",
-    hint:"Visit the city streets of Birka to find the open page.",
+    hint:'비르카 시내에서 열린 페이지를 찾아라.',
     activateNode:'LHR', onActivate:null, boardExempt:true,
     waypointNode:'LHR', reward:0,
     disposition:'"Forty-two. I stopped there on purpose. Someone else will finish this one." — Froberger\'s margin note',
@@ -11001,7 +11001,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   quest_ng_03: { id:'quest_ng_03', type:'side', schema:'UQF-1.0', gate:{ countMin:[{ path:'ngPlusRun', min:1 }] }, bits:[], completion:{ flags:['frobergerLetterFound'] }, title:'프로베르거: 편지',
     onComplete:[ { kind:'reward', gold:300 }, { kind:'flag_write', set:['frobergerLetterFound'] }, { kind:'narrative', msg:'💰 +300gp. The letter is yours now.' } ], // §ARCH-01 W7c
     desc:"A sealed letter is at the Coastal Observatory. Froberger's handwriting — you know it now well enough to recognize it before you see the name. It was not there on your first run, because on your first run you were not the person it was addressed to. The observatory is the place the arc ends. The letter is what it leaves behind for whoever arrives a second time having already done the work of the first.",
-    hint:'Return to the Coastal Observatory.',
+    hint:'해안 관측소로 돌아가라.',
     activateNode:'LHR', onActivate:null, boardExempt:true,
     waypointNode:'TLS', reward:300,
     disposition:'"If you are reading this, you completed the run once already. I am sorry about the ending. You deserved a better one." — Froberger\'s sealed letter',
@@ -11019,7 +11019,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
       { kind:'narrative', msg:'📚 Lower Archive access granted.' },
     ],
     desc:"Archivist Isolde Voss controls access to the Scholar Kings\' lower archive. The Froberger revocation record is there. Gain access.",
-    hint:'Collect 3 Scholar Kings\' Seals from Scholar\'s Guards — or bring the archive letter from the Blue Shutters Archive.',
+    hint:'학자 왕의 수호병에게서 학자 왕들의 인장 3개를 모으거나, 푸른 셔터 기록보관소의 서한을 가져가라.',
     activateNode:'NUE', // §VM-01-G3 — the Layer-51 storyRender stanza is retired; the act≥6 leg was vestigial (NUE is an act-6+ node and actNumber = node.act on arrival)
     onActivate:{ msg:'"You\'re asking about Froberger. Everyone who comes here lately is asking about Froberger." — Archivist Isolde Voss, at the gate', delayMs:500 },
     waypointNode:'NUE', reward:0,
@@ -11051,7 +11051,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     onComplete:[{kind:'reward',gold:300},{kind:'narrative',msg:'📙 Benedikt\'s Annotated Copy (Tome) obtained. +300gp. The First Researcher is known.'}], // §ARCH-01 W7c
     itemChain:[{action:'grant',name:'Benedikt\'s Annotated Copy',icon:'📙',type:'tome',sell:0,bonus:{atkWhileQuestActive:1},silent:true,desc:'"He was right about this one too." — B. Rasp'}], // §EDITOR-01-D-FU(b) b2b
     desc:"Benedikt knows who the First Researcher was. He waited three sessions to be sure you were the kind of person to be told.",
-    hint:'Return to the lower archive and read the unredacted personnel file.',
+    hint:'하층 기록보관소로 돌아가 삭제되지 않은 인사 문서를 읽어라.',
     activateNode:'NUE', onActivate:null,
     waypointNode:'NUE', reward:300,
     disposition:'"The Scholar Kings didn\'t erase her. They just stopped saying the name. Froberger said it in his margin notes every time. That\'s how I found her. And now you know how I found him." — Benedikt Rasp',
@@ -11060,7 +11060,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   quest_wm_05: { id:'quest_wm_05', type:'side', schema:'UQF-1.0', gate:{flags:['wmLowerArchiveUnlocked'],itemsAll:['Y. Gurt Field Survey']}, bits:[], completion:{ flags:['wmGurtFileRead'] }, title:'열린 문서', // §L
     onComplete:[ { kind:'reward', gold:200 }, { kind:'narrative', msg:'💰 +200gp. 📋 The Gurt file is still open. It has been filed, and refiled, and it will not close.' } ], // §ARCH-01 W7c
     desc:"The lower archive has a fifth document you were not looking for. A personnel file that has never been closed — because the Scholar Kings' filing system does not have a category for someone who chose the field over the archive and kept sending data anyway. The Y. Gurt file is still active. It has been active for a very long time.",
-    hint:'Return to the Weimar lower archive with the Y. Gurt Field Survey.',
+    hint:'Y. 구르트 현장 측량서를 지니고 바이마르 하층 기록보관소로 돌아가라.',
     activateNode:'NUE', 
 
     xpAward:200, waypointNode:'NUE', reward:200,
@@ -11090,7 +11090,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   quest_va_03: { id:'quest_va_03', type:'side', schema:'UQF-1.0', gate:{}, bits:[], completion:{ flags:['vaLastWardVisited'] }, title:'건축: 봉인된 터널',
     onComplete:[ { kind:'flag_write', set:['vaLastWardVisited'] }, { kind:'reward', gold:200 }, { kind:'narrative', msg:'🏛️ +200gp. The tunnel is open. The Antecedent was here.' } ], // §ARCH-01 W7c
     desc:"There is a tunnel at the Mountain Pass sealed from the inside. No record in any archive shows it being opened. No record shows it being built — it was sealed before the Scholar Kings existed and before Froberger was born and before any of the names you have learned on this run were written down anywhere. It will open for you now. Sealed things are not locked to everyone — only to those who haven't earned the opening.",
-    hint:'Take the tunnel at the Mountain Pass.',
+    hint:'산 고개의 터널로 가라.',
     activateNode:null, 
     waypointNode:'GVA', reward:200,
     disposition:'"The Antecedent was here. It is not anymore. You know where it is now." — Sealed chamber inscription',
@@ -11123,7 +11123,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
       { kind:'unlock', quests:['quest_tl_02'] },
     ],
     desc:"Harbor Master Rennau keeps the ledger of ships that haven\'t come back. The Harrow is the most recent. Find its manifest.",
-    hint:"Search the Harbor Board on the Storefront docks for the Harrow consignment, then bring it to Rennau.",
+    hint:'상점가 부두의 항구 게시판에서 해로우 위탁 화물을 찾아 레나우에게 가져가라.',
     activateNode:'STN', onActivate:null, // §VM-01-G3 — was "LCY", a wrong-target dead-code remap (710bb75 SF→LCY; SF meant the Storefront = STN, where Rennau, the Harbor Board, and the whole arc live)
     waypointNode:'STN', reward:0,
     disposition:'"The Conclave calls the ones that haven\'t come back \'weather losses.\' I stopped calling them that six weeks ago." — Harbor Master Rennau',
@@ -11135,7 +11135,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   quest_tl_02: { id:'quest_tl_02', type:'side', schema:'UQF-1.0', gate:{ flags:['tlLedgerRead'] }, bits:[], completion:{ flagsAny:['tlEmbargoChallenged','tlEmbargoDismissed'] }, title:'레나우: 통상 금지',
     onComplete:[ { kind:'narrative', msg:'📋 Embargo decision logged.' }, { kind:'narrative', msg:'🪧 Then the docks deliver what no protocol could: a survivor of the Harrow, three weeks on foot, asking for the Harbor Master by name. Ori. Rennau wants you there when she talks. A new bounty surfaces on the Warrant\'s Board.' }, { kind:'unlock', quests:['quest_tl_03'] } ], // §ARCH-01 W7c · §BOARD-01-FU6 referral edge
     desc:"The harbor has been closed for three weeks under Emergency Trade Protocol 7. Adjutant Vonn enforces it politely and completely — he is not wrong about the protocol, only about whether the protocol is right. The manifest proves ships have gone missing. The embargo prevents finding out why. Both things are true at the same time and the Conclave considers this a policy matter above Vonn's grade. Rennau has the ledger and no leverage. Decide what to do with the manifest.",
-    hint:'Speak with Adjutant Vonn at Tilbury, then choose how to handle the ship manifest.',
+    hint:'틸버리의 본 부관과 이야기한 뒤 선박 적하 목록을 어떻게 처리할지 정하라.',
     activateNode:"TL", onActivate:null, // §VM-01-G3 — deduped (the entry carried BOTH the authored null and an appended "TL"; last-key-wins made "TL" effective, kept)
     waypointNode:'TL', reward:0,
     disposition:'"The embargo is a legitimate Conclave instrument. The fact that it\'s bad policy is above my grade." — Adjutant Vonn',
@@ -11155,7 +11155,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
       { kind:'narrative', msg:'📜 +300gp. Ori\'s Account obtained. Rennau is Dear Friend.' },
     ],
     desc:"A survivor from the Harrow has arrived in Tilbury. Three weeks on foot. Her name is Ori. She knows what happened.",
-    hint:"Speak with Ori at the Storefront. Bring her account to Rennau.",
+    hint:'상점가의 오리와 이야기하라. 그녀의 증언을 레나우에게 가져가라.',
     activateNode:'STN', onActivate:null, // §VM-01-G3 — deduped; the appended "LCY" was the same 710bb75 SF→LCY mis-remap as tl_01 (Ori is at the Storefront)
     waypointNode:'STN', reward:300,
     disposition:'"Ori said the thing that boarded them didn\'t have a name. Things that don\'t have names are the Void\'s specialty." — Harbor Master Rennau',
@@ -11166,7 +11166,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   // ── §LI: Muffat — The Third Berth ──
   quest_muffat_01: { id:'quest_muffat_01', type:'skill_check', schema:'UQF-1.0', gate:{itemsAll:['Trade Seal (Shard #1)']}, bits:[{ kind:'skill_check', stat:'DEX', skill:'Stealth', dc:13, onPass:[{ kind:'mission_bit', flag:'muffatBerthReached', label:'머펏 선석' }, { kind:'reward', xp:150, gold:150 }], onFail:[] }], title:'세 번째 선석', // §LI
-    hint:'Reach the third berth without the harbor watch stopping you (DEX · Stealth DC 13).',
+    hint:'항구 감시에게 걸리지 않고 세 번째 선석에 도달하라 (DEX · 은신 DC 13).',
     activateNode:'LCY', retryable:true, retryGateDays:1,
     vignetteText:"The third berth has been wrong since Tuesday. The manifest says ballast. The crane operators won\'t take that side. Muffat has been watching the Scholar Kings clearance stamp on the hold for three days — it prevents harbor search and she knows it. You have the Trade Seal, which gets you onto the dock. The harbor watch works the main berths. The third is close enough to the crane rigging that the shadow covers the approach. Close enough.",
     passText:"The crate is there. Scholar Kings Distribution stamp, no matching manifest number. You bring it to Muffat. She sets it on the counter and looks at it the way she looks at manifests: correctly, and with no illusions about what that means.",
@@ -11180,7 +11180,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     onComplete:[ { kind:'reward', gold:200 }, { kind:'flag_write', set:['cycle4NoteRead'] }, { kind:'narrative', msg:'💰 +200gp. 📜 Scholar Kings Requisition obtained — Cycle 4, Conclave Archivist authorization. "Do not let the archive answer."' } ], // §ARCH-01 W7c
     itemChain:[{action:'grant',name:'Scholar Kings Requisition (Handwritten)', icon:'📜', type:'readable', sell:0, readText:"SCHOLAR KINGS — INTERNAL ROUTING\nHandwritten. Class 3. No copy to be made.\n\nStation 7 monitoring capacity is to be maintained through the current cycle and expanded in advance of Cycle 4. The Antecedent Containment Protocol requires adjustment at the interval. Equipment delivered per the attached schedule is adequate for the extension only. Cycle 4 components to follow under separate authority.\n\nAuthorization: Conclave Archivist.\nNo countersignature required.\nNo date required.\n\n[Below the fold, a single line in different ink:]\nThe archive knows what it holds.\nDo not let the archive answer.",silent:true}], // §EDITOR-01-D-FU(b) b2b
     desc:"Muffat has had three Scholar Kings crates on her shelf for two years, unopened. The stamp prevented harbor search. The question is closed now. She opens one. The receiver array inside is expected. The handwritten requisition note in the packing material is not.",
-    hint:'Return to Magistra Muffat at the Harbor Docks — she has something to show you.',
+    hint:'항구 부두의 마지스트라 머펏에게 돌아가라 — 보여 줄 것이 있다.',
     activateNode:'LCY', // CO-002: activates same visit as Solm direction
     xpAward:150, waypointNode:'LCY', reward:200,
     disposition:'"They were not reacting to the signal. They were already in motion." — 마기스트라 엘라라 무파트',
@@ -11193,7 +11193,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     onComplete:[ { kind:'reward', gold:150 }, { kind:'narrative', msg:'💰 +150gp. 📋 Analyst Solm Field File obtained. File closed. The archive still has an archivist.' } ], // §ARCH-01 W7c
     itemChain:[{action:'grant',name:'Analyst Solm Field File', icon:'📋', type:'readable', sell:0, readText:"FIELD FILE — ANALYST I. SOLM\nStation 7, Frequency 14.225 Monitoring Assignment\nClass 3, Scholar Kings Research Division\n\n[Vol. 1, Day 1 — three months prior:]\nTransmission cut mid-entry. Suppressor origin: Undercity access corridor. Operator unknown to me. I do not believe the suppression was deliberate interference — the timing and mechanism suggest an automated device, not a hand on a dial. I have nonetheless lost the fourth transmission before it completed.\n\nI cannot return to Station 7. The Scholar Kings will not acknowledge the record. I am here instead, where things that cannot be officially held are held unofficially.\n\n[Vol. 1, Days 2–87:]\nTransmission confirmed, bearing 047°, no repeat. [repeated daily, same hand, same composure]\n\n[Vol. 1, Day 88 — closing entry, ink slightly different pressure:]\nRecord from the terminus received. Source confirmed: contained, non-hostile, question answered. Absence confirmed on 14.225. The archive still has an archivist.\n\nFile closed.\n\n— I. Solm",silent:true}], // §EDITOR-01-D-FU(b) b2b
     desc:"The Station 7 operator went to Magistra Muffat three months ago with classified knowledge she could no longer safely carry. Muffat sent her to the Map Shop. Dusk holds things without asking why. He has been holding her.",
-    hint:'Find Analyst Solm at the Map Shop. She has been waiting for someone who finished what she could not.',
+    hint:'지도 가게에서 분석관 솔름을 찾아라. 그녀는 자신이 끝내지 못한 것을 끝낸 사람을 기다려 왔다.',
     activateNode:'LCY', 
     xpAward:200, waypointNode:'STN', reward:150,
     disposition:'"Confirmed. That\'s sufficient." — Analyst I. Solm, closing entry, Field File Vol. 1',
@@ -11203,7 +11203,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   quest_antecedent_01: { id:'quest_antecedent_01', type:'side', schema:'UQF-1.0', gate:{ flags:['suppressorLogRead'] }, bits:[], completion:{ flags:['antecedentMet'] }, title:'질문',
     onComplete:[ { kind:'narrative', msg:'🏛️ The question is closed. The archive still has an archivist.' } ], // §ARCH-01 W7c
     desc:"Bearing 047°, depth 18m. The Antecedent Seal activates the receiving array. The thing that has been asking for forty-one volumes is still there. It was waiting for an answer, not an archivist. It turns out those are the same thing.",
-    hint:'Descend past the Undercity checkpoint with the Antecedent Seal. The chamber is south.',
+    hint:'선행 봉인을 지니고 지하도시 검문소 아래로 내려가라. 방은 남쪽이다.',
     activateNode:'HKG', 
     xpAward:400, waypointNode:'HAJ', reward:0,
     disposition:'"The question is closed." — The Antecedent',
@@ -11216,7 +11216,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     onComplete:[ { kind:'reward', gold:300 }, { kind:'flag_write', set:['suppressorLogRead'] }, { kind:'narrative', msg:'💰 +300gp. 📡 Warrant Suppressor Log recovered — three suppressions, Day 14 cut mid-transmission. Source at bearing 047°, depth 18m. Source has not repeated.' } ], // §ARCH-01 W7c
     itemChain:[{action:'grant',name:'Warrant Suppressor Log', icon:'📡', type:'readable', sell:0, readText:"WARRANT SUPPRESSOR — AUTOMATIC SIGNAL LOG\nDevice ID: WSP-NU-04 (Neon Undercity, Station Corridor)\nOperator: Commander S. Bruhns (unaware of logging function)\n\n[Months 1–41: 14.225 monitored. No structured transmission detected. Log: confirmed absent. Cross-reference with Frequency Row Vol. 1–41: consistent.]\n\nDay 3, Vol. 41: Auto-suppression fired. Signal on 14.225, duration 0.4s, character: non-mechanical, subsurface origin — depth est. 18m, bearing 047° from HM. Suppression effective. Signal terminated.\nDay 9, Vol. 41: Auto-suppression fired. Signal on 14.225, duration 1.1s, character: non-mechanical, partial internal structure. Suppression effective. Signal terminated.\nDay 14, Vol. 41: Auto-suppression fired. Signal on 14.225, duration 3.1s, character: non-mechanical, structured content, transmission in progress at suppression. Suppression effective. Signal terminated mid-transmission.\n\n[Post-Day 14: 14.225 monitored. No structured transmission detected. Source remains at bearing 047°, depth 18m.]\n\nAuto-assessment: Signal suppression achieved. Source has not repeated transmission.\n\nNote: Either source ceased voluntarily, or source is aware of suppression.\n\n[End of log. Device continues active monitoring.]",silent:true}], // §EDITOR-01-D-FU(b) b2b
     desc:"Station 7's log ends mid-entry. Bearing 047° points at the Neon Undercity. Seraphine Bruhns has been running a Warrant suppressor down there since before you arrived. The suppressor fires automatically on structured transmissions. It keeps a log. She did not know it kept a log.",
-    hint:'Return to Commander Seraphine Bruhns at the Neon Undercity and ask about the suppressor log.',
+    hint:'네온 지하도시의 세라핀 브룬스 사령관에게 돌아가 억제기 기록에 대해 물어라.',
     activateNode:"SVO", 
     xpAward:250, waypointNode:'HKG', reward:300,
     disposition:'"Either the source ceased voluntarily, or the source is aware of suppression." — Warrant Suppressor Log, auto-entry, Day 14',
@@ -11229,7 +11229,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     onComplete:[ { kind:'reward', gold:350 }, { kind:'flag_write', set:['station7LogRead'] }, { kind:'narrative', msg:'💰 +350gp. 📡 Station 7 Transmission Log recovered — three detections, bearing 047°, log ends mid-entry.' } ], // §ARCH-01 W7c
     itemChain:[{action:'grant',name:'Station 7 Transmission Log', icon:'📡', type:'readable', sell:0, readText:"STATION 7 — AUTOMATED TRANSMISSION LOG\nFrequency 14.225 — Scholar Kings Monitoring Annex (Class 3)\nOperator: [field redacted per Class 3 protocol]\n\n[Volumes 1–40: confirmed absence. Cross-referenced with Frequency Row Vol. 1–40. Consistent.]\n\nVol. 41, Day 3: SIGNAL DETECTED — 14.225 — Duration: 0.4s — Character: non-mechanical — Source: subsurface, bearing 047° — Repeat: none. Logged per protocol. Notified Class 3 oversight. No response from oversight.\nVol. 41, Day 4: Absence confirmed.\nVol. 41, Day 9: SIGNAL DETECTED — 14.225 — Duration: 1.1s — Character: non-mechanical — Source: subsurface, bearing 047° — Repeat: none. Signal contains partial structure. Not noise. Logged. No response from oversight.\nVol. 41, Day 14: SIGNAL DETECTED — 14.225 — Duration: 3.1s — Character: non-mechanical — Source: subsurface, bearing 047° — Signal contains—\n\n[Log ends. The entry is incomplete. The pen is in the output tray. The receiver is still active. Bearing 047° from Station 7 points toward the Neon Undercity access corridor.]",silent:true}], // §EDITOR-01-D-FU(b) b2b
     desc:"Station 7 is listed in the manifest as the delivery terminus. The station that went dark. The manifest has an address. Bertha's logs have a changed absence. The station has a transmission log that ends mid-entry.",
-    hint:'Find Station 7 east of Frequency Row and read the transmission log.',
+    hint:'주파수 열 동쪽의 7번 관측소를 찾아 송신 기록을 읽어라.',
     activateNode:'LCY', 
     xpAward:300, waypointNode:'SVO', reward:350,
     disposition:'"The signal character was non-mechanical. Three occurrences, each longer than the last. The fourth was long enough to contain something. We do not know what it contained. The station operator does." — 마기스트라 엘라라 무파트',
@@ -11242,7 +11242,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     onComplete:[ { kind:'reward', gold:300 }, { kind:'flag_write', set:['muffatManifestRead'] }, { kind:'narrative', msg:'💰 +300gp. 📦 Shipping Manifest (Intercepted) obtained — Station 7, 14.225, six-week schedule. The pattern is complete.' } ], // §ARCH-01 W7c
     itemChain:[{action:'grant',name:'Shipping Manifest (Intercepted)', icon:'📦', type:'readable', sell:0, readText:"SCHOLAR KINGS DISTRIBUTION — INTERNAL ROUTING\nStamp: Non-Standard Clearance (Class 3 Seal)\nOrigin: Tilbury Harbor, Third Berth\nDestination: Station 7 (Frequency Row Monitoring Annex)\nDelivery Frequency: Every 6 weeks\nContents: Monitoring equipment, Category 4 (no itemisation required)\nDistribution Reference: Frequency 14.225 — passive reception array maintenance\n\n[Handwritten annotation, margin:]\nStation 7 last confirmed operational — see Freq. Row log, Vol. 38.\nStation 7 status as of Vol. 41: no confirmation received.\nField note: Station may have been decommissioned without notice to monitoring staff.\n\n[Second annotation, different hand:]\nStation 7 was not decommissioned.\n—M.E.M.",silent:true}], // §EDITOR-01-D-FU(b) b2b
     desc:"The crate Muffat has on her shelf has a distribution stamp and a frequency reference: 14.225. That is Bertha No-Bank's frequency. The one with nothing on it. Forty-one volumes of nothing.",
-    hint:'Find Bertha No-Bank at Frequency Row and ask about the changed absence on 14.225.',
+    hint:'주파수 열에서 베르타 노뱅크를 찾아 14.225의 달라진 부재에 대해 물어라.',
     activateNode:'LCY', 
     xpAward:250, waypointNode:'DUS', reward:300,
     disposition:'"Volume forty-one is when the absence changed. I do not know what changed it. I logged the change. That is the function of the log." — Bertha No-Bank',
@@ -11254,7 +11254,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   quest_road_damascus: { id:'quest_road_damascus', type:'side', schema:'UQF-1.0', gate:{itemsAll:['Three Jerusalem Warrants']}, bits:[], completion:{ flags:['saulConverted'] }, title:'정오의 빛',
     onComplete:[{kind:'narrative',msg:'⚡ The road to Damascus is behind you. The warrants are still in his coat. He will not use them again.'}], // §ARCH-01 W7c
     desc:"The road to Damascus is well-maintained for the first half day. After the stones give way to packed earth, the escort falls back and the dust is the same colour as the sky at noon. The warrants are in his coat. He leaves at first light.",
-    hint:'Take the road east from Jerusalem to Damascus.',
+    hint:'예루살렘에서 다마스커스로 동쪽 길을 가라.',
     activateNode:'JRS',
 
     xpAward:200, waypointNode:'DAM', reward:0,
@@ -11266,7 +11266,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   quest_anath: { id:'quest_anath', type:'side', schema:'UQF-1.0', gate:{ flags:['saulConverted'] }, bits:[], completion:{ flags:['anathSightRestored'] }, title:'아랫길의 집',
     onComplete:[ { kind:'narrative', msg:'🕊️ +300 XP. Sight restored. Anath came because he was told to, and chose to anyway.' } ], // §ARCH-01 W7c
     desc:"Three days in a house on the lower road. The innkeeper brings food at noon and does not ask questions about his eyes. Someone else's servant brings water in the morning. He has not asked for it. He has not told anyone he cannot see. On the third morning, someone knocks.",
-    hint:'Wait. Speak to Anath when he arrives on the third day.',
+    hint:'기다려라. 아나트가 사흘째 되는 날 도착하면 말을 걸어라.',
     activateNode:'DAM',
     xpAward:300, waypointNode:'DAM', reward:0,
     disposition:'"Brother Saul, the Lord Jesus, who appeared to you on the road, has sent me so that you may see again." — Anath',
@@ -11278,7 +11278,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   quest_hellenists_jerusalem: { id:'quest_hellenists_jerusalem', type:'side', schema:'UQF-1.0', gate:{ flags:['barnachVouchedHR'] }, bits:[], completion:{ flags:['hellenistsThreaten'] }, title:'보름',
     onComplete:[ { kind:'narrative', msg:'⚡ +150 XP. Fifteen days. The tension broke. Barnach said: go.' } ], // §ARCH-01 W7c
     desc:"He stays fifteen days. He speaks in the assembly halls. He argues with people who disagree with him — he is very good at arguing, and the conversion did not change this about him, which is a point of some reflection. On the fifteenth day, the Hellenists gather near the gate. Barnach says: go.",
-    hint:'Stay in Jerusalem. Wait for Barnach\'s word — fifteen days.',
+    hint:'예루살렘에 머물라. 바르나흐의 소식을 기다려라 — 보름.',
     activateNode:'JRS', 
     xpAward:150, waypointNode:'JRS', reward:0,
     disposition:'"Fifteen days is how long Jerusalem was prepared to hold this tension. It has held. Now it is releasing." — Barnach',
@@ -11289,7 +11289,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   quest_barnach_finds: { id:'quest_barnach_finds', type:'side', schema:'UQF-1.0', gate:{ flags:['hellenistsThreaten'] }, bits:[], completion:{ flags:['barnachFoundPaul'] }, title:'찾아 헤맨 일 년',
     onComplete:[ { kind:'narrative', msg:'🛤️ +100 XP. Barnach found him. A year looking. The arc resumes — Antioch is west.' } ], // §ARCH-01 W7c
     desc:"Barnach has been looking for a year. He found him in the tentmaking quarter in the afternoon. He said: it\'s time. There was no skill check. No argument. Just: it\'s time. That was sufficient.",
-    hint:'Speak to Barnach at Tarsus.',
+    hint:'타르수스의 바르나흐와 이야기하라.',
     activateNode:'ADA', 
     xpAward:100, waypointNode:'ADA', reward:0,
     disposition:'"일 년 동안 당신을 찾아다녔어요. 때가 됐어요." — Barnach',
@@ -11302,7 +11302,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     onComplete:[ { kind:'narrative', msg:'🗝️ +200 XP. Ezzir stepped aside. The governor is watching. The door is open.' } ], // §ARCH-01 W7c
       // ⚠ dead in legacy too: skill_check quests never reach 'complete' in storyCheckQuests (§DUNGEON-01 gap)
     desc:"Ezzir has the governor's ear. He has been in the governor's service for six years and knows where to stand. He is standing between Paul and the governor. The governor is watching. He is watching the way a man watches two arguments he has not yet decided between.",
-    hint:'Speak past Ezzir. Do not let him have the first word with the governor.',
+    hint:'에지르를 지나쳐 말하라. 총독과의 첫 말을 그에게 뺏기지 마라.',
     activateNode:'CI2',
     retryable:true, retryGateDays:1,
     vignetteText:'He is precisely positioned between Paul and the governor. This is not an accident — Ezzir has been in rooms before and knows where to stand. The governor is watching.\n\nEzzir speaks first. He is very good at speaking first.',
@@ -11315,7 +11315,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     onComplete:[ { kind:'narrative', msg:'🏛️ +250 XP. The governor has been maintaining an altar for three hundred years without knowing why. He knows now.' } ], // §ARCH-01 W7c
       // ⚠ dead in legacy too: skill_check quests never reach 'complete' in storyCheckQuests (§DUNGEON-01 gap)
     desc:"Ezzir has stepped aside. The governor reads widely and holds opinions about ideas. He has an altar in the corner of his room — three hundred years old, maintained by every governor before him. He does not know why he maintains it. He is about to find out.",
-    hint:'Speak to the Governor of Cyprus.',
+    hint:'키프로스 총독과 이야기하라.',
     activateNode:'CI2',
     retryable:true,
     vignetteText:'The governor has the particular quality of someone who has made their career on good judgment about ideas — he knows the difference between an argument and a description. He has been waiting for a description.\n\nThe altar in the corner is three hundred years old. He maintains it. He does not know why.',
@@ -11333,7 +11333,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     ],
       // ⚠ dead in legacy too: skill_check quests never reach 'complete' in storyCheckQuests (§DUNGEON-01 gap)
     desc:"The man at the gate has been there his entire life. He has a condition of the feet. He has made his peace with it. He is watching Paul specifically, the way someone watches a person they have been waiting for without knowing they were waiting.",
-    hint:'The man at the gate is watching you.',
+    hint:'관문의 남자가 당신을 지켜보고 있다.',
     activateNode:'KYA',
     retryable:false,
     vignetteText:'He has been here his whole life. He is not asking for anything. He is watching the road with the patience of someone who has already accepted his situation.\n\nHe is watching Paul specifically.',
@@ -11352,7 +11352,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     onComplete:[ { kind:'narrative', msg:'🪨 +100 XP. He got up. Everyone else left. Timael decided to stay.' } ], // §ARCH-01 W7c
       // ⚠ dead in legacy too: skill_check quests never reach 'complete' in storyCheckQuests (§DUNGEON-01 gap)
     desc:"The crowd that called Paul a god has become the crowd that stones one. Both responses are to the same event — they had expected a god; what they got was a correction. Some crowds do not accept corrections.\n\nThe square is filling. They know his face. They do not know yours yet.",
-    hint:'Create an opening in the crowd. Get Paul through before the first stone is thrown.',
+    hint:'군중 속에 틈을 만들어라. 첫 돌이 던져지기 전에 바울을 빼내라.',
     schema:'UQF-1.0',
     activateNode:'KYA',
     gate:{ questsDone:['quest_lame_lystra'] },
@@ -11370,7 +11370,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   quest_antioch_commission: { id:'quest_antioch_commission', type:'side', schema:'UQF-1.0', gate:{ flags:['barnachFoundPaul'] }, bits:[], completion:{ flags:['commissionReceived'] }, title:'파견',
     onComplete:[ { kind:'narrative', msg:'⚡ +150 XP. Commissioned. Barnach and Silar traveling. The mandate is simple because the work isn\'t.' } ], // §ARCH-01 W7c
     desc:"Antioch is where the first journey forms. Barnach is here. Silar is here. The commission comes from the assembly — the first time Paul has been sent somewhere by a body of people rather than going by his own authority. He is accountable to the people who sent him and to the people he will find. He finds this clarifying.",
-    hint:'Speak to Assembly Elder Joach at Antioch.',
+    hint:'안티오크의 공회 장로 요아흐와 이야기하라.',
     activateNode:'HTY', 
     xpAward:150, waypointNode:'HTY', reward:0,
     disposition:'"The mandate is simple because the work isn\'t." — Assembly Elder Joach',
@@ -11381,7 +11381,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // ── §LXV: Philippi — Lyra's Conversion + The Prison ──
   quest_philippi: { id:'quest_philippi', type:'side', schema:'UQF-1.0', gate:{ flags:['commissionReceived'] }, bits:[], completion:{ flags:['lyraConverted'] }, title:'자주빛 상인',
     desc:"Lyra sells purple cloth from the bridge. She has been watching Paul from across the bridge for two days before she speaks. When she speaks it is because she has already decided. The earthquake comes later. Every door opens.",
-    hint:'Speak to Lyra at Philippi.',
+    hint:'빌립보의 뤼라와 이야기하라.',
     activateNode:'KVA', 
     xpAward:150, waypointNode:'KVA', reward:0,
     disposition:'"I decided before I spoke. The speaking was the confirmation." — Lyra',
@@ -11392,7 +11392,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // ── §PAUL-01: Philippi — The Prison ──
   quest_prison_phillam: { id:'quest_prison_phillam', type:'skill_check', schema:'UQF-1.0', gate:{ flags:['lyraConverted'] }, bits:[{ kind:'skill_check', stat:'WIS', skill:'Insight', dc:12, onPass:[{ kind:'mission_bit', flag:'phillippiJailerConverted', label:'빌립보 간수' }, { kind:'reward', xp:200 }], onFail:[] }], title:'일곱 계단, 그리고 다섯',
     desc:"The earthquake opens every door in the city prison. The chains come loose from the walls. The guards are awake. The jailer is awake. He draws his sword — not for you, for himself. Under Roman protocol, a jailer whose prisoners escape answers with his life. He has already decided how to answer.\n\nEvery prisoner in the block is free, in the technical sense, at midnight. Paul and Silar have not moved. Paul is still singing. You are in the cell across the corridor and you are free to leave.",
-    hint:'When the doors open — stay. Read the jailer before he acts.',
+    hint:'문이 열리면 — 머물러라. 간수가 행동하기 전에 그를 읽어라.',
     activateNode:'KVA',
     retryable:false,
     vignetteText:'The doors are open. The dark is the specific dark of a room where the lamps have gone out, not the dark of a room that never had them.\n\nThe jailer is across the corridor. He has the sword out. His hands are not steady. You have three seconds — four if the hand does not stop shaking. Paul\'s voice is still going. The other prisoners are listening.\n\nYou know what the sword is for. The question is whether you get there before he uses it on himself.',
@@ -11404,7 +11404,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // ── §LXVI: Athens — The Unknown Altar ──
   quest_areopagus: { id:'quest_areopagus', type:'skill_check', schema:'UQF-1.0', gate:{}, bits:[{ kind:'skill_check', stat:'CHA', skill:'Persuasion', dc:13, onPass:[{ kind:'mission_bit', flag:'areopagusSpeech', label:'아레오파고스 연설' }, { kind:'reward', xp:200 }], onFail:[] }], title:'알 수 없는 이에게',
     desc:"There is an altar at the east end of the market that reads: TO AN UNKNOWN ONE. It has been there for two hundred years. Nobody knows who built it or what it was for. Paul has been standing in front of it for a long time. The Market Steward wants to know why.\n\nBefore he takes the steps, you walk the hall. Two exits: the colonnade south and the market gate east. Both open. You note the distance to each.",
-    hint:'Speak at the Areopagus. Start with what they already built.',
+    hint:'아레오바고에서 말하라. 그들이 이미 세운 것에서 시작하라.',
     activateNode:'ATH',
     retryable:false,
     vignetteText:'The altar is at the east end of the market. The inscription: TO AN UNKNOWN ONE. Two hundred years of upkeep. The priests who maintain it don\'t know who built it. The city maintains it anyway — on the principle that a city that maintains all the altars has covered all its bases.\n\nPaul has been standing in front of it for a long time. You have been watching the square.\n\nThe Market Steward approaches. He has the manner of a man who administers forty shrines and has heard every interpretation of every one of them. He has not heard this interpretation.\n\nYou position yourself at the base of the steps. South exit is twelve paces left.',
@@ -11416,7 +11416,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // ── §LXVII: Ephesus — The Riot ──
   quest_ephesus_riot: { id:'quest_ephesus_riot', type:'skill_check', schema:'UQF-1.0', gate:{}, bits:[{ kind:'skill_check', stat:'CHA', skill:'Persuasion', dc:12, onPass:[{ kind:'mission_bit', flag:'demetriusRiotEscaped', label:'에베소 폭동' }, { kind:'reward', xp:175 }], onFail:[] }], title:'은세공사의 모임',
     desc:"Demetrius runs the craftsmen's guild. The guild makes temple models. Paul has been here three years and the guild has noticed. The meeting Demetrius called has spilled out of the market hall. The market hall was not large enough.",
-    hint:'Navigate the Demetrius riot in Ephesus.',
+    hint:'에베소의 데메트리오스 폭동을 헤쳐 나가라.',
     activateNode:'EF2',
     retryable:false,
     vignetteText:'Demetrius\'s voice is the loudest in the square. He is not wrong about the economics: three years of Paul in Ephesus, and silver temple sales are down. He is also not just about economics — there is a theological argument underneath the economic one. He is making both simultaneously. The crowd is responding to both.\n\nThe theater holds twenty-five thousand people. The crowd is moving toward the theater. The city clerk is trying to reach the front.',
@@ -11428,7 +11428,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // ── §LXVIII: Corinth — The Letters ──
   quest_corinth_letters: { id:'quest_corinth_letters', type:'side', schema:'UQF-1.0', gate:{}, bits:[], completion:{ flags:['corinthLettersWritten'] }, title:'천막 천과 편지들',
     desc:"Prisca and Akil hire Paul when he arrives because he knows the tentmaking trade. He earns his room in canvas. He stays eighteen months. He writes letters to the cities he has already been to. Some of them are the most important things he will ever write. He does not know which ones yet.",
-    hint:'Stay in Corinth with Prisca and Akil.',
+    hint:'고린도에서 프리스카와 아킬과 함께 머물라.',
     activateNode:'ZTH', 
     xpAward:200, waypointNode:'ZTH', reward:0,
     disposition:'"He earned his room. He was good with canvas. The letters — we could hear him working on them at night." — Prisca',
@@ -11439,7 +11439,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // ── §LXIX: Rome — House Arrest ──
   quest_rome_arrest: { id:'quest_rome_arrest', type:'side', schema:'UQF-1.0', gate:{ flags:['maltaSnakeEvent'] }, bits:[], completion:{ flags:['romeArrestBegun'] }, title:'빌린 집',
     desc:"House arrest in a rented house. He can receive visitors, which he does, constantly. He can write letters, which he does, constantly. He cannot leave, which he does not. The arc does not end here. It stops here.",
-    hint:'Reach Rome and speak to Timael.',
+    hint:'로마에 도달해 티마엘과 이야기하라.',
     activateNode:'FCO', 
     xpAward:300, waypointNode:'FCO', reward:0,
     disposition:'"He got up. From Lystra, from every place after. The counting was real." — Timael',
@@ -11966,12 +11966,12 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     activateNode:'HG1', 
     onComplete:[
       { kind:'reward', items:[
-        { name:"Glut's Hoard Fragment", icon:'🪴', sell:45, type:'loot', desc:'The octopus was sitting on this. It had been there long enough to consider itself the owner.' },
-        { name:'Swamp Kelp', icon:'🌿', sell:3, type:'craft', desc:'Sea kelp from the feeding pool. Burns to iodine salt.' },
-        { name:'Swamp Kelp', icon:'🌿', sell:3, type:'craft', desc:'Sea kelp from the feeding pool. Burns to iodine salt.' },
+        { name:"글럿의 보물 조각", icon:'🪴', sell:45, type:'loot', desc:'문어가 이것 위에 앉아 있었다. 스스로를 주인이라 여기기에 충분할 만큼 오래.' },
+        { name:'늪지 다시마', icon:'🌿', sell:3, type:'craft', desc:'먹이 못에서 난 바다 다시마. 태우면 아이오딘 소금이 된다.' },
+        { name:'늪지 다시마', icon:'🌿', sell:3, type:'craft', desc:'먹이 못에서 난 바다 다시마. 태우면 아이오딘 소금이 된다.' },
       ] },
       { kind:'_legacy_fn', fn:() => _innKindness(1) },
-      { kind:'narrative', msg:"🪴 The east crossing is clear. Glut's Hoard Fragment + 2× Swamp Kelp recovered." },
+      { kind:'narrative', msg:"🪴 동쪽 나루가 열렸다. 글럿의 보물 조각 + 늪지 다시마 2개 회수." },
     ],
     disposition:'"I fed it too much. It grew. You removed it. I have not stopped feeding what comes to the pool." — The Feeding Pool',
     passText:"The Giant Octopus is gone from the east passage. Glut is still feeding what comes to the pool. This is useful information about her.",
@@ -11986,10 +11986,10 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     activateNode:'HN1', 
     onComplete:[
       { kind:'flag_write', set:['atlanteanProcessKnown'] },
-      { kind:'reward', knowledge:'Atlantean Kelp Scroll — The coastal reduction process. Kelp burned with an electric catalyst produces Charged Iodine Salt. Teaches the iodine smelting method.' },
-      { kind:'reward', items:[{ name:'Swamp Kelp', icon:'🌿', sell:3, type:'craft', desc:'Mire kelp retrieved from the sub-channel.' }] },
+      { kind:'reward', knowledge:'아틀란티스 다시마 두루마리 — 해안 환원 공정. 전기 촉매와 함께 태운 다시마는 충전된 아이오딘 소금을 만든다. 아이오딘 제련법을 가르친다.' },
+      { kind:'reward', items:[{ name:'늪지 다시마', icon:'🌿', sell:3, type:'craft', desc:'하위 수로에서 건진 진창 다시마.' }] },
       { kind:'_legacy_fn', fn:() => _innKindness(1) },
-      { kind:'narrative', msg:"📜 Atlantean Kelp Scroll learned. Charged reduction process now known. Swamp Kelp recovered from the channel." },
+      { kind:'narrative', msg:"📜 아틀란티스 다시마 두루마리를 배웠다. 충전 환원 공정을 알게 되었다. 수로에서 늪지 다시마 회수." },
     ],
     disposition:'"It was better at this than I am. I am aware. Thank you for not pointing it out directly." — The Drained Mire',
     passText:"It was better at this than she is. She is aware. Thank you for not pointing it out directly.",
@@ -12004,9 +12004,9 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     activateNode:'INN', 
     onComplete:[
       { kind:'flag_write', set:['electricEelOrganHeld'] },
-      { kind:'reward', items:[{ name:'Electric Eel Organ', icon:'⚡', sell:15, type:'craft', desc:'Bioluminescent organ from the eel beneath the inn. Catalyzes iodine extraction — produces Charged Iodine Salt.' }] },
+      { kind:'reward', items:[{ name:'전기 장어 기관', icon:'⚡', sell:15, type:'craft', desc:'여관 아래 뱀장어의 생체발광 기관. 아이오딘 추출을 촉매한다 — 충전된 아이오딘 소금을 만든다.' }] },
       { kind:'_legacy_fn', fn:() => _innKindness(1) },
-      { kind:'narrative', msg:"⚡ Electric Eel Organ recovered. The south corridor no longer smells like the sea. The Innmother says nothing." },
+      { kind:'narrative', msg:"⚡ 전기 장어 기관 회수. 남쪽 회랑에서 더는 바다 냄새가 나지 않는다. 여관 어머니는 아무 말이 없다." },
     ],
     disposition:'"The smell is gone. The room to the south is the same room. It is a better room now." — The Innmother\'s Hall',
     passText:"The smell is gone. The room to the south is the same room. It is a better room now.",
@@ -12037,7 +12037,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     bits:[{ kind:'skill_check', stat:'INT', skill:'INT Investigation', dc:11,
       onPass:[{ kind:'reward', xp:100 }, { kind:'_legacy_fn', fn:() => {
         S_story.inventory = S_story.inventory || [];
-        S_story.inventory.push({ name:'Iodine Salt', icon:'🧂', sell:5, type:'craft', desc:'+3 to any skill check when burned before rolling. Coastal reduction product — the Atlantean clarity method.' });
+        S_story.inventory.push({ name:'아이오딘 소금', icon:'🧂', sell:5, type:'craft', desc:'굴리기 전에 태우면 모든 기술 판정에 +3. 해안 환원의 산물 — 아틀란티스의 명징법.' });
         _innKindness(1);
       } }],
       onFail:[] }],
@@ -12046,43 +12046,43 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
 
   quest_iodine_02: { id:'quest_iodine_02', type:'side',
-    schema:'UQF-1.0', gate:{ questsAttempted:['quest_iodine_01'] }, bits:[], completion:{ itemsAll:[{ name:'Swamp Kelp', min:2 }], atNode:'INN' }, title:'화상 약초 채집',
-    desc:'Gather Swamp Kelp from the mire and return to the Innmother\'s hearth to burn it down to Iodine Salt.',
-    hint:'Carry 2× Swamp Kelp to the inn and burn them. Kelp drops from sea monsters in the swamp.',
+    schema:'UQF-1.0', gate:{ questsAttempted:['quest_iodine_01'] }, bits:[], completion:{ itemsAll:[{ name:'늪지 다시마', min:2 }], atNode:'INN' }, title:'화상 약초 채집',
+    desc:'진창에서 늪지 다시마를 모아 여관 어머니의 난로로 돌아가 태워 아이오딘 소금으로 만들어라.',
+    hint:'늪지 다시마 2개를 여관으로 가져가 태워라. 다시마는 늪의 바다 괴물이 떨어뜨린다.',
     activateNode:'INN', 
     onComplete:[
-      { kind:'item_remove', name:'Swamp Kelp' },
-      { kind:'item_remove', name:'Swamp Kelp' },
+      { kind:'item_remove', name:'늪지 다시마' },
+      { kind:'item_remove', name:'늪지 다시마' },
       { kind:'reward', items:[
-        { name:'Iodine Salt', icon:'🧂', sell:5, type:'craft', desc:'+3 to any skill check when burned before rolling.' },
-        { name:'Iodine Salt', icon:'🧂', sell:5, type:'craft', desc:'+3 to any skill check when burned before rolling.' },
+        { name:'아이오딘 소금', icon:'🧂', sell:5, type:'craft', desc:'굴리기 전에 태우면 모든 기술 판정에 +3.' },
+        { name:'아이오딘 소금', icon:'🧂', sell:5, type:'craft', desc:'굴리기 전에 태우면 모든 기술 판정에 +3.' },
       ] },
       { kind:'_legacy_fn', fn:() => _innKindness(1) },
-      { kind:'narrative', msg:"🧂 Two doses of Iodine Salt produced. The hearth smells like the sea for an hour afterward." },
+      { kind:'narrative', msg:"🧂 아이오딘 소금 두 첩이 만들어졌다. 난로는 그 후 한 시간 동안 바다 냄새가 난다." },
     ],
     disposition:'"The reduction is the same each time. The smell tells you when it is done." — The Innmother\'s Hall',
     passText:"The reduction is the same each time. Once you know the smell you cannot not know it. The salt is in your hands.",
-    failText:"Gather 2 Swamp Kelp from the mire and return to the Innmother hearth. The burn has not happened yet.",
+    failText:"진창에서 늪지 다시마 2개를 모아 여관 어머니의 난로로 돌아가라. 아직 태우지 않았다.",
     npc:"the_innmother",
   },
 
   quest_iodine_03: { id:'quest_iodine_03', type:'side',
-    schema:'UQF-1.0', gate:{ flags:['electricEelOrganHeld'], questsAttempted:['quest_iodine_01'] }, bits:[], completion:{ flags:['electricEelOrganHeld'], itemsAll:['Swamp Kelp'], atNode:'INN' }, title:'충전 환원',
-    desc:'The Electric Eel Organ catalyzes the burn — charged iodine salt, significantly more potent. The Atlantean smelting secret.',
-    hint:'Bring the Electric Eel Organ to the inn hearth while carrying Swamp Kelp.',
+    schema:'UQF-1.0', gate:{ flags:['electricEelOrganHeld'], questsAttempted:['quest_iodine_01'] }, bits:[], completion:{ flags:['electricEelOrganHeld'], itemsAll:['늪지 다시마'], atNode:'INN' }, title:'충전 환원',
+    desc:'전기 장어 기관이 연소를 촉매한다 — 충전된 아이오딘 소금, 훨씬 강력하다. 아틀란티스의 제련 비법.',
+    hint:'늪지 다시마를 지닌 채 전기 장어 기관을 여관 난로로 가져가라.',
     activateNode:'INN', 
     onComplete:[
       { kind:'flag_write', clear:['electricEelOrganHeld'] },
-      { kind:'item_remove', name:'Electric Eel Organ' },
-      { kind:'item_remove', name:'Swamp Kelp' },
+      { kind:'item_remove', name:'전기 장어 기관' },
+      { kind:'item_remove', name:'늪지 다시마' },
       { kind:'flag_write', set:['atlanteanProcessKnown'] },
-      { kind:'reward', items:[{ name:'Charged Iodine Salt', icon:'⚡🧂', sell:12, type:'craft', desc:'+5 to any skill check when burned before rolling. Atlantean catalyzed reduction — the electric charge accelerates the iodine separation.' }] },
+      { kind:'reward', items:[{ name:'충전된 아이오딘 소금', icon:'⚡🧂', sell:12, type:'craft', desc:'굴리기 전에 태우면 모든 기술 판정에 +5. 아틀란티스 촉매 환원 — 전하가 아이오딘 분리를 가속한다.' }] },
       { kind:'_legacy_fn', fn:() => _innKindness(1) },
       { kind:'narrative', msg:"⚡🧂 The organ ignites the kelp blue-white. The salt that settles is faintly luminescent. The Innmother: 'The coastal people knew this. They found it from the other direction.'" },
     ],
     disposition:'"You found it from the salt. They found it from the metal. The sequence does not matter. The reduction is the same." — The Innmother\'s Hall',
     passText:"The coastal people knew this. They found it from the other direction. You found it from the salt and found the metal underneath. The sequence does not matter.",
-    failText:"The Electric Eel Organ has not been brought to the Innmother hearth yet. The charged reduction has not been done.",
+    failText:"전기 장어 기관이 아직 여관 어머니의 난로에 도착하지 않았다. 충전 환원이 이루어지지 않았다.",
     npc:"the_innmother",
   },
 
@@ -12121,9 +12121,9 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
         S_story.kelpBedsCharted = true;
         S_story.gold = (S_story.gold||0) + 150;
         S_story.inventory = S_story.inventory || [];
-        S_story.inventory.push({ name:'Swamp Kelp', icon:'🌿', sell:3, type:'craft', desc:'Sea kelp from the tidal beds. Burns to iodine salt at a hearth or forge.' });
-        S_story.inventory.push({ name:'Swamp Kelp', icon:'🌿', sell:3, type:'craft', desc:'Sea kelp from the tidal beds. Burns to iodine salt at a hearth or forge.' });
-        storyMsg("🌿🌿 Two bundles of Swamp Kelp taken from the tidal beds. 150gp.");
+        S_story.inventory.push({ name:'늪지 다시마', icon:'🌿', sell:3, type:'craft', desc:'조수 여울에서 난 바다 다시마. 난로나 대장간에서 태우면 아이오딘 소금이 된다.' });
+        S_story.inventory.push({ name:'늪지 다시마', icon:'🌿', sell:3, type:'craft', desc:'조수 여울에서 난 바다 다시마. 난로나 대장간에서 태우면 아이오딘 소금이 된다.' });
+        storyMsg("🌿🌿 조수 여울에서 늪지 다시마 두 다발을 챙겼다. 150골드.");
       } }],
       onFail:[] }],
     disposition:'"The beds do not shift without reason. The reason has a location." — The Tide Reader, Drowned Shore',
@@ -12159,26 +12159,26 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     // items:[salts], atNode:'DSF' }) auto-completed on arrival-with-iodine, so the click
     // smelted a SECOND Sea Element.
     schema:'UQF-1.0', gate:{ flags:['forgeActivated'] }, bits:[], completion:{ flags:['seaElementCrafted'] }, title:'제련',
-    desc:'The forge is active. The Atlantean Sea Element requires iodine reduction in the forge heat — the secret of Atlantas.',
-    hint:'Bring Iodine Salt to the forge and smelt the Sea Element.',
+    desc:'대장간이 가동 중이다. 아틀란티스의 바다 원소는 용광로 열기 속 아이오딘 환원을 필요로 한다 — 아틀란타스의 비밀.',
+    hint:'아이오딘 소금을 대장간으로 가져가 바다 원소를 주조하라.',
     activateNode:'DSF', 
     onComplete:[
       // charged-preferred iodine consumption (if/else across two names) is inexpressible
       // as item_remove bits — kept whole behind _legacy_fn.
       { kind:'_legacy_fn', fn:() => {
         const inv = S_story.inventory || [];
-        const chargedIdx = inv.findIndex(i => i.name === 'Charged Iodine Salt');
-        const plainIdx   = inv.findIndex(i => i.name === 'Iodine Salt');
+        const chargedIdx = inv.findIndex(i => i.name === '충전된 아이오딘 소금');
+        const plainIdx   = inv.findIndex(i => i.name === '아이오딘 소금');
         if (chargedIdx !== -1) inv.splice(chargedIdx, 1);
         else if (plainIdx !== -1) inv.splice(plainIdx, 1);
       } },
       { kind:'flag_write', set:['seaElementCrafted'] },
-      { kind:'reward', gold:400, items:[{ name:'Sea Element', icon:'🔱', type:'weapon', atkBonus:2, dmgDie:8, dmgCount:1, dmgFlat:0, minLevel:1, sell:500, desc:'Atlantean alloy. Holds the tide\'s force in the metal. +2 ATK, 1d8 damage.' }] },
-      { kind:'narrative', msg:"🔱 Sea Element smelted. The alloy cools to a color that is not quite any color. +2 ATK, 1d8. +400gp." },
+      { kind:'reward', gold:400, items:[{ name:'바다 원소', icon:'🔱', type:'weapon', atkBonus:2, dmgDie:8, dmgCount:1, dmgFlat:0, minLevel:1, sell:500, desc:'아틀란티스 합금. 금속 속에 밀물의 힘을 담고 있다. 공격 +2, 피해 1d8.' }] },
+      { kind:'narrative', msg:"🔱 바다 원소가 주조되었다. 합금은 어느 색이라고도 할 수 없는 색으로 식는다. 공격 +2, 1d8. +400골드." },
     ],
     disposition:'"It was the last useful thing we left. The alloy holds." — The Forge Echo, Atlantean Forge',
-    passText:"The alloy holds. The forge took the reduction and sealed the Sea Element into something the Atlanteans could not finish alone.",
-    failText:"The forge is active but the Sea Element is not reduced. Bring Iodine Salt and try again.",
+    passText:"합금이 견뎌냈다. 용광로가 환원을 받아들여 바다 원소를 아틀란티스인들조차 혼자서는 완성하지 못한 무언가로 봉했다.",
+    failText:"대장간은 가동 중이지만 바다 원소가 환원되지 않았다. 아이오딘 소금을 가져와 다시 시도하라.",
     npc:"the_forge_echo",
   },
 
@@ -12228,26 +12228,26 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   quest_sunken_02: { id:'quest_sunken_02', type:'side',
     // §LXX-01-FU FIX — completion keyed on the DA2 gate button's flag (the quest_ca_01 shape:
     // the button writes the flag, this onComplete pays once). The old completion
-    // ({ flags:['inscriptionRead'], itemsAll:['Sea Element'], atNode:'DA2' }) auto-completed
+    // ({ flags:['inscriptionRead'], itemsAll:['바다 원소'], atNode:'DA2' }) auto-completed
     // on the arrival that drew the button, so the click paid a SECOND permanent INT point.
     schema:'UQF-1.0', gate:{ flags:['inscriptionRead'] }, bits:[], completion:{ flags:['tideGateOpened'] }, title:'조수 관문',
-    desc:'The Gate mechanism requires the Sea Element — the Atlantean alloy forged from the reduction sequence. The forge made the key. You are the last step.',
-    hint:'Bring the Sea Element to The Tide Gate. The mechanism accepts the alloy.',
+    desc:'관문 장치에는 바다 원소가 필요하다 — 환원 순서로 벼려 낸 아틀란티스 합금. 용광로가 열쇠를 만들었다. 마지막 단계는 당신이다.',
+    hint:'바다 원소를 밀물 관문으로 가져가라. 장치가 합금을 받아들인다.',
     activateNode:'DA2', 
     onComplete:[
       { kind:'flag_write', set:['tideGateOpened'] },
-      { kind:'item_remove', name:'Sea Element' },
+      { kind:'item_remove', name:'바다 원소' },
       { kind:'_legacy_fn', fn:() => { S_story.abilityScores = S_story.abilityScores || {}; S_story.abilityScores.int = (S_story.abilityScores.int || 10) + 1; } },
       { kind:'reward', gold:500 },
       // §LXX-01-FU — the DA2 button's Station 7 prose, recovered: on HEAD the handler's
       // storyMsg was destroyed by its own bare storyRender (§BOARD-01-FU6 class), so this
       // richer text had never been readable. The narrative bit rides the completion stream.
-      { kind:'narrative', msg:"🔱 The Sea Element fits the mechanism in the correct order. The Gate opens inward and down. The depth below is eighteen meters. Bearing 047°.\n\nStation 7 monitored this location. Bertha No-Bank spent forty-one volumes recording the absence of its signal. The Antecedent's containment was built on top of this structure. The Constructor chose this site because the infrastructure was already here.\n\nThe chain closes. You have been following it from the outside in. INT +1 (permanent). +500gp." },
+      { kind:'narrative', msg:"🔱 바다 원소가 올바른 순서로 장치에 맞는다. 관문이 안쪽 아래로 열린다. 아래 수심은 18미터. 방위 047°.\n\n7번 관측소가 이곳을 감시하고 있었다. 베르타 노뱅크는 마흔한 권에 걸쳐 이 신호의 부재를 기록했다. 선행자의 격리 시설은 이 구조물 위에 세워졌다. 건설자가 이 자리를 택한 것은 기반 시설이 이미 있었기 때문이다.\n\n사슬이 닫힌다. 당신은 바깥에서 안으로 이 사슬을 따라왔다. INT +1 (영구). +500골드." },
     ],
     xpAward:500,
     disposition:'"The Gate was waiting for whoever followed the chain. The chain closes." — The Tide Gate, Sunken Hall',
     passText:"The Gate was waiting for whoever followed the chain. The chain closes.",
-    failText:"The Tide Gate mechanism requires the Sea Element. The alloy has not been placed.",
+    failText:"밀물 관문 장치에는 바다 원소가 필요하다. 합금이 아직 장착되지 않았다.",
     npc:"the_stone_inscription",
   },
 
@@ -22611,13 +22611,13 @@ const NPC_DIALOGUE = { // → doc: story.md §FL7
     ? '"You read it correctly. The beds are a record, not a resource." She marks the current morning position and closes the notebook. "The bearing I noted six years ago — you confirmed it. I was not going to do anything with it alone. Now it is not alone."'
     : '"The beds have been here since before the shore had its current shape. I have been recording the morning position since my predecessor stopped recording it. The shift is forty years old and accelerating." She does not look up from the notebook. "Most people look at the water and see the water. The pattern is in the position, not the surface."' },
   DSF: { name:'The Forge Echo', quoteFn:() => S_story.seaElementCrafted
-    ? '"It was the last useful thing we left. The alloy holds." The voice is old in a way that is not age — it is duration. A sound that has been in this room since the room was sealed. "Take it south. The forge has done what it was kept for. We are finished here."'
+    ? '"그것은 우리가 남긴 마지막 쓸모 있는 것이었다. 합금은 견딘다." 그 목소리는 나이가 아니라 지속이라는 의미에서 오래되었다. 방이 봉인된 때부터 이 방에 있던 소리. "남쪽으로 가져가라. 용광로는 지켜진 목적을 다했다. 우리는 여기서 끝이다."'
     : (S_story.forgeActivated
-    ? '"You unlocked the mechanism in the correct order. That is the only credential the forge recognizes." The room carries the voice without a body. "You have the iodine reduction. Complete the sequence. The Sea Element is in the process — not in the metal. You are the last step."'
-    : '"We sealed it because nothing that came afterward knew the sequence." The voice is present and sourceless — not an echo, a remnant. A sound the room has held since the smith who made it last worked here. "The mechanism knows the process. If you know the process, the mechanism will know you."') },
+    ? '"당신은 올바른 순서로 장치를 열었다. 그것이 용광로가 인정하는 유일한 자격이다." 방이 몸 없는 목소리를 전한다. "당신은 아이오딘 환원을 가지고 있다. 순서를 완성하라. 바다 원소는 금속이 아니라 과정 속에 있다. 마지막 단계는 당신이다."'
+    : '"그 후에 온 것들 중 순서를 아는 것이 없어서 우리는 그것을 봉했다." 그 목소리는 존재하지만 근원이 없다 — 메아리가 아니라 잔재. 이것을 만든 대장장이가 마지막으로 일한 때부터 방이 품고 있던 소리. "장치는 과정을 안다. 당신이 과정을 알면, 장치도 당신을 알 것이다."') },
   HCA: { name:'크론 자매 — 위스퍼, 글럿, 웨인', quoteFn:() => S_story.croneMarksBanked
-    ? '"The marks are yours now," Wane says. "You earned them in the proper order — by paying attention." Glut nods. Whisper does not look at you. The not-looking is the warmest thing she has. "Go south," she says. "길이 열렸어요."'
-    : '"The clearing is the end of the deeper swamp," Glut says. "What you carry from here, you carry permanently." Wane looks at the mire. "The marks know their own weight," she says. "나중에 이해하게 될 거예요."' },
+    ? '"이제 표시는 당신의 것이에요," 웨인이 말한다. "올바른 순서로 얻었어요 — 주의를 기울여서요." 글럿이 고개를 끄덕인다. 위스퍼는 당신을 보지 않는다. 그 보지 않음이 그녀가 가진 가장 따뜻한 것이에요. "남쪽으로 가요," 그녀가 말한다. "길이 열렸어요."'
+    : '"공터는 더 깊은 늪의 끝이에요," 글럿이 말한다. "여기서 가져가는 것은 영원히 지니게 돼요." 웨인이 진창을 바라본다. "표시는 저마다의 무게를 알아요," 그녀가 말한다. "나중에 이해하게 될 거예요."' },
   // §LXV–§LXIX: Mediterranean Journey NPCs
   KVA: { name:'Lyra', quoteFn:() => S_story.phillippiJailerConverted
     ? '"The jailer brought his whole household down at midnight. I have never seen a man make a decision that fast — see the doors open, reach for the sword, then put the sword down before you could blink. That is what it looks like when someone changes their mind completely." She looks at the guest room stairs. "Seven up, then five. I counted them when I arranged the rooms."'
@@ -23532,16 +23532,16 @@ function _addCroneMark() {
 // §CROWN-01 Amendment A: burn iodine salt before a skill check roll
 function _burnIodineSalt(questId) {
   const inv = S_story.inventory || [];
-  const chargedIdx = inv.findIndex(i => i.name === 'Charged Iodine Salt');
-  const plainIdx   = inv.findIndex(i => i.name === 'Iodine Salt');
+  const chargedIdx = inv.findIndex(i => i.name === '충전된 아이오딘 소금');
+  const plainIdx   = inv.findIndex(i => i.name === '아이오딘 소금');
   if (chargedIdx !== -1) {
     inv.splice(chargedIdx, 1);
     S_story.iodineBuffActive = true; S_story.iodineBuffBonus = 5;
-    storyMsg('⚡🧂 Charged Iodine Salt burned. +5 to the next roll. The smoke smells correct.');
+    storyMsg('⚡🧂 충전된 아이오딘 소금을 태웠다. 다음 굴림에 +5. 연기 냄새가 올바르다.');
   } else if (plainIdx !== -1) {
     inv.splice(plainIdx, 1);
     S_story.iodineBuffActive = true; S_story.iodineBuffBonus = 3;
-    storyMsg('🧂 Iodine Salt burned. +3 to the next roll. The hearth smell returns.');
+    storyMsg('🧂 아이오딘 소금을 태웠다. 다음 굴림에 +3. 난로 냄새가 돌아온다.');
   } else { return; }
   _rollCeremonia(questId);
 }
@@ -23845,7 +23845,7 @@ function _splitCouperiDebtMeaning() {
   }
 }
 
-const _ITEM_NAME_MIGRATION = {"Minnow Barb": "피라미 가시", "Gudgeon Spine": "모래무지 가시", "Dace Scale Shard": "잉어 비늘 조각", "Bleak Venom Sac": "블리크 독주머니", "Perch Venom Gland": "농어 독샘", "Roach Barb Bundle": "로치 가시 다발", "Tench Poison Dorsal": "텐치 독 등지느러미", "Bream Spine Array": "도미 가시 열", "Chub Toxin Flask": "피라냐 독소 플라스크", "Carp Poison Core": "잉어 독 핵", "Rudd Razor Scale": "러드 칼날 비늘", "Zander Gill Dagger": "잰더 아가미 단도", "Pike Venom Jaw": "가물치 독 턱", "Catfish Barb Set": "메기 가시 세트", "Eel Spine Whip": "장어 가시 채찍", "Viper Fish Scale Plate": "독어 비늘 판", "Leviathan Trout Fin": "리바이어던 송어 지느러미", "Spine King Crown": "가시왕 왕관", "Dread Catfish Whisker": "공포 메기 수염", "Yugurt's Dread Scale": "유구르트의 공포 비늘", "Murk Darter Scale": "탁수 다터 비늘", "Void Gulper Stomach": "공허 삼키미 위", "Lantern Eel Gland": "초롱 장어 샘", "Shadowfin Scale Sheet": "그림자지느러미 비늘 장", "Lurker Bone Hook": "잠복자 뼈 갈고리", "Lurker Carapace": "잠복자 등딱지", "Corrupted Meme Fragment": "타락한 밈 조각", "Worthless Coin Chip": "가치 없는 동전 조각", "Void-Bleached Husk": "공허에 표백된 껍데기", "Static-Singed Fur": "정전기에 그을린 털", "Faceless Lens Shard": "무안 렌즈 조각", "Compressed Signal Mass": "압축된 신호 덩어리", "Diamond Hand Fragment": "다이아몬드 손 조각", "Gold-Standard Feather": "금본위 깃털", "Spider Silk Warrant": "거미줄 영장", "Flea-Dusted Pelt": "벼룩투성이 가죽", "Tuft of Fluff": "복슬복슬 털뭉치", "Cracked Claw": "금 간 발톱", "Embossed Coin Pouch": "양각 동전 주머니", "Tiny Fedora": "작은 페도라", "Rhinestone Collar": "라인스톤 목줄", "Void-Singed Whisker": "공허에 그을린 수염", "Furball Crown": "털뭉치 왕관", "Scholar Kings' Seal": "학자 왕들의 인장", "Void Ichor Vial": "공허 이코르 병", "Warden Sigil Shard": "간수의 인장 조각", "Nullstone Bead": "무효석 구슬", "Cracked Void Staff": "금 간 공허 지팡이", "Mangy Hide": "옴 든 가죽", "Broken Dog Tooth": "부러진 개 이빨", "Matted Leather Collar": "엉킨 가죽 목줄", "Tail Feather Bundle": "꼬리깃 다발", "Drumstick": "칠면조 다리", "Turkey Spur Claw": "칠면조 박차 발톱", "Goat Horn": "염소 뿔", "Rough Goat Hide": "거친 염소 가죽", "Hoof Flint": "발굽 부싯돌", "Stolen Bell": "훔친 방울", "Leech Blood Vial": "거머리 피병", "Mucus Sac": "점액 주머니", "Dried Leech Husk": "말린 거머리 껍데기", "Foul Silk Tuft": "고약한 비단 털뭉치", "Weak Venom Gland": "약한 독샘", "Chitin Shell Shard": "키틴 껍데기 조각", "Chitin Fragment": "키틴 조각", "Compound Eye Cluster": "겹눈 무리", "Roach Ichor": "바퀴 체액", "Wool Tuft": "양모 뭉치", "Mutton Shank": "양 정강이살", "Split Hoof": "갈라진 발굽", "Sheep Bell": "양 방울", "Stinger Bundle": "침 다발", "Wasp Venom Sac": "말벌 독주머니", "Comb Fragment": "벌집 조각", "Night Owl Primary Feather": "밤 올빼미 깃털", "Owl Talon": "올빼미 발톱", "Owl Beak Fragment": "올빼미 부리 조각", "Tiny Boot": "작은 장화", "Bull Horn": "황소 뿔", "Thick Bull Hide": "두꺼운 황소 가죽", "Iron Nose Ring": "철 코뚜레", "Snapped Tether Rope": "끊어진 밧줄", "Thrown Horseshoe": "던져진 편자", "Horse Mane Lock": "말 갈기 뭉치", "Hide Strip": "가죽 조각", "Saddlebag Coin": "안장 가방 동전", "Eagle Primary Feather": "독수리 깃털", "Eagle Talon": "독수리 발톱", "Eagle Beak Fragment": "독수리 부리 조각", "Tuft of Cat Fur": "고양이 털뭉치", "Tattered Purse": "낡은 지갑", "Kobold Fang": "코볼트 송곳니", "Blight Thorn": "블라이트 가시", "Devil Ichor": "악마 이코르", "Guard Badge": "경비 배지", "Merchant Ledger": "상인 장부", "Common Fish": "흔한 물고기", "River Carp": "민물 잉어", "River Pike": "강 가물치", "Mudcrab Shell": "진흙 게 껍데기", "Sprite Dust": "요정 가루", "Crow Feather": "까마귀 깃털", "Bandit Blade": "산적 칼날", "Rat Hide": "쥐 가죽", "Bone Fragment": "뼈 조각", "Rotting Bone": "썩은 뼈", "Thug Knuckles": "깡패 주먹뼈", "Wolf Fang": "늑대 송곳니", "Goblin Ear": "고블린 귀", "Imp Horn": "임프 뿔", "Shadow Essence": "그림자 정수", "Spy Cipher": "첩자 암호표", "Aarakocra Feather": "아라코크라 깃털", "Merfolk Scale": "인어 비늘", "Ice Chip": "얼음 조각", "Homunculus Core": "호문쿨루스 핵", "Kenku Feather": "켄쿠 깃털", "Jackalwere Hide": "재칼웨어 가죽", "Hippogriff Feather": "히포그리프 깃털", "Pirate Cutlass": "해적 커틀러스", "Giant Crab Claw": "거대 게 발톱", "Bullywug Tongue": "불리웍 혀", "Dwarf Axe Shard": "드워프 도끼 조각", "Cyber Implant Chip": "사이버 임플란트 칩", "Cracked Servo": "금 간 서보", "Red Kerchief": "붉은 스카프", "Dented Plating": "찌그러진 장갑판", "Bent Gladius": "휘어진 글라디우스", "Cortex Shunt": "피질 션트", "Prime Core": "프라임 핵", "Nekker Claw": "네커 발톱", "Plague Rat Tail": "역병 쥐 꼬리", "Turtle Shell Fragment": "거북 등딱지 조각", "Giant Frog Skin": "거대 개구리 가죽", "Electric Eel Spine": "전기 장어 가시", "Piranha Tooth Bundle": "피라냐 이빨 다발", "Sea Snake Fang": "바다뱀 송곳니", "Armored Hide": "장갑 가죽", "Black Bear Pelt": "흑곰 가죽", "Cult Dagger": "광신교 단도", "Waterlogged Bones": "물에 절은 뼈", "Gael Fang": "가엘 송곳니", "Mamune Hide": "마뮨 가죽", "Neocoris Claw": "네오코리스 발톱", "Panther Pelt": "흑표범 가죽", "Protofleder Wing": "프로토플레더 날개", "Scurver Hide": "스커버 가죽", "Boar Tusk": "멧돼지 엄니", "Voref Claw": "보레프 발톱", "Warg Fang": "와르그 송곳니", "Wild Dog Pelt": "들개 가죽", "Orc Tusk": "오크 엄니", "Ghoul Bone": "구울 뼈", "Spectral Dust": "망령 가루", "Wererat Fang": "웨어랫 송곳니", "Gnoll Hide": "놀 가죽", "Spider Silk": "거미줄", "Ghast Bone": "가스트 뼈", "Hobgoblin Blade": "홉고블린 칼날", "Mimic Resin": "미믹 수지", "Intellect Devourer Brain": "지능 포식자 뇌", "Dire Wolf Fang": "다이어 울프 송곳니", "Wight Essence": "와이트 정수", "Gargoyle Stone Core": "가고일 돌 핵", "Doppelganger Skin": "도플갱어 가죽", "Harpy Feather": "하피 깃털", "Brown Bear Pelt": "불곰 가죽", "Succubus Essence": "서큐버스 정수", "Cult Fanatic Dagger": "광신교도 단도", "Berserker Axe Shard": "버서커 도끼 조각", "Ectoplasm": "엑토플라즘", "Sea Hag Claw": "바다 마녀 발톱", "Sahuagin Trident": "사후아긴 삼지창", "Merrow Scale": "머로우 비늘", "Giant Octopus Tentacle": "거대 문어 촉수", "Lizardfolk Scale": "리저드포크 비늘", "Owlbear Claw": "아울베어 발톱", "Ankheg Acid Gland": "앤케그 산성 샘", "Scorpion Stinger": "전갈 침", "Yuan-ti Scale": "위안티 비늘", "Centaur Hoof": "켄타우로스 발굽", "Pegasus Feather": "페가수스 깃털", "Griffon Talon": "그리핀 발톱", "Displacer Beast Tentacle": "디스플레이서 비스트 촉수", "Werewolf Fang": "웨어울프 송곳니", "Wereboar Tusk": "웨어보어 엄니", "Yeti Pelt": "예티 가죽", "Winter Wolf Fang": "겨울 늑대 송곳니", "Allosaurus Tooth": "알로사우루스 이빨", "Water Weird Essence": "워터 위어드 정수", "Revenant Bone": "레버넌트 뼈", "Manticore Spine": "만티코어 가시", "Lamia Scale": "라미아 비늘", "Hag Eye": "마녀의 눈", "Wraith Essence": "레이스 정수", "Cyclops Eye": "사이클롭스의 눈", "Ogre Club Splinter": "오우거 몽둥이 파편", "Bugbear Hide": "버그베어 가죽", "Worg Fang": "워그 송곳니", "Satyr Horn": "사티로스 뿔", "Druid Staff Shard": "드루이드 지팡이 조각", "Mage Spellbook Page": "마법사 주문서 페이지", "Animated Armor Plate": "살아있는 갑옷 장갑판", "Triton Trident": "트리톤 삼지창", "Sea Spawn Scale": "바다 스폰 비늘", "Constrictor Scale": "조이뱀 비늘", "Will-o'-Wisp Spark": "윌오위스프 불똥", "Black Pudding Ooze": "블랙 푸딩 점액", "Gelatinous Cube Core": "젤라틴 큐브 핵", "Giant Eagle Feather": "거대 독수리 깃털", "Cyber-Guard CPU Chip": "사이버 경비병 CPU 칩", "Hacker Data Core": "해커 데이터 핵", "Android Core Matrix": "안드로이드 핵 행렬", "Virus Data Fragment": "바이러스 데이터 조각", "Foglet Claw": "포글렛 발톱", "Alghoul Bone": "알구울 뼈", "Ekimara Fang": "에키마라 송곳니", "Rotfiend Bile": "부패 괴물 담즙", "Drowner Brain": "드라우너 뇌", "Water Hag Tooth": "물 마녀 이빨", "Noonwraith Dust": "정오의 망령 가루", "Nightwraith Essence": "밤의 망령 정수", "Botchling Bone": "보츨링 뼈", "Plague Maiden Hair": "역병의 처녀 머리카락", "Hym Curse Shard": "힘 저주 조각", "Arachas Shell": "아라카스 껍데기", "Endrega Claw": "엔드레가 발톱", "Kelpie Mane": "켈피 갈기", "Barghest Fang": "바게스트 송곳니", "Redcap Hat": "레드캡 모자", "Cu Sidhe Pelt": "쿠 시 가죽", "Sluagh Bone": "슬루아 뼈", "Fear Gorta Dust": "피어 고르타 가루", "Black Shuck Fang": "블랙 슉 송곳니", "Ghost Ectoplasm": "유령 엑토플라즘", "Deep One Scale": "심연자 비늘", "Sea Siren Pearl": "바다 세이렌 진주", "Selkie Skin": "셀키 가죽", "Bone Naga Rib": "뼈 나가 갈비뼈", "Sand Wraith Dust": "모래 망령 가루", "Data Wraith Core": "데이터 레이스 핵", "Ghost Manuscript": "유령 필사본", "Oracle Shade Essence": "신탁의 그림자 정수", "Alp Essence": "알프 정수", "Archespore Spore": "아르케스포어 포자", "Basilisk Stone Eye": "바실리스크 돌 눈", "Bauk Shadow Claw": "바우크 그림자 발톱", "Bloedzuiger Blood Vial": "블로드주이거 피병", "Brute Gauntlet": "야수의 건틀릿", "Cave Bear Claw": "동굴 곰 발톱", "Cemetaur Blade": "세메타우르 칼날", "Cockatrice Feather": "코카트리스 깃털", "Draugir Bone": "드라우기르 뼈", "Echinops Spike": "에키놉스 가시", "Ekhidna Scale": "에키드나 비늘", "Ekimmara Fang": "에키마라 송곳니", "Eyehead Ocular Fluid": "눈머리 안구액", "Windbag Medal": "허풍쟁이 메달", "Fleder Wing Claw": "플레더 날개 발톱", "Forest Creature Hide": "숲의 생물 가죽", "Genie Lamp Fragment": "지니 램프 조각", "Graveir Bone": "그레이비어 뼈", "Hagubman Tooth": "하굽만 이빨", "Ice Troll Finger": "얼음 트롤 손가락", "Ifrit Flame Core": "이프리트 불꽃 핵", "Will-Fire Essence": "의지의 불꽃 정수", "Katakan Fang": "카타칸 송곳니", "Kikimore Claw": "키키모어 발톱", "Longlocks Hair Lock": "긴머리 머리카락 뭉치", "Midday Bride Veil": "한낮의 신부 베일", "Myrmidon Chitin": "미르미돈 키틴질", "Opinicus Feather": "오피니쿠스 깃털", "Pale Widow Silk": "창백한 과부 비단", "Penitent Bone Chain": "참회자의 뼈 사슬", "Spriggan Wood Heart": "스프리건 나무 심장", "Vodyanoi Mask": "보드야노이 가면", "Vodyanoi Trident": "보드야노이 삼지창", "Giant Eel Spine": "거대 장어 가시", "Kappa Shell Plate": "캇파 등딱지 판", "Nixie Fin": "닉시 지느러미", "Bunyip Hide": "버닙 가죽", "Undine Water Essence": "운디네 물 정수", "Lake Hag Eye": "호수 마녀 눈", "River Troll Stone": "강 트롤 돌", "Bandit Captain Sword": "산적 두목 검", "Vampire Fang": "뱀파이어 송곳니", "Mummy Wrapping": "미라 붕대", "Troll Tooth": "트롤 이빨", "Wyvern Stinger": "와이번 침", "Assassin Blade": "암살자 칼날", "Veteran Medallion": "베테랑 메달", "Gladiator Trophy": "검투사 전리품", "Knight Crest": "기사 문장", "Night Hag Heartstone": "밤 마녀 심장석", "Polar Bear Pelt": "북극곰 가죽", "Remorhaz Scale": "레모하즈 비늘", "Treant Heartwood": "트렌트 심재", "Abominable Yeti Pelt": "혐오스러운 예티 가죽", "Frost Giant Rune Stone": "서리 거인 룬석", "White Dragon Scale": "백룡 비늘", "Shark Tooth": "상어 이빨", "Horned Shark Jaw": "뿔 상어 턱", "T-Rex Tooth": "티렉스 이빨", "Deva Feather": "데바 깃털", "Cloud Giant Sigil": "구름 거인 인장", "Aboleth Tentacle": "아볼레스 촉수", "Swashbuckler Rapier": "스워시버클러 레이피어", "Pirate Captain Pistol": "해적 선장 권총", "Archmage Orb Shard": "대마법사 오브 조각", "Medusa Head": "메두사의 머리", "Minotaur Horn": "미노타우로스 뿔", "Chimera Mane": "키메라 갈기", "Hydra Head": "히드라의 머리", "Mound Vine Core": "덤불 덩굴 핵", "Crocodile Scale": "악어 비늘", "Banshee Wail Essence": "밴시의 울음 정수", "Hill Giant Club Shard": "언덕 거인 몽둥이 조각", "Stone Giant Rune": "바위 거인 룬", "Mind Flayer Brain": "마인드 플레이어 뇌", "Shield Guardian Core": "방패 수호자 핵", "Bulette Plate": "불레트 장갑판", "Yuan-ti Venom Sac": "위안티 독주머니", "Oni Horn": "오니 뿔", "Naga Scale": "나가 비늘", "Brass Dragon Scale": "황동룡 비늘", "Black Dragon Scale": "흑룡 비늘", "Unicorn Horn": "유니콘 뿔", "Dullahan Head": "듀라한의 머리", "Black Knight Sword": "흑기사 검", "Samurai Katana Shard": "사무라이 카타나 조각", "Neon Golem Core": "네온 골렘 핵", "Striga Claw": "스트리가 발톱", "Leshen Idol": "레쉰 우상", "Chort Horn": "초트 뿔", "Fiend Beast Hide": "마수 가죽", "Bruxa Fang": "브룩사 송곳니", "Grave Hag Eye": "무덤 마녀 눈", "Crone Witch Mask": "크로네 마녀 가면", "Erlking Antler": "엘왕 뿔", "Nuckelavee Bone": "너클라비 뼈", "Abhartach Skull": "아바타흐 두개골", "Wendigo Claw": "웬디고 발톱", "Baba Yaga Mortar": "바바 야가 절구", "Forge Core": "용광로 핵", "Mummy Priest Amulet": "미라 사제 부적", "Sea Demon Ichor": "바다 악마 이코르", "Kraken Spawn Tentacle": "크라켄 새끼 촉수", "Sea Witch Wand Shard": "바다 마녀 지팡이 조각", "Sphinx Feather": "스핑크스 깃털", "Bronze Automaton Gear": "청동 자동인형 톱니바퀴", "Ettin Head Trophy": "에틴 머리 전리품", "Void Shard": "공허 조각", "Void Walker Shard": "공허 보행자 조각", "Star Spawn Eye": "별의 스폰 눈", "Jade Construct Core": "비취 구조물 핵", "Cyber-Vampire Fang": "사이버 뱀파이어 송곳니", "Neural Predator Cortex": "신경 포식자 피질", "Fallen Seraph Feather": "타락한 세라프 깃털", "Sea Serpent Scale": "바다뱀 괴수 비늘", "Giant Turtle Shell": "거대 거북 껍데기", "Charybdis Maw Fragment": "카리브디스 아가리 조각", "Plesiosaur Tooth": "플레시오사우루스 이빨", "Lake Demon Scale": "호수 악마 비늘", "Catoblepas Horn": "카토블레파스 뿔", "Chappelle Badge": "샤펠 배지", "Dagon Idol Fragment": "다곤 우상 조각", "Djinn Essence Vial": "진 정수 병", "Draug Bone": "드라우그 뼈", "Earth Elemental Core": "대지 정령 핵", "Fire Elemental Ember": "불의 정령 불씨", "Frightener Claw": "공포 괴물 발톱", "Garkain Fang": "가르카인 송곳니", "Gernichora Claw": "게르니초라 발톱", "Gigascorpion Stinger": "기가스콜피온 침", "Golem Core": "골렘 핵", "Golyat Hide": "골랴트 가죽", "Greater Brother Fang": "상위 형제 송곳니", "Mutant Organ": "돌연변이 장기", "Higher Vampire Fang": "상위 뱀파이어 송곳니", "Ice Elemental Core": "얼음 정령 핵", "Ice Giant Rune": "얼음 거인 룬", "Koshchey Bone Needle": "코셰이 뼈 바늘", "Rock Troll Stone": "바위 트롤 돌", "Royal Wyvern Scale": "왕실 와이번 비늘", "Salma Fang": "살마 송곳니", "Sarasti Fang": "사라스티 송곳니", "Shaelmaar Scale": "샤엘마르 비늘", "Shrieker Feather": "비명 괴물 깃털", "Silver Basilisk Eye": "은 바실리스크 눈", "Slyzard Scale": "슬리자드 비늘", "Spoon Collector Spoon": "숟가락 수집가의 숟가락", "Therazane Earth Core": "테라잔 대지의 핵", "Umbra Shadow Shard": "움브라 그림자 조각", "Werebear Pelt": "웨어베어 가죽", "White Lady Veil": "백색 여인 베일", "Wicked Witch Hat": "사악한 마녀 모자", "Woodland Spirit Bark": "숲의 정령 나무껍질", "Ysbaddaden Giant Tooth": "이스바다덴 거인의 이빨", "Zephyr Wing Feather": "제피르 날개 깃털", "Zeugl Tentacle": "제우글 촉수", "Stone Golem Core": "돌 골렘 핵", "Vampire Heart": "뱀파이어 심장", "Mummy Lord Amulet": "미라 군주 부적", "Lich Phylactery Shard": "리치 필락터리 조각", "Death Knight Sword Shard": "데스 나이트 검 조각", "Marid Water Pearl": "마리드 물의 진주", "Blue Dragon Scale": "청룡 비늘", "Storm Giant Sigil": "폭풍 거인 인장", "Planetar Feather": "플라네타 깃털", "Silver Dragon Scale": "은룡 비늘", "Dragon Turtle Shell": "드래곤 터틀 껍데기", "Kraken Eye": "크라켄 눈", "Ancient Dragon Scale": "고대룡 비늘", "Roc Feather": "로크 깃털", "Purple Worm Tooth": "퍼플 웜 이빨", "Beholder Eye": "비홀더 눈", "Gold Dragon Scale": "금룡 비늘", "Iron Golem Core": "철 골렘 핵", "Death Tyrant Eye": "죽음의 폭군 눈", "Leviathan Scale": "리바이어던 비늘", "Ancient Serpent Fang": "고대 바다뱀 송곳니", "Sea Titan Trident": "바다 거신 삼지창", "Loch Horror Tentacle": "호수의 공포 촉수", "Bruxa Heart": "브룩사의 심장", "Void Crown Shard": "공허 왕관 조각", "Sun-Bleached Waterskin": "햇볕에 바랜 물부대", "Sardine Pack": "정어리 팩", "Live Shallows Minnow": "살아있는 여울 피라미", "False Warrant Papers": "위조 영장 서류", "Scholar King's Field Seal": "학자왕의 야전 인장", "The Last Cipher": "최후의 암호"};
+const _ITEM_NAME_MIGRATION = {"Minnow Barb": "피라미 가시", "Gudgeon Spine": "모래무지 가시", "Dace Scale Shard": "잉어 비늘 조각", "Bleak Venom Sac": "블리크 독주머니", "Perch Venom Gland": "농어 독샘", "Roach Barb Bundle": "로치 가시 다발", "Tench Poison Dorsal": "텐치 독 등지느러미", "Bream Spine Array": "도미 가시 열", "Chub Toxin Flask": "피라냐 독소 플라스크", "Carp Poison Core": "잉어 독 핵", "Rudd Razor Scale": "러드 칼날 비늘", "Zander Gill Dagger": "잰더 아가미 단도", "Pike Venom Jaw": "가물치 독 턱", "Catfish Barb Set": "메기 가시 세트", "Eel Spine Whip": "장어 가시 채찍", "Viper Fish Scale Plate": "독어 비늘 판", "Leviathan Trout Fin": "리바이어던 송어 지느러미", "Spine King Crown": "가시왕 왕관", "Dread Catfish Whisker": "공포 메기 수염", "Yugurt's Dread Scale": "유구르트의 공포 비늘", "Murk Darter Scale": "탁수 다터 비늘", "Void Gulper Stomach": "공허 삼키미 위", "Lantern Eel Gland": "초롱 장어 샘", "Shadowfin Scale Sheet": "그림자지느러미 비늘 장", "Lurker Bone Hook": "잠복자 뼈 갈고리", "Lurker Carapace": "잠복자 등딱지", "Corrupted Meme Fragment": "타락한 밈 조각", "Worthless Coin Chip": "가치 없는 동전 조각", "Void-Bleached Husk": "공허에 표백된 껍데기", "Static-Singed Fur": "정전기에 그을린 털", "Faceless Lens Shard": "무안 렌즈 조각", "Compressed Signal Mass": "압축된 신호 덩어리", "Diamond Hand Fragment": "다이아몬드 손 조각", "Gold-Standard Feather": "금본위 깃털", "Spider Silk Warrant": "거미줄 영장", "Flea-Dusted Pelt": "벼룩투성이 가죽", "Tuft of Fluff": "복슬복슬 털뭉치", "Cracked Claw": "금 간 발톱", "Embossed Coin Pouch": "양각 동전 주머니", "Tiny Fedora": "작은 페도라", "Rhinestone Collar": "라인스톤 목줄", "Void-Singed Whisker": "공허에 그을린 수염", "Furball Crown": "털뭉치 왕관", "Scholar Kings' Seal": "학자 왕들의 인장", "Void Ichor Vial": "공허 이코르 병", "Warden Sigil Shard": "간수의 인장 조각", "Nullstone Bead": "무효석 구슬", "Cracked Void Staff": "금 간 공허 지팡이", "Mangy Hide": "옴 든 가죽", "Broken Dog Tooth": "부러진 개 이빨", "Matted Leather Collar": "엉킨 가죽 목줄", "Tail Feather Bundle": "꼬리깃 다발", "Drumstick": "칠면조 다리", "Turkey Spur Claw": "칠면조 박차 발톱", "Goat Horn": "염소 뿔", "Rough Goat Hide": "거친 염소 가죽", "Hoof Flint": "발굽 부싯돌", "Stolen Bell": "훔친 방울", "Leech Blood Vial": "거머리 피병", "Mucus Sac": "점액 주머니", "Dried Leech Husk": "말린 거머리 껍데기", "Foul Silk Tuft": "고약한 비단 털뭉치", "Weak Venom Gland": "약한 독샘", "Chitin Shell Shard": "키틴 껍데기 조각", "Chitin Fragment": "키틴 조각", "Compound Eye Cluster": "겹눈 무리", "Roach Ichor": "바퀴 체액", "Wool Tuft": "양모 뭉치", "Mutton Shank": "양 정강이살", "Split Hoof": "갈라진 발굽", "Sheep Bell": "양 방울", "Stinger Bundle": "침 다발", "Wasp Venom Sac": "말벌 독주머니", "Comb Fragment": "벌집 조각", "Night Owl Primary Feather": "밤 올빼미 깃털", "Owl Talon": "올빼미 발톱", "Owl Beak Fragment": "올빼미 부리 조각", "Tiny Boot": "작은 장화", "Bull Horn": "황소 뿔", "Thick Bull Hide": "두꺼운 황소 가죽", "Iron Nose Ring": "철 코뚜레", "Snapped Tether Rope": "끊어진 밧줄", "Thrown Horseshoe": "던져진 편자", "Horse Mane Lock": "말 갈기 뭉치", "Hide Strip": "가죽 조각", "Saddlebag Coin": "안장 가방 동전", "Eagle Primary Feather": "독수리 깃털", "Eagle Talon": "독수리 발톱", "Eagle Beak Fragment": "독수리 부리 조각", "Tuft of Cat Fur": "고양이 털뭉치", "Tattered Purse": "낡은 지갑", "Kobold Fang": "코볼트 송곳니", "Blight Thorn": "블라이트 가시", "Devil Ichor": "악마 이코르", "Guard Badge": "경비 배지", "Merchant Ledger": "상인 장부", "Common Fish": "흔한 물고기", "River Carp": "민물 잉어", "River Pike": "강 가물치", "Mudcrab Shell": "진흙 게 껍데기", "Sprite Dust": "요정 가루", "Crow Feather": "까마귀 깃털", "Bandit Blade": "산적 칼날", "Rat Hide": "쥐 가죽", "Bone Fragment": "뼈 조각", "Rotting Bone": "썩은 뼈", "Thug Knuckles": "깡패 주먹뼈", "Wolf Fang": "늑대 송곳니", "Goblin Ear": "고블린 귀", "Imp Horn": "임프 뿔", "Shadow Essence": "그림자 정수", "Spy Cipher": "첩자 암호표", "Aarakocra Feather": "아라코크라 깃털", "Merfolk Scale": "인어 비늘", "Ice Chip": "얼음 조각", "Homunculus Core": "호문쿨루스 핵", "Kenku Feather": "켄쿠 깃털", "Jackalwere Hide": "재칼웨어 가죽", "Hippogriff Feather": "히포그리프 깃털", "Pirate Cutlass": "해적 커틀러스", "Giant Crab Claw": "거대 게 발톱", "Bullywug Tongue": "불리웍 혀", "Dwarf Axe Shard": "드워프 도끼 조각", "Cyber Implant Chip": "사이버 임플란트 칩", "Cracked Servo": "금 간 서보", "Red Kerchief": "붉은 스카프", "Dented Plating": "찌그러진 장갑판", "Bent Gladius": "휘어진 글라디우스", "Cortex Shunt": "피질 션트", "Prime Core": "프라임 핵", "Nekker Claw": "네커 발톱", "Plague Rat Tail": "역병 쥐 꼬리", "Turtle Shell Fragment": "거북 등딱지 조각", "Giant Frog Skin": "거대 개구리 가죽", "Electric Eel Spine": "전기 장어 가시", "Piranha Tooth Bundle": "피라냐 이빨 다발", "Sea Snake Fang": "바다뱀 송곳니", "Armored Hide": "장갑 가죽", "Black Bear Pelt": "흑곰 가죽", "Cult Dagger": "광신교 단도", "Waterlogged Bones": "물에 절은 뼈", "Gael Fang": "가엘 송곳니", "Mamune Hide": "마뮨 가죽", "Neocoris Claw": "네오코리스 발톱", "Panther Pelt": "흑표범 가죽", "Protofleder Wing": "프로토플레더 날개", "Scurver Hide": "스커버 가죽", "Boar Tusk": "멧돼지 엄니", "Voref Claw": "보레프 발톱", "Warg Fang": "와르그 송곳니", "Wild Dog Pelt": "들개 가죽", "Orc Tusk": "오크 엄니", "Ghoul Bone": "구울 뼈", "Spectral Dust": "망령 가루", "Wererat Fang": "웨어랫 송곳니", "Gnoll Hide": "놀 가죽", "Spider Silk": "거미줄", "Ghast Bone": "가스트 뼈", "Hobgoblin Blade": "홉고블린 칼날", "Mimic Resin": "미믹 수지", "Intellect Devourer Brain": "지능 포식자 뇌", "Dire Wolf Fang": "다이어 울프 송곳니", "Wight Essence": "와이트 정수", "Gargoyle Stone Core": "가고일 돌 핵", "Doppelganger Skin": "도플갱어 가죽", "Harpy Feather": "하피 깃털", "Brown Bear Pelt": "불곰 가죽", "Succubus Essence": "서큐버스 정수", "Cult Fanatic Dagger": "광신교도 단도", "Berserker Axe Shard": "버서커 도끼 조각", "Ectoplasm": "엑토플라즘", "Sea Hag Claw": "바다 마녀 발톱", "Sahuagin Trident": "사후아긴 삼지창", "Merrow Scale": "머로우 비늘", "Giant Octopus Tentacle": "거대 문어 촉수", "Lizardfolk Scale": "리저드포크 비늘", "Owlbear Claw": "아울베어 발톱", "Ankheg Acid Gland": "앤케그 산성 샘", "Scorpion Stinger": "전갈 침", "Yuan-ti Scale": "위안티 비늘", "Centaur Hoof": "켄타우로스 발굽", "Pegasus Feather": "페가수스 깃털", "Griffon Talon": "그리핀 발톱", "Displacer Beast Tentacle": "디스플레이서 비스트 촉수", "Werewolf Fang": "웨어울프 송곳니", "Wereboar Tusk": "웨어보어 엄니", "Yeti Pelt": "예티 가죽", "Winter Wolf Fang": "겨울 늑대 송곳니", "Allosaurus Tooth": "알로사우루스 이빨", "Water Weird Essence": "워터 위어드 정수", "Revenant Bone": "레버넌트 뼈", "Manticore Spine": "만티코어 가시", "Lamia Scale": "라미아 비늘", "Hag Eye": "마녀의 눈", "Wraith Essence": "레이스 정수", "Cyclops Eye": "사이클롭스의 눈", "Ogre Club Splinter": "오우거 몽둥이 파편", "Bugbear Hide": "버그베어 가죽", "Worg Fang": "워그 송곳니", "Satyr Horn": "사티로스 뿔", "Druid Staff Shard": "드루이드 지팡이 조각", "Mage Spellbook Page": "마법사 주문서 페이지", "Animated Armor Plate": "살아있는 갑옷 장갑판", "Triton Trident": "트리톤 삼지창", "Sea Spawn Scale": "바다 스폰 비늘", "Constrictor Scale": "조이뱀 비늘", "Will-o'-Wisp Spark": "윌오위스프 불똥", "Black Pudding Ooze": "블랙 푸딩 점액", "Gelatinous Cube Core": "젤라틴 큐브 핵", "Giant Eagle Feather": "거대 독수리 깃털", "Cyber-Guard CPU Chip": "사이버 경비병 CPU 칩", "Hacker Data Core": "해커 데이터 핵", "Android Core Matrix": "안드로이드 핵 행렬", "Virus Data Fragment": "바이러스 데이터 조각", "Foglet Claw": "포글렛 발톱", "Alghoul Bone": "알구울 뼈", "Ekimara Fang": "에키마라 송곳니", "Rotfiend Bile": "부패 괴물 담즙", "Drowner Brain": "드라우너 뇌", "Water Hag Tooth": "물 마녀 이빨", "Noonwraith Dust": "정오의 망령 가루", "Nightwraith Essence": "밤의 망령 정수", "Botchling Bone": "보츨링 뼈", "Plague Maiden Hair": "역병의 처녀 머리카락", "Hym Curse Shard": "힘 저주 조각", "Arachas Shell": "아라카스 껍데기", "Endrega Claw": "엔드레가 발톱", "Kelpie Mane": "켈피 갈기", "Barghest Fang": "바게스트 송곳니", "Redcap Hat": "레드캡 모자", "Cu Sidhe Pelt": "쿠 시 가죽", "Sluagh Bone": "슬루아 뼈", "Fear Gorta Dust": "피어 고르타 가루", "Black Shuck Fang": "블랙 슉 송곳니", "Ghost Ectoplasm": "유령 엑토플라즘", "Deep One Scale": "심연자 비늘", "Sea Siren Pearl": "바다 세이렌 진주", "Selkie Skin": "셀키 가죽", "Bone Naga Rib": "뼈 나가 갈비뼈", "Sand Wraith Dust": "모래 망령 가루", "Data Wraith Core": "데이터 레이스 핵", "Ghost Manuscript": "유령 필사본", "Oracle Shade Essence": "신탁의 그림자 정수", "Alp Essence": "알프 정수", "Archespore Spore": "아르케스포어 포자", "Basilisk Stone Eye": "바실리스크 돌 눈", "Bauk Shadow Claw": "바우크 그림자 발톱", "Bloedzuiger Blood Vial": "블로드주이거 피병", "Brute Gauntlet": "야수의 건틀릿", "Cave Bear Claw": "동굴 곰 발톱", "Cemetaur Blade": "세메타우르 칼날", "Cockatrice Feather": "코카트리스 깃털", "Draugir Bone": "드라우기르 뼈", "Echinops Spike": "에키놉스 가시", "Ekhidna Scale": "에키드나 비늘", "Ekimmara Fang": "에키마라 송곳니", "Eyehead Ocular Fluid": "눈머리 안구액", "Windbag Medal": "허풍쟁이 메달", "Fleder Wing Claw": "플레더 날개 발톱", "Forest Creature Hide": "숲의 생물 가죽", "Genie Lamp Fragment": "지니 램프 조각", "Graveir Bone": "그레이비어 뼈", "Hagubman Tooth": "하굽만 이빨", "Ice Troll Finger": "얼음 트롤 손가락", "Ifrit Flame Core": "이프리트 불꽃 핵", "Will-Fire Essence": "의지의 불꽃 정수", "Katakan Fang": "카타칸 송곳니", "Kikimore Claw": "키키모어 발톱", "Longlocks Hair Lock": "긴머리 머리카락 뭉치", "Midday Bride Veil": "한낮의 신부 베일", "Myrmidon Chitin": "미르미돈 키틴질", "Opinicus Feather": "오피니쿠스 깃털", "Pale Widow Silk": "창백한 과부 비단", "Penitent Bone Chain": "참회자의 뼈 사슬", "Spriggan Wood Heart": "스프리건 나무 심장", "Vodyanoi Mask": "보드야노이 가면", "Vodyanoi Trident": "보드야노이 삼지창", "Giant Eel Spine": "거대 장어 가시", "Kappa Shell Plate": "캇파 등딱지 판", "Nixie Fin": "닉시 지느러미", "Bunyip Hide": "버닙 가죽", "Undine Water Essence": "운디네 물 정수", "Lake Hag Eye": "호수 마녀 눈", "River Troll Stone": "강 트롤 돌", "Bandit Captain Sword": "산적 두목 검", "Vampire Fang": "뱀파이어 송곳니", "Mummy Wrapping": "미라 붕대", "Troll Tooth": "트롤 이빨", "Wyvern Stinger": "와이번 침", "Assassin Blade": "암살자 칼날", "Veteran Medallion": "베테랑 메달", "Gladiator Trophy": "검투사 전리품", "Knight Crest": "기사 문장", "Night Hag Heartstone": "밤 마녀 심장석", "Polar Bear Pelt": "북극곰 가죽", "Remorhaz Scale": "레모하즈 비늘", "Treant Heartwood": "트렌트 심재", "Abominable Yeti Pelt": "혐오스러운 예티 가죽", "Frost Giant Rune Stone": "서리 거인 룬석", "White Dragon Scale": "백룡 비늘", "Shark Tooth": "상어 이빨", "Horned Shark Jaw": "뿔 상어 턱", "T-Rex Tooth": "티렉스 이빨", "Deva Feather": "데바 깃털", "Cloud Giant Sigil": "구름 거인 인장", "Aboleth Tentacle": "아볼레스 촉수", "Swashbuckler Rapier": "스워시버클러 레이피어", "Pirate Captain Pistol": "해적 선장 권총", "Archmage Orb Shard": "대마법사 오브 조각", "Medusa Head": "메두사의 머리", "Minotaur Horn": "미노타우로스 뿔", "Chimera Mane": "키메라 갈기", "Hydra Head": "히드라의 머리", "Mound Vine Core": "덤불 덩굴 핵", "Crocodile Scale": "악어 비늘", "Banshee Wail Essence": "밴시의 울음 정수", "Hill Giant Club Shard": "언덕 거인 몽둥이 조각", "Stone Giant Rune": "바위 거인 룬", "Mind Flayer Brain": "마인드 플레이어 뇌", "Shield Guardian Core": "방패 수호자 핵", "Bulette Plate": "불레트 장갑판", "Yuan-ti Venom Sac": "위안티 독주머니", "Oni Horn": "오니 뿔", "Naga Scale": "나가 비늘", "Brass Dragon Scale": "황동룡 비늘", "Black Dragon Scale": "흑룡 비늘", "Unicorn Horn": "유니콘 뿔", "Dullahan Head": "듀라한의 머리", "Black Knight Sword": "흑기사 검", "Samurai Katana Shard": "사무라이 카타나 조각", "Neon Golem Core": "네온 골렘 핵", "Striga Claw": "스트리가 발톱", "Leshen Idol": "레쉰 우상", "Chort Horn": "초트 뿔", "Fiend Beast Hide": "마수 가죽", "Bruxa Fang": "브룩사 송곳니", "Grave Hag Eye": "무덤 마녀 눈", "Crone Witch Mask": "크로네 마녀 가면", "Erlking Antler": "엘왕 뿔", "Nuckelavee Bone": "너클라비 뼈", "Abhartach Skull": "아바타흐 두개골", "Wendigo Claw": "웬디고 발톱", "Baba Yaga Mortar": "바바 야가 절구", "Forge Core": "용광로 핵", "Mummy Priest Amulet": "미라 사제 부적", "Sea Demon Ichor": "바다 악마 이코르", "Kraken Spawn Tentacle": "크라켄 새끼 촉수", "Sea Witch Wand Shard": "바다 마녀 지팡이 조각", "Sphinx Feather": "스핑크스 깃털", "Bronze Automaton Gear": "청동 자동인형 톱니바퀴", "Ettin Head Trophy": "에틴 머리 전리품", "Void Shard": "공허 조각", "Void Walker Shard": "공허 보행자 조각", "Star Spawn Eye": "별의 스폰 눈", "Jade Construct Core": "비취 구조물 핵", "Cyber-Vampire Fang": "사이버 뱀파이어 송곳니", "Neural Predator Cortex": "신경 포식자 피질", "Fallen Seraph Feather": "타락한 세라프 깃털", "Sea Serpent Scale": "바다뱀 괴수 비늘", "Giant Turtle Shell": "거대 거북 껍데기", "Charybdis Maw Fragment": "카리브디스 아가리 조각", "Plesiosaur Tooth": "플레시오사우루스 이빨", "Lake Demon Scale": "호수 악마 비늘", "Catoblepas Horn": "카토블레파스 뿔", "Chappelle Badge": "샤펠 배지", "Dagon Idol Fragment": "다곤 우상 조각", "Djinn Essence Vial": "진 정수 병", "Draug Bone": "드라우그 뼈", "Earth Elemental Core": "대지 정령 핵", "Fire Elemental Ember": "불의 정령 불씨", "Frightener Claw": "공포 괴물 발톱", "Garkain Fang": "가르카인 송곳니", "Gernichora Claw": "게르니초라 발톱", "Gigascorpion Stinger": "기가스콜피온 침", "Golem Core": "골렘 핵", "Golyat Hide": "골랴트 가죽", "Greater Brother Fang": "상위 형제 송곳니", "Mutant Organ": "돌연변이 장기", "Higher Vampire Fang": "상위 뱀파이어 송곳니", "Ice Elemental Core": "얼음 정령 핵", "Ice Giant Rune": "얼음 거인 룬", "Koshchey Bone Needle": "코셰이 뼈 바늘", "Rock Troll Stone": "바위 트롤 돌", "Royal Wyvern Scale": "왕실 와이번 비늘", "Salma Fang": "살마 송곳니", "Sarasti Fang": "사라스티 송곳니", "Shaelmaar Scale": "샤엘마르 비늘", "Shrieker Feather": "비명 괴물 깃털", "Silver Basilisk Eye": "은 바실리스크 눈", "Slyzard Scale": "슬리자드 비늘", "Spoon Collector Spoon": "숟가락 수집가의 숟가락", "Therazane Earth Core": "테라잔 대지의 핵", "Umbra Shadow Shard": "움브라 그림자 조각", "Werebear Pelt": "웨어베어 가죽", "White Lady Veil": "백색 여인 베일", "Wicked Witch Hat": "사악한 마녀 모자", "Woodland Spirit Bark": "숲의 정령 나무껍질", "Ysbaddaden Giant Tooth": "이스바다덴 거인의 이빨", "Zephyr Wing Feather": "제피르 날개 깃털", "Zeugl Tentacle": "제우글 촉수", "Stone Golem Core": "돌 골렘 핵", "Vampire Heart": "뱀파이어 심장", "Mummy Lord Amulet": "미라 군주 부적", "Lich Phylactery Shard": "리치 필락터리 조각", "Death Knight Sword Shard": "데스 나이트 검 조각", "Marid Water Pearl": "마리드 물의 진주", "Blue Dragon Scale": "청룡 비늘", "Storm Giant Sigil": "폭풍 거인 인장", "Planetar Feather": "플라네타 깃털", "Silver Dragon Scale": "은룡 비늘", "Dragon Turtle Shell": "드래곤 터틀 껍데기", "Kraken Eye": "크라켄 눈", "Ancient Dragon Scale": "고대룡 비늘", "Roc Feather": "로크 깃털", "Purple Worm Tooth": "퍼플 웜 이빨", "Beholder Eye": "비홀더 눈", "Gold Dragon Scale": "금룡 비늘", "Iron Golem Core": "철 골렘 핵", "Death Tyrant Eye": "죽음의 폭군 눈", "Leviathan Scale": "리바이어던 비늘", "Ancient Serpent Fang": "고대 바다뱀 송곳니", "Sea Titan Trident": "바다 거신 삼지창", "Loch Horror Tentacle": "호수의 공포 촉수", "Bruxa Heart": "브룩사의 심장", "Void Crown Shard": "공허 왕관 조각", "Sun-Bleached Waterskin": "햇볕에 바랜 물부대", "Sardine Pack": "정어리 팩", "Live Shallows Minnow": "살아있는 여울 피라미", "False Warrant Papers": "위조 영장 서류", "Scholar King's Field Seal": "학자왕의 야전 인장", "The Last Cipher": "최후의 암호", "Swamp Kelp": "늪지 다시마", "Electric Eel Organ": "전기 장어 기관", "Iodine Salt": "아이오딘 소금", "Charged Iodine Salt": "충전된 아이오딘 소금", "Sea Element": "바다 원소", "Glut's Hoard Fragment": "글럿의 보물 조각"};
 function _migrateItemNames(st){
   const inv = st && st.inventory;
   if (!Array.isArray(inv)) return;
@@ -32207,7 +32207,7 @@ const NODE_PANELS = [
   // §LXX: DSF — forge active, no iodine held (the smelt button's else-leg)
   { id:'story-dsf-smelt', nodes:['DSF'],
     when:st => st.forgeActivated && !st.seaElementCrafted
-               && !(st.inventory||[]).some(i => i.name === 'Charged Iodine Salt' || i.name === 'Iodine Salt'),
+               && !(st.inventory||[]).some(i => i.name === '충전된 아이오딘 소금' || i.name === '아이오딘 소금'),
     css:'margin-top:8px;border-left-color:#6a4a1a;color:#c09050;font-size:11px;',
     text:'🧂 용광로가 가동 중이다. 장치가 준비됐다. 과정에는 아이오딘 소금이 필요하다. 일반 또는 대전된 것. 환원은 용광로의 열기에서 완료된다.' },
 ];
@@ -33725,15 +33725,15 @@ function _nodeHookHcaLeviathan(node) {
       _levBtn.textContent = '🌊 Face the Leviathan';
       // Check for iodine inventory — offer burn before battle
       const _invL = S_story.inventory || [];
-      const _hasChL = _invL.some(i => i.name === 'Charged Iodine Salt');
-      const _hasPlaL = _invL.some(i => i.name === 'Iodine Salt');
+      const _hasChL = _invL.some(i => i.name === '충전된 아이오딘 소금');
+      const _hasPlaL = _invL.some(i => i.name === '아이오딘 소금');
       if (_hasChL || _hasPlaL) {
         const _iodBtn = document.createElement('button');
         _iodBtn.className = 'inv-use-btn'; _iodBtn.style.cssText = 'margin-top:4px;border-color:#c09020;color:#e0c060;';
-        _iodBtn.textContent = _hasChL ? '⚡🧂 Burn Charged Iodine Salt at the water\'s edge (+5 ATK this fight)' : '🧂 Burn Iodine Salt at the water\'s edge (+3 ATK this fight)';
+        _iodBtn.textContent = _hasChL ? '⚡🧂 물가에서 충전된 아이오딘 소금 태우기 (이번 전투 공격 +5)' : '🧂 물가에서 아이오딘 소금 태우기 (이번 전투 공격 +3)';
         _iodBtn.addEventListener('click', () => {
           _iodBtn.disabled = true; _levBtn.disabled = false;
-          const _iIdx = _invL.findIndex(i => i.name === (_hasChL ? 'Charged Iodine Salt' : 'Iodine Salt'));
+          const _iIdx = _invL.findIndex(i => i.name === (_hasChL ? '충전된 아이오딘 소금' : '아이오딘 소금'));
           if (_iIdx !== -1) _invL.splice(_iIdx, 1);
           S_story.iodineBuffActive = true; S_story.iodineBuffBonus = _hasChL ? 5 : 3;
           storyMsg(_hasChL ? '⚡🧂 Charged iodine burns blue-white at the water\'s edge. The Leviathan flinches. Atlantean craft — ancient and correct.' : '🧂 Iodine salt burns at the waterline. The smoke is chemical, sea-salt, focused. The Leviathan is sensitive to it.');
@@ -34580,16 +34580,16 @@ function _nodeHookLxxDa2Gate(node) {
   { const _gateOld = document.getElementById('story-da2-gate'); if (_gateOld) _gateOld.remove();
     if (node.code === 'DA2' && !S_story.tideGateOpened) {
       const _inv = S_story.inventory || [];
-      const _hasEl = _inv.some(i => i.name === 'Sea Element');
+      const _hasEl = _inv.some(i => i.name === '바다 원소');
       const _gateDiv = document.createElement('div');
       _gateDiv.id = 'story-da2-gate';
       _gateDiv.className = 'sweelinck-variant';
       _gateDiv.style.cssText = 'margin-top:10px;border-left-color:#2a3a5a;color:#90a8c8;font-size:12px;';
       if (_hasEl && S_story.inscriptionRead) {
-        _gateDiv.textContent = '🔱 The mechanism has three positions. You know the sequence. The Sea Element fits the first position. The reduction runs forward from here.';
+        _gateDiv.textContent = '🔱 장치에는 세 개의 위치가 있다. 당신은 순서를 안다. 바다 원소는 첫 번째 위치에 맞는다. 환원은 여기서 앞으로 진행된다.';
         const _gateBtn = document.createElement('button');
         _gateBtn.className = 'inv-use-btn'; _gateBtn.style.marginTop = '6px';
-        _gateBtn.textContent = '🔱 Place the Sea Element — open the Gate';
+        _gateBtn.textContent = '🔱 바다 원소 장착 — 관문 열기';
         _gateBtn.addEventListener('click', () => {
           _gateBtn.disabled = true;
           // §LXX-01-FU FIX — flag only (the la_riva/hg1 shape): quest_sunken_02 completes on
@@ -34604,7 +34604,7 @@ function _nodeHookLxxDa2Gate(node) {
       } else if (!S_story.inscriptionRead) {
         _gateDiv.textContent = '🔱 The mechanism is visible but the sequence is not yet clear. The inscription in the hall above describes the correct order.';
       } else {
-        _gateDiv.textContent = '🔱 The mechanism requires the Sea Element — the Atlantean alloy from the forge above. The forge knows the sequence. The Gate knows the alloy.';
+        _gateDiv.textContent = '🔱 장치에는 바다 원소가 필요하다 — 위층 용광로에서 나온 아틀란티스 합금. 용광로는 순서를 알고, 관문은 합금을 안다.';
       }
       document.getElementById('story-text-box').insertAdjacentElement('afterend', _gateDiv);
     }
@@ -35132,11 +35132,11 @@ const NODE_VERBS = [
   // class, fourth recovered narrative; inline, its own bare re-render destroyed it).
   { id:'lxx-dsf-smelt', group:'lxx-dsf-smelt', nodes:['DSF'],
     when: st => st.forgeActivated && !st.seaElementCrafted
-                && (st.inventory||[]).some(i => i.name === 'Charged Iodine Salt' || i.name === 'Iodine Salt'),
+                && (st.inventory||[]).some(i => i.name === '충전된 아이오딘 소금' || i.name === '아이오딘 소금'),
     label:'🔱 바다의 원소를 제련한다', btnStyle:'margin-top:4px;',
     bits: [
       { kind:'flag_write', set:['seaElementCrafted'] },
-      { kind:'narrative', msg:'🔱 The iodine goes into the forge first — the smoke register, then the salt bed, then the charged heat. The alloy that emerges is the color the sea has before dawn. Sea Element: +2 ATK, 1d8. +400gp.' } ] },
+      { kind:'narrative', msg:'🔱 아이오딘이 먼저 용광로에 들어간다 — 연기 단, 그다음 소금 층, 그다음 충전된 열. 솟아나오는 합금은 새벽 전 바다의 색이다. 바다 원소: 공격 +2, 1d8. +400골드.' } ] },
 ];
 
 // §VM-01-G4b: render every NODE_VERBS entry active for this node, in table order, each into its own
@@ -36238,14 +36238,14 @@ function storyRender(node, prefix) {
 
               // §CROWN-01 Amendment A: Iodine Salt boost — burns a dose then rolls
               const _inv = S_story.inventory || [];
-              const _hasCharged = _inv.some(i => i.name === 'Charged Iodine Salt');
-              const _hasPlain   = _inv.some(i => i.name === 'Iodine Salt');
+              const _hasCharged = _inv.some(i => i.name === '충전된 아이오딘 소금');
+              const _hasPlain   = _inv.some(i => i.name === '아이오딘 소금');
               if (_hasCharged || _hasPlain) {
                 const iodineBtn = document.createElement('button');
                 iodineBtn.className = 'story-card-btn btn-rest ceremonia-iodine-btn';
                 iodineBtn.textContent = _hasCharged
-                  ? '⚡🧂 Burn Charged Iodine Salt (+5) & Roll'
-                  : '🧂 Burn Iodine Salt (+3) & Roll';
+                  ? '⚡🧂 충전된 아이오딘 소금 태우기 (+5) 후 굴리기'
+                  : '🧂 아이오딘 소금 태우기 (+3) 후 굴리기';
                 iodineBtn.addEventListener('click', () => { _closeCerem(); _burnIodineSalt(id); });
                 acc.appendChild(iodineBtn);
               }
