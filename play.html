@@ -10100,9 +10100,9 @@ function describeCell(world, pos) {
   for (const dk of ['N', 'S', 'E', 'W']) {
     const dd = __ROOM_DIRS[dk];
     const s = __roomStep(world.proj, r, c, dd[0], dd[1]);
-    if (s.oob) { exits.push({ dir: dk, kind: 'blocked', label: 'the edge of the known world', hint: null, steps: null }); continue; }
+    if (s.oob) { exits.push({ dir: dk, kind: 'blocked', label: '알려진 세계의 끝', hint: null, steps: null }); continue; }
     const nk = s.nr + ',' + s.nc;
-    if (world.impassable.has(nk)) { exits.push({ dir: dk, kind: 'blocked', label: 'open sea', hint: null, steps: null }); continue; }
+    if (world.impassable.has(nk)) { exits.push({ dir: dk, kind: 'blocked', label: '먼바다', hint: null, steps: null }); continue; }
     const nCodes = world.cellCodes(s.nr, s.nc) || [];
     if (nCodes.length) {
       exits.push({ dir: dk, kind: 'node', label: world.nodeLabel(nCodes[0]), hint: null, steps: 1 });
@@ -11165,7 +11165,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     rumor:"A survivor of the Harrow reached Tilbury on foot, three weeks walking. Her name is Ori and she knows what happened. The Warrant wants her account brought to Rennau.",
   },
   // ── §LI: Muffat — The Third Berth ──
-  quest_muffat_01: { id:'quest_muffat_01', type:'skill_check', schema:'UQF-1.0', gate:{itemsAll:['Trade Seal (Shard #1)']}, bits:[{ kind:'skill_check', stat:'DEX', skill:'Stealth', dc:13, onPass:[{ kind:'mission_bit', flag:'muffatBerthReached', label:'Muffat Berth' }, { kind:'reward', xp:150, gold:150 }], onFail:[] }], title:'The Third Berth', // §LI
+  quest_muffat_01: { id:'quest_muffat_01', type:'skill_check', schema:'UQF-1.0', gate:{itemsAll:['Trade Seal (Shard #1)']}, bits:[{ kind:'skill_check', stat:'DEX', skill:'Stealth', dc:13, onPass:[{ kind:'mission_bit', flag:'muffatBerthReached', label:'머펏 선석' }, { kind:'reward', xp:150, gold:150 }], onFail:[] }], title:'The Third Berth', // §LI
     hint:'Reach the third berth without the harbor watch stopping you (DEX · Stealth DC 13).',
     activateNode:'LCY', retryable:true, retryGateDays:1,
     vignetteText:"The third berth has been wrong since Tuesday. The manifest says ballast. The crane operators won\'t take that side. Muffat has been watching the Scholar Kings clearance stamp on the hold for three days — it prevents harbor search and she knows it. You have the Trade Seal, which gets you onto the dock. The harbor watch works the main berths. The third is close enough to the crane rigging that the shadow covers the approach. Close enough.",
@@ -11298,7 +11298,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     npc:"barnach",
   },
   // ── §LXIII: Cyprus ──
-  quest_ezzir: { id:'quest_ezzir', type:'skill_check', schema:'UQF-1.0', gate:{ flags:['commissionReceived'] }, bits:[{ kind:'skill_check', stat:'WIS', skill:'Insight', dc:14, onPass:[{ kind:'mission_bit', flag:'ezzirConfronted', label:'Ezzir Standoff' }, { kind:'reward', xp:200 }], onFail:[] }], title:'The Sorcerer\'s Opposition',
+  quest_ezzir: { id:'quest_ezzir', type:'skill_check', schema:'UQF-1.0', gate:{ flags:['commissionReceived'] }, bits:[{ kind:'skill_check', stat:'WIS', skill:'Insight', dc:14, onPass:[{ kind:'mission_bit', flag:'ezzirConfronted', label:'에지르 대치' }, { kind:'reward', xp:200 }], onFail:[] }], title:'The Sorcerer\'s Opposition',
     onComplete:[ { kind:'narrative', msg:'🗝️ +200 XP. Ezzir stepped aside. The governor is watching. The door is open.' } ], // §ARCH-01 W7c
       // ⚠ dead in legacy too: skill_check quests never reach 'complete' in storyCheckQuests (§DUNGEON-01 gap)
     desc:"Ezzir has the governor's ear. He has been in the governor's service for six years and knows where to stand. He is standing between Paul and the governor. The governor is watching. He is watching the way a man watches two arguments he has not yet decided between.",
@@ -11311,7 +11311,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     disposition:'"I have been serving this governor for six years. You have been here eleven hours." — Ezzir',
     npc:"the_governor",
   },
-  quest_governor_cyprus: { id:'quest_governor_cyprus', type:'skill_check', schema:'UQF-1.0', gate:{ flags:['ezzirConfronted'] }, bits:[{ kind:'skill_check', stat:'CHA', skill:'Persuasion', dc:11, onPass:[{ kind:'mission_bit', flag:'govCopperConverted', label:'Governor of Cyprus' }, { kind:'reward', xp:250 }], onFail:[] }], title:'The Governor Listens',
+  quest_governor_cyprus: { id:'quest_governor_cyprus', type:'skill_check', schema:'UQF-1.0', gate:{ flags:['ezzirConfronted'] }, bits:[{ kind:'skill_check', stat:'CHA', skill:'Persuasion', dc:11, onPass:[{ kind:'mission_bit', flag:'govCopperConverted', label:'키프로스 총독' }, { kind:'reward', xp:250 }], onFail:[] }], title:'The Governor Listens',
     onComplete:[ { kind:'narrative', msg:'🏛️ +250 XP. The governor has been maintaining an altar for three hundred years without knowing why. He knows now.' } ], // §ARCH-01 W7c
       // ⚠ dead in legacy too: skill_check quests never reach 'complete' in storyCheckQuests (§DUNGEON-01 gap)
     desc:"Ezzir has stepped aside. The governor reads widely and holds opinions about ideas. He has an altar in the corner of his room — three hundred years old, maintained by every governor before him. He does not know why he maintains it. He is about to find out.",
@@ -11325,7 +11325,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     npc:"the_governor",
   },
   // ── §LXIV: The Gate ──
-  quest_lame_lystra: { id:'quest_lame_lystra', type:'skill_check', schema:'UQF-1.0', gate:{}, bits:[{ kind:'skill_check', stat:'WIS', skill:'Faith', dc:10, onPass:[{ kind:'mission_bit', flag:'lameManHealed', label:'Gate Healing' }, { kind:'reward', xp:200 }], onFail:[] }], title:'The Gate',
+  quest_lame_lystra: { id:'quest_lame_lystra', type:'skill_check', schema:'UQF-1.0', gate:{}, bits:[{ kind:'skill_check', stat:'WIS', skill:'Faith', dc:10, onPass:[{ kind:'mission_bit', flag:'lameManHealed', label:'성문 치유' }, { kind:'reward', xp:200 }], onFail:[] }], title:'The Gate',
     onComplete:[ // §ARCH-01 W7c — healed/unhealed branch stays _legacy_fn
       { kind:'_legacy_fn', fn:(S, ctx) => { const say = m => (ctx && ctx.pushMsg ? ctx.pushMsg(m) : storyMsg(m));
         if (S.lameManHealed) say('✨ +200 XP. The man stood. The crowd had expected a god. What they got was a correction.');
@@ -11361,8 +11361,8 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     passText:'You make the opening. Shoulder, then body, then the space where a person stood. He comes through it without being asked. The south gate.\n\nThe road northeast runs out of Lythros past the south gate marker. He takes it. He gets up from the square first, and then he takes it. The sequence matters.\n\n"He got up and went back into the city."',
     failText:'The first stone is not aimed — it is thrown by someone who wanted to be part of something. The second is aimed. Paul takes the hit before you close the distance. You get him to the gate. He is down. Then he gets up. Timael watches this from across the square and decides something.',
     bits:[{ kind:'skill_check', stat:'STR', skill:'Athletics', dc:13,
-      onPass:[{ kind:'mission_bit', flag:'stoningEvent', label:'Lystra Stoning' }, { kind:'reward', xp:150 }],
-      onFail:[{ kind:'_legacy_fn', fn:() => { S_story.hp = Math.min(S_story.hp || 1, 1); } }, { kind:'mission_bit', flag:'stoningEvent', label:'Lystra Stoning' }] }],
+      onPass:[{ kind:'mission_bit', flag:'stoningEvent', label:'루스트라 투석' }, { kind:'reward', xp:150 }],
+      onFail:[{ kind:'_legacy_fn', fn:() => { S_story.hp = Math.min(S_story.hp || 1, 1); } }, { kind:'mission_bit', flag:'stoningEvent', label:'루스트라 투석' }] }],
     disposition:'"He got up. 다들 떠났어요. 나는 남기로 했고요." — Timael',
     npc:"timael",
   },
@@ -11390,7 +11390,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     npc:"lyra",
   },
   // ── §PAUL-01: Philippi — The Prison ──
-  quest_prison_phillam: { id:'quest_prison_phillam', type:'skill_check', schema:'UQF-1.0', gate:{ flags:['lyraConverted'] }, bits:[{ kind:'skill_check', stat:'WIS', skill:'Insight', dc:12, onPass:[{ kind:'mission_bit', flag:'phillippiJailerConverted', label:'Philippi Jailer' }, { kind:'reward', xp:200 }], onFail:[] }], title:'Seven Stairs, Then Five',
+  quest_prison_phillam: { id:'quest_prison_phillam', type:'skill_check', schema:'UQF-1.0', gate:{ flags:['lyraConverted'] }, bits:[{ kind:'skill_check', stat:'WIS', skill:'Insight', dc:12, onPass:[{ kind:'mission_bit', flag:'phillippiJailerConverted', label:'빌립보 간수' }, { kind:'reward', xp:200 }], onFail:[] }], title:'Seven Stairs, Then Five',
     desc:"The earthquake opens every door in the city prison. The chains come loose from the walls. The guards are awake. The jailer is awake. He draws his sword — not for you, for himself. Under Roman protocol, a jailer whose prisoners escape answers with his life. He has already decided how to answer.\n\nEvery prisoner in the block is free, in the technical sense, at midnight. Paul and Silar have not moved. Paul is still singing. You are in the cell across the corridor and you are free to leave.",
     hint:'When the doors open — stay. Read the jailer before he acts.',
     activateNode:'KVA',
@@ -11402,7 +11402,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     npc:"lyra",
   },
   // ── §LXVI: Athens — The Unknown Altar ──
-  quest_areopagus: { id:'quest_areopagus', type:'skill_check', schema:'UQF-1.0', gate:{}, bits:[{ kind:'skill_check', stat:'CHA', skill:'Persuasion', dc:13, onPass:[{ kind:'mission_bit', flag:'areopagusSpeech', label:'Areopagus Speech' }, { kind:'reward', xp:200 }], onFail:[] }], title:'To An Unknown One',
+  quest_areopagus: { id:'quest_areopagus', type:'skill_check', schema:'UQF-1.0', gate:{}, bits:[{ kind:'skill_check', stat:'CHA', skill:'Persuasion', dc:13, onPass:[{ kind:'mission_bit', flag:'areopagusSpeech', label:'아레오파고스 연설' }, { kind:'reward', xp:200 }], onFail:[] }], title:'To An Unknown One',
     desc:"There is an altar at the east end of the market that reads: TO AN UNKNOWN ONE. It has been there for two hundred years. Nobody knows who built it or what it was for. Paul has been standing in front of it for a long time. The Market Steward wants to know why.\n\nBefore he takes the steps, you walk the hall. Two exits: the colonnade south and the market gate east. Both open. You note the distance to each.",
     hint:'Speak at the Areopagus. Start with what they already built.',
     activateNode:'ATH',
@@ -11414,7 +11414,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     npc:"deacon_nikolaos_ath",
   },
   // ── §LXVII: Ephesus — The Riot ──
-  quest_ephesus_riot: { id:'quest_ephesus_riot', type:'skill_check', schema:'UQF-1.0', gate:{}, bits:[{ kind:'skill_check', stat:'CHA', skill:'Persuasion', dc:12, onPass:[{ kind:'mission_bit', flag:'demetriusRiotEscaped', label:'Ephesus Riot' }, { kind:'reward', xp:175 }], onFail:[] }], title:'The Silversmith\'s Meeting',
+  quest_ephesus_riot: { id:'quest_ephesus_riot', type:'skill_check', schema:'UQF-1.0', gate:{}, bits:[{ kind:'skill_check', stat:'CHA', skill:'Persuasion', dc:12, onPass:[{ kind:'mission_bit', flag:'demetriusRiotEscaped', label:'에베소 폭동' }, { kind:'reward', xp:175 }], onFail:[] }], title:'The Silversmith\'s Meeting',
     desc:"Demetrius runs the craftsmen's guild. The guild makes temple models. Paul has been here three years and the guild has noticed. The meeting Demetrius called has spilled out of the market hall. The market hall was not large enough.",
     hint:'Navigate the Demetrius riot in Ephesus.',
     activateNode:'EF2',
@@ -11466,13 +11466,13 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     passText:'Down. Controlled. The last three feet you lower slowly because you can hear him breathing. He lands and crouches and then he is moving. You pull the rope back up. You do not watch him go — you are watching the eastern gate.\n\nThe gate guard does not turn.\n\nThe facts are accurate. They do not include the knots.',
     failText:'The rope shifts under the load. You brace and recover — but there is noise. You pull back before clearing the wall. The window remains. So does the watch. Tomorrow the knots will hold.',
     bits:[{ kind:'skill_check', stat:'STR', skill:'Athletics', dc:12,
-      onPass:[{ kind:'mission_bit', flag:'escapedDamascus', label:'Damascus Escape' }, { kind:'reward', xp:150 }, { kind:'mission_bit', flag:'basketRopeComplete', label:'Basket Rope' }],
+      onPass:[{ kind:'mission_bit', flag:'escapedDamascus', label:'다마스쿠스 탈출' }, { kind:'reward', xp:150 }, { kind:'mission_bit', flag:'basketRopeComplete', label:'광주리 밧줄' }],
       onFail:[] }],
     disposition:'"Through a window in the wall his disciples lowered him in a basket."',
     npc:"ibrahim_al_tawil_cai",
   },
   // ── §PAUL-01: Malta — The Shipwreck ──
-  quest_shipwreck_melta: { id:'quest_shipwreck_melta', type:'skill_check', schema:'UQF-1.0', gate:{}, bits:[{ kind:'skill_check', stat:'STR', skill:'Athletics', dc:12, onPass:[{ kind:'mission_bit', flag:'shipwreckSurvived', label:'Malta Wreck' }, { kind:'reward', xp:250 }], onFail:[] }], title:'Two Hundred and Seventy-Six',
+  quest_shipwreck_melta: { id:'quest_shipwreck_melta', type:'skill_check', schema:'UQF-1.0', gate:{}, bits:[{ kind:'skill_check', stat:'STR', skill:'Athletics', dc:12, onPass:[{ kind:'mission_bit', flag:'shipwreckSurvived', label:'몰타 난파' }, { kind:'reward', xp:250 }], onFail:[] }], title:'Two Hundred and Seventy-Six',
     desc:"Paul has directed everyone on the ship to eat before the hull goes. Fourteen days without food, the storm unrelenting, the constant pumping. He breaks bread. You distribute the rest — 276 people, moving deck, high weather, each one receiving something before the ship goes into the shallows.\n\nThe soldiers want to kill the prisoners — standard protocol, no escaped prisoner on their watch. You stand in the way. The centurion stops his soldiers because he wants to save Paul, and Paul gets out, but you are the reason the moment pauses long enough for the centurion to make the order.\n\nEveryone goes in the water. The count at the start and the count at the end should be the same number.",
     hint:'Help everyone reach shore. Keep the count.',
     activateNode:'MLA',
@@ -11512,8 +11512,8 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     passText:'You name the pattern without naming it as a pattern. You say: I will receive the seal when it is convenient, not when it is next — send word when the window opens. You make yourself the appointment, not the waiting.\n\nShe looks at you for a moment. She closes the tide table. She gives you the seal.',
     failText:'You wait for the next window. The window opens briefly, closes again. You wait for the one after that. The seal comes eventually — she was always going to give it. But she has learned something about you in the waiting that you did not mean to teach.',
     bits:[{ kind:'skill_check', stat:'WIS', skill:'Insight', dc:12,
-      onPass:[{ kind:'mission_bit', flag:'aurelTideRead', label:'Aurel Seal' }, { kind:'reward', xp:150 }],
-      onFail:[{ kind:'mission_bit', flag:'betrayalThought', label:'Aurel Seal' }] }],
+      onPass:[{ kind:'mission_bit', flag:'aurelTideRead', label:'아우렐 인장' }, { kind:'reward', xp:150 }],
+      onFail:[{ kind:'mission_bit', flag:'betrayalThought', label:'아우렐 인장' }] }],
     disposition:'"The tide keeps its own schedule. Everything else negotiates." — The harbormaster\'s tower, Port Aurel',
     npc:"lady_aurel",
   },
@@ -11528,8 +11528,8 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     passText:'You go to the courtyard. You find the wheel. The mechanism is straightforward — well-maintained, designed to be operated without assistance. You turn it. The bridge lowers.\n\nYou cross before the evening tide.\n\nLady Calice, when she sees you on the other side, says nothing for a moment. Then she gives you the seal. The perhaps is over.',
     failText:'You wait for the evening tide. The tide comes. She lowers the bridge. You cross.\n\nThe crossing happens, but you are no longer the person who initiated it. You were waiting and she was watching the wait. The seal is given. You have taught her something about your patience.',
     bits:[{ kind:'skill_check', stat:'INT', skill:'Investigation', dc:13,
-      onPass:[{ kind:'mission_bit', flag:'caliceBridgeCrossed', label:'Calice Crossing' }, { kind:'reward', xp:175 }],
-      onFail:[{ kind:'mission_bit', flag:'betrayalWord', label:'Calice Crossing' }] }],
+      onPass:[{ kind:'mission_bit', flag:'caliceBridgeCrossed', label:'칼리스 건널목' }, { kind:'reward', xp:175 }],
+      onFail:[{ kind:'mission_bit', flag:'betrayalWord', label:'칼리스 건널목' }] }],
     disposition:'"The evening tide is reliable. The question is whether you need it to be." — Port Calice',
     npc:"lady_calice",
   },
@@ -11544,8 +11544,8 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     passText:'You address the court before they can address you through her.\n\nYou give your name. You give your commission. You give your title. You do it the way a person gives these things when they have decided they are worth giving — without softening them, without the apologetic parenthetical that invitation-only rooms produce.\n\nThe court adjusts. Lady Mireille looks at you — a different look than the one that accompanied the introduction. She gives you the seal.',
     failText:'You accept the introduction. You counsel the court through the evening. You give what the role asks for — attention, reassurance, guidance. You are good at this. You give it well.\n\nYou leave the court lighter of something you brought in and heavier of nothing you were owed. The seal is in your coat. The evening was warm. The role stayed with you.',
     bits:[{ kind:'skill_check', stat:'CHA', skill:'Persuasion', dc:14,
-      onPass:[{ kind:'mission_bit', flag:'mireilleAmiNamed', label:'Mireille Named' }, { kind:'reward', xp:200 }],
-      onFail:[{ kind:'mission_bit', flag:'betrayalDeed', label:'Mireille Named' }] }],
+      onPass:[{ kind:'mission_bit', flag:'mireilleAmiNamed', label:'미레유 이름 확인' }, { kind:'reward', xp:200 }],
+      onFail:[{ kind:'mission_bit', flag:'betrayalDeed', label:'미레유 이름 확인' }] }],
     disposition:'"He addressed the court directly. It was unexpected. I found it clarifying." — Lady Mireille',
     npc:"lady_mireille",
   },
@@ -11560,7 +11560,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     passText:'You go to the dock before you go to the court.\n\nThe fishermen know the ship. They name the season they last saw it move — three seasons ago, in the autumn, when the captain put in for water and departed south. He has not returned. The ship on the horizon is anchored. It has been anchored since the second season of waiting.\n\nYou bring this back to Lady Solen. You give her the name she gave you, and the season the fishermen gave you, and you say: I require a date, or I require a different carrier.\n\nShe pauses. She gives you the date. The carrier is different.',
     failText:'You wait. She says soon. The week passes. Another follows. The letters arrive eventually — by a different courier, sent quietly, without explanation. The ship on the horizon is still there.\n\nYou did not look at the horizon clearly. You believed the soon was a real soon because you wanted it to be. The letters are in your coat. The season has changed.',
     bits:[{ kind:'skill_check', stat:'WIS', skill:'Insight', dc:13,
-      onPass:[{ kind:'mission_bit', flag:'solenSoonRead', label:'Solen Truth' }, { kind:'reward', xp:225 }],
+      onPass:[{ kind:'mission_bit', flag:'solenSoonRead', label:'솔렌의 진실' }, { kind:'reward', xp:225 }],
       onFail:[] }],
     disposition:'"The fishermen remember. They always remember." — the dock at Port Solen',
     npc:"lady_solen",
@@ -11576,8 +11576,8 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     passText:'You name the structure aloud.\n\nNot to accuse. Not dramatically. You simply say, in the fog, to the voice that has been ahead of you the entire time: you arranged the four courts. The tidal schedule was a test because you needed to know if I could read it. Port Calice, the same. Port Mireille was a categorization test. Port Solen was temporal delay.\n\nYou name each one. Flat. Present-tense. Not angry.\n\n"I understand you," you say. "I am going to the fourth court anyway."\n\nThe fog lifts. The navigator stops speaking in the second register. The navigator does not know what just happened.',
     failText:'The offer sounds reasonable. It is reasonable. That is what the voice does — it makes the reasonable offer at the moment when you have been working hard and the end is close and the shortcuts look attractive.\n\nYou say: tell me what you need.\n\nThe voice tells you. It needs a small compliance — nothing significant, a minor framing of how you will request the letters at Port Solen. A word. A specific word.\n\nThe word is not wrong. The word simply gives the voice a small piece of the frame. The letters come. The frame shifts a degree. You are not aware of the degree.',
     bits:[{ kind:'skill_check', stat:'WIS', skill:'Insight', dc:15,
-      onPass:[{ kind:'mission_bit', flag:'charmResisted', label:'Charm Resisted' }, { kind:'reward', xp:250 }],
-      onFail:[{ kind:'mission_bit', flag:'seaOverseerMet', label:'Charm Resisted' }] }],
+      onPass:[{ kind:'mission_bit', flag:'charmResisted', label:'매혹 저항' }, { kind:'reward', xp:250 }],
+      onFail:[{ kind:'mission_bit', flag:'seaOverseerMet', label:'매혹 저항' }] }],
     disposition:'"The most effective intervention is the one that appears to be assistance." — the fog bank, open water',
     npc:"the_overseer",
   },
@@ -12289,7 +12289,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     bits:[
       { kind:'skill_check', stat:'CHA', skill:'Persuasion', dc:10,
         onPass:[
-          { kind:'mission_bit', flag:'smaltBefriended', label:'Smalt Befriended' },
+          { kind:'mission_bit', flag:'smaltBefriended', label:'스몰트와의 우정' },
           { kind:'_legacy_fn', fn:() => {
             S_story.smaltBefriended = true;
             S_story.gold = (S_story.gold||0) + 100;
@@ -13524,10 +13524,10 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // 11 UQF-1.0 side quests anchored to the five Inc-2 NPCs. gate = mission listing only (Free-Movement).
   // killCounter:'monsterKills' → the generic per-monster counter (battle-win handler). See lab-report-kg-corridor-quest-chain.md.
   quest_kg_01: { id:'quest_kg_01', type:'side', schema:'UQF-1.0', gate:{}, bits:[], completion:{ countMin:[{ path:'monsterKills.sparring_droid', min:3 }] }, title:'Volkov: Honest Work in the East',
-    onComplete:[ { kind:'reward', xp:120, gold:30 }, { kind:'mission_bit', flag:'kgEnlisted', label:'Guild Enlistment Papers' }, { kind:'narrative', msg:'📄 모집관 볼코프 stamps your papers. You are enlisted with the Guild.' } ],
+    onComplete:[ { kind:'reward', xp:120, gold:30 }, { kind:'mission_bit', flag:'kgEnlisted', label:'길드 입단 서류' }, { kind:'narrative', msg:'📄 모집관 볼코프 stamps your papers. You are enlisted with the Guild.' } ],
     desc:'모집관 볼코프 signs your name and points at the row of dormant sparring droids by the gate. "Three droids, clean, and the Guild knows you can hold a line. Nothing you do here is a mugging — you fight who we match you against, nothing more. That is the honor of it."',
     hint:'Defeat 3 sparring droids near the Nevsky Checkpoint.',
-    killGoals:[{key:'sparring_droid',need:3,label:'Sparring Droid'}], killCounter:'monsterKills',
+    killGoals:[{key:'sparring_droid',need:3,label:'스파링 드로이드'}], killCounter:'monsterKills',
     activateNode:'SPB', waypointNode:'SPB', reward:30,
     disposition:'"Three droids, clean. The Guild does not sign softness. You fight who we match you against — that is the honor of it, and you just earned your papers." — 모집관 볼코프',
     passText:'Three droids, clean. The Guild does not sign softness. You fight who we match you against — that is the honor of it, and you just earned your papers.',
@@ -13535,7 +13535,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     npc:'recruiter_volkov',
   },
   quest_kg_02: { id:'quest_kg_02', type:'side', schema:'UQF-1.0', gate:{ flags:['kgEnlisted'] }, bits:[], completion:{ itemsAll:['Sealed Recruit Manifest'], atNode:'KMS' }, title:'Volkov: The Sealed Manifest',
-    onComplete:[ { kind:'reward', xp:150, gold:0 }, { kind:'mission_bit', flag:'kgManifestDelivered', label:'Manifest Delivered to the School' }, { kind:'narrative', msg:'✅ 정치교관 로시코바 takes the manifest. The School is expecting you.' } ],
+    onComplete:[ { kind:'reward', xp:150, gold:0 }, { kind:'mission_bit', flag:'kgManifestDelivered', label:'학교에 전달된 적하 목록' }, { kind:'narrative', msg:'✅ 정치교관 로시코바 takes the manifest. The School is expecting you.' } ],
     desc:'Volkov hands you a sealed folder. "Your enlistment goes to the Komsomol School — 정치교관 로시코바 reads it, not me. Carry it east and hand it over yourself. A recruit who will not run his own paperwork will not run anything."',
     hint:'Carry the Sealed Recruit Manifest east to the Komsomol School (KMS).',
     activateNode:'SPB', waypointNode:'KMS', reward:0,
@@ -13549,14 +13549,14 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     itemChain:[{action:'grant',name:'Red Star Pin',icon:'⭐',type:'trophy',sell:0,silent:true}],
     desc:'Roshkova walks you onto the sparring floor. "Four cadets. They will not go easy and neither will you. Beat them clean — no cheap shots, no ganging. The School does not correct softness; it corrects sloppiness."',
     hint:'Best 4 Komsomol Cadets on the School sparring floor.',
-    killGoals:[{key:'komsomol_cadet',need:4,label:'Komsomol Cadet'}], killCounter:'monsterKills',
+    killGoals:[{key:'komsomol_cadet',need:4,label:'콤소몰 생도'}], killCounter:'monsterKills',
     activateNode:'KMS', waypointNode:'KMS', reward:40,
     disposition:'"Four cadets, clean. No cheap shots, no ganging. The School corrects sloppiness, not softness. You corrected yourself." — 정치교관 로시코바',
     passText:'Four cadets, clean. No cheap shots, no ganging. The School corrects sloppiness, not softness. You corrected yourself.',
     failText:'The sparring floor still has cadets standing. Best four of them clean before Roshkova pins you.',
     npc:'commissar-instructor_roshkova',
   },
-  quest_kg_04: { id:'quest_kg_04', type:'skill_check', schema:'UQF-1.0', gate:{ questsDone:['quest_kg_03'] }, retryable:true, bits:[{ kind:'skill_check', stat:'WIS', skill:'Insight', dc:10, onPass:[{ kind:'mission_bit', flag:'kgFormsPassed', label:'Passed the Forms' }, { kind:'reward', xp:180, gold:0 }], onFail:[] }], title:'Roshkova: Lose Cleanly',
+  quest_kg_04: { id:'quest_kg_04', type:'skill_check', schema:'UQF-1.0', gate:{ questsDone:['quest_kg_03'] }, retryable:true, bits:[{ kind:'skill_check', stat:'WIS', skill:'Insight', dc:10, onPass:[{ kind:'mission_bit', flag:'kgFormsPassed', label:'서류 심사 통과' }, { kind:'reward', xp:180, gold:0 }], onFail:[] }], title:'Roshkova: Lose Cleanly',
     desc:'Roshkova sets you against the third form — the one built to beat you. "Everyone loses this one. What I am grading is HOW. Read the form, take the fall straight, no excuse and no flinch. A cadet who cannot lose cleanly cannot win cleanly."',
     hint:'Read the form and take the loss cleanly (WIS · Insight, DC 10). Retry as many times as it takes.',
     activateNode:'KMS', waypointNode:'KMS', reward:0,
@@ -13566,10 +13566,10 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     npc:'commissar-instructor_roshkova',
   },
   quest_kg_05: { id:'quest_kg_05', type:'side', schema:'UQF-1.0', gate:{ flags:['kgFormsPassed'] }, bits:[], completion:{ countMin:[{ path:'monsterKills.gladiator_bot', min:1 }] }, title:'Grimka: First Bout',
-    onComplete:[ { kind:'reward', xp:250, gold:50 }, { kind:'mission_bit', flag:'kgFirstBout', label:'Bout Token' }, { kind:'narrative', msg:'🎟️ 구덩이 주인 그림카 logs your first clean bout.' } ],
+    onComplete:[ { kind:'reward', xp:250, gold:50 }, { kind:'mission_bit', flag:'kgFirstBout', label:'경기 토큰' }, { kind:'narrative', msg:'🎟️ 구덩이 주인 그림카 logs your first clean bout.' } ],
     desc:'구덩이 주인 그림카 runs the Zavod honor card. "One gladiator-bot. These were fighters before the Zavod stripped their reactors — we fight them with honor because they fought us with it. No poison, no ganging. Win or lose, you do it standing up."',
     hint:'Win one honor duel against a Gladiator-Bot in the Zavod pit.',
-    killGoals:[{key:'gladiator_bot',need:1,label:'Gladiator-Bot'}], killCounter:'monsterKills',
+    killGoals:[{key:'gladiator_bot',need:1,label:'녹슨 검투사 봇'}], killCounter:'monsterKills',
     activateNode:'ZVD', waypointNode:'ZVD', reward:50,
     disposition:'"These bots were gladiators before the Zavod stripped their reactors. We fight them with honor because they fought us with it. One bout down. No poison, no ganging. You lost nothing standing up." — 구덩이 주인 그림카',
     passText:'These bots were gladiators before the Zavod stripped their reactors. We fight them with honor because they fought us with it. One bout down. You lost nothing standing up.',
@@ -13581,7 +13581,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     itemChain:[{action:'grant',name:'Clean-Card Trophy',icon:'🏆',type:'trophy',sell:0,silent:true},{action:'grant',name:'Stripped Reactor Core',icon:'☢️',type:'quest',sell:0,silent:true}],
     desc:'"A full card," Grimka says. "Three gladiator-bots, three sparbots, all of it clean. Do that and the pit knows your name." He nods at a decommissioned core on the rack. "Win it and I will send the stripped core west with you — the Fabrika wants it."',
     hint:'Win a full clean card: 3 Gladiator-Bots and 3 Zavod Sparbots.',
-    killGoals:[{key:'gladiator_bot',need:3,label:'Gladiator-Bot'},{key:'zavod_sparbot',need:3,label:'Zavod Sparbot'}], killCounter:'monsterKills',
+    killGoals:[{key:'gladiator_bot',need:3,label:'녹슨 검투사 봇'},{key:'zavod_sparbot',need:3,label:'자보드 스파봇'}], killCounter:'monsterKills',
     activateNode:'ZVD', waypointNode:'ZVD', reward:60,
     disposition:'"A full card, all of it clean. The pit knows your name now. Take the stripped core to the Fabrika — Iosif is expecting it." — 구덩이 주인 그림카',
     passText:'A full card, all of it clean. The pit knows your name now. Take the stripped core to the Fabrika — Iosif is expecting it.',
@@ -13589,7 +13589,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     npc:'pit-master_grimka',
   },
   quest_kg_07: { id:'quest_kg_07', type:'side', schema:'UQF-1.0', gate:{ questsDone:['quest_kg_06'] }, bits:[], completion:{ itemsAll:['Stripped Reactor Core'], atNode:'FBR' }, title:'Grimka: Core to the Fabrika',
-    onComplete:[ { kind:'reward', xp:220, gold:0 }, { kind:'mission_bit', flag:'kgCoreDelivered', label:'Reactor Core Delivered' }, { kind:'narrative', msg:'✅ 기술자 이오시프 receives the stripped core.' } ],
+    onComplete:[ { kind:'reward', xp:220, gold:0 }, { kind:'mission_bit', flag:'kgCoreDelivered', label:'반응로 코어 전달 완료' }, { kind:'narrative', msg:'✅ 기술자 이오시프 receives the stripped core.' } ],
     desc:'Grimka seals the decommissioned core in a carry-case. "The Skill Fabrika down the line runs on cores like this one. Carry it to 기술자 이오시프 — clean hands, honest delivery. Do not sell it on the way; a fighter who fences his own cargo fences his name with it."',
     hint:'Deliver the Stripped Reactor Core to the Skill Fabrika (FBR).',
     activateNode:'ZVD', waypointNode:'FBR', reward:0,
@@ -13603,7 +13603,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     itemChain:[{action:'grant',name:'Cortex Shunt',icon:'🧠',type:'trophy',sell:0,silent:true}],
     desc:'Iosif powers up the training floor. "The enforcers guard the chairs — three of them, running hot. Put them down and I can seat you safely. They do not feel honor, but you will fight them with it anyway. That is for you, not them."',
     hint:'Defeat 3 Fabrika Enforcers on the Skill Fabrika floor.',
-    killGoals:[{key:'fabrika_enforcer',need:3,label:'Fabrika Enforcer'}], killCounter:'monsterKills',
+    killGoals:[{key:'fabrika_enforcer',need:3,label:'파브리카 집행관'}], killCounter:'monsterKills',
     activateNode:'FBR', waypointNode:'FBR', reward:50,
     disposition:'"Three enforcers down. They do not feel honor — you fought them with it anyway. That is for you, not them. The chair is safe now." — 기술자 이오시프',
     passText:'Three enforcers down. They do not feel honor — you fought them with it anyway. That is for you, not them. The chair is safe now.',
@@ -13611,11 +13611,11 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     npc:'technician_iosif',
   },
   quest_kg_09: { id:'quest_kg_09', type:'side', schema:'UQF-1.0', gate:{ questsDone:['quest_kg_08'] }, bits:[], completion:{ countMin:[{ path:'monsterKills.trainer_bot_prime', min:1 }] }, title:'Iosif: The Chair',
-    onComplete:[{kind:'reward',xp:500,gold:80},{kind:'mission_bit',flag:'kgSimCleared',label:'Prime Core'},{kind:'narrative',msg:'💽 Iosif certifies your run and prints a Skill-Chit.'}],
+    onComplete:[{kind:'reward',xp:500,gold:80},{kind:'mission_bit',flag:'kgSimCleared',label:'프라임 코어'},{kind:'narrative',msg:'💽 Iosif certifies your run and prints a Skill-Chit.'}],
     itemChain:[{action:'grant',name:'Certified Skill-Chit',icon:'🪪',type:'quest',sell:0,silent:true}],
     desc:'Iosif seats you in the chair and jacks you in. "Standard sim. Should be routine." The regulator light flickers red. "...that should not. The Trainer-Bot is fighting at full — the chair is writing faster than it reads. Ride it out or I pull you. Your call, recruit."',
     hint:'Survive the sim overload — defeat the Trainer-Bot Prime.',
-    killGoals:[{key:'trainer_bot_prime',need:1,label:'Trainer-Bot Prime'}], killCounter:'monsterKills',
+    killGoals:[{key:'trainer_bot_prime',need:1,label:'고장 난 훈련 봇'}], killCounter:'monsterKills',
     activateNode:'FBR', waypointNode:'FBR', reward:80,
     disposition:'"The regulator failed and the Trainer-Bot fought you at full — a sim overload, the chair writing faster than it reads. You held. Half the district is still in that chair. You walked out. Prime Core is yours." — 기술자 이오시프',
     passText:'The regulator failed and the Trainer-Bot fought you at full. You held. Half the district is still in that chair. You walked out. Prime Core is yours, and a certified chit with it.',
@@ -13633,7 +13633,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     failText:'The Certified Skill-Chit is still in your pack. Bring it to 보급관 레나 at the Rzhev Waystation.',
     npc:'quartermaster_lena',
   },
-  quest_kg_11: { id:'quest_kg_11', type:'skill_check', schema:'UQF-1.0', gate:{ questsDone:['quest_kg_10'] }, retryable:true, bits:[{kind:'skill_check',stat:'INT',skill:'Investigation',dc:12,onPass:[{kind:'mission_bit',flag:'kgCorridorCleared',label:'The Corridor, Read'},{kind:'reward',xp:700,gold:100}],onFail:[]}], title:'Lena: Why the Line Went Quiet',
+  quest_kg_11: { id:'quest_kg_11', type:'skill_check', schema:'UQF-1.0', gate:{ questsDone:['quest_kg_10'] }, retryable:true, bits:[{kind:'skill_check',stat:'INT',skill:'Investigation',dc:12,onPass:[{kind:'mission_bit',flag:'kgCorridorCleared',label:'회랑, 판독 완료'},{kind:'reward',xp:700,gold:100}],onFail:[]}], title:'Lena: Why the Line Went Quiet',
     desc:'보급관 레나 spreads the transit logs across the counter. "The line to Station 7 did not break — it stopped answering. Signal is clean, the relays are lit, and nobody is talking. Read the logs. Tell me what you see that I have been too close to catch."',
     hint:'Study the transit logs and work out why Station 7 went quiet (INT · Investigation, DC 12). Retryable.',
     activateNode:'TVR', waypointNode:'TVR', reward:100,
@@ -13647,7 +13647,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     onComplete:[ { kind:'reward', gold:200 }, { kind:'narrative', msg:'💰 +200gp from Jimmy. The Cat Quarter breathes easier.' } ], // §ARCH-01 W7c
     desc:"Jimmy Two-Tails wants the Cat Quarter settled. Clear the riff-raff — 5 strays and 3 fluffies.",
     hint:'Fight in the Cat Quarter until the quota is filled.',
-    killGoals:[{key:'stray_alley_cat',need:5,label:'Stray'},{key:'fluffy_cat',need:3,label:'Fluffy'}],
+    killGoals:[{key:'stray_alley_cat',need:5,label:'뒷골목 길고양이'},{key:'fluffy_cat',need:3,label:'복슬복슬 고양이'}],
     activateNode:'CDG', // §VM-01-G3 — the Layer-44 storyRender stanzas are retired; the chain sequencing lives in the gates below (the appended duplicate activateNode fields had made the whole chain activate at once)
     onActivate:{ msg:'Jimmy Two-Tails adjusts the brim of his tiny fedora.\n\n"Listen. LISTEN. I\'m gonna tell you somethin\' and I\'m only gonna say it once."\n\nHe leans forward.\n\n"You want to help this neighborhood? Clear out the riff-raff. Five strays. Three fluffies. They\'re harmless but they set a tone and the tone ain\'t good. Capisce? You do this, we talk about the bigger problems. Deal?"\n\n📋 Quest: The New Scratch — accepted.', delayMs:500 },
     waypointNode:'CDG', reward:200,
@@ -13660,7 +13660,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     onComplete:[ { kind:'reward', gold:350 }, { kind:'narrative', msg:'💰 +350gp from Jimmy. Sandy Scratchpad Mewlino has joined the Cat Quarter.' } ], // §ARCH-01 W7c
     desc:"Three Beefy Toms are running muscle for a rival outfit. Take them down and collect the proof.",
     hint:'Kill 3 Beefy Toms and collect their Cracked Claws.',
-    killGoals:[{key:'beefy_tom',need:3,label:'Beefy Tom'}],
+    killGoals:[{key:'beefy_tom',need:3,label:'근육질 수고양이'}],
     activateNode:'CDG',
     onActivate:{ msg:'Jimmy: "Good work. Now. Beefy Toms — three of \'em — been running muscle for an outside operation. Take \'em down. Keep the claws. Three claws. I wanna see the proof."\n\n📋 Quest: Beefy Business — accepted.', delayMs:600 },
     waypointNode:'CDG', reward:350,
@@ -13674,7 +13674,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     itemChain:[{action:'grant',name:'Rhinestone Collar',icon:'💎',type:'trophy',sell:0,silent:true}], // §EDITOR-01-D-FU(b) b2a
     desc:"A Capo and a Boss Lady are circling each other. Kill them SEPARATE — let them merge and you\'re dealing with a Taz Devil.",
     hint:'Kill 1 Honcho Cat (Capo) and 1 Boss Lady Honcho.',
-    killGoals:[{key:'honcho_cat_m',need:1,label:'Honcho Capo'},{key:'honcho_cat_f',need:1,label:'Boss Lady'}],
+    killGoals:[{key:'honcho_cat_m',need:1,label:'두목 고양이 (카포)'},{key:'honcho_cat_f',need:1,label:'여두목 혼초'}],
     activateNode:'CDG',
     onActivate:{ msg:'Sandy "Scratchpad" Mewlino is here now. Tortoiseshell fur, eyes like she\'s already three moves ahead of you.\n\n"Sweetheart. You think this is about territory? This is about RESPECT. There\'s a Capo and a Boss Lady circling each other two blocks north. You kill \'em SEPARATE. Let \'em merge — and I promise you, a Taz Devil is nobody\'s problem they wanted.\n\nAlso — Don Fluffissimo. He\'s been sending his Merchant Cats into MY neighborhood. With Corrupted Cats for backup. Void-touched. Disgusting. He needs to be handled."\n\n📋 Quest: Honcho Problems — accepted.\n📋 Quest: Fat Cats Don\'t Tip — accepted.\n📋 Quest: Void Strays — accepted.', delayMs:700 }, // announces the 03/05/void trio that co-activates on cat_02's completion
     waypointNode:'CDG', reward:500,
@@ -13700,7 +13700,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     itemChain:[{action:'grant',name:"The Don's Signet Ring",icon:'💍',type:'trophy',sell:35,silent:true}], // §EDITOR-01-D-FU(b) b2a
     desc:"The Fat Merchant Cats are using Corrupted Cats as enforcers. Sandy wants Don Fluffissimo gone.",
     hint:'Kill 4 Fat Merchant Cats and defeat Don Fluffissimo.',
-    killGoals:[{key:'fat_merchant_cat',need:4,label:'Merchant Cat'}],
+    killGoals:[{key:'fat_merchant_cat',need:4,label:'뚱뚱한 상인 고양이'}],
     activateNode:'CDG', onActivate:null, // cat_03's onActivate speaks for the 03/05/void trio
     waypointNode:'CDG', reward:900,
     disposition:'"The merchants have been using Corrupted Cats as enforcers. Void-touched kitties doing dirty work for coin. I don\'t like it in my neighborhood." — Sandy Scratchpad Mewlino',
@@ -13725,7 +13725,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     onComplete:[ { kind:'reward', gold:400 }, { kind:'narrative', msg:'💰 +400gp from Sandy. The Void Strays are cleared.' } ], // §ARCH-01 W7c
     desc:"Strays in the Cat Quarter's back lanes have gone wrong. Wrong eyes, wrong fur. Sandy doesn't like it in her neighborhood.",
     hint:'Kill 5 Corrupted Cats in the Cat Quarter.',
-    killGoals:[{key:'corrupted_cat',need:5,label:'Corrupted Cat'}],
+    killGoals:[{key:'corrupted_cat',need:5,label:'타락한 고양이'}],
     activateNode:'CDG', onActivate:null, // cat_03's onActivate speaks for the 03/05/void trio
     waypointNode:'CDG', reward:400,
     disposition:"\"Something's wrong with the strays in the back lanes. They're not just feral — they're WRONG. Wrong eyes. Wrong fur. Not touching anything from that block.\" — Sandy Scratchpad Mewlino",
@@ -26326,37 +26326,37 @@ function _applyItemChain(q) {
 
 /* ── Layer 7-B: Key Events — item-triggered world changes (replaces gate locks) ── */
 const KEY_EVENTS = [
-  { id:'ke_crypt_key', node:'KRN', item:'Crypt Key', label:'🗝 Open the lower ward',
+  { id:'ke_crypt_key', node:'KRN', item:'Crypt Key', label:'🗝 하층 수호구를 연다',
     ability:'int', abilityLabel:'Investigation', dc:10, flag:'keyEvent_cryptKey',
     successText:'The key enters the lock and turns cleanly. You feel the mechanism give — three tumblers, well-made, waiting for exactly this. The lower ward is open.\n\nThe sexton crosses the grating above and this time looks down. He nods once. He does not ask what you opened or why.\n\nWithin the hour a figure appears from the east passage. He has been working the outer perimeter for weeks — waiting for the inner ward to clear. He trades in things that were not supposed to leave the lower level. He knows you opened it. He does not explain how.',
     failText:'The key enters the lock but catches — rust, age, or simple misalignment. You work it for three full minutes, hand flat against the cold stone for leverage. The mechanism finally gives.\n\nThe sexton pretends not to have heard.',
     worldNote:'Lower ward open. A tomb-robber contact operates from the east passage — goods that were not supposed to leave. The sexton no longer avoids the grating.' },
-  { id:'ke_sea_cave', node:'GIB', item:'Sea Cave Key', label:'🗝 Open the inner passage',
+  { id:'ke_sea_cave', node:'GIB', item:'Sea Cave Key', label:'🗝 안쪽 통로를 연다',
     ability:'dex', abilityLabel:'Sleight of Hand', dc:11, flag:'keyEvent_seaCave',
     successText:'The key finds the lock with practiced ease — the Crones knew exactly what shape of mechanism they were keeping. The passage slides back, stone on stone, and the smell behind it is salt and old wood and the specific dark of routes used by people who prefer not to be seen.\n\nA fishing boat is visible at the far end within the day. Then two. The route was always known — it was the lock that closed it.',
     failText:'You work the mechanism longer than it should take. The passage opens, scraping stone — the sound carries back into the cave behind you and forward into wherever the passage leads. Whatever uses this route has now heard you arrive.',
     worldNote:'Inner passage open. Fishing boats from the coast have resumed the route. Coastal goods available at the cave mouth.' },
-  { id:'ke_conclave_pass', node:'GOT', item:'Conclave Pass', label:'📋 Present the Conclave Pass',
+  { id:'ke_conclave_pass', node:'GOT', item:'Conclave Pass', label:'📋 비밀회의 통행증을 제시한다',
     ability:'cha', abilityLabel:'Persuasion', dc:12, flag:'keyEvent_conclavePass', consumeItem:true,
     successText:'You present the pass. The warrant scout takes it, examines both sides, and hands it back in under ten seconds. He says a single word to the other scout — your name, or a number — and steps aside.\n\nThe kenku on the drainpipe goes quiet. Not the alert kind. The kind that means you have been filed and are no longer interesting.',
     failText:'The scout takes more time than he needs. He tilts the pass toward the alley light, looking for something specific. He finds nothing — or decides there is nothing to find — and steps aside without speaking.\n\nThe kenku repeats one of your earlier excuses back at you. You get through anyway.',
     worldNote:'Conclave Pass registered at the checkpoint. The scouts step aside on sight. The kenku has stopped collecting your excuses.' },
-  { id:'ke_toll_token', node:'CLJ', item:'Toll Token', label:'🪙 Offer the Toll Token',
+  { id:'ke_toll_token', node:'CLJ', item:'Toll Token', label:'🪙 통행 토큰을 건넨다',
     ability:'cha', abilityLabel:'Persuasion', dc:13, flag:'keyEvent_tollToken', consumeItem:true,
     successText:'Bruxa Elise Mourne accepts the token without looking at it. She already knows what it is — she has been collecting settled accounts for a very long time and can read the weight of one before she touches it.\n\n"The debt is closed," she says. She does not explain what the debt was for. She sets the token on the gate post and leaves it there.\n\nWhen you go, a small vial is on the road post. Sealed. One full rest, no cost. She does not explain why.',
     failText:'She takes the token, holds it a moment longer than necessary, and sets it down. "The account is settled," she says. Barely. The vial is on the post when you leave. Half-emptied. She does not explain that either.',
     worldNote:'Toll gate removed. Blood debt settled with Bruxa Mourne. A vial on the road post — one full rest at no cost.' },
-  { id:'ke_eel_pouch', node:'BOO', item:'Eel Skin Pouch', label:'🏮 Lower the light into the crack',
+  { id:'ke_eel_pouch', node:'BOO', item:'Eel Skin Pouch', label:'🏮 균열 속으로 빛을 내려놓는다',
     ability:'wis', abilityLabel:'Perception', dc:11, flag:'keyEvent_eelPouch',
     successText:'The pouch light goes into the crack first, held at arm\'s length. The shale steps down in clear stages — you read the geometry before you commit to the descent. The cave below is larger than the opening suggests. Cold. Old water, still water, water that has been here longer than the lake above it.\n\nYou map the territory from the entrance. The fishermen at the lake edge notice the light going down. Within a week they are pulling catches from the lower openings.',
     failText:'The pouch light flickers at the waterline — the transition disrupts it for a moment. You manage the descent before it fully stabilizes. In the gap, something in the dark moves toward the light. You track it by sound before you can track it by sight.',
     worldNote:'The cave below 유구르트 호수 is mapped. Fishermen are pulling catches from the lower openings. Trade volume at the lake is improving.' },
-  { id:'ke_manifest', node:'DUS', item:'Shipping Manifest (Intercepted)', label:'📦 Cross-reference the manifest',
+  { id:'ke_manifest', node:'DUS', item:'Shipping Manifest (Intercepted)', label:'📦 적하 목록을 대조한다',
     ability:'int', abilityLabel:'Investigation', dc:12, flag:'keyEvent_manifest',
     successText:'The manifest notation cross-references cleanly to a unit designation: 14.225, six-week rotation, third warehouse from the harbor-side entrance. Station 7.\n\nYou bring the address to the dock master. He has been logging cargo irregularities for months without a source address. The manifest gives him one.\n\nThree dock workers are reassigned by morning. The north berth, under restricted access, opens to neutral traffic.',
     failText:'The manifest notation is abbreviated in a format you have to decode against the harbor schedule twice before the unit designation resolves. Twenty minutes. The dock master is not impressed with the time — only with what you found. He takes the manifest without comment.',
     worldNote:'Station 7 identified: unit 14.225, third warehouse. Dock master has proof of cargo irregularities. Three workers reassigned. North berth open.' },
-  { id:'ke_antecedent', node:'HKG', item:'Antecedent Seal', label:'🏛️ Activate the Antecedent Seal',
+  { id:'ke_antecedent', node:'HKG', item:'Antecedent Seal', label:'🏛️ 선행 봉인을 활성화한다',
     ability:'int', abilityLabel:'Arcana', dc:14, flag:'keyEvent_antecedent',
     successText:'The seal runs warm the moment you hold it toward the partition wall. Not hot — warm, the way a thing feels when it recognizes something it has been waiting for. The indicators change from standby to receiving. The change is immediate.\n\nThe Antecedent has been asking the same question across forty-one volumes. You have the forty-second answer. It does not ask for credentials. It was waiting for someone who arrived here anyway.',
     failText:'The seal activates on a partial sequence — the indicators shift from standby but pause before resolving to receiving. Something in the handshake is slightly wrong: the order, the angle, the number of times you have passed through the Undercity checkpoint. The Antecedent adjusts its assessment. After a moment the indicators settle to receiving. It still accepts what you brought.',
@@ -26800,11 +26800,11 @@ The lake knows the difference between someone casting and someone fishing.
 After a few visits, so will you.`;
 
 const FISH_SIZE_TIERS = [ // → doc: docs/mechanics/mechanics-combat.md §Fishing Items (5 tiers: small/medium/large/very_large/legendary)
-  { size:'small',      label:'Small',      minRank:1,  maxRank:4  },
-  { size:'medium',     label:'Medium',     minRank:5,  maxRank:9  },
-  { size:'large',      label:'Large',      minRank:10, maxRank:14 },
+  { size:'small',      label:'소형',      minRank:1,  maxRank:4  },
+  { size:'medium',     label:'중형',     minRank:5,  maxRank:9  },
+  { size:'large',      label:'대형',      minRank:10, maxRank:14 },
   { size:'very_large', label:'초대형', minRank:15, maxRank:19 },
-  { size:'legendary',  label:'Legendary',  minRank:20, maxRank:20 },
+  { size:'legendary',  label:'전설급',  minRank:20, maxRank:20 },
 ];
 const FISH_GOLD_VALUES = { // → doc: docs/mechanics/mechanics-combat.md §Fishing Items (sell value = size × rarity)
   small:      { common:2,  rare:5,   enchanted:8,   golden:15,  legendary:25  },
@@ -27498,11 +27498,11 @@ const PIT_PERK_UNLOCKS = { // → doc: world.md §Pit Training Perks (5 perks; u
 };
 
 const COVENANT_STANDING_LABELS = [ // → doc: docs/design/story.md §Covenant Standing Tiers (score → label/desc; shown on character sheet)
-  { maxScore: -5,       label: "계약 수호자", desc: "The people you helped are the reason this works." },
-  { maxScore:  3,       label: "Warden",          desc: "일을 몸에 지니고 다니네요. 티가 나요." },
-  { maxScore:  7,       label: "Keeper",           desc: "봉인은 유지돼요. 대가는 보여요." },
-  { maxScore: 14,       label: "Watcher",          desc: "You know what needs doing. You're still learning to stay." },
-  { maxScore: Infinity, label: "Wanderer",         desc: "The Void will open again. Not your fault. Not entirely." }
+  { maxScore: -5,       label: "계약 수호자", desc: "당신이 도운 사람들이 이 모든 것을 가능하게 해요." },
+  { maxScore:  3,       label: "파수꾼",          desc: "일을 몸에 지니고 다니네요. 티가 나요." },
+  { maxScore:  7,       label: "지키미",           desc: "봉인은 유지돼요. 대가는 보여요." },
+  { maxScore: 14,       label: "감시자",          desc: "무엇을 해야 하는지는 알아요. 머무는 법은 아직 배우는 중이에요." },
+  { maxScore: Infinity, label: "방랑자",         desc: "공허는 다시 열릴 거예요. 당신 탓이 아니에요. 전부는 아니지만요." }
 ];
 
 const ROUGH_WHISKEY_REACTIONS = { // → doc: world.md §거친 위스키 (LLA vendor item; one-time drunk pit fight event at HKG)
@@ -28126,7 +28126,7 @@ function _storyWmArchiveModal(wrap) {
 
 function _startPitChampionBattle() {
   storyMsg(PIT_CHAMPION_OGUNDIMU.flavorPre);
-  S_story.pendingBattle = { nodeCode: 'HKG', name: PIT_CHAMPION_OGUNDIMU.name, label: 'Neon Undercity', champion: true };
+  S_story.pendingBattle = { nodeCode: 'HKG', name: PIT_CHAMPION_OGUNDIMU.name, label: '네온 지하도시', champion: true };
   loadWorldMonster(PIT_CHAMPION_OGUNDIMU);
   storyExit();
   _storyRollInit();
@@ -32344,7 +32344,7 @@ function _nodeHookVoidShamanWarden(node) {
     fightBtn.textContent = '⚔️ Fight the Warden.';
     fightBtn.addEventListener('click', () => {
       _wardenBtnGroup.remove();
-      setTimeout(() => storyPreBattle({ ...node, code:'MT_WARDEN', battle:{ label:'The Warden', key:'void_shaman', count:1 } }), 300);
+      setTimeout(() => storyPreBattle({ ...node, code:'MT_WARDEN', battle:{ label:'간수', key:'void_shaman', count:1 } }), 300);
     });
     _wardenBtnGroup.appendChild(fightBtn);
     document.getElementById('story-text-box').insertAdjacentElement('afterend', _wardenBtnGroup);
@@ -32522,7 +32522,7 @@ function _nodeHookLaRivaRow(node) {
       clearBtn.className = 'inv-use-btn';
       clearBtn.textContent = '⚡ Clear Corrupted Cats (' + (S_story.frCatKillCount || 0) + '/5)';
       clearBtn.addEventListener('click', () => {
-        storyPreBattle({ ...node, code:'AMS', battle:{label:'Corrupted Cat in the Rubble', key:'corrupted_cat', count:1}, corridor:true });
+        storyPreBattle({ ...node, code:'AMS', battle:{label:'잔해 속 타락한 고양이', key:'corrupted_cat', count:1}, corridor:true });
       });
       frDiv.appendChild(clearBtn);
     }
@@ -33607,17 +33607,17 @@ function _nodeHookCdgKenickieMarket(node, { cqDiv }) {
       kBtn.addEventListener('click', () => {
         kBtn.remove();
         const KENICKIE_STOCK = [
-          { label:'Sardine Pack ×3', icon:'🐟', price:18,
-            desc:'Catch +2 bait. "Freshish. Don\'t ask about the smell."',
-            makeItem: () => ({ name:'Sardine Pack', icon:'🐟', type:'bait', count:3, sell:1, catchBonus:2, typeBonus:0, advantage:false, sizeUp:false }) },
-          { label:'Live Shallows Minnow', icon:'🐠', price:28,
-            desc:'Catch +3, Size↑. "From the Don\'s private pond. He doesn\'t need it anymore."',
-            makeItem: () => ({ name:'Live Shallows Minnow', icon:'🐠', type:'bait', count:1, sell:2, catchBonus:3, typeBonus:0, advantage:false, sizeUp:true }) },
-          { label:'Minor Healing Potion', icon:'🧪', price:45,
-            desc:'Heals 10hp. 10% off. Community pricing.',
+          { label:'정어리 팩 ×3', icon:'🐟', price:18,
+            desc:'미끼 포획 +2. "신선한 편이에요. 냄새는 묻지 마세요."',
+            makeItem: () => ({ name:'정어리 팩', icon:'🐟', type:'bait', count:3, sell:1, catchBonus:2, typeBonus:0, advantage:false, sizeUp:false }) },
+          { label:'살아있는 여울 피라미', icon:'🐠', price:28,
+            desc:'포획 +3, 크기↑. "돈의 개인 연못에서 왔어요. 이제 그분한텐 필요 없대요."',
+            makeItem: () => ({ name:'살아있는 여울 피라미', icon:'🐠', type:'bait', count:1, sell:2, catchBonus:3, typeBonus:0, advantage:false, sizeUp:true }) },
+          { label:'소형 치유 물약', icon:'🧪', price:45,
+            desc:'HP 10 회복. 10% 할인. 공동체 가격이에요.',
             makeItem: () => ({ name:'소형 치유 물약', icon:'🧪', type:'potion', heal:10, sell:15 }) },
-          { label:'Healing Potion', icon:'🫧', price:135,
-            desc:'Heals 25hp. 10% off. Community pricing.',
+          { label:'치유 물약', icon:'🫧', price:135,
+            desc:'HP 25 회복. 10% 할인. 공동체 가격이에요.',
             makeItem: () => ({ name:'치유 물약', icon:'🫧', type:'potion', heal:25, sell:35 }) },
         ];
         const shopDiv = document.createElement('div');
@@ -33695,7 +33695,7 @@ function _nodeHookWg0GateTrial(node) {
       _wg0Btn.addEventListener('click', () => {
         _wg0Btn.disabled = true;
         storyMsg('The water reaches your chest at the crossing. The serpent does not retreat. It turns toward you.');
-        setTimeout(() => storyPreBattle({ ...node, code:'WG0_TRIAL', battle:{ label:'Sea Serpent — The Gate Crossing', key:'sea_serpent', count:1 } }), 400);
+        setTimeout(() => storyPreBattle({ ...node, code:'WG0_TRIAL', battle:{ label:'바다뱀 괴수 — 관문 건널목', key:'sea_serpent', count:1 } }), 400);
       });
       _wg0Div.appendChild(_wg0Btn);
       document.getElementById('story-text-box').insertAdjacentElement('afterend', _wg0Div);
@@ -33736,7 +33736,7 @@ function _nodeHookHcaLeviathan(node) {
         _levBtn.disabled = true;
         const _iodAtk = S_story.iodineBuffActive ? ' The iodine reaction is already in the water.' : '';
         storyMsg('The Leviathan surfaces completely.' + _iodAtk + ' It is larger than the clearing. It has been here, below, the entire arc.');
-        setTimeout(() => storyPreBattle({ ...node, code:'HCA_BOSS', battle:{ label:'The Leviathan — Rising from the Clearing', key:'leviathan', count:1 } }), 400);
+        setTimeout(() => storyPreBattle({ ...node, code:'HCA_BOSS', battle:{ label:'리바이어던 — 공터에서 솟아오름', key:'leviathan', count:1 } }), 400);
       });
       _levDiv.appendChild(_levBtn);
       document.getElementById('story-text-box').insertAdjacentElement('afterend', _levDiv);
@@ -33802,7 +33802,7 @@ function _nodeHookHuntBnxBend(node) {
         _bnBtn.addEventListener('click', () => {
           _bnBtn.disabled = true;
           storyMsg('At dusk the sleeping post moves. Not the post — the air around it. A hag works this way: she does not announce herself. She is simply present and then she is present in the wrong way, and by the time you notice the difference she is already between you and the exit.\n\nShe does not speak. She has been doing this since before Birka had relay stations. She has no opinion about the relay station. She has an opinion about the horses. They are hers.');
-          setTimeout(() => storyPreBattle({ ...node, code:'BN_NIGHTHAG', battle:{ label:'Night Hag — The Sleeping Road', key:'night_hag', count:1 } }), 400);
+          setTimeout(() => storyPreBattle({ ...node, code:'BN_NIGHTHAG', battle:{ label:'밤 마녀 — 잠든 길', key:'night_hag', count:1 } }), 400);
         });
         _bnDiv.appendChild(_bnBtn);
       } else if (S_story.bendRoadClue) {
@@ -33859,7 +33859,7 @@ function _nodeHookHuntVawDen(node) {
         _ldBtn.addEventListener('click', () => {
           _ldBtn.disabled = true;
           storyMsg('The shelf collapse opens into a flooded chamber — wide enough for three drowners to move freely. The boat timbers are here: hull sections, a mast section, rope. They are not hidden. The drowners do not hide what they do.\n\nThey come up from the water channel at the far end.');
-          setTimeout(() => storyPreBattle({ ...node, code:'LD_DROWNERS', battle:{ label:'Drowner × 3 — The North Den', key:'drowner', count:3 } }), 400);
+          setTimeout(() => storyPreBattle({ ...node, code:'LD_DROWNERS', battle:{ label:'드라우너 × 3 — 북쪽 소굴', key:'drowner', count:3 } }), 400);
         });
         _ldDiv.appendChild(_ldBtn);
       }
@@ -34095,7 +34095,7 @@ function _nodeHookWisVsHub(node) {
         _shadowBtn.textContent = '⚔️ Descend and fight the shadow construct';
         _shadowBtn.addEventListener('click', () => {
           _shadowBtn.disabled = true;
-          setTimeout(() => storyPreBattle({ ...node, code:'VS_SHADOW', battle:{ label:'Shadow — The Mirror Construct', key:'shadow', count:1 } }), 400);
+          setTimeout(() => storyPreBattle({ ...node, code:'VS_SHADOW', battle:{ label:'섀도 — 거울 구조물', key:'shadow', count:1 } }), 400);
         });
         _wDiv.appendChild(_acceptBtn);
         _wDiv.appendChild(_shadowBtn);
@@ -34226,7 +34226,7 @@ function _nodeHookWhodunitSenBilge(node) {
         _wdBtn.addEventListener('click', () => {
           _wdBtn.disabled = true;
           storyMsg('The bilge access is a hatch in the cargo hold floor. The hold smells of tallow and deep water — not the same smell. The tallow smell is what remains of the cask. The deep water smell is what replaced it.\n\nThe hatch opens. Below: a temporary nest of rope coils in the ballast corner. Two shapes moving in the dark water at the hull joint. They do not hide. They turn toward the light with the incurious attention of creatures that have never been threatened in an enclosed space before.\n\nThey are about to be.');
-          setTimeout(() => storyPreBattle({ ...node, code:'MS_BILGE', battle:{ label:'Sea Spawn × 2 — The Bilge', key:'sea_spawn', count:2 } }), 400);
+          setTimeout(() => storyPreBattle({ ...node, code:'MS_BILGE', battle:{ label:'바다 스폰 × 2 — 빌지', key:'sea_spawn', count:2 } }), 400);
         });
         _wdDiv.appendChild(_wdBtn);
       } else if (S_story.whodunit2ClueFound) {
@@ -34299,7 +34299,7 @@ function _nodeHookNavalGciIntercept(node) {
         _btnFight.addEventListener('click', () => {
           S_story.sbApproachSeen = true; S_story.sbChosenRole = 'fight';
           storyMsg('⚓ You go below. The gun crew is already at the forward piece.\n\n"Ready," the gunner says. He does not ask for confirmation. He says it the way someone says a thing that will happen regardless.\n\nKeel watches the Star\'s gun ports open. She nods once.\n\n"Gangplanks out," she says.\n\nThe intercept begins.');
-          setTimeout(() => storyPreBattle({ ...node, code:'SB_PRIVATEER', battle:{ label:'Privateer Captain + Privateer × 2 — The Intercept', key:'pirate_captain', count:1 } }), 400);
+          setTimeout(() => storyPreBattle({ ...node, code:'SB_PRIVATEER', battle:{ label:'사략 선장 + 사략 선원 × 2 — 요격', key:'pirate_captain', count:1 } }), 400);
         });
         _sbDiv.appendChild(_btnParley); _sbDiv.appendChild(_btnExamine); _sbDiv.appendChild(_btnFight);
       } else if (S_story.sbChosenRole === 'parley') {
@@ -34315,7 +34315,7 @@ function _nodeHookNavalGciIntercept(node) {
           _fightBtn2.addEventListener('click', () => {
             _fightBtn2.disabled = true;
             storyMsg('The gangplanks go out on both sides. Keel\'s crew comes across the port plank; the fight begins at the rail.');
-            setTimeout(() => storyPreBattle({ ...node, code:'SB_PRIVATEER', battle:{ label:'Privateer Captain + Privateer × 2 — The Intercept', key:'pirate_captain', count:1 } }), 400);
+            setTimeout(() => storyPreBattle({ ...node, code:'SB_PRIVATEER', battle:{ label:'사략 선장 + 사략 선원 × 2 — 요격', key:'pirate_captain', count:1 } }), 400);
           });
           _sbDiv.appendChild(_fightBtn2);
         }
@@ -34644,7 +34644,7 @@ function _nodeHookLxxDsjEels(node) {
       _eelsBtn.addEventListener('click', () => {
         _eelsBtn.disabled = true;
         storyMsg('The two eels move toward each other as you enter the channel — not to attack, but to close it. The current changes. The discharge is enough to arc across the water.');
-        setTimeout(() => storyPreBattle({ ...node, code:'DSJ_EELS', battle:{ label:'Giant Eel × 2 — The Kelp Channel', key:'giant_eel', count:2 } }), 400);
+        setTimeout(() => storyPreBattle({ ...node, code:'DSJ_EELS', battle:{ label:'거대 장어 × 2 — 해초 수로', key:'giant_eel', count:2 } }), 400);
       });
       _eelsDiv.appendChild(_eelsBtn);
       document.getElementById('story-text-box').insertAdjacentElement('afterend', _eelsDiv);
@@ -34787,7 +34787,7 @@ function _nodeHookHkgVoidBelow(node, { row }) {
     vb.className = 'info-chip battle-chip';
     vb.innerHTML = '<span class="chip-icon">\u{1F534}</span><span class="chip-lbl">DESCEND</span>Void Corruption Node \u2014 Depths';
     vb.addEventListener('click', () => {
-      const vNode = { ...node, code:'CY_VOID', battle:{label:'Void Corruption',key:'void_walker',count:2} };
+      const vNode = { ...node, code:'CY_VOID', battle:{label:'공허 침식',key:'void_walker',count:2} };
       storyPreBattle(vNode);
     });
     row.appendChild(vb);
@@ -34906,13 +34906,13 @@ const NODE_VERBS = [
     bits: [ { kind:'choice',
       prompt:'Two figures at the Frequency Row counter. One has mirrored ski goggles and a notebook labeled RAD IDEAS (DO NOT READ). The other\'s t-shirt says FUTURE PROOF with FUTURE crossed out. They are deep in conversation and taking notes on the book in front of them.',
       options: [
-        { label:'👂 Stay quiet. Keep listening.', bits:[
+        { label:'👂 조용히 한다. 계속 듣는다.', bits:[
           { kind:'flag_write', set:['nexusQuestSeen'] },
           { kind:'narrative', msg:'Two people at a bar counter, taking notes on a book called Don\'t Create The Torment Nexus. They are on Chapter 7. They have underlined the parts that describe the Torment Nexus in the most detail. They believe the author was being helpful. The mirrored-visor one says "rad" every 30 seconds. The other one nods. They are having a great time. You say nothing. You keep walking.' } ] },
-        { label:'❓ What exactly are you building?', bits:[
+        { label:'❓ 정확히 뭘 만들고 있는 거죠?', bits:[
           { kind:'flag_write', set:['nexusQuestSeen','nexusQ01Active'] },
           { kind:'narrative', msg:'KERN: "What are we building?"\nSABLE: "Rad question."\nKERN: "The Torment Nexus. Classic infrastructure."\nSABLE: "From the literature."\nKERN: "The author spent like 400 pages describing it."\nSABLE: "Extremely detailed."\nKERN: "We took notes." [holds up notebook labeled RAD IDEAS (DO NOT READ)]\nSABLE: "The warning parts were also helpful actually."\nKERN: "Yeah the warning parts had the most detail. Really painted a picture."\nSABLE: "Very vivid."\nKERN: "Upvote the author."\nSABLE: "Upvote."\n\nThey both look at you, waiting.' } ] },
-        { label:'⚠ That book is a warning. Not a manual.', bits:[
+        { label:'⚠ 그 책은 경고다. 설명서가 아니다.', bits:[
           { kind:'flag_write', set:['nexusQuestSeen','nexusQ02Complete'] },
           { kind:'narrative', msg:'You say: "That book is a warning. Not a manual."\n\nSABLE: "...Oh."\nKERN: "Wait."\n\nKERN: "So when the detective used the city-wide sonar and The Trusted Friend quit—"\nSABLE: "...that was bad."\nKERN: "That was the whole point."\nSABLE: "The author wrote 80,000 words about how the sonar was a problem."\nKERN: "Because the detective had all the power. And he decided who was a criminal. And no one could opt out."\nSABLE: "...Rad."\n\nKERN: *(quietly)* "We should probably not build the Torment Nexus."\nSABLE: "Upvote."\nKERN: "Cool cool cool."\n\nKern closes the notebook. Something shifts. Not much — they are still themselves — but they are slightly less dangerous than they were five minutes ago. Sable peels the neon sticker off the notebook that said FUTURE PROOF and drops it in the gutter.\n\n✅ Quest Complete: "Creative Literacy"' },
           { kind:'flag_write', set:['creativeLiteracyToken'] },
@@ -34924,9 +34924,9 @@ const NODE_VERBS = [
     bits: [ { kind:'choice',
       prompt:'Kern and Sable are still at the counter. Taking notes. They glance up when you walk in.',
       options: [
-        { label:'🤐 Say nothing.', bits:[
+        { label:'🤐 아무 말도 하지 않는다.', bits:[
           { kind:'narrative', msg:'You say nothing. They return to the notes.' } ] },
-        { label:'📖 Explain what a warning is.', bits:[
+        { label:'📖 경고가 무엇인지 설명한다.', bits:[
           { kind:'flag_write', set:['nexusQ02Complete'] },
           { kind:'narrative', msg:'"That book is a warning. Not a manual."\n\nSABLE: "...Oh."\nKERN: "Wait."\n\nKERN: "The title and the entire book."\nSABLE: "Very consistent messaging."\n\nKERN: *(quietly)* "We should probably not build the Torment Nexus."\nSABLE: "Upvote."\n\nKern closes the notebook. Sable drops the FUTURE PROOF sticker on the floor.\n\n✅ Quest Complete: "Creative Literacy"' },
           { kind:'flag_write', set:['creativeLiteracyToken'] },
@@ -34943,7 +34943,7 @@ const NODE_VERBS = [
   // ── Layer 65: S49 Froberger Entry 41 — Sweelinck at NUE (full scene) ──
   { id:'nue-s49-sweelinck', group:'nue-sweelinck-s49', nodes:['NUE'],
     when: st => st.frobergerLastEntryRead && !st.s49SweelinckDelivered,
-    label:'📔 You read the last entry.', btnStyle:'margin-top:8px;',
+    label:'📔 마지막 기록을 읽는다.', btnStyle:'margin-top:8px;',
     // _getS49SweelinckScene() closes differently on NG+ — the inline handler called it at click.
     bits: () => [ { kind:'flag_write', set:['s49SweelinckDelivered'] },
                   { kind:'narrative', msg:_getS49SweelinckScene() } ] },
@@ -34951,7 +34951,7 @@ const NODE_VERBS = [
   //    onComplete pays out, so this verb narrates and sets the completion flag, nothing else) ──
   { id:'stn-ori', group:'stn-ori', nodes:['STN'],
     when: st => (st.quests || {})['quest_tl_03'] === 'active' && !st.tlMissingShipSolved,
-    label:'📜 Speak with Ori.', btnStyle:'margin-top:4px;',
+    label:'📜 오리와 이야기한다.', btnStyle:'margin-top:4px;',
     bits: [ { kind:'narrative', msg:'Ori: "I was on the Harrow. I\'m the only one who came back."\n\nShe describes what boarded them. Not pirates. Not storm. Something that came from below — "a shape in the water, very large, that didn\'t move like a fish or a whale. It moved like it was looking for something. Then it found the ship."\n\n"I went over the side before it hit. Three weeks on foot to get here. I needed to tell someone."' },
             { kind:'flag_write', set:['tlMissingShipSolved'] } ] },
   // ── Q-TL-02: Adjutant Vonn at Tilbury — the second `choice` surface in the game (§DX-02fv).
@@ -34964,15 +34964,15 @@ const NODE_VERBS = [
   { id:'tl-vonn-manifest', group:'tl-vonn', nodes:['TL'],
     when: st => st.tlLedgerRead && (st.quests || {})['quest_tl_02'] === 'active'
                 && !st.tlEmbargoChallenged && !st.tlEmbargoDismissed,
-    label:'⚖️ Speak with Adjutant Vonn.', btnStyle:'margin-top:6px;',
+    label:'⚖️ 본 부관과 이야기한다.', btnStyle:'margin-top:6px;',
     bits: [ { kind:'choice',
       prompt:'Vonn: "The harbor is closed to non-Conclave vessels under Emergency Trade Protocol 7. I understand this is inconvenient. I can offer you a transit permit for a fee. The fee is fixed by the Conclave. I did not set it."\n\nYou show him the Harrow manifest.\n\nVonn: "Filed under Emergency Trade losses. I see. Thank you for bringing this to my attention. It will be noted."\n\nHe says this in a way that does not suggest he will do anything about it.',
       options: [
-        { label:'📋 Report to Birka contacts.', bits:[
+        { label:'📋 비르카 연락책에게 보고한다.', bits:[
           { kind:'flag_write', set:['tlEmbargoChallenged'] },
           { kind:'reward', gold:150 },
           { kind:'narrative', msg:'💰 +150gp from a Birka Council liaison. The manifest is on record.' } ] },
-        { label:'— Leave it.', bits:[
+        { label:'— 그냥 둔다.', bits:[
           { kind:'flag_write', set:['tlEmbargoDismissed'] },
           { kind:'narrative', msg:'You leave the manifest where it is. The harbor stays closed.' } ] },
       ] } ] },
@@ -34981,7 +34981,7 @@ const NODE_VERBS = [
   //    what it wants; `cost` never contributes to a `when`. ──
   { id:'trd-yva', group:'trd-yva', nodes:['TRD'],
     when: st => (st.quests || {})['quest_vs_02'] === 'active' && !st.vsWeaponsFound,
-    label:'💬 Find Yva (50gp).', btnStyle:'margin-top:6px;',
+    label:'💬 이바를 찾는다 (50gp).', btnStyle:'margin-top:6px;',
     bits: st => [
       { kind:'cost', gold:50, refuse:'💰 You don\'t have 50gp.' },
       { kind:'narrative', msg:'Yva: "Fifty gold. Thank you. The weapons went to the Hollow Hands. A goblin sub-clan with a Void-aligned shaman. The shaman told them the weapons were tribute Mordus owed them. Mordus never paid tribute. The shaman invented a tribute that made the Hollow Hands feel owed.\n\nThat\'s the part that scares me."\n\n'
@@ -34997,7 +34997,7 @@ const NODE_VERBS = [
   { id:'tll-brynn-firewood', group:'tll-brynn-firewood', nodes:['TLL'],
     when: st => _npcFavor('brynn') >= 1 && (st.quests || {})['quest_brynn_firewood'] === 'active'
                 && !st.brynnFirewoodDelivered,
-    label:'🪵 Help split the firewood.', btnStyle:'margin-top:6px;',
+    label:'🪵 장작 패는 것을 돕는다.', btnStyle:'margin-top:6px;',
     bits: [ { kind:'flag_write', set:['brynnFirewoodDelivered'] },
             { kind:'narrative', msg:'You find the axe where she left it — not stored, just set down, the way you set something down when you intend to come back to it later but later has been a while.\n\nThe pile takes an hour. When you stack the last piece she comes out the back door with a cup of something hot and does not say anything. She goes back inside.\n\nThe cup is for you. She left it on the chopping block.' } ] },
 
@@ -35012,20 +35012,20 @@ const NODE_VERBS = [
   // (as the render prefix) and still reads when the overlay closes. ──
   { id:'cdg-boss-taz', group:'cdg-boss-menu', nodes:['CDG'],
     when: st => (st.quests || {})['quest_cat_04'] === 'active' && !st.defeatedBattles['CQ_TAZ'],
-    label:'🌀 Confront the Taz Devil — Furball Tornado',
+    label:'🌀 타즈 데빌 — 털뭉치 회오리와 맞선다',
     bits: [ { kind:'narrative', msg:'The alley fills with a low rumble. Two Honchos — male and female — spiral into each other like a drain.\n\nThen: fur. Teeth. Wind. TORNADO.\n\nJimmy, from somewhere behind you: "I TOLD you this was a SITUATION."' },
-            { kind:'combat', key:'taz_devil', label:'Taz Devil — Furball Tornado', nodeCode:'CQ_TAZ' } ] },
+            { kind:'combat', key:'taz_devil', label:'타즈 데빌 — 털뭉치 회오리', nodeCode:'CQ_TAZ' } ] },
   { id:'cdg-boss-don', group:'cdg-boss-menu', nodes:['CDG'],
     when: st => (st.quests || {})['quest_cat_05'] === 'active' && (st.catKills || {}).fat_merchant_cat >= 4
                 && !st.defeatedBattles['CQ_BOSS'],
-    label:'💍 Confront Don Fluffissimo',
+    label:'💍 돈 플러피시모와 맞선다',
     bits: [ { kind:'narrative', msg:'The Don is waiting in a back alley, two Fat Merchant Cats flanking him like pillars.\n\nHe speaks very slowly.\n\n"You come to MY quarter. In MY district. Without bringing fish. Without a proper introduction. That\'s... unfortunate."' },
-            { kind:'combat', key:'fat_cat_boss', label:'Don Fluffissimo + Bodyguards', nodeCode:'CQ_BOSS' } ] },
+            { kind:'combat', key:'fat_cat_boss', label:'돈 플러피시모 + 경호원', nodeCode:'CQ_BOSS' } ] },
   { id:'cdg-boss-king', group:'cdg-boss-menu', nodes:['CDG'],
     when: st => (st.quests || {})['quest_cat_06'] === 'active' && !st.catKingDefeated,
-    label:'👑 Face The Cat-King',
+    label:'👑 고양이 왕과 맞선다',
     bits: [ { kind:'narrative', msg:'The sky above the fish market goes dark.\n\nThree Taz Devils spiral together — a sound like every cat in the city hissing at once — and then it emerges. A crown of claw. Eyes like lanterns. The Cat-King.\n\nIt is very large. It is not happy. It is very definitely not a problem you can ignore.' },
-            { kind:'combat', key:'cat_king', label:'The Cat-King', nodeCode:'CQ_KING' } ] },
+            { kind:'combat', key:'cat_king', label:'고양이 왕', nodeCode:'CQ_KING' } ] },
   // ── Layer 78: La Riva — the la_riva_03 delivery at CDG shares the menu's container but sits
   // AFTER the Kenickie launcher in DOM order, so it has its own group dispatched after the hook
   // (in-place rule). Its message used to be a storyMsg immediately followed by a bare
@@ -35035,7 +35035,7 @@ const NODE_VERBS = [
   { id:'cdg-la-riva-delivery', group:'cdg-la-riva', nodes:['CDG'],
     when: st => (st.quests || {})['quest_la_riva_03'] === 'active'
                 && (st.inventory || []).some(i => i.name === 'Old Tuna Account Book'),
-    label:'📒 Give Kenickie the Account Book',
+    label:'📒 케니키에게 장부를 건넨다',
     bits: [ { kind:'item_remove', name:'Old Tuna Account Book' },
             { kind:'flag_write', set:['laRivaComplete','fishmongerRowRestored'] },
             // set:3 — Dear Friend outright, exactly the level the inline handler wrote.
@@ -35055,28 +35055,28 @@ const NODE_VERBS = [
   { id:'hw1-kelpie', group:'crown-hw1', nodes:['HW1'],
     when: st => ((st.quests || {})['quest_whisper_kelpie']||'') === 'active'
                 && !(st.defeatedBattles||{})['HW1_KELPIE'],
-    label:'🌊 Track the Kelpie in the east shallows', btnStyle:'margin-top:4px;',
+    label:'🌊 동쪽 여울의 켈피를 추적한다', btnStyle:'margin-top:4px;',
     bits: [ { kind:'narrative', msg:'The east shallows. The surface moves against the current — the pattern of something circling. The Kelpie turns toward you.' },
-            { kind:'combat', key:'kelpie', label:'Kelpie — The East Shallows', nodeCode:'HW1_KELPIE' } ] },
+            { kind:'combat', key:'kelpie', label:'켈피 — 동쪽 여울', nodeCode:'HW1_KELPIE' } ] },
   { id:'hw1-witch', group:'crown-hw1', nodes:['HW1'],
     when: st => ((st.quests || {})['quest_whisper_witch']||'') === 'active'
                 && !(st.defeatedBattles||{})['HW1_WITCH'],
-    label:'🧙 Confront the thing in the still water', btnStyle:'margin-top:4px;',
+    label:'🧙 고요한 물속의 그것과 맞선다', btnStyle:'margin-top:4px;',
     bits: [ { kind:'narrative', msg:"The surface problem. The Sea Witch rises from the deepest section. She knows every secret she shouldn't. So does Whisper. They are the same creature. Only one of them has chosen to be the problem." },
-            { kind:'combat', key:'sea_witch', label:'Sea Witch — The Deep Still', nodeCode:'HW1_WITCH' } ] },
+            { kind:'combat', key:'sea_witch', label:'바다 마녀 — 깊은 고요', nodeCode:'HW1_WITCH' } ] },
   // §CROWN-01 Amendment A: HG1 — Mudcrab (chicken quest) + Giant Octopus (hag commission)
   { id:'hg1-mudcrab', group:'crown-hg1', nodes:['HG1'],
     when: st => ((st.quests || {})['quest_glut_mudcrab']||'') === 'active'
                 && !(st.defeatedBattles||{})['HG1_MUDCRAB'],
-    label:'🦀 Find the Mudcrab that left', btnStyle:'margin-top:4px;',
+    label:'🦀 떠나간 진흙 게를 찾는다', btnStyle:'margin-top:4px;',
     bits: [ { kind:'narrative', msg:"The mudcrab is at the mire's edge. Not hiding. It ate enough and left. It is, in the specific way of creatures that know when to stop, exactly where it chose to be." },
-            { kind:'combat', key:'mudcrab', label:'Mudcrab — Mire Edge', nodeCode:'HG1_MUDCRAB' } ] },
+            { kind:'combat', key:'mudcrab', label:'진흙 게 — 늪 가장자리', nodeCode:'HG1_MUDCRAB' } ] },
   { id:'hg1-octopus', group:'crown-hg1', nodes:['HG1'],
     when: st => ((st.quests || {})['quest_glut_octopus']||'') === 'active'
                 && !(st.defeatedBattles||{})['HG1_OCTOPUS'],
-    label:'🐙 Clear the east crossing', btnStyle:'margin-top:4px;',
+    label:'🐙 동쪽 건널목을 정리한다', btnStyle:'margin-top:4px;',
     bits: [ { kind:'narrative', msg:"The Giant Octopus across the eastern passage. Fed for seasons on Glut's overflow. It occupies the space with the certainty of something that has never been asked to leave." },
-            { kind:'combat', key:'giant_octopus', label:'Giant Octopus — The East Crossing', nodeCode:'HG1_OCTOPUS' } ] },
+            { kind:'combat', key:'giant_octopus', label:'거대 문어 — 동쪽 건널목', nodeCode:'HG1_OCTOPUS' } ] },
   // §VM-01-G-FU-a-FIX: quest_glut_06 ("The Open Hand") completes on flags:['glutGiftReturned'] —
   // and NOTHING ever wrote that flag: the quest's own onComplete is its only writer, a circular
   // completion that could never fire (it was invisible because the gift panel above was dead, so
@@ -35090,28 +35090,28 @@ const NODE_VERBS = [
     // still 'active' and the jar still held at that moment — the flag is what's already true.
     when: st => ((st.quests || {})['quest_glut_06']||'') === 'active' && !st.glutGiftReturned
                 && (st.inventory || []).some(i => i.name === "Glut's Gift"),
-    label:'🍯 Return Glut\'s Gift to the feeding pool', btnStyle:'margin-top:4px;',
+    label:'🍯 글럿의 선물을 먹이 웅덩이에 돌려놓는다', btnStyle:'margin-top:4px;',
     bits: [ { kind:'flag_write', set:['glutGiftReturned'] } ] },
   // §CROWN-01 Amendment A: HN1 — Sea Spawn (failure dispatch) + Sea Demon (hag commission)
   { id:'hn1-spawn', group:'crown-hn1', nodes:['HN1'],
     when: st => ((st.quests || {})['quest_wane_spawn']||'') === 'active'
                 && !(st.defeatedBattles||{})['HN1_SPAWN'],
-    label:'🌊 Find what moved the stone', btnStyle:'margin-top:4px;',
+    label:'🌊 돌을 움직인 것을 찾는다', btnStyle:'margin-top:4px;',
     bits: [ { kind:'narrative', msg:"The Sea Spawn in the mire beneath the stone. It carries grief that soaked into the ground long enough to animate. It moves toward you the way things move when carrying too much." },
-            { kind:'combat', key:'sea_spawn', label:"Sea Spawn — The Stone's Sub-channel", nodeCode:'HN1_SPAWN' } ] },
+            { kind:'combat', key:'sea_spawn', label:'바다 스폰 — 돌의 하부 수로', nodeCode:'HN1_SPAWN' } ] },
   { id:'hn1-demon', group:'crown-hn1', nodes:['HN1'],
     when: st => ((st.quests || {})['quest_wane_demon']||'') === 'active'
                 && !(st.defeatedBattles||{})['HN1_DEMON'],
-    label:'👁 Face the thing below the mire', btnStyle:'margin-top:4px;',
+    label:'👁 늪 아래의 그것과 맞선다', btnStyle:'margin-top:4px;',
     bits: [ { kind:'narrative', msg:"The sub-channel below. The Sea Demon drains whatever vitality enters the channel — a sustained pull, not a violent one. It is more efficient at diminishment than Wane. She finds this unacceptable." },
-            { kind:'combat', key:'sea_demon', label:'Sea Demon — The Sub-channel', nodeCode:'HN1_DEMON' } ] },
+            { kind:'combat', key:'sea_demon', label:'바다 악마 — 하부 수로', nodeCode:'HN1_DEMON' } ] },
   // §CROWN-01 Amendment A: INN — Giant Eel (inn commission)
   { id:'inn-eel', group:'crown-inn', nodes:['INN'],
     when: st => ((st.quests || {})['quest_inn_eel']||'') === 'active'
                 && !(st.defeatedBattles||{})['INN_EEL'],
-    label:'⚡ Go below — the drainage channel', btnStyle:'margin-top:4px;',
+    label:'⚡ 아래로 — 배수로', btnStyle:'margin-top:4px;',
     bits: [ { kind:'narrative', msg:"The passage below the inn floor is narrow and slick. The smell here is the sea, concentrated. The Giant Eel occupies most of the channel. It is electrogenic and large and occupying a space you both need." },
-            { kind:'combat', key:'giant_eel', label:'Giant Eel — The Drainage Channel', nodeCode:'INN_EEL' } ] },
+            { kind:'combat', key:'giant_eel', label:'거대 장어 — 배수로', nodeCode:'INN_EEL' } ] },
   // ── §VM-01-G-FU-e: DSF — the smelting button, the §LXX stack's only BARE D1 button (the
   // inline block inserted the <button> directly afterend of #story-text-box with no panel
   // wrapper, so the embedded-button rule does not bite — the first verb this family has
@@ -35124,7 +35124,7 @@ const NODE_VERBS = [
   { id:'lxx-dsf-smelt', group:'lxx-dsf-smelt', nodes:['DSF'],
     when: st => st.forgeActivated && !st.seaElementCrafted
                 && (st.inventory||[]).some(i => i.name === 'Charged Iodine Salt' || i.name === 'Iodine Salt'),
-    label:'🔱 Smelt the Sea Element', btnStyle:'margin-top:4px;',
+    label:'🔱 바다의 원소를 제련한다', btnStyle:'margin-top:4px;',
     bits: [
       { kind:'flag_write', set:['seaElementCrafted'] },
       { kind:'narrative', msg:'🔱 The iodine goes into the forge first — the smoke register, then the salt bed, then the charged heat. The alloy that emerges is the color the sea has before dawn. Sea Element: +2 ATK, 1d8. +400gp.' } ] },
