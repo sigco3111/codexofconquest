@@ -31969,11 +31969,11 @@ const NODE_PANELS = [
     text:st => {
       const _bc = (st.betrayalThought ? 1 : 0) + (st.betrayalWord ? 1 : 0) + (st.betrayalDeed ? 1 : 0);
       if (_bc === 0) {
-        return 'The four courts gave their seals.\n\nYou gave them nothing but your position. You named the tidal schedule. 바퀴를 찾았어요. 궁정에 직접 말했어요. 부두에 먼저 갔군요. Each time: your position, clearly held.\n\nThe sea behind you is the same sea. Nothing about the water has changed. The difference is that you navigated it without being navigated.';
+        return '네 관이 봉인을 내주었다.\n\n당신이 준 것은 입장뿐이었다. 조석표를 알려 주었고, 바퀴를 찾았어요. 궁정에 직접 말했어요. 부두에 먼저 갔군요. 매번 명확하게 지켜낸 당신의 입장이었다.\n\n뒤의 바다는 같은 바다다. 물에 관해 달라진 것은 없다. 다른 점은 당신이 조종당하지 않고 항해했다는 것이다.';
       } else if (_bc <= 2) {
-        return 'The seals are in your coat.\n\nYou have been shaped by the crossing. Not entirely — you held your position at ' + (3 - _bc) + ' of the courts. But the shaping was real, and it was not requested, and you did not notice it at the time it happened.\n\nYou notice it now. The water is still. Stillness makes the shape of a thing visible. This is what stillness is for.';
+        return '봉인은 당신의 외투 안에 있다.\n\n당신은 건너는 동안 빚어졌다. 전부는 아니다 — 관 셋 중 ' + (3 - _bc) + '곳에서 입장을 지켰다. 하지만 빚어짐은 실재했고, 청해진 것도 아니었으며, 일어나는 순간에는 알아차리지 못했다.\n\n이제는 알아차린다. 물은 고요하다. 고요함은 사물의 형태를 보이게 한다. 고요함은 그러라고 있는 것이다.';
       }
-      return 'You gave something at each harbor that you did not mean to give.\n\nAt Port Aurel: your interpretation. At Port Calice: your pace. At Port Mireille: your role.\n\nThe seals are in your coat. The commission is complete. The water is still. The stillness is the first moment of stillness since Port Aurel — the first moment in which nothing is being measured except by you, and you are only now beginning to count.';
+      return '당신은 각 항구에서 줄 생각이 없던 것을 주었다.\n\n아우렐 항구에서는 해석을. 칼리스 항에서는 걸음을. 미레유 항에서는 역할을.\n\n봉인은 당신의 외투 안에 있다. 위임은 완료되었다. 물은 고요하다. 이 고요함은 아우렐 항구 이후 처음의 고요함이다 — 당신에 의해서만 무엇이든 재어지는 첫 순간이며, 당신은 이제 막 세기 시작했다.';
     } },
   // §ML: Malta shore — snake; no roll, no explanation, crowd changes their mind
   { id:'story-ml-snake', nodes:['MLA'],
@@ -31981,9 +31981,9 @@ const NODE_PANELS = [
     css:'margin-top:10px;border-left-color:#4a4a2a;font-style:italic;color:#c8c890;font-size:12px;',
     text:st => {
       const _mlHarmony = st.harmonyChainComplete
-        ? '\n\nThe islanders showed unusual kindness. You have seen this before — a place that has no reason to be kind and is kind anyway. It moves the same way every time. "The islanders showed us unusual kindness."'
-        : '\n\nThe islanders showed unusual kindness.';
-      return 'The fire is built on the shore. Two hundred and seventy-six people, cold and wet and alive on the beach before dawn.\n\nA viper comes out of the brush when the wood is gathered — the heat, the disturbance. It fastens to his hand. The islanders see this. They reach a conclusion: he is a murderer; he survived the sea but judgment found him at the fire.\n\nHe shakes it into the fire.\n\nThey wait for his hand to swell. His hand does not swell. They wait for him to fall. He does not fall. He goes back to building the fire.\n\nThe islanders change their minds. They say: he is a god.\n\nHe does not correct them. He has been counting people all night. The count is correct. He builds the fire.' + _mlHarmony;
+        ? '\n\n섬 사람들은 각별한 친절을 베풀었다. 전에 본 적이 있다 — 친절할 이유가 없는 곳이 그럼에도 친절한 경우다. 매번 같은 방식으로 마음을 움직인다. "섬 사람들은 우리에게 각별한 친절을 베풀었다."'
+        : '\n\n섬 사람들은 각별한 친절을 베풀었다.';
+      return '모닥불은 물가에 피워졌다. 이백칠십육 명이 새벽 전 해변에서 춥고 젖은 채 살아 있다.\n\n장작을 모으자 덤불에서 독사가 나온다 — 열기와 소동 때문이다. 그것이 그의 손에 달라붙는다. 섬 사람들이 본다. 그들은 결론에 이른다: 그는 살인자다. 바다에서는 살아남았지만 심판이 모닥불에서 그를 찾아낸 것이다.\n\n그는 뱀을 불 속에 털어 버린다.\n\n그들은 그의 손이 부풀기를 기다린다. 손은 부풀지 않는다. 그가 쓰러지기를 기다린다. 그는 쓰러지지 않는다. 그는 모닥불을 쌓던 일로 돌아간다.\n\n섬 사람들은 생각을 바꾼다. 그들은 말한다: 그는 신이다.\n\n그는 그들을 바로잡지 않는다. 그는 밤새 사람 수를 세고 있었다. 수는 정확하다. 그는 모닥불을 쌓는다.' + _mlHarmony;
     } },
   // L40-H/I: Sweelinck dialogue variant at NUE and TLS (Layer 41: Birka variant overrides curse score
   // if player has 3+ friends). The NUE-only age/map/S49 sub-blocks stay inline in storyRender.
@@ -31999,37 +31999,37 @@ const NODE_PANELS = [
     when:st => (st.level || 1) >= 20 && !st.questMinusOne,
     css:'margin-top:10px;border-left-color:#556b2f;',
     text:[
-      '🔓  You are Level 20.',
+      '🔓  레벨 20이다.',
       '',
-      'The Fighter Champion progression ends here. The crit window is 17–20.',
-      'You have two Action Surges per short rest. Indomitable has been yours',
-      'for eleven levels. There is no Level 21 in this build.',
+      '전사 챔피언 성장은 여기서 끝난다. 치명타 창은 17–20이다.',
+      '짧은 휴식당 액션 서지는 두 번이다. 불굴은 당신의 것이 된 지',
+      '열한 레벨이 되었다. 이 빌드에 레벨 21은 없다.',
       '',
-      'But the source file is 16,024 lines of readable JavaScript.',
-      'MONSTER_POOL has 423 entries. WORLD_DB has 67 terrain entries.',
-      'QUEST_DB has a completion function for each quest. The MIT License',
-      'has no restrictions.',
+      '하지만 소스 파일은 읽을 수 있는 자바스크립트 16,024줄이다.',
+      'MONSTER_POOL에는 423개의 항목이 있다. WORLD_DB에는 67개의 지형 항목이 있다.',
+      'QUEST_DB에는 각 퀘스트의 완료 함수가 있다. MIT 라이선스에는',
+      '제한이 없다.',
       '',
-      'Level 21 is undefined.',
-      'That is not a bug. That is the door.',
+      '레벨 21은 정의되어 있지 않다.',
+      '그것은 버그가 아니다. 그것은 문이다.',
       '',
-      'If you want to continue, the next step is yours to write.',
-      'The tools are: a text editor, a browser, and the following commands:',
+      '계속하고 싶다면, 다음 단계는 당신이 쓸 것이다.',
+      '도구는 텍스트 에디터와 브라우저, 그리고 다음 명령어들이다:',
       '',
       '    grep -n "MONSTER_POOL" play.html',
       '    grep -c "key:\'" play.html',
       '    grep -n "^const QUEST_DB" play.html',
       '',
-      'The markdown files in this directory keep the documentation synchronized.',
-      'plan.md §XIV describes the World Creator Wizard.',
+      '이 디렉터리의 마크다운 파일들은 문서를 동기화 상태로 유지한다.',
+      'plan.md §XIV는 월드 크리에이터 마법사를 설명한다.',
       '',
-      'To mark this quest complete, open your browser console and type:',
+      '이 퀘스트를 완료로 표시하려면, 브라우저 콘솔을 열고 입력한다:',
       '    S_story.questMinusOne = true; storyAutoSave();',
       '',
-      'The game will not know whether you earned it.',
-      'That is also intentional.',
+      '게임은 당신이 그것을 얻을 자격이 있었는지 알지 못한다.',
+      '그것 역시 의도된 것이다.',
       '',
-      '— Froberger\'s margin note, Entry 42 (not yet written)',
+      '— 프로베르거의 여백 메모, 항목 42 (아직 쓰이지 않음)',
     ].join('\n') },
   // §D01-01: Themed Dungeon Doctrine — EB approach room flavor panels (IST/TBS/MCT; the BK
   // Void-Fracture-Maze panel stays inline — Corelli's button precedes it in the old source and
@@ -32037,23 +32037,23 @@ const NODE_PANELS = [
   { nodes:['IST'],
     when:st => !st.defeatedBattles['IST'],
     css:'margin-top:10px;border-left-color:#1a4a6a;',
-    html:'<div style="color:#4080a0;font-weight:700;margin-bottom:4px;">📚 Library of the Drowned — Approach</div>'
+    html:'<div style="color:#4080a0;font-weight:700;margin-bottom:4px;">📚 심연의 필경실 — 접근</div>'
       + '<div style="font-size:12px;color:#9ab;line-height:1.5;">'
-      + 'The water here is the wrong temperature. Not cold — wrong. As if the cold has a direction and that direction is toward you. The ink in the wall-inscriptions has not run in three centuries of submersion. It should have run in the first decade. The library holds things in place by insisting that they stay. You are subject to the same arrangement until you are not. The chamber is aware of the distinction. It has filed it.'
+      + '이곳의 물은 온도가 틀렸다. 차가운 것이 아니라 — 틀렸다. 추위에 방향이 있고 그 방향이 당신을 향하는 것처럼. 벽 비문의 잉크는 침수 삼백 년 동안 번지지 않았다. 첫 십 년에 번졌어야 했다. 도서관은 그대로 있으라고 고집함으로써 사물을 제자리에 붙들어 둔다. 당신도 그렇지 않을 때까지는 같은 약정의 대상이다. 방은 그 구별을 알고 있다. 그것을 기록해 두었다.'
       + '</div>' },
   { nodes:['TBS'],
     when:st => !st.defeatedBattles['TBS'],
     css:'margin-top:10px;border-left-color:#2a1a0a;',
-    html:'<div style="color:#9a6040;font-weight:700;margin-bottom:4px;">🦴 Organic Corruption — Approach</div>'
+    html:'<div style="color:#9a6040;font-weight:700;margin-bottom:4px;">🦴 공허 주술사의 성소 — 접근</div>'
       + '<div style="font-size:12px;color:#c8a07a;line-height:1.5;">'
-      + 'The walls are not made of stone here. They are made of something that was stone and then became something else when the Void moved through it. The texture is wrong in a way that takes a moment to identify. A moment after you identify it, you wish you had taken longer to do so. The bones in the walls were load-bearing once. They still are. The structure would collapse without them. It has not collapsed. It is waiting for a different kind of structural failure.'
+      + '이곳의 벽은 돌로 되어 있지 않다. 돌이었다가 공허가 지나가며 다른 무언가가 된 것으로 되어 있다. 질감이 틀렸는데, 그 틀림을 알아내는 데는 잠시가 걸린다. 알아내고 나면 잠시 더 걸렸더라면 좋았을 것이라고 바라게 된다. 벽 속의 뼈들은 한때 하중을 받는 부재였다. 지금도 그렇다. 그것들 없이는 구조가 무너질 것이다. 무너지지 않았다. 다른 종류의 구조적 실패를 기다리고 있다.'
       + '</div>' },
   { nodes:['MCT'],
     when:st => !st.defeatedBattles['MCT'],
     css:'margin-top:10px;border-left-color:#1a2a4a;',
-    html:'<div style="color:#5080c0;font-weight:700;margin-bottom:4px;">💧 The Water Palace — Approach</div>'
+    html:'<div style="color:#5080c0;font-weight:700;margin-bottom:4px;">💧 지니 군주의 궁전 — 접근</div>'
       + '<div style="font-size:12px;color:#8ab0d0;line-height:1.5;">'
-      + 'The floor is water. This is not a figure of speech. The 장로 마리드 poured its medium into the architecture and the floor is the water the palace drank. It holds your weight. This is a decision the palace made. The columns are also water. The arches are also water. The decision about which parts are floor and which are wall is aesthetic. The Marid had opinions about aesthetics. It expressed them comprehensively. You are walking on the considered opinion of an ancient elemental regarding the correct height of a threshold.'
+      + '바닥은 물이다. 비유가 아니다. 장로 마리드가 자신의 매질을 건축물에 부었고, 바닥은 궁전이 마신 물이다. 그것은 당신의 무게를 받친다. 그것은 궁전이 내린 결정이다. 기둥도 물이다. 아치도 물이다. 어느 부분이 바닥이고 어느 부분이 벽인지의 결정은 미학적이다. 마리드에게는 미학에 관한 견해가 있었다. 그는 그것을 빠짐없이 표현했다. 당신은 문지방의 올바른 높이에 관한 고대 엘리멘탈의 숙고된 견해 위를 걷고 있다.'
       + '</div>' },
   // ── §VM-01-G-FU-a: the two §CROWN-01 once-panels. Each text fn is the block's VERBATIM former
   // body (G2's method applied to a panel): it applies the block's original award as it computes
