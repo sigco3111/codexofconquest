@@ -13525,21 +13525,21 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // killCounter:'monsterKills' → the generic per-monster counter (battle-win handler). See lab-report-kg-corridor-quest-chain.md.
   quest_kg_01: { id:'quest_kg_01', type:'side', schema:'UQF-1.0', gate:{}, bits:[], completion:{ countMin:[{ path:'monsterKills.sparring_droid', min:3 }] }, title:'볼코프: 동쪽의 정직한 일',
     onComplete:[ { kind:'reward', xp:120, gold:30 }, { kind:'mission_bit', flag:'kgEnlisted', label:'길드 입단 서류' }, { kind:'narrative', msg:'📄 모집관 볼코프가 서류에 도장을 찍는다. 이제 길드의 일원이다.' } ],
-    desc:'모집관 볼코프 signs your name and points at the row of dormant sparring droids by the gate. "Three droids, clean, and the Guild knows you can hold a line. Nothing you do here is a mugging — you fight who we match you against, nothing more. That is the honor of it."',
+    desc:'모집관 볼코프가 당신의 이름을 적어 넣고 문가의 움직이지 않는 격투 드로이드 열을 가리킨다. 『드로이드 셋, 깨끗하게. 그러면 조합이 당신이 전선을 지킬 수 있음을 압니다. 여기서 하는 어떤 것도 강도질이 아닙니다. 우리가 맞붙여 주는 상대와 싸울 뿐, 그 이상도 아니에요. 그것이 그 일의 명예입니다.』',
     hint:'네프스키 검문소 근처에서 스파링 드로이드 3대를 쓰러뜨려라.',
     killGoals:[{key:'sparring_droid',need:3,label:'스파링 드로이드'}], killCounter:'monsterKills',
     activateNode:'SPB', waypointNode:'SPB', reward:30,
-    disposition:'"Three droids, clean. The Guild does not sign softness. You fight who we match you against — that is the honor of it, and you just earned your papers." — 모집관 볼코프',
+    disposition:'『드로이드 셋, 깨끗하게. 조합은 무름에 서명하지 않습니다. 우리가 맞붙여 주는 상대와 싸우는 것, 그것이 그 일의 명예이고, 당신은 방금 증명서를 땄어요.』 — 모집관 볼코프',
     passText:'드로이드 셋, 깨끗하게. 길드는 나약함에 서명하지 않는다. 우리가 짝 지어 주는 상대와 싸운다. 그것이 이 일의 명예이고, 당신은 방금 자격을 벌었다.',
     failText:'문가의 격투 연습 드로이드들이 아직 서 있다. 볼코프가 서명하려면 셋을 깨끗이 쓰러뜨려야 한다.',
     npc:'recruiter_volkov',
   },
   quest_kg_02: { id:'quest_kg_02', type:'side', schema:'UQF-1.0', gate:{ flags:['kgEnlisted'] }, bits:[], completion:{ itemsAll:['Sealed Recruit Manifest'], atNode:'KMS' }, title:'볼코프: 봉인된 명단',
     onComplete:[ { kind:'reward', xp:150, gold:0 }, { kind:'mission_bit', flag:'kgManifestDelivered', label:'학교에 전달된 적하 목록' }, { kind:'narrative', msg:'✅ 정치교관 로시코바가 명세서를 받는다. 학교가 당신을 기다리고 있다.' } ],
-    desc:'Volkov hands you a sealed folder. "Your enlistment goes to the Komsomol School — 정치교관 로시코바 reads it, not me. Carry it east and hand it over yourself. A recruit who will not run his own paperwork will not run anything."',
+    desc:'볼코프가 봉인된 서류철을 건넨다. 『당신의 입대 서류는 콤소몰 학교로 갑니다. 정치교관 로시코바가 읽지, 나는 아니에요. 동쪽으로 가지고 가서 직접 넘기세요. 자기 서류조차 직접 운반하지 않는 신병은 아무것도 운반하지 못합니다.』',
     hint:'봉인된 신병 명부를 동쪽 콤소몰 학교(KMS)로 운반하라.',
     activateNode:'SPB', waypointNode:'KMS', reward:0,
-    disposition:'"East to the School. Roshkova reads it, not me. Carry your own paper — that is where the honor starts." — 모집관 볼코프',
+    disposition:'『동쪽, 학교로. 로시코바가 읽지, 나는 아니에요. 자기 서류는 직접 가져가는 것, 명예는 거기서 시작됩니다.』 — 모집관 볼코프',
     passText:'로시코바가 서류철을 받아 봉인을 뜯고 고개를 들지 않은 채 읽는다. 『신병 볼코프가 보냈군. 좋아. 이제 학교가 너를 맡는다.』',
     failText:'봉인된 신병 명부가 아직 짐 안에 있다. 콤소몰 학교로 가져가 로시코바에게 전하라.',
     npc:'recruiter_volkov',
@@ -13551,7 +13551,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'학교 스파링장에서 콤소몰 생도 4명을 이겨라.',
     killGoals:[{key:'komsomol_cadet',need:4,label:'콤소몰 생도'}], killCounter:'monsterKills',
     activateNode:'KMS', waypointNode:'KMS', reward:40,
-    disposition:'"Four cadets, clean. No cheap shots, no ganging. The School corrects sloppiness, not softness. You corrected yourself." — 정치교관 로시코바',
+    disposition:'『생도 넷, 깨끗했습니다. 치사한 수도, 다구리도 없었어요. 학교는 무름이 아니라 부주의를 바로잡습니다. 당신은 스스로를 바로잡았어요.』 — 정치교관 로시코바',
     passText:'네 명의 생도, 깨끗하게. 치사한 수도, 다구리도 없이. 학교는 나약함이 아니라 엉성함을 바로잡는다. 당신은 스스로를 바로잡았다.',
     failText:'격투장에 아직 생도들이 서 있다. 로시코바가 당신을 꺾기 전에 넷을 깨끗이 이겨라.',
     npc:'commissar-instructor_roshkova',
@@ -13560,18 +13560,18 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     desc:'로시코바가 당신을 세 번째 형과 붙인다. 너를 이기기 위해 만들어진 형. 『모두 이 형에 진다. 내가 채점하는 것은 어떻게 지는가다. 형을 읽고, 낙법을 바로 받고, 변명도 움찔함도 없이. 깨끗이 지지 못하는 견습생은 깨끗이 이기지도 못한다.』',
     hint:'서류를 읽고 깨끗하게 패배를 받아들여라 (WIS · 통찰, DC 10). 될 때까지 몇 번이든 재시도하라.',
     activateNode:'KMS', waypointNode:'KMS', reward:0,
-    disposition:'"You lost the third form and you lost it straight — no excuse, no flinch. A cadet who cannot lose cleanly cannot win cleanly. The School corrects you. It does not judge you. Go east." — 정치교관 로시코바',
+    disposition:'『세 번째 틀에서 졌고, 바르게 졌습니다. 변명도, 움찔함도 없이. 깨끗이 질 줄 모르는 생도는 깨끗이 이길 수도 없습니다. 학교는 당신을 바로잡습니다. 심판하지는 않아요. 동쪽으로 가세요.』 — 정치교관 로시코바',
     passText:'당신은 세 번째 형태를 졌고 곧장 졌다. 변명도, 움찔함도 없이. 학교는 당신을 바로잡는다. 심판하지는 않는다. 동쪽으로 가라.',
     failText:'당신이 움찔했거나 핑계를 댔다. 로시코바가 자세를 되돌린다. 『다시. 이번에는 깨끗이 져.』',
     npc:'commissar-instructor_roshkova',
   },
   quest_kg_05: { id:'quest_kg_05', type:'side', schema:'UQF-1.0', gate:{ flags:['kgFormsPassed'] }, bits:[], completion:{ countMin:[{ path:'monsterKills.gladiator_bot', min:1 }] }, title:'그림카: 첫 시합',
     onComplete:[ { kind:'reward', xp:250, gold:50 }, { kind:'mission_bit', flag:'kgFirstBout', label:'경기 토큰' }, { kind:'narrative', msg:'🎟️ 구덩이 주인 그림카가 당신의 첫 클린 승부를 기록한다.' } ],
-    desc:'구덩이 주인 그림카 runs the Zavod honor card. "One gladiator-bot. These were fighters before the Zavod stripped their reactors — we fight them with honor because they fought us with it. No poison, no ganging. Win or lose, you do it standing up."',
+    desc:'구덩이 주인 그림카가 자보드 명예 카드를 진행한다. 『검투 봇 하나. 이것들은 자보드가 원자로를 벗겨 내기 전에는 싸움꾼이었지. 우리가 그들에게 명예롭게 싸우는 것은 그들이 우리에게 그랬기 때문이야. 독도, 다구리도 없다. 이기든 지든, 서서 한다.』',
     hint:'자보드 구덩이에서 검투사봇과의 명예 결투 한 번을 이겨라.',
     killGoals:[{key:'gladiator_bot',need:1,label:'녹슨 검투사 봇'}], killCounter:'monsterKills',
     activateNode:'ZVD', waypointNode:'ZVD', reward:50,
-    disposition:'"These bots were gladiators before the Zavod stripped their reactors. We fight them with honor because they fought us with it. One bout down. No poison, no ganging. You lost nothing standing up." — 구덩이 주인 그림카',
+    disposition:'『이 봇들은 자보드가 그들의 원자로를 벗겨 내기 전에는 검투사였다. 우리가 그들에게 명예롭게 싸우는 것은 그들이 우리에게 그랬기 때문이다. 한 경기 끝났다. 독도, 다구리도 없었다. 서서 지는 데 잃는 것은 없다.』 — 구덩이 주인 그림카',
     passText:'이 봇들은 자보드가 그들의 원자로를 벗겨 내기 전에는 검투사였다. 그들이 우리에게 명예로이 싸웠기에 우리도 명예로이 싸운다. 한 경기 끝. 당신은 서서 잃은 것이 없다.',
     failText:'구덩이가 아직 기다리고 있다. 그림카를 위해 검투사봇과의 깨끗한 한 판을 이겨라.',
     npc:'pit-master_grimka',
@@ -13583,19 +13583,19 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'완전한 무결 카드를 달성하라: 검투사봇 3대와 자보드 스파봇 3대.',
     killGoals:[{key:'gladiator_bot',need:3,label:'녹슨 검투사 봇'},{key:'zavod_sparbot',need:3,label:'자보드 스파봇'}], killCounter:'monsterKills',
     activateNode:'ZVD', waypointNode:'ZVD', reward:60,
-    disposition:'"A full card, all of it clean. The pit knows your name now. Take the stripped core to the Fabrika — Iosif is expecting it." — 구덩이 주인 그림카',
+    disposition:'『전 경기, 전부 깨끗했어. 구덩이가 이제 네 이름을 안다. 벗겨낸 코어를 파브리카로 가져가라. 이오시프가 기다리고 있어.』 — 구덩이 주인 그림카',
     passText:'전부 깨끗한 만점 카드. 이제 투기장이 네 이름을 안다. 벗겨 낸 코어를 파브리카로 가져가라. 이오시프가 기다리고 있다.',
     failText:'카드가 아직 가득하지 않다. 그림카에게는 검투사봇 3과 자보드 스파봇 3을 깨끗이 쓰러뜨리는 것이 필요하다.',
     npc:'pit-master_grimka',
   },
   quest_kg_07: { id:'quest_kg_07', type:'side', schema:'UQF-1.0', gate:{ questsDone:['quest_kg_06'] }, bits:[], completion:{ itemsAll:['Stripped Reactor Core'], atNode:'FBR' }, title:'그림카: 파브리카로 보낼 코어',
     onComplete:[ { kind:'reward', xp:220, gold:0 }, { kind:'mission_bit', flag:'kgCoreDelivered', label:'반응로 코어 전달 완료' }, { kind:'narrative', msg:'✅ 기술자 이오시프가 벗겨낸 코어를 받는다.' } ],
-    desc:'Grimka seals the decommissioned core in a carry-case. "The Skill Fabrika down the line runs on cores like this one. Carry it to 기술자 이오시프 — clean hands, honest delivery. Do not sell it on the way; a fighter who fences his own cargo fences his name with it."',
+    desc:'그림카가 폐기된 코어를 운반함에 밀봉한다. 『선 아래의 기능 파브리카는 이런 코어로 돌아간다. 기술자 이오시프에게 가져가라. 깨끗한 손, 정직한 배달. 도중에 팔 생각은 마라. 자기 화물을 팔아넘기는 싸움꾼은 이름도 함께 팔아넘기는 거다.』',
     hint:'해체된 원자로 코어를 기술 파브리카(FBR)에 전달하라.',
     activateNode:'ZVD', waypointNode:'FBR', reward:0,
-    disposition:'"Clean hands, honest delivery. The Fabrika runs on cores like that one. Iosif has you now." — 구덩이 주인 그림카',
+    disposition:'『깨끗한 손, 정직한 배달. 파브리카는 저런 코어로 돌아간다. 이제 이오시프가 너를 맡아.』 — 구덩이 주인 그림카',
     passText:'이오시프가 상자를 받아 봉인을 확인하고 고개를 끄덕인다. 『그림카가 보낸 것이군. 손상 없음. 곧장 운반하는군, 신병.』',
-    failText:'The Stripped Reactor Core still rides in your pack. Carry it to 기술자 이오시프 at the Skill Fabrika.',
+    failText:'벗겨낸 원자로 코어가 아직 짐 속에 있다. 기능 파브리카의 기술자 이오시프에게 가져가라.',
     npc:'pit-master_grimka',
   },
   quest_kg_08: { id:'quest_kg_08', type:'side', schema:'UQF-1.0', gate:{ flags:['kgCoreDelivered'] }, bits:[], completion:{ countMin:[{ path:'monsterKills.fabrika_enforcer', min:3 }] }, title:'이오시프: 마루 치우기',
@@ -13617,7 +13617,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'시뮬레이션 과부하를 버텨라 — 훈련봇 프라임을 쓰러뜨려라.',
     killGoals:[{key:'trainer_bot_prime',need:1,label:'고장 난 훈련 봇'}], killCounter:'monsterKills',
     activateNode:'FBR', waypointNode:'FBR', reward:80,
-    disposition:'"The regulator failed and the Trainer-Bot fought you at full — a sim overload, the chair writing faster than it reads. You held. Half the district is still in that chair. You walked out. Prime Core is yours." — 기술자 이오시프',
+    disposition:'『조절기가 고장 나서 훈련 봇이 최대 출력으로 당신과 싸웠습니다. 시뮬레이션 과부하, 의자가 읽는 것보다 빨리 쓴 거예요. 당신은 버텼습니다. 구역의 절반은 아직 저 의자에 있어요. 당신은 걸어 나왔습니다. 프라임 코어는 당신의 것이에요.』 — 기술자 이오시프',
     passText:'조절기가 고장 나 훈련 봇이 최대 출력으로 당신과 싸웠다. 당신은 버텼다. 구역의 절반이 아직 저 의자에 있다. 당신은 걸어 나왔다. 프라임 코어는 당신의 것이고, 증명된 전표가 함께다.',
     failText:'의자는 아직 따뜻하고 심은 아직 치솟는다. 과부하를 견뎌 내고 트레이너 봇 프라임을 쓰러뜨려라.',
     npc:'technician_iosif',
@@ -13625,16 +13625,16 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   quest_kg_10: { id:'quest_kg_10', type:'side', schema:'UQF-1.0', gate:{ flags:['kgSimCleared'] }, bits:[], completion:{ itemsAll:['Certified Skill-Chit'], atNode:'TVR' }, title:'레나: 인증과 보급',
     onComplete:[ { kind:'reward', xp:220, gold:40 }, { kind:'narrative', msg:'🥫 레나가 당신의 칩에 도장을 찍고 따뜻한 야전 식량을 건넨다.' } ],
     itemChain:[{action:'grant',name:'Field Ration',icon:'🥫',type:'potion',heal:20,sell:0,silent:true}],
-    desc:'보급관 레나 checks your chit against the manifest and starts refilling your pack. "Iosif certified you — good. You have earned a proper resupply and a hot ration. Sit, eat, and then we talk about the road east."',
-    hint:'Bring the Certified Skill-Chit to 보급관 레나 at the Rzhev Waystation (TVR).',
+    desc:'보급관 레나가 당신의 전표를 명세서와 대조하고 짐을 다시 채우기 시작한다. 『이오시프가 당신을 인증했군요. 좋아요. 제대로 된 보급과 따뜻한 배급을 받을 자격이 있어요. 앉아서, 먹고, 그다음에 동쪽 길 이야기를 하죠.』',
+    hint:'인증된 기술 전표를 르제프 중계소(TVR)의 보급관 레나에게 가져가라.',
     activateNode:'TVR', waypointNode:'TVR', reward:40,
-    disposition:'"Certified and delivered. Resupply is yours, and a field ration for the road — you will want it out east." — 보급관 레나',
+    disposition:'『인증되었고 배달되었습니다. 보급은 당신의 것이고, 길용 야전 배급도요. 동쪽에서 필요할 거예요.』 — 보급관 레나',
     passText:'레나가 전표에 도장을 찍고 따뜻한 배급을 건넨다. 『증명됨, 배달됨. 재보급은 네 것이다. 먹어라. 동쪽은 널 먹이지 않는다.』',
-    failText:'The Certified Skill-Chit is still in your pack. Bring it to 보급관 레나 at the Rzhev Waystation.',
+    failText:'인증된 기술 전표가 아직 짐 속에 있다. 르제프 중계소의 보급관 레나에게 가져가라.',
     npc:'quartermaster_lena',
   },
   quest_kg_11: { id:'quest_kg_11', type:'skill_check', schema:'UQF-1.0', gate:{ questsDone:['quest_kg_10'] }, retryable:true, bits:[{kind:'skill_check',stat:'INT',skill:'Investigation',dc:12,onPass:[{kind:'mission_bit',flag:'kgCorridorCleared',label:'회랑, 판독 완료'},{kind:'reward',xp:700,gold:100}],onFail:[]}], title:'레나: 회선이 조용해진 이유',
-    desc:'보급관 레나 spreads the transit logs across the counter. "The line to Station 7 did not break — it stopped answering. Signal is clean, the relays are lit, and nobody is talking. Read the logs. Tell me what you see that I have been too close to catch."',
+    desc:'보급관 레나가 카운터 위에 수송 기록을 펼친다. 『스테이션 7로 가는 회선은 끊어진 게 아니에요. 응답을 멈췄죠. 신호는 깨끗하고, 중계기는 켜져 있는데, 아무도 말하지 않아요. 기록을 읽어 봐요. 내가 너무 가까이 있어서 못 본 것 중에 당신이 보는 게 있는지 말해 줘요.』',
     hint:'운송 기록을 연구해 7번 관측소가 조용해진 이유를 알아내라 (INT · 조사, DC 12). 재시도 가능.',
     activateNode:'TVR', waypointNode:'TVR', reward:100,
     disposition:'『당신이 읽은 대로야. 스테이션 7로 가는 회선은 끊어진 게 아니라 응답을 멈췄어. 저기 밖의 무언가가 침묵을 선택한 거야. 기름 채우고, 보급받고, 가서 봐. 넌 이제 신병이 아니야. 넌 동쪽이 너를 뭐로 만들든 그거야.』 — 보급관 레나',
@@ -22458,46 +22458,46 @@ const NPC_DIALOGUE = { // → doc: story.md §FL7
   SEN: { name:'Ship Captain',
     nameFn:() => _senHoldSpeaker() ? '쥐잡이 브래닉' : 'Ship Captain',
     quoteFn:() => S_story.whodunitSolved
-    ? '"The colony\'s in a sealed jar now. I asked the captain if I could keep it. She said no. I think she was wrong." He looks at the hold. The rats are watching him. "They were going to bite me. That was their job and my job was to net them. Now we just sort of... understand each other. I don\'t know if that\'s better." He thinks about it. "It is better."'
+    ? '『그 집락은 이제 밀봉된 병 안에 있어. 선장에게 가져도 되냐고 했더니 안 된대. 내 생각엔 그녀가 틀렸어.』 그가 화물창을 본다. 쥐들이 그를 지켜보고 있다. 『그들은 나를 물려고 했어. 그게 그들의 일이었고 내 일은 그들을 그물로 잡는 거였지. 이제 우린 그냥 뭐랄까, 서로를 이해해. 그게 더 나은 건지는 모르겠어.』 그가 생각한다. 『더 나아.』'
     : S_story.bioluminescentParasiteFound
-    ? '"They never bit me once. Even when I had the net. It didn\'t feel right to use the net after a while." He considers the largest rat, which is sitting on an empty cask watching him. "He\'s got a family. Down under the ballast. Five. I\'ve seen them." He says this the way someone says something they know is professionally inadvisable but personally true.'
+    ? '『그들은 한 번도 나를 물지 않았어. 내가 그물을 들고 있을 때조차. 어느 순간부터 그물을 쓰는 게 옳지 않게 느껴졌어.』 그는 빈 술통 위에 앉아 자기를 보고 있는 가장 큰 쥐를 살핀다. 『얘는 가족이 있어. 밸러스트 아래에. 다섯. 내가 봤어.』 그는 이것을, 직업적으로는 권장되지 않지만 개인적으로는 참인 것을 말하는 사람의 방식으로 말한다.'
     : _senHoldSpeaker()
-    ? '"Something\'s off in the hold. The rats aren\'t — they\'re not acting right. Usually I\'ve got them on the run by the second day." He looks troubled. "They keep stopping and looking at me. Not threatening. Just looking."'
-    : '"Weather\'s holding. Sleep while you can — we make the deep crossing at dawn and I won\'t slow the ship if something comes over the rail."' },
+    ? '『화물창에 뭔가 이상해. 쥐들이, 쥐들이 평소답지 않아. 보통이면 이틀째엔 내가 쫓아다니게 되는데.』 그가 걱정스러운 얼굴을 한다. 『자꾸 멈춰 서서 나를 봐. 위협이 아니야. 그냥 보는 거야.』'
+    : '『날씨는 버텨 주고 있어. 잘 수 있을 때 자. 새벽에 먼바다 횡단을 하는데 뭔가 난간을 넘어와도 배를 늦추지 않을 거야.』' },
   // §LIX–§LXI — The Road to Damascus NPCs
   JRS: { name:'Barnach', quoteFn:() => S_story.hellenistsThreaten // §LXI
-    ? '"They are at the gate. They are at the assembly hall. They are in the square." He does not waste time on what they want — you both know. "Fifteen days is how long this city was prepared to hold this tension. It has held." He looks toward the west gate. "Tarsus. Go to Tarsus. You are from Tarsus. They will not follow you to Tarsus."'
+    ? '『그들이 성문에 있어. 집회장에도 있고. 광장에도 있어.』 그는 그들이 무엇을 원하는지에 시간을 쓰지 않는다. 둘 다 아는 것이다. 『보름이 이 도시가 이 긴장을 견딜 준비가 된 기간이었어. 견뎌냈어.』 그가 서문 쪽을 본다. 『타르수스. 타르수스로 가. 너는 타르수스 출신이야. 그들은 타르수스까지는 따라오지 않아.』'
     : S_story.barnachVouchedHR // §LXI — Barnach has vouched; counting days
     ? '"이 일에 대한 도시의 태도는 복잡해요." He means it as information, not complaint. "Some people are afraid. Some people are glad. Both groups have grounds. You have been arguing in the assembly hall." He does not say this is a problem. He says it the way he says things that are true and will continue to be true for some number of days that he has a specific number for and is not sharing yet.'
     : S_story.saulConverted // §LXI — return: first Barnach meeting
     ? ((() => { S_story.barnachVouchedHR = true; return '"그는 거기 있었어요. 나는 없었고요." He says it simply, the way someone says the one true thing they have that applies to the situation. "I am vouching for what he told me, which is everything he has."\n\nThe people in the room are afraid. Some of them have reasonable grounds for being afraid of him and some have reasonable grounds for being afraid of what he represents and some are afraid in the way people are afraid when two things they held separately have become the same thing.\n\nBarnach looks at them all and says: he was there.\n\nIt is enough. For now.'; })())
-    : '"Warrants are countersigned. Three copies: one for you, one for the escort commander, one for the Damascus magistrate. The prisoners are to be returned to Jerusalem for processing. Do not process them in Damascus — the Damascus magistrate has standing to dismiss, and our magistrate does not."' },
+    : '『영장은 부서된다. 세 부: 하나는 너, 하나는 호위 지휘관, 하나는 다마스쿠스 치안판사에게. 죄수들은 처리를 위해 예루살렘으로 돌려보내져야 한다. 다마스쿠스에서 처리하지 마라. 다마스쿠스 치안판사에게는 기각할 권한이 있고 우리 치안판사에게는 없다.』' },
   DAM: { name:'Anath', quoteFn:() => S_story.anathSightRestored // §LIX
-    ? '"I was afraid of you for three years. I was afraid of you when I knocked on that door. I am choosing not to let that matter." He picks up the bowl. He does not look at you directly — not from distaste, from the particular composure of a man who has done something he did not know he could do and is still working out what it means. The road is visible from the window. It has always been there.'
+    ? '『삼 년 동안 당신이 두려웠습니다. 그 문을 두드릴 때도 당신이 두려웠어요. 나는 그것이 문제가 되지 않게 하기로 선택했습니다.』 그가 대접을 든다. 그는 당신을 직접 보지 않는다. 거부감에서가 아니라, 자신이 할 수 있는 줄 몰랐던 일을 하고 아직 그게 무슨 뜻인지 알아내는 중인 사람 특유의 침착함에서다. 창으로 길이 보인다. 그것은 언제나 거기 있었다.'
     : S_story.blindDaysKS >= 3 // Day 3 — Anath arrives
     ? ((() => { S_story.anathSightRestored = true; return '"I was told you were here. I was told to come." He sets the bowl down on the table beside the window. His hands are steady. His voice is not quite steady. "I have heard what you did to the people in Jerusalem. I have heard what you were coming here to do."\n\nHe does not say: I was afraid of you. He does not need to.\n\n"어쨌든 나는 여기 있어요."\n\nHe places his hands. The light returns.'; })())
-    : '"The room is quiet. Three days. The innkeeper brings food at noon and does not ask questions. Someone else\'s servant brings water in the morning. The door is closed. Day ' + (S_story.blindDaysKS || 0) + ' of three.\n\nYou wait."' },
+    : '「방이 조용하다. 사흘. 여관 주인이 정오에 음식을 가져오고 아무것도 묻지 않는다. 다른 누군가의 하인이 아침에 물을 가져온다. 문은 닫혀 있다. ' + (S_story.blindDaysKS || 0) + '일째.\\n\\n당신은 기다린다.」' },
   // §LXIV: LT — Timael (does not explain his loyalty)
   KYA: { name:'Timael', quoteFn:() => S_story.timaelaJoined // §LXIV
     ? '"I am from Lystra. The city does not need me in the way it needed the man at the gate to stay. I can leave." He looks at the road. He looks at Paul. "나는 안 떠나요."'
     : S_story.stoningEvent // Stoning: Timael stayed
     ? ((() => { S_story.timaelaJoined = true; return 'He was watching from the market square when it started. He did not leave when the crowd turned. He did not leave when the stones came. He did not leave after.\n\n"He got up," Timael says. He has been standing here since the crowd went home. "다들 떠났어요. 나는 남기로 했고요."\n\nHe is young. He is watching the road. He has not examined why he stayed and does not appear to need to. "다음엔 어디로 가시나요?"'; })())
     : S_story.lameManHealed // After healing — crowd response
-    ? '"They called him a god. He corrected them. At length. They were ready to sacrifice to a god." Timael looks at the crowd dispersing from the gate. He is not sure what he just saw but he is sure it was real. "He looked at the man. Not the crowd. He said: stand. The man stood." He watches the road. "The crowd is angry. They came expecting something different than what they got."'
-    : '"The man at the gate has been there my whole life. He watches the road. He has been watching a long time." A pause. "Today he is watching Paul specifically. I noticed that."' },
+    ? '『그들은 그를 신이라 불렀어요. 그는 그들을 바로잡았습니다. 장황하게. 그들은 신에게 제물을 바칠 준비가 되어 있었죠.』 티마엘이 성문에서 흩어지는 군중을 본다. 그는 방금 본 것이 무엇인지 모르겠지만 그것이 실제였다는 것은 확실하다. 『그는 그 남자를 보았어요. 군중이 아니라. 말했죠. 일어서라. 남자는 일어섰어요.』 그가 길을 지켜본다. 『군중은 화가 났습니다. 그들은 받은 것과 다른 무언가를 기대하고 왔어요.』'
+    : '『성문의 그 남자는 내 평생 거기 있었어요. 그는 길을 지켜봅니다. 오랫동안 지켜봐 왔어요.』 잠깐의 멈칫. 『오늘 그는 특별히 바울을 지켜보고 있어요. 내가 알아챘죠.』' },
   // §LXIII: CI2 — The Governor of Cyprus
   CI2: { name:'The Governor', quoteFn:() => S_story.govCopperConverted // §LXIII
-    ? '"He said things I could not explain by the methods I usually use to explain things." He has sent Ezzir away. The record of that departure is in the governor\'s service log as a professional reassignment, which is the most honest way he knows to describe it. "I find this interesting rather than threatening. It is possible I find it interesting because it is true." He looks at the altar he has in the corner of the room — small, made by a local craftsman, three hundred years old. "I have been maintaining it," he says, "longer than I have understood why."'
+    ? '『그는 내가 평소에 것들을 설명하는 방식으로는 설명할 수 없는 말들을 했습니다.』 그는 에지르를 돌려보냈다. 그 떠남의 기록은 총독의 근무 일지에 직무상 전근으로 되어 있는데, 그것이 그가 아는 가장 정직한 서술이다. 『나는 이것이 위협적이기보다 흥미롭습니다. 내가 그것을 흥미롭게 여기는 것은 그것이 참이기 때문일 가능성이 있어요.』 그가 방 구석에 있는 제단을 본다. 작고, 현지 장인이 만들고, 삼백 년 되었다. 『나는 그것을 관리해 왔습니다.』 그가 말한다. 『왜인지 이해한 것보다 더 오래.』'
     : S_story.ezzirConfronted // Ezzir stepped aside; now the governor speaks
-    ? '"Ezzir\'s recommendations have been useful. I have never before watched one of his recommendations stop working in the middle of the room. I have been watching for exactly this kind of evidence." He sits down. He is a man who reads widely and holds opinions about ideas rather than only about policy; this is the quality that makes what just happened in this room legible to him. "Tell me what you know. I will tell you what I have already been maintaining."'
-    : '"I have a sorcerer who advises me. He is currently standing between us. He has been in my service for six years and I have found his counsel valuable. I am watching you both. I have not yet decided between you." A pause. "He has been watching you since you came through the gate. He positioned himself before you finished speaking. That is either a tribute to your significance or a concern about it. I am willing to find out which."' },
+    ? '『에지르의 조언은 유용했습니다. 그의 조언이 방 한가운데서 작동을 멈추는 것을 본 것은 처음이에요. 나는 정확히 이런 종류의 증거를 지켜봐 왔습니다.』 그가 앉는다. 그는 널리 읽고 정책뿐 아니라 사상에 대해 의견을 가진 사람이다. 이것이 방금 이 방에서 일어난 일을 그에게 읽히게 하는 자질이다. 『당신이 아는 것을 말해 주시오. 나는 내가 이미 관리해 온 것을 말하겠소.』'
+    : '『나에게는 조언하는 마술사가 한 명 있소. 그는 지금 우리 사이에 서 있소. 그는 육 년째 나를 섬겼고 나는 그의 조언을 가치 있게 여겨 왔소. 나는 당신들 둘을 지켜보고 있소. 아직 둘 사이에서 결정하지 못했소.』 잠깐의 멈칫. 『그는 당신이 성문을 통과한 이후로 당신을 지켜보고 있었소. 당신이 말을 마치기도 전에 자리를 잡았지. 그것은 당신의 중요성에 대한 경의이거나 그것에 대한 우려요. 어느 쪽인지 알아낼 용의가 있소.』' },
   // §LXII: AO — Assembly Elder Joach + name-change moment
   HTY: { name:'Assembly Elder Joach', quoteFn:() => S_story.commissionReceived // §LXII
-    ? '"The mandate is simple because the work isn\'t." He says it the way a man says things he has said before and means more each time. "Send word when you reach Cyprus. We will be praying in the interim. We will be praying regardless."'
+    ? '『사명은 단순합니다. 일이 단순하지 않기 때문이죠.』 그는 그것을, 전에도 한 말인데 할 때마다 더 뜻하게 되는 말을 하는 사람의 방식으로 말한다. 『키프로스에 도착하면 소식을 보내 주시오. 그동안 우리는 기도하고 있겠소. 어차피 기도하고 있을 것이오만.』'
     : ((() => {
         S_story.commissionReceived = true;
         S_story.silarJoined = true;
-        return 'He is called Paul here for the first time in this record.\n\nThe Assembly Elder sets both hands flat on the table. "We are sending you. Barnach goes with you. Silar goes with you. Take what you need. The mandate is: go to the cities you can reach and say what you know. That is the whole of it."\n\nBarnach is already at the door. Silar is checking the water supply. Paul looks at the table. He has been sent by courts before. He has been sent by his own authority before. He has never been sent by people he is accountable to in both directions.\n\n"The mandate is simple," the Elder says, "because the work isn\'t."';
+        return '이 기록에서 그가 처음으로 바울로 불린다.\\n\\n총회 장로가 두 손을 탁자에 납작하게 올린다. 『우리가 당신을 보냅니다. 바르나흐가 함께 갑니다. 실라르가 함께 갑니다. 필요한 것을 가져가세요. 사명은 이것입니다. 닿을 수 있는 도시들로 가서 당신이 아는 것을 말하시오. 그것이 전부입니다.』\\n\\n바르나흐는 이미 문가에 있다. 실라르는 물 저장량을 확인하고 있다. 바울은 탁자를 본다. 그는 전에도 궁정에서 보내진 적이 있다. 자기 권위로 보내진 적도 있다. 양방향으로 자신에게 책임이 있는 사람들에게 보내진 것은 처음이다.\\n\\n『사명은 단순합니다.』 장로가 말한다. 『일이 단순하지 않기 때문이죠.』';
       })()) },
   ADA: { name:'Barnach', quoteFn:() => S_story.barnachFoundPaul // §LXI
     ? '"일 년 동안 당신을 찾아다녔어요. 안티오크가 당신을 필요로 해요. 나도요." He does not say: come back. He is standing in the doorway of a city you grew up in and he is not telling you what to do. He is telling you that you are needed, which is different from telling you what to do, which is one of the things that is different about who he is now. "I am not going to tell you it\'s safe — you know it isn\'t. I am going to tell you it\'s time."'
