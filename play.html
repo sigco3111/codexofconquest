@@ -12099,7 +12099,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     ],
     xpAward:200,
     waypointNode:'DS0',
-    disposition:'"The path was always there. The Leviathan was in front of it." — The Deeper Clearing',
+    disposition:'"『길은 언제나 거기에 있었다. 리바이어던이 그 앞에 있었을 뿐이다.』 — 더 깊은 빈터" — The Deeper Clearing',
     passText:"남쪽으로 가는 길은 리바이어던이 떠올랐을 때 나타났다. 그 빈터는 이제 다르다.",
     failText:"HCA의 깊은 공터에는 아직 남쪽으로 가는 길이 없다. 리바이어던은 아직 모습을 드러내지 않았다.",
     npc:"the_tide_reader",
@@ -12113,7 +12113,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     activateNode:'DS1',
     gate:{},
     retryable:true,
-    vignetteText:"The kelp beds sit thirty feet offshore. The Tide Reader's notebook is open on the bank — forty years of morning positions, each entry in the same handwriting, each entry slightly further south than the one before it.\n\nThe pattern in the notebook is not drift. Drift is random. This is directional, consistent, accelerating over the last decade. The beds are being drawn. Something south of the bedrock is producing a tidal pull too small for the charts but large enough for forty years of morning entries.\n\nYou read the notebook. The last entry has a bearing.",
+    vignetteText:"켈프 군락이 해안에서 30피트 떨어진 곳에 있다. 조수 판독자의 노트가 강둑에 펼쳐져 있다. 40년치 아침 위치 기록, 모든 항목이 같은 필적이고, 모든 항목이 바로 앞 항목보다 조금씩 남쪽이다.\n\n노트의 패턴은 표류가 아니다. 표류는 무작위다. 이것은 방향성이 있고, 일관되며, 지난 10년 동안 가속되고 있다. 군락은 끌려가고 있다. 기반암 남쪽의 무언가가 해도에 잡히기에는 너무 작지만 40년치 아침 기록에 잡히기에는 충분히 큰 조석력을 만들어내고 있다.\n\n당신은 노트를 읽는다. 마지막 항목에는 방위가 있다.",
     passText:"노트의 방위가 대장간의 위치와 일치한다. 그녀는 육 년 전에 표기해 두고 언급하지 않았다. 이미 알고 있던 것을 확인해 줄 사람을 기다리고 있었다.",
     failText:"공책의 기록들이 서로 뒤엉킨다. 패턴은 거기 있지만, 그것을 읽을 도구가 아직 조립되지 않았다. 그녀는 말한다: 물이 한 바퀴 더 돌면 돌아오라.",
     bits:[{ kind:'skill_check', stat:'WIS', skill:'WIS Perception', dc:12,
@@ -12126,7 +12126,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
         storyMsg("🌿🌿 조수 여울에서 늪지 다시마 두 다발을 챙겼다. 150골드.");
       } }],
       onFail:[] }],
-    disposition:'"The beds do not shift without reason. The reason has a location." — The Tide Reader, Drowned Shore',
+    disposition:'"『군락은 이유 없이 옮겨가지 않는다. 이유에는 위치가 있다.』 — 조수 판독자, 물에 잠긴 해안" — The Tide Reader, Drowned Shore',
     npc:"the_tide_reader",
   },
 
@@ -12138,17 +12138,17 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     activateNode:'DSF',
     gate:{ flags:['atlanteanProcessKnown'] },
     retryable:true,
-    vignetteText:"The mechanism is recessed into the working surface. Three channels, each one a different depth, each one corresponding to a step in the reduction sequence: kelp bed, salt tray, charged element. The Atlantean smiths built their unlock into the process itself — the mechanism only yields to someone who has run the sequence.\n\nYou have run the sequence. The burns are in the salt marks on your hands. The charged reduction is a thing you know, not a thing you remember.\n\nYou apply the knowledge in the correct order. The mechanism recognizes the sequence.",
+    vignetteText:"장치는 작업면 속에 움푹 들어가 있다. 세 개의 홈, 각각 깊이가 다르고, 각각 축소 순서의 한 단계에 대응한다. 켈프 군락, 소금 트레이, 충전된 원소. 아틀란티스 대장장이들은 해금을 과정 자체에 새겨 넣었다. 장치는 순서를 실행한 사람에게만 연다.\n\n당신은 그 순서를 실행했다. 화상 자국이 손의 소금 자국에 남아 있다. 충전된 축소는 기억하는 것이 아니라 알고 있는 것이다.\n\n당신은 올바른 순서로 지식을 적용한다. 장치가 순서를 알아본다.",
     passText:"대장간이 안쪽에서 열린다 — 풀무가 물리고, 환기가 트이고, 표면 온도가 작업 열까지 오른다. 오래 이걸 기다려 왔다. 그 기다림은 인내가 아니었다. 정확성이었다.",
     failText:"순서가 거의 맞다. 한 단계가 뒤집혀 있다. 당신은 지식은 가졌지만 아직 순서는 모른다. 장치는 버티고 있다. 순서가 더 분명해지면 다시 시도하라.",
     bits:[{ kind:'skill_check', stat:'INT', skill:'INT Arcana', dc:14,
       onPass:[{ kind:'reward', xp:300 }, { kind:'_legacy_fn', fn:() => {
         S_story.forgeActivated = true;
         S_story.gold = (S_story.gold||0) + 300;
-        storyMsg("🔥 The Atlantean Forge activates. The bellows engage. The heat rises from below. +300gp.");
+        storyMsg("🔥 아틀란티스 대장간이 가동된다. 풀무가 움직인다. 열기가 아래에서 올라온다. +300gp.");
       } }],
       onFail:[] }],
-    disposition:'"The mechanism does not ask for skill. It asks for the sequence in the correct order. You have run the sequence." — The Atlantean Forge',
+    disposition:'"『장치는 솜씨를 묻지 않는다. 올바른 차례의 순서를 묻는다. 너는 그 순서를 실행했다.』 — 아틀란티스 대장간" — The Atlantean Forge',
     npc:"the_forge_echo",
   },
 
@@ -12176,7 +12176,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
       { kind:'reward', gold:400, items:[{ name:'바다 원소', icon:'🔱', type:'weapon', atkBonus:2, dmgDie:8, dmgCount:1, dmgFlat:0, minLevel:1, sell:500, desc:'아틀란티스 합금. 금속 속에 밀물의 힘을 담고 있다. 공격 +2, 피해 1d8.' }] },
       { kind:'narrative', msg:"🔱 바다 원소가 주조되었다. 합금은 어느 색이라고도 할 수 없는 색으로 식는다. 공격 +2, 1d8. +400골드." },
     ],
-    disposition:'"It was the last useful thing we left. The alloy holds." — The Forge Echo, Atlantean Forge',
+    disposition:'"『우리가 남긴 마지막으로 쓸모 있는 것이었다. 합금은 버틴다.』 — 대장간 메아리, 아틀란티스 대장간" — The Forge Echo, Atlantean Forge',
     passText:"합금이 견뎌냈다. 용광로가 환원을 받아들여 바다 원소를 아틀란티스인들조차 혼자서는 완성하지 못한 무언가로 봉했다.",
     failText:"대장간은 가동 중이지만 바다 원소가 환원되지 않았다. 아이오딘 소금을 가져와 다시 시도하라.",
     npc:"the_forge_echo",
@@ -12194,7 +12194,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     ],
     xpAward:300,
     waypointNode:'CAN',
-    disposition:'"The archive has an archivist. The interval is confirmed. Cycle 4 proceeds." — Conclave Archivist, Post-Event Note',
+    disposition:'"『기록고에는 기록관이 있다. 간격은 확인되었다. 주기 4는 진행된다.』 — 비밀회의 기록관, 사후 기록" — Conclave Archivist, Post-Event Note',
     passText:"기록보관소에 기록 관리인이 있다. 그 간격은 확인됐다. 순환 4가 진행된다.",
     failText:"비밀회의 별관은 열려 있지만 사후 문서는 아직 읽지 않았다.",
     npc:"magistra_elara_muffat",
@@ -12209,19 +12209,19 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     activateNode:'DA1',
     gate:{},
     retryable:true,
-    vignetteText:"The inscription is carved in the pre-Codex register — not the Scholar Kings' classification notation, not the Conclave's administrative shorthand. Older than both. The letter-forms predate the current archive system by several centuries.\n\nThe text describes a mechanism. Specifically: a gate installed at a location chosen because something very old and question-asking was already there, had been there since before the coastal civilization, and needed a structure capable of holding a question in place long enough for the answer to arrive.\n\nThe mechanism requires a specific alloy. The alloy is produced by a specific reduction sequence. The reduction sequence begins with kelp.",
+    vignetteText:"비문은 코덱스 이전 어조로 새겨져 있다. 학자 왕들의 분류 기호도 아니고, 비밀회의의 행정 약칭도 아니다. 둘보다 오래되었다. 글자체는 현재의 기록 체계보다 몇 세기 앞선다.\n\n문장은 하나의 장치를 설명한다. 구체적으로: 아주 오래되고 질문을 던지는 무언가가 이미 있었고, 연안 문명 이전부터 거기에 있었고, 답이 도착할 때까지 질문을 제자리에 붙들어둘 수 있는 구조가 필요했기 때문에 선택된 위치에 설치된 문.\n\n장치는 특정 합금을 요구한다. 합금은 특정 축소 순서로 만들어진다. 축소 순서는 켈프로 시작한다.",
     passText:"명문이 완전히 풀린다. 당신은 모든 단계를 알아본다 — 미역밭, 화덕 환원, 충전된 원소, 대장간. 사슬은 이 끝에서 바깥으로 놓였다, 언젠가 그것으로 돌아오는 데 무엇이 필요할지 아는 사람들이. 그들은 누가 사슬을 따를지 몰랐다. 누군가는 따를 것을 알았다.",
     failText:"글자 형태는 읽을 수 있지만 전문 용어는 부분적으로 불투명하다. 장치에 대한 설명은 명확하지만, 왜 이 장소인지에 대한 맥락은 불분명하다. 환원 순서가 자리 잡을 시간이 더 지난 뒤 다시 시도하라.",
     bits:[{ kind:'skill_check', stat:'INT', skill:'INT Arcana', dc:13,
       onPass:[{ kind:'reward', xp:250 }, { kind:'_legacy_fn', fn:() => {
         S_story.inscriptionRead = true;
         S_story.knowledge = S_story.knowledge || [];
-        S_story.knowledge.push('Atlantean Foundation: the Tide Gate was installed at bearing 047°, depth 18m, to hold something older than the coastal civilization itself. The chain of iodine reduction points here.');
+        S_story.knowledge.push('아틀란티스 기초: 조수문은 방위 047°, 수심 18m에 설치되었다. 연안 문명 자체보다 오래된 무언가를 붙들어두기 위해서. 아이오딘 축소의 사슬이 이곳을 가리킨다.');
         S_story.gold = (S_story.gold||0) + 250;
-        storyMsg("📋 Atlantean Foundation added to your Field Notes. +250gp.");
+        storyMsg("📋 아틀란티스 기초가 야전 노트에 추가되었다. +250gp.");
       } }],
       onFail:[] }],
-    disposition:'"The chain was laid from this end. It points outward toward whoever is following it inward." — The Stone Inscription, Sunken Hall',
+    disposition:'『사슬은 이 끝에서 놓였다. 안으로 따라오는 누군가를 향해 바깥을 가리킨다.』 — 돌 비문, 가라앉은 전당',
     npc:"the_stone_inscription",
   },
 
@@ -12245,7 +12245,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
       { kind:'narrative', msg:"🔱 바다 원소가 올바른 순서로 장치에 맞는다. 관문이 안쪽 아래로 열린다. 아래 수심은 18미터. 방위 047°.\n\n7번 관측소가 이곳을 감시하고 있었다. 베르타 노뱅크는 마흔한 권에 걸쳐 이 신호의 부재를 기록했다. 선행자의 격리 시설은 이 구조물 위에 세워졌다. 건설자가 이 자리를 택한 것은 기반 시설이 이미 있었기 때문이다.\n\n사슬이 닫힌다. 당신은 바깥에서 안으로 이 사슬을 따라왔다. INT +1 (영구). +500골드." },
     ],
     xpAward:500,
-    disposition:'"The Gate was waiting for whoever followed the chain. The chain closes." — The Tide Gate, Sunken Hall',
+    disposition:'"『문은 사슬을 따라온 누군가를 기다리고 있었다. 사슬이 닫힌다.』 — 조수문, 가라앉은 전당" — The Tide Gate, Sunken Hall',
     passText:"그 문은 사슬을 따라온 자를 기다리고 있었다. 사슬이 닫힌다.",
     failText:"밀물 관문 장치에는 바다 원소가 필요하다. 합금이 아직 장착되지 않았다.",
     npc:"the_stone_inscription",
@@ -12262,14 +12262,14 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     activateNode:'DA2', 
     onComplete:[
       { kind:'flag_write', set:['antecedentDepthMet'] },
-      { kind:'reward', knowledge:"Constructor Design: Both the Antecedent's archival installation — Neon Undercity (HKG) → the Antecedent Chamber (HAJ) — and the tidal installation — the Depth (DA3), bearing 047°, depth 18m — were built on the same foundation. The Constructor required one person to close both chains — the archival question and the tidal question are independent but the answer to each requires the same archivist." },
+      { kind:'reward', knowledge:"건축자 설계: 선행자의 기록 설치물(네온 언더시티(HKG) → 선행자의 방(HAJ))과 조석 설치물(깊은 곳(DA3), 방위 047°, 수심 18m)은 모두 같은 기초 위에 세워졌다. 건축자는 두 사슬을 모두 닫을 한 사람을 필요로 했다. 기록의 질문과 조석의 질문은 독립적이지만 각각의 답은 같은 기록관을 필요로 한다." },
       // §LXX-01-FU — the DA3 button's Station 7 prose, recovered: on HEAD the handler's
       // storyMsg was destroyed by its own bare storyRender (§BOARD-01-FU6 class), so this
       // richer text had never been readable. The narrative bit rides the completion stream.
       { kind:'narrative', msg:'⚓ 신호가 7호 관측소로 돌아온다.\n\n베르타 노뱅크는 마흔한 권을 들여 부재를 기록했다. 부재는 지금 끝난다. 감시 규약이 완료된다. 선행자의 조수 배열이 닫힌다.\n\n당신은 두 사슬을 모두 따라왔다. 기록의 사슬은 네온 지하도시(HKG)에서 선행자의 방(HAJ)까지, 조수의 사슬은 아틀란티스 대장간(DSF)에서 심부(DA3)까지. 구축자는 이 사슬들이 같은 손을 필요로 하리라는 것을 알고 두 문을 같은 기초 위에 세웠다.\n\n지식 항목 추가. 구축자 설계. +500 XP.' },
     ],
     xpAward:500,
-    disposition:'"The question is not different from here. The answer is not different from here. The foundation is the same. The chain is the same. You are the same." — The Antecedent, Tidal Configuration',
+    disposition:'"『질문은 여기서도 다르지 않다. 답은 여기서도 다르지 않다. 기초는 같다. 사슬은 같다. 너도 같다.』 — 선행자, 조석 배치" — The Antecedent, Tidal Configuration',
     passText:"여기서도 그 질문은 다르지 않다. 기초는 같다. 사슬은 같다. 당신도 같다.",
     failText:"관문은 열려 있다. 아래의 깊은 곳에는 아직 도달하지 않았다.",
     npc:"the_stone_inscription",
@@ -12296,7 +12296,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
             S_story.xp = (S_story.xp||0) + 100;
             const inv = S_story.inventory = S_story.inventory || [];
             inv.push({ name:"Smalt's Trust", icon:'🐟', type:'misc', desc:'말린 소금 생선. 친구가 된 항구 고양이 스몰트가 떨어뜨린 것. 조화의 사슬의 첫 표식. 스몰트는 나중에 인정의 표시로 그것을 먹을 것이다.', sell:5 });
-            storyMsg('🐟 Smalt considers you for a long moment. Then she drops the dried salt fish she was sitting on and steps onto your boot.\n\nShe is not afraid. She never was. She was waiting for someone to stop trying to fix her and simply arrive.\n\nInspector Wren-Pembury makes a note in his ledger. The note is wrong.\n\nSmalt\'s Trust added to inventory. +100gp. +100 XP.');
+            storyMsg('🐟 스말트가 당신을 오래 바라본다. 그러고는 깔고 앉아 있던 말린 소금 생선을 떨어뜨리고 당신의 장화 위로 올라선다.\n\n그녀는 두려워하지 않는다. 처음부터 그랬다. 그녀는 자신을 고치려는 시도를 멈추고 그저 도착해 줄 사람을 기다리고 있었다.\n\n렌-펨버리 조사관이 장부에 메모를 적는다. 그 메모는 틀렸다.\n\n스말트의 신뢰가 인벤토리에 추가되었다. +100gp. +100 XP.');
           } },
         ],
         onFail:[
