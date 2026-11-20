@@ -31405,7 +31405,7 @@ function storyRenderInventory() {
       + '<span class="inv-name">' + item.name
       + (item.mintKey ? ' <span class="inv-tag" title="원장에 주조됨 — 멀티플레이에서 거래 가능">🔗</span>' : '')
       + '</span>'
-      + '<span class="inv-src">' + (node ? node.name : (item.code || '')) + '</span>';
+      + '<span class="inv-src">' + (node ? (node.label || node.name).split(' — ')[0] : (item.code || '')) + '</span>';
     div.title = item.desc || '';
     if (extraBtns) extraBtns(div, item);
     list.appendChild(div);
@@ -31421,7 +31421,7 @@ function storyRenderInventory() {
       div.className = 'inv-item';
       div.innerHTML = '<span class="inv-icon">' + sh.icon + '</span>'
         + '<span class="inv-name">' + sh.name + ' <span class="inv-tag">+' + sh.acBonus + ' AC</span></span>'
-        + '<span class="inv-src">equipped</span>';
+        + '<span class="inv-src">장착됨</span>';
       const unBtn = document.createElement('button');
       unBtn.className = 'inv-use-btn';
       unBtn.textContent = '↩ 해제';
@@ -31430,7 +31430,7 @@ function storyRenderInventory() {
         S_story.equippedShield = null;
         S.char.ac = _calcPlayerAc();
         storyUpdateStatus(); storyRenderInventory();
-        storyMsg('🛡 Shield unequipped. AC adjusted to ' + S.char.ac + '.');
+        storyMsg('🛡 방패 해제. AC가 ' + S.char.ac + '(으)로 조정되었다.');
       });
       div.appendChild(unBtn);
       list.appendChild(div);
@@ -31440,8 +31440,8 @@ function storyRenderInventory() {
       const div = document.createElement('div');
       div.className = 'inv-item';
       div.innerHTML = '<span class="inv-icon">' + wp.icon + '</span>'
-        + '<span class="inv-name">' + wp.name + ' <span class="inv-tag">+' + wp.atkBonus + ' ATK offhand</span></span>'
-        + '<span class="inv-src">equipped</span>';
+        + '<span class="inv-name">' + wp.name + ' <span class="inv-tag">+' + wp.atkBonus + ' ATK 보조</span></span>'
+        + '<span class="inv-src">장착됨</span>';
       const unBtn = document.createElement('button');
       unBtn.className = 'inv-use-btn';
       unBtn.textContent = '↩ 해제';
@@ -31449,7 +31449,7 @@ function storyRenderInventory() {
         S_story.inventory.push(S_story.equippedWeapon);
         S_story.equippedWeapon = null;
         storyUpdateStatus(); storyRenderInventory();
-        storyMsg('🗡 ' + wp.name + ' unequipped.');
+        storyMsg('🗡 ' + wp.name + ' 해제.');
       });
       div.appendChild(unBtn);
       list.appendChild(div);
@@ -31462,7 +31462,7 @@ function storyRenderInventory() {
       div.className = 'inv-item';
       div.innerHTML = '<span class="inv-icon">' + mw.icon + '</span>'
         + '<span class="inv-name">' + mw.name + ' <span class="inv-tag">' + tag + '</span></span>'
-        + '<span class="inv-src">main hand</span>';
+        + '<span class="inv-src">주 손</span>';
       const unBtn = document.createElement('button');
       unBtn.className = 'inv-use-btn';
       unBtn.textContent = '↩ 해제';
