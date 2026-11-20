@@ -25776,10 +25776,10 @@ function _showLevelUpModal(lvl) {
     : 100;
   document.getElementById('lu-xp-bar-fill').style.width = pct + '%';
   const toNext = nextThresh
-    ? (nextThresh - curXp).toLocaleString() + ' XP to Lv ' + (lvl + 1)
+    ? (nextThresh - curXp).toLocaleString() + ' XP — 다음 레벨 Lv ' + (lvl + 1)
     : '최고 레벨';
   document.getElementById('lu-xp-status').textContent =
-    'Level ' + lvl + ' · ' + curXp.toLocaleString() + ' XP · ' + toNext;
+    '레벨 ' + lvl + ' · ' + curXp.toLocaleString() + ' XP · ' + toNext;
 
   const contBtn = document.getElementById('btn-lu-continue');
   contBtn.disabled   = true;
@@ -32270,7 +32270,7 @@ function _nodeHookVoidArchaeology(node) {
       if (_hasKey) {
         const tunnelBtn = document.createElement('button');
         tunnelBtn.className = 'inv-use-btn';
-        tunnelBtn.textContent = '🏛️ Open the tunnel.';
+        tunnelBtn.textContent = '🏛️ 터널을 연다.';
         tunnelBtn.style.cssText = 'margin-top:6px;';
         tunnelBtn.addEventListener('click', () => {
           S_story.vaLastWardVisited = true;
