@@ -25445,13 +25445,13 @@ function _storyBattleVictory() {
     S_story.vshamanDefeated = true;
     S_story.wardensLegacyKnown = true;
     const _wt = { name:"The Warden's Token", icon:'🔑', type:'relic', sell:0,
-      desc:'Original Warden\'s seal, First Researcher\'s appointment. Recopied seventeen times. The seventeenth copy has a small error in the verb tense that changed everything.' };
+      desc:'최초 관리인의 인장, 첫 번째 연구자의 임명장. 열일곱 번 베껴 썼다. 열일곱 번째 사본에는 동사 시제의 작은 오류가 있었고 그것이 모든 것을 바꿨다.' };
     S_story.inventory = S_story.inventory || [];
     S_story.inventory.push(_wt);
     dropsThisBattle.push({ icon:'🔑', name:"The Warden's Token", type:'relic' });
     if (!S_story.quests['quest_vs_warden']) S_story.quests['quest_vs_warden'] = 'active';
     setTimeout(() => storyMsg(
-      'The Warden stops fighting. They sit down on the tunnel floor.\n\n"If I\'m wrong, then I needed to be stopped. That\'s — that\'s actually fine."\n\nThey pass you the token without being asked.\n\n"Tell Mordus the sub-clan is done. They\'ll walk back in. They were never really his enemies — they were executing a mandate. The mandate is over."\n\n🔑 The Warden\'s Token obtained.\n\nWithout the Warden, the Hollow Hands have no direction. Mordus\'s scouts report the sub-clan dispersing into the wider cave network.'
+      '관리인이 싸움을 멈춘다. 그들은 터널 바닥에 주저앉는다.\n\n『내가 틀렸다면, 나는 저지될 필요가 있었어요. 그건, 그건 사실 괜찮아요.』\n\n그들은 요청받지도 않고 토큰을 건넨다.\n\n『모르두스에게 분파는 끝났다고 전해요. 걔들은 돌아갈 거예요. 걔들은 진짜 그의 적이 아니었어요. 명령을 집행하고 있었을 뿐. 명령은 끝났어요.』\n\n🔑 관리인의 토큰 획득.\n\n관리인이 없는 홀로우 핸즈는 방향이 없다. 모르두스의 정찰병들이 분파가 더 넓은 동굴 망으로 해산하고 있다고 보고한다.'
     ), 600);
     storyAutoSave();
   }
@@ -25563,11 +25563,11 @@ function autoSaveMaybe() {
 
 // Fighter Champion features by level.
 const FIGHTER_FEATURES = { // → doc: docs/mechanics/mechanics-combat.md §Level-Up System
-  2:  { name:'액션 서지 I',            icon:'⚡',   tattooName:'Lightning Rune',   desc:'Once per short rest: spend a charge to reset your main action, gaining +1.5 AP this round.',                                    shortRest:true   },
-  3:  { name:'향상된 크리티컬',         icon:'🎯',   tattooName:'Edge of Fate',      desc:'Your weapon attacks score a critical hit on a roll of 19 or 20.'                                                                              },
-  4:  { name:'능력치 향상', icon:'📈',   tattooName:'Iron Discipline',   desc:'Relentless training sharpens your body and reflexes.',                                                                          asi:true         },
-  5:  { name:'추가 공격 I',            icon:'⚔',   tattooName:'Twin Strike',       desc:'Your main action fires 2 independent attack rolls.'                                                                                           },
-  6:  { name:'능력치 향상', icon:'📈',   tattooName:'Sinew & Stone',     desc:'Drilling until muscle memory replaces conscious thought.',                                                                      asi:true         },
+  2:  { name:'액션 서지 I',            icon:'⚡',   tattooName:'Lightning Rune',   desc:'짧은 휴식마다 한 번: 충전을 소모해 주 행동을 재설정하고 이 라운드에 +1.5 AP를 얻는다.',                                    shortRest:true   },
+  3:  { name:'향상된 크리티컬',         icon:'🎯',   tattooName:'Edge of Fate',      desc:'무기 공격이 19 또는 20에서 치명타가 된다.'                                                                              },
+  4:  { name:'능력치 향상', icon:'📈',   tattooName:'Iron Discipline',   desc:'끊임없는 단련이 몸과 반사를 날카롭게 한다.',                                                                          asi:true         },
+  5:  { name:'추가 공격 I',            icon:'⚔',   tattooName:'Twin Strike',       desc:'주 행동이 독립적인 공격 판정 2회를 발동한다.'                                                                                           },
+  6:  { name:'능력치 향상', icon:'📈',   tattooName:'Sinew & Stone',     desc:'근육 기억이 의식적 사고를 대신할 때까지 훈련한다.',                                                                      asi:true         },
   7:  { name:'뛰어난 운동선수',        icon:'❤',   tattooName:'Vitality Brand',    desc:'Your body adapts beyond what training alone produces — roll a bonus d10 and add it to your maximum HP.',                       bonusHpRoll:true },
   8:  { name:'능력치 향상', icon:'📈',   tattooName:"Mountain's Root",   desc:'Blood and sweat forge you into something harder than iron.',                                                                    asi:true         },
   9:  { name:'불굴 I',             icon:'🛡',   tattooName:'Indomitable Mark',  desc:'Once per long rest: when you fail a death save, spend your charge to reroll it and keep the new result.',                     longRest:true    },
@@ -25576,7 +25576,7 @@ const FIGHTER_FEATURES = { // → doc: docs/mechanics/mechanics-combat.md §Leve
   12: { name:'능력치 향상', icon:'📈',   tattooName:"Champion's Seal",   desc:'Veteran instincts sharpen every sense you possess.',                                                                           asi:true         },
   13: { name:'불굴 II',            icon:'💪❤', tattooName:'Iron Constitution', desc:'Iron constitution — beyond what the mind alone can sustain. Roll a bonus d10 and add it to your maximum HP.',                 bonusHpRoll:true },
   14: { name:'능력치 향상', icon:'📈',   tattooName:"Titan's Brand",     desc:'Decades of discipline crystallise into pure mastery.',                                                                          asi:true         },
-  15: { name:'상급 크리티컬',         icon:'💥',   tattooName:"Executioner's Eye", desc:'Your weapon attacks score a critical hit on a roll of 18, 19, or 20.'                                                                        },
+  15: { name:'상급 크리티컬',         icon:'💥',   tattooName:"Executioner's Eye", desc:'무기 공격이 18, 19 또는 20에서 치명타가 된다.'                                                                        },
   16: { name:'능력치 향상', icon:'📈',   tattooName:"Warlord's Mark",    desc:'You have reached the apex of mortal conditioning.',                                                                             asi:true         },
   17: { name:'액션 서지 II',           icon:'⚡⚡',  tattooName:'Storm Rune',        desc:'Action Surge charge pool increases to 2 per short rest — two full extra actions available per battle.',                       shortRest:true   },
   18: { name:'Survivor',                  icon:'❤',   tattooName:"Survivor's Mark",   desc:'Peak physical conditioning — your body holds more life than most. Roll a bonus d10 and add it to your maximum HP.',           bonusHpRoll:true },
@@ -26783,30 +26783,30 @@ const BAIT_TABLES = { // → doc: docs/mechanics/mechanics-combat.md §Fishing I
 };
 // → doc: docs/mechanics/mechanics-combat.md §Fishing Guide
 const FISHING_GUIDE_TEXT = // → doc: docs/mechanics/mechanics-combat.md §Fishing Guide (quest_fishing_guide reward; readable item)
-`YUGURT LAKE — FIELD GUIDE (annotated copy)
-The Fisherman. Eleventh year.
+`유구르트 호수 — 현장 안내서(주석 달린 사본)
+낚시꾼. 열한 번째 해.
 
-SEARCH ZONES
-  Shore (The Bank)   — DC 8.  Worms, grubs, pebbles. Common bait.
-  Reeds              — DC 12. Crickets, moss, caps. Better type bonus.
-  Deep (The Shallows)— DC 16. Frogs, minnows, bloom. Strongest effects.
+탐색 구역
+  물가(둑)        — DC 8.  지렁이, 구더기, 자갈. 일반 미끼.
+  갈대밭          — DC 12. 귀뚜라미, 이끼, 버섯. 더 나은 어종 보너스.
+  깊은 곳(여울)  — DC 16. 개구리, 피라미, 녹조. 가장 강한 효과.
 
-BAIT TERMS
-  Catch bonus: adds to the cast roll. More likely to hook.
-  Type bonus:  adds to the type roll. Pulls rarer fish.
-  ADV: roll cast twice, take higher.
-  Size Up: result bumps one size tier.
+미끼 용어
+  포획 보너스: 캐스트 판정에 가산. 걸릴 가능성 상승.
+  어종 보너스: 어종 판정에 가산. 더 희귀한 물고기를 끈다.
+  이점: 캐스트를 두 번 굴려 높은 쪽.
+  크기 상승: 결과가 한 크기 등급 오른다.
 
-PREDATORS
-  Large fish fight back. The Hooked condition is free when you have the rod.
-  Use it. The fish is already on the line.
+포식자들
+  큰 물고기는 반격한다. 낚임 상태는 낚싯대를 가졌다면 공짜다.
+  써라. 물고기는 이미 줄 위에 있다.
 
-DROPS
-  Weapon bonus = floor(fish AC / 4) + max(0, Luck Mod).
-  The big ones carry real equipment. The small ones carry dinner.
+드롭
+  무기 보너스 = floor(물고기 AC / 4) + max(0, 행운 보정치).
+  큰 녀석들은 진짜 장비를 지녔다. 작은 녀석들은 저녁거리를 지녔다.
 
-The lake knows the difference between someone casting and someone fishing.
-After a few visits, so will you.`;
+호수는 던지는 사람과 낚는 사람의 차이를 안다.
+몇 번 오고 나면, 당신도 알게 된다.`;
 
 const FISH_SIZE_TIERS = [ // → doc: docs/mechanics/mechanics-combat.md §Fishing Items (5 tiers: small/medium/large/very_large/legendary)
   { size:'small',      label:'소형',      minRank:1,  maxRank:4  },
@@ -32315,7 +32315,7 @@ function _nodeHookVoidShamanWarden(node) {
         S_story.wardensLegacyKnown = true;
         S_story.inventory = S_story.inventory || [];
         S_story.inventory.push({ name:"The Warden's Token", icon:'🔑', type:'relic', sell:0,
-          desc:'Original Warden\'s seal, First Researcher\'s appointment. Recopied seventeen times. The seventeenth copy has a small error in the verb tense that changed everything.' });
+          desc:'최초 관리인의 인장, 첫 번째 연구자의 임명장. 열일곱 번 베껴 썼다. 열일곱 번째 사본에는 동사 시제의 작은 오류가 있었고 그것이 모든 것을 바꿨다.' });
         S_story.gold += 600;
         storyMsg('💰 +600gp (quest: The Warden). 🔑 The Warden\'s Token added to inventory.');
         if (!S_story.quests['quest_vs_warden']) S_story.quests['quest_vs_warden'] = 'active';
