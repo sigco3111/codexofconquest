@@ -27041,7 +27041,7 @@ const ACT8_FAREWELL_BEATS = { // → doc: world.md §The Homecoming: Act VIII NP
   pachelbel: {
     text: '『뭔가를 쓰고 있어요. 좋은지는 모르겠어요. 이제는 그게 옳은 질문인지도 확실하지 않아요.\\n\\n정직해요. 당신이 제 빚을 정리해 주기 전에 한 작업과 지금 하는 작업의 차이가 그거예요. 전에는 뭔가를 증명하려고 작곡했어요. 지금은 안에서 나와야 할 것이 있어서 작곡해요.\\n\\n이걸 가져 주셨으면 해요. 미완성이에요. 저 혼자 끝낼 곡이 아니라고 생각해요. 어쩌면 당신이 이해할지도 몰라요. 어쩌면 다른 누군가 읽도록 남겨 둘지도요.』',
     gift: { name:"파헬벨의 스케치", icon:'📄', type:'readable', sell:0, code:'LLA',
-      readText:'Three lines of notation. A rest. Then three more, transposed up a fifth. The intervals spell out something — or almost spell it out, the way all honest things approach their meaning diagonally. At the bottom, in small letters: "돌아온 이에게."' },
+      readText:'악보 세 줄. 쉼표 하나. 그다음 세 줄, 완전5도 위로 옮겨 적은 것. 음정들이 무언가를 철자로 적어 내고 있다. 아니, 거의 적어 내고 있다. 정직한 것들은 모두 자기 뜻에 빗겨 다가가는 법이니까. 맨 아래, 작은 글씨로: 「돌아온 이에게」.' },
   },
   crov: {
     text: () => S_story.pitChampionWon
@@ -27593,34 +27593,34 @@ const NPC_FAREWELLS = { // → doc: world.md §The Homecoming: Act VIII NPC Fare
   // yael's `CI_to_SQ` line says "틸버리까지 먼 길", but SQ = NUE = Weimar — the text
   // is the authority (§AUDIT-03c method), so it points at Tilbury's LCY, not NUE.
   yael: {
-    LHR_to_MSY: "Yael: 'Watch the southern road. It floods after rain and the footing's bad.'",
-    LHR_to_TLL: "Yael: 'Brynn's fine. Don't fuss at her. She doesn't want fussing.'",
-    LHR_to_LCY: "Yael: '틸버리까지 먼 길. Come back with news.'",
-    default:  "Yael: 'Move well.'"
+    LHR_to_MSY: "야엘: 『남쪽 길 조심하세요. 비가 오면 물이 차서 지형이 나빠져요.』",
+    LHR_to_TLL: "야엘: 『브린은 괜찮아요. 들볶지 마세요. 그런 걸 원하지 않아요.』",
+    LHR_to_LCY: "야엘: 『틸버리까지 먼 길이에요. 소식 가지고 돌아오세요.』",
+    default:  "야엘: 『조심해서 다녀오세요.』"
   },
   brynn: {
-    TLL_to_LHR: "Brynn: 'Yael knows this city better than the map does. Trust her.'",
-    TLL_to_MHQ: "Brynn: 'Tell Quill to eat something.'",
-    default:  "Brynn: 'The room\'ll be here when you get back.'"
+    TLL_to_LHR: "브린: 『야엘은 이 도시를 지도보다 잘 알아요. 믿으세요.』",
+    TLL_to_MHQ: "브린: 『퀼에게 뭐라도 먹으라고 전해 주세요.』",
+    default:  "브린: 『돌아오면 방은 그대로 있을 거예요.』"
   },
   quill: {
-    MHQ_to_LHR: "Quill: 'Yael\'s on the south corner at seventh bell. She knows the quiet routes.'",
-    MHQ_to_LCY: "Quill: 'Reims keep\'s got a different sound. You\'ll know what I mean when you hear it.'",
-    default:  "Quill: 'Safe roads.'"
+    MHQ_to_LHR: "퀼: 『야엘이 일곱 번째 종소리에 남쪽 모퉁이에 있을 거예요. 조용한 길을 알아요.』",
+    MHQ_to_LCY: "퀼: 『랭스 성은 소리가 달라요. 들으면 무슨 뜻인지 알게 될 거예요.』",
+    default:  "퀼: 『안전한 길로 다니세요.』"
   },
   pachelbel: {
-    LLA_to_LHR: "Pachelbel: 'Yael\'s all right. Don\'t tell her I said so.'",
-    LLA_to_HKG: "Pachelbel: 'Weckmann runs a clean pit. Don\'t embarrass yourself.'",
-    default:  "Pachelbel: 'Watch what you carry.'"
+    LLA_to_LHR: "파헬벨: 『야엘은 괜찮은 사람이에요. 내가 그랬다고는 말하지 마세요.』",
+    LLA_to_HKG: "파헬벨: 『베크만은 깨끗한 투기장을 운영해요. 망신당하지 마세요.』",
+    default:  "파헬벨: 『뭘 들고 다니는지 살피세요.』"
   },
   crov: {
-    HKG_to_MSY: "Weckmann: 'Ground\'s soft on the SW road past the second marker. Step wide.'",
-    HKG_to_LCY: "Weckmann: 'Reims keep\'s not hard. It\'s just dark. Different problem.'",
-    default:  "Weckmann: 'Come back standing.'"
+    HKG_to_MSY: "베크만: 『두 번째 표지 지나 남서쪽 길은 땅이 질어. 크게 걸어.』",
+    HKG_to_LCY: "베크만: 『랭스 성은 어렵지 않아. 그냥 어두울 뿐이야. 그건 다른 문제지.』",
+    default:  "베크만: 『서서 돌아와.』"
   },
   auros: {
-    HKG_to_PDL: "Auros: 'The Ironshell node has subsidence in the northwest corner. Don\'t stand there.'",
-    default:  "Auros: 'Document what you see.'"
+    HKG_to_PDL: "아우로스: 『아이언셸 노드 북서쪽 모서리는 침하가 있어요. 거기 서지 마세요.』",
+    default:  "아우로스: 『보는 것을 기록하세요.』"
   }
 };
 
@@ -27724,15 +27724,15 @@ function _birkaQuietReturns(node) {
 }
 
 const DEACON_CODE_TEXT = // → doc: world.md §Deacon's Code (4 rules; readable at LLA; no favor gate, it is posted on the wall)
-`Pachelbel's Code — posted on the back wall of the salvage front
+`파헬벨의 강령. 고철 가게 뒷벽에 붙은 것
 
-One. No goods taken by force from people who couldn't refuse.
+하나. 거절할 수 없는 사람에게서 힘으로 빼앗은 물건은 받지 않는다.
 
-Two. No goods that would leave a family without means to eat.
+둘. 한 가족이 먹고살 수단을 잃게 될 물건은 받지 않는다.
 
-Three. Ask once about provenance. Believe the answer. If the answer turns out wrong, that's on the person who lied, not on me. If I had reason to doubt and didn't ask harder, that's on me.
+셋. 출처는 한 번 묻는다. 대답을 믿는다. 대답이 거짓으로 드러나면 그것은 거짓말한 사람의 잘못이지 내 잘못이 아니다. 의심할 이유가 있었는데 더 캐묻지 않았다면, 그것은 내 잘못이다.
 
-Four. No desperate goods. If someone is selling because they need the coin badly enough to take half price, come back when they don't. If they come back again at half price, ask what's wrong. If they won't say, give them fair price and ask again next time.`;
+넷. 절박한 물건은 받지 않는다. 반값이라도 받을 만큼 돈이 급해서 파는 사람이라면, 그렇지 않을 때 다시 오라고 한다. 그래도 반값에 다시 오면, 무슨 일인지 묻는다. 말해 주지 않으면, 정당한 값을 치르고 다음에 다시 묻는다.`;
 
 /* ── Layer 44: Living World Helpers ── */
 function _getGigaultState() {
