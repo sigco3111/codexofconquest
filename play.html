@@ -24953,7 +24953,7 @@ function _storyDrinkPotion(tier) {
   const p = POTION_TIERS[tier];
   if (!p || !p.heal) return;
   const idx = S_story.inventory.findIndex(i => i.name === p.name);
-  if (idx < 0) { _sboLog('No ' + p.name + ' in inventory.'); return; }
+  if (idx < 0) { _sboLog('인벤토리에 ' + p.name + '이(가) 없습니다.'); return; }
   S_story.inventory.splice(idx, 1);
   const healed = Math.min(p.heal, S_story.hpMax - S_story.hp);
   S_story.hp = Math.min(S_story.hpMax, S_story.hp + p.heal);
@@ -24994,11 +24994,11 @@ function _renderSboSpells() {
 
 function _storyUseFlashbang(invIdx) {
   if (!S_story.usedMainAttack || S_story.usedBonusAction) {
-    _sboLog('💥 Throw flashbang after attacking — it is a bonus action.');
+    _sboLog('💥 섬광탄은 공격 후에 던지세요 — 보조 행동입니다.');
     return;
   }
   if (S_story.equippedShield) {
-    _sboLog('💥 Unequip shield first — throwing requires a free hand.');
+    _sboLog('💥 먼저 방패를 해제하세요 — 투척에는 빈손이 필요합니다.');
     return;
   }
   S_story.inventory.splice(invIdx, 1);
@@ -25012,11 +25012,11 @@ function _storyUseFlashbang(invIdx) {
 
 function _storyUseSpellScroll(invIdx) {
   if (!S_story.usedMainAttack || S_story.usedBonusAction) {
-    _sboLog('📜 Use spell scroll after attacking — it is a bonus action.');
+    _sboLog('📜 주문 두루마리는 공격 후에 사용하세요 — 보조 행동입니다.');
     return;
   }
   if (S_story.equippedShield) {
-    _sboLog('📜 Unequip shield first — casting requires a free hand.');
+    _sboLog('📜 먼저 방패를 해제하세요 — 시전에는 빈손이 필요합니다.');
     return;
   }
   S_story.inventory.splice(invIdx, 1);
@@ -25025,9 +25025,9 @@ function _storyUseSpellScroll(invIdx) {
   const pass = roll >= dc;
   if (pass) {
     S_story.spellAdvantageReady = true;
-    _sboLog('📜 주문 두루마리 — roll ' + roll + ' vs DC ' + dc + ' ✓ Arcane ADV on next attack!');
+    _sboLog('📜 주문 두루마리 — roll ' + roll + ' vs DC ' + dc + ' ✓ 다음 공격에 비전 이점!');
   } else {
-    _sboLog('📜 주문 두루마리 — roll ' + roll + ' vs DC ' + dc + ' ✗ Scroll fizzles. Consumed.');
+    _sboLog('📜 주문 두루마리 — roll ' + roll + ' vs DC ' + dc + ' ✗ 두루마리가 꺼집니다. 소모됨.');
   }
   S_story.usedBonusAction = true;
   S_story.battleTurn = 'enemy';
@@ -25162,7 +25162,7 @@ function _overlayPlayerAttack() {
 
 function _overlayOffhandAttack() {
   if (S_story.battleTurn !== 'player') return;
-  if (!S_story.usedMainAttack || S_story.usedBonusAction) { _sboLog('🗡 Attack first, then offhand as bonus action.'); return; }
+  if (!S_story.usedMainAttack || S_story.usedBonusAction) { _sboLog('🗡 먼저 공격한 뒤 보조 행동으로 보조 무기를 쓰세요.'); return; }
   if (S_story.equippedShield) { _sboLog('🗡 보조 무기를 쓰려면 방패를 해제하세요.'); return; }
   if (!S.offhand || !S.offhand.count) return;
   _disableSboActions(true);
@@ -25279,7 +25279,7 @@ function _storyEnemyTurn() {
         S.enemy.atk     += e.atk;
         S.enemy.dmgFlat += e.dmg;
         S.enemy.dmgCount += e.die;
-        _sboLog('⚫ The Void presses in — the wound only makes it worse. (+' + e.atk + ' atk, +' + e.dmg + ' dmg' + (e.die ? ', +' + e.die + 'd' + S.enemy.dmgDie : '') + ')');
+        _sboLog('⚫ 공허가 밀려 들어온다 — 상처는 그것을 더 악화시킬 뿐이다. (+' + e.atk + ' 공격, +' + e.dmg + ' 피해' + (e.die ? ', +' + e.die + 'd' + S.enemy.dmgDie : '') + ')');
         setTimeout(() => storyMsg('⚫ Cornered, the Void-touched thing does not falter — it presses in harder.'), 150);
       }
     } else if (_combatRng() < _fleeChance(S.opp.tier)) {
@@ -25907,7 +25907,7 @@ function _renderSboShield() {
 
 function _storyUnequipShield() {
   if (!S_story.usedMainAttack || S_story.usedBonusAction) {
-    _sboLog('🛡 Attack first, then unequip shield as bonus action.');
+    _sboLog('🛡 먼저 공격한 뒤 보조 행동으로 방패를 해제하세요.');
     return;
   }
   if (!S_story.equippedShield) return;
@@ -26038,7 +26038,7 @@ function _storyRollDeathSave() {
   // 불굴 I (Lv9): if roll fails (<10) and charges remain, reroll once
   if (d20 < 10 && (S_story.indomitableCharges || 0) > 0) {
     const reroll = Math.ceil(_combatRng() * 20);
-    _sboLog('🛡 Indomitable! Death save rerolled: ' + d20 + ' → ' + reroll + ' (' + Math.max(0, S_story.indomitableCharges - 1) + ' charges left)');
+    _sboLog('🛡 불굴! 사망 판정 재굴림: ' + d20 + ' → ' + reroll + ' (남은 횟수 ' + Math.max(0, S_story.indomitableCharges - 1) + ')');
     S_story.indomitableCharges = Math.max(0, S_story.indomitableCharges - 1);
     d20 = reroll;
     indomUsed = true;
@@ -39245,7 +39245,7 @@ document.getElementById('btn-sbo-surge').addEventListener('click', () => {
   S_story.usedMainAttack  = false;
   S_story.usedRealAttack  = false;
   const left = S_story.surgeCharges;
-  _sboLog('⚡ 액션 서지! 추가 행동 획득.' + (left > 0 ? ' (' + left + ' charge' + (left > 1 ? 's' : '') + ' remaining)' : ' (charges spent)'));
+  _sboLog('⚡ 액션 서지! 추가 행동 획득.' + (left > 0 ? ' (남은 횟수 ' + left + ')' : ' (횟수 소진)'));
   _updateBattleOverlay();
 });
 document.getElementById('btn-sbo-flee').addEventListener('click', _overlayFlee);
