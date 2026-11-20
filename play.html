@@ -14625,7 +14625,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'역사 DC 12 — 스베일링크에게 사바 파르바 일화에 대한 충분한 맥락을 주어라: 유디슈티라의 조직적인 패배, 회의의 침묵, 드라우파디의 질문. 성공: 스베일링크가 드라우파디 탄원과의 연결을 적는다 — 두 문서 모두 같은 시간에서 왔고 이제 둘 다 보관 일자를 갖는다. 분류: 기술 기록 — 논쟁되는 행위성의 사건에 대한 분석적 회고.',
   },
   hty06_act1: { id:"hty06_act1", type:"skill_check", schema:'UQF-1.0', gate:{}, bits:[{ kind:'skill_check', stat:'CHA', dc:11, onPass:[{ kind:'mission_bit', flag:'hty06a1' }], onFail:[] }], title:"사미의 나무 — 그리고르 수사의 도서관", passText:"그리고르가 삼나무 상자를 넘기고 기록관에 보낼 설명 서신을 쓴다. 전술적 독해와 신학적 독해 모두 바이마르로 간다.", failText:"그리고르는 편지 없이 상자를 풀어 준다. 그의 아르메니아어 주기는 있지만 설명되지 않았다.", npc:"brother_grigor", activateNode:"GNJ",
-    desc:"An Armenian monastery library in Ganja: thick stone walls, narrow windows, old parchment and tallow candles. 그리고르 수사, a compact quiet man who has been library keeper for twenty years, holds a cedar box. Inside: seven Arabic folios — a technical account of how the Pandava bows were hidden in a sami tree wrapped in funeral cloth to invoke corpse-pollution taboo among the local population. On the inside lid, in his own hand: the disguise was not theater. It was the most serious thing they could have done. That is not tactics. That is theology. He does not know if he should send this to a military scholar.",
+    desc:"간자의 아르메니아 수도원 도서관: 두꺼운 돌벽, 좁은 창, 오래된 양피지와 지방 양초. 그리고르 수사 — 이십 년째 도서관지기인, 자그마하고 조용한 사람 — 가 삼나무 상자를 들고 있다. 안에는 아랍어 폴리오 일곱 권 — 판다바의 활들을 사미 나무에 장례 천으로 싸서 숨긴 방법, 그 지역 사람들의 시체 오염 금기를 이용한 기술적 기록. 상자 안쪽 뚜껑에, 그의 친필로: 그 위장은 연극이 아니었다. 그들이 할 수 있는 가장 진지한 일이었다. 그것은 전술이 아니다. 신학이다. 그는 이것을 군사학자에게 보내야 할지 알지 못한다.",
     hint:"Persuasion DC 11 — convince 그리고르 수사 that the tactical and theological readings are not contradictory; the archive in Weimar is the appropriate final destination; his notation will travel with the text. On pass: Grigor releases the box and writes an explanatory letter. On fail: box released without the letter.",
   },
   hty06_act2: { id:"hty06_act2", type:"skill_check", schema:'UQF-1.0', gate:{ flags:['hty06a1'] }, bits:[{ kind:'skill_check', stat:'CHA', dc:12, onPass:[{ kind:'mission_bit', flag:'hty06a2' }], onFail:[] }], title:"사미의 나무 — 잘라이르 검문소", passText:"관리가 학술 이관 표기를 허한다. 당신은 남쪽으로 계속 간다.", failText:"행정관은 검문소 병사들을 불러 통행 허가가 날 때까지 당신을 붙잡아 둔다.", npc:"brother_grigor", activateNode:"GNJ",
@@ -14665,7 +14665,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'역사 DC 11 — 스베일링크에게 완전한 출처를 주어라: 하미드의 니샤푸르 학문, 세관 검문소의 분류, 바그다드에서의 아흐마드의 비교 판독, 구자라트 상인들의 계승 시도. 성공: 완전한 출처 사슬 기록, 네 단계 변화 모두 기입. 분류 생성: 변화 기록 — 원래 성질이 바뀐 것이 아니라 유예된 물건들.',
   },
   clj01_act1: { id:"clj01_act1", type:"skill_check", schema:'UQF-1.0', gate:{}, bits:[{ kind:'skill_check', stat:'WIS', dc:11, onPass:[{ kind:'mission_bit', flag:'clj01a1' }], onFail:[] }], title:"편찬된 기록 — 야노시 박사의 서재", passText:"당신은 야노스의 첨가가 독립 증언 논증을 무너뜨릴 이유를 안다. 야노스가 받아들인다. 그 책은 세 개의 순수한 목소리 그대로 봉인된다.", failText:"야노시는 추신을 덧붙인다. 논거는 약해졌지만 무너지지는 않았다. 서류철에는 여전히 가치가 있다.", npc:"doktor_janos", activateNode:"BIS",
-    desc:"야노시 박사's study in Bistritz: cold, three candles burning short, the stitched folio sitting in the center of the desk as if he has been staring at it for hours. He is wearing his coat inside the house. The folio contains three separately dated accounts — a priest, a merchant, an officer — in three hands on three kinds of paper, prefaced by his own analytical note. His argument: independent agreement from three unconnected witnesses is the only form of evidence that cannot be accused of collaboration. He wants to add a fourth section — his own account. Adding it would destroy the independence argument.",
+    desc:"비스트리츠의 야노시 박사 서재: 춥고, 촛불 세 개가 짧게 타고 있고, 기워 만든 두루마리가 책상 한가운데 놓여 있다 — 몇 시간이고 그것을 바라보고 있었던 것처럼. 그는 집 안에서 외투를 입고 있다. 두루마리에는 서로 따로 날짜가 적힌 기록 셋이 담겨 있다 — 사제, 상인, 장교 — 세 필체에 세 종류의 종이, 그 자신의 분석 서문이 붙어 있다. 그의 주장: 서로 무관한 세 증인의 독립적 일치만이 공모라는 비난을 피할 수 있는 유일한 증거 형태다. 그는 네 번째 부분 — 자신의 기록 — 을 추가하고 싶어 한다. 추가하면 독립성 논증이 무너진다.",
     hint:'설득 DC 12 — 구조적 논거를 펴라: 의사 자신의 설명을 더하면 책자가 독립 증언에서 감독된 증언으로 바뀐다. 앞에 붙는 분석으로 충분하다. 성공 시: 야노시는 이를 듣고, 잠잠해지고, 봉인된 책자를 넘겨준다. 그는 말한다: 당신이 맞아요. 논거는 논거일 뿐, 내가 바라는 것이 아니에요. 그가 마침내 넘겨줄 때, 그는 그것을 보지 않는다. 문을 본다.',
   },
   clj01_act2: { id:"clj01_act2", type:"skill_check", schema:'UQF-1.0', gate:{ flags:['clj01a1'] }, bits:[{ kind:'skill_check', stat:'WIS', dc:12, onPass:[{ kind:'mission_bit', flag:'clj01a2' }], onFail:[] }], title:"편찬된 기록 — 산길의 늑대", passText:"마부가 납득한다. 늑대를 쫓아냈다. 여정이 계속되고 부대주교의 기한이 지켜졌다.", failText:"늑대와의 전투는 피할 수 없다. 다소 지연된다. 도착은 늦지만 폴리오는 온전하다.", npc:"doktor_janos", activateNode:"BIS",
@@ -23519,7 +23519,7 @@ function _innKindness(n) {
   S_story.innmotherKindness = (S_story.innmotherKindness || 0) + n;
   if (S_story.innmotherKindness >= 5 && !S_story.freeBookingUnlocked) {
     S_story.freeBookingUnlocked = true;
-    storyMsg('🗝 The Innmother sets the key on the table without a word. The room is free from here.');
+    storyMsg('🗝 여관 어머니가 말없이 열쇠를 탁자에 놓는다. 방은 이제 무료다.');
     S_story.inventory = S_story.inventory || [];
     S_story.inventory.push({ name:"여관 어머니의 열쇠", icon:'🗝', sell:0, drop:false });
     S_story.innmotherKeyGiven = true;
@@ -26145,14 +26145,14 @@ function _storyDeathSaveFall() {
   if (bodyItems.length)            _bodyParts.push(bodyItems.length + '개');
   if (corpseQuest.goldDropped)     _bodyParts.push(corpseQuest.goldDropped + ' gp');
   const _totalThings = bodyItems.length + (corpseQuest.goldDropped ? 1 : 0);
-  const _them = _totalThings > 1 ? 'them' : 'it';
-  const _kept = '장착한 장비' + (critItems.length ? ' and Codex shards' : '') + ' stayed with you.';
+  const _them = _totalThings > 1 ? '그것들' : '그것';
+  const _kept = '장착한 장비' + (critItems.length ? '와 코덱스 조각' : '') + ' — 그대로 지니고 있다.';
   storyRender(NODE_MAP[S_story.currentCode],
-    '☠ You fell at ' + nodeName + '. '
+    '☠ 쓰러진 곳 — ' + nodeName + '. '
     + (_bodyParts.length
-        ? 'Your body lies there with ' + _bodyParts.join(' and ') + ' — go back to reclaim ' + _them + '. '
-        : 'Your body lies there, though it carried nothing of value. ')
-    + _kept + ' You wake at ' + _cpName + ' with 1 HP.');
+        ? '시신이 그곳에 놓여 있다 — 남은 것: ' + _bodyParts.join(', ') + ' — 되찾으러 돌아갈 것: ' + _them + '. '
+        : '시신이 그곳에 놓여 있다 — 가져갈 만한 것은 아무것도 없었지만. ')
+    + _kept + ' ' + _cpName + '에서 HP 1로 깨어난다.');
   // §DEATH-01 finding #5 (non-atomic death save): already satisfied — the storyRender() call
   // just above ends in storyAutoSave() (no await between the strip and the save), so the death
   // + corpse persist synchronously the instant they happen. No extra save needed. (The audit
