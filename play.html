@@ -28835,7 +28835,7 @@ function mpSetAdvertise(on) {
 function _mpRenderMapPresence() {
   const el = document.getElementById('mp-map-presence');
   if (!el) return;
-  if (!MP.on) { el.textContent = 'Not connected. Join a server above to see who else is out there.'; return; }
+  if (!MP.on) { el.textContent = '연결되지 않았습니다. 위에서 서버에 참가하면 다른 여행자들이 보입니다.'; return; }
   const players = (MP.players || []).filter(p => p && p.kind !== 'sentry');
   const remotes = Object.values(MP.remotes || {}).filter(p => p && p.kind !== 'sentry').length;
   // §MESH-03f-FU2: ✉ any keyed traveler on the map, not only those in this cell.
@@ -29869,7 +29869,7 @@ async function mpResolveMagnet(ui) {
   try {
     const data = await (await fetch(url + '/api/tracker/peers' + _mpTrackerQuery(mag))).json();
     if (data.ok && Array.isArray(data.servers)) {
-      if (!data.servers.length) { note.textContent = 'Tracker is up, but no live server matches this world right now.'; return; }
+      if (!data.servers.length) { note.textContent = '트래커는 작동 중이지만 지금 이 세계와 맞는 활성 서버가 없습니다.'; return; }
       note.textContent = data.servers.length + ' server(s)' + (mag && mag.wh ? ' for world ' + mag.wh : '') + ':';
       _mpRenderServerRows(data.servers, ui.rows);
       return;
@@ -30360,7 +30360,7 @@ async function mpTradePrimary() {
   const r = await _mpFetch('/api/trade/propose', { sessionId: MP.session, to: t.to, give, want }).catch(() => null);
   if (!r || !r.ok) { storyMsg('⇄ Proposal refused: ' + ((r && r.error) || 'server unreachable') + '.'); return; }
   t.tradeId = r.tradeId;
-  document.getElementById('mp-trade-note').textContent = 'Offer sent to ' + (t.toName || t.to) + ' — waiting for their answer (60s)…';
+  document.getElementById('mp-trade-note').textContent = '교환 제안을 보냈습니다: ' + (t.toName || t.to) + ' — 응답 대기 중 (60초)…';
   document.getElementById('mp-trade-primary').style.display = 'none';
 }
 // Mirror a completed trade event into the local inventory: remove what I gave
@@ -31007,7 +31007,7 @@ function storyFishing() {
         castBtn.style.display = '';
         if (total < dc) {
           rollEl.innerHTML = '<strong>생존:</strong> ' + die + (Math.floor(wisMod) >= 0 ? '+' : '') + Math.floor(wisMod) + ' = ' + total + ' vs DC ' + dc + ' — <span style="color:#e04040">실패</span>';
-          rollEl.style.display = ''; lakeText.textContent = 'Nothing useful found.'; _renderBait(); return;
+          rollEl.style.display = ''; lakeText.textContent = '쓸 만한 것을 찾지 못했습니다.'; _renderBait(); return;
         }
         const bait = BAIT_TABLES[loc][Math.floor(Math.random() * 6)];
         rollEl.innerHTML = '<strong>생존:</strong> ' + die + (Math.floor(wisMod) >= 0 ? '+' : '') + Math.floor(wisMod) + ' = ' + total + ' vs DC ' + dc + ' — <span style="color:#60e060">성공</span><br>발견: ' + bait.icon + ' <strong>' + bait.name + '</strong>';
@@ -36964,7 +36964,7 @@ function storySleep(node) {
   const warn = document.getElementById('sleep-warning');
   const confirmBtn = document.getElementById('btn-sleep-confirm');
   if (cost > 0 && S_story.gold < cost) {
-    warn.textContent = 'Not enough gold. You cannot afford to rest here.';
+    warn.textContent = '골드가 부족합니다. 여기서 쉴 수 없습니다.';
     warn.classList.add('show');
     confirmBtn.disabled = true;
   } else if (S_story.day >= 49) {
