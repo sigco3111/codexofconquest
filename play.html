@@ -23884,7 +23884,7 @@ function storyCheckContinue() {
       _splitCouperiDebtMeaning();
       _advanceStoryAct();
       const cpNode = NODE_MAP[S_story.checkpointNode] || NODE_MAP['LHR'];
-      document.getElementById('gameover-cp').textContent = 'Last checkpoint: ' + (cpNode.label.split(' — ')[0]);
+      document.getElementById('gameover-cp').textContent = '마지막 체크포인트: ' + (cpNode.label.split(' — ')[0]);
       _populateGameoverChronicle();
       document.getElementById('story-gameover-modal').classList.add('visible');
       storyUpdateStatus();
@@ -23906,17 +23906,17 @@ function _populateGameoverChronicle() {
   const fmt = n => (n || 0).toLocaleString();
   const rows = [
     ['치른 전투',    rs.battlesAttempted || 0],
-    ['Kills',             rs.kills            || 0],
-    ['Attacks',           rs.attacksAttempted || 0],
+    ['처치',             rs.kills            || 0],
+    ['공격',           rs.attacksAttempted || 0],
     ['명중률',          rs.attacksAttempted ? Math.round((rs.attacksHit||0) / rs.attacksAttempted * 100) + '%' : '—'],
     ['가한 피해',      rs.dmgDealt         || 0],
     ['받은 피해',   rs.dmgReceived      || 0],
     ['나간 출구',       rs.exitsTaken       || 0],
-    ['Sleeps',            rs.sleeps           || 0],
+    ['수면',            rs.sleeps           || 0],
   ];
   const hasData = rows.some(([, v]) => typeof v === 'number' ? v > 0 : v !== '—');
   if (!hasData) { el.classList.remove('has-data'); el.innerHTML = ''; return; }
-  el.innerHTML = '<div class="goc-title">This Run</div>'
+  el.innerHTML = '<div class="goc-title">이번 여정</div>'
     + rows.map(([label, val]) =>
         `<div class="goc-row"><span class="goc-lbl">${label}</span><span class="goc-val">${fmt(val)}</span></div>`
       ).join('');
@@ -23925,7 +23925,7 @@ function _populateGameoverChronicle() {
 
 function storyGameOver() {
   const cpNode = NODE_MAP[S_story.checkpointNode] || NODE_MAP['LHR'];
-  document.getElementById('gameover-cp').textContent = 'Last checkpoint: ' + (cpNode.label.split(' — ')[0]);
+  document.getElementById('gameover-cp').textContent = '마지막 체크포인트: ' + (cpNode.label.split(' — ')[0]);
   _populateGameoverChronicle();
   document.getElementById('story-gameover-modal').classList.add('visible');
 }
@@ -23934,18 +23934,18 @@ function storyGameOver() {
 const _DEFEAT_COPY = {
   time: {
     hd: '⌛ 일곱 번째 달이 떴습니다',
-    flavor: 'Day 49. You lay down. The court had granted forty-nine days to find a champion and the time is complete. The Void does not grant postponements — not because it is cruel, but because it does not know what a postponement is. It simply sealed the breach at dawn, as it would have done on Day 1 if you had not come. You came. You kept it open forty-nine days. That is not nothing. It is not enough, but it is not nothing.',
+    flavor: '49일차. 당신은 쓰러집니다. 궁정은 용사를 찾을 기한으로 마흔아흐레를 허락했고, 그 시간이 끝났습니다. 공허는 연기를 허락하지 않습니다. 잔인해서가 아니라, 연기가 무엇인지 모르기 때문입니다. 공허는 새벽에 균열을 봉인했을 뿐입니다. 당신이 오지 않았다면 1일차에 그랬을 것처럼. 당신은 왔습니다. 마흔아흐레 동안 틈을 지켜냈습니다. 그것은 무가 아닙니다. 충분하지는 않지만, 무는 아닙니다.',
   },
   void: {
     hd: '☠ 공허가 침범했습니다',
-    flavor: 'The void tide could not be held. The Convergence failed. The Shattered Codex is dust. Commander Bruhns\'s last signal fire went dark an hour ago.',
+    flavor: '공허의 조수를 막아내지 못했습니다. 수렴은 실패했습니다. 산산조각 난 코덱스는 먼지가 되었습니다. 브룬스 사령관의 마지막 봉화는 한 시간 전에 꺼졌습니다.',
   },
 };
 function storyVoidDefeat(type) {
   const copy = _DEFEAT_COPY[type] || _DEFEAT_COPY.time;
   document.getElementById('defeat-hd').textContent     = copy.hd;
   document.getElementById('defeat-flavor').textContent = copy.flavor;
-  document.getElementById('def-level').textContent     = 'Level ' + (S_story.level || 1);
+  document.getElementById('def-level').textContent     = '레벨 ' + (S_story.level || 1);
   document.getElementById('def-xp').textContent        = (S_story.xp || 0).toLocaleString() + ' XP';
   document.getElementById('def-day').textContent       = S_story.day + '일차 / 49';
   document.getElementById('def-shards').textContent    = (S_story.shards || 0) + ' / 7';
@@ -28426,7 +28426,7 @@ function storyCheckVictory(node) {
   document.getElementById('vic-gold').textContent   = S_story.gold + 'gp';
   document.getElementById('vic-items').textContent  = S_story.inventory.length;
   document.getElementById('vic-quests').textContent = completed + ' / ' + Object.keys(QUEST_DB).length;
-  document.getElementById('vic-level').textContent  = 'Level ' + (S_story.level || 1);
+  document.getElementById('vic-level').textContent  = '레벨 ' + (S_story.level || 1);
   document.getElementById('vic-xp').textContent     = (S_story.xp || 0).toLocaleString() + ' XP';
   document.getElementById('vic-battles').textContent = battles;
   document.getElementById('vic-shards').textContent  = '7 / 7';
@@ -38499,20 +38499,20 @@ function storyRenderCharSheet() {
         const rs = S_story.runStats    || {};
         const fmt = n => (n || 0).toLocaleString();
         const rows = [
-          ['Kills',              'kills'],
-          ['Deaths',             'deaths'],
+          ['처치',              'kills'],
+          ['사망',             'deaths'],
           ['치른 전투',     'battlesAttempted'],
           ['시도한 공격',  'attacksAttempted'],
           ['명중한 공격',        'attacksHit'],
           ['가한 피해',       'dmgDealt'],
           ['받은 피해',    'dmgReceived'],
           ['나간 출구',        'exitsTaken'],
-          ['Sleeps',             'sleeps'],
+          ['수면',             'sleeps'],
         ];
         const isFirstRun = (cs.deaths || 0) === 0 && (S_story.ngPlusRun || 0) === 0;
         return `<div style="display:grid;grid-template-columns:1fr auto auto;gap:2px 8px;font-size:11px;align-items:center">
           <span style="color:#2A3040;font-style:italic"></span>
-          <span style="color:#1A4060;font-weight:bold;text-align:right;min-width:52px">This Life</span>
+          <span style="color:#1A4060;font-weight:bold;text-align:right;min-width:52px">이번 생애</span>
           <span style="color:#6A4808;font-weight:bold;text-align:right;min-width:52px">${isFirstRun ? '' : '모든 생애'}</span>
           ${rows.map(([label, key]) => `
           <span class="cs-row-lbl" style="font-size:11px">${label}</span>
