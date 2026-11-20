@@ -6934,7 +6934,7 @@ function _resolveQuestUQF(questId) {
         S_story.xp += effXp;
         _levelUpQueue = [];
         _checkLevelUp();
-        _failMsgs.push('The attempt was not wasted. +' + effXp + ' XP for the effort.');
+        _failMsgs.push('시도는 헛되지 않았습니다. 노력의 대가로 +' + effXp + ' XP.');
         if (_levelUpQueue.length > 0) _showLevelUpModal(_levelUpQueue.shift());
       }
     }
@@ -7006,7 +7006,7 @@ function battKillEvent() {
         const lmItem = { ...granted };
         S_story.inventory.push(lmItem);
         mpMintStamp(lmItem);   // §MESH-01i slice 2b — lake magic is the flagship trade good
-        storyMsg('✨ Lake magic item found: ' + granted.icon + ' ' + granted.name + ' — ' + granted.desc);
+        storyMsg('✨ 호수 마법 아이템 발견: ' + granted.icon + ' ' + _itemDisplayName(granted.name) + ' — ' + granted.desc);
       }
     }
   }
@@ -23473,14 +23473,14 @@ function _setNpcFavor(key, level, say) {
   S_story.npcFavorability[key] = level;
   const speak = say || storyMsg;
   const n = _npcDisplayName(key);
-  if (level === 1) speak('🤝 ' + n + ' looks at you differently now.');
-  if (level === 2) speak('💛 ' + n + ' says your name when you walk in.');
+  if (level === 1) speak('🤝 ' + n + ' 님이 당신을 다르게 보기 시작했습니다.');
+  if (level === 2) speak('💛 ' + n + ' 님이 당신이 들어오면 이름을 불러줍니다.');
   _checkDearFriendUpgrade(key, say);
 }
 function _checkDearFriendUpgrade(key, say) {
   const steps = [
-    [DEAR_FRIEND_BITS, 'dearFriendGranted', ' says your name when you walk in.'],
-    [DEAR_FRIEND_PLUS_BITS, 'dearFriendPlusGranted', ' counts you among the few.'],
+    [DEAR_FRIEND_BITS, 'dearFriendGranted', ' 님이 당신이 들어오면 이름을 불러줍니다.'],
+    [DEAR_FRIEND_PLUS_BITS, 'dearFriendPlusGranted', ' 님이 당신을 몇 안 되는 사람으로 여깁니다.'],
   ];
   for (const [bits, record, line] of steps) {
     const fav = _npcFavor(key);
@@ -23505,14 +23505,14 @@ const TALK_TO_FRIENDLY = 3;   // deliberate talks (on distinct game-days) to rea
 function _talkToNpc(key) {
   if (!NPC_DIALOGUES[key]) return;
   const name = _npcDisplayName(key);
-  if (_npcFavor(key) >= 1) { storyMsg('🤝 ' + name + ' already counts you a friend.'); return; }
+  if (_npcFavor(key) >= 1) { storyMsg('🤝 ' + name + ' 님은 이미 당신을 친구로 여깁니다.'); return; }
   if (!S_story.npcTalk) S_story.npcTalk = {};
   const t = S_story.npcTalk[key] || { count: 0, lastDay: 0 };
   if (t.lastDay === S_story.day) { storyMsg('💬 ' + name + ': 오늘 할 이야기를 마쳤습니다. 다른 날에 다시 오세요.'); return; }
   t.count += 1; t.lastDay = S_story.day;
   S_story.npcTalk[key] = t;
   if (t.count >= TALK_TO_FRIENDLY) _setNpcFavor(key, 1);   // fires the "looks at you differently" msg + dearFriendBits check; never above 1
-  else storyMsg('💬 ' + name + ' warms to you a little. (' + t.count + '/' + TALK_TO_FRIENDLY + ')');
+  else storyMsg('💬 ' + name + ' 님이 조금 마음을 열었습니다. (' + t.count + '/' + TALK_TO_FRIENDLY + ')');
 }
 /* ── §CROWN-01: Kindness Meter + Crone Mark helpers ── */
 function _innKindness(n) {
@@ -24751,8 +24751,8 @@ function _showBattleOverlay() {
     S_story.roughWhiskeyActive = true;
     if (!_rwAlready) S_story.inventory.splice(_rwBottle, 1);
     S_story._drunkFight = true;
-    storyMsg((_rwAlready ? '🥃 You walk into the pit with the 거친 위스키 already in you.' : '🥃 You drank the 거친 위스키 before the pit fight.')
-      + ' Weckmann stares at you. The pit stares at you. You stare at the pit.');
+    storyMsg((_rwAlready ? '🥃 거친 위스키가 몸에 남은 채 구덩이에 들어섭니다.' : '🥃 구덩이 싸움 전에 거친 위스키를 마셨습니다.')
+      + ' 베크만이 당신을 바라봅니다. 구덩이가 당신을 바라봅니다. 당신도 구덩이를 바라봅니다.');
   } else {
     S_story._drunkFight = false;
   }
@@ -24904,7 +24904,7 @@ function _disableSboActions(forceDisable) {
     fleeBtn.textContent = (S_story.usedMainAttack && isPlayer) ? '🏃 도주 ✓' : '🏃 도주 ⚠';
     fleeBtn.title = (S_story.usedMainAttack && isPlayer)
       ? '깔끔한 이탈 — 상호 공격 없음'
-      : 'Flee at round start — both sides get a free attack!';
+      : '라운드 시작 시 도주 — 양측 모두 프리 공격을 얻습니다!';
   }
 
   const wBtn = document.getElementById('btn-sbo-wimper');
@@ -24915,7 +24915,7 @@ function _disableSboActions(forceDisable) {
       wBtn.textContent = S_story.usedMainAttack ? '😬 보너스 행동 넘기기' : '😬 공격 넘기기';
       wBtn.title = S_story.usedMainAttack
         ? '보너스 행동 건너뛰기 — 차례 종료'
-        : 'Skip main attack — opens bonus phase (heal / flee safely)';
+        : '주 공격 건너뛰기 — 보너스 단계가 열립니다 (회복 / 안전한 도주)';
     }
   }
 
@@ -25248,7 +25248,7 @@ function _storyEnemyFlees() {
   document.getElementById('sbo-potion-row').style.display = '';
   document.getElementById('sbo-death-save-panel').style.display = 'none';
   storyEnter();
-  storyMsg('🏃 The beast breaks and bolts — too hurt to keep fighting, too quick to catch. It escapes with its hide, but the effort was not wasted. +' + xp + ' XP.');
+  storyMsg('🏃 짐승이 돌아서 도망칩니다 — 계속 싸우기엔 너무 다쳤고, 잡기엔 너무 빠릅니다. 가죽째 도망쳤지만 노력은 헛되지 않았습니다. +' + xp + ' XP.');
   storyUpdateStatus();
   if (_levelUpQueue.length > 0) _showLevelUpModal(_levelUpQueue.shift());
   autoSaveMaybe();
@@ -25280,7 +25280,7 @@ function _storyEnemyTurn() {
         S.enemy.dmgFlat += e.dmg;
         S.enemy.dmgCount += e.die;
         _sboLog('⚫ 공허가 밀려 들어온다 — 상처는 그것을 더 악화시킬 뿐이다. (+' + e.atk + ' 공격, +' + e.dmg + ' 피해' + (e.die ? ', +' + e.die + 'd' + S.enemy.dmgDie : '') + ')');
-        setTimeout(() => storyMsg('⚫ Cornered, the Void-touched thing does not falter — it presses in harder.'), 150);
+        setTimeout(() => storyMsg('⚫ 궁지에 몰린 공허에 물든 것은 물러서지 않습니다 — 더 거세게 밀려듭니다.'), 150);
       }
     } else if (_combatRng() < _fleeChance(S.opp.tier)) {
       _storyEnemyFlees();
@@ -25364,7 +25364,7 @@ function _storyBattleVictory() {
   const lvlUpEl = document.getElementById('svo-levelup');
   if (lvlUpEl) {
     if (_levelUpQueue.length > 0) {
-      lvlUpEl.textContent = '⭐ ' + _levelUpQueue.length + ' Level Up' + (_levelUpQueue.length > 1 ? 's' : '') + '! (shown after loot)';
+      lvlUpEl.textContent = '⭐ 레벨 업 ' + _levelUpQueue.length + '건! (전리품 후 표시)';
       lvlUpEl.style.display = '';
     } else {
       lvlUpEl.innerHTML = ''; lvlUpEl.style.display = 'none';
@@ -25399,11 +25399,11 @@ function _storyBattleVictory() {
       && !(S_story.inventory||[]).some(i => i.name === 'Worn Ledger Book')
       && _combatRng() < 0.6) {
     S_story.inventory.push({name:'Worn Ledger Book',icon:'📔',type:'quest_item',sell:0,questId:'quest_brynn_ledger'});
-    storyMsg('📔 Found: Worn Ledger Book — Brynn will want this back.');
+    storyMsg('📔 발견: 낡은 장부 — 브린이 되찾길 원할 것입니다.');
   }
   // Layer 41: Void Below cleared
   if (pb && pb.nodeCode === 'CY_VOID') {
-    storyMsg('🔴 The Void Corruption node is cleared. The undercity stabilises.');
+    storyMsg('🔴 공허 오염 노드가 정화되었습니다. 지하도시가 안정됩니다.');
   }
   // Layer 49 §XIV: Quest −1 has two writers — the console line the disclosure panel
   // prints, and the Convergence win at L20. _checkLevelUp above has already run, so a
@@ -25472,7 +25472,7 @@ function _storyBattleVictory() {
   if (S_story._drunkFight) {
     S_story._drunkFight = false;
     if (_npcFavor('crov') < 1) _setNpcFavor('crov',1);
-    storyMsg('🥃 Weckmann: "You absolute idiot. I\'m counting it."');
+    storyMsg('🥃 베크만: 「이런 완전한 바보 같으니. 세기는 세 주겠네.」');
   }
   if (S._pendingDrop) {
     const d = S._pendingDrop;
@@ -25828,7 +25828,7 @@ function _storyFleeClean() {
   document.getElementById('sbo-refocus-bar').style.display = 'none';
   document.getElementById('main-body').style.display = 'none';
   storyEnter();
-  storyMsg('🏃 You disengage after your attack and slip away cleanly.');
+  storyMsg('🏃 공격 후 깔끔하게 이탈해 빠져나왔습니다.');
 }
 
 function _storyFleeMutual() {
@@ -25991,8 +25991,8 @@ function storyShortRest(nodeCode) {
   if (!S_story.shortRestedAtNodes[nodeCode]) {
     S_story.shortRestedAtNodes[nodeCode] = true;
     S_story.inventory.push({ name:'목걸이 증표', icon:'🏕', type:'token', nodeCode, sell:0,
-      desc:'Earned first camp at ' + (node ? node.label : nodeCode) + '. Sleep here tonight for double heal rolls.' });
-    tokenMsg = ' 🏕 목걸이 증표 earned! Sleep here tonight for double heal rolls.';
+      desc:(node ? node.label : nodeCode) + '에서 첫 야영 획득. 오늘 밤 여기서 자면 치유 주사위 2배.' });
+    tokenMsg = ' 🏕 목걸이 증표 획득! 오늘 밤 여기서 자면 치유 주사위 2배.';
   }
   storyUpdateStatus();
   const bonusMsg = !isInn ? ' Boy Scouts Award — doubled!' : '';
@@ -26083,7 +26083,7 @@ function _storyDeathSaveCrawl() {
   document.getElementById('sbo-potion-row').style.display = '';
   document.getElementById('sbo-death-save-panel').style.display = 'none';
   storyEnter();
-  storyMsg('🩸 By sheer will you drag yourself from the fight. The enemy watches you crawl away. 1 HP — rest immediately.');
+  storyMsg('🩸 오직 의지로 전투에서 기어나왔습니다. 적이 당신이 기어가는 것을 지켜봅니다. HP 1 — 즉시 휴식하세요.');
   storyUpdateStatus();
 }
 
@@ -26180,7 +26180,7 @@ function _storyRetrieveCorpse(questId) {
   S_story.gold += q.goldDropped;
   storyUpdateStatus();
   storyRender(NODE_MAP[S_story.currentCode],
-    '🦴 Remains recovered at ' + q.nodeName + ' — '
+    '🦴 ' + q.nodeName + '에서 유해 회수 — '
     + q.items.length + '개 회수 · +' + q.goldDropped + 'gp 되찾음.');
 }
 
@@ -26258,11 +26258,11 @@ function _grantMissionBit(flagName, label) {
     icon: '🪬',
     type: 'mission_bit',
     sell: 0,
-    desc: 'A carved bone token. Glyph: ' + glyph + '. Mark of a witnessed moment.',
+    desc: '깎아 만든 뼈 토큰. 문자: ' + glyph + '. 목격된 순간의 표식.',
     flagRef: flagName,
     day: S_story.day || 1,
   });
-  storyMsg('🪬 Token received: ' + tokenName + '.');
+  storyMsg('🪬 토큰 수령: ' + tokenName + '.');
 }
 
 // §MBIT-02: flags that any quest gate depends on (flags / flagsAny / notFlags —
