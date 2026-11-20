@@ -31000,7 +31000,7 @@ function storyFishing() {
     recastBtn.style.display= 'none';
     baitSearch.style.display = 'none'; baitSearch.innerHTML = '';
     castBtn.style.display  = ''; castBtn.textContent = '🎣 줄 던지기';
-    lakeText.textContent   = isNight ? 'The water is black. The line goes out. You wait.' : 'Still water. Something large moves below. The rod is ready.'; // §XLVIII
+    lakeText.textContent   = isNight ? '물이 검다. 줄이 나간다. 기다린다.' : '잔잔한 물. 아래에서 큰 무언가가 움직인다. 낚싯대는 준비됐다.'; // §XLVIII
     _renderBait();
   };
 
@@ -31010,7 +31010,7 @@ function storyFishing() {
     rollEl.style.display = 'none'; revealEl.style.display = 'none';
     const title = document.createElement('div');
     title.style.cssText = 'font-size:11px;color:#1A4060;margin-bottom:2px;';
-    title.textContent = 'Search location — Survival (WIS) DC ' + (S_story.fishingBaitSatchel ? 8 : 10) + ':';
+    title.textContent = '장소 탐색 — 생존 (WIS) DC ' + (S_story.fishingBaitSatchel ? 8 : 10) + ':';
     baitSearch.appendChild(title);
     // Auto-unlock zones based on catch log progress
     const _zoneUnlocks = S_story.tackleboxZoneUnlocks || { shore:true, reeds:false, deep:false };
@@ -31057,7 +31057,7 @@ function storyFishing() {
         }
         if (!S_story.fishingQuestFlags) S_story.fishingQuestFlags = {};
         S_story.fishingQuestFlags['searched_'+loc] = true;
-        lakeText.textContent = bait.name + ' added to bait inventory.';
+        lakeText.textContent = bait.name + ' 미끼 인벤토리에 추가됨.';
         _renderBait();
       });
       baitSearch.appendChild(btn);
@@ -31661,7 +31661,7 @@ function storyRenderInventory() {
           if (idx >= 0) S_story.inventory.splice(idx, 1);
           S_story.equippedWeapon = it;
           storyUpdateStatus(); storyRenderInventory();
-          storyMsg('🗡 ' + it.name + ' equipped offhand — +' + it.atkBonus + ' ATK. Shield moved to inventory.');
+          storyMsg('🗡 ' + _itemDisplayName(it.name) + ' 보조 손 장착 — +' + it.atkBonus + ' ATK. 방패는 인벤토리로 이동했습니다.');
         });
         div.appendChild(eqBtn);
       });
@@ -32365,7 +32365,7 @@ function _nodeHookVoidShamanWarden(node) {
     }
     const fightBtn = document.createElement('button');
     fightBtn.className = 'inv-use-btn';
-    fightBtn.textContent = '⚔️ Fight the Warden.';
+    fightBtn.textContent = '⚔️ 간수와 싸운다.';
     fightBtn.addEventListener('click', () => {
       _wardenBtnGroup.remove();
       setTimeout(() => storyPreBattle({ ...node, code:'MT_WARDEN', battle:{ label:'간수', key:'void_shaman', count:1 } }), 300);
@@ -32479,7 +32479,7 @@ function _nodeHookCodexCoreChamber(node) {
       const _roll   = Math.ceil(Math.random() * 20);
       const _total  = _roll + _strMod + _profB;
       const _dc = 15;
-      _appendStoryHcard({ round:'Day '+S_story.day, actor:'YOU', formula:'STR Ceremonia d20+'+(_strMod+_profB), outcome:'= '+_total+(_total>=_dc?' ✓':' ✗')+' DC '+_dc, dmg:'' });
+      _appendStoryHcard({ round:S_story.day+'일차', actor:'YOU', formula:'STR 판정 d20+'+(_strMod+_profB), outcome:'= '+_total+(_total>=_dc?' ✓':' ✗')+' DC '+_dc, dmg:'' });
       if (_total >= _dc) {
         S_story.codexCoreChosen = 'destroy';
         S_story.defeatedBattles = S_story.defeatedBattles || {};
@@ -32499,7 +32499,7 @@ function _nodeHookCodexCoreChamber(node) {
       const _roll   = Math.ceil(Math.random() * 20);
       const _total  = _roll + _chaMod + _profB;
       const _dc = 17;
-      _appendStoryHcard({ round:'Day '+S_story.day, actor:'YOU', formula:'CHA Ceremonia d20+'+(_chaMod+_profB), outcome:'= '+_total+(_total>=_dc?' ✓':' ✗')+' DC '+_dc, dmg:'' });
+      _appendStoryHcard({ round:S_story.day+'일차', actor:'YOU', formula:'CHA 판정 d20+'+(_chaMod+_profB), outcome:'= '+_total+(_total>=_dc?' ✓':' ✗')+' DC '+_dc, dmg:'' });
       if (_total >= _dc) {
         S_story.codexCoreChosen = 'claim';
         S_story.surgeCharges = Math.min((S_story.surgeCharges || 0) + 2, 5);
@@ -32567,7 +32567,7 @@ function _nodeHookScholarWorkshop(node) {
     if (!S_story.d0206_a2_passed && !(S_story.inventory||[]).some(i => i.name === "Scholar King's Prototype Wand")) {
       const _wandBtn = document.createElement('button');
       _wandBtn.className = 'story-card-btn';
-      _wandBtn.textContent = '⚗ Examine the Prototype Wand on the shelf.';
+      _wandBtn.textContent = '⚗ 선반의 프로토타입 완드를 살핀다.';
       _wandBtn.onclick = () => { storyMsg('지팡이가 희미하게 울립니다. 다룰 자격을 먼저 증명해야 합니다. (퀘스트: 2막 — 프로토타입)'); };
       _wkDiv.appendChild(_wandBtn);
     }
@@ -32575,7 +32575,7 @@ function _nodeHookScholarWorkshop(node) {
     if (S_story.scholarWorkshopComplete) {
       const _wkDone = document.createElement('div');
       _wkDone.style.cssText = 'font-size:11px;color:var(--grn-lt);';
-      _wkDone.textContent = '✓ The Workshop yielded its secrets. The blueprint is in your pack. The Spirit has gone quiet.';
+      _wkDone.textContent = '✓ 작업장이 비밀을 내주었다. 청사진이 가방에 있다. 정령이 잠잠해졌다.';
       _wkDiv.appendChild(_wkDone);
     }
     // Auros blueprint advantage reminder
@@ -32619,7 +32619,7 @@ function _nodeHookMimicMeadows(node) {
       _nameBtn.className = 'story-card-btn'; _nameBtn.textContent = '📦 Give a name';
       _nameBtn.onclick = () => {
         const n = _nameInput.value.trim();
-        if (n) { S_story.mimicPetName = n; storySave(); storyMsg('📦 ' + n + ' opens its lid once in acknowledgement. You are not sure if that means yes.'); storyRender(node); }
+        if (n) { S_story.mimicPetName = n; storySave(); storyMsg('📦 ' + n + ' (이)가 대답 대신 뚜껑을 한 번 열었다. 그게 긍정인지는 알 수 없다.'); storyRender(node); }
       };
       _nameDiv.appendChild(_nameInput); _nameDiv.appendChild(_nameBtn);
       _mmDiv.appendChild(_nameDiv);
@@ -32700,7 +32700,7 @@ function _nodeHookBirkaPachelbelLedger(node, { npcRowDiv }) {
         _plWrap.style.cssText = 'display:flex;flex-direction:column;gap:0;';
         const ledgerBtn = document.createElement('button');
         ledgerBtn.className = 'inv-use-btn';
-        ledgerBtn.textContent = '📒 Read the ledger.';
+        ledgerBtn.textContent = '📒 장부를 읽는다.';
         ledgerBtn.style.cssText = 'margin-top:4px;';
         ledgerBtn.addEventListener('click', () => {
           if (document.getElementById('pachelbel-ledger-sub')) return;
@@ -33124,7 +33124,7 @@ function _nodeHookBirkaYaelNamedReport(node, { npcRowDiv }) {
           });
           const threeBtn = document.createElement('button');
           threeBtn.className = 'inv-use-btn';
-          threeBtn.textContent = '🗂 Three copies is enough.';
+          threeBtn.textContent = '🗂 사본 세 부면 충분하다.';
           threeBtn.addEventListener('click', () => {
             S_story.yaelNamedReportDelivered = true;
             storyMsg('Yael: ' + YAEL_NAMED_REPORT_SCENE.choiceThree);
@@ -33281,7 +33281,7 @@ function _nodeHookBirkaWeckmannLog(node, { npcRowDiv }) {
         if (S_story.pitChampionOffered && !S_story.pitChampionWon) {
           const chalBtn = document.createElement('button');
           chalBtn.className = 'inv-use-btn';
-          chalBtn.textContent = '🏆 Challenge for the Title.';
+          chalBtn.textContent = '🏆 타이틀에 도전한다.';
           chalBtn.style.cssText = 'margin-top:4px;';
           chalBtn.addEventListener('click', _startPitChampionBattle);
           npcRowDiv.appendChild(chalBtn);
@@ -33438,14 +33438,14 @@ function _nodeHookBirkaLampInquiry(node, { npcRowDiv }) {
           && (S_story.storyAct || 1) >= 2 && !S_story.brynnKeeperStoryTold) {
         const lampBtn = document.createElement('button');
         lampBtn.className = 'inv-use-btn';
-        lampBtn.textContent = '🕯 Ask Brynn about the lamp in the corner.';
+        lampBtn.textContent = '🕯 모퉁이의 램프에 대해 브린에게 묻는다.';
         lampBtn.style.cssText = 'margin-top:4px;';
         lampBtn.addEventListener('click', () => {
           storyMsg('Brynn: ' + BRYNN_KEEPER_STORY.inquiry);
           lampBtn.remove();
           const followBtn = document.createElement('button');
           followBtn.className = 'inv-use-btn';
-          followBtn.textContent = '💬 Why that night?';
+          followBtn.textContent = '💬 왜 그날 밤이었나요?';
           followBtn.style.cssText = 'margin-top:4px;';
           followBtn.addEventListener('click', () => {
             S_story.brynnKeeperStoryTold = true;
@@ -33469,7 +33469,7 @@ function _nodeHookBirkaLampChoice(node, { npcRowDiv }) {
         choiceDiv.appendChild(prompt);
         const keepBtn = document.createElement('button');
         keepBtn.className = 'inv-use-btn';
-        keepBtn.textContent = '🕯 Let it keep burning.';
+        keepBtn.textContent = '🕯 계속 타게 둔다.';
         keepBtn.addEventListener('click', () => {
           S_story.brynnLightChoiceMade = true;
           S_story.brynnLightKept = true;
@@ -33478,7 +33478,7 @@ function _nodeHookBirkaLampChoice(node, { npcRowDiv }) {
         });
         const restBtn = document.createElement('button');
         restBtn.className = 'inv-use-btn';
-        restBtn.textContent = '🌙 It can rest when I\'m done.';
+        restBtn.textContent = '🌙 내가 끝나면 쉴 수 있다.';
         restBtn.addEventListener('click', () => {
           S_story.brynnLightChoiceMade = true;
           S_story.brynnLightKept = false;
@@ -33715,7 +33715,7 @@ function _nodeHookWg0GateTrial(node) {
       _wg0Div.textContent = '🐍 물에 잠긴 건널목. 수면 아래에 무언가 큰 것이 똬리를 틀고 있다. 숨지 않고, 보인다. 그것이 문을 차지하고 있다. 물은 가슴 높이다.';
       const _wg0Btn = document.createElement('button');
       _wg0Btn.className = 'inv-use-btn'; _wg0Btn.style.marginTop = '6px';
-      _wg0Btn.textContent = '🐍 Cross the flooded gate';
+      _wg0Btn.textContent = '🐍 물에 잠긴 문을 건넌다';
       _wg0Btn.addEventListener('click', () => {
         _wg0Btn.disabled = true;
         storyMsg('건널목에서 물이 가슴까지 닿는다. 뱀은 물러나지 않는다. 당신을 향해 돌아선다.');
@@ -33737,7 +33737,7 @@ function _nodeHookHcaLeviathan(node) {
       _levDiv.textContent = '🌊 빈터의 수면이 갈라진다. 아주 오래전부터 늪을 빨아들이고 있던 깊은 곳에서 무언가가 떠오른다. 위스퍼의 침묵, 글럿의 과잉, 웨인의 비탄. 그 모든 것이 아래에 쌓여 이것이 되었다. 리바이어던. 압력이 마침내 위의 무게와 같아진 곳이 여기이기에, 그것은 여기로 떠오른다.';
       const _levBtn = document.createElement('button');
       _levBtn.className = 'inv-use-btn'; _levBtn.style.marginTop = '6px';
-      _levBtn.textContent = '🌊 Face the Leviathan';
+      _levBtn.textContent = '🌊 리바이어던과 맞선다';
       // Check for iodine inventory — offer burn before battle
       const _invL = S_story.inventory || [];
       const _hasChL = _invL.some(i => i.name === '충전된 아이오딘 소금');
@@ -33787,7 +33787,7 @@ function _nodeHookHuntWroRelay(node) {
       _j1Div.textContent = '🛤 갈림길 돌에서: 동쪽으로 가던 테시가 멈춘다. 『역마들이 동쪽 굽이를 지나려 하지 않아요. 나흘째예요. 도로 감시원들은 도적 때문이라고 해요. 밤에 나는 낡은 방앗간 불 때문이라고요. 나는 이 길을 6년이나 달렸어요. 저 들판에 도적 같은 건 없어요.』 그녀는 계속 걷는다. 모두에게 말하고 다녔다. 뭔가 해 볼 것처럼 보이는 사람은 당신이 처음이다.';
       const _j1Btn = document.createElement('button');
       _j1Btn.className = 'inv-use-btn'; _j1Btn.style.marginTop = '6px';
-      _j1Btn.textContent = '🛤 Follow up on the relay road warning';
+      _j1Btn.textContent = '🛤 역마길 경고를 추적한다';
       _j1Btn.addEventListener('click', () => {
         _j1Btn.disabled = true;
         S_story.huntHook2Received = true;
@@ -33822,7 +33822,7 @@ function _nodeHookHuntBnxBend(node) {
         _bnDiv.textContent = '⚠ 밤의 마녀 확인. 그녀는 말 쉼터에서 작업한다. 밤에 역마들을 타고, 그들을 빨아들이고, 길을 통행 불가로 만든다. 그녀는 해 질 녘에 돌아온다. 지금 여기 있다.';
         const _bnBtn = document.createElement('button');
         _bnBtn.className = 'inv-use-btn'; _bnBtn.style.marginTop = '6px';
-        _bnBtn.textContent = '⚔ Drive the Night Hag out — clear the relay post';
+        _bnBtn.textContent = '⚔ 밤 마녀를 몰아낸다 — 역마 정거장 정화';
         _bnBtn.addEventListener('click', () => {
           _bnBtn.disabled = true;
           storyMsg('해 질 녘, 말 쉼터가 움직인다. 쉼터가 아니라 그 주변의 공기가. 마녀는 이렇게 작업한다. 자신을 알리지 않는다. 그저 존재하고, 그러다 잘못된 방식으로 존재한다. 당신이 그 차이를 알아차릴 때쯤이면 그녀는 이미 당신과 출구 사이에 있다.\n\n그녀는 말하지 않는다. 비르카에 역마 정거장이 생기기 전부터 그녀는 이 일을 해 왔다. 역마 정거장에 대한 의견은 그녀에게 없다. 말들에 대한 의견은 있다. 말들은 그녀의 것이다.');
@@ -34006,7 +34006,7 @@ function _nodeHookAlchSenShip(node) {
       _aDiv.textContent = '🐑 로엔이 배의 난간에 서 있다. 처음 타보는 뱃길이다. 「배는 바다가 어디서 끝나는지 억측하지 않아요. 도착할 때까지 갈 뿐이죠. 저는 40년간 금이 어디 있는지 억측하고 있었어요. 배가 저보다 낫네요.」 그는 물에서 눈을 떼지 않는다. 「오늘은 주머니 속 돌이 무거워요. 평원에서부터 계속 무거웠어요.」';
       const _aBtn = document.createElement('button');
       _aBtn.className = 'inv-use-btn'; _aBtn.style.marginTop = '6px';
-      _aBtn.textContent = '🐑 Stand at the rail with Roen';
+      _aBtn.textContent = '🐑 로엔과 함께 난간에 선다';
       _aBtn.addEventListener('click', () => {
         _aBtn.disabled = true;
         S_story.roenAtSea = true;
@@ -34200,7 +34200,7 @@ function _nodeHookSparkLcyHarmony(node) {
         _spkDiv.textContent = '📋 렌-펨버리 감독관이 세 번째 선석에 있다. 틸버리 스타호가 입항한 이후로 계속 저기 서 있었다. 그는 자기 출신이라며 세 군데 다른 곳을 말했다. 이스턴 리치. 해군 가문. 솔트윅. 그는 대화가 다가오고 있음을 아는 사람의 눈으로 부두를 보고 있다.';
         const _aldBtn = document.createElement('button');
         _aldBtn.className = 'inv-use-btn'; _aldBtn.style.marginTop = '6px';
-        _aldBtn.textContent = '📋 Confront Aldous — three claims, one person';
+        _aldBtn.textContent = '📋 알더스와 대치한다 — 세 개의 주장, 한 사람';
         _aldBtn.addEventListener('click', () => {
           _aldBtn.disabled = true;
           // §SPARK-01-FU FIX — the button writes only the flag (the la_riva/hg1 shape):
@@ -34303,7 +34303,7 @@ function _nodeHookNavalGciIntercept(node) {
         _sbDiv.textContent = '⚓ 요격 브리그선이 항로 맞은편에 있다. 베라 킬 선장이 난간에 서서 위임 페넌트를 올렸다. 두 배 사이의 틈은 아직 열려 있다. 틸버리 스타호의 선원들이 배치를 마쳤다. 세 가지 선택지. 당신의 역할을 고르시오.';
         const _btnParley = document.createElement('button');
         _btnParley.className = 'inv-use-btn'; _btnParley.style.marginTop = '6px';
-        _btnParley.textContent = '🗣 Go to the rail — speak to their captain (CHA)';
+        _btnParley.textContent = '🗣 난간으로 간다 — 상대 선장과 대화 (CHA)';
         _btnParley.addEventListener('click', () => {
           S_story.sbApproachSeen = true; S_story.sbChosenRole = 'parley';
           storyMsg('⚓ 당신이 스타호의 난간으로 간다. 킬이 이미 자기 쪽 난간에 와서 지켜보고 있다.\n\n「좋아,」 그녀가 말한다. 「이 선택지를 바랐어.」\n\n퀘스트: 그들의 선장과 대화하라 활성화. CHA 설득 DC 12. 퀘스트 패널을 볼 것.');
@@ -34311,7 +34311,7 @@ function _nodeHookNavalGciIntercept(node) {
         });
         const _btnExamine = document.createElement('button');
         _btnExamine.className = 'inv-use-btn'; _btnExamine.style.marginLeft = '6px'; _btnExamine.style.marginTop = '6px';
-        _btnExamine.textContent = '🔍 Take the helm — read their papers (INT)';
+        _btnExamine.textContent = '🔍 조타 위치를 잡는다 — 문서를 읽는다 (INT)';
         _btnExamine.addEventListener('click', () => {
           S_story.sbApproachSeen = true; S_story.sbChosenRole = 'examine';
           storyMsg('⚓ 당신이 조타 위치에 서서 킬이 들고 있는 거리에서 위임 페넌트를 읽는다.\n\n인장이 보인다. 날짜가 보인다. 그 날짜의 뭔가가 보인다.\n\n퀘스트: 사략장을 읽어라 활성화. INT 조사 DC 11. 퀘스트 패널을 볼 것.');
@@ -34319,7 +34319,7 @@ function _nodeHookNavalGciIntercept(node) {
         });
         const _btnFight = document.createElement('button');
         _btnFight.className = 'inv-use-btn'; _btnFight.style.marginLeft = '6px'; _btnFight.style.marginTop = '6px';
-        _btnFight.textContent = '⚔ Go below — man the guns';
+        _btnFight.textContent = '⚔ 아래로 내려간다 — 대포를 담당한다';
         _btnFight.addEventListener('click', () => {
           S_story.sbApproachSeen = true; S_story.sbChosenRole = 'fight';
           storyMsg('⚓ 당신이 아래로 내려간다. 포반은 이미 선수 대포에 배치되어 있다.\n\n「준비됐어,」 포수가 말한다. 그는 확인을 요청하지 않는다. 어차피 일어날 일을 말하는 사람의 말투다.\n\n킬이 스타호의 포문이 열리는 것을 본다. 그녀가 한 번 고개를 끄덕인다.\n\n「탑승판 내놔,」 그녀가 말한다.\n\n요격이 시작된다.');
@@ -34335,7 +34335,7 @@ function _nodeHookNavalGciIntercept(node) {
         if (!((S_story.defeatedBattles||{})['SB_PRIVATEER'])) {
           const _fightBtn2 = document.createElement('button');
           _fightBtn2.className = 'inv-use-btn'; _fightBtn2.style.marginTop = '6px';
-          _fightBtn2.textContent = '⚔ Fight — clear the privateer crew';
+          _fightBtn2.textContent = '⚔ 싸운다 — 사략 선원들을 소탕한다';
           _fightBtn2.addEventListener('click', () => {
             _fightBtn2.disabled = true;
             storyMsg('양쪽 모두 탑승판이 걸린다. 킬의 선원들이 좌현 탑승판을 건너온다. 전투가 난간에서 시작된다.');
@@ -34664,7 +34664,7 @@ function _nodeHookLxxDsjEels(node) {
       _eelsDiv.textContent = '⚡ 수로는 대왕장어 두 마리가 지키고 있다. 대장간이 봉인된 것보다 더 오래 이곳에 배치되어 있다. 그들은 포식성이 아니다. 그저 존재한다. 그것은 다른 종류의 방해다.';
       const _eelsBtn = document.createElement('button');
       _eelsBtn.className = 'inv-use-btn'; _eelsBtn.style.marginTop = '6px';
-      _eelsBtn.textContent = '⚡ Clear the channel';
+      _eelsBtn.textContent = '⚡ 수로를 정리한다';
       _eelsBtn.addEventListener('click', () => {
         _eelsBtn.disabled = true;
         storyMsg('당신이 수로에 들어서자 두 장어가 서로를 향해 움직인다. 공격하기 위해서가 아니라 수로를 닫기 위해서다. 흐름이 바뀐다. 방전은 물을 가로질러 아크를 그리기에 충분하다.');
