@@ -34121,26 +34121,26 @@ function _nodeHookSparkLcyHarmony(node) {
       _spkDiv.className = 'sweelinck-variant';
       _spkDiv.style.cssText = 'margin-top:10px;border-left-color:#8a6a2a;color:#c8a860;font-size:12px;';
       if (!S_story.smaltBefriended) {
-        _spkDiv.textContent = '🐟 A man in pressed wool stands at the third berth with an embossed leather case. The harbor cat — salt-gray, four years resident — is sitting directly on the cargo manifests. She has been sitting there since Tuesday. The man\'s name, according to his writ, is Inspector Aldous Wren-Pembury. He is waiting for you to solve his problem.';
+        _spkDiv.textContent = '🐟 다림질된 양모 옷을 입은 남자가 양각 가죽 케이스를 들고 세 번째 선석에 서 있다. 부두의 고양이, 소금기 회색, 이곳에 4년째 거주, 가 화물 장부 위에 정확히 앉아 있다. 화요일부터 계속 저기 앉아 있었다. 그의 칙서에 따르면 남자의 이름은 알더스 렌-펨버리 감독관이다. 그는 당신이 자기 문제를 해결해 주기를 기다리고 있다.';
         if (!S_story.kingsWritSeen) { // §VM-01-G-FU-d FIX — no second writ: the beat's own flag gates its button
         const _inspBtn = document.createElement('button');
         _inspBtn.className = 'inv-use-btn'; _inspBtn.style.marginTop = '6px';
-        _inspBtn.textContent = '📋 Speak to Inspector Wren-Pembury';
+        _inspBtn.textContent = '📋 렌-펨버리 감독관과 이야기하기';
         _inspBtn.addEventListener('click', () => {
           _inspBtn.disabled = true;
           S_story.kingsWritSeen = true;
           const inv = S_story.inventory = S_story.inventory || [];
-          inv.push({ name:"King's Writ (Counterfeit)", icon:'📋', type:'misc', desc:"Presented by Inspector Wren-Pembury. Heavy paper, embossed seal, official language. The seal is a printing from Saltwick. The Eastern Reach commission does not exist.", sell:0 });
-          storyMsg('📋 "By order of the Crown, Port Sanitation and Civil Orderliness Act, the animal currently occupying cargo berth three must be relocated to a non-commercial area within twenty-four hours." He hands you the Writ. The paper is very heavy. The seal is very embossed.\n\n"The Pembury estate in the Eastern Reach has been in our family three hundred years. I was born there. The cat is a public health matter."\n\nThe cat looks at you. She is not afraid. She is bored.\n\nKing\'s Writ (Counterfeit) added to inventory. Quest: Smalt is now active — see quest panel to roll CHA Persuasion DC 10.');
+          inv.push({ name:"King's Writ (Counterfeit)", icon:'📋', type:'misc', desc:"렌-펨버리 감독관이 제시한 칙서. 두꺼운 종이, 양각 인장, 공식 문체. 인장은 솔트윅산 인쇄물이다. 이스턴 리치 임명장은 존재하지 않는다.", sell:0 });
+          storyMsg('📋 「왕의 명에 따라, 항만 위생 및 시민 질서법에 의거, 현재 화물 선석 3번을 점유하고 있는 동물은 24시간 이내에 비상업 구역으로 이전되어야 한다.」 그가 칙서를 건넨다. 종이가 몹시 두껍다. 인장이 몹시 볼록하다.\\n\\n「이스턴 리치의 펨버리 가문 영지는 300년간 우리 가문의 것이었습니다. 저는 그곳에서 태어났고요. 저 고양이는 공중 보건 문제입니다.」\\n\\n고양이가 당신을 본다. 두려워하는 것이 아니다. 지루해하는 것이다.\\n\\nKing\'s Writ (Counterfeit) 획득. 퀘스트: 스몰트 활성화 — 퀘스트 패널을 볼 것, CHA 설득 DC 10 판정.');
           storyRender(node);
         });
         _spkDiv.appendChild(_inspBtn);
         }
       } else if (S_story.smaltBefriended && !S_story.pipMet) {
-        _spkDiv.textContent = '🐈 Smalt is at your heel, watching the dock wall south toward the Market Quarter entrance. She is waiting for you to follow. The Inspector appears from the direction of the chandler\'s office. He is carrying his case. He mentions, unprompted, that his father was an Admiral.';
+        _spkDiv.textContent = '🐈 스몰트가 당신의 발꿈치에 붙어, 시장 지구 출입구 쪽 남쪽 부두 벽을 보고 있다. 당신이 따라오기를 기다리고 있다. 감독관이 끈기 상인 사무실 방향에서 나타난다. 케이스를 들고 있다. 그는 묻지도 않았는데 자기 아버지가 제독이었다고 말한다.';
         const _pipBtn = document.createElement('button');
         _pipBtn.className = 'inv-use-btn'; _pipBtn.style.marginTop = '6px';
-        _pipBtn.textContent = '🐈 Follow Smalt south — meet Pip';
+        _pipBtn.textContent = '🐈 스몰트를 따라 남쪽으로 — 핍을 만난다';
         _pipBtn.addEventListener('click', () => {
           _pipBtn.disabled = true;
           S_story.pipMet = true;
@@ -34150,15 +34150,15 @@ function _nodeHookSparkLcyHarmony(node) {
           const fishIdx = inv.findIndex(i => i.name === "Smalt's Trust");
           if (fishIdx !== -1) inv.splice(fishIdx, 1);
           // Add Pip's Friendship Bead
-          inv.push({ name:"Pip's Friendship Bead", icon:'🪵', type:'misc', desc:"A gnawed wooden bead from a merchant's abacus. Pip's token of alliance. Smalt gave it to Pip; Pip gives it to you.", sell:1 });
-          storyMsg('🐈 At the south end of the dock wall: a mouse, sitting. Smalt walks to the mouse and sits beside it. The mouse does not move.\n\nThe Inspector catches up. "My father — the late Admiral Pembury — we are a naval family, always have been." He seems pleased with this. He does not notice that the Eastern Reach has no coastline.\n\nPip looks at you. It places a small gnawed bead — a merchant\'s abacus bead — near your foot. A gift.\n\nSmalt eats the dried salt fish from your pack. An endorsement.\n\nSmalt\'s Trust consumed. Pip\'s Friendship Bead added to inventory. The inconsistency is noted. Quest: The Overture complete. Quest: Clot\'s Revelation activates — find Pip on the Tilbury Star. +150 XP.');
+          inv.push({ name:"Pip's Friendship Bead", icon:'🪵', type:'misc', desc:"상인의 주판에서 나온, 갉아 먹힌 나무 구슬. 핍의 동맹 증표. 스몰트가 핍에게 준 것이고, 핍이 당신에게 준다.", sell:1 });
+          storyMsg('🐈 부두 벽의 남쪽 끝: 생쥐 한 마리가 앉아 있다. 스몰트가 쥐에게 걸어가 옆에 앉는다. 쥐는 움직이지 않는다.\\n\\n감독관이 따라잡는다. 「제 아버지, 고 펨버리 제독 말입니다만, 우리는 해군 가문입니다. 늘 그래왔고요.」 그는 이 말이 마음에 드는 모양이다. 그는 이스턴 리치에 해안선이 없다는 것을 눈치채지 못한다.\\n\\n핍이 당신을 본다. 갉아 먹힌 작은 구슬, 상인의 주판알 하나를, 당신의 발 가까이에 놓는다. 선물이다.\\n\\n스몰트가 당신의 가방에서 말린 소금 생선을 먹는다. 지지의 표시다.\\n\\nSmalt\'s Trust 소모. Pip\'s Friendship Bead 획득. 모순이 기록되었다. 퀘스트: 서곡 완료. 퀘스트: 클롯의 계시 활성화 — 틸버리 스타호에서 핍을 찾을 것. +150 XP.');
           storyRender(node);
         });
         _spkDiv.appendChild(_pipBtn);
       } else if (S_story.whodunitSolved && S_story.wrenpemburyInconsistencyNoticed && !S_story.aldousConfessed) {
         _spkDiv.style.borderLeftColor = '#6a3a2a';
         _spkDiv.style.color = '#c08860';
-        _spkDiv.textContent = '📋 Inspector Wren-Pembury is at the third berth. He has been standing there since the Tilbury Star docked. He has mentioned three different places he is from. The Eastern Reach. The naval family. Saltwick. He is watching the dock like a man who knows the conversation is coming.';
+        _spkDiv.textContent = '📋 렌-펨버리 감독관이 세 번째 선석에 있다. 틸버리 스타호가 입항한 이후로 계속 저기 서 있었다. 그는 자기 출신이라며 세 군데 다른 곳을 말했다. 이스턴 리치. 해군 가문. 솔트윅. 그는 대화가 다가오고 있음을 아는 사람의 눈으로 부두를 보고 있다.';
         const _aldBtn = document.createElement('button');
         _aldBtn.className = 'inv-use-btn'; _aldBtn.style.marginTop = '6px';
         _aldBtn.textContent = '📋 Confront Aldous — three claims, one person';
@@ -34177,7 +34177,7 @@ function _nodeHookSparkLcyHarmony(node) {
       } else if (S_story.aldousConfessed) {
         _spkDiv.style.borderLeftColor = '#2a5a2a';
         _spkDiv.style.color = '#80c880';
-        _spkDiv.textContent = '✅ The Harmony Chain is complete. Smalt is on the third berth bollard. Aldous — formerly Wren-Pembury — is at his usual post. He nods when you pass. The chain: cat, mouse, tick, warmth, human. Five creatures, all friends.';
+        _spkDiv.textContent = '✅ 조화의 사슬이 완성되었다. 스몰트가 세 번째 선석 계류주 위에 있다. 알더스, 전 렌-펨버리, 가 자기 자리에 있다. 당신이 지나가면 고개를 끄덕인다. 사슬은 이렇다: 고양이, 쥐, 진드기, 온기, 인간. 다섯 생물, 모두 친구.';
       }
       // §VM-01-G-FU-d FIX — the insertion guard was (kingsWritSeen || smaltBefriended), and
       // kingsWritSeen's ONLY writer is the Inspector button INSIDE this panel: the writ beat
