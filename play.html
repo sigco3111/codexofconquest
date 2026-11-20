@@ -32847,7 +32847,7 @@ function _nodeHookBirkaBlueShutters(node, { npcRowDiv }) {
           // State 1: rejected at the door
           const archiveBtn = document.createElement('button');
           archiveBtn.className = 'inv-use-btn';
-          archiveBtn.textContent = '🔵 The blue-shuttered building on Scholar\'s Row.';
+          archiveBtn.textContent = '🔵 학자 거리의 파란 셔터 건물.';
           archiveBtn.addEventListener('click', () => {
             if (document.getElementById('bs-archive-sub')) return;
             archiveBtn.disabled = true; archiveBtn.style.opacity = '0.5';
@@ -32921,7 +32921,7 @@ function _nodeHookBirkaFrobergerMemorial(node, { npcRowDiv }) {
         _memWrap.style.cssText = 'display:flex;flex-direction:column;gap:0;';
         const memBtn = document.createElement('button');
         memBtn.className = 'inv-use-btn';
-        memBtn.textContent = '⛪ Examine the memorial.';
+        memBtn.textContent = '⛪ 기념비를 살핀다.';
         memBtn.style.cssText = 'margin-top:4px;';
         memBtn.addEventListener('click', () => {
           if (document.getElementById('memorial-subrow')) return;
@@ -33004,7 +33004,7 @@ function _nodeHookBirkaNoFishingSign(node, { npcRowDiv }) {
           _fishWrap.style.cssText = 'display:flex;flex-direction:column;gap:0;margin-top:4px;';
           const signBtn = document.createElement('button');
           signBtn.className = 'inv-use-btn';
-          signBtn.textContent = '🚫 A hand-lettered sign on the lamppost: NO FISHING.';
+          signBtn.textContent = '🚫 가로등 기둥의 손글씨 표지: 낚시 금지.';
           let _tabReady = false;
           signBtn.addEventListener('click', () => {
             if (!_tabReady) {
