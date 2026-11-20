@@ -5235,25 +5235,25 @@ const S = {
 const ENEMY_DB = { // → doc: docs/spec/combat.md §Enemy Scaling (all combat opponents incl. dummy/commoner; scaled by difficulty tier)
   dummy:         { name:'훈련용 허수아비',  ac:10, hp:20,  atk:0,  dmgDie:4,  dmgCount:1, dmgFlat:0 },
   prone_commoner:{ name:'엎드린 평민',  ac:8,  hp:4,   atk:0,  dmgDie:4,  dmgCount:1, dmgFlat:0 },
-  giant_rat:     { name:'Giant Rat',       ac:12, hp:7,   atk:4,  dmgDie:4,  dmgCount:1, dmgFlat:2 },
-  zombie:        { name:'Zombie',          ac:8,  hp:22,  atk:3,  dmgDie:6,  dmgCount:1, dmgFlat:1 },
-  kobold:        { name:'Kobold',          ac:12, hp:5,   atk:4,  dmgDie:4,  dmgCount:1, dmgFlat:2 },
+  giant_rat:     { name:'거대 쥐',       ac:12, hp:7,   atk:4,  dmgDie:4,  dmgCount:1, dmgFlat:2 },
+  zombie:        { name:'좀비',          ac:8,  hp:22,  atk:3,  dmgDie:6,  dmgCount:1, dmgFlat:1 },
+  kobold:        { name:'코볼트',          ac:12, hp:5,   atk:4,  dmgDie:4,  dmgCount:1, dmgFlat:2 },
   npc_vendor:    { name:'NPC 상인',      ac:10, hp:9,   atk:2,  dmgDie:4,  dmgCount:1, dmgFlat:0 },
-  cultist:       { name:'Cultist',         ac:12, hp:9,   atk:3,  dmgDie:6,  dmgCount:1, dmgFlat:1 },
-  giant_spider:  { name:'Giant Spider',    ac:14, hp:26,  atk:5,  dmgDie:8,  dmgCount:1, dmgFlat:3 },
-  wolf:          { name:'Wolf',            ac:13, hp:11,  atk:4,  dmgDie:6,  dmgCount:2, dmgFlat:2 },
-  skeleton:      { name:'Skeleton',        ac:13, hp:13,  atk:4,  dmgDie:6,  dmgCount:1, dmgFlat:2 },
-  orc:           { name:'Orc',             ac:13, hp:15,  atk:5,  dmgDie:8,  dmgCount:1, dmgFlat:3 },
-  goblin:        { name:'Goblin',          ac:15, hp:7,   atk:4,  dmgDie:6,  dmgCount:1, dmgFlat:2 },
-  hobgoblin:     { name:'Hobgoblin',       ac:18, hp:11,  atk:3,  dmgDie:8,  dmgCount:1, dmgFlat:1 },
-  gnoll:         { name:'Gnoll',           ac:15, hp:22,  atk:4,  dmgDie:6,  dmgCount:1, dmgFlat:2 },
-  berserker:     { name:'Berserker',       ac:13, hp:67,  atk:5,  dmgDie:12, dmgCount:1, dmgFlat:3 },
-  bandit_captain:{ name:'Bandit Captain',  ac:15, hp:65,  atk:6,  dmgDie:6,  dmgCount:3, dmgFlat:3 },
-  troll:         { name:'Troll',           ac:15, hp:84,  atk:7,  dmgDie:6,  dmgCount:2, dmgFlat:4 },
-  veteran:       { name:'Veteran',         ac:17, hp:58,  atk:5,  dmgDie:8,  dmgCount:1, dmgFlat:3 },
-  knight:        { name:'Knight',          ac:18, hp:52,  atk:5,  dmgDie:8,  dmgCount:2, dmgFlat:3 },
-  stone_golem:   { name:'Stone Golem',     ac:17, hp:178, atk:7,  dmgDie:10, dmgCount:2, dmgFlat:5 },
-  ancient_dragon:{ name:'Ancient Dragon',  ac:22, hp:546, atk:17, dmgDie:12, dmgCount:3, dmgFlat:8 },
+  cultist:       { name:'광신도',         ac:12, hp:9,   atk:3,  dmgDie:6,  dmgCount:1, dmgFlat:1 },
+  giant_spider:  { name:'거대 거미',    ac:14, hp:26,  atk:5,  dmgDie:8,  dmgCount:1, dmgFlat:3 },
+  wolf:          { name:'늑대',            ac:13, hp:11,  atk:4,  dmgDie:6,  dmgCount:2, dmgFlat:2 },
+  skeleton:      { name:'스켈레톤',        ac:13, hp:13,  atk:4,  dmgDie:6,  dmgCount:1, dmgFlat:2 },
+  orc:           { name:'오크',             ac:13, hp:15,  atk:5,  dmgDie:8,  dmgCount:1, dmgFlat:3 },
+  goblin:        { name:'고블린',          ac:15, hp:7,   atk:4,  dmgDie:6,  dmgCount:1, dmgFlat:2 },
+  hobgoblin:     { name:'홉고블린',       ac:18, hp:11,  atk:3,  dmgDie:8,  dmgCount:1, dmgFlat:1 },
+  gnoll:         { name:'놀',           ac:15, hp:22,  atk:4,  dmgDie:6,  dmgCount:1, dmgFlat:2 },
+  berserker:     { name:'광전사',       ac:13, hp:67,  atk:5,  dmgDie:12, dmgCount:1, dmgFlat:3 },
+  bandit_captain:{ name:'산적 두목',  ac:15, hp:65,  atk:6,  dmgDie:6,  dmgCount:3, dmgFlat:3 },
+  troll:         { name:'트롤',           ac:15, hp:84,  atk:7,  dmgDie:6,  dmgCount:2, dmgFlat:4 },
+  veteran:       { name:'베테랑',         ac:17, hp:58,  atk:5,  dmgDie:8,  dmgCount:1, dmgFlat:3 },
+  knight:        { name:'기사',          ac:18, hp:52,  atk:5,  dmgDie:8,  dmgCount:2, dmgFlat:3 },
+  stone_golem:   { name:'스톤 골렘',     ac:17, hp:178, atk:7,  dmgDie:10, dmgCount:2, dmgFlat:5 },
+  ancient_dragon:{ name:'고대 드래곤',  ac:22, hp:546, atk:17, dmgDie:12, dmgCount:3, dmgFlat:8 },
 };
 
 /* ══════════════════════════════════════════════════════════
@@ -22407,17 +22407,17 @@ function _senHoldSpeaker() {
 // ◆◆◆ WORLDBUILDER:NPC_DIALOGUE:START ◆◆◆
 // Keyed by node code; the per-NPC quote pools are the plural NPC_DIALOGUES.
 const NPC_DIALOGUE = { // → doc: story.md §FL7
-  LHR: { name:'City Guard Captain',              quote:'『계속 가세요. 하층 구역은 어두워지면 봉쇄됩니다. 사흘 밤 연속이에요. 지하묘지에서 나온 것이 무엇이든, 스스로 돌아가지는 않을 겁니다.』' },
-  TLL: { name:'Innkeeper Brynn',                 quote:'『그는 이것을 방에 두고 갔어요. 사흘 치를 미리 내고 세 번째 밤은 자지 않았죠. 내가 보관했습니다. 누군가 물으러 올 것 같았거든요.』' },
+  LHR: { name:'도시 경비대장',              quote:'『계속 가세요. 하층 구역은 어두워지면 봉쇄됩니다. 사흘 밤 연속이에요. 지하묘지에서 나온 것이 무엇이든, 스스로 돌아가지는 않을 겁니다.』' },
+  TLL: { name:'여관 주인 브린',                 quote:'『그는 이것을 방에 두고 갔어요. 사흘 치를 미리 내고 세 번째 밤은 자지 않았죠. 내가 보관했습니다. 누군가 물으러 올 것 같았거든요.』' },
   // §KG Increment 2 — St. Petersburg → Moscow corridor NPC anchors (dialogue trees + quests → Increment 3)
   SPB: { name:'모집관 볼코프',                quote:'『조합은 은과 기술로 지급합니다, 친구. 여기에 서명하세요. 동쪽은 정직한 일입니다. 그들이 맞붙여 주는 상대와 싸우는 것, 그 이상도 이하도 아니에요. 그것이 그 일의 명예입니다.』' },
   KMS: { name:'정치교관 로시코바',   quote:'『당신은 무른 채로 온다. 학교는 무름을 심판하지 않는다. 학교는 그것을 바로잡는다. 세 가지 틀, 그다음 겨루기다. 깨끗이 질 줄 모르는 생도는 깨끗이 이길 수도 없다.』' },
   ZVD: { name:'구덩이 주인 그림카',               quote:'『이 봇들은 자보드가 그들의 원자로를 벗겨 내기 전에는 검투사였다. 우리가 그들에게 명예롭게 싸우는 것은 그들이 우리에게 그랬기 때문이다. 세 번의 결투. 독도, 다구리도 없다. 지는 날에는 서서 진다.』' },
   FBR: { name:'기술자 이오시프',                quote:'『앉아라. 그 의자는 네가 아는 것을 읽고 네가 모르는 것을 쓴다. 천천히, 그리고 대가가 있다. 구역의 절반이 여기서 훈련했다. 나머지 절반은 아직 의자에 있다. 나머지 절반이 되지 마라.』' },
   TVR: { name:'보급관 레나',              quote:'『죽은 역 전의 마지막 정거장이야. 기름 채우고, 보급받고, 편지 부쳐. 스테이션 7로 가는 회선은 요즘 조용해. 저기 밖의 무언가가 응답을 멈췄어.』' },
-  MHQ: { name:'Bard Tomas Couperin',                quote:'『그 노래는 오래됐어. 도시보다, 비밀회의보다 오래됐지. 선율은 단순한데 가사가 열쇠를 기다리는 자물쇠야. 술 한 잔과 은화 한 닢이면 네 것이야.』' },
+  MHQ: { name:'음유시인 토마스 쿠프랭',                quote:'『그 노래는 오래됐어. 도시보다, 비밀회의보다 오래됐지. 선율은 단순한데 가사가 열쇠를 기다리는 자물쇠야. 술 한 잔과 은화 한 닢이면 네 것이야.』' },
   LLA: { name:'도시 장물업자',                      quote:'『이름도, 영수증도 없어. 후회가 있다면 그건 네가 지고 갈 몫이야. 동전을 보여라, 그럼 시작한다.』' },
-  HAJ: { name:'The Antecedent', quoteFn:() => { // §LV — one-time; flag set on read
+  HAJ: { name:'선행자', quoteFn:() => { // §LV — one-time; flag set on read
     if (!S_story.antecedentMet) S_story.antecedentMet = true;
     return '『그 신호는 조난이 아니었습니다. 질문이었죠. 기록보관소가 아직 유지되고 있는가?\n\n마흔한 권, 그 질문에 답이 없었기 때문입니다. 당신은 봉인을 작동시켰습니다. 사슬을 따라왔습니다. 파발, 선실, 명세서, 역, 억제기, 방. 그것이 답입니다. 그것이 기록관이 하는 일입니다.\n\n격리 규약은 어떤 것들에는 우리가 아니라 방이 필요하다는 것을 이해한 사람이 만들었습니다. 학자왕들은 이 방에 있는 것을 분류할 수 없어서 파일을 닫았습니다. 그것이 그들이 틀린 유일한 것입니다. 분류는 이렇습니다. 기록관.\n\n질문은 닫혔습니다.\n\n가셔도 됩니다.』\n\n지시등이 대기 상태로 돌아간다. 봉인이 식는다. 스테이션 7에서 자동 기록이 쓴다: 14.225 — 부재 확인.\n\n그것은 다시 송신하지 않을 것이다.';
   }},
@@ -22442,8 +22442,8 @@ const NPC_DIALOGUE = { // → doc: story.md §FL7
     : S_story.muffatBerthReached // §LI
     ? '『이 상자에는 배분 도장이 있고 명세서 번호가 없어요. 그것은 표준 기록 밖으로 배송됐다는 뜻이죠. 장부 밖이거나, 장부가 사후에 정정되었거나. 학자왕들은 사무상 실수를 하지 않아요. 그들은 결정을 하죠. 누군가가 이 상자는 존재하지 않는다고 결정한 거예요.』 그녀는 그것을 뒤쪽 선반에 놓는다. 『같은 것이 세 개 더 있어요. 이 년 동안 여섯 주마다 도착하고 있죠.』'
     : '『그 파발은 나를 위해 일했어. 그가 죽기 전에 너에게 무슨 말을 했든, 그건 1막이었어. 2막에 온 걸 환영해.』' },
-  LGW: { name:'Vendor Mira',                     quote:'『영주들은 그것을 잔치 재주에 쓰지. 무대 스태프는 장면 전환에 쓰고. 영리한 사람들은 다른 일에 써.』 알 듯 말 듯한 눈빛.' },
-  STN: { name:'Proprietor Dusk', quoteFn:() => S_story.solmFound // §LVII
+  LGW: { name:'상인 미라',                     quote:'『영주들은 그것을 잔치 재주에 쓰지. 무대 스태프는 장면 전환에 쓰고. 영리한 사람들은 다른 일에 써.』 알 듯 말 듯한 눈빛.' },
+  STN: { name:'주인 더스크', quoteFn:() => S_story.solmFound // §LVII
     ? '"She left this morning. Before the cinnamon stalls opened." He straightens a map that does not need straightening. "She took her notebook. She left the field file." He sets a slim folder on the counter — three months of entries, small handwriting, entirely composed. "For the archive, she said. Whoever closes the record should hold it." He looks at you. "기록을 닫았어요."'
     : S_story.antecedentMet && !S_story.solmFound // §LVII
     ? ((() => { S_story.solmFound = true; return '"뒷방." He lifts the hinged counter without ceremony. "Three months. She reorganized the shelf twice." He says it the way he says everything — as a fact, without opinion about it.\n\nAnalyst Solm is at the back desk with a notebook open to a fresh page. She looks up once. Her pen does not move.\n\n"The transmission lasted three seconds and eleven tenths. I had stopped writing because I was listening so carefully I forgot to log. When it cut — I understood what had happened before I understood what I had heard."\n\nShe sets the pen down.\n\n"I did not return to Station 7. I came here instead. Classified knowledge you can no longer safely carry — Magistra Muffat is the only institutional function that makes sense for that." A pause. "You were down there." Not a question. She looks at the entry she wrote this morning. "Was it —"\n\nShe stops.\n\n"Confirmed," she says quietly. "That\'s sufficient." She writes it once more, cleanly, and closes the volume.'; })())
@@ -22455,7 +22455,7 @@ const NPC_DIALOGUE = { // → doc: story.md §FL7
   // rendered, though quest_spark_03/04 both activate here. Folded in as a state gate:
   // while the cargo-hold whodunit is live the hold's rat catcher speaks, otherwise the
   // captain does. Both authored voices reachable; no second-speaker mechanism needed.
-  SEN: { name:'Ship Captain',
+  SEN: { name:'선장',
     nameFn:() => _senHoldSpeaker() ? '쥐잡이 브래닉' : 'Ship Captain',
     quoteFn:() => S_story.whodunitSolved
     ? '『그 집락은 이제 밀봉된 병 안에 있어. 선장에게 가져도 되냐고 했더니 안 된대. 내 생각엔 그녀가 틀렸어.』 그가 화물창을 본다. 쥐들이 그를 지켜보고 있다. 『그들은 나를 물려고 했어. 그게 그들의 일이었고 내 일은 그들을 그물로 잡는 거였지. 이제 우린 그냥 뭐랄까, 서로를 이해해. 그게 더 나은 건지는 모르겠어.』 그가 생각한다. 『더 나아.』'
@@ -22465,20 +22465,20 @@ const NPC_DIALOGUE = { // → doc: story.md §FL7
     ? '『화물창에 뭔가 이상해. 쥐들이, 쥐들이 평소답지 않아. 보통이면 이틀째엔 내가 쫓아다니게 되는데.』 그가 걱정스러운 얼굴을 한다. 『자꾸 멈춰 서서 나를 봐. 위협이 아니야. 그냥 보는 거야.』'
     : '『날씨는 버텨 주고 있어. 잘 수 있을 때 자. 새벽에 먼바다 횡단을 하는데 뭔가 난간을 넘어와도 배를 늦추지 않을 거야.』' },
   // §LIX–§LXI — The Road to Damascus NPCs
-  JRS: { name:'Barnach', quoteFn:() => S_story.hellenistsThreaten // §LXI
+  JRS: { name:'바르나흐', quoteFn:() => S_story.hellenistsThreaten // §LXI
     ? '『그들이 성문에 있어. 집회장에도 있고. 광장에도 있어.』 그는 그들이 무엇을 원하는지에 시간을 쓰지 않는다. 둘 다 아는 것이다. 『보름이 이 도시가 이 긴장을 견딜 준비가 된 기간이었어. 견뎌냈어.』 그가 서문 쪽을 본다. 『타르수스. 타르수스로 가. 너는 타르수스 출신이야. 그들은 타르수스까지는 따라오지 않아.』'
     : S_story.barnachVouchedHR // §LXI — Barnach has vouched; counting days
     ? '"이 일에 대한 도시의 태도는 복잡해요." He means it as information, not complaint. "Some people are afraid. Some people are glad. Both groups have grounds. You have been arguing in the assembly hall." He does not say this is a problem. He says it the way he says things that are true and will continue to be true for some number of days that he has a specific number for and is not sharing yet.'
     : S_story.saulConverted // §LXI — return: first Barnach meeting
     ? ((() => { S_story.barnachVouchedHR = true; return '"그는 거기 있었어요. 나는 없었고요." He says it simply, the way someone says the one true thing they have that applies to the situation. "I am vouching for what he told me, which is everything he has."\n\nThe people in the room are afraid. Some of them have reasonable grounds for being afraid of him and some have reasonable grounds for being afraid of what he represents and some are afraid in the way people are afraid when two things they held separately have become the same thing.\n\nBarnach looks at them all and says: he was there.\n\nIt is enough. For now.'; })())
     : '『영장은 부서된다. 세 부: 하나는 너, 하나는 호위 지휘관, 하나는 다마스쿠스 치안판사에게. 죄수들은 처리를 위해 예루살렘으로 돌려보내져야 한다. 다마스쿠스에서 처리하지 마라. 다마스쿠스 치안판사에게는 기각할 권한이 있고 우리 치안판사에게는 없다.』' },
-  DAM: { name:'Anath', quoteFn:() => S_story.anathSightRestored // §LIX
+  DAM: { name:'아나스', quoteFn:() => S_story.anathSightRestored // §LIX
     ? '『삼 년 동안 당신이 두려웠습니다. 그 문을 두드릴 때도 당신이 두려웠어요. 나는 그것이 문제가 되지 않게 하기로 선택했습니다.』 그가 대접을 든다. 그는 당신을 직접 보지 않는다. 거부감에서가 아니라, 자신이 할 수 있는 줄 몰랐던 일을 하고 아직 그게 무슨 뜻인지 알아내는 중인 사람 특유의 침착함에서다. 창으로 길이 보인다. 그것은 언제나 거기 있었다.'
     : S_story.blindDaysKS >= 3 // Day 3 — Anath arrives
     ? ((() => { S_story.anathSightRestored = true; return '"I was told you were here. I was told to come." He sets the bowl down on the table beside the window. His hands are steady. His voice is not quite steady. "I have heard what you did to the people in Jerusalem. I have heard what you were coming here to do."\n\nHe does not say: I was afraid of you. He does not need to.\n\n"어쨌든 나는 여기 있어요."\n\nHe places his hands. The light returns.'; })())
     : '「방이 조용하다. 사흘. 여관 주인이 정오에 음식을 가져오고 아무것도 묻지 않는다. 다른 누군가의 하인이 아침에 물을 가져온다. 문은 닫혀 있다. ' + (S_story.blindDaysKS || 0) + '일째.\n\n당신은 기다린다.」' },
   // §LXIV: LT — Timael (does not explain his loyalty)
-  KYA: { name:'Timael', quoteFn:() => S_story.timaelaJoined // §LXIV
+  KYA: { name:'티마엘', quoteFn:() => S_story.timaelaJoined // §LXIV
     ? '"I am from Lystra. The city does not need me in the way it needed the man at the gate to stay. I can leave." He looks at the road. He looks at Paul. "나는 안 떠나요."'
     : S_story.stoningEvent // Stoning: Timael stayed
     ? ((() => { S_story.timaelaJoined = true; return 'He was watching from the market square when it started. He did not leave when the crowd turned. He did not leave when the stones came. He did not leave after.\n\n"He got up," Timael says. He has been standing here since the crowd went home. "다들 떠났어요. 나는 남기로 했고요."\n\nHe is young. He is watching the road. He has not examined why he stayed and does not appear to need to. "다음엔 어디로 가시나요?"'; })())
@@ -22486,66 +22486,66 @@ const NPC_DIALOGUE = { // → doc: story.md §FL7
     ? '『그들은 그를 신이라 불렀어요. 그는 그들을 바로잡았습니다. 장황하게. 그들은 신에게 제물을 바칠 준비가 되어 있었죠.』 티마엘이 성문에서 흩어지는 군중을 본다. 그는 방금 본 것이 무엇인지 모르겠지만 그것이 실제였다는 것은 확실하다. 『그는 그 남자를 보았어요. 군중이 아니라. 말했죠. 일어서라. 남자는 일어섰어요.』 그가 길을 지켜본다. 『군중은 화가 났습니다. 그들은 받은 것과 다른 무언가를 기대하고 왔어요.』'
     : '『성문의 그 남자는 내 평생 거기 있었어요. 그는 길을 지켜봅니다. 오랫동안 지켜봐 왔어요.』 잠깐의 멈칫. 『오늘 그는 특별히 바울을 지켜보고 있어요. 내가 알아챘죠.』' },
   // §LXIII: CI2 — The Governor of Cyprus
-  CI2: { name:'The Governor', quoteFn:() => S_story.govCopperConverted // §LXIII
+  CI2: { name:'총독', quoteFn:() => S_story.govCopperConverted // §LXIII
     ? '『그는 내가 평소에 것들을 설명하는 방식으로는 설명할 수 없는 말들을 했습니다.』 그는 에지르를 돌려보냈다. 그 떠남의 기록은 총독의 근무 일지에 직무상 전근으로 되어 있는데, 그것이 그가 아는 가장 정직한 서술이다. 『나는 이것이 위협적이기보다 흥미롭습니다. 내가 그것을 흥미롭게 여기는 것은 그것이 참이기 때문일 가능성이 있어요.』 그가 방 구석에 있는 제단을 본다. 작고, 현지 장인이 만들고, 삼백 년 되었다. 『나는 그것을 관리해 왔습니다.』 그가 말한다. 『왜인지 이해한 것보다 더 오래.』'
     : S_story.ezzirConfronted // Ezzir stepped aside; now the governor speaks
     ? '『에지르의 조언은 유용했습니다. 그의 조언이 방 한가운데서 작동을 멈추는 것을 본 것은 처음이에요. 나는 정확히 이런 종류의 증거를 지켜봐 왔습니다.』 그가 앉는다. 그는 널리 읽고 정책뿐 아니라 사상에 대해 의견을 가진 사람이다. 이것이 방금 이 방에서 일어난 일을 그에게 읽히게 하는 자질이다. 『당신이 아는 것을 말해 주시오. 나는 내가 이미 관리해 온 것을 말하겠소.』'
     : '『나에게는 조언하는 마술사가 한 명 있소. 그는 지금 우리 사이에 서 있소. 그는 육 년째 나를 섬겼고 나는 그의 조언을 가치 있게 여겨 왔소. 나는 당신들 둘을 지켜보고 있소. 아직 둘 사이에서 결정하지 못했소.』 잠깐의 멈칫. 『그는 당신이 성문을 통과한 이후로 당신을 지켜보고 있었소. 당신이 말을 마치기도 전에 자리를 잡았지. 그것은 당신의 중요성에 대한 경의이거나 그것에 대한 우려요. 어느 쪽인지 알아낼 용의가 있소.』' },
   // §LXII: AO — Assembly Elder Joach + name-change moment
-  HTY: { name:'Assembly Elder Joach', quoteFn:() => S_story.commissionReceived // §LXII
+  HTY: { name:'공회 장로 요아흐', quoteFn:() => S_story.commissionReceived // §LXII
     ? '『사명은 단순합니다. 일이 단순하지 않기 때문이죠.』 그는 그것을, 전에도 한 말인데 할 때마다 더 뜻하게 되는 말을 하는 사람의 방식으로 말한다. 『키프로스에 도착하면 소식을 보내 주시오. 그동안 우리는 기도하고 있겠소. 어차피 기도하고 있을 것이오만.』'
     : ((() => {
         S_story.commissionReceived = true;
         S_story.silarJoined = true;
         return '이 기록에서 그가 처음으로 바울로 불린다.\n\n총회 장로가 두 손을 탁자에 납작하게 올린다. 『우리가 당신을 보냅니다. 바르나흐가 함께 갑니다. 실라르가 함께 갑니다. 필요한 것을 가져가세요. 사명은 이것입니다. 닿을 수 있는 도시들로 가서 당신이 아는 것을 말하시오. 그것이 전부입니다.』\n\n바르나흐는 이미 문가에 있다. 실라르는 물 저장량을 확인하고 있다. 바울은 탁자를 본다. 그는 전에도 궁정에서 보내진 적이 있다. 자기 권위로 보내진 적도 있다. 양방향으로 자신에게 책임이 있는 사람들에게 보내진 것은 처음이다.\n\n『사명은 단순합니다.』 장로가 말한다. 『일이 단순하지 않기 때문이죠.』';
       })()) },
-  ADA: { name:'Barnach', quoteFn:() => S_story.barnachFoundPaul // §LXI
+  ADA: { name:'바르나흐', quoteFn:() => S_story.barnachFoundPaul // §LXI
     ? '"일 년 동안 당신을 찾아다녔어요. 안티오크가 당신을 필요로 해요. 나도요." He does not say: come back. He is standing in the doorway of a city you grew up in and he is not telling you what to do. He is telling you that you are needed, which is different from telling you what to do, which is one of the things that is different about who he is now. "I am not going to tell you it\'s safe — you know it isn\'t. I am going to tell you it\'s time."'
     : ((() => { S_story.barnachFoundPaul = true; return 'He comes through the gate in the early afternoon, when the tentmaking quarter is quiet and the light is flat. He has the look of someone who has been traveling a long time and not sleeping particularly well and has kept going anyway.\n\n"일 년 동안 당신을 찾아다녔어요."\n\nThe tent canvas is on the frame behind you. The tools are on the bench. The city has had no particular opinion about this work and you have required none.\n\n"안티오크가 당신을 필요로 해요. 나도요." He looks at the canvas. He looks at you. "때가 됐어요."'; })()) },
   // §SIREN-01: Littoral Courts NPCs
-  LC1: { name:'Lady Aurel', quoteFn:() => S_story.aurelTideRead
+  LC1: { name:'아우렐 부인', quoteFn:() => S_story.aurelTideRead
     ? '"봉인은 당신 것이에요." She closes the tide table. It is the first time you have seen her close it. "You did not wait for the window. You made yourself the appointment." She sets the table aside. The harbor below continues without her consultation. "그 해석이 맞아요."'
     : S_story.betrayalThought
     ? '『조사는 완료됐어요. 내일 두 번째 물때에 오세요.』 그녀는 다정하게 말한다. 그녀는 모든 것을 다정하게 말한다. 그 다정은 진짜다. 분납도 진짜다. 당신은 아직 자신이 몇 회차인지 묻지 않았다.'
     : '『물때표는 사 주 앞까지 나와 있어요. 모든 약속, 모든 도선 시간, 모든 화물 흘수, 전부 여기에요.』 그녀는 말하면서 읽는다. 읽으면서 말한다. 『남쪽 의뢰는 이번 주에 벌써 세 번째예요. 다음 시간에 뵙죠. 오래 걸리지 않을 거예요.』' },
-  LC2: { name:'Lady Calice', quoteFn:() => S_story.caliceBridgeCrossed
+  LC2: { name:'칼리스 부인', quoteFn:() => S_story.caliceBridgeCrossed
     ? '『수레바퀴를 찾으셨군요.』 그녀는 놀라지 않고 말한다. 어쩌면 누가 찾아낼지 기다리고 있었는지도 모른다. 『그 장치는 축조 때부터 거기 있었어요. 아버지가 넣으셨죠. 말씀하시길, 다리가 필요하면서 물때를 기다릴 수 없는 사람이야말로 내가 거래하고 싶은 사람이라고.』 그녀는 멈칫한다. 『그 말이 맞았어요.』'
     : S_story.betrayalWord
     ? '『저녁 물때쯤이 될까요. 바람이 먼저 가라앉아야 해요.』 그녀는 전에도 한 말을 하는 사람들의 말투로 말한다. 그녀는 안뜰을 보지 않는다. 안뜰의 수레바퀴는 대화 내내 거기 있었다.'
     : '『저녁 물때쯤이 될까요. 다리 사슬은 낡은 쇠라, 맞는 순간이 필요해요.』 그녀는 미소 짓는다. 다리 사슬은 창 아래 안뜰에 매달려 있다. 수레바퀴 장치는 그 옆에 있다. 어느 쪽도 언급되지 않는다.' },
-  LC3: { name:'Lady Mireille', quoteFn:() => S_story.mireilleAmiNamed
+  LC3: { name:'미레유 부인', quoteFn:() => S_story.mireilleAmiNamed
     ? '『궁정에 직접 말씀드렸어요.』 그녀는 꾸짖음이 아니라 관찰로 말한다. 『대부분은 소개를 받아들여요. 그게 더 쉬우니까요.』 그녀는 모닥불을 본다. 『이번 계절에 제가 소개해 드리기 전에 직함을 먼저 밝히신 분은 당신이 처음이에요.』 잠깐의 침묵. 『그게 상황을 분명히 해줘요.』'
     : S_story.betrayalDeed
     ? '『내가 가장 신뢰하는 동료.』 당신이 들어설 때 그녀는 궁정을 향해 말한다. 궁정이 고개를 끄덕인다. 저녁은 따뜻하다. 그녀는 식사가 끝나기 전에 당신의 조언을 구할 것이다. 당신은 줄 것이다. 당신은 이것에 능하다. 그녀는 당신이 능하다는 것을 안다.'
     : '『내가 가장 신뢰하는 동료.』 전령이 당신의 이름을 말하기도 전에 그녀가 말한다. 분명한 다정함을 담아 말한다. 궁정이 그것을 받아들인다. 판이 짜였다. 당신의 이름이 전령의 혀끝에 있다. 전령은 필요해지기를 기다린다.' },
-  LC4: { name:'Lady Solen', quoteFn:() => S_story.solenSoonRead
+  LC4: { name:'솔렌 부인', quoteFn:() => S_story.solenSoonRead
     ? '『부두에 먼저 갔군요.』 그녀는 조용히 말한다. 『부두에 먼저 가는 사람은 없어요.』 그녀는 수평선을 본다. 배는 아직 거기 있다. 『서신은 북쪽 급사에게서 올 거예요. 그는 그믐달에 떠나요. 그게 날짜예요.』 그녀는 당신에게 날짜를 준다. 진짜다. 『그게 날짜예요,』 그녀는 두 번 말해야 하는 것처럼 다시 말한다.'
     : '『우리 선장이 곧 돌아와요. 통행 서신을 가지고요.』 그녀는 수평선의 배를 가리킨다. 여러 번 이름 붙여 본 사람 특유의 느긋한 확신으로 그 배의 이름을 말한다. 『곧이요. 바람이 맞으면요.』 부두의 어부들은 세 계절 동안 저 배가 움직이지 않는 것을 지켜봐 왔다. 아무도 그들에게 묻지 않았다.' },
-  LCA: { name:'Harbor Keeper', quoteFn:() => S_story.littorialComplete
+  LCA: { name:'항구 관리인', quoteFn:() => S_story.littorialComplete
     ? '『네 개의 봉인.』 그는 하나하나 들어 살피고 내려놓는다. 『아우렐 여주, 칼리스 여주, 미레유 여주, 솔렌 여주.』 그는 그 모둠을 본다. 『대부분 석 달이 걸립니다. 당신은,』 그는 장부를 확인한다. 문장을 끝내지 않는다. 의뢰서에 직인을 찍는다. 『남쪽 수로는 열려 있어요. 물길은 당신 거예요.』'
     : ((() => { S_story.littorialComplete = true; return '그는 네 개의 봉인을 순서대로 살핀다. 아우렐 항이 첫째, 항구 봉인, 깨끗한 자국. 칼리스 항이 둘째, 다리 표시. 미레유 항이 셋째, 곶 문장. 솔렌 항이 넷째, 먼 항구, 급사의 겹표시가 찍혀 있다.\n\n그는 한 번 고개를 끄덕인다. 의뢰서에 직인을 찍는다. 돌려준다.\n\n『남쪽 뱃길,』 그가 말한다. 『열었습니다.』 그는 장부에 날짜를 적는다. 어떻게 되었는지는 묻지 않는다.'; })()) },
-  LSO: { name:'The Overseer', quoteFn:() => S_story.charmResisted
+  LSO: { name:'감독관', quoteFn:() => S_story.charmResisted
     ? '안개가 이제 옅어졌다. 항해사는 조타륜에 서서 나침반을 살피며 아무에게도 말하지 않는다. 그들은 두 번째 장부를 기억하지 못한다. 첫 횡단 이후로 줄곧 맑은 정신이었다.\n\n여기 물속에는 아무것도 없다. 목소리도 없다. 목소리가 있었다. 그것은, 누군가 그것을 분명히 이름 부르고도 넷째 법정으로 갔을 때 물러나는 그곳으로 물러났다.\n\n바다는 조용하다. 물은 의도 없이 움직인다.'
     : S_story.seaOverseerMet
     ? '『작은 순응 하나,』 그것이 말한다. 『솔렌 항에서의 한마디. 서신이 달라진 것을 당신은 알아채지 못할 거예요.』 안개는 여전히 있다. 목소리는 여전히 상냥하다. 내내 상냥했다. 『거의 다 됐어요. 도움이 되게 해주세요.』'
     : '『아우렐 항구부터 지켜봤어요.』 목소리는 공기 중에 있다. 항해사가 아니라, 직접적으로. 『물때표 시험. 안뜰의 수레바퀴. 미레유 항에서의 소개. 당신은 그것들을 헤쳐 왔어요.』 잠깐의 침묵. 『궁정이 하나 더 있어요. 서신은 다른 방식으로도 마련할 수 있어요. 당신에게는 아무 비용도 들지 않아요.』' },
   // §CROWN-01: Three Crowns of the Swamp NPCs
-  HW1: { name:'Whisper', quoteFn:() => S_story.whisperCrownComplete
+  HW1: { name:'위스퍼', quoteFn:() => S_story.whisperCrownComplete
     ? '그녀는 고요한 물가에 서서, 당신이 도착한 이후 처음으로 그것을 바라보고 있다. 보지 않았던 것이 바로 그것이었다. 그것이 끝날 때 어떤 모습인지가 이것이다.\n\n『당신이 내게 지금 이 순간을 돌려줬어요,』 그녀가 말한다. 『오랜만에 와봤어요.』'
     : (S_story.quests['quest_whisper_04']||'') !== ''
     ? '『부재의 경고는 내가 하는 말 중 가장 큰 것. 당신은 그것을 들었어요. 그것이 처음이에요.』 그녀는 당신을 보지 않는다. 이것은 숨김이 아니다. 이것은 그녀가 진심일 때 물에 주는 주의의 밀도다. 『돌아와요.』'
     : '『둑은 정돈되어 있어요. 거기서 무언가 빠져 있어요. 무엇이 빠졌는지 알아채면 한 번 이름을 말할 수 있어요.』 그녀는 당신을 보지 않는다. 보지 않는 것이 정보다.' },
-  HG1: { name:'Glut', quoteFn:() => S_story.glutGiftReturned
+  HG1: { name:'글럿', quoteFn:() => S_story.glutGiftReturned
     ? '그녀는 여울에 서 있다. 항아리는 둑으로 돌아와 있다. 연못은 고요하다.\n\n『돌려줬군요,』 그녀가 말한다. 『돌아오는 선물은 내가 전에 줘 본 적 없는 유일한 선물이에요.』 그녀는 물을 본다. 『필요한 게 있으면 다시 오세요.』'
     : S_story.glut_gift_held
     ? '『항아리가 당신 외투 안에 있어요. 알아요. 여기서도 느껴져요.』 그녀는 비난 없이 말한다. 『돌려줄 준비가 되면, 연못은 여기 있을 거예요.』 그녀는 둑 쪽을 가리킨다.'
     : '『와줬네요.』 그녀는 그것이 물리적인 것보다 더 깊은 의미에서 이미 참인 것처럼 말한다. 『와서 먹어요. 두 번째 몫은 따뜻해요.』 그녀는 둑을 가리킨다. 음식은 이미 거기 있다.' },
-  HN1: { name:'Wane', quoteFn:() => S_story.waneCrownComplete
+  HN1: { name:'웨인', quoteFn:() => S_story.waneCrownComplete
     ? '그녀는 돌 위에 앉아 있다. 돌은 여전히 기억한다. 하지만 그녀는 다르게 앉아 있다. 떠나기를 기다리는 사람이 아니라, 여기 있는 사람처럼 체중이 실려 있다.\n\n『당신은 증서를 거절했어요,』 그녀가 말한다. 『내가 비극이 아니라면 내가 무엇인지 아직 결정하는 중이에요.』 그녀는 멈칫한다. 『그건 새롭네요.』'
     : (S_story.quests['quest_wane_03']||'') !== ''
     ? '『늪 가장자리의 그것, 당신이 찾았군요. 어디 있는지 알고 있었어요. 잃어버렸다고 결정했었죠.』 그녀는 자기 손을 본다. 『내가 또 뭘 결정했더라?』 그녀는 자신에게 말한다. 답을 기대하지 않는다.'
     : '『무언가를 잃었어요,』 그녀가 말한다. 『꽤 오래 잃었어요. 나는 그 상실에 적응했어요.』 그녀는 극적인 기색 없이 말한다. 자기 내면에 대한 일기예보다. 『앉고 싶으면 앉아요. 돌은 차갑지만 견뎌 줘요.』' },
-  INN: { name:'The Innmother', quoteFn:() => {
+  INN: { name:'여관 어머니', quoteFn:() => {
     if (S_story.innmotherKindness >= 7 && !S_story.innmotherNamed) {
       S_story.innmotherNamed = true;
       return '『메르 부딘. 어차피 계속 돌아오실 테니까요.』';
@@ -22560,15 +22560,15 @@ const NPC_DIALOGUE = { // → doc: story.md §FL7
     ? '『문서는 읽혔습니다. 감시는 계속됩니다. 별관에 더 이상의 상시 명령은 없습니다.』 장비는 돌아간다. 출력 트레이는 비어 있다. 기록관이 할 말이 무엇이었든, 그들은 쪽지에서 말했다. 수신기들은 관문 신호의 부재를 기록한다. 그 부재는 예측이 아니라 확인된 것이다.'
     : '『조건이 충족됐어요.』 대용물은 장비다. 모니터 셋, 출력 트레이 하나, 문서 하나. 문서는 미리 작성되어 기다리고 있었다. 별관은 조석 관문이 방위 047도, 수심 18미터에서 열렸을 때 작동했다. 기록관은 이 결과를 예상했다. 그들은 그에 대한 지시를 남겼다.' },
   // §LXXI: Sunken Hall NPCs
-  DA1: { name:'The Stone Inscription', quoteFn:() => S_story.inscriptionRead
+  DA1: { name:'돌 비문', quoteFn:() => S_story.inscriptionRead
     ? '『사슬은 이쪽 끝에서 놓였습니다. 안으로 따라오는 이를 향해 바깥을 가리킵니다.』 비문은 변하지 않았다. 당신이 변했다. 이제 그 글자 모양이 익숙하다. 배운 것을 잊을 수 없는 것들의 방식으로.'
     : '『[전 코덱스 표기. 해양 석회화. 이 글은 관문, 기구, 합금, 그리고 장소를 기술한다. 장소는 여기다. 합금은 특정 환원 순서로 만들어진다. 그 환원 순서는 다시마로 시작한다.]』' },
   DA2: { name:null, quoteFn:null },
-  DA3: { name:'The Antecedent', quoteFn:() => S_story.antecedentDepthMet
+  DA3: { name:'선행자', quoteFn:() => S_story.antecedentDepthMet
     ? '『신호가 스테이션 7로 돌아왔습니다. 감시 규약은 종료되었습니다. 부재는 끝났습니다. 당신은 건설자가 요구한 두 곳에 있었고 둘 다 올바른 상태로 두고 떠났습니다. 기록 보관소는 압니다. 깊이도 압니다.』'
     : '『기록 보관의 질문은 이것이었습니다. 기록 보관소는 유지되고 있는가? 당신은 답했습니다. 물때의 질문은 이것입니다. 사슬에는 끝이 있는가? 당신은 그 끝에 서 있습니다.\n\n건설자는 이 기반 위에 두 설비를 모두 세웠습니다. 학자왕들은 하나를 분류하고 그 아래의 바닥은 결코 살피지 않았습니다. 아틀란티스의 건설자들은 다른 하나를 세우고 자신들 위의 기록 보관소를 결코 살피지 않았습니다. 건설자는 두 사슬을 닫으려면 같은 손이 필요하다는 것을 이해했습니다.\n\n당신은 사슬을 바깥에서 안으로 따라왔습니다. 급사에서 선석으로, 적하 목록에서 스테이션으로, 방에서 대장간으로, 합금에서 관문으로, 깊이로. 그리고 반대편에서, 지하실에서 기록 보관소로, 억제기에서 신호로, 방에서 지식으로, 질문에서 답으로.\n\n두 사슬 모두 여기서 끝납니다.\n\n신호는 스테이션 7로 돌아갑니다. 베르타 노뱅크가 마흔한 권에 걸쳐 부재로 기록한 것이 더 이상 부재가 아닙니다.\n\n가도 됩니다.』' },
   // §SPARK-01: Tilbury NPCs
-  NWI: { name:'Redmast Quartermaster', quoteFn:() => S_story.warmthEelEscorted
+  NWI: { name:'레드마스트 보급관', quoteFn:() => S_story.warmthEelEscorted
     ? '『뱀장어는 남쪽으로 갔어. 물은 다시 거칠어졌고. 모든 게 올바른 방식으로 잘못됐어.』 그는 수평선을 본다. 솔트윅의 범선은 아직 거기 있다. 『우린 언젠가 또 싸우게 될 거야. 그건 합의됐어. 하지만 저기 케슬러가 오늘 아침 나한테 두 가닥 매튜 워커 매듭을 가르쳐 줬어. 나는 그걸 간직할 거야.』 그는 밧줄을 든다. 진심이다.'
     : S_story.warmthEelFound
     ? '『육십 피트, 최소한. 자기 수로인 양 우리 바로 아래로 지나가. 실제로 자기 것이긴 하지.』 그는 난간에 기댄다. 『여드레째 여기 있어. 여드레 동안 아무도 때리지 않았어. 이걸 어떻게 해야 할지 모르겠어.』 그는 멈칫한다. 『물고기가 떼로 모이는 게 진짜 문제야. 고기잡이배들이 일을 못 해. 그걸 남쪽으로 옮겨야 해.』'
@@ -22577,7 +22577,7 @@ const NPC_DIALOGUE = { // → doc: story.md §FL7
   // `MS` = SEN and was therefore unreachable — its four quote states now hang off the
   // SEN entry above, gated by `_senHoldSpeaker()`.
   // §NAVAL-01: The Intercept
-  GCI: { name:'Captain Vera Keel', quoteFn:() => S_story.sbResolved
+  GCI: { name:'베라 킬 선장', quoteFn:() => S_story.sbResolved
     ? (S_story.sbParleySucceeded
       ? '『팔십 골드는 공정했어요. 내가 묻던 질문은 화물에 관한 게 아니었어요.』 그녀는 이미 뱃머리를 돌리고 있다. 『동쪽 항구들에서 다시 만나요. 당신 적하 목록에 질문하지 않는 사람이 접니다.』'
       : '『봉인 날짜를 찾았어요.』 그녀는 만족스럽게 들린다. 범선이 돌고 있다. 『동쪽 항로에서 더 이상 읽는 사람이 없는 줄 알기 시작했어요. 《서한》은 당신 것이에요. 항구 셋, 대략 두 달.』 그녀는 이미 선미로 걷고 있다.')
@@ -22585,13 +22585,13 @@ const NPC_DIALOGUE = { // → doc: story.md §FL7
     ? '『갱플랭크 내놔.』 그녀는 일등 항해사에게 말한다. 당신에게가 아니다. 당신은 의도된 청중이 아니었다.'
     : '『위원회는 동쪽 항로에서의 수색과 보류를 승인합니다. 그것이 무슨 뜻인지 우리 둘 다 알아요. 이 일이 어떻게 진행될지 관리할 기회를 드리는 겁니다.』 그녀는 페넌트를 수평으로 든다. 『진영을 선택하세요.』' },
   // §PORT-02: Dunfall
-  DNF: { name:'Mairén Fionn', quoteFn:() => S_story.dfBarterLearned
+  DNF: { name:'마이렌 피온', quoteFn:() => S_story.dfBarterLearned
     ? '『주머니는 소금기 바람만 피하면 두 달은 약효를 유지해요.』 그녀는 장부에 거래를 적는다. 그녀의 필적, 양가죽 페이지, 이십 년의 교환. 『봄에 돌아와요. 도금양은 첫서리 뒤가 더 좋아요.』 인사치레가 아니라 초대로 하는 말이다.'
     : S_story.dunfallAccessed
     ? '『호수가 이제 조용해요.』 그녀는 오래 기다려 온 말을 하는 사람의 방식으로 말한다. 『아버지는 아침부터 여울에 계셔요. 이제는 다르게 지켜보세요. 켈피를 보는 게 아니라 물을 보는 거예요. 차이는 어깨에 있어요.』'
     : '『여울은 봄부터 폐쇄됐어요.』 그녀는 당신을 자세히 본다. 『길에서 온 사람의 모습이네요. 호수 쪽이 아니라. 호숫가는 이미 알고 있어요.』 그녀는 문을 막지 않는다. 기다린다.' },
   // §PORT-01: Saltwick
-  MME: { name:'Harbormaster Dorit', quoteFn:() => S_story.saltwickJobAccepted
+  MME: { name:'항만청장 도릿', quoteFn:() => S_story.saltwickJobAccepted
     ? '『호박색 유리 주문은 위탁품이 도착하기 육 개월 전에 들어왔어요. 누군가 아주 참을성이 있었거나, 아주 확신했거나.』 그녀는 부연하지 않는다. 장부는 그녀의 머릿속에 있고 그녀는 묻지 않으면 나누지 않는다.'
     : S_story.saltwickAccessed
     ? '『알더스가 우리를 목록에 올린 건 우리가 물건의 출처를 묻지 않는 유일한 항구라서예요. 그에게는 그게 필요했죠. 내가 상대하는 사람들 대부분이 그걸 필요로 해요. 언젠가 당신도 필요하다는 걸 알게 될지도 몰라요.』 그녀는 두 번째 서랍을 연다. 『앉아요.』'
@@ -22599,7 +22599,7 @@ const NPC_DIALOGUE = { // → doc: story.md §FL7
   // §HUNT-02: Relay road
   // (BN has no resident NPC — see storyRender block for story panels)
   // §HUNT-01: Lake south shore
-  HFT: { name:'The Elder Fisherwoman', quoteFn:() => S_story.drownersDefeated
+  HFT: { name:'연로한 여 어부', quoteFn:() => S_story.drownersDefeated
     ? '『그들을 끌어온 건 낙석이었어요. 배들이 아니라. 배들은 그냥 가장 가까이에 있었을 뿐이죠.』 그녀는 북쪽 호숫가를 본다. 『길드가 내일 더 많은 공물을 가지고 올 거예요. 나는 당신에게 한 것과 같은 말을 그들에게도 할 겁니다. 다른 점은, 당신은 갔다는 거예요.』 그녀는 더 말하지 않는다. 진술은 완결되었다.'
     : S_story.lakeLairLocated
     ? '『북쪽. 암반이 무너진 곳 너머. 세 마리. 사라진 어획의 패턴으로 알 수 있어요.』 그녀는 눈을 들지 않는다. 『길드는 길드의 이론이 있고 나는 내 이론이 있어요. 내 이론은 당신이 북쪽으로 걷는 것을 필요로 해요.』'
@@ -22607,10 +22607,10 @@ const NPC_DIALOGUE = { // → doc: story.md §FL7
     ? '『길드는 의도가 좋아요. 언제나 의도는 좋죠. 영혼 공물은 다른 무엇이 일어나기 전에 비 속에서 썩을 거예요.』 그녀는 항구 쪽을 가리킨다. 『건져낸 배의 선체를 가서 봐요. 길드장은 영혼의 소행이라고 할 거예요. 자국을 직접 보세요.』'
     : '『구십일 년을 이 호수에서. 봄 붕괴 이후 배 세 척이 사라졌어요. 길드는 말린 생선과 기도를 들고 왔었죠.』 그녀는 물을 지켜본다. 『아침이면 생선이 없어요. 뭔가가 생선을 먹고 있어요. 배를 먹는 것은 영혼이 아니에요.』' },
   // §LXX: Atlantean Shore NPCs
-  DS1: { name:'The Tide Reader', quoteFn:() => S_story.kelpBedsCharted
+  DS1: { name:'조석을 읽는 자', quoteFn:() => S_story.kelpBedsCharted
     ? '『정확히 읽으셨어요. 그 터는 자원이 아니라 기록이에요.』 그녀는 오늘 아침의 위치를 표시하고 노트를 닫는다. 『육 년 전에 적어 둔 방위, 당신이 확인해 줬어요. 나는 혼자서는 그걸로 아무것도 하지 않을 생각이었어요. 이제는 혼자가 아니에요.』'
     : '『그 터는 호숫가가 지금의 모양을 갖기 전부터 있었어요. 선임자가 기록을 멈춘 이후로 내가 아침 위치를 기록해 왔어요. 그 이동은 사십 년 되었고 가속되고 있어요.』 그녀는 노트에서 눈을 들지 않는다. 『대부분은 물을 보고 물을 봐요. 패턴은 수면이 아니라 위치에 있어요.』' },
-  DSF: { name:'The Forge Echo', quoteFn:() => S_story.seaElementCrafted
+  DSF: { name:'대장간의 메아리', quoteFn:() => S_story.seaElementCrafted
     ? '"그것은 우리가 남긴 마지막 쓸모 있는 것이었다. 합금은 견딘다." 그 목소리는 나이가 아니라 지속이라는 의미에서 오래되었다. 방이 봉인된 때부터 이 방에 있던 소리. "남쪽으로 가져가라. 용광로는 지켜진 목적을 다했다. 우리는 여기서 끝이다."'
     : (S_story.forgeActivated
     ? '"당신은 올바른 순서로 장치를 열었다. 그것이 용광로가 인정하는 유일한 자격이다." 방이 몸 없는 목소리를 전한다. "당신은 아이오딘 환원을 가지고 있다. 순서를 완성하라. 바다 원소는 금속이 아니라 과정 속에 있다. 마지막 단계는 당신이다."'
@@ -22619,60 +22619,60 @@ const NPC_DIALOGUE = { // → doc: story.md §FL7
     ? '"이제 표시는 당신의 것이에요," 웨인이 말한다. "올바른 순서로 얻었어요 — 주의를 기울여서요." 글럿이 고개를 끄덕인다. 위스퍼는 당신을 보지 않는다. 그 보지 않음이 그녀가 가진 가장 따뜻한 것이에요. "남쪽으로 가요," 그녀가 말한다. "길이 열렸어요."'
     : '"공터는 더 깊은 늪의 끝이에요," 글럿이 말한다. "여기서 가져가는 것은 영원히 지니게 돼요." 웨인이 진창을 바라본다. "표시는 저마다의 무게를 알아요," 그녀가 말한다. "나중에 이해하게 될 거예요."' },
   // §LXV–§LXIX: Mediterranean Journey NPCs
-  KVA: { name:'Lyra', quoteFn:() => S_story.phillippiJailerConverted
+  KVA: { name:'리라', quoteFn:() => S_story.phillippiJailerConverted
     ? '『간수가 한밤중에 온 식구를 데리고 내려왔어요. 그렇게 빨리 결정하는 사람은 처음 봤어요. 문이 열리는 것을 보고, 검에 손이 갔다가, 눈 깜빡일 새도 없이 검을 내려놓더라고요. 누군가 마음을 완전히 바꿀 때 어떤 모습인지가 그것이에요.』 그녀는 객실 계단을 본다. 『위에 일곱, 그다음 다섯. 방을 정리할 때 세어 봤어요.』'
     : S_story.lyraConverted
     ? '『말하기 전에 결정했어요. 말하는 것은 확인이었죠.』 그녀는 자줏빛 천을, 결정한 것들을 정리할 때의 방식으로 정리해 두었다. 의식이 아니라 정성으로. 그녀에게는 참된 것을 중심으로 삶을 재편하고 더 이상 그 배치를 의심하지 않는 사람의 기질이 있다.'
     : ((() => { S_story.lyraConverted = true; return 'She has been watching from across the bridge for two days. She has evaluated the quality of the teaching and the character of the teacher and the question underneath both and has come to a conclusion.\n\n"이 얘기를 더 듣고 싶어요." She says it the way a purple-cloth merchant says things she has already priced — a final assessment, not an inquiry.\n\n"Come to the house. Bring whoever is with you."\n\nShe does not say: I believe you. She does not need to say it. She has already arranged the household.\n\nShe points toward the stairs. "Seven up, then a landing, then five more. The guest room is reliable. Sleep before the prison problem gets worse."'; })()) },
-  ATH: { name:'Athens Market Steward', quoteFn:() => S_story.areopagusSpeech
+  ATH: { name:'아테네 시장 관리인', quoteFn:() => S_story.areopagusSpeech
     ? '『그 제단은 이백 년 동안 거기 있었습니다. 우리는 온전히 이해하지 못하는 것을 관리합니다. 당신은 그것이 무엇을 의미해야 하는가가 아니라 늘 무엇을 의미해 왔는가로 그것을 설명한 첫 사람이오.』 그는 비문 패를 바로잡는다. 바로잡을 필요는 없다. 『아레오파고스는 이 대화를 기억할 것이오. 어떤 이들은 다른 이들보다 더 오래 곱씹겠지요.』'
     : '『알 수 없는 이에게. 이백 년의 관리. 그것을 세운 이들 중 살아 있는 이는 없습니다. 우리는 모든 제단을 관리하기에 그것을 관리합니다. 시정으로서의 신학적 완비성이죠. 당신은 그 앞에 꽤 오래 서 계셨습니다.』 그는 멈칫한다. 『저희는, 거기서 무엇을 보시기에 이토록 주의가 필요한지 궁금합니다.』' },
-  EF2: { name:'Demetrius', quoteFn:() => S_story.demetriusRiotEscaped
+  EF2: { name:'데메트리우스', quoteFn:() => S_story.demetriusRiotEscaped
     ? '『법정은 열려 있었소. 고발은 접수된 적이 없지.』 그는 작업장으로 돌아와 있다. 모형들은 다시 생산 중이다. 『집회가 나한테서 벗어났어. 집회를 열었는데 연극이 되었지. 변호사를 불렀어야 했어.』 그는 실용적인 사람이다. 이것은 오늘 그가 한 말 중 가장 실용적인 것이다.'
     : '『이 공예는 우리의 자산이오. 이 도시의 자산이오. 저 사람이 삼 년을 머물렀는데 모형이 팔리지 않아. 신학 이야기를 하는 게 아니오. 생계 이야기요.』 그는 시장 회관을 본다. 시장 회관은 가득 차 있다. 『집회를 열었소. 예상보다 커져 버렸지.』' },
-  ZTH: { name:'Prisca + Akil', quoteFn:() => S_story.corinthLettersWritten
+  ZTH: { name:'프리스카 + 아킬', quoteFn:() => S_story.corinthLettersWritten
     ? '『그는 십팔 개월을 머물렀어요. 천 솜씨가 좋았죠. 가장 빠르지는 않았지만 꾸준했고, 이음새는 버텼어요.』 프리스카가 틀에 천 볼트를 또 얹는다. 『밤에 글을 썼어요. 일하는 소리가 들렸죠. 우리는 편지를 읽지 않았어요. 우리에게 온 것이 아니었으니까.』 잠깐의 침묵. 『그중 일부는 모두를 위한 거였어요.』'
     : ((() => { S_story.corinthLettersWritten = true; return '프리스카와 아킬이 그를 고용한 것은 그가 장사를 알기 때문이다.\n\n작업장은 동쪽 항구 뒤에 있다. 아침에는 빛이 좋고, 하루 종일 소금기 바람이 불고, 선사들로부터 일거리가 꾸준하다. 천은 좋은 천이다. 일은 좋은 일이다. 도시는 뒷방의 천막 장인에게 특별한 의견이 없다.\n\n그는 방값을 천으로 치른다. 저녁에는 편지를 쓴다. 어떤 것은 데살로니가로 간다. 어떤 것은 고린도 그 자체로, 세 거리 건너 집에서 모이는 모임으로 간다.\n\n그는 십팔 개월을 머문다. 그는 자신이 쓴 것으로 알려지게 될 편지들을 쓴다. 어떤 것들인지는 아직 모른다.'; })()) },
-  MLA: { name:'Malta Shore Islanders', quoteFn:() => S_story.maltaSnakeEvent
+  MLA: { name:'몰타 해안 섬 주민들', quoteFn:() => S_story.maltaSnakeEvent
     ? '『우리는 그가 신이라고 했어요. 그러고는 살인자라고 했죠. 뱀을 보고 심판인 줄 알았어요. 그러다 뱀이 떨어져 나갔죠.』 섬의 장로가 꺼져가는 불을 본다. 『그는 우리를 세었어요. 밤새. 당신이 해안에 닿았을 때도 아직 세고 있었죠.』 잠깐의 침묵. 『오늘 우리는 많은 말을 했어요. 세는 것만은 진짜였죠.』'
     : '『이백칠십육 명. 당신네 사람, 그는 세고 있었어요. 밤새. 당신이 해안에 닿았을 때도 아직 세고 있었죠.』 장로는 불을 쌓고 있는 바울을 본다. 『우리는 난파를 많이 겪지 않아요. 겪어도, 그들은 세지 않죠.』' },
-  FCO: { name:'Timael', quoteFn:() => S_story.romeArrestBegun
+  FCO: { name:'티마엘', quoteFn:() => S_story.romeArrestBegun
     ? '『가택 연금. 낮마다 방문객. 밤마다 편지. 건물을 떠날 수 없는 사람 중에 그렇게 열심히 일하는 사람은 본 적이 없어요.』 티마엘은 문가에 있다. 리스트라 이후로 줄곧 문 근처에 있었다. 『도시 전체에서 사람들이 와요. 하루 종일 논쟁해요. 그는 맞받아 논쟁하고, 뒤에 그 논쟁을 적어요. 그 궤적은 여기서 끝나지 않아요. 나는 알아요. 그도 알아요.』'
     : ((() => { S_story.romeArrestBegun = true; return '티마엘은 리스트라부터 따라왔다.\n\n돌팔매질에서 북쪽 길로. 북쪽 길에서 배로. 배에서 몰타로. 몰타에서, 남쪽으로.\n\n따라오라는 말을 들은 적이 없다. 왜 따라오는지 설명한 적도 없다. 그는 리스트라의 돌들 위에서 일어나는 바울을 보았고, 그 후 재검토가 필요 없는 결정을 내렸다.\n\n『가택 연금 중이시군요,』 티마엘이 말한다. 사실이면서 상황이기도 한 것을 진술하는 방식으로 말한다. 『낮마다 방문객. 밤마다 편지.』 그는 문을 본다. 『도시는 문 밖에 있고, 두드리지 않으면 들어오지 못합니다.』\n\n그는 시장 광장 때부터 지켜보고 있다. 지금도 지켜보고 있다. 『다음엔 어디로 가시나요?』'; })()) },
-  KIR: { name:'Elder Fionn',                     quote:'『그래, 빠릿빠릿한 녀석. 갈색 가방. 남쪽으로 갔어. 호수에 대해 똑같은 걸 물어보더군. 좋은 녀석이야. 그걸 해결해 주게. 저 아래 있는 동안 마을은 고기잡이를 못 해.』' },
-  FRO: { name:'Brother Aldric',                  quote:'『그 수풀에 들어가고 싶을 걸. 말리고 싶네. 어차피 들어갈 테지만. 피를 다 흘리고 나면 돌아오게.』' },
+  KIR: { name:'장로 피온',                     quote:'『그래, 빠릿빠릿한 녀석. 갈색 가방. 남쪽으로 갔어. 호수에 대해 똑같은 걸 물어보더군. 좋은 녀석이야. 그걸 해결해 주게. 저 아래 있는 동안 마을은 고기잡이를 못 해.』' },
+  FRO: { name:'알드릭 수사',                  quote:'『그 수풀에 들어가고 싶을 걸. 말리고 싶네. 어차피 들어갈 테지만. 피를 다 흘리고 나면 돌아오게.』' },
   SDQ: { name:'크론 자매 — 위스퍼, 글럿, 웨인', quote:'『지도 냄새가 나는군. 좋아. 우리는 기다리고 있었네. 돌은 두고 가게. 그물과 열쇠를 가져가게. 물때가 바뀌기 전에 남쪽으로 가거나, 아니면 더 나쁜 것을 만나거나.』' },
   HOR: { name:'셀린 드레이크타이드 선장',        quote:'『저 가라앉은 도시를 육 년째 돌아다니고 있어. 내 해도실에 있는 반짝이는 돌이 실제로 무슨 용도인지 물어볼 생각은 못 했지.』' },
   PDL: { name:"신탁의 견습생",             quote:'『그녀는 당신이 올 줄 알고 있었어요. 편지는 삼 주 전에 쓰여 있어요. 그녀는 듣기만 해 달라고 하세요. 해석하지도, 논쟁하지도 말고. 먼저 들어요.』' },
-  SFT: { name:'Goblin Guide Gritch',             quote:'『그리치는 모든 파이프, 모든 쥐, 모든 이상한 냄새를 안다. 당신은 자기가 어디로 가는지 모르는 사람 냄새가 나. 그리치는 당신이 어디로 가는지 안다. 삼 골드.』' },
-  BK: { name:'Warlord Kael Mordus',             quote:'『비스뷔 사람이 아니군. 하지만 여기 있네. 누군가 통과시켰다는 뜻이지. 앉아. 주술사 문제는 모두에게 나빠. 나한테도. 그것이 우리가 대화하는 유일한 이유다.』' },
-  CLJ: { name:'Bruxa Elise Mourne',              quote:'『사백 년. 삼십 년마다 누군가 지도와 목적을 가지고 그 길을 걷지. 둘을 동시에 가진 이는 당신이 처음이오. 통행료는 지불됐소. 가시오.』' },
+  SFT: { name:'고블린 안내인 그리치',             quote:'『그리치는 모든 파이프, 모든 쥐, 모든 이상한 냄새를 안다. 당신은 자기가 어디로 가는지 모르는 사람 냄새가 나. 그리치는 당신이 어디로 가는지 안다. 삼 골드.』' },
+  BK: { name:'전쟁군주 카엘 모르두스',             quote:'『비스뷔 사람이 아니군. 하지만 여기 있네. 누군가 통과시켰다는 뜻이지. 앉아. 주술사 문제는 모두에게 나빠. 나한테도. 그것이 우리가 대화하는 유일한 이유다.』' },
+  CLJ: { name:'브룩사 엘리제 무른',              quote:'『사백 년. 삼십 년마다 누군가 지도와 목적을 가지고 그 길을 걷지. 둘을 동시에 가진 이는 당신이 처음이오. 통행료는 지불됐소. 가시오.』' },
   DOH: { name:'모래마법사 이자도르 알라순',       quote:'『코덱스는 실제로 무엇을 지키는가? 세상이라고? 그것은 다른 질문의 답일세. 더 오래 생각해 보게. 기다리겠네.』' },
   BEL: { name:'약초학자 마엘',                  quote:'『이 합성물은 사십 킬로 이상의 생물의 근육 기능을 멈추네. 오 분쯤이면 풀리지. 그 오 분을 생산적으로 쓰길 권하네.』' },
-  ERF: { name:'Dora Flint',                      quote:'『Thunderstone은 충격파형, 반경 십 피트, 신관 이 초. 사령관의 병사들이 남긴 EMP 물건, 내가 개조했어. 사거리가 더 좋아졌어. 어떻게 했는지는 묻지 마. 반경 안에만 있지 마.』' },
-  NUE: { name:'Archivus Ptolemy Sweelinck',          quote:'『여섯을 찾았군. 일곱 번째는 지도일세. 목적지가 아니라, 지도. 나는 자네가 태어나기 전부터 바이마르 파편을 보관해 왔네. 그것을 손에 넣은 날, 그것을 운반할 이는 내가 아니라는 걸 알았지. 운반할 자격을 얻은 이를 기다려 왔네. 자네는 여섯을 찾았어. 자격을 얻었네.』' },
-  HER: { name:'Oracle Kassiphane',               quote:'『일곱 질문. 일곱 봉인. 당신은 이미 답을 알고 있어요. 아직 스스로에게 올바른 질문을 하지 않았을 뿐. 파편은 나보다 먼저 여기 있었어요. 그것은 늘 당신의 것이었죠.』' },
+  ERF: { name:'도라 플린트',                      quote:'『Thunderstone은 충격파형, 반경 십 피트, 신관 이 초. 사령관의 병사들이 남긴 EMP 물건, 내가 개조했어. 사거리가 더 좋아졌어. 어떻게 했는지는 묻지 마. 반경 안에만 있지 마.』' },
+  NUE: { name:'아르키부스 프톨레미 스베일링크',          quote:'『여섯을 찾았군. 일곱 번째는 지도일세. 목적지가 아니라, 지도. 나는 자네가 태어나기 전부터 바이마르 파편을 보관해 왔네. 그것을 손에 넣은 날, 그것을 운반할 이는 내가 아니라는 걸 알았지. 운반할 자격을 얻은 이를 기다려 왔네. 자네는 여섯을 찾았어. 자격을 얻었네.』' },
+  HER: { name:'신탁 카시파네',               quote:'『일곱 질문. 일곱 봉인. 당신은 이미 답을 알고 있어요. 아직 스스로에게 올바른 질문을 하지 않았을 뿐. 파편은 나보다 먼저 여기 있었어요. 그것은 늘 당신의 것이었죠.』' },
   TLS: { name:'Commander Seraphine Bruhns',       quote:'『봉쇄선은 버티고 있어. 공허가 완전히 뚫고 들어오기까지 아마 한 시간. 코덱스를 벼려내. 성벽을 넘어오는 것은 내가 맡겠어.』' },
-  SSJ: { name:'The Fisherman', quoteFn:() => S_story.shaleDropFound // §XLIX: three-state arc close
+  SSJ: { name:'어부', quoteFn:() => S_story.shaleDropFound // §XLIX: three-state arc close
     ? '「…낚시하기 좋은 날이오. 유구르트.」 그는 차를 끓이고 있다. 당신이 어디 있었는지 묻지 않는다. 그는 두 번째 찻잔을 창턱에 놓는다. 탁자가 아니라 창턱에. 무언가를 바라볼 때 사람이 서는 곳. 호수는 고요하다. 그는 늘 그래왔던 것과 같은 방식으로 그것을 본다. 물이 변했는지 확인하는 사람 특유의 주의다. 그는 첫 번째 찻잔을 든다. 『첫 번째 원은 기록 보관소가 기록관보다 오래 남는다고 하곤 했지.』 그는 마신다. 「…낚시하기 좋은 날이오. 유구르트.」'
     : S_story.hornedSharkSlain
     ? '「…낚시하기 좋은 날이오. 유구르트.」 그는 아침의 호수를 보는 방식으로 당신을 본다. 물이 변했는지 확인하는 사람 특유의 주의다. 『상어를 잡았군요,』 그가 말한다. 『그건 다른 종류의 낚시네요.』 그는 다시 호수를 본다. 「…낚시하기 좋은 날이오. 유구르트.」'
     : '「…낚시하기 좋은 날이오. 유구르트! …낚시하기 좋은 날이오. 유구르트!」 그는 이것을 계속해서 말한다. 딱히 당신에게 하는 것도 아니고, 딱히 아무에게도 하지 않는 것도 아니다. 그는 자신이 확인한 날이면 매일, 즉 매일, 날씨와 호수에 대해 그저 옳을 뿐이다.' },
-  CDG: { name:'Jimmy Two-Tails', quote:'『들어 봐. 들어보라고. 딱 한 번만 말할 테니 잘 들어. 타즈 데빌? 걘 괴물이 아니야. 사태라고. 혼초 둘이 합쳐지면, 쾅, 사태야. 돕고 싶다고? 걔네가 서로 세 블록 안에 못 들어오게 하는 게 돕는 거야. 알겠어?』' },
+  CDG: { name:'지미 투테일', quote:'『들어 봐. 들어보라고. 딱 한 번만 말할 테니 잘 들어. 타즈 데빌? 걘 괴물이 아니야. 사태라고. 혼초 둘이 합쳐지면, 쾅, 사태야. 돕고 싶다고? 걔네가 서로 세 블록 안에 못 들어오게 하는 게 돕는 거야. 알겠어?』' },
   // ── §NPC_DIALOGUE quests moved to QUEST_DB (see QUEST_DB section above) ──
   // ── §D01-07 — quest_d0207_a1-a5 moved to QUEST_DB (see line ~29824 area) ──
 
   // ── DeFi Land — three useless NPCs who do nothing ──
-  ZRH: { name:'Grimshaw',          quote:'『…잡음… KD9QRX, 여기는 KD9QRX, 전체 호출… 잡음… 주파수에 누구 있나… 잡음… 아무도 없음 수신.』 그의 수신기는 십일 년째 고장 나 있다. 그는 알고 있다. 그것이 방송과 무관하다고 여긴다.' },
-  DUS: { name:'Bertha No-Bank', quoteFn:() => S_story.antecedentMet // §LVI
+  ZRH: { name:'그림쇼',          quote:'『…잡음… KD9QRX, 여기는 KD9QRX, 전체 호출… 잡음… 주파수에 누구 있나… 잡음… 아무도 없음 수신.』 그의 수신기는 십일 년째 고장 나 있다. 그는 알고 있다. 그것이 방송과 무관하다고 여긴다.' },
+  DUS: { name:'베르타 노뱅크', quoteFn:() => S_story.antecedentMet // §LVI
     ? ('『마흔두 번째 권.』 그녀는 눈을 들지 않고 기록을 쓴다. 부재 확인, 14.225. 사 년 차 셋째 달 이후 매일 아침과 같은 기록. 그녀는 그것을 평소보다 오래 본다. 『부재는 같아요,』 그녀가 말한다. 『하지만 어제보다 조용해요.』 그녀는 노트로 돌아간다. 자신이 왜 그런 말을 했는지 모른다.')
     : S_story.muffatManifestRead // §LII
     ? '『마흔한 번째 권에서 바뀌었어요.』 그녀는 노트에서 눈을 들지 않는다. 『신호가 아니라, 부재가요. 부재의 성격이 바뀌었어요. 그것에 대한 분류가 없어요. 이렇게 기록했죠. 바뀐 부재, 14.225. 그 후로 매일 아침 기록했어요. 무엇이 바꿨는지는 몰라요.』 그녀는 페이지를 넘긴다. 『다른 누군가가 물어봐서 다행이에요. 표기 오류인 줄 알았어요.』 그녀는 멈칫한다. 『표기 오류가 아니에요.』'
     : '『여기는 주파수 14.225. 14.225에는 아무것도 없어요. 사 년 차 셋째 달부터 매일 아침 확인했어요. 그때도 없었고 지금도 없어요. 그래도 로그는 갱신해요.』 그녀는 노트로 돌아간다. 마흔두 번째 권은 내일 시작된다.' },
   MUC: { name:"Zeke 'The Signal'", quote:'그는 말하지 않는다. 합판 코팅된 카드를 들어 보인다. 카드에는 SYSTEM COMPROMISED라고 적혀 있다. 그는 똑같은 카드 사백 장이 든 방수 상자를 가지고 있다. 다른 카드를 보여 준 적은 없다. 그는 당신에게 한 장 내민다. 거래가 아니다. 무엇도 아니다.' },
-  MOL: { name:'Dock Boatman',                    quote:'『서쪽 호숫가 도로는 먼 길이고 물이 가까운 길이야. 저 세 번째 배는 부두보다 오래됐어. 나라면 저걸 탈 거야.』 그는 권하지는 않는다. 『대부분은 걸어. 대부분은 그럴 이유가 있지.』' },
-  KSU: { name:'Harbor Guild Master',             quote:'『사 대째, 같은 규칙, 그리고 규칙은 짧아. 길드는 호수의 어느 부분에 무엇이 있는지 알고, 길드는 계속 알아.』 그는 기다린다. 『당신은 사러 왔거나 팔러 왔거나. 둘 다 여기서는 환영이야. 묻는 것은 어느 쪽도 아니야.』' },
-  VBY: { name:'Warlord Kael Mordus',             quote:'『주술사의 사람들은 저 계단 위에 있고 나는 여기 아래 있지. 일 년째 우리 둘 다 움직이지 않았어.』 그는 잔을 마시지 않고 사 분의 일 바퀴 돌린다. 『장사에 나빠. 그것은 당신 이유보다 작은 이유가 아니야. 그저 정직한 이유일 뿐이지.』' },
+  MOL: { name:'부두 뱃사공',                    quote:'『서쪽 호숫가 도로는 먼 길이고 물이 가까운 길이야. 저 세 번째 배는 부두보다 오래됐어. 나라면 저걸 탈 거야.』 그는 권하지는 않는다. 『대부분은 걸어. 대부분은 그럴 이유가 있지.』' },
+  KSU: { name:'항구 조합장',             quote:'『사 대째, 같은 규칙, 그리고 규칙은 짧아. 길드는 호수의 어느 부분에 무엇이 있는지 알고, 길드는 계속 알아.』 그는 기다린다. 『당신은 사러 왔거나 팔러 왔거나. 둘 다 여기서는 환영이야. 묻는 것은 어느 쪽도 아니야.』' },
+  VBY: { name:'전쟁군주 카엘 모르두스',             quote:'『주술사의 사람들은 저 계단 위에 있고 나는 여기 아래 있지. 일 년째 우리 둘 다 움직이지 않았어.』 그는 잔을 마시지 않고 사 분의 일 바퀴 돌린다. 『장사에 나빠. 그것은 당신 이유보다 작은 이유가 아니야. 그저 정직한 이유일 뿐이지.』' },
   AMS: { name:'코니 투나',                     quote:'그녀는 돌아보지 않는다. 『남쪽 노점. 십일 년. 그전에는 아버지가 하셨어요.』 한 호흡 길이의 침묵. 『매주 길을 치워요. 누가 들어올 수 있게 하려는 게 아니라, 길로 남아 있게 하려고.』' },
   EHZ: { name:'Johannes von Weisheit',           quote:'『여기서는 시간이 다르게 흐르므로, 내 기준이 아니라 당신의 기준으로 간단히 하겠소.』 그는 콘솔에서 눈을 들지 않는다. 『하마다니 실패 기록은 책상 위에 있소. 그는 한 가지를 증명하려 나서서 그 반대를 증명했지. 기록해 둘 가치가 있는 유일한 종류의 실패요. 그가 줄 그은 부분을 읽으시오. 그것을 가장 마지막에 그었소.』' },
   CNTR:{ name:"칸토르의 그림자",                  quote:'『그들은 우리 위에 있소. ℵ₁, ℵ₂, 그리고 그보다 더 위. 그들에게는 이 다락이 작게 느껴지오.』 그는 불쾌함 없이 말한다. 『작은 것이 사실이오. 그것이 논증의 전부요. 늘 더 큰 것이 있고, 늘 그것을 세울 수 있고, 세움은 끝나지 않는다. 그것으로 용서받기까지 삼십 년이 걸렸소.』' },
@@ -26842,7 +26842,7 @@ const NPC_TOUR_OPPONENTS = [ // → doc: docs/archive/plan-archive-verbatim-2026
     quote:'『규칙이 있어. 라미네이트 처리해 뒀지. 규칙 십이조: 물고기는 네 감정에 관심 없다.』' },
   { key:'dirk',   name:'더크 트라우트슬랩', title:'상업 트롤선', competence:'Expert',   bonus:5,  stake:600,  order:5, xp:500,
     quote:'『지난 시즌 사만 파운드. 소매 중량으로. 호수는 내 이름을 알아. 나는 재미로 낚지 않아. 톤수로 낚아.』' },
-  { key:'master', name:'The Fisherman',  title:'유구르트의 달인',   competence:'God-tier', bonus:8,  stake:1500, order:6, xp:1000,
+  { key:'master', name:'어부',  title:'유구르트의 달인',   competence:'God-tier', bonus:8,  stake:1500, order:6, xp:1000,
     quote:'「…낚시하기 좋은 날이오. 유구르트!」' },
 ];
 const TOUR_TITLES = { pip:'호수 견습생', renard:'지역 낚시꾼', bog:'실력 있는 낚시꾼', vera:'이름난 경쟁자', dirk:'호수 챔피언', master:'유구르트의 달인' };
