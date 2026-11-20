@@ -13201,17 +13201,17 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
           { kind:'_legacy_fn', fn:() => {
             S_story.roenOracleRead = true;
             S_story.xp = (S_story.xp||0) + 300;
-            storyMsg('🐑 "\'Below the water that has already been cleared.\'" Roen reads it again. "I\'ve been thinking this means the floor of a sea that\'s been drained somehow. But: water that has been cleared. The loch. The kelpie."\n\nHe is very still.\n\n"The Highland loch is the only body of water in my range of experience that has been cleared. The kelpie was removed. The ford opened. The water was — cleared. By you, actually." He looks at you. "My grandmother\'s backyard. She was describing the backyard." He folds both readings together. "She was not speaking in metaphors. She was speaking about Highland geography. In very compressed language."\n\n+300 XP. Quest: The Lost Stone activates at Malta.');
+            storyMsg('🐑 『「이미 치워진 물 아래에.」』 로엔이 다시 읽는다. 『어떻게든 물이 빠져나간 바다의 바닥을 뜻하는 줄 알았어요. 그런데, 치워진 물. 그 호수. 켈피.』\\n\\n그가 아주 가만히 선다.\\n\\n『내 경험 안에서 치워진 적이 있는 유일한 수역은 고지대의 호수예요. 켈피가 제거되었고, 여울이 열렸고, 물이, 치워졌어요. 사실 당신이 치운 거예요.』 그가 당신을 본다. 『할머니의 뒷마당. 할머니는 뒷마당을 말하고 계셨던 거예요.』 그가 두 해석을 함께 접는다. 『은유로 말씀하신 게 아니에요. 고지대 지리를 말씀하신 거예요. 아주 압축된 언어로.』\\n\\n+300 XP. 퀘스트: 잃어버린 돌 몰타에서 활성화.');
           } },
         ],
         onFail:[
           { kind:'_legacy_fn', fn:() => {
-            storyMsg('Roen listens carefully and then says: "I understand what you\'re saying but I still think it\'s somewhere in the Mediterranean. The Mediterranean has a lot of water. Some of it has probably been cleared. I am keeping my options open."');
+            storyMsg('로엔이 주의 깊게 듣고 나서 말한다. 『무슨 말인지 알겠어요. 하지만 저는 여전히 지중해 어딘가라고 생각해요. 지중해에는 물이 많아요. 그중 일부는 아마 치워졌을 거예요. 저는 가능성을 열어 두고 있어요.』');
           } },
         ],
       },
     ],
-    disposition:'"The oracle and the fortune teller said the same thing. Either they both know something, or there is a very consistent error in oracle training programs." — Roen',
+    disposition:'『예언자와 점쟁이가 같은 말을 했어요. 둘 다 무언가를 알고 있거나, 아니면 예언자 교육 과정에 아주 일관된 오류가 있는 거예요.』 — 로엔',
     passText:"둘 다 뭔가 아는 것이거나, 신탁 훈련 프로그램에 매우 일관된 오류가 있거나. 그 판독은 해석됐다.",
     failText:"로엔에 대한 신탁 해석은 아직 풀지 못했다. CHA 설득 DC 11 필요.",
     npc:"oracle's_apprentice",
@@ -13230,17 +13230,17 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
             S_story.roenMaltaCrisis = true;
             S_story.gold = (S_story.gold||0) + 250;
             S_story.xp = (S_story.xp||0) + 350;
-            storyMsg('🐑 You point out what Roen has: forty years of paying attention, five thousand miles of following an instinct, a correct interpretation of two oracles, and a grandmother who spoke in geographic coordinates.\n\nA local fisherman has dived for the stone without being asked and is already swimming back. He surfaces. Hands it over. "You dropped it." He charges nothing. He has gone back to his work before Roen remembers to thank him.\n\nRoen holds the stone. "Always do your best. He did his best. That was enough for the whole harbor." He pauses. "I should do my best. That will be enough for the whole journey." He is much steadier now. "Also I notice the stone was warm in the water. Warmer than the harbor temperature explains. This is new information." It is. "I need to get back to the Highlands."\n\n+250gp (fisherman refused it; went to the party coffers). +350 XP. Quest: The Stoic\'s Gold activates at Athens.');
+            storyMsg('🐑 당신은 로엔이 가진 것을 짚어 준다. 사십 년의 주의 깊은 관찰, 오천 마일을 본능을 따라 걸어온 일, 두 예언의 정확한 해석, 그리고 지리 좌표로 말한 할머니.\\n\\n현지 어부가 부탁받지도 않고 돌을 찾으러 잠수해 벌써 돌아오고 있다. 그가 물 위로 올라온다. 돌을 건넨다. 『떨어뜨리셨군요.』 그는 아무것도 받지 않는다. 로엔이 감사를 떠올리기도 전에 그는 이미 자기 일로 돌아갔다.\\n\\n로엔이 돌을 쥔다. 『항상 최선을 다하라. 그는 최선을 다했어요. 그것으로 항구 전체에는 충분했어요.』 그가 멈칫한다. 『나도 최선을 다해야겠어요. 그것이면 여정 전체에 충분할 거예요.』 그가 훨씬 차분해졌다. 『그리고 돌이 물속에서 따뜻했다는 것도 알아챘어요. 항구 수온으로는 설명이 안 될 만큼요. 이건 새로운 정보예요.』 새로운 정보가 맞다. 『고지대로 돌아가야 해요.』\\n\\n+250골드 (어부는 거절했다. 일행 금고로 들어갔다). +350 XP. 퀘스트: 스토아학파의 금 아테네에서 활성화.');
           } },
         ],
         onFail:[
           { kind:'_legacy_fn', fn:() => {
-            storyMsg('Roen looks at the harbor floor. "I have walked four thousand miles. I have spoken to two oracles. I have interpreted a grandmother\'s gardening advice as metaphysical instruction. And then I dropped the stone in a harbor." He is not ready to count what he has yet.');
+            storyMsg('로엔이 항구 바닥을 바라본다. 『사천 마일을 걸었어요. 두 예언자와 이야기했고, 할머니의 정원 가꾸기 조언을 형이상학적 가르침으로 해석했어요. 그리고 나서 항구에 돌을 떨어뜨렸죠.』 그는 아직 자신이 가진 것을 세어볼 준비가 되지 않았다.');
           } },
         ],
       },
     ],
-    disposition:'"He dived in for a stranger\'s stone. Without hesitation. And charged nothing. I have been learning to do my best. He already does his best. That\'s the whole lesson right there." — Roen, watching the fisherman\'s retreating boat',
+    disposition:'『모르는 사람의 돌을 위해 주저 없이 뛰어들었어요. 그리고 아무것도 받지 않았죠. 나는 최선을 다하는 법을 배우고 있는데, 그는 이미 최선을 다하고 있어요. 교훈 전부가 바로 거기에 있어요.』 — 로엔, 멀어지는 어부의 배를 보며',
     passText:"그는 낯선 돌을 위해 주저 없이 뛰어들고 아무것도 청구하지 않았다. 로엔은 사십 년을 걸어 찾으러 온 것을 배웠다.",
     failText:"로엔은 아직 몰타 부두에서 위기에 처해 있다. 돌은 항구 바닥에 있다. WIS 통찰 DC 12 필요.",
     npc:"malta_shore_islanders",
@@ -13253,7 +13253,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     activateNode:'ATH', gate:{ flags:['roenMaltaCrisis'] },
     completion:{ flags:['roenAlchemistMet'] }, bits:[],
     waypointNode:'ATH', reward:0,
-    disposition:'"Shepherds rarely use metaphors. They use directions." — The Old Man at the Areopagus',
+    disposition:'『목자들은 은유를 잘 쓰지 않소. 길 안내를 쓰지.』 — 아레오파고스의 노인',
     passText:"양치기들은 은유를 쓰지 않는다. 방향을 쓴다. 당신은 이미 그것을 찾았다. 아레오파고의 노인이 말했다.",
     failText:"로엔은 아직 아테네의 아레오파고스에 도달하지 못했다.",
     npc:"deacon_nikolaos_ath",
@@ -13266,7 +13266,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     activateNode:'KIR', gate:{ flags:['roenAlchemistMet'] },
     completion:{ flags:['personalLegendComplete'] }, bits:[],
     waypointNode:'KIR', reward:0,
-    disposition:'"She said it was in the backyard. I walked four thousand miles to confirm that she was correct. I would do it again. I understand it now." — Roen, at the loch edge',
+    disposition:'『할머니는 뒷마당에 있다고 하셨어요. 나는 그 말이 맞다는 것을 확인하려고 사천 마일을 걸었어요. 다시 그럴 거예요. 이제 이해해요.』 — 로엔, 호수 가장자리에서',
     passText:"그녀는 뒤뜰에 있다고 했다. 그는 사천 마일을 걸어 그녀가 옳음을 확인했다. 그는 다시 그럴 것이다. 그 돌은 호수에 있다.",
     failText:"로엔은 아직 돌을 가지고 아일랜드 고원의 호수로 돌아가지 않았다.",
     npc:"elder_fionn",
@@ -13282,7 +13282,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     activateNode:'VS', gate:{ flags:['personalLegendComplete'] },
     completion:{ flags:['wisHookReceived'] }, bits:[],
     waypointNode:'VS', reward:0,
-    disposition:'"The laws worked whether or not anyone wanted them to." — Roen',
+    disposition:'『법은 누가 원하든 원하지 않든 작동했어요.』 — 로엔',
     passText:"법칙들은 누가 원하든 원하지 않든 작동했다. 로엔이 문서철을 가졌다. 조각 사냥이 시작된다.",
     failText:"로엔은 아직 비스비에서 발견되지 않았다. 아들리 파편 수집은 시작되지 않았다.",
     npc:"solvak",
@@ -13302,7 +13302,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
       { kind:'skill_check', stat:'WIS', skill:'Insight', dc:13,
         onPass:[
           { kind:'mission_bit', flag:'wisPage1_masks' },
-          { kind:'reward', gold:150, xp:250, knowledge:'Ardley W1 — The Mask: Silas Vance, cloth merchant at Tilbury, is a former ship rigger. Rope callousing on the line-grip fingers, not palm-wide bale callousing. His grip on the bolt of fabric corrects twice — the natural motion of a man who learned to hold rope. When identified he gave up his re-export ledger willingly. He said: "I was waiting for someone to notice." Ardley was right: the tell is in the effort the performance costs, not in the performance itself.' },
+          { kind:'reward', gold:150, xp:250, knowledge:'아들리 W1 — 가면: 틸버리의 직물 상인 사일러스 밴스는 전직 선박 리거다. 굳은살은 짐 꾸러미를 쥐는 손바닥 전체가 아니라 밧줄을 쥐는 손가락에 배어 있다. 직물 한 필을 쥔 그의 손이 두 번 자세를 고친다. 밧줄 잡는 법을 배운 사람의 자연스러운 동작이다. 정체가 밝혀지자 그는 재수출 장부를 기꺼이 넘겼다. 그가 말했다. 『누군가 알아채 주기를 기다리고 있었습니다.』 아들리가 맞았다. 흔적은 연기 그 자체가 아니라 연기에 드는 수고에 있다.' },
           { kind:'narrative', msg:'👁️ 밴스의 손. 짐꾼의 굳은살은 손바닥 전체에 걸치고, 돛줄 선원의 굳은살은 줄을 쥐는 손가락을 따라 난다. 그가 옷감 한 필을 쥐는 손이 한 번 만지는 동안 두 번 고쳐진다.\n\n당신은 동쪽 위탁 화물을 묻는다. 그의 손에 대해서는 아무것도 묻지 않는다.\n\n밴스. 『누가 내 손을 볼 때가 언제쯤일까 했지.』\n\n그가 재수출 장부를 넘긴다. 조용한 술수, 막을 값어치도 없다. 그는 솔트윅을 거치는 할인 경로 세 개를 안다. 아들리의 W1 조각 수집. 지식 항목 추가. +150gp, +250 XP.' },
         ],
         onFail:[
@@ -13310,7 +13310,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
         ],
       },
     ],
-    disposition:'"I was waiting for someone to notice." — Silas Vance, third berth',
+    disposition:'『누군가 알아채 주기를 기다리고 있었습니다.』 — 사일러스 밴스, 셋째 선실',
     passText:"누군가 알아채기를 기다리고 있었다. 사일러스 밴스의 밧줄 굳은살 손이 읽혔다. 틈이 발견됐다.",
     failText:"틸버리 세 번째 부두의 사일러스 밴스는 아직 읽지 않았다. WIS 통찰 DC 13 필요.",
     npc:"magistra_elara_muffat",
@@ -13326,7 +13326,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
       { kind:'skill_check', stat:'WIS', skill:'Insight', dc:12,
         onPass:[
           { kind:'mission_bit', flag:'wisPage2_aggression' },
-          { kind:'reward', xp:250, knowledge:'Ardley W2 — The Leak: Dorit at Saltwick is protecting the dry dock contracts. Her politeness is real — no personal animus. But the contracts are contingent on Aldous Wren-Pembury\'s old Eastern Reach seal remaining unexamined. Every irregular vessel docked under the Letter of True Passage is a ledger entry that assumes the seal was valid. If examined officially, the dry dock contracts go with it. She touches the ledger because it is everything that could disappear. Her aggression is structural, not personal.' },
+          { kind:'reward', xp:250, knowledge:'아들리 W2 — 누출: 솔트윅의 도릿은 드라이독 계약들을 지키고 있다. 그녀의 공손함은 진짜다. 개인적인 악의는 없다. 하지만 그 계약들은 알더스 렌-펨버리의 낡은 동부 리치 인장이 검토되지 않은 채 남아 있다는 전제 위에 서 있다. 진짜 통행 서한 아래 입항한 모든 부정기 선박은 그 인장이 유효하다고 가정하는 장부 기입이다. 공식적으로 검토된다면 드라이독 계약들도 함께 사라진다. 그녀가 장부를 만지는 것은 그것이 사라질 수 있는 모든 것이기 때문이다. 그녀의 공격성은 개인적이 아니라 구조적이다.' },
           { kind:'narrative', msg:'👁️ 도릿의 목소리는 『위임장』이라는 말에서 한 톤 낮아진다. 그 위임장뿐이 아니다. 어떤 위임장이라도. 손이 장부 표지 위에 손바닥을 펼쳐 올라간다. 불안한 버릇이 아니다.\n\n그녀는 당신에게 적대적인 것이 아니다. 맥락에 적대적인 것이다. 불규칙한 입항, 안전 통행 서한, 서류 없는 접안.\n\n알도스의 옛 인장이 건조선고 계약들을 묶고 있다. 공식 조사가 시작되면 전부 풀린다. 그녀는 이 말을 할 수 없다. 대신 장부를 어루만진다.\n\n아들리의 W2 조각 수집. 지식 항목 추가. +250 XP.' },
         ],
         onFail:[
@@ -13334,7 +13334,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
         ],
       },
     ],
-    disposition:'"Everything in that ledger is legal. Every one of those entries is legal." — Dorit (she says \'legal\' twice)',
+    disposition:'『그 장부 안의 모든 것은 합법이에요. 저 기입들은 하나하나 전부 합법이라고요.』 — 도릿 (「합법」을 두 번 말한다)',
     passText:"저 항목들은 모두 적법하다. 그녀는 적법을 두 번 말한다. 장부의 손길이 읽혔다. 도리트의 보호가 이해됐다.",
     failText:"솔트윅 부두에서 도릿의 몸짓은 아직 읽지 않았다. WIS 통찰 DC 12 필요.",
     npc:"harbormaster_dorit",
@@ -13350,7 +13350,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
       { kind:'skill_check', stat:'INT', skill:'Investigation', dc:11,
         onPass:[
           { kind:'mission_bit', flag:'wisPage3_thumbscrew' },
-          { kind:'reward', xp:300, knowledge:'Ardley W3 — The Thumbscrew: Vera Keel left the Letter of Marque deliberately (commission was void; she knew). She took the navigator\'s notes: survey data for a Baltic route through the northern straits that would redirect Highland timber through the Eastern Reach, cutting Tilbury\'s dock out of the primary timber trade entirely. Her test of the Star\'s crew was to see if anyone read the commission date — the date was bait. She was here to see who on this route was paying attention. The navigator\'s notes are gone. She found what she came for.' },
+          { kind:'reward', xp:300, knowledge:'아들리 W3 — 엄지나사: 베라 킬은 일부러 사략 위임장을 두고 갔다(위임은 무효였다. 그녀는 알고 있었다). 그녀는 항해사의 노트를 가져갔다. 고지대 목재를 동부 리치로 돌려 틸버리의 선착장을 주요 목재 무역에서 완전히 배제할, 북쪽 해협을 지나는 발트 항로의 측량 자료다. 스타호 선원들에 대한 그녀의 시험은 누군가 위임 날짜를 읽는지 보는 것이었다. 그 날짜가 미끼였다. 그녀는 이 항로에서 누가 주의를 기울이고 있는지 보러 온 것이다. 항해사의 노트는 사라졌다. 그녀는 찾던 것을 찾았다.' },
           { kind:'narrative', msg:'🔍 위임장 서류가 여기 있다. 그녀가 일부러 남겨 둔 것이다. 측량 통 꽂이 하나가 비어 있다. 먼지 자국이 말한다. 사라진 통은 표준 해도보다 길었다고.\n\n항해사의 측량 노트. 가져간다.\n\n노트는 위임장보다 오래되었다. 별개의 화물. 그들이 측량하는 경로가 무엇이든 표준 항로 북쪽을 지난다. 발트해 접근로.\n\n킬은 어떤 대화에서도 항해사를 한 번도 언급하지 않았다. 위임장은 날짜를 읽는 자를 가려내는 미끼였다. 경로 데이터가 진짜 화물이었다.\n\n아들리의 W3 조각 수집. 지식 항목 추가. +300 XP.' },
         ],
         onFail:[
@@ -13358,7 +13358,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
         ],
       },
     ],
-    disposition:'"She talked about everything except the navigator." — Roen',
+    disposition:'『항해사 빼고는 모든 이야기를 했어요.』 — 로엔',
     passText:"그녀는 항해사 빼고 모든 것을 이야기했다. 해도실이 읽혔다. 그 생략이 증거다.",
     failText:"SB 해도실은 아직 살펴보지 않았다. INT 조사 DC 11 필요.",
     npc:"captain_vera_keel",
@@ -13374,7 +13374,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
       { kind:'skill_check', stat:'INT', skill:'Investigation', dc:12,
         onPass:[
           { kind:'mission_bit', flag:'wisPage4_sight' },
-          { kind:'reward', xp:300, knowledge:'Ardley W4 — The Long View: The Mordus-shaman stalemate at Visby has lasted six months. In that time: three goblin clans have reorganized under Hollow Hands influence; the Warrant Hall above has issued seventeen independent rulings without Mordus\'s review; the shaman has not needed to act because the stalemate does his work for him. Mordus controls the floor. The shaman controls every decision Mordus makes by refusing to be confronted. The stalemate is not a standoff — it is the shaman winning in slow motion.' },
+          { kind:'reward', xp:300, knowledge:'아들리 W4 — 긴 시야: 비스뷔에서 모르두스와 주술사의 교착은 여섯 달째다. 그동안 세 고블린 부족이 할로우 핸즈의 영향 아래 재편되었고, 위의 영장 회관은 모르두스의 검토 없이 열일곱 건의 독자 판결을 내렸다. 주술사는 교착이 자기 일을 대신해 주기 때문에 행동할 필요가 없었다. 모르두스는 바닥을 장악한다. 주술사는 맞서기를 거부함으로써 모르두스가 내리는 모든 결정을 장악한다. 교착은 대치가 아니다. 주술사가 느린 속도로 이기고 있는 것이다.' },
           { kind:'narrative', msg:'🔍 모더스의 자리는 두 출구 모두를 조망한다. 눈앞의 방으로는 최적이다.\n\n위층의 영장 회관, 여섯 달 동안 독립 판결 열일곱 건. 모더스의 심사 없음. 샤먼은 내려올 필요가 없었다. 둘 다 문을 지켜보는 동안 구조가 바뀌고 있다.\n\n모더스는 교착에서 지고 있는 것이 아니다. 석 달 전에 이미 졌고, 계단 위를 올려다보지 않았다.\n\n로엔, 조용히. 『바닥이 전장이 아니다.』\n\n아들리의 W4 조각 수집. 지식 항목 추가. +300 XP.' },
         ],
         onFail:[
@@ -13382,7 +13382,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
         ],
       },
     ],
-    disposition:'"He is playing for next month. The shaman is playing for next year." — Roen, looking at the ceiling',
+    disposition:'『그는 다음 달을 두고 있어요. 주술사는 내년을 두고 있어요.』 — 로엔, 천장을 보며',
     passText:"그는 다음 달을 두고 논다. 주술사는 내년을 두고 논다. 교착의 비용이 명명됐다.",
     failText:"비스비 부러진 이 선술집의 모르두스와 주술사의 대치는 아직 살펴보지 않았다. INT 조사 DC 12 필요.",
     npc:"warlord_kael_mordus",
@@ -13400,7 +13400,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
         onPass:[
           { kind:'mission_bit', flag:'wisPage5_form' },
           { kind:'flag_write', set:['wisArchiveLetter'] },
-          { kind:'reward', xp:300, knowledge:'Ardley W5 — Formlessness: The Stoic at Athens argued that persistence in argument is virtue — changing positions is capitulation. Roen noted the Stoic had changed positions twice in the last hour and called both changes \'refinements.\' The Stoic fell silent. Roen: "Releasing the argument is not capitulation if the argument was wrong." The Stoic wrote this down and offered a letter of introduction to the Visby archive — the only library that keeps Ardley\'s full catalogue.' },
+          { kind:'reward', xp:300, knowledge:'아들리 W5 — 무형: 아테네의 스토아학파 철학자는 논쟁에서의 고집이 미덕이라고 주장했다. 입장을 바꾸는 것은 항복이라는 것이다. 로엔은 그 철학자가 지난 한 시간 동안 입장을 두 번 바꾸었고 두 번 모두 「다듬음」이라고 불렀다고 지적했다. 철학자가 침묵했다. 로엔이 말했다. 『논쟁이 틀렸다면 논쟁을 놓는 것은 항복이 아니에요.』 철학자는 이것을 받아 적고, 아들리의 전체 목록을 보관하는 유일한 서고인 비스뷔 기록보관소의 소개장을 써 주었다.' },
           { kind:'narrative', msg:'🧠 스토아학파 철학자의 논증은 세 겹이다. 이십 분 전에 도달한 인식론적 주장이 소유권 겹과 모순된다. 그는 깨닫지 못한 채 양립할 수 없는 두 입장을 동시에 논하고 있었다.\n\n당신이 어느 겹에서 시작했는지 묻는다.\n\n그가 멈칫한다. 이어서. 『알겠다.』\n\n로엔. 『논증이 틀렸다면 논증을 놓는 것은 항복이 아니다.』\n\n스토아학파 철학자가 이 말을 받아 적는다. 그가 비스뷔 문서고의 소개장을 건넨다. 그곳 기록관이 아들리의 전체 목록을 보관하고 있다.\n\n아들리의 W5 조각 수집. 지식 항목 추가. 스토아학파 철학자의 문서고 소개장 획득. +300 XP.' },
         ],
         onFail:[
@@ -13408,7 +13408,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
         ],
       },
     ],
-    disposition:'"Releasing the argument is not capitulation if the argument was wrong." — Roen (the Stoic wrote this down)',
+    disposition:'『논쟁이 틀렸다면 논쟁을 놓는 것은 항복이 아니에요.』 — 로엔 (철학자가 이것을 받아 적었다)',
     passText:"논거를 놓는 것은 항복이 아니다, 그 논거가 틀렸다면. 스토아 학파가 이걸 적었다. 전환이 됐다.",
     failText:"아테네의 철학 논쟁에는 아직 참여하지 않았다. WIS 통찰 DC 12 필요.",
     npc:"deacon_nikolaos_ath",
@@ -13427,7 +13427,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
       { kind:'skill_check', stat:'WIS', skill:'Insight', dc:14,
         onPass:[
           { kind:'mission_bit', flag:'wisPage6_shadow' },
-          { kind:'reward', xp:350, items:[{ name:'Shadow Shard', icon:'\u{1F52E}', type:'misc', desc:'VS 거울 방의 파편. 그것이 비춘 것을 받아들인 뒤에 자유로이 주어진. 이제 아무것도 비추지 않는다. 안에 있던 것은 이름이 붙었다. 그 뒤의 방은 조용하다.', sell:25 }], knowledge:"Ardley W6 \u2014 The Shadow: The mirror room in Visby's lower archive reflects a pattern the visitor has been navigating around \u2014 not a lie, not a flaw, but a part of the self that operates below acknowledgment. Roen gave it a formal nod. The mirror offered a shard. Accepting the shadow's observation is not defeat. It is the end of the cost of suppressing it." },
+          { kind:'reward', xp:350, items:[{ name:'Shadow Shard', icon:'\u{1F52E}', type:'misc', desc:'VS 거울 방의 파편. 그것이 비춘 것을 받아들인 뒤에 자유로이 주어진. 이제 아무것도 비추지 않는다. 안에 있던 것은 이름이 붙었다. 그 뒤의 방은 조용하다.', sell:25 }], knowledge:"아들리 W6 — 그림자: 비스뷔 하층 기록보관소의 거울 방은 방문자가 계속 피해 다니던 무늬를 비춘다. 거짓도 결함도 아니라, 인정 아래에서 작동하는 자기 자신의 일부다. 로엔이 그것을 향해 정중히 고갯짓했다. 거울이 파편 하나를 내밀었다. 그림자의 관찰을 받아들이는 것은 패배가 아니다. 그것을 억누르는 데 들던 비용의 끝이다." },
           { kind:'narrative', msg:'🔮 문서고 아래 방에는 이곳에 있어서는 안 될 거울이 있다. 틀 없이 서 있는, 닦아낸 흑요석.\n\n거울이 당신에게 무언가를 보여 준다. 그것이 보여 주는 것은 구체적이고 정확하다. 당신이 오랫동안 빙 돌아 피해 다닌 배열에 이름을 붙인다.\n\n당신이 정중히 고갯짓한다. 거울이 중심에서 깨끗하게 갈라지며 파편 하나를 내놓는다. 그 뒤의 방이 조용해진다.' },
         ],
         onFail:[
@@ -13436,7 +13436,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
       },
     ],
     waypointNode:'VS', reward:0,
-    disposition:'"I gave it a formal nod. It seemed appropriate." — Roen',
+    disposition:'『정중히 고갯짓했어요. 적절해 보였거든요.』 — 로엔',
     passText:"정식으로 고갯짓했다. 적절해 보였다. 그림자 방에 맞섰다.",
     failText:"비스비의 그림자 방에는 아직 들어가지 않았다. 거울상이 기다리고 있다. WIS 통찰 DC 14, 아니면 피조물이 필요하다.",
     npc:"solvak",
@@ -13451,7 +13451,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     activateNode:'VS', gate:{ flags:['wisHookReceived'] },
     completion:{ flags:['wisPage1_masks','wisPage2_aggression','wisPage3_thumbscrew','wisPage4_sight','wisPage5_form'], flagsAny:['wisPage6_shadow'], battles:['VS_SHADOW'] }, bits:[],
     waypointNode:'VS', reward:0,
-    disposition:'"He was right. That\'s why they scattered it." — Roen, closing the book',
+    disposition:'『그가 맞았어요. 그래서 그들이 그것을 흩뿌린 거예요.』 — 로엔, 책을 덮으며',
     passText:"그가 옳았다. 그래서 그들이 그것을 흩뿌렸다. 여섯 부분 전부가 모였다. 그 책이 닫힌다.",
     failText:"여섯 개의 아들리 파편을 모두 찾지 못했다. 수집이 완료되면 비스비로 돌아오라.",
     npc:"solvak",
@@ -13464,11 +13464,11 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'비스뷔에 들어가 군주 모르두스에게 실종된 무기 선적에 대해 이야기하라.',
     activateNode:'VS', onActivate:null, // §VM-01-G3 — the Layer-55 stanza's act≥5 leg was structurally dead (actNumber = node.act, and VS is an act-2 node), so on-node it never fired; the arc self-paces through Solvak's buttons
     waypointNode:'VS', reward:0,
-    disposition:'"The debt will be paid when the weapons are returned. The weapons will be returned when I know where they went. I do not know where they went." — Warlord Mordus',
+    disposition:'『무기가 돌아오면 빚은 갚힐 것이다. 무기는 내가 그것들이 어디로 갔는지 알 때 돌아올 것이다. 나는 그것들이 어디로 갔는지 모른다.』 — 전쟁군주 모르두스',
     passText:"무기가 돌아오면 빚은 갚힐 것이다. 모르두스가 말했다. 비스뷔로의 조사 경로가 열렸다.",
     failText:"사라진 무기 선적에 대해 전쟁군주 모르두스와 아직 이야기하지 않았다.",
     npc:"solvak",
-    rumor:"A collector in Visby is owed, and the debtor has stopped answering his door. The Warrant wants the matter probed before it turns loud. Ask Solvak.",
+    rumor:"비스뷔의 한 수집가가 빚을 받을 처지인데, 채무자가 문을 열어 주지 않게 되었다. 《영장》은 일이 시끄러워지기 전에 조사하기를 원한다. 솔박에게 물어보라.",
   },
   quest_vs_02: { id:'quest_vs_02', type:'side', schema:'UQF-1.0', gate:{ flags:['vsDebtProbed'] }, bits:[], completion:{ flags:['vsWeaponsFound'] }, title:'이바: 중개인',
     onComplete:[ { kind:'flag_write', set:['vsWeaponsFound'] }, { kind:'favor', npc:"yva", set:1 }, { kind:'narrative', msg:'🖤 속빈 손 무기 흔적 발견. 이바가 우호적이 되었다.' },
@@ -13484,11 +13484,11 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'고블린 동굴 안에서 이바를 찾아라.',
     activateNode:"VS", onActivate:null, // §VM-01-G3 — deduped (authored null + appended "VS"); the vsDebtProbed gate keeps board posting AND the newly-revived VS node in-sequence
     waypointNode:'TRD', reward:0,
-    disposition:'"I don\'t know who they answer to. I know what the mark means." — Yva',
+    disposition:'『그들이 누구에게 보고하는지는 몰라요. 그 표식이 무슨 뜻인지는 알아요.』 — 이바',
     passText:"그들이 누구에게 보고하는지는 모른다. 그 표지가 무슨 뜻인지는 안다. 이바가 50금을 받고 단서를 줬다.",
     failText:"고블린 동굴 안의 이바는 아직 찾지 못했다. 그녀는 50gp에 무기 위치를 알고 있다.",
     npc:"yva",
-    rumor:"Two odd goods are converging on Visby, both stamped with the same unreadable mark. Yva the broker knows what it means. The Warrant wants her reading.",
+    rumor:"같은 해독 불가 표식이 찍힌 두 가지 이상한 상품이 비스뷔로 모이고 있다. 중개인 이바는 그것이 무슨 뜻인지 안다. 《영장》은 그녀의 판독을 원한다.",
   },
   quest_vs_03: { id:'quest_vs_03', type:'side', schema:'UQF-1.0', gate:{ flags:['vsWeaponsFound'] }, bits:[], completion:{ flags:['vsDebtSettled'] }, title:'모르두스가 지불하다',
     onComplete:[ { kind:'flag_write', set:['vsDebtSettled','vsShamanKnown'] }, { kind:'reward', gold:400 }, { kind:'narrative', msg:'💰 솔박에게서 +400gp. 빚은 정산되었다. 샤먼의 이름은 밝혀졌다. 하지만 찾지는 못했다.' } ], // §ARCH-01 W7c
@@ -13496,26 +13496,26 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'공허한 손의 인장을 지니고 비스뷔 밖의 솔바크에게 돌아가라.',
     activateNode:"VS", onActivate:null, // §VM-01-G3 — deduped; the vsWeaponsFound gate keeps the board's in-sequence promise (supersedes the FU6 "keeps gate:{}" note now that VS is a live node)
     waypointNode:'VS', reward:400,
-    disposition:'"The Hollow Hands are mine to deal with now that I know what they are." — Warlord Mordus',
+    disposition:'『할로우 핸즈는 이제 그들이 무엇인지 알게 된 내가 처리할 일이다.』 — 전쟁군주 모르두스',
     passText:"할로우 핸즈는 이제 그들이 무엇인지 아는 내가 처리한다. 모르두스가 지급했다. 솔박이 인장을 가졌다.",
     failText:"할로우 핸즈의 인장은 아직 비스비 밖의 솔박에게 전해지지 않았다.",
     npc:"solvak",
-    rumor:"The mark leads to a name and the name to a debt: Mordus, of the Hollow Hands. The Warrant means to see it paid. Bring the paper to Visby.",
+    rumor:"표식은 이름으로, 이름은 빚으로 이어진다. 할로우 핸즈의 모르두스다. 《영장》은 그 빚이 갚아지는 것을 볼 작정이다. 그 서류를 비스뷔로 가져가라.",
   },
   // ── Layer 56: Void Shaman quest ──
   quest_vs_warden: { id:'quest_vs_warden', type:'side', schema:'UQF-1.0', gate:{}, bits:[], completion:{ flags:['wardensLegacyKnown'] }, title:'간수',
     onComplete:[ // §ARCH-01 W7c — three-way resolution message stays _legacy_fn (gold delivered inline per path; just confirm here)
       { kind:'flag_write', set:['wardensLegacyKnown'] },
       { kind:'_legacy_fn', fn:(S, ctx) => { const say = m => (ctx && ctx.pushMsg ? ctx.pushMsg(m) : storyMsg(m));
-        if (!S.vsShamanPersuaded && !S.vshamanDefeated) say('🔑 The Warden\'s mandate is resolved.');
-        else if (S.vsShamanPersuaded) say('🔑 Persuasion path: the sub-clan returned to Mordus. The chain is known.');
-        else say('🔑 Combat path: the sub-clan scattered. The Hollow Hands have no direction.'); } },
+        if (!S.vsShamanPersuaded && !S.vshamanDefeated) say('🔑 산길의 간수의 임무가 해결되었다.');
+        else if (S.vsShamanPersuaded) say('🔑 설득 경로: 하위 부족이 모르두스에게 돌아갔다. 연쇄가 밝혀졌다.');
+        else say('🔑 전투 경로: 하위 부족이 흩어졌다. 할로우 핸즈는 방향을 잃었다.'); } },
     ],
     desc:'감시자는 이백 년째 산길에 있다. 도착했을 때 이미 틀린 임무를 집행하며. 이것을 이해할 만큼 가까이 온 자는 모두 돌려보내졌거나 더 나빴다. 당신은 The Constructor\'s Log를 가지고 있다. 프로버거의 기록을 가지고 있다. 사슬의 네 고리 모두의 이름을 가지고 있다. 감시자는 이 어느 것도 모른다. 문제는 당신이 설명할 수 있는가가 아니다. 이백 년 틀려 온 것이 마침내 누군가 기록을 들이밀 때 자신의 틀림을 알아볼 수 있는가다.',
     hint:'MT 터널에 들어가 간수와 대치하라. 건설자의 일지가 있다면 가져가라.',
     activateNode:null, 
     waypointNode:'GVA', reward:600,
-    disposition:'"If I\'m wrong, then I needed to be stopped. That\'s — that\'s actually fine." — The Warden',
+    disposition:'『내가 틀렸다면, 나는 멈춰 세워질 필요가 있었던 거요. 그건, 그건 사실 괜찮소.』 — 산길의 간수',
     passText:"내가 틀렸다면, 난 멈춰 세워질 필요가 있었다. 그건 사실 괜찮다. 감독관이 그 기록을 받아들였다.",
     failText:"산길의 간수에게 아직 건설자의 일지를 들이대지 않았다.",
     npc:"solvak",
