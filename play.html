@@ -34322,27 +34322,27 @@ function _nodeHookPortDnfAccess(node) {
       const kelpieCleared = !!((S_story.defeatedBattles||{})['KIR']);
       if (S_story.dfBarterLearned) {
         _dfDiv.style.cssText = 'margin-top:10px;border-left-color:#2a5a3a;color:#70b880;font-size:12px;';
-        _dfDiv.textContent = '✅ Dunfall is open. The highland herb pouch is in your pack. Mairén\'s ledger has the exchange recorded in sheepskin. Come back in spring — the myrtle is better after the first frost.';
+        _dfDiv.textContent = '✅ 던폴이 열렸다. 고지대 약초 주머니가 당신의 가방에 있다. 마이렌의 장부에 교환이 양가죽지로 기록되었다. 봄에 다시 오시오. 첫서리가 지나면 머틀이 더 좋아진다.';
       } else if (S_story.dunfallAccessed) {
         _dfDiv.style.cssText = 'margin-top:10px;border-left-color:#3a5a2a;color:#80a860;font-size:12px;';
-        _dfDiv.textContent = '🌿 The harbor is open. Mairén has highland herb pouches — yarrow, bog myrtle, and one ingredient she will not name. The market runs on acknowledgment, not gold. WIS Insight DC 11 to understand the exchange. See quest panel.';
+        _dfDiv.textContent = '🌿 항구가 열려 있다. 마이렌이 고지대 약초 주머니를 가지고 있다. 톱풀, 늪 머틀, 그리고 그녀가 이름을 밝히지 않는 재료 하나. 시장은 금이 아니라 인정으로 돌아간다. 교환을 이해하려면 WIS 통찰 DC 11. 퀘스트 패널을 볼 것.';
       } else if (kelpieCleared) {
         _dfDiv.style.cssText = 'margin-top:10px;border-left-color:#2a4a5a;color:#6090b0;font-size:12px;';
-        _dfDiv.textContent = '🏔 The ford is clear. The doors in Dunfall are open. Mairén Fionn is at the dock with the harbor ledger. The village carried the closed-door grief while the ford was blocked. You cleared the ford.';
+        _dfDiv.textContent = '🏔 여울이 정리되었다. 던폴의 문들이 열려 있다. 마이렌 피온이 항구 장부를 들고 부두에 있다. 여울이 막힌 동안 마을은 문 닫힌 슬픔을 짊어지고 있었다. 당신이 여울을 정리했다.';
         const _dfBtn = document.createElement('button');
         _dfBtn.className = 'inv-use-btn'; _dfBtn.style.marginTop = '6px';
-        _dfBtn.textContent = '🏔 Enter Dunfall — ford is clear';
+        _dfBtn.textContent = '🏔 던폴로 들어간다 — 여울이 정리되었다';
         _dfBtn.addEventListener('click', () => {
           _dfBtn.disabled = true;
           S_story.dunfallAccessed = true;
           S_story.xp = (S_story.xp||0) + 100;
-          storyMsg('🏔 Mairén is at the dock with the ledger open.\n\n"You cleared the ford." She says it as a statement, not a greeting. "We opened the doors."\n\nThe village is quiet in the way that follows a long closure — not festive, not relieved, just present again. The fish market is running. The wool carts are moving. Three households are not represented at the dock, and everyone knows which three.\n\nDunfall is accessible. The barter market is open. +100 XP.');
+          storyMsg('🏔 마이렌이 장부를 열어 둔 채 부두에 있다.\\n\\n「여울을 정리했군요.」 인사가 아니라 진술로 말한다. 「우리는 문을 열었어요.」\\n\\n마을은 긴 폐쇄 뒤에 오는 식으로 조용하다. 축제 같지도, 안도 같지도 않고, 그저 다시 존재한다. 생선 시장이 돌아가고 있다. 양모 수레가 움직이고 있다. 세 가구가 부두에 나와 있지 않고, 모두가 어느 세 가구인지 안다.\\n\\n던폴에 들어갈 수 있다. 물물교환 시장이 열려 있다. +100 XP.');
           storyRender(node);
         });
         _dfDiv.appendChild(_dfBtn);
       } else {
         _dfDiv.style.cssText = 'margin-top:10px;border-left-color:#5a4a3a;color:#b09070;font-size:12px;';
-        _dfDiv.textContent = '🚪 The doors in Dunfall are barred. The kelpie holds the ford west of the Highlands. The light from the standing stones went wrong and the village closed. Mairén watches from behind the door. She does not open it.';
+        _dfDiv.textContent = '🚪 던폴의 문들이 빗장으로 잠겨 있다. 켈피가 하이랜드 서쪽의 여울을 지키고 있다. 입석들의 빛이 잘못되었고 마을이 닫혔다. 마이렌이 문 뒤에서 지켜본다. 그녀는 열지 않는다.';
       }
       document.getElementById('story-text-box').insertAdjacentElement('afterend', _dfDiv);
     }
@@ -34360,13 +34360,13 @@ function _nodeHookSparkDnfHarmony(node) {
       _spk2Div.className = 'sweelinck-variant';
       if (S_story.dunfallHarmonyComplete) {
         _spk2Div.style.cssText = 'margin-top:10px;border-left-color:#2a5a3a;color:#70b880;font-size:12px;';
-        _spk2Div.textContent = '✅ The Dunfall Harmony Chain is complete. Bram is on the ledger. Oat is in the grain pile. Commissioner Halvard Fehn — formerly Halvard Jesst, harbor informant, nine years relocated — is at the south dock writing clearance letters in his actual handwriting for the first time in nine years. The chain: cat, mouse, spore, man. Four creatures, all accounted for.';
+        _spk2Div.textContent = '✅ 던폴 조화의 사슬이 완성되었다. 브람이 장부에 올라 있다. 오트가 곡물 더미에 있다. 할바르드 펜 위원, 전 할바르드 제스트, 항구 정보원, 9년 전 신분 전환, 이 남쪽 부두에서 9년 만에 처음으로 자신의 진짜 필적으로 통행 문서를 쓰고 있다. 사슬은 이렇다: 고양이, 쥐, 포자, 인간. 네 생물, 모두 확인됨.';
       } else if (S_story.brimFound && !S_story.fehnConfessed) {
         _spk2Div.style.cssText = 'margin-top:10px;border-left-color:#3a4a6a;color:#8090c8;font-size:12px;';
-        _spk2Div.textContent = '✨ The drift spore is in the vial. The Commissioner has been in its six-foot radius for two days. Three inconsistencies documented: the Revenue Division that does not exist, the Highland Fleet his grandfather commanded that does not exist, the appointment certificate from an office that closed before his appointment date.';
+        _spk2Div.textContent = '✨ 부유 포자가 유리병에 있다. 위원이 이틀째 그 여섯 자 반경 안에 있었다. 모순 세 가지가 기록되었다: 존재하지 않는 세입부, 그의 할아버지가 지휘했다는 존재하지 않는 고지대 함대, 임명일 이전에 폐쇄된 관청이 발급한 임명장.';
         const _fehnBtn = document.createElement('button');
         _fehnBtn.className = 'inv-use-btn'; _fehnBtn.style.marginTop = '6px';
-        _fehnBtn.textContent = '📋 Confront Commissioner Fehn — three names, one person';
+        _fehnBtn.textContent = '📋 펜 위원과 대치한다 — 세 가지 이름, 한 사람';
         _fehnBtn.addEventListener('click', () => {
           _fehnBtn.disabled = true;
           S_story.fehnConfessed = true;
@@ -34376,20 +34376,20 @@ function _nodeHookSparkDnfHarmony(node) {
           const inv = S_story.inventory = S_story.inventory || [];
           const dsIdx = inv.findIndex(i => i.name === 'Dunfall Drift Spore');
           if (dsIdx !== -1) inv.splice(dsIdx, 1);
-          inv.push({ name:'Highland Letter of Clearance', icon:'📃', type:'misc', desc:'Commissioner Halvard Fehn\'s real credential — a clearance letter valid at four highland ports including Dunfall and Saltwick. Issued under his actual name: Halvard Jesst, Harbor Customs Informant, Ninth Circuit. The signature is steadier than the Commissioner one.', sell:0 });
-          storyMsg('📃 You list the three: the Revenue Division. The Highland Fleet. The appointment date.\n\nFehn is quiet. The drift spore radius is six feet and you are both inside it.\n\n"My name is Halvard Jesst. The Commissioner is a construction — they gave me the name and the writ to keep me visible and occupied while the smuggling case closed." He folds the assessment form along its original creases. "The case closed nine years ago. I am not certain anyone sent the notice."\n\nHe takes the drift spore vial from your hand. Opens it. The amber disperses into the dock air.\n\n"Bram has been on my ledger since I arrived. I tried to move him the first three days. He weighs nothing and does not move. I understand now that he was performing a service."\n\nHe writes the Highland Letter of Clearance without being asked. The handwriting is different from the Commissioner signature — steadier, older.\n\n"Valid at four ports. Dunfall is one of them. Saltwick will recognize the Ninth Circuit seal." He looks at Bram. Bram looks at the harbor.\n\nDunfall Drift Spore consumed. Highland Letter of Clearance added. +400gp. +400 XP. Dunfall Harmony Chain complete.');
+          inv.push({ name:'Highland Letter of Clearance', icon:'📃', type:'misc', desc:'할바르드 펜 위원의 진짜 자격 증명. 던폴과 솔트윅을 포함한 고지대 항구 네 곳에서 유효한 통행 문서. 그의 실제 이름으로 발급되었다: 할바르드 제스트, 항구 세관 정보원, 제9순회구. 서명이 위원의 것보다 안정되어 있다.', sell:0 });
+          storyMsg('📃 당신이 세 가지를 나열한다: 세입부. 고지대 함대. 임명 날짜.\\n\\n펜이 조용해진다. 부유 포자의 반경은 여섯 자이고 두 사람 모두 그 안에 있다.\\n\\n「내 이름은 할바르드 제스트일세. 위원은 만들어진 존재야. 밀수 사건이 종결되는 동안 나를 눈에 띄고 바쁘게 유지하려고 그들이 이름과 위임장을 준 걸세.」 그가 평가 양식을 원래의 주름을 따라 접는다. 「사건은 9년 전에 종결됐어. 통지가 발송됐는지는 나도 확실하지 않아.」\\n\\n그가 당신의 손에서 부유 포자 유리병을 가져간다. 연다. 호박색이 부두 공기 속으로 흩어진다.\\n\\n「브람은 내가 도착한 때부터 내 장부에 있었어. 처음 사흘은 그를 옮기려 했지. 그는 무게가 없으면서 움직이지 않아. 이제야 알겠네. 그가 봉사를 하고 있었다는 걸.」\\n\\n그는 요청받지 않았는데 하이랜드 통행 문서를 써 준다. 필적이 위원의 서명과 다르다. 더 안정되고, 더 오래됐다.\\n\\n「네 항구에서 유효해. 던폴도 그중 하나야. 솔트윅은 제9순회구 인장을 알아볼 걸세.」 그가 브람을 본다. 브람이 항구를 본다.\\n\\nDunfall Drift Spore 소모. Highland Letter of Clearance 획득. +400gp. +400 XP. 던폴 조화의 사슬 완성.');
           storyRender(node);
         });
         _spk2Div.appendChild(_fehnBtn);
       } else if (S_story.oatMet && !S_story.brimFound) {
         _spk2Div.style.cssText = 'margin-top:10px;border-left-color:#3a3a2a;color:#a8a860;font-size:12px;';
-        _spk2Div.textContent = '🐭 Oat is in the grain pile at the south dock joint. He has an amber glow on his left ear — not eye-shine. Something from the loch shallows. INT Nature DC 12 to identify what it is doing to the dock ecosystem. See quest panel to attempt.';
+        _spk2Div.textContent = '🐭 오트가 남쪽 부두 이음매의 곡물 더미에 있다. 왼쪽 귀에 호박색 빛이 있다. 눈빛 반사가 아니다. 호수 여울에서 온 무언가다. 그것이 부두 생태계에 무엇을 하고 있는지 밝히려면 INT 자연 DC 12. 판정은 퀘스트 패널을 볼 것.';
       } else if (S_story.bramBefriended && !S_story.oatMet) {
         _spk2Div.style.cssText = 'margin-top:10px;border-left-color:#2a4a2a;color:#80a870;font-size:12px;';
-        _spk2Div.textContent = '🐟 Bram is watching the south dock joint. He gave you the endorsement scale. The grain pile at the wall joint has a mouse in it. Bram leads when you are ready.';
+        _spk2Div.textContent = '🐟 브람이 남쪽 부두 이음매를 지켜보고 있다. 그가 당신에게 지지의 비늘을 주었다. 벽 이음매의 곡물 더미에 쥐가 한 마리 있다. 당신이 준비되면 브람이 앞장선다.';
         const _oatBtn = document.createElement('button');
         _oatBtn.className = 'inv-use-btn'; _oatBtn.style.marginTop = '6px';
-        _oatBtn.textContent = '🐟 Follow Bram to the grain pile';
+        _oatBtn.textContent = '🐟 브람을 따라 곡물 더미로 간다';
         _oatBtn.addEventListener('click', () => {
           _oatBtn.disabled = true;
           S_story.oatMet = true;
@@ -34397,7 +34397,7 @@ function _nodeHookSparkDnfHarmony(node) {
           const inv = S_story.inventory = S_story.inventory || [];
           const bsIdx = inv.findIndex(i => i.name === "Bram's Fish Scale");
           if (bsIdx !== -1) inv.splice(bsIdx, 1);
-          inv.push({ name:"Oat's Harbor Bead", icon:'🪡', type:'misc', desc:'A small cord fragment from the mooring dock. Oat placed it near your foot when Bram sat down beside him. The gesture means: acknowledged. The Commissioner says something about his uncle\'s commission.', sell:0 });
+          inv.push({ name:"Oat's Harbor Bead", icon:'🪡', type:'misc', desc:'계류 부두에서 온 작은 끈 조각. 브람이 오트 곁에 앉았을 때 오트가 당신의 발 가까이에 놓은 것이다. 그 몸짓의 뜻은: 인정했다. 위원이 자기 삼촌의 임명장에 대해 뭔가 말하고 있다.', sell:0 });
           storyMsg('🐭 At the south dock joint, half-inside the grain pile: Oat.\n\nOat is white-gray, harbor-sized, with the expression of a mouse who has been in this grain pile since before the Commissioner arrived and intends to be in it after.\n\nBram walks to Oat and sits beside him with no other apparent purpose.\n\nThe Commissioner catches up. "My uncle held the rank of Commodore-Provisional in the Northern Admiralty." He sounds pleased with this. There is no Northern Admiralty. There is no Commodore-Provisional rank.\n\nOat places a small cord fragment near your foot. An acknowledgment.\n\nBram\'s Fish Scale consumed (Bram ate it as endorsement). Oat\'s Harbor Bead added. +100 XP. Quest: What Oat Carries active.');
           storyRender(node);
         });
