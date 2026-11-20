@@ -26747,7 +26747,7 @@ const CORELLI_APPEARANCES = [
   { nodeCode:'LCY', actMin:2, index:1, opener:'『틸버리는 처음이죠? 그럴 줄 알았어요. 막 도착해서 항구를 믿을지 아직 결정 못 한 사람의 표정이에요.』',
     openerFriendly:'『전에 만났죠. 내 기억이 맞다면 틸버리에서. 그리고 나는 늘 기억해요. 잉크는 잘 팔렸나 보죠?』',
     openerTrusted:'『또 왔군요. 나도 당신과 같은 길을 따라왔어요, 대충은요. 축만 다를 뿐. 나는 더 조용한 기록을 두고 있어요.』',
-    itemKey:'scholar_ink', itemLabel:'📝 Scholar\'s Ink (dismissed notes) — 120gp' },
+    itemKey:'scholar_ink', itemLabel:'📝 학자의 잉크 (폐기된 노트) — 120gp' },
   { nodeCode:'WRO', actMin:3, index:2, opener:'『또 만났군요. 틸버리에서 봤어요. 놀라지 마세요, 나는 판매 상대를 전부 기억하니까.』',
     openerFriendly:'『여기와 해안 사이의 길이 요즘 이상해요. 당신도 느꼈죠, 표정이 보여요.』',
     openerTrusted:'『이번 계절에 황야 길을 네 번 다녔어요. 갈 때마다 모습이 달라요. 땅이 움직이고 있어요. 아니면 우리가.』',
@@ -26755,7 +26755,7 @@ const CORELLI_APPEARANCES = [
   { nodeCode:'BK', actMin:5, index:3, opener:'『비스뷔라. 음. 여기저기 다니셨군요. 나도 여기저기 다녔어요, 다른 곳들이지만. 그래도, 이렇게 만났네요.』',
     openerFriendly:'『모르두스는 주막을 빈틈없이 운영해. 장사에 좋지. 결산된 빚, 예측 가능한 손님. 나는 예측 가능이 좋아.』',
     openerTrusted:'『그들 밑에서 일한 건 육 년 전이에요. 하지만 인장은 가지고 있죠. 그들의 기록 보관소 대부분은 아직 그걸로 열려요.』',
-    itemKey:'encoded_letter', itemLabel:'🔐 Encoded Letter (partial decrypt) — 80gp' },
+    itemKey:'encoded_letter', itemLabel:'🔐 암호 편지 (부분 해독) — 80gp' },
   { nodeCode:'NUE', actMin:6, index:4, opener:'『아이보리 서클은 나를 불안하게 해요. 예전에 그들 주변 일을 했거든요. 바이마르에 오래 머물지 않으려 해요. 하지만 당신은, 여기서 뭔가를 캐묻고 다닌 표정이에요. 좋아요. 계속 물어요.』',
     openerFriendly:'『전에 와 봤군요. 서클은 질문을 좋아하지 않아요. 나도요, 다른 이유지만.』',
     openerTrusted:'『그만두기 이 년 전부터 그들의 서신을 읽지 않았어요. 마지막으로 읽은 것, 그것이 내가 나르는 것을 바꿨죠.』',
@@ -26843,7 +26843,7 @@ function _itemNameEq(a, b) { return a === b || _ITEM_NAME_ALIAS[a] === b; }
 // (identity/logic keys: itemsAll gates, itemChain take, name=== checks, alias map).
 // Renderers call _itemDisplayName; logic keeps the raw name. Fallback: the name itself.
 const _ITEM_DISPLAY_KR = { "Benedikt's Annotated Copy": "베네딕트의 주석본", "Froberger's Field Notes": "프로버거의 현장 노트", "The Constructor's Log": "건설자의 일지",
-  "Crone Staff": "크론의 지팡이", "Fishing Guide": "낚시 안내서", "Free Rod Coupon": "낚싯대 무료 교환권", "Fuzzy Tribble": "복슬복슬 트리블",
+  "Crone Staff": "크론의 지팡이", "Scholar's Ink (dismissed notes)": "학자의 잉크 (폐기된 노트)", "Encoded Letter (partial decrypt)": "암호 편지 (부분 해독)", "Fishing Guide": "낚시 안내서", "Free Rod Coupon": "낚싯대 무료 교환권", "Fuzzy Tribble": "복슬복슬 트리블",
   "Worn Ledger Book": "낡은 장부", "Sealed Scholar Box": "봉인된 학자 상자", "Prior Carrier's Token": "선행 운반자의 토큰",
   "Undercity Survey (Partial)": "언더시티 측량서 (일부)", "Certified Skill-Chit": "공인 기량 증서", "Clean-Card Trophy": "클린 카드 트로피",
   "Rod of Self-Discovery": "자기 발견의 낚싯대", "Scholar Kings Requisition (Handwritten)": "학자왕들의 징발장 (친필)",
@@ -36930,10 +36930,10 @@ function _renderCorpseChip() {
     + ' at ' + _mpEsc(where);
   const named = bodies.slice(0, CORPSE_TITLE_MAX);
   const rest  = bodies.length - named.length;
-  el.title = 'Your remains lie out in the world — click to open the map. '
+  el.title = '유해가 세계 어딘가에 있습니다 — 클릭하면 지도가 열립니다. '
     + named.map(q => q.nodeName + ' (' + (q.items || []).length + '개, '
         + (q.goldDropped || 0) + ' gp)').join(' · ')
-    + (rest > 0 ? ' · and ' + rest + ' more' : '');
+    + (rest > 0 ? ' · 외 ' + rest + '곳' : '');
   el.style.display = '';
 }
 
@@ -37048,15 +37048,15 @@ function storyConfirmSleep() {
   if (_hirelingActive()) {
     const _wage = _hirelingDayTick();
     if (_wage.paid) setTimeout(() => storyMsg(_hirelingWageMsg(_wage.fee)), 200);
-    else if (_wage.dismissed) setTimeout(() => storyMsg('🧭 Your guide left — no gold for the day\'s wage.'), 200);
+    else if (_wage.dismissed) setTimeout(() => storyMsg('🧭 안내인이 떠났습니다 — 하루 품삯을 줄 금화가 없습니다.'), 200);
   }
   // §MESH-01h: sentry upkeep on the day tick. Recall server-side any the player
   // can no longer afford (the pure tick already dropped their local records).
   if (_sentryOwned().length) {
     const _s = _sentryDayTick();
     for (const _id of _s.dropped) _mpFetch('/api/sentry/recall', { sentryId: _id }).catch(() => {});
-    if (_s.dropped.length) setTimeout(() => storyMsg('🛡 ' + _s.dropped.length + ' sentr' + (_s.dropped.length === 1 ? 'y stood' : 'ies stood') + ' down — unpaid upkeep.'), 250);
-    else if (_s.paid) setTimeout(() => storyMsg('🛡 Paid ' + _s.fee + 'g in sentry upkeep.'), 250);
+    if (_s.dropped.length) setTimeout(() => storyMsg('🛡 보초 ' + _s.dropped.length + '명 철수 — 유지비 미납.'), 250);
+    else if (_s.paid) setTimeout(() => storyMsg('🛡 보초 유지비 ' + _s.fee + 'g 지불.'), 250);
   }
   _checkWorldProgressionEvents();
   // Narrative wait counters — sleep-based triggers (gates removed)
@@ -37088,8 +37088,8 @@ function storyConfirmSleep() {
   document.getElementById('story-sleep-overlay').classList.remove('visible');
   storyUpdateStatus();
   const _sleepRollStr = _healRolls.map(r => 'd10:'+r+(_conMod?(_conMod>=0?'+':'')+_conMod:'')).join(' + ');
-  const _boyscoutStr = _isFirstSleep ? ' 🏕 Boyscout Night! Double rolls: ' + _sleepRollStr + ' →' : ' 🛌 Rest: rolls ' + _sleepRollStr + ' →';
-  storyRender(NODE_MAP[S_story.currentCode], _boyscoutStr + ' +' + _healed + ' HP · Short rests reset (3).');
+  const _boyscoutStr = _isFirstSleep ? ' 🏕 야영의 밤! 주사위 2배: ' + _sleepRollStr + ' →' : ' 🛌 휴식: 주사위 ' + _sleepRollStr + ' →';
+  storyRender(NODE_MAP[S_story.currentCode], _boyscoutStr + ' +' + _healed + ' HP · 짧은 휴식 초기화 (3).');
   // Layer 62: Town Crier rumor
   { const _crier = _getTownCrierLine();
     if (_crier) setTimeout(() => storyMsg('📢 [Town rumor] "' + _crier + '"'), 350);
@@ -37933,9 +37933,9 @@ function _creditWarrant(id) {
 // q.rumor always wins, so Inc C authoring shrinks to only the bounties that deserve
 // a bespoke hook rather than all ~2,850.
 const WARRANT_RUMOR_TPL = [
-  p => 'Warrant work waiting in ' + p + '.',
-  p => 'The 진홍 영장 is hiring for ' + p + '.',
-  p => 'A job out in ' + p + ', posted under the Warrant\'s seal.',
+  p => p + ' 에 영장 일감이 기다리고 있다.',
+  p => '진홍 영장에서 ' + p + ' 행 인력을 구한다.',
+  p => '영장 인장으로 게시된 ' + p + ' 의 일거리.',
 ];
 function _boardRumorLine(b) {
   if (b.rumor) return b.rumor;                                   // authored hook always wins
@@ -38789,7 +38789,7 @@ function _navTravelTo(r, c) {
   if (pos.r === r && pos.c === c) return;                     // already here
   if (IMPASSABLE_CELLS.has(`${r},${c}`)) { storyMsg('🌊 그 칸은 바다라 길이 없어요.'); return; }
   if (_cellGridDir(pos, { r, c }) === null) {                 // unreachable land
-    storyMsg('📍 No path found to that tile. Move manually toward it.');
+    storyMsg('📍 해당 타일로 가는 길을 찾지 못했습니다. 수동으로 이동하세요.');
     return;
   }
   _travelStop();                                             // supersede any WP travel
@@ -38888,12 +38888,12 @@ function _travelTick() {
     _travelStop();
     S_story.waypoint = null;
     _updateWaypointBtn();
-    storyMsg('📍 You have reached the waypoint: ' + (NODE_MAP[wp] ? NODE_MAP[wp].label : wp) + '!');
+    storyMsg('📍 경유지에 도착했습니다: ' + (NODE_MAP[wp] ? NODE_MAP[wp].label : wp) + '!');
     switchSheet('sheet-story');   // waypoint arrival returns to the main screen, not the quest tab
     return;
   }
   const dir = _roadGridDir(pos, wp);
-  if (!dir) { _travelStop('📍 No path to waypoint found. Move manually toward ' + (NODE_MAP[wp] ? NODE_MAP[wp].label : wp) + '.'); return; }
+  if (!dir) { _travelStop('📍 경유지로 가는 길을 찾지 못했습니다. ' + (NODE_MAP[wp] ? NODE_MAP[wp].label : wp) + ' 쪽으로 수동 이동하세요.'); return; }
   _travelStepping = true;
   try { cellMove(dir); } finally { _travelStepping = false; }
   const now = _playerPos();
@@ -38922,8 +38922,8 @@ function _updateHuntBtn() {
   const on = !!S_story.huntMode;
   btn.classList.toggle('hunting', on);
   btn.title = on
-    ? 'Hunt Mode: ON — favoring monsters at/below your level, encounters ~2× more frequent. Click to stop.'
-    : 'Hunt Mode: OFF — click to hunt lower-level monsters (more frequent, easier fights).';
+    ? '사냥 모드: ON — 자기 레벨 이하 몬스터 우선, 조우 약 2배 증가. 눌러서 중지.'
+    : '사냥 모드: OFF — 눌러서 저레벨 몬스터 사냥 시작 (더 잦고 쉬운 전투).';
 }
 
 // §KG-01: flip Hunt Mode on/off. Persists in the save; a message confirms the change.
@@ -38932,8 +38932,8 @@ function storyToggleHunt() {
   _updateHuntBtn();
   storyAutoSave();
   storyMsg(S_story.huntMode
-    ? '🎯 Hunt Mode ON — you set out looking for weaker prey. Encounters come thick and fast, and most will be at or below your level (Lv ' + (S_story.level || 1) + '). Tougher foes can still find you.'
-    : '🎯 Hunt Mode OFF — you travel warily again. Encounter rate and monster mix return to normal.');
+    ? '🎯 사냥 모드 ON — 더 약한 먹잇감을 찾아 나섭니다. 조우가 빈번해지고 대부분 자기 레벨 (Lv ' + (S_story.level || 1) + ') 이하입니다. 더 강한 적이 찾아올 수도 있습니다.'
+    : '🎯 사냥 모드 OFF — 다시 경계하며 이동합니다. 조우율과 몬스터 구성이 정상으로 돌아옵니다.');
 }
 
 function storyWaypoint() {
@@ -38944,14 +38944,14 @@ function storyWaypoint() {
   const wpCo = NODE_COORDS[wp];
   const pos = _playerPos();
   if (S_story.currentCode === wp || (wpCo && pos.r === wpCo.r && pos.c === wpCo.c)) {
-    storyMsg('📍 You have reached the waypoint: ' + (NODE_MAP[wp] ? NODE_MAP[wp].label : wp) + '!');
+    storyMsg('📍 경유지에 도착했습니다: ' + (NODE_MAP[wp] ? NODE_MAP[wp].label : wp) + '!');
     S_story.waypoint = null;
     _updateWaypointBtn();
     switchSheet('sheet-story');   // waypoint arrival returns to the main screen, not the quest tab
     return;
   }
   const dir = _roadGridDir(pos, wp);   // §NAV-01d: same road-weighted route as auto-travel
-  if (!dir) { storyMsg('📍 No path to waypoint found. Move manually toward ' + (NODE_MAP[wp] ? NODE_MAP[wp].label : wp) + '.'); return; }
+  if (!dir) { storyMsg('📍 경유지로 가는 길을 찾지 못했습니다. ' + (NODE_MAP[wp] ? NODE_MAP[wp].label : wp) + ' 쪽으로 수동 이동하세요.'); return; }
   cellMove(dir);
 }
 
@@ -38978,13 +38978,13 @@ function storyCreateCustomQuest() {
   const terrain = sel.value;
   if (!terrain) { storyMsg('먼저 지형 종류를 고르세요.'); return; }
   const nodeCode = _storyFindTerrainNode(terrain);
-  if (!nodeCode) { storyMsg('No ' + terrain + ' area found in the world.'); return; }
+  if (!nodeCode) { storyMsg('세계에서 ' + terrain + ' 지형을 찾지 못했습니다.'); return; }
   S_story.waypoint = nodeCode;
   S_story.customQuestTerrain = terrain;
   sel.value = '';
   const dest = NODE_MAP[nodeCode];
   const terrainLabel = WORLD_DB[terrain] ? WORLD_DB[terrain].label : terrain;
-  storyMsg('📍 Waypoint set: Navigate to ' + (dest ? dest.label : nodeCode) + ' · ' + terrainLabel);
+  storyMsg('📍 경유지 설정: ' + (dest ? dest.label : nodeCode) + ' (으)로 이동 · ' + terrainLabel);
   _updateWaypointBtn();
   storyRenderQuests();
 }
@@ -39251,7 +39251,7 @@ document.getElementById('btn-stealth-attempt').addEventListener('click', () => {
   if (pass) {
     S_story.surpriseAdvantage = true;
     el.style.color = 'var(--grn-lt)';
-    el.textContent = '✓ Stealth success! d20=' + roll + ' vs DC ' + dc + ' — You go first + ADV on first attack!';
+    el.textContent = '✓ 은신 성공! d20=' + roll + ' vs DC ' + dc + ' — 선공 + 첫 공격 이점!';
   } else {
     S_story.surpriseAdvantage = false;
     el.style.color = 'var(--red-lt)';
