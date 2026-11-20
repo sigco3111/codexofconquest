@@ -34901,26 +34901,26 @@ const NODE_VERBS = [
           { kind:'flag_write', set:['nexusQuestSeen','nexusQ02Complete'] },
           { kind:'narrative', msg:'You say: "That book is a warning. Not a manual."\n\nSABLE: "...Oh."\nKERN: "Wait."\n\nKERN: "So when the detective used the city-wide sonar and The Trusted Friend quit—"\nSABLE: "...that was bad."\nKERN: "That was the whole point."\nSABLE: "The author wrote 80,000 words about how the sonar was a problem."\nKERN: "Because the detective had all the power. And he decided who was a criminal. And no one could opt out."\nSABLE: "...Rad."\n\nKERN: *(quietly)* "We should probably not build the Torment Nexus."\nSABLE: "Upvote."\nKERN: "Cool cool cool."\n\nKern closes the notebook. Something shifts. Not much — they are still themselves — but they are slightly less dangerous than they were five minutes ago. Sable peels the neon sticker off the notebook that said FUTURE PROOF and drops it in the gutter.\n\n✅ Quest Complete: "Creative Literacy"' },
           { kind:'flag_write', set:['creativeLiteracyToken'] },
-          { kind:'reward', items:[{name:'Creative Literacy Token',icon:'📄',type:'item',sell:27,desc:'A folded printout, upvotes still visible in the corner. Worth more than it looks. Someone kept this for a reason.'}] },
-          { kind:'narrative', msg:'📄 Creative Literacy Token added to inventory.' } ] },
+          { kind:'reward', items:[{name:'Creative Literacy Token',icon:'📄',type:'item',sell:27,desc:'접힌 인쇄물. 모서리에 추천수가 아직 보인다. 보이는 것보다 값어치가 있다. 누군가가 이유가 있어 간직해 두었다.'}] },
+          { kind:'narrative', msg:'📄 Creative Literacy Token 획득.' } ] },
       ] } ] },
   { id:'dus-kern-sable-followup', group:'dus-kern-sable', nodes:['DUS'],
     when: st => st.nexusQuestSeen && st.nexusQ01Active && !st.nexusQ02Complete,
     bits: [ { kind:'choice',
-      prompt:'Kern and Sable are still at the counter. Taking notes. They glance up when you walk in.',
+      prompt:'컨과 세이블이 아직 카운터에 있다. 메모를 하고 있다. 당신이 들어오자 힐끗 올려다본다.',
       options: [
         { label:'🤐 아무 말도 하지 않는다.', bits:[
-          { kind:'narrative', msg:'You say nothing. They return to the notes.' } ] },
+          { kind:'narrative', msg:'당신은 아무 말도 하지 않는다. 그들은 메모로 돌아간다.' } ] },
         { label:'📖 경고가 무엇인지 설명한다.', bits:[
           { kind:'flag_write', set:['nexusQ02Complete'] },
-          { kind:'narrative', msg:'"That book is a warning. Not a manual."\n\nSABLE: "...Oh."\nKERN: "Wait."\n\nKERN: "The title and the entire book."\nSABLE: "Very consistent messaging."\n\nKERN: *(quietly)* "We should probably not build the Torment Nexus."\nSABLE: "Upvote."\n\nKern closes the notebook. Sable drops the FUTURE PROOF sticker on the floor.\n\n✅ Quest Complete: "Creative Literacy"' },
+          { kind:'narrative', msg:'『그 책은 경고서요. 설명서가 아니오.』\\n\\n세이블: 「…아.」\\n컨: 「잠깐.」\\n\\n컨: 「제목이요, 그리고 책 전부가.」\\n세이블: 「일관성 하나는 확실한 전달이네요.」\\n\\n컨: *(조용히)* 「토먼트 넥서스는 아무래도 만들지 않는 게 좋겠소.」\\n세이블: 「추천.」\\n\\n컨이 공책을 닫는다. 세이블이 FUTURE PROOF 스티커를 바닥에 떨어뜨린다.\\n\\n✅ 의뢰 완료: 「창작 문해력」' },
           { kind:'flag_write', set:['creativeLiteracyToken'] },
-          { kind:'reward', items:[{name:'Creative Literacy Token',icon:'📄',type:'item',sell:27,desc:'A folded printout, upvotes still visible in the corner. Worth more than it looks. Someone kept this for a reason.'}] },
-          { kind:'narrative', msg:'📄 Creative Literacy Token added to inventory.' } ] },
+          { kind:'reward', items:[{name:'Creative Literacy Token',icon:'📄',type:'item',sell:27,desc:'접힌 인쇄물. 모서리에 추천수가 아직 보인다. 보이는 것보다 값어치가 있다. 누군가가 이유가 있어 간직해 두었다.'}] },
+          { kind:'narrative', msg:'📄 Creative Literacy Token 획득.' } ] },
       ] } ] },
   { id:'dus-kern-sable-after', group:'dus-kern-sable', nodes:['DUS'],
     when: st => st.nexusQuestSeen && st.nexusQ02Complete,
-    ambient:'The notebook is closed. The FUTURE PROOF sticker is on the floor. Kern is reading the printout. Sable is not taking notes.' },
+    ambient:'공책은 닫혀 있다. FUTURE PROOF 스티커가 바닥에 있다. 컨이 인쇄물을 읽고 있다. 세이블은 메모를 하지 않는다.' },
 
   // ── §VM-01-G4c: the D1 button verbs — one button, no alternative offered, panel gone on use.
   // Every bit below but `cost` was already a shipped opcode, which is the measured claim the G4
@@ -34937,7 +34937,7 @@ const NODE_VERBS = [
   { id:'stn-ori', group:'stn-ori', nodes:['STN'],
     when: st => (st.quests || {})['quest_tl_03'] === 'active' && !st.tlMissingShipSolved,
     label:'📜 오리와 이야기한다.', btnStyle:'margin-top:4px;',
-    bits: [ { kind:'narrative', msg:'Ori: "I was on the Harrow. I\'m the only one who came back."\n\nShe describes what boarded them. Not pirates. Not storm. Something that came from below — "a shape in the water, very large, that didn\'t move like a fish or a whale. It moved like it was looking for something. Then it found the ship."\n\n"I went over the side before it hit. Three weeks on foot to get here. I needed to tell someone."' },
+    bits: [ { kind:'narrative', msg:'오리: 『나는 해로우 호에 타고 있었어요. 돌아온 사람은 나뿐이에요.』\\n\\n그녀는 배에 올라탄 것을 설명한다. 해적이 아니다. 폭풍이 아니다. 아래에서 온 무언가. 「물속의 형상이었어요. 아주 크고, 물고기나 고래처럼 움직이지 않았어요. 무언가를 찾는 것처럼 움직였어요. 그리고 배를 찾아냈어요.」\\n\\n『그것이 부딪히기 전에 난간 너머로 뛰었어요. 여기까지 세 주를 걸었어요. 누군가에게는 알려야 했어요.』' },
             { kind:'flag_write', set:['tlMissingShipSolved'] } ] },
   // ── Q-TL-02: Adjutant Vonn at Tilbury — the second `choice` surface in the game (§DX-02fv).
   //    Vonn's answer is the choice's PROMPT, not a narrative bit ahead of it: the words are the
@@ -34951,15 +34951,15 @@ const NODE_VERBS = [
                 && !st.tlEmbargoChallenged && !st.tlEmbargoDismissed,
     label:'⚖️ 본 부관과 이야기한다.', btnStyle:'margin-top:6px;',
     bits: [ { kind:'choice',
-      prompt:'Vonn: "The harbor is closed to non-Conclave vessels under Emergency Trade Protocol 7. I understand this is inconvenient. I can offer you a transit permit for a fee. The fee is fixed by the Conclave. I did not set it."\n\nYou show him the Harrow manifest.\n\nVonn: "Filed under Emergency Trade losses. I see. Thank you for bringing this to my attention. It will be noted."\n\nHe says this in a way that does not suggest he will do anything about it.',
+      prompt:'본: 『항구는 비콘클라베 선박에 대해 긴급 통상 의정서 7호에 따라 폐쇄되었습니다. 불편하시겠지만 이해해 주시기 바랍니다. 수수료를 내시면 통행 허가증을 발급해 드릴 수 있습니다. 수수료는 콘클라베가 정합니다. 제가 정한 것이 아닙니다.』\\n\\n당신이 해로우 호의 적하 목록을 보여 준다.\\n\\n본: 『긴급 통상 손실로 접수되었군요. 알겠습니다. 알려 주셔서 감사합니다. 기록에 남기겠습니다.』\\n\\n그가 그것에 대해 무언가 조치할 것처럼 들리지 않는 방식으로 말한다.',
       options: [
         { label:'📋 비르카 연락책에게 보고한다.', bits:[
           { kind:'flag_write', set:['tlEmbargoChallenged'] },
           { kind:'reward', gold:150 },
-          { kind:'narrative', msg:'💰 +150gp from a Birka Council liaison. The manifest is on record.' } ] },
+          { kind:'narrative', msg:'💰 비르카 평의회 연락원에게서 +150gp. 적하 목록이 기록에 올랐다.' } ] },
         { label:'— 그냥 둔다.', bits:[
           { kind:'flag_write', set:['tlEmbargoDismissed'] },
-          { kind:'narrative', msg:'You leave the manifest where it is. The harbor stays closed.' } ] },
+          { kind:'narrative', msg:'당신은 적하 목록을 그 자리에 둔다. 항구는 폐쇄된 채로 남는다.' } ] },
       ] } ] },
   // ── Q-VS-02: Yva the broker at TRD — the FIRST price in the game paid through the `cost` leaf
   //    (§VM-01-G4a). Refuse-at-click is the shipped contract, so the verb always renders and says
@@ -34968,15 +34968,15 @@ const NODE_VERBS = [
     when: st => (st.quests || {})['quest_vs_02'] === 'active' && !st.vsWeaponsFound,
     label:'💬 이바를 찾는다 (50gp).', btnStyle:'margin-top:6px;',
     bits: st => [
-      { kind:'cost', gold:50, refuse:'💰 You don\'t have 50gp.' },
-      { kind:'narrative', msg:'Yva: "Fifty gold. Thank you. The weapons went to the Hollow Hands. A goblin sub-clan with a Void-aligned shaman. The shaman told them the weapons were tribute Mordus owed them. Mordus never paid tribute. The shaman invented a tribute that made the Hollow Hands feel owed.\n\nThat\'s the part that scares me."\n\n'
-        + (st.tlMissingShipSolved ? 'Yva adds: "The Harrow. I heard about that ship. The Hollow Hands didn\'t touch it. Whatever got that ship wasn\'t them."\n\n' : '')
-        + 'She gives you the mark — a seal used by the Hollow Hands to identify allied cargo.' },
+      { kind:'cost', gold:50, refuse:'💰 50gp가 없습니다.' },
+      { kind:'narrative', msg:'이바: 『쉰 골드. 고마워요. 무기는 홀로우 핸즈에게 갔어요. 공허에 결속된 주술사를 둔 고블린 분파씨족이에요. 주술사는 그 무기가 모르두스가 그들에게 바쳐야 할 공물이라고 말했어요. 모르두스는 공물을 바친 적이 없어요. 주술사는 홀로우 핸즈가 받아야 한다고 느끼게 할 공물을 지어낸 거예요.\\n\\n그게 내가 두려운 부분이에요.』\\n\\n'
+        + (st.tlMissingShipSolved ? '이바가 덧붙인다. 『해로우 호. 그 배에 대해 들었어요. 홀로우 핸즈가 건드린 게 아니에요. 그 배를 그렇게 만든 것은 그들이 아니에요.』\\n\\n' : '')
+        + '그녀가 당신에게 그 표증을 건넨다. 홀로우 핸즈가 동맹 화물을 식별하는 데 쓰는 인장이다.' },
       { kind:'flag_write', set:['vsWeaponsFound'] },
       // `set:1`, not `add:1`: `set` lifts Yva to at least 1 and leaves a higher level alone, while `add` counts up from her live level, so at 2 it would make her a Dear Friend.
       { kind:'favor', npc:'yva', set:1 },
       { kind:'reward', items:[{ name:'Hollow Hands Seal', icon:'🖤', type:'quest_item', sell:0,
-        desc:'A goblin sub-clan mark. Void-tainted. The mark of a faction answering to a shaman Mordus doesn\'t know.' }] },
+        desc:'고블린 분파씨족의 표증. 공허에 물들었다. 모르두스도 모르는 주술사에게 답하는 파벌의 표증이다.' }] },
       { kind:'unlock', quests:['quest_vs_03'] } ] },
   // ── §DESIGN-03: quest_brynn_firewood — the woodpile at Birka ──
   { id:'tll-brynn-firewood', group:'tll-brynn-firewood', nodes:['TLL'],
@@ -34984,7 +34984,7 @@ const NODE_VERBS = [
                 && !st.brynnFirewoodDelivered,
     label:'🪵 장작 패는 것을 돕는다.', btnStyle:'margin-top:6px;',
     bits: [ { kind:'flag_write', set:['brynnFirewoodDelivered'] },
-            { kind:'narrative', msg:'You find the axe where she left it — not stored, just set down, the way you set something down when you intend to come back to it later but later has been a while.\n\nThe pile takes an hour. When you stack the last piece she comes out the back door with a cup of something hot and does not say anything. She goes back inside.\n\nThe cup is for you. She left it on the chopping block.' } ] },
+            { kind:'narrative', msg:'당신은 그녀가 도끼를 놓아둔 곳에서 그것을 발견한다. 정리해 둔 것도 아니고 그저 내려놓은 것이다. 나중에 다시 돌아올 셈으로 무언가를 내려놓는 방식으로. 그 나중이 꽤 오래되었지만.\\n\\n장작 패기에 한 시간이 걸린다. 마지막 토막을 쌓을 때 그녀가 뒷문으로 뜨거운 것이 든 컵을 들고 나와 아무 말도 하지 않는다. 그리고 다시 안으로 들어간다.\\n\\n컵은 당신의 것이다. 그녀는 그것을 장작 받침 위에 두고 갔다.' } ] },
 
   // ── §VM-01-G4d: the D3 concurrent menu — CDG's boss confrontations (Layer 44 §IX). The three
   // entries share group 'cdg-boss-menu' and render into ONE container (the same #cq-boss-buttons
@@ -34998,18 +34998,18 @@ const NODE_VERBS = [
   { id:'cdg-boss-taz', group:'cdg-boss-menu', nodes:['CDG'],
     when: st => (st.quests || {})['quest_cat_04'] === 'active' && !st.defeatedBattles['CQ_TAZ'],
     label:'🌀 타즈 데빌 — 털뭉치 회오리와 맞선다',
-    bits: [ { kind:'narrative', msg:'The alley fills with a low rumble. Two Honchos — male and female — spiral into each other like a drain.\n\nThen: fur. Teeth. Wind. TORNADO.\n\nJimmy, from somewhere behind you: "I TOLD you this was a SITUATION."' },
+    bits: [ { kind:'narrative', msg:'골목이 낮은 으르렁거림으로 가득 찬다. 혼초 둘, 수컷과 암컷이, 배수구처럼 서로를 향해 소용돌이친다.\\n\\n그다음: 털. 이빨. 바람. 토네이도.\\n\\n어디선가 뒤쪽에서 지미가 말한다. 「이게 사태라고 내가 말했잖아.」' },
             { kind:'combat', key:'taz_devil', label:'타즈 데빌 — 털뭉치 회오리', nodeCode:'CQ_TAZ' } ] },
   { id:'cdg-boss-don', group:'cdg-boss-menu', nodes:['CDG'],
     when: st => (st.quests || {})['quest_cat_05'] === 'active' && (st.catKills || {}).fat_merchant_cat >= 4
                 && !st.defeatedBattles['CQ_BOSS'],
     label:'💍 돈 플러피시모와 맞선다',
-    bits: [ { kind:'narrative', msg:'The Don is waiting in a back alley, two Fat Merchant Cats flanking him like pillars.\n\nHe speaks very slowly.\n\n"You come to MY quarter. In MY district. Without bringing fish. Without a proper introduction. That\'s... unfortunate."' },
+    bits: [ { kind:'narrative', msg:'「돈」이 뒷골목에서 기다리고 있다. 뚱뚱한 상인 고양이 둘이 기둥처럼 그를 호위하고 있다.\\n\\n그가 아주 천천히 말한다.\\n\\n「내 구역에 오다니. 내 동네에. 생선도 없이. 제대로 된 소개도 없이. 그건… 유감이야.」' },
             { kind:'combat', key:'fat_cat_boss', label:'돈 플러피시모 + 경호원', nodeCode:'CQ_BOSS' } ] },
   { id:'cdg-boss-king', group:'cdg-boss-menu', nodes:['CDG'],
     when: st => (st.quests || {})['quest_cat_06'] === 'active' && !st.catKingDefeated,
     label:'👑 고양이 왕과 맞선다',
-    bits: [ { kind:'narrative', msg:'The sky above the fish market goes dark.\n\nThree Taz Devils spiral together — a sound like every cat in the city hissing at once — and then it emerges. A crown of claw. Eyes like lanterns. The Cat-King.\n\nIt is very large. It is not happy. It is very definitely not a problem you can ignore.' },
+    bits: [ { kind:'narrative', msg:'생선 시장 위의 하늘이 어두워진다.\\n\\n타즈 데빌 셋이 함께 소용돌이친다. 도시의 모든 고양이가 한꺼번에 쉿쉿거리는 것 같은 소리와 함께, 그리고 그것이 나타난다. 발톱의 왕관. 초롱 같은 눈. 가시왕.\\n\\n그것은 아주 크다. 기분이 좋지 않다. 무시해도 되는 문제가 아닌 것이 아주 확실하다.' },
             { kind:'combat', key:'cat_king', label:'고양이 왕', nodeCode:'CQ_KING' } ] },
   // ── Layer 78: La Riva — the la_riva_03 delivery at CDG shares the menu's container but sits
   // AFTER the Kenickie launcher in DOM order, so it has its own group dispatched after the hook
@@ -35027,7 +35027,7 @@ const NODE_VERBS = [
             // _setNpcFavor is ABSOLUTE, only ever raises, and emits no line at level 3
             // (the ✨ Dear Friend line is authored in the narrative below, as it always was).
             { kind:'favor', npc:'kenickie', set:3 },
-            { kind:'narrative', msg:'You hand Kenickie the account book.\n\nHe takes it. He looks at it for a long moment. He does not open it. He does not say Vincenzo\'s name.\n\n"Yeah." A pause. "Okay." Another pause. "I\'ll hold onto this."\n\nHe puts it under the counter, next to whatever else is under there. The market is still open. The sardines are still freshish. He does not say anything else about it.\n\n🎣 La Riva — complete.\n✨ Kenickie Clawnickie Mancuso: Dear Friend.' } ] },
+            { kind:'narrative', msg:'당신이 케니키에게 장부를 건넨다.\\n\\n그는 그것을 받는다. 한참을 들여다본다. 펼치지 않는다. 빈첸초의 이름을 말하지 않는다.\\n\\n「그래.」 잠시 멈칫. 「알았어.」 또 멈칫. 「이건 내가 맡아 둘게.」\\n\\n그는 그것을 카운터 아래, 그곳에 있는 다른 무엇이든 옆에 둔다. 시장은 여전히 열려 있다. 정어리는 여전히 신선한 편이다. 그는 그것에 대해 더는 아무 말도 하지 않는다.\\n\\n🎣 라 리바 — 완료.\\n✨ 케니키 클로니키 만쿠소: 절친한 벗.' } ] },
 
   // ── §VM-01-G-FU-a: the §CROWN-01 combat-dispatch verbs — the G4d shape verbatim. Each group is
   // dispatched at the exact source position its block occupied (in-place rule); every battle code
@@ -35041,26 +35041,26 @@ const NODE_VERBS = [
     when: st => ((st.quests || {})['quest_whisper_kelpie']||'') === 'active'
                 && !(st.defeatedBattles||{})['HW1_KELPIE'],
     label:'🌊 동쪽 여울의 켈피를 추적한다', btnStyle:'margin-top:4px;',
-    bits: [ { kind:'narrative', msg:'The east shallows. The surface moves against the current — the pattern of something circling. The Kelpie turns toward you.' },
+    bits: [ { kind:'narrative', msg:'동쪽 여울. 수면이 조류를 거슬러 움직인다. 무언가가 맴도는 움직임이다. 켈피가 당신을 향해 돌아선다.' },
             { kind:'combat', key:'kelpie', label:'켈피 — 동쪽 여울', nodeCode:'HW1_KELPIE' } ] },
   { id:'hw1-witch', group:'crown-hw1', nodes:['HW1'],
     when: st => ((st.quests || {})['quest_whisper_witch']||'') === 'active'
                 && !(st.defeatedBattles||{})['HW1_WITCH'],
     label:'🧙 고요한 물속의 그것과 맞선다', btnStyle:'margin-top:4px;',
-    bits: [ { kind:'narrative', msg:"The surface problem. The Sea Witch rises from the deepest section. She knows every secret she shouldn't. So does Whisper. They are the same creature. Only one of them has chosen to be the problem." },
+    bits: [ { kind:'narrative', msg:"수면의 문제. 바다 마녀가 가장 깊은 구역에서 떠오른다. 그녀는 알아서는 안 되는 비밀을 모두 안다. 위스퍼도 마찬가지다. 그들은 같은 존재다. 그중 하나만이 문제가 되기를 선택했을 뿐이다." },
             { kind:'combat', key:'sea_witch', label:'바다 마녀 — 깊은 고요', nodeCode:'HW1_WITCH' } ] },
   // §CROWN-01 Amendment A: HG1 — Mudcrab (chicken quest) + Giant Octopus (hag commission)
   { id:'hg1-mudcrab', group:'crown-hg1', nodes:['HG1'],
     when: st => ((st.quests || {})['quest_glut_mudcrab']||'') === 'active'
                 && !(st.defeatedBattles||{})['HG1_MUDCRAB'],
     label:'🦀 떠나간 진흙 게를 찾는다', btnStyle:'margin-top:4px;',
-    bits: [ { kind:'narrative', msg:"The mudcrab is at the mire's edge. Not hiding. It ate enough and left. It is, in the specific way of creatures that know when to stop, exactly where it chose to be." },
+    bits: [ { kind:'narrative', msg:"진흙게가 늪 가장자리에 있다. 숨지 않는다. 배부르게 먹고 나온 것이다. 멈출 때를 아는 생물만의 특유한 방식으로, 정확히 자기가 선택한 자리에 있다." },
             { kind:'combat', key:'mudcrab', label:'진흙 게 — 늪 가장자리', nodeCode:'HG1_MUDCRAB' } ] },
   { id:'hg1-octopus', group:'crown-hg1', nodes:['HG1'],
     when: st => ((st.quests || {})['quest_glut_octopus']||'') === 'active'
                 && !(st.defeatedBattles||{})['HG1_OCTOPUS'],
     label:'🐙 동쪽 건널목을 정리한다', btnStyle:'margin-top:4px;',
-    bits: [ { kind:'narrative', msg:"The Giant Octopus across the eastern passage. Fed for seasons on Glut's overflow. It occupies the space with the certainty of something that has never been asked to leave." },
+    bits: [ { kind:'narrative', msg:"동쪽 통로 건너에 대왕문어. 여러 계절을 글럿의 넘침으로 살찌웠다. 나가라는 말을 들어 본 적 없는 것의 확신으로 그 자리를 차지하고 있다." },
             { kind:'combat', key:'giant_octopus', label:'거대 문어 — 동쪽 건널목', nodeCode:'HG1_OCTOPUS' } ] },
   // §VM-01-G-FU-a-FIX: quest_glut_06 ("The Open Hand") completes on flags:['glutGiftReturned'] —
   // and NOTHING ever wrote that flag: the quest's own onComplete is its only writer, a circular
@@ -35082,20 +35082,20 @@ const NODE_VERBS = [
     when: st => ((st.quests || {})['quest_wane_spawn']||'') === 'active'
                 && !(st.defeatedBattles||{})['HN1_SPAWN'],
     label:'🌊 돌을 움직인 것을 찾는다', btnStyle:'margin-top:4px;',
-    bits: [ { kind:'narrative', msg:"The Sea Spawn in the mire beneath the stone. It carries grief that soaked into the ground long enough to animate. It moves toward you the way things move when carrying too much." },
+    bits: [ { kind:'narrative', msg:"돌 아래 늪 속의 시 스폰. 땅에 스며들어 생명을 얻을 만큼 오래 고인 비탄을 짊어지고 있다. 너무 많은 것을 짊어진 것들이 움직이는 방식으로 당신에게 다가온다." },
             { kind:'combat', key:'sea_spawn', label:'바다 스폰 — 돌의 하부 수로', nodeCode:'HN1_SPAWN' } ] },
   { id:'hn1-demon', group:'crown-hn1', nodes:['HN1'],
     when: st => ((st.quests || {})['quest_wane_demon']||'') === 'active'
                 && !(st.defeatedBattles||{})['HN1_DEMON'],
     label:'👁 늪 아래의 그것과 맞선다', btnStyle:'margin-top:4px;',
-    bits: [ { kind:'narrative', msg:"The sub-channel below. The Sea Demon drains whatever vitality enters the channel — a sustained pull, not a violent one. It is more efficient at diminishment than Wane. She finds this unacceptable." },
+    bits: [ { kind:'narrative', msg:"아래의 하부 수로. 바다 악마가 수로로 들어오는 활력이란 활력을 빨아들인다. 격렬한 당김이 아니라 지속적인 당김이다. 쇠하게 하는 일에는 웨인보다 효율적이다. 그녀는 이것을 받아들일 수 없어 한다." },
             { kind:'combat', key:'sea_demon', label:'바다 악마 — 하부 수로', nodeCode:'HN1_DEMON' } ] },
   // §CROWN-01 Amendment A: INN — Giant Eel (inn commission)
   { id:'inn-eel', group:'crown-inn', nodes:['INN'],
     when: st => ((st.quests || {})['quest_inn_eel']||'') === 'active'
                 && !(st.defeatedBattles||{})['INN_EEL'],
     label:'⚡ 아래로 — 배수로', btnStyle:'margin-top:4px;',
-    bits: [ { kind:'narrative', msg:"The passage below the inn floor is narrow and slick. The smell here is the sea, concentrated. The Giant Eel occupies most of the channel. It is electrogenic and large and occupying a space you both need." },
+    bits: [ { kind:'narrative', msg:"여관 바닥 아래의 통로는 좁고 미끄럽다. 냄새는 바다다, 농축된 바다. 대왕장어가 수로의 대부분을 차지하고 있다. 전기를 내고, 크고, 둘 다 필요한 자리를 차지하고 있다." },
             { kind:'combat', key:'giant_eel', label:'거대 장어 — 배수로', nodeCode:'INN_EEL' } ] },
   // ── §VM-01-G-FU-e: DSF — the smelting button, the §LXX stack's only BARE D1 button (the
   // inline block inserted the <button> directly afterend of #story-text-box with no panel
