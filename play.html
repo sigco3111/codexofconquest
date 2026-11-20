@@ -4547,7 +4547,7 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
             <button class="mp-scope-btn" data-scope="world" onclick="mpChatScope('world')">🌍 월드</button>
           </div>
           <div id="mp-map-chat-list" class="mp-map-chat-list"></div>
-          <input id="mp-map-chat-input" placeholder="say to the room… (Enter)" maxlength="500"
+          <input id="mp-map-chat-input" placeholder="주변에 말하기… (Enter)" maxlength="500"
                  onkeydown="if(event.key==='Enter')mpSayMap();else if(event.key==='Escape')mpDmTo(null)">
           <div class="mp-hint">주변 = 내 주변 약 10칸 안의 플레이어 · 월드 = 전원. 채팅은 게임에 저장되지 않고 브라우저 캐시에만 남습니다(최근 200줄, 오래된 것부터 삭제). 플레이어 옆의 ✉를 누르면 그 사람의 브라우저에서만 열리는 비공개 메시지를 보냅니다.</div>
         </div>
@@ -28812,7 +28812,7 @@ function mpChatScope(scope) {
   // §MP-CHAT-GLOBAL: the channel you're viewing is the channel you send into —
   // reflect it in the input's placeholder so the destination is unambiguous.
   const inp = document.getElementById('mp-map-chat-input');
-  if (inp) inp.placeholder = (MP.chatScope === 'world') ? '🌍 say to the WORLD… (Enter)' : '📍 say to the room… (Enter)';
+  if (inp) inp.placeholder = (MP.chatScope === 'world') ? '🌍 월드에 말하기… (Enter)' : '📍 주변에 말하기… (Enter)';
   _mpMapChatRender();
 }
 
@@ -33326,16 +33326,16 @@ function _nodeHookBirkaBrynnRegulars(node, { npcRowDiv }) {
         regularsDiv.style.cssText = 'margin-top:8px;';
         const act = S_story.storyAct || 1;
         const ledgerOk = (S_story.brynLedgerBalance || -8) >= 0;
-        let reg1 = 'The merchant in room 3 — same table, same meal, every visit.';
-        let reg2 = 'An elderly woman by the fire who doesn\'t look up. She\'s been here longer than you have.';
+        let reg1 = '3번 방의 상인 — 매번 같은 자리, 같은 음식.';
+        let reg2 = '난로 곁의 노인 여성은 고개를 들지 않습니다. 당신보다 오래전부터 이곳에 있었습니다.';
         let reg3 = act >= 3
-          ? 'A courier stopped for the night. She has the look of someone carrying news she hasn\'t decided to share.'
-          : 'The corner booth is empty. Brynn says it usually isn\'t.';
+          ? '하룻밤 묵어 가는 급사가 있습니다. 전할지 말지 결정하지 못한 소식을 품은 사람의 표정입니다.'
+          : '구석 부스가 비어 있습니다. 브린 말로는 평소엔 그렇지 않다고 합니다.';
         if (ledgerOk) {
-          reg1 = 'The merchant in room 3 has been here three weeks now. He says the roads south are clear again.';
+          reg1 = '3번 방의 상인은 벌써 삼 주째 머물고 있습니다. 남쪽 도로가 다시 안전해졌다고 합니다.';
         }
         regularsDiv.innerHTML = '<div class="npc-ambient" style="font-size:11px;line-height:1.75;">'
-          + '<em>A lamp burns in the corner. It has been lit since your first night here.</em><br>'
+          + '<em>구석에서 등잔이 타고 있습니다. 당신이 이곳에서 첫밤을 보낸 때부터 켜져 있습니다.</em><br>'
           + '<em>' + reg1 + '</em><br>'
           + '<em>' + reg2 + '</em><br>'
           + '<em>' + reg3 + '</em>'
@@ -33348,7 +33348,7 @@ function _nodeHookBirkaS49Entry41(node, { npcRowDiv }) {
       if (node.code === 'TLL' && S_story.frobergerLastEntryRead && !S_story.s49BrynnDelivered) {
         const s49Btn = document.createElement('button');
         s49Btn.className = 'inv-use-btn';
-        s49Btn.textContent = '📔 You read the last entry.';
+        s49Btn.textContent = '📔 마지막 기록을 읽습니다.';
         s49Btn.style.cssText = 'margin-top:4px;';
         s49Btn.addEventListener('click', () => {
           S_story.s49BrynnDelivered = true;
@@ -33376,16 +33376,16 @@ function _nodeHookBirkaRoom6(node, { npcRowDiv }) {
           sub.style.cssText = 'margin-top:6px;padding:12px 14px;background:#0c0a08;border-left:3px solid #7a6040;border-radius:4px;display:flex;flex-direction:column;gap:10px;';
           const body = document.createElement('div');
           body.style.cssText = 'font-size:12px;line-height:1.9;color:#c0a870;font-style:italic;';
-          body.innerHTML = "<p style='margin:0 0 8px'>It's clean. Brynn keeps all the rooms clean, but this one is slightly more so — the way a room gets when someone tidies it out of care rather than routine.</p>"
-            + "<p style='margin:0 0 8px'>There's a mark on the wall near the window: a small sigil, scratched into the plaster. Not defacement — done carefully, at eye level, the kind of mark someone makes when they want to be able to find a place again.</p>"
-            + "<p style='margin:0 0 8px'>The bed has two pillows. Brynn added the second one after the fact. She doesn't know exactly why. She changed the pillowcase last week even though no one had slept on it.</p>"
-            + "<p style='margin:0'>On the windowsill, almost under the sill itself, a scrap of paper. Not Froberger's journal pages — different paper, smaller. In the same handwriting as the journal, but lighter:</p>";
+          body.innerHTML = "<p style='margin:0 0 8px'>깨끗합니다. 브린은 모든 방을 깨끗하게 치우지만, 이 방은 조금 더 그렇습니다. 일상이 아니라 애정으로 치운 방만의 정갈함입니다.</p>"
+            + "<p style='margin:0 0 8px'>창가 벽에 흔적이 있습니다. 회반죽에 새겨진 작은 인장. 낙서가 아니라 눈높이에서 정성스럽게 새긴, 다시 이곳을 찾고 싶은 사람이 남기는 종류의 표시입니다.</p>"
+            + "<p style='margin:0 0 8px'>침대에는 베개가 두 개 있습니다. 두 번째는 브린이 나중에 얹은 것입니다. 왜인지는 자신도 모릅니다. 아무도 베지 않았는데도 지난주 베갯잇을 갈아 두었습니다.</p>"
+            + "<p style='margin:0'>창턱에, 거의 창턱 아래로 밀어 넣은 듯한 종이 조각이 있습니다. 프로베르거의 일지 페이지가 아닙니다. 다른, 더 작은 종이. 일지와 같은 필적이지만 더 가는 획입니다:</p>";
           const sig = document.createElement('div');
           sig.style.cssText = 'text-align:center;font-size:15px;color:#8a6030;font-style:italic;padding:10px 0;border-top:1px solid #3a2a10;border-bottom:1px solid #3a2a10;';
-          sig.textContent = '— still here.';
+          sig.textContent = '— 아직 여기 있다.';
           const close = document.createElement('div');
           close.style.cssText = 'font-size:11px;color:#907050;font-style:italic;';
-          close.textContent = 'You look at it for a while. You close the door behind you.';
+          close.textContent = '한참을 바라봅니다. 그리고 문을 닫고 나옵니다.';
           sub.appendChild(body); sub.appendChild(sig); sub.appendChild(close);
           _r6Wrap.appendChild(sub);
         });
