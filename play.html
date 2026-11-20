@@ -32056,7 +32056,7 @@ const NODE_PANELS = [
     text:st => {
       S_story.inventory = S_story.inventory || [];
       S_story.inventory.push({ name:"Glut's Gift", icon:'🍯', sell:0, drop:false });
-      return '🍯 Glut presses the jar into your hand before you can respond to the pressing. It is warm. You are carrying Glut\'s Gift.';
+      return '🍯 글럿이 대답할 새도 없이 항아리를 당신 손에 눌러 쥐여준다. 따뜻하다. 당신은 Glut\'s Gift를 가지고 있다.';
     } },
   // §CROWN-01: HCA — Crone Mark conversion (fires once, not on revisit)
   { id:'story-hca-marks', nodes:['HCA'],
@@ -32069,22 +32069,22 @@ const NODE_PANELS = [
         S_story.abilityScores = S_story.abilityScores || {};
         S_story.abilityScores.wis = (S_story.abilityScores.wis || 8) + 1;
         S_story.knowledge = S_story.knowledge || [];
-        S_story.knowledge.push('Swamp-lore — Crone Bead: one question of the deep swamp answered.');
+        S_story.knowledge.push('늪지식 — Crone Bead: 깊은 늪의 질문 하나에 답을 받는다.');
         S_story.inventory = S_story.inventory || [];
         S_story.inventory.push({ name:'Crone Staff', icon:'🪄', sell:250, atkBonus:3, dmgDie:8, dmgCount:1, dmgFlat:0, type:'weapon', minLevel:1 });
-        _hcaText += 'Fifteen marks. The three crowns witnessed fully. WIS +1 (permanent). Crone Bead added to your Field Notes. Crone Staff: 🪄 +3 ATK, 1d8.';
+        _hcaText += '열다섯 자국. 세 왕관이 온전히 목격되었다. WIS +1 (영구). Crone Bead가 야전 노트에 추가되었다. Crone Staff: 🪄 +3 ATK, 1d8.';
       } else if (m >= 10) {
         S_story.abilityScores = S_story.abilityScores || {};
         S_story.abilityScores.wis = (S_story.abilityScores.wis || 8) + 1;
         S_story.knowledge = S_story.knowledge || [];
-        S_story.knowledge.push('Swamp-lore — Crone Bead: one question of the deep swamp answered.');
-        _hcaText += 'Ten marks. The attention was sufficient. WIS +1 (permanent). Crone Bead added to your Field Notes.';
+        S_story.knowledge.push('늪지식 — Crone Bead: 깊은 늪의 질문 하나에 답을 받는다.');
+        _hcaText += '열 자국. 주목은 충분했다. WIS +1 (영구). Crone Bead가 야전 노트에 추가되었다.';
       } else if (m >= 6) {
         S_story.abilityScores = S_story.abilityScores || {};
         S_story.abilityScores.wis = (S_story.abilityScores.wis || 8) + 1;
-        _hcaText += 'Six marks. The crowns were witnessed. WIS +1 (permanent).';
+        _hcaText += '여섯 자국. 왕관들이 목격되었다. WIS +1 (영구).';
       } else {
-        _hcaText += 'The marks are what they are. The arc closes here regardless.';
+        _hcaText += '자국은 자국일 뿐이다. 여정은 어쨌든 여기서 닫힌다.';
       }
       return _hcaText;
     } },
@@ -32099,7 +32099,7 @@ const NODE_PANELS = [
   { nodes:['HFT'],
     when:st => st.drownersDefeated,
     css:'margin-top:10px;border-left-color:#2a5a3a;color:#70b880;font-size:12px;',
-    text:'✅ The den is cleared. The Elder Fisherwoman knows. She did not look surprised. The Guild will adjust their theory over the next two seasons.' },
+    text:'✅ 소굴이 정리되었다. 노파 어부가 알고 있다. 그녀는 놀란 기색이 없었다. 길드는 앞으로 두 계절에 걸쳐 이론을 조정할 것이다.' },
   // §HUNT-01: LH — hull investigation panel at KSU
   { id:'story-hunt-lh', nodes:['KSU'],
     when:st => st.huntHookReceived && !st.lakeClueFound,
@@ -32174,12 +32174,12 @@ const NODE_PANELS = [
   { nodes:['DA2'],
     when:st => st.tideGateOpened,
     css:'margin-top:10px;border-left-color:#2a5a3a;color:#80c890;font-size:12px;',
-    text:'✅ The Gate is open. The depth below: eighteen meters. Bearing 047°. The chain has closed. The archive has an archivist. The Gate has the alloy. These are two statements of the same fact.' },
+    text:'✅ 문이 열렸다. 아래 수심: 18m. 방위 047°. 사슬이 닫혔다. 기록고에는 기록관이 있다. 문에는 합금이 있다. 이것은 같은 사실의 두 서술이다.' },
   // §LXXIII: DA3 — both chains closed (done state)
   { nodes:['DA3'],
     when:st => st.antecedentDepthMet,
     css:'margin-top:10px;border-left-color:#1a3a2a;color:#70a880;font-size:12px;',
-    text:'✅ Both chains closed. The signal has returned to Station 7. The Constructor\'s design is understood: one foundation, two questions, one archivist.' },
+    text:'✅ 두 사슬이 모두 닫혔다. 신호가 스테이션 7로 돌아갔다. 건설자의 설계가 이해되었다. 하나의 기초, 두 개의 질문, 한 명의 기록관.' },
   // §LXX: DSF — forge active, no iodine held (the smelt button's else-leg)
   { id:'story-dsf-smelt', nodes:['DSF'],
     when:st => st.forgeActivated && !st.seaElementCrafted
@@ -32245,7 +32245,7 @@ function _nodeHookVoidArchaeology(node) {
           if (found && !S_story.vaAllMarksFound) {
             S_story.vaAllMarksFound = true;
             setTimeout(() => {
-              storyMsg('Five marks. One pattern. She was everywhere before anyone was looking.');
+              storyMsg('다섯 자국. 하나의 패턴. 누구보다 먼저, 그녀는 모든 곳에 있었다.');
               if (!S_story.quests) S_story.quests = {};
               if (!S_story.quests['quest_va_02']) S_story.quests['quest_va_02'] = 'active';
             }, 600);
@@ -32271,7 +32271,7 @@ function _nodeHookVoidArchaeology(node) {
         tunnelBtn.addEventListener('click', () => {
           S_story.vaLastWardVisited = true;
           tunnelBtn.remove();
-          storyMsg('The seal accepts the key. The door opens inward.\n\nInside: cut stone. No decay. The air is perfectly still — sealed for 200 years.\n\nOn the far wall, six sentences. The last field test of the containment structure. The first time it was ever closed.\n\n"The destabilization event was calculated correctly. The sealing mechanism engaged at the predicted moment. The Antecedent entered containment. The cage is closed. We did not know what we were containing. We only knew it could not be destroyed.\n\nThe Antecedent was here. It is not anymore. You know where it is now."');
+          storyMsg('봉인이 열쇠를 받아들인다. 문이 안쪽으로 열린다.\n\n내부: 다듬은 돌. 부패가 없다. 공기가 완전히 고요하다. 200년간 봉해져 있었다.\n\n맞은편 벽에 여섯 문장. 격리 구조물의 마지막 현장 시험. 그것이 처음으로 닫힌 순간의 기록.\n\n「불안정화 사건은 정확히 계산되었다. 봉인 장치는 예측된 순간에 작동했다. 선행자는 격리에 들어갔다. 우리는 닫혔다. 우리는 무엇을 격리하는지 몰랐다. 파괴할 수 없다는 것만 알았다.\n\n선행자는 여기에 있었다. 이제는 없다. 지금 그것이 어디에 있는지 너는 알고 있다.」');
           storyAutoSave();
         });
         document.getElementById('story-text-box').insertAdjacentElement('afterend', tunnelBtn);
@@ -32286,7 +32286,7 @@ function _nodeHookVoidArchaeology(node) {
     // Q-VA-04: Benedikt delivers message at NUE
     if (node.code === 'NUE' && S_story.vaLastWardVisited && S_story.entry42Written && !S_story.vaArchitectureKnown) {
       setTimeout(() => storyMsg(
-        'Benedikt: "She built it. You closed it. Froberger found the mechanism. You followed him. Entry 42 is the fourth link. Four links is a chain. A chain holds. That is the only kind of answer this work produces — not a solution, a chain."'
+        '베네딕트: 「그녀가 만들었다. 당신이 닫았다. 프로베르거가 장치를 찾았다. 당신이 그를 따라갔다. 항목 42는 네 번째 고리다. 고리 넷이면 사슬이다. 사슬은 붙든다. 이 일이 만들어내는 답은 그것뿐이다. 해결이 아니라, 사슬이다.」'
       ), 700);
       S_story.vaArchitectureKnown = true;
       storyAutoSave();
@@ -32299,7 +32299,7 @@ function _nodeHookVoidShamanWarden(node) {
     if (!S_story.vshamanFound) {
       S_story.vshamanFound = true;
       if (!S_story.quests['quest_vs_warden']) S_story.quests['quest_vs_warden'] = 'active';
-      storyMsg('Inside the tunnel, past where you stopped before.\n\nThe walls are marked — not the stone alignment from the Unbanked Quarter, but new work, carved in the past six months. A workbench. Notes in a language that mixes goblin glyphs and Old Scholar script.\n\nThe Warden is not surprised to see you. They knew Mordus would send someone eventually.\n\n"You came to stop me. Or to understand. Either is fine. I have been working for eleven years to do the right thing. I may be wrong about what the right thing is."');
+      storyMsg('터널 안, 전에 멈췄던 지점을 지나.\n\n벽에는 표시가 새겨져 있다. 언뱅크드 구역의 돌 배열이 아니라, 지난 6개월 사이에 새긴 새 작업이다. 작업대. 고블린 상형문자와 고대 학자 문자가 섞인 언어로 쓰인 노트.\n\n관리인은 당신을 보고 놀라지 않는다. 모르두스가 언젠가 누군가를 보낼 것을 알고 있었다.\n\n「나를 막으러 왔군요. 아니면 이해하러. 어느 쪽이든 괜찮습니다. 나는 11년 동안 옳은 일을 하려고 일해 왔습니다. 옳은 일이 무엇인지는 제가 틀렸을지도 모르지만요.」');
       storyAutoSave();
     }
     const _wardenBtnGroup = document.createElement('div');
@@ -32308,16 +32308,16 @@ function _nodeHookVoidShamanWarden(node) {
     if (_hasLog) {
       const logBtn = document.createElement('button');
       logBtn.className = 'inv-use-btn';
-      logBtn.textContent = '📜 Show them the Constructor\'s Log.';
+      logBtn.textContent = '📜 Constructor\'s Log를 보여준다.';
       logBtn.addEventListener('click', () => {
-        storyMsg('The Warden takes the Log. Reads. Stops at Entry 2.\n\n"\'The cage must be opened before it can be closed.\' This is the original. This is — the mandate they gave us was open the cage. But this says open the tunnel to close the cage. The tunnel. Not the cage."\n\nThey read Entry 7.\n\n"\'If someone is reading this, the sealing mechanism has activated. The cage is closed.\'\n\nThe cage is closed. It was closed 200 years ago. I have been eleven years trying to re-open it."\n\nThey are quiet for a long time.\n\n"Tell the clan the mission is complete. That is the truth — the mandate was fulfilled 200 years before I was born. This is — this is fine. I can stop."\n\nThey pass you the token without being asked.\n\nThe sub-clan walked back in. All of them. Mordus didn\'t ask what changed. He logged them as returned.');
+        storyMsg('관리인이 Constructor\'s Log를 받아 든다. 읽는다. 항목 2에서 멈춘다.\n\n「『닫히기 전에 먼저 열려야 한다.』 이것은 원본이야. 이것은... 우리에게 주어진 임무는 우리를 여는 것이었어. 하지만 여기에는 우리를 닫기 위해 터널을 열라고 적혀 있어. 터널을. 우리가 아니라.」\n\n항목 7을 읽는다.\n\n「『누군가 이것을 읽고 있다면, 봉인 장치가 작동한 것이다. 우리는 닫혔다.』\n\n우리는 닫혔어. 200년 전에 닫혔어. 나는 11년 동안 그것을 다시 열려고 했어.」\n\n오랫동안 말이 없다.\n\n「클랜에 임무 완료라고 전해줘요. 그것이 진실이에요. 임무는 내가 태어나기 200년 전에 완수되었으니까. 이것은... 괜찮아요. 이제 멈출 수 있어요.」\n\n그들은 요청받지 않았는데 토큰을 건넨다.\n\n하위 클랜이 모두 돌아왔다. 전원이. 모르두스는 무엇이 바뀌었는지 묻지 않았다. 복귀로 기록했다.');
         S_story.vsShamanPersuaded = true;
         S_story.wardensLegacyKnown = true;
         S_story.inventory = S_story.inventory || [];
         S_story.inventory.push({ name:"The Warden's Token", icon:'🔑', type:'relic', sell:0,
           desc:'최초 관리인의 인장, 첫 번째 연구자의 임명장. 열일곱 번 베껴 썼다. 열일곱 번째 사본에는 동사 시제의 작은 오류가 있었고 그것이 모든 것을 바꿨다.' });
         S_story.gold += 600;
-        storyMsg('💰 +600gp (quest: The Warden). 🔑 The Warden\'s Token added to inventory.');
+        storyMsg('💰 +600gp (퀘스트: 관리인). 🔑 Warden\'s Token이 인벤토리에 추가되었다.');
         if (!S_story.quests['quest_vs_warden']) S_story.quests['quest_vs_warden'] = 'active';
         _wardenBtnGroup.remove();
         storyAutoSave();
@@ -32344,7 +32344,7 @@ function _nodeHookCorelliMerchant(node) {
       const _coBtn = document.createElement('button');
       _coBtn.id = 'corelli-encounter-btn';
       _coBtn.className = 'inv-use-btn';
-      _coBtn.textContent = '🛒 Traveling Merchant';
+      _coBtn.textContent = '🛒 떠돌이 상인';
       _coBtn.style.cssText = 'margin-top:6px;border-color:#7a6040;';
       _coBtn.addEventListener('click', () => {
         _coBtn.remove();
@@ -32354,7 +32354,7 @@ function _nodeHookCorelliMerchant(node) {
         // 5th appearance (last_cipher) — revelation first if Dear Friend
         if (_coApp.index === 5) {
           if (fav >= 3 && !S_story.corelliRevelationDelivered) {
-            storyMsg('Corelli: "' + opener + '"\n\n"Six years I carried sealed documents for the Ivory Circle. Documents between the Scholar Kings and their contractors. I never opened them.\n\nThen one seal broke in the rain. Just the outer wrapper. I had three days before the next courier exchange, so I read what was inside.\n\nIt was an order. A suppression order. For a researcher named — they called her \'the Antecedent.\' They were very careful not to use her name.\n\nThe order said: remove her findings from the distribution network. All copies. All correspondence. All record of the correspondence. Do not destroy — destroy leaves a record of destruction. Reclassify.\n\nI\'ve been selling her things ever since. Not all of them. I\'m not foolish. But the ones that would find the right hands eventually. I think you might be the right hands.\n\nTake this. Don\'t ask where I found it."');
+            storyMsg('코렐리: 「' + opener + '」\n\n「6년 동안 봉인된 문서를 아이보리 서클을 위해 운반했다. 학자 왕들과 그들의 하청업자 사이를 오가는 문서였다. 열어본 적은 없다.\n\n그러다 비에 봉인 하나가 뜯어졌다. 겉 포장뿐이었다. 다음 전령 교환까지 사흘이 있었고, 나는 안의 내용을 읽었다.\n\n그것은 명령이었다. 은폐 명령. 『선행자』라고 불리던 한 연구자에 대한. 그들은 그녀의 이름을 쓰지 않으려 매우 조심했다.\n\n명령은 말했다. 그녀의 발견을 유통망에서 제거하라. 모든 사본. 모든 서신. 그 서신의 모든 기록. 파기는 하지 말 것. 파기는 파기의 기록을 남긴다. 재분류하라.\n\n나는 그 이후로 그녀의 물건들을 팔아왔다. 전부는 아니다. 나는 어리석지 않다. 하지만 언젠가 올바른 손에 닿을 것들은 골라서. 당신이 그 올바른 손일지도 모른다고 생각한다.\n\n이걸 가져가라. 어디서 찾았는지는 묻지 마라.」');
             S_story.corelliRevelationDelivered = true;
             S_story.inventory = S_story.inventory || [];
             if (!S_story.inventory.some(i => i.name === CORELLI_ITEMS.last_cipher.name)) {
@@ -32366,7 +32366,7 @@ function _nodeHookCorelliMerchant(node) {
             if (enc) enc._decoded = true;
           } else {
             storyMsg('Corelli: "' + opener + '"');
-            storyMsg('(Corelli has nothing left to sell. But they look like they\'ve been waiting for something — or someone.)');
+            storyMsg('(코렐리는 더 이상 팔 것이 남아 있지 않다. 하지만 무언가를, 혹은 누군가를, 기다리고 있던 모양이다.)');
           }
           storyAutoSave();
           return;
@@ -32376,7 +32376,7 @@ function _nodeHookCorelliMerchant(node) {
         const alreadyOwned = (S_story.inventory || []).some(i => i.name === itemDef.name);
         storyMsg('Corelli: "' + opener + '"');
         if (alreadyOwned) {
-          storyMsg('(You already have ' + itemDef.name + '.)');
+          storyMsg('(이미 가지고 있다: ' + itemDef.name + '.)');
           storyAutoSave();
           return;
         }
@@ -32612,10 +32612,10 @@ function _nodeHookBirkaVargaWatch(node, { npcRowDiv }) {
         if (!S_story.s8VargaClueUnlocked) {
           const vargaAmbient = document.createElement('div');
           const vargaDesc = vargaWatches === 0
-            ? 'A man at the corner table who is not drinking his drink. He\'s watching the door.'
+            ? '모퉁이 탁자의 한 남자가 자신의 술을 마시지 않고 있다. 그는 문을 지켜보고 있다.'
             : vargaWatches === 1
-            ? 'The man at the corner table is still there. Different drink. Same door.'
-            : 'He\'s been here three visits. The drink changes. He doesn\'t.';
+            ? '모퉁이 탁자의 남자가 아직도 있다. 술은 다르다. 문은 같다.'
+            : '당신이 세 번 찾아오는 동안 그는 계속 있었다. 술은 바뀐다. 그는 바뀌지 않는다.';
           vargaAmbient.innerHTML = '<div class="npc-ambient" style="font-size:11px;"><em>' + vargaDesc + '</em></div>';
           npcRowDiv.appendChild(vargaAmbient);
           if (vargaWatches < 3) {
@@ -32630,8 +32630,8 @@ function _nodeHookBirkaVargaWatch(node, { npcRowDiv }) {
                 storyMsg("He leaves at the same moment as the courier from the harbor. Not together — just the same moment.\n\nYael mentioned him: Varga. The pigeon route changed three times this season. The coin is moving toward the docks.\n\nPachelbel would know what that means.");
               } else {
                 storyMsg(S_story.s8VargaWatches === 1
-                  ? "He orders another drink. He doesn't touch it."
-                  : "He receives a small folded note. Reads it. Puts it in his coat. Does not leave.");
+                  ? "그는 술을 하나 더 주문한다. 손도 대지 않는다."
+                  : "그는 작게 접힌 쪽지를 받는다. 읽는다. 외투에 넣는다. 떠나지 않는다.");
               }
               watchBtn.remove();
             });
@@ -32642,12 +32642,12 @@ function _nodeHookBirkaVargaWatch(node, { npcRowDiv }) {
           const tellBtn = document.createElement('button');
           tellBtn.className = 'inv-use-btn';
           tellBtn.style.cssText = 'margin-top:4px;';
-          tellBtn.textContent = '💬 Tell Pachelbel about Varga.';
+          tellBtn.textContent = '💬 파헬벨에게 바르가에 대해 말한다.';
           tellBtn.addEventListener('click', () => {
             S_story.s8PachelbelTold = true;
-            storyMsg("Pachelbel listens without moving.\n\nPachelbel: \"Varga changes his route when the coin source changes. Three times means three new sources — or one source that keeps moving.\"\n\nA pause.\n\n\"The harbor's been different lately. More people coming through who don't know the prices. That's not new trade. That's displacement.\" He looks at you. \"I'll adjust my inventory accordingly. You didn't hear that from me.\"");
+            storyMsg("파헬벨이 움직이지 않은 채 듣는다.\n\n파헬벨: 「바르가는 동전 출처가 바뀌면 경로를 바꿔요. 세 번이면 새 출처가 셋이라는 뜻이에요. 아니면 계속 움직이는 출처 하나이거나요.」\n\n잠시 침묵.\n\n「요즘 항구가 달라졌어요. 값을 모르는 사람들이 많이 지나가요. 새 교역이 아니에요. 내몰림이에요.」 그가 당신을 본다. 「그에 맞춰 재고를 조정할 거예요. 저한테 들으신 거 아니에요.」");
             S_story.gold += 15;
-            storyMsg("He slides 15gp across the counter. No explanation.");
+            storyMsg("그가 카운터 너머로 15gp를 밀어 준다. 설명은 없다.");
             tellBtn.remove();
           });
           npcRowDiv.appendChild(tellBtn);
@@ -32694,7 +32694,7 @@ function _nodeHookBirkaQuillCouperinFarewell(node) {
           ? ACT8_FAREWELL_BEATS.quill.text()
           : ACT8_FAREWELL_BEATS.quill.text;
         if (ACT8_FAREWELL_BEATS.quill.onDeliver) ACT8_FAREWELL_BEATS.quill.onDeliver();
-        setTimeout(() => storyMsg('Quill is at the archive desk — not his usual table, not his instrument.\n\n' + beatText), 500);
+        setTimeout(() => storyMsg('퀼이 기록고 책상에 앉아 있다. 평소의 탁자도, 악기도 아닌 곳에.\n\n' + beatText), 500);
       }
 }
 function _nodeHookBirkaGigaultStall(node, { npcRowDiv }) {
@@ -32824,12 +32824,12 @@ function _nodeHookBirkaNiversPasses(node, { npcRowDiv }) {
         if (_npcFavor('yael') >= 1 && !S_story.niversNameLearned) {
           const askBtn = document.createElement('button');
           askBtn.className = 'inv-use-btn';
-          askBtn.textContent = '🛡 Who is the guard on the corner?';
+          askBtn.textContent = '🛡 모퉁이의 경비병이 누구인지 묻는다.';
           askBtn.style.cssText = 'margin-top:4px;';
           askBtn.addEventListener('click', () => {
             S_story.niversNameLearned = true;
-            _pushWorldNote('The guard on the corner — Nivers. Eleven years.');
-            storyMsg("Yael: \"Her name is Nivers. Eleven years on that corner. Same schedule. I keep meaning to tell her I notice. I keep not doing it.\"");
+            _pushWorldNote('모퉁이의 경비병. 니버스. 11년째.');
+            storyMsg("야엘: 「그녀의 이름은 니버스예요. 그 모퉁이에서 11년째예요. 같은 일과표로요. 알아봤다고 말해주고 싶다고 늘 생각해요. 계속 못 하면서요.」");
             askBtn.remove();
           });
           npcRowDiv.appendChild(askBtn);
@@ -32856,13 +32856,13 @@ function _nodeHookBirkaBlueShutters(node, { npcRowDiv }) {
             sub.style.cssText = 'margin-top:6px;padding:12px 14px;background:#08090e;border-left:3px solid #304060;border-radius:4px;display:flex;flex-direction:column;gap:6px;';
             const hd = document.createElement('div');
             hd.style.cssText = 'font-size:10px;font-weight:700;letter-spacing:1.5px;color:#405870;text-transform:uppercase;';
-            hd.textContent = '🔵 Blue Shutters Archive — Scholar\'s Row';
+            hd.textContent = '🔵 블루 셔터스 기록고 — 학자 거리';
             const body = document.createElement('div');
             body.style.cssText = 'font-size:12px;line-height:1.8;color:#8090a8;font-style:italic;';
-            body.textContent = 'The shutters are a particular shade of blue — institutional, deliberate. A Scholar Kings archive seal is set into the door frame. The reading list is full. The staff tell you this without looking up. You get the impression it isn\'t about the reading list.';
+            body.textContent = '셔터는 특정한 색조의 파랑이다. 제도적이고 의도적인 파랑. 학자 왕의 기록고 인장이 문틀에 박혀 있다. 열람 명단은 가득 차 있다. 직원들은 고개도 들지 않고 그렇게 말한다. 이유가 열람 명단 때문만은 아니라는 느낌이 든다.';
             const note = document.createElement('div');
             note.style.cssText = 'font-size:11px;color:#506080;';
-            note.textContent = 'Access requires a letter of introduction. Ask someone who has standing here.';
+            note.textContent = '출입에는 소개장이 필요하다. 이곳에 지위가 있는 누군가에게 물어볼 것.';
             sub.appendChild(hd); sub.appendChild(body); sub.appendChild(note);
             _bsWrap.appendChild(sub);
           });
@@ -32872,7 +32872,7 @@ function _nodeHookBirkaBlueShutters(node, { npcRowDiv }) {
           // State 2: Yael can provide a letter
           const archiveBtn = document.createElement('button');
           archiveBtn.className = 'inv-use-btn';
-          archiveBtn.textContent = '🔵 Ask Yael about the blue-shuttered building.';
+          archiveBtn.textContent = '🔵 야엘에게 파란 셔터 건물에 대해 묻는다.';
           archiveBtn.addEventListener('click', () => {
             if (document.getElementById('bs-archive-sub')) return;
             archiveBtn.disabled = true; archiveBtn.style.opacity = '0.5';
@@ -32882,13 +32882,13 @@ function _nodeHookBirkaBlueShutters(node, { npcRowDiv }) {
             sub.style.cssText = 'margin-top:6px;padding:12px 14px;background:#08090e;border-left:3px solid #304060;border-radius:4px;display:flex;flex-direction:column;gap:8px;';
             const hd = document.createElement('div');
             hd.style.cssText = 'font-size:10px;font-weight:700;letter-spacing:1.5px;color:#405870;text-transform:uppercase;';
-            hd.textContent = '🔵 Blue Shutters Archive — Yael';
+            hd.textContent = '🔵 블루 셔터스 기록고 — 야엘';
             const body = document.createElement('div');
             body.style.cssText = 'font-size:12px;line-height:1.8;color:#a0b0c8;font-style:italic;';
             body.textContent = '"The Blue Shutters. Scholar King archive, restricted stack. I have a standing letter of introduction — patrol business. You can use it."\n\nShe writes your name in the margin. "Don\'t take anything. Don\'t ask about the depth surveys. They\'ll know what you\'re looking for."\n\nShe hands you the letter.';
             const enterBtn = document.createElement('button');
             enterBtn.className = 'inv-use-btn';
-            enterBtn.textContent = '🔵 Enter the Blue Shutters Archive.';
+            enterBtn.textContent = '🔵 블루 셔터스 기록고에 들어간다.';
             enterBtn.addEventListener('click', () => {
               enterBtn.disabled = true; enterBtn.style.opacity = '0.5';
               _openBlueShuttersContent(_bsWrap);
@@ -32902,7 +32902,7 @@ function _nodeHookBirkaBlueShutters(node, { npcRowDiv }) {
           // State 3: letter in hand, enter directly
           const archiveBtn = document.createElement('button');
           archiveBtn.className = 'inv-use-btn';
-          archiveBtn.textContent = '🔵 Enter the Blue Shutters Archive.';
+          archiveBtn.textContent = '🔵 블루 셔터스 기록고에 들어간다.';
           archiveBtn.addEventListener('click', () => {
             if (document.getElementById('bs-archive-sub')) return;
             archiveBtn.disabled = true; archiveBtn.style.opacity = '0.5';
@@ -32961,11 +32961,11 @@ function _nodeHookBirkaFrobergerMemorial(node, { npcRowDiv }) {
             flBtn.className = 'inv-use-btn';
             flBtn.textContent = '🌸 Leave Flowers (10gp)';
             flBtn.addEventListener('click', () => {
-              if ((S_story.gold || 0) < 10) { storyMsg('🌸 Not enough gold (10gp required).'); return; }
+              if ((S_story.gold || 0) < 10) { storyMsg('🌸 골드가 부족하다 (10gp 필요).'); return; }
               S_story.gold -= 10; S_story.frobergerMemorialFlowers = true;
               storyUpdateStatus();
               const isNg = (S_story.ngPlusRun || 0) > 0;
-              storyMsg(isNg ? '🌸 You leave flowers again. You wonder if anyone will wonder who keeps doing this.' : '🌸 You leave a small bunch of flowers at the stone. They look right there.');
+              storyMsg(isNg ? '🌸 당신은 다시 꽃을 두고 온다. 계속 이렇게 하는 사람이 누구인지 궁금해할 사람이 있을지 문득 궁금해진다.' : '🌸 당신은 돌에 작은 꽃다발을 두고 온다. 그 자리에 잘 어울린다.');
               flBtn.remove();
             });
             btnRow.appendChild(flBtn);
