@@ -11079,7 +11079,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_va_02: { id:'quest_va_02', type:'side', schema:'UQF-1.0', gate:{}, bits:[], completion:{ flags:['vaLogFound'] }, title:'건축: 건설자의 기록',
     onComplete:[ { kind:'flag_write', set:['vaLogFound'] }, { kind:'narrative', msg:'📜 The Constructor\'s Log와 Antecedent Seal 획득.' } ], // §ARCH-01 W7c
-    itemChain:[{action:'grant',name:'The Constructor\'s Log',icon:'📜',type:'readable',sell:0,silent:true,readText:'Seven entries. Her handwriting. Entry 3 matches Froberger\'s margin note word for word.'},{action:'grant',name:'Antecedent Seal',icon:'🏛️',type:'relic',sell:0,silent:true,desc:'『선행자 격리 규약. 봉인 7. 발동.』'}], // §EDITOR-01-D-FU(b) b2b
+    itemChain:[{action:'grant',name:'The Constructor\'s Log',icon:'📜',type:'readable',sell:0,silent:true,readText:'일곱 개의 항목. 그녀의 필체. 3번 항목은 프로베르거의 여백 메모와 한 단어까지 일치한다.'},{action:'grant',name:'Antecedent Seal',icon:'🏛️',type:'relic',sell:0,silent:true,desc:'『선행자 격리 규약. 봉인 7. 발동.』'}], // §EDITOR-01-D-FU(b) b2b
     desc:'하층 문서고에 네 번째 문서가 나타났다. 이졸데가 소장품을 목록화할 때는 없었다. 혹은 있었지만 보이지 않았다. 문서고가 공식적으로 인정하지 않는 구별이다. 일곱 항목. 그녀의 필적. 마지막 항목은 이렇게 읽힌다. 『누군가 이것을 읽고 있다면, 봉인 장치가 발동한 것이다. 우리가 닫혔다. 미안하다.』 그녀는 그 줄을 쓰고 나서, 누가 찾았는지 확인하러 돌아오지 않을 것을 알고 문서고를 걸어 나갔다.',
     hint:'Return to the 학자 구역 lower archive.',
     activateNode:null, 
@@ -28052,7 +28052,7 @@ function _storyWmArchiveModal(wrap) {
       btn = document.createElement('button');
       btn.className = 'inv-use-btn';
       btn.style.cssText = 'margin-top:4px;';
-      btn.textContent = unsealed ? '🔓 Read (unredacted)' : '📄 읽기';
+      btn.textContent = unsealed ? '🔓 읽기 (삭제 해제본)' : '📄 읽기';
       btn.addEventListener('click', () => {
         S_story[doc.key] = true;
         if (unsealed) S_story.wmFirstResearcherKnown = true;
@@ -28060,7 +28060,7 @@ function _storyWmArchiveModal(wrap) {
       });
     }
     sub.appendChild(_makeDoc(read ? '#3a6a3a' : '#3a2010', read ? '#90c890' : '#f0c070',
-      (read ? '✓ ' : '') + 'Document ' + (i+1) + ': ' + doc.title, body, btn));
+      (read ? '✓ ' : '') + '문서 ' + (i+1) + ': ' + doc.title, body, btn));
   });
   if (S_story.vaAllMarksFound) {
     const _logRead = S_story.vaLogFound;
@@ -28075,7 +28075,7 @@ function _storyWmArchiveModal(wrap) {
         if (!S_story.inventory) S_story.inventory = [];
         if (!S_story.inventory.find(i => i.name === "The Constructor's Log")) {
           S_story.inventory.push({ name:"The Constructor's Log", icon:'📜', type:'readable', sell:0,
-            readText:'Seven entries. Her handwriting. Entry 3 matches Froberger\'s margin note word for word.' });
+            readText:'일곱 개의 항목. 그녀의 필체. 3번 항목은 프로베르거의 여백 메모와 한 단어까지 일치한다.' });
           S_story.inventory.push({ name:'Antecedent Seal', icon:'🏛️', type:'relic', sell:0,
             desc:'『선행자 격리 규약. 봉인 7. 발동.』' });
         }
@@ -28085,16 +28085,10 @@ function _storyWmArchiveModal(wrap) {
         _storyWmArchiveModal(_wrap);
       });
     }
-    const logBody = _logRead ? '1. "The Antecedent cannot be destroyed. It can be contained."\n'
-      + '2. "The containment structure requires a destabilization event to trigger the sealing mechanism. In plain terms: the cage must be opened before it can be closed."\n'
-      + '3. "I have calculated the destabilization event. It is survivable — if the person inside it knows it is coming."\n'
-      + '4. "The Scholar Kings do not know what I built. I told them it was a ward. They accepted that. I am not sure I was lying."\n'
-      + '5. "The stones are placed. The archive is sealed. The tunnel is closed. When it opens, the mechanism will know."\n'
-      + '6. "I am leaving my name off this record. If someone finds it, they will know why."\n'
-      + '7. "If someone is reading this, the sealing mechanism has activated. The cage is closed. Whatever you sealed inside it — that is what I built this for. I am sorry. I did not have a better answer."'
+    const logBody = _logRead ? '1. "선행자는 파괴할 수 없다. 가둘 수 있을 뿐이다."\n2. "봉인 구조는 봉인 장치를 발동하려면 불안정화 사건을 필요로 한다. 쉽게 말해: 우리는 닫기 전에 먼저 열려야 한다."\n3. "나는 불안정화 사건을 계산해 냈다. 생존 가능하다 — 그 안에 있는 사람이 그것이 다가오는 것을 알고 있다면."\n4. "학자왕들은 내가 무엇을 만들었는지 모른다. 나는 결계라고 말했다. 그들은 받아들였다. 내가 거짓말을 한 것인지는 나도 확실하지 않다."\n5. "돌들은 놓였다. 기록고는 봉해졌다. 터널은 닫혔다. 그것이 열릴 때, 장치가 알 것이다."\n6. "나는 이 기록에 이름을 남기지 않는다. 누군가 찾아낸다면, 이유를 알 것이다."\n7. "이것을 읽는 사람이 있다면, 봉인 장치가 작동된 것이다. 우리는 닫혔다. 당신이 그 안에 가둔 것이 무엇이든 — 나는 그것을 위해 이것을 만들었다. 미안하다. 더 나은 답이 없었다."'
       : null;
     sub.appendChild(_makeDoc(_logRead ? '#3a6a3a' : '#7a6040', _logRead ? '#90c890' : '#d4a050',
-      (_logRead ? '✓ ' : '🏛️ ') + 'Document 4: The Constructor\'s Log (7 entries — her handwriting)', logBody, logBtn));
+      (_logRead ? '✓ ' : '🏛️ ') + '문서 4: 건축자의 기록 (7개 항목 — 그녀의 필체)', logBody, logBtn));
   }
   const _hasGurtSurvey = (S_story.inventory || []).some(i => i.name === 'Y. Gurt Field Survey');
   if (_hasGurtSurvey) {
@@ -28107,15 +28101,10 @@ function _storyWmArchiveModal(wrap) {
       gurtBtn.textContent = '📋 읽기';
       gurtBtn.addEventListener('click', () => { S_story.wmGurtFileRead = true; storyAutoSave(); _storyWmArchiveModal(_wrap); });
     }
-    const gurtBody = _gurtRead ? 'Y. GURT — FIELD NATURALIST, FIRST CIRCLE\nPersonnel File — Scholar Kings Archive\n\n'
-      + 'Assignment: 유구르트 호수, freshwater taxonomy survey\nSurvey date: Pre-Codex Year 3\nSurvey status: Submitted (Survey #47-L, filed)\n\n'
-      + 'Correspondence record:\n  — Follow-up #1, 2nd Moon Year 4: No response\n  — Follow-up #2, 4th Moon Year 4: No response\n  — Follow-up #3, 1st Moon Year 5: No response\n\n'
-      + 'Current status: Field absence (ongoing)\nClassification: Active/Incomplete\n\n'
-      + 'Note: Field surveys from Y. Gurt continue to arrive sporadically via river courier — undated, unsigned, no return address. Contents: weather observations, species population counts, water temperature gradients by depth.\n\nWe continue to file them.\n\n'
-      + '[In different ink:]\n"He is still there. I checked the lake last year. He is still there and the lake is fine. — I.V."'
+    const gurtBody = _gurtRead ? 'Y. 거트 — 현장 박물학자, 제1 서클\n인사 기록 — 학자왕 기록고\n\n배치: 유구르트 호수, 담수 분류학 조사\n조사일: 코덱스 이전 3년\n조사 상태: 제출됨 (조사 #47-L, 접수)\n\n서신 기록:\n  — 후속 #1, 4년 두 번째 달: 회신 없음\n  — 후속 #2, 4년 네 번째 달: 회신 없음\n  — 후속 #3, 5년 첫 번째 달: 회신 없음\n\n현재 상태: 현장 부재 (지속 중)\n분류: 활동/미완료\n\n비고: Y. 거트의 현장 조사서는 계속 산발적으로 강 뱃사공을 통해 도착한다 — 날짜 없음, 서명 없음, 회신 주소 없음. 내용: 날씨 관측, 어종 개체 수, 수심별 수온 기울기.\n\n우리는 계속 접수해 둔다.\n\n[다른 잉크로:]\n"그는 아직 거기 있어요. 작년에 호수를 확인했어요. 그는 아직 거기 있고 호수는 괜찮아요. — I.V."'
       : null;
     sub.appendChild(_makeDoc(_gurtRead ? '#3a6a3a' : '#5a4030', _gurtRead ? '#90c890' : '#c0a080',
-      (_gurtRead ? '✓ ' : '📋 ') + 'Document — Y. Gurt: Field Absence (Ongoing)', gurtBody, gurtBtn));
+      (_gurtRead ? '✓ ' : '📋 ') + '문서 — Y. 거트: 현장 부재 (지속 중)', gurtBody, gurtBtn));
   }
   _wrap.appendChild(sub);
 }
@@ -28131,7 +28120,7 @@ function _startPitChampionBattle() {
 function _onPitChampionWin() {
   S_story.pitChampionWon = true;
   storyMsg(PIT_CHAMPION_OGUNDIMU.flavorWin);
-  setTimeout(() => storyMsg('🏆 Pit Championship complete. Weckmann\'s log updated.'), 600);
+  setTimeout(() => storyMsg('🏆 피트 챔피언십 완료. 베크만의 일지가 갱신되었다.'), 600);
   storyRender(NODE_MAP['HKG']);
 }
 function _onPitChampionLoss() {
@@ -28144,60 +28133,60 @@ const EB_NG_PLUS_LINES = { // → doc: story.md §EB_NG_PLUS_LINES (per-node one
   PRN: "또 검은 나무껍질이에요. 똑같아요.",
   INV: "The figures still walk below. They don't notice you're back.",
   SDR: "The altar stones unchanged. The water hasn't moved in centuries. You have.",
-  PMO: "The smell is the same — older than anything you've faced since.",
-  FLR: "The hold still moves. Whatever survived last time has had more time.",
-  KUN: "You remember the shape. It doesn't know that changes anything.",
-  ACE: "The black rock, the changed stone. It's still here. So are you.",
-  IST: "New inscriptions since last time. You weren't gone long enough for that.",
-  SOF: "The door. It opened once. It didn't reseal easily.",
-  BEG: "The throne is the same size. It was always this size. You just know that now.",
-  OTP: "Charybdis doesn't mark time the way you do. It's been waiting regardless.",
+  PMO: "그 냄새는 같다 — 그동안 마주한 무엇보다 오래되었다.",
+  FLR: "선창은 여전히 움직인다. 지난번에 살아남은 것은 더 많은 시간을 가졌다.",
+  KUN: "당신은 그 형상을 기억한다. 그것은 그것이 무언가를 바꾸는지 모른다.",
+  ACE: "검은 바위, 변한 돌. 여전히 여기 있다. 당신도 그렇다.",
+  IST: "지난번 이후 새로 새겨진 명문이 있다. 당신은 그럴 만큼 오래 떠나 있지 않았다.",
+  SOF: "그 문. 한 번 열렸다. 쉽게 다시 봉해지지 않았다.",
+  BEG: "옥좌는 같은 크기다. 언제나 이 크기였다. 이제는 당신이 그것을 아는 것뿐이다.",
+  OTP: "카리브디스는 당신과 같은 방식으로 시간을 새지 않는다. 상관없이 기다리고 있었다.",
   WAW: "여기선 아무것도 자라지 않아요. 기억하고 있죠.",
-  CAI: "Perfect preservation. It was waiting before. It's still waiting.",
-  MCT: "The palace exists again. Or still. The distinction isn't meaningful here.",
-  SJO: "The light still comes through in columns. The dragon did a careful job.",
-  KTM: "Three hundred years, and whatever you did shortened it by nothing.",
-  RKV: "The throne carved from a glacier. The glacier is smaller.",
-  MAD: "The spire still stands. The Seraph is still falling, in the space between.",
-  HAV: "Low tide, same as before. He's been guarding it since he died.",
-  TBS: "Kazrath has been here since before the Codex shattered. This is a very long time."
+  CAI: "완벽한 보존. 전에도 기다리고 있었다. 지금도 기다리고 있다.",
+  MCT: "궁전이 다시 존재한다. 아니면 여전히. 여기서 그 구별은 의미가 없다.",
+  SJO: "빛은 여전히 기둥처럼 쏟아져 들어온다. 용은 꼼꼼한 일을 했다.",
+  KTM: "삼백 년, 당신이 한 일은 그것을 조금도 줄이지 못했다.",
+  RKV: "빙하에서 깎아낸 옥좌. 빙하는 더 작아졌다.",
+  MAD: "첨탑은 여전히 서 있다. 세라프는 여전히 떨어지는 중이다, 그 사이 공간에서.",
+  HAV: "물이 빠진 때, 전과 같다. 그는 죽은 뒤로 계속 그것을 지키고 있다.",
+  TBS: "카즈라스는 코덱스가 부서지기 전부터 여기 있었다. 이것은 아주 긴 시간이다."
 };
 
 // S45: Quill's unfinished songs — cycle by gameDay, never named
 const QUILL_UNFINISHED_SONGS = [ // → doc: story.md §QUILL_UNFINISHED_SONGS (ambient fragments heard pre-arc; 3 rotating entries)
-  "A strange mode — augmented something. He keeps stopping and restarting.",
-  "Something slow in a minor key. He mouths words but doesn't sing them.",
-  "A quick pattern in a high register. He looks frustrated. Then plays it again.",
-  "A single chord, held. Then a different chord, held. He writes something down.",
-  "Something that sounds almost familiar, then doesn't.",
-  "A two-bar phrase, repeated. He changes one note each time. Very slowly getting somewhere.",
-  "Nothing he'd call a song yet. More like an argument between two intervals."
+  "이상한 조법 — 증가된 무언가. 그는 계속 멈췄다가 다시 시작한다.",
+  "단조의 느린 무언가. 가사를 입으로만 움직이고 노래하지는 않는다.",
+  "높은 음자리의 빠른 패턴. 좌절한 얼굴이다. 그러고는 다시 연주한다.",
+  "하나의 코드, 길게. 그리고 다른 코드, 길게. 그가 무언가를 적는다.",
+  "거의 익숙하게 들리다가, 그렇지 않게 되는 무언가.",
+  "두 마디의 악구, 반복. 매번 음 하나를 바꾼다. 아주 느리게 어딘가에 다다르고 있다.",
+  "그가 노래라 부를 만한 것은 아직 아니다. 두 개의 음정 사이의 말다툼에 가깝다."
 ];
 
 // S7: Blue Shutters Archive — Scholar King notes and Froberger research
 const BLUE_SHUTTERS_ARCHIVE_TEXT = // → doc: world.md §Blue Shutters Archive (LHR node; Yael letter gated; Entry 33 + Undercity Survey)
-`SCHOLAR KING ARCHIVE — OPEN STACK, READING ROOM B
-ACCESS: Letter of Introduction required (Yael, Birka guard command)
+`학자왕 기록고 — 개가 서가, 열람실 B
+열람: 소개장 필요 (야엘, 비르카 경비대 지휘부)
 
-CATALOGUE REF: Froberger, J. — Field Notes, Deposited Items
+목록 참조: 프로베르거, J. — 현장 노트, 기탁 물품
 
-Item 1: Research correspondence, circa Year 3 of survey.
-"The undercity predates the city. The city was built on top of a decision that was never recorded. I have found the original survey markers. They point inward, not outward. Someone was trying to contain something. The containment held for two hundred and eleven years. Then it didn't. The next survey is in this archive. It is labeled as a water assessment. It is not a water assessment."
+항목 1: 연구 서신, 조사 3년경.
+"지하도시는 도시보다 오래되었다. 도시는 기록된 적 없는 결정 위에 세워졌다. 나는 최초의 측량 표지를 찾았다. 그것들은 바깥이 아니라 안쪽을 가리킨다. 누군가 무언가를 가두려 했다. 그 봉인은 이백십일 년을 버텼다. 그리고 버티지 못했다. 다음 측량서는 이 기록고에 있다. 수질 평가로 표기되어 있다. 수질 평가가 아니다."
 
-Item 2: Unsigned architectural notation, deposited same year.
-[The notation describes load-bearing structures below the Undercity district. Measurements. Stress points. A hand-written margin note: "This would take three people and a reason. I have one of the three."]
+항목 2: 서명 없는 건축 기보, 같은 해 기탁.
+[그 기보는 지하도시 구역 아래의 하중 구조를 기술한다. 치수. 응력 지점. 손글씨 여백 메모: "이것에는 세 사람과 이유가 필요하다. 나는 셋 중 하나를 가지고 있다."]
 
-Item 3: Cross-reference, Froberger citation in Scholar King inventory records.
-"Researcher F. accessed restricted depth survey maps, Year 3, Day 41. Maps not returned. Researcher F. did not return the following week. Maps were found in the Undercity district, folded into the wall behind the training room. We did not ask why."`;
+항목 3: 학자왕 재고 기록 내 프로베르거 인용 교차 참조.
+"연구자 F., 제한된 심부 측량 지도에 접근, 3년 41일. 지도 미반납. 연구자 F.는 그 다음 주에 돌아오지 않았다. 지도는 지하도시 구역에서 발견되었고, 훈련실 뒤 벽에 접혀 있었다. 우리는 왜인지 묻지 않았다."`;
 
 // S52: Night-mode ambient lines per node (gameDay % 4 >= 2 = night)
 const NIGHT_AMBIENT = { // → doc: world.md §City at Night (shown when gameDay % 4 >= 2; per-node ambient paragraph)
-  LHR: "The Katharinen gate district is quiet. The usual foot traffic is gone. The guard posts are half-staffed.",
-  TLL: "The inn is quieter than usual. Two tables. A low fire. Brynn is doing accounts.",
-  MHQ: "The tavern crowd has thinned. Quill is still playing. Long after the regular crowd left.",
-  LLA: "The rough bar is loud even at this hour. Louder, maybe. Some people do their best business at night.",
-  HKG: "The official pit is closed. The unofficial sparring is not. Weckmann pretends not to notice.",
-  NUE: "The Oude Kerk square is empty. Sweelinck's lamp is on."
+  LHR: "카타리넨 성문 구역은 조용하다. 평소의 발길이 사라졌다. 초소는 절반만 배치되어 있다.",
+  TLL: "여관이 평소보다 조용하다. 탁자 둘. 낮은 불. 브린은 회계를 보고 있다.",
+  MHQ: "선술집의 무리가 줄었다. 퀼은 아직 연주하고 있다. 단골들이 떠난 지 한참 뒤에도.",
+  LLA: "험한 주점은 이 시각에도 시끄럽다. 더 시끄러울지도. 어떤 이들은 밤에 가장 좋은 장사를 한다.",
+  HKG: "공식 구덩이는 닫혔다. 비공식 스파링은 닫히지 않았다. 베크만은 못 본 척한다.",
+  NUE: "오라우데 교회 광장은 비어 있다. 스베일링크의 등불은 켜져 있다."
 };
 
 // §VM-01-G-FU-f2: the final-battle framing predicate, ONE copy. A node opts in with
@@ -28213,7 +28202,7 @@ function storyPreFinalBattle() {
   const node = NODE_MAP['TLS'];
   if (!node) return;
   if (S_story.defeatedBattles['TLS']) {
-    storyMsg('✓ Commander Bruhns has already been defeated. The Codex is Reforged.');
+    storyMsg('✓ 브룬스 사령관은 이미 격파되었다. 코덱스는 다시 벼려졌다.');
     return;
   }
   _preBattNode = { ...node, battle: { label:'사령관 브룬스 — 최후의 전투', key:'_bruhns' },
@@ -28255,10 +28244,10 @@ function _buildSweelinckNamingSequence() {
 
 // ── Layer 74: §XXXIX Yael's Named Report Scene ──
 const YAEL_NAMED_REPORT_SCENE = { // → doc: world.md §Yael's Named Report Scene (Layer 74; LHR, fav >= 2, Act VI+, yaelEscortUsed; yaelNamedReportDelivered)
-  setup: '"You\'ve been in the archive. You\'ve seen what happens to records."\n\nShe isn\'t looking at you. She\'s watching the market corner from the archive door.\n\n"Three years ago there was a riot in this district. I worked it for six weeks. Names, times, the transaction record that paid for it. Four weeks after I filed it, the evidence was gone — pulled from the guard archive. Someone with access above my rank took it cleanly."\n\nShe finally looks at you.\n\n"I filed a report at the time. Anonymous. I didn\'t want to become the story. The report disappeared too."',
-  decision: '"I\'m filing again. Under my name. I\'m keeping three copies — one with the Commissioner, one with a Scholar Kings archivist in Weimar, one with Weckmann. He had records of the operation that funded the riot. His training log. The financial ledger is gone but the training log survived because no one thought to look there."\n\nShe turns back to the market.\n\n"I\'m telling you because you know what it means when something disappears from an archive. If you want to hold a fourth copy, I\'ll give you one. If not — you know it exists. That\'s also something."',
-  choiceHold:  '"Good. Then it\'s in four places now."',
-  choiceThree: '"Three is enough. I just wanted someone outside the system to know."',
+  setup: '『기록실에 다녀오셨군요. 기록이 어떻게 되는지 보셨겠죠.』\n\n그녀는 당신을 보지 않는다. 기록실 문에서 시장 모퉁이를 지켜보고 있다.\n\n『삼 년 전에 이 구역에서 폭동이 있었습니다. 제가 육 주를 담당했어요. 이름들, 시각들, 그 비용을 댄 거래 기록. 제가 보고서를 올리고 사 주 뒤에, 증거는 사라졌습니다 — 경비대 기록고에서 뽑혀 나갔어요. 제 계급 위의 접근 권한을 가진 누군가가 깨끗이 가져갔습니다.』\n\n그녀가 마침내 당신을 본다.\n\n『당시에 보고서를 올렸습니다. 익명으로. 제가 이야기 자체가 되고 싶지 않았으니까요. 그 보고서도 사라졌습니다.』',
+  decision: '『다시 접수합니다. 제 이름으로. 사본을 세 부 보관할 거예요 — 한 부는 위원장에게, 한 부는 바이마르의 학자왕 기록관에게, 한 부는 베크만에게. 그는 폭동에 자금을 댄 운영의 기록을 가지고 있어요. 그의 훈련 일지. 재정 장부는 사라졌지만 훈련 일지는 살아남았습니다 — 아무도 거기를 볼 생각을 못 했으니까요.』\n\n그녀는 시장 쪽으로 돌아선다.\n\n『당신에게 말하는 이유는, 기록고에서 무언가가 사라진다는 게 무슨 뜻인지 당신이 알기 때문이에요. 네 번째 사본을 맡고 싶다면 드리겠습니다. 아니라도 — 존재한다는 걸 아는 것. 그것도 의미가 있으니까요.』',
+  choiceHold:  '『좋아요. 이제 네 곳에 있는 거네요.』',
+  choiceThree: '『세 부면 충분해요. 체제 밖의 누군가가 알기를 바랐을 뿐입니다.』',
 };
 
 // ── Layer 73: §XXXVIII Brynn Heartwood Letter ──
