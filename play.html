@@ -25118,14 +25118,14 @@ function _overlayPlayerAttack() {
     _statTally('attacksAttempted', 1);
 
     let finalDmg = 0, logMsg;
-    const lbl = n > 1 ? 'Atk ' + (i+1) + '/' + n + ': ' : '';
+    const lbl = n > 1 ? '공격 ' + (i+1) + '/' + n + ': ' : '';
 
     if (isNat1) {
       const _ex = _grantMissEffortXp();
-      logMsg = lbl + '✗ NAT 1 — 자동 빗나감!' + (_ex ? ' (+' + _ex + ' XP effort)' : '');
+      logMsg = lbl + '✗ NAT 1 — 자동 빗나감!' + (_ex ? ' (+' + _ex + ' XP 노력)' : '');
     } else if (!isHit) {
       const _ex = _grantMissEffortXp();
-      logMsg = lbl + '✗ Miss. ' + atkTotal + ' vs AC ' + S.enemy.ac + (_ex ? ' (+' + _ex + ' XP effort)' : '');
+      logMsg = lbl + '✗ 빗나감. ' + atkTotal + ' vs AC ' + S.enemy.ac + (_ex ? ' (+' + _ex + ' XP 노력)' : '');
     } else {
       const dmgCount = (isCrit ? S.weapon.count * 2 : S.weapon.count) * S.dmgMultiplier;
       const dmgRolls = rollN(S.weapon.die, dmgCount);
@@ -31270,7 +31270,7 @@ function storyRenderQuests() {
             const isFinal = _finalBattleReady(q.waypointNode);   // §VM-01-G-FU-f2: node-field predicate, one copy
             wpBtnHtml = '<button class="quest-set-wp-btn" style="background:rgba(138,32,21,0.1);border-color:var(--red-lt);color:var(--red);margin-top:4px;" '
               + 'onclick="' + (isFinal ? 'storyPreFinalBattle()' : 'storyPreBattle(NODE_MAP[\'' + q.waypointNode + '\'])') + '">'
-              + (isFinal ? '🔥 Final Fight' : '⚔ Fight Now') + '</button>';
+              + (isFinal ? '🔥 최종 결전' : '⚔ 지금 전투') + '</button>';
           } else if (!atDest) {
             const destLabel = wpNode ? wpNode.label.split(' — ')[0] : q.waypointNode;
             const distTag = _wpDistTag(q.waypointNode);   // §NAV-01e: '(12 steps, NE)'
@@ -33294,12 +33294,12 @@ function _nodeHookBirkaWeckmannLog(node, { npcRowDiv }) {
         if (S_story.quests['quest_pit_training'] === 'complete' && !S_story.fightersTokenFound && !S_story.fightersTokenGiven) {
           const searchBtn = document.createElement('button');
           searchBtn.className = 'inv-use-btn';
-          searchBtn.textContent = '🔍 Search the closed lot.';
+          searchBtn.textContent = '🔍 닫힌 장터를 수색한다.';
           searchBtn.style.cssText = 'margin-top:4px;';
           searchBtn.addEventListener('click', () => {
             S_story.fightersTokenFound = true;
             S_story.inventory.push({name:"격투사의 토큰",icon:'🏅',type:'key_item',sell:0,desc:"격투사의 번호가 찍힌 금속 원판. 누군가는 이것을 땀으로 얻었다."});
-            storyMsg("You find a small stamped disc in the collapsed tarpaulin. A fighter's number. Somebody competed here.");
+            storyMsg("무너진 천막 자루 아래에서 작은 각인 원판을 찾았다. 격투사의 번호다. 누군가 여기서 싸웠다.");
             searchBtn.remove();
           });
           npcRowDiv.appendChild(searchBtn);
@@ -33588,7 +33588,7 @@ function _nodeHookNueLowerArchive(node) {
       _archWrap.style.cssText = 'display:flex;flex-direction:column;gap:0;margin-top:6px;';
       const archBtn = document.createElement('button');
       archBtn.className = 'inv-use-btn';
-      archBtn.textContent = '📚 Lower Archive';
+      archBtn.textContent = '📚 하층 기록보관소';
       archBtn.addEventListener('click', () => {
         const existing = document.getElementById('wm-archive-sub');
         if (existing) { existing.remove(); archBtn.style.opacity = ''; archBtn.disabled = false; return; }
@@ -36273,7 +36273,7 @@ function storyRender(node, prefix) {
         if (q.waypointNode) {
           if (atDest && wpNode && wpNode.battle) {
             const isFinal = _finalBattleReady(q.waypointNode);   // §VM-01-G-FU-f2: node-field predicate, one copy
-            btn = isFinal ? '🔥 Final Fight' : '⚔ Fight Now';
+            btn = isFinal ? '🔥 최종 결전' : '⚔ 지금 전투';
             btnClass = 'btn-fight';
             btnClick = () => isFinal ? storyPreFinalBattle() : storyPreBattle(wpNode);
           } else if (!atDest) {
