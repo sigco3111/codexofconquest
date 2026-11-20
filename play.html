@@ -22370,26 +22370,26 @@ const ROMANCE_QUOTES = [ // → doc: docs/mechanics/mechanics-economy.md §Roman
 
 /* ── Layer 4: Condition Item Registry ── */
 const CONDITION_ITEMS = [ // → doc: docs/spec/combat.md §Conditions (item name → condition + effect + icon; used in inventory condition-use flow)
-  { match:'대지결속 뿌리',   condition:'Prone',       effect:'ADV on all attacks vs target; target speed 0',              icon:'🌿' },
-  { match:'속박 그물',      condition:'Restrained',  effect:'ADV on attacks vs target; target speed 0',                  icon:'🌿' },
-  { match:'연막탄',       condition:'Blinded',     effect:'ADV on attacks vs target; target has DIS on attacks',       icon:'💣' },
-  { match:'섬광 가루',     condition:'Blinded',     effect:'ADV on attacks vs target; target has DIS on attacks',       icon:'💣' },
-  { match:'신호 교란기',    condition:'Jammed',      effect:'Target loses coordination; no reactions this round',        icon:'⚡' },
-  { match:'EMP 수류탄',      condition:'EMP 기절', effect:'Target incapacitated 1 round; loses action & reaction',     icon:'💣' },
-  { match:'공허 바이러스',       condition:'Corrupted',   effect:'Target has DIS on saves; vulnerability to necrotic dmg',    icon:'☣' },
-  { match:'올가미 덫',       condition:'Grappled',    effect:'ADV on attacks vs target; target speed 0',                  icon:'🔦' },
-  { match:'Neurotoxin',       condition:'Paralyzed',   effect:'ADV + auto-crit on melee; target fails STR/DEX saves',      icon:'🌿' },
-  { match:'Thunderstone',     condition:'Stunned',     effect:'ADV on attacks; target fails STR/DEX saves; speed 0',       icon:'💣' },
-  { match:'바실리스크의 눈',     condition:'Petrified',   effect:'ADV + auto-crit on all attacks; DIS on attacks vs you',     icon:'🌿' },
-  { match:'페인트 두루마리',     condition:'Dodge',       effect:'+1 AC this combat; impose DIS on one enemy attack roll',    icon:'📜' },
+  { match:'대지결속 뿌리',   condition:'Prone',       effect:'대상에 대한 모든 공격 우위. 대상 속도 0',              icon:'🌿' },
+  { match:'속박 그물',      condition:'Restrained',  effect:'대상에 대한 공격 우위. 대상 속도 0',                  icon:'🌿' },
+  { match:'연막탄',       condition:'Blinded',     effect:'대상에 대한 공격 우위. 대상의 공격은 열세',       icon:'💣' },
+  { match:'섬광 가루',     condition:'Blinded',     effect:'대상에 대한 공격 우위. 대상의 공격은 열세',       icon:'💣' },
+  { match:'신호 교란기',    condition:'Jammed',      effect:'대상이 연계를 잃는다. 이번 라운드 반응 행동 불가',        icon:'⚡' },
+  { match:'EMP 수류탄',      condition:'EMP 기절', effect:'대상이 1라운드 행동 불능. 행동 및 반응 행동 상실',     icon:'💣' },
+  { match:'공허 바이러스',       condition:'Corrupted',   effect:'대상이 내성 굴림에 열세. 괴사 피해에 취약',    icon:'☣' },
+  { match:'올가미 덫',       condition:'Grappled',    effect:'대상에 대한 공격 우위. 대상 속도 0',                  icon:'🔦' },
+  { match:'Neurotoxin',       condition:'Paralyzed',   effect:'근접 공격 우위 + 자동 치명타. 대상 STR/DEX 내성 실패',      icon:'🌿' },
+  { match:'Thunderstone',     condition:'Stunned',     effect:'공격 우위. 대상 STR/DEX 내성 실패, 속도 0',       icon:'💣' },
+  { match:'바실리스크의 눈',     condition:'Petrified',   effect:'모든 공격 우위 + 자동 치명타. 당신에 대한 공격은 열세',     icon:'🌿' },
+  { match:'페인트 두루마리',     condition:'Dodge',       effect:'이번 전투 AC +1. 적 공격 굴림 하나에 열세 부여',    icon:'📜' },
 ];
 
 const JOURNAL_ENTRIES = { // dead code — 5 node-specific Froberger quotes (entries 7/14/23/31/41); superseded by FROBERGER_JOURNAL delivery system
-  LCY: { num:7,  text:'"Magistra Muffat is terrifying in the best way. She handed me the Trade Seal and said \'don\'t lose it or I\'ll know.\' I believe her. She believes in the Codex. I believe in her."' },
-  KIR: { num:14, text:'"Elder Fionn\'s village gave me a horse. I cried a little when I crossed the pass. I don\'t think they noticed."' },
-  SDQ: { num:23, text:'"The Crones know I\'m not you. They kept calling me \'the small one.\' They said the real one would come eventually. I said there is no real one. They laughed for a long time."' },
-  DOH: { num:31, text:'"Izador asked me what the Codex actually protects. I said the world. He said \'that\'s the answer to a different question.\' I\'ve been thinking about it for two days. I still don\'t know what I got wrong."' },
-  NUE: { num:41, text:'"Sweelinck calls me \'the fast one.\' Affectionately, I think. He showed me the observatory door. He says he won\'t open it until someone comes who has earned the right. I asked if I\'d earned it. He said: \'You found six. Your sibling will find seven.\' I didn\'t tell him I don\'t have a sibling. He seemed very certain."', mustRead:true },
+  LCY: { num:7,  text:'마지스트라 머펏은 최고로 좋은 의미로 무서운 분이다. 그녀는 나에게 무역 인장을 건네며 「잃어버리면 내가 알게 될 거다」라고 말했다. 나는 그녀를 믿는다. 그녀는 코덱스를 믿는다. 나는 그녀를 믿는다.' },
+  KIR: { num:14, text:'피온 노파의 마을이 나에게 말을 주었다. 고개를 넘을 때 조금 울었다. 그들은 눈치채지 못한 것 같다.' },
+  SDQ: { num:23, text:'노파들은 내가 당신이 아니라는 걸 안다. 그들은 계속 나를 「작은 애」라고 불렀다. 진짜가 언젠가 올 거라고 했다. 나는 진짜란 없다고 말했다. 그들은 한참 동안 웃었다.' },
+  DOH: { num:31, text:'이자도르가 코덱스가 실제로 무엇을 지키는지 물었다. 나는 세계라고 말했다. 그는 「그건 다른 질문의 답이다」라고 했다. 이틀째 생각하고 있다. 내가 뭘 틀렸는지 아직 모르겠다.' },
+  NUE: { num:41, text:'스베일링크는 나를 「빠른 애」라고 부른다. 다정하게, 인 것 같다. 그는 나에게 천문대 문을 보여 주었다. 자격을 갖춘 누군가가 오기 전에는 열지 않겠다고 했다. 내가 자격을 갖췄는지 물었다. 그가 말했다. 「너는 여섯을 찾았다. 네 형제가 일곱을 찾을 것이다.」 나는 형제가 없다고 말하지 않았다. 그는 아주 확신해 보였다.', mustRead:true },
 };
 
 /* ── NPC Dialogue Hooks ── */
@@ -22407,47 +22407,47 @@ function _senHoldSpeaker() {
 // ◆◆◆ WORLDBUILDER:NPC_DIALOGUE:START ◆◆◆
 // Keyed by node code; the per-NPC quote pools are the plural NPC_DIALOGUES.
 const NPC_DIALOGUE = { // → doc: story.md §FL7
-  LHR: { name:'City Guard Captain',              quote:'"Move along. The lower districts are sealed after dark — third night running. Whatever came out of the crypt, it\'s not going back in on its own."' },
-  TLL: { name:'Innkeeper Brynn',                 quote:'"He left this in the room. Paid three nights ahead, didn\'t sleep the third one. I kept it. Felt like someone would come asking."' },
+  LHR: { name:'City Guard Captain',              quote:'『계속 가세요. 하층 구역은 어두워지면 봉쇄됩니다. 사흘 밤 연속이에요. 지하묘지에서 나온 것이 무엇이든, 스스로 돌아가지는 않을 겁니다.』' },
+  TLL: { name:'Innkeeper Brynn',                 quote:'『그는 이것을 방에 두고 갔어요. 사흘 치를 미리 내고 세 번째 밤은 자지 않았죠. 내가 보관했습니다. 누군가 물으러 올 것 같았거든요.』' },
   // §KG Increment 2 — St. Petersburg → Moscow corridor NPC anchors (dialogue trees + quests → Increment 3)
-  SPB: { name:'모집관 볼코프',                quote:'"Guild pays in silver and skills, friend. Sign here. The east is honest work — you fight who they match you against, nothing more, nothing less. That\'s the honor of it."' },
-  KMS: { name:'정치교관 로시코바',   quote:'"You arrive soft. The School does not judge soft — the School corrects it. Three forms, then you spar. A cadet who cannot lose cleanly cannot win cleanly."' },
-  ZVD: { name:'구덩이 주인 그림카',               quote:'"These bots were gladiators before the Zavod stripped their reactors. We fight them with honor because they fought us with it. Three duels. No poison, no ganging. You lose, you lose standing up."' },
-  FBR: { name:'기술자 이오시프',                quote:'"Sit. The chair reads what you know and writes what you don\'t — slowly, and it costs. Half the district trained here. The other half is still in the chair. Don\'t be the other half."' },
-  TVR: { name:'보급관 레나',              quote:'"Last stop before the dead station. Refill, resupply, send your letters — the line to Station 7 runs quiet these days. Something out there stopped answering."' },
-  MHQ: { name:'Bard Tomas Couperin',                quote:'"Song\'s old. Older than the city, older than the Conclave. The melody\'s simple but the words are a lock waiting for a key. Yours for a drink and a silver."' },
-  LLA: { name:'도시 장물업자',                      quote:'"No names, no receipts. If you have regrets, that\'s yours to carry. Show coin and we begin."' },
+  SPB: { name:'모집관 볼코프',                quote:'『조합은 은과 기술로 지급합니다, 친구. 여기에 서명하세요. 동쪽은 정직한 일입니다. 그들이 맞붙여 주는 상대와 싸우는 것, 그 이상도 이하도 아니에요. 그것이 그 일의 명예입니다.』' },
+  KMS: { name:'정치교관 로시코바',   quote:'『당신은 무른 채로 온다. 학교는 무름을 심판하지 않는다. 학교는 그것을 바로잡는다. 세 가지 틀, 그다음 겨루기다. 깨끗이 질 줄 모르는 생도는 깨끗이 이길 수도 없다.』' },
+  ZVD: { name:'구덩이 주인 그림카',               quote:'『이 봇들은 자보드가 그들의 원자로를 벗겨 내기 전에는 검투사였다. 우리가 그들에게 명예롭게 싸우는 것은 그들이 우리에게 그랬기 때문이다. 세 번의 결투. 독도, 다구리도 없다. 지는 날에는 서서 진다.』' },
+  FBR: { name:'기술자 이오시프',                quote:'『앉아라. 그 의자는 네가 아는 것을 읽고 네가 모르는 것을 쓴다. 천천히, 그리고 대가가 있다. 구역의 절반이 여기서 훈련했다. 나머지 절반은 아직 의자에 있다. 나머지 절반이 되지 마라.』' },
+  TVR: { name:'보급관 레나',              quote:'『죽은 역 전의 마지막 정거장이야. 기름 채우고, 보급받고, 편지 부쳐. 스테이션 7로 가는 회선은 요즘 조용해. 저기 밖의 무언가가 응답을 멈췄어.』' },
+  MHQ: { name:'Bard Tomas Couperin',                quote:'『그 노래는 오래됐어. 도시보다, 비밀회의보다 오래됐지. 선율은 단순한데 가사가 열쇠를 기다리는 자물쇠야. 술 한 잔과 은화 한 닢이면 네 것이야.』' },
+  LLA: { name:'도시 장물업자',                      quote:'『이름도, 영수증도 없어. 후회가 있다면 그건 네가 지고 갈 몫이야. 동전을 보여라, 그럼 시작한다.』' },
   HAJ: { name:'The Antecedent', quoteFn:() => { // §LV — one-time; flag set on read
     if (!S_story.antecedentMet) S_story.antecedentMet = true;
-    return '"The signal was not distress. It was a question: is the archive still maintained?\n\nForty-one volumes because the question had no answer. You activated the Seal. You followed the chain — courier, berth, manifest, station, suppressor, chamber. That is the answer. That is what an archivist does.\n\nThe Containment Protocol was built by someone who understood that some things need a room rather than a cage. The Scholar Kings closed the file because they could not categorize what is in this room. That is the only thing they got wrong. The classification is: archivist.\n\nThe question is closed.\n\nYou may go."\n\nThe indicators return to standby. The seal cools. At Station 7, the automated log writes: 14.225 — absence confirmed.\n\nIt will not transmit again.';
+    return '『그 신호는 조난이 아니었습니다. 질문이었죠. 기록보관소가 아직 유지되고 있는가?\\n\\n마흔한 권, 그 질문에 답이 없었기 때문입니다. 당신은 봉인을 작동시켰습니다. 사슬을 따라왔습니다. 파발, 선실, 명세서, 역, 억제기, 방. 그것이 답입니다. 그것이 기록관이 하는 일입니다.\\n\\n격리 규약은 어떤 것들에는 우리가 아니라 방이 필요하다는 것을 이해한 사람이 만들었습니다. 학자왕들은 이 방에 있는 것을 분류할 수 없어서 파일을 닫았습니다. 그것이 그들이 틀린 유일한 것입니다. 분류는 이렇습니다. 기록관.\\n\\n질문은 닫혔습니다.\\n\\n가셔도 됩니다.』\\n\\n지시등이 대기 상태로 돌아간다. 봉인이 식는다. 스테이션 7에서 자동 기록이 쓴다: 14.225 — 부재 확인.\\n\\n그것은 다시 송신하지 않을 것이다.';
   }},
   HKG: { name:'Commander Seraphine Bruhns', quoteFn:() => S_story.suppressorLogRead // §LIV
-    ? '"The source has not repeated since Day 14. Three months of silence after three transmissions of increasing duration." She is not looking at the suppressor anymore — she already knows what it says. "I have been standing in this corridor for two years. The undercity is stable because I am standing in this corridor. The signal was stable because I was jamming it without knowing I was jamming it." A pause. "I would like to know what it was trying to say."'
+    ? '『발신원이 14일 이후 되풀이되지 않았습니다. 길어지는 송신 세 번 뒤의 세 달의 침묵.』 그녀는 더 이상 억제기를 보고 있지 않다. 그것이 뭐라고 말하는지 이미 알고 있다. 『나는 이 회랑에 이 년째 서 있어요. 언더시티가 안정적인 것은 내가 이 회랑에 서 있기 때문이에요. 신호가 안정적이었던 것은 내가, 내가 교란하고 있다는 것도 모른 채, 그것을 교란하고 있었기 때문이고요.』 잠깐의 멈칫. 『그것이 무엇을 말하려 했는지 알고 싶어요.』'
     : S_story.station7LogRead // §LIV
-    ? '"The suppressor fires automatically on structured transmissions in its radius. Non-mechanical signal classification, subsurface source." She looks at the device in your hand. "I did not know it kept a log. I was watching the door." She holds out her hand for the suppressor, checks the side panel, hands it back. "The log is on the device. Forty-one volumes of confirmed absence, three events, and then it cut the transmission mid-entry on Day 14." She does not look away. "I cut the transmission. I did not know I was cutting anything."'
-    : '"That\'s a Warrant suppressor — jams coordinated tactical signals in a forty-foot radius. Whoever built this undercity wanted control over every signal in it. Keep it. You\'ll need it."' },
+    ? '『억제기는 반경 안의 구조화된 송신에 자동으로 발사됩니다. 비기계적 신호 분류, 지하 발신원.』 그녀가 당신 손의 장치를 본다. 『기록을 남기는 줄은 몰랐어요. 나는 문을 보고 있었는데.』 그녀가 억제기를 달라고 손을 내밀어 옆면 패널을 확인하고 도로 건넨다. 『기록은 장치에 있어요. 확인된 부재 마흔한 권, 세 번의 사건, 그리고 14일째에 송신이 기입 도중에 끊겼어요.』 그녀는 눈을 거두지 않는다. 『송신을 끊은 건 나였어요. 나는 내가 무언가를 끊고 있다는 것도 몰랐어요.』'
+    : '『그건 《영장》 억제기예요. 사십 피트 반경의 조직된 전술 신호를 방해합니다. 이 언더시티를 만든 누구든 그 안의 모든 신호를 장악하려 했던 거예요. 가지고 있어요. 필요할 테니까.』' },
   LCY: { name:'마기스트라 엘라라 무파트', quoteFn:() => S_story.tideGateOpened // §LXXII
     ? '"The note said: do not let the archive answer." She has the requisition on the shelf. She is not looking at it. "It answered. The Gate opened. The chain was complete before the monitoring infrastructure was positioned." She picks up the requisition note, reads the last line again, sets it down. "Cycle 4\'s adjusted timeline is now active. Post-event monitoring. I have all four crates. Whatever the interval requires, the equipment is here." A pause. "The Annex in the 학자 구역 opened when the Gate opened. The Archivist left something there. You should read it."'
     : S_story.cycle4NoteRead // §LVIII
-    ? '"Cycle 3 was the Constructor\'s work. She built the containment to give it a room rather than a cage. If Cycle 4 carries a Conclave Archivist\'s authorization—" She stops. She sets the requisition note on top of the stack. "They were not building infrastructure to understand the signal. They were building infrastructure to manage the interval. Cycle 4 is not a response to what happened. It was already in motion before the first transmission." She does not look at the crates. "I am keeping them. All four. I am also keeping the note."'
+    ? '『3주기는 건설자의 작업이었어요. 그녀는 그것에게 우리가 아니라 방을 주려고 격리 시설을 만들었죠. 4주기가 비밀회의 기록관의 인가를 담고 있다면.』 그녀가 멈춘다. 그녀는 구매 요청 쪽지를 서류 묶음 맨 위에 놓는다. 『그들은 신호를 이해하기 위한 기반 시설을 만든 게 아니에요. 간격을 관리하기 위한 기반 시설을 만들었어요. 4주기는 일어난 일에 대한 대응이 아닙니다. 첫 송신 전에 이미 진행 중이었어요.』 그녀는 상자들을 보지 않는다. 『나는 그것들을 보관할 거예요. 네 개 전부. 쪽지도 보관할 거고요.』'
     : S_story.antecedentMet // §LVII + §LVIII consolidated (CO-002)
     ? (() => {
         if (!S_story.cycle4NoteRead) S_story.cycle4NoteRead = true; // auto-completes quest_muffat_05 on next quest check
-        return '"I sent Solm to the Map Shop three months ago. Dusk does not ask." She turns to the shelf and lifts the nearest crate onto the counter. She does not pause before doing it. The question is closed; the reason not to open the crate is closed with it.\n\nShe removes the packing material. Receiver array, Category 4, as expected. Beneath it: a folded note, handwritten, no date. She reads it without handing it to you. Her expression does not change.\n\n"Cycle 4 carries a Conclave Archivist\'s authorization. They were not building infrastructure to understand the signal. They were building infrastructure to manage the interval. This was already in motion before the first transmission." She sets the note on the counter. "Go find Solm. Come back when you have."';
+        return '『솔름을 석 달 전에 지도 가게로 보냈어요. 더스크는 묻지 않아요.』 그녀는 선반으로 돌아서서 가장 가까운 상자를 들어 카운터에 올린다. 그렇게 하기 전에 멈칫하지도 않는다. 질문은 닫혔다. 상자를 열지 않을 이유도 그것과 함께 닫혔다.\\n\\n그녀가 완충재를 벗겨 낸다. 수신기 배열, 4등급, 예상대로. 그 아래에 접힌 쪽지, 손글씨, 날짜 없음. 그녀는 당신에게 건네지 않고 그것을 읽는다. 표정이 변하지 않는다.\\n\\n『4주기는 비밀회의 기록관의 인가를 담고 있다. 그들은 신호를 이해하기 위한 기반 시설을 만든 게 아니다. 간격을 관리하기 위한 기반 시설을 만들었다. 이것은 첫 송신 전에 이미 진행 중이었다.』 그녀가 쪽지를 카운터에 놓는다. 『솔름을 찾아가요. 찾고 나면 돌아와요.』';
       })()
     : S_story.station7LogRead // §LIII
-    ? '"The log ends mid-entry. The Scholar Kings do not abandon equipment mid-entry. They do not leave pens in trays." She sets the manifest on the shelf beside the three crates. "The signal character was non-mechanical. Three occurrences, each longer than the last. The fourth was long enough to contain something. We do not know what it contained. The station operator does." A pause. "We do not know where the station operator is. We know the bearing. Bearing 047° from Station 7 is the Neon Undercity access corridor." She does not say what that means. She does not need to.'
+    ? '『기록이 기입 도중에 끝납니다. 학자왕들은 기입 도중에 장비를 버리지 않아요. 펜을 펜 받침에 두고 가지 않죠.』 그녀는 명세서를 세 상자 옆 선반에 놓는다. 『신호 성질은 비기계적이었어요. 세 번, 매번 이전보다 길었죠. 네 번째는 무언가를 담기에 충분할 만큼 길었어요. 우리는 그것이 무엇을 담았는지 몰라요. 역 운영자는 알아요.』 잠깐의 멈칫. 『역 운영자가 어디 있는지는 몰라요. 방위각은 알아요. 스테이션 7에서 방위각 047도가 네온 언더시티 접속 회랑이에요.』 그녀는 그것이 무슨 뜻인지 말하지 않는다. 그럴 필요가 없다.'
     : S_story.muffatManifestRead // §LII
-    ? '"Bertha has been logging the 14.225 absence for years. The changed absence in volume forty-one is three months after Station 7 went dark." She does not look up from the manifest. "Station 7 is listed in this crate\'s distribution notes as the delivery terminus. The station that went dark. The frequency that changed." She closes the manifest. "That is not a coincidence. Scholar Kings infrastructure does not produce coincidences. It produces decisions that look like coincidences."'
+    ? '『베르타는 수년째 14.225의 부재를 기록해 왔어요. 마흔한 권에서 바뀐 부재는 스테이션 7이 꺼진 지 석 달 뒤죠.』 그녀는 명세서에서 눈을 들지 않는다. 『스테이션 7이 이 상자의 배분 기록에 배송 종착지로 적혀 있어요. 꺼진 역이. 바뀐 주파수가.』 그녀가 명세서를 닫는다. 『그것은 우연이 아니에요. 학자왕 기반 시설은 우연을 만들지 않습니다. 우연처럼 보이는 결정을 만들 뿐이죠.』'
     : S_story.muffatBerthReached // §LI
-    ? '"The crate has a distribution stamp and no manifest number. That means it was shipped outside the standard record — either off-ledger, or the ledger was corrected afterward. The Scholar Kings do not make clerical errors. They make decisions. Someone decided this crate does not exist." She sets it on the shelf behind her. "I have three more like it. They have been arriving every six weeks for two years."'
-    : '"The courier worked for me. Whatever he told you before he died — that was Act One. Welcome to Act Two."' },
-  LGW: { name:'Vendor Mira',                     quote:'"Lords use it for party tricks. Stagehands use it for scene changes. Smart people use it for other things." A knowing look.' },
+    ? '『이 상자에는 배분 도장이 있고 명세서 번호가 없어요. 그것은 표준 기록 밖으로 배송됐다는 뜻이죠. 장부 밖이거나, 장부가 사후에 정정되었거나. 학자왕들은 사무상 실수를 하지 않아요. 그들은 결정을 하죠. 누군가가 이 상자는 존재하지 않는다고 결정한 거예요.』 그녀는 그것을 뒤쪽 선반에 놓는다. 『같은 것이 세 개 더 있어요. 이 년 동안 여섯 주마다 도착하고 있죠.』'
+    : '『그 파발은 나를 위해 일했어. 그가 죽기 전에 너에게 무슨 말을 했든, 그건 1막이었어. 2막에 온 걸 환영해.』' },
+  LGW: { name:'Vendor Mira',                     quote:'『영주들은 그것을 잔치 재주에 쓰지. 무대 스태프는 장면 전환에 쓰고. 영리한 사람들은 다른 일에 써.』 알 듯 말 듯한 눈빛.' },
   STN: { name:'Proprietor Dusk', quoteFn:() => S_story.solmFound // §LVII
     ? '"She left this morning. Before the cinnamon stalls opened." He straightens a map that does not need straightening. "She took her notebook. She left the field file." He sets a slim folder on the counter — three months of entries, small handwriting, entirely composed. "For the archive, she said. Whoever closes the record should hold it." He looks at you. "기록을 닫았어요."'
     : S_story.antecedentMet && !S_story.solmFound // §LVII
     ? ((() => { S_story.solmFound = true; return '"뒷방." He lifts the hinged counter without ceremony. "Three months. She reorganized the shelf twice." He says it the way he says everything — as a fact, without opinion about it.\n\nAnalyst Solm is at the back desk with a notebook open to a fresh page. She looks up once. Her pen does not move.\n\n"The transmission lasted three seconds and eleven tenths. I had stopped writing because I was listening so carefully I forgot to log. When it cut — I understood what had happened before I understood what I had heard."\n\nShe sets the pen down.\n\n"I did not return to Station 7. I came here instead. Classified knowledge you can no longer safely carry — Magistra Muffat is the only institutional function that makes sense for that." A pause. "You were down there." Not a question. She looks at the entry she wrote this morning. "Was it —"\n\nShe stops.\n\n"Confirmed," she says quietly. "That\'s sufficient." She writes it once more, cleanly, and closes the volume.'; })())
-    : '"No sign on the door by design. You found it, which means you were supposed to. I\'ve been holding the Real Map for eleven years waiting for someone who needed it."' },
+    : '『문에 간판이 없는 건 의도된 거야. 네가 찾아냈다는 건, 찾아내기로 되어 있었다는 뜻이야. 나는 십일 년째 그것이 필요한 누군가를 기다리며 진짜 지도를 보관하고 있었어.』' },
   // §AUDIT-03j: this slot used to be the Ship Captain alone, and the §SPARK-01 hold
   // investigation's speaker sat beside it under the key `MS_SPARK` — the legacy code
   // `MS` (= SEN) plus a suffix, because the registry is one speaker per node code.
