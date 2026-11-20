@@ -12302,12 +12302,12 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
         onFail:[
           { kind:'_legacy_fn', fn:() => {
             S_story.hp = Math.max(1, (S_story.hp||10) - 1);
-            storyMsg('Smalt bites your hand — one quick snap, entirely reasonable — and returns to the cargo manifest. The Inspector says nothing. He does not need to.\n\n1 damage. You may try again. The cat is still there.');
+            storyMsg('스말트가 당신의 손을 문다. 빠르고 짧은 한 번, 지극히 합리적인. 그러고는 화물 명세서로 돌아간다. 조사관은 아무 말도 하지 않는다. 그럴 필요가 없다.\n\n1 피해. 다시 시도할 수 있다. 고양이는 여전히 거기에 있다.');
           } },
         ],
       },
     ],
-    disposition:'"The Pembury estate in the Eastern Reach has been in our family three hundred years. I was born there. The cat is a public health matter." — Inspector Aldous Wren-Pembury, Scene 1',
+    disposition:'『동부 리치의 펨버리 가문 영지는 삼백 년째 우리 가문의 것이다. 나는 그곳에서 태어났다. 고양이는 공중 보건의 문제다.』 — 올더스 렌-펨버리 조사관, 장면 1',
     passText:"항구 고양이가 세 번째 정박지를 자발적으로 떠났다. 펨버리 조사관이 공중 보건의 승리를 선언한다. 명세서들은 깨끗하다.",
     failText:"항만 고양이는 아직 세 번째 부두의 선적 명세서 위에 있다. 펨버리 조사관이 기다리고 있다.",
     npc:"magistra_elara_muffat",
@@ -12327,7 +12327,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
       { kind:'reward', xp:150 },
     ],
     xpAward:0,
-    disposition:'"My father — the late Admiral Pembury — we are a naval family, always have been." — Inspector Aldous Wren-Pembury, Scene 2 (the Eastern Reach has no coastline)',
+    disposition:'『나의 부친 — 고 펨버리 제독 — 우리는 해군 가문이다. 언제나 그래왔다.』 — 올더스 렌-펨버리 조사관, 장면 2 (동부 리치에는 해안선이 없다)',
     passText:"스몰트가 당신을 거기로 이끌었다. 조사관은 두 번째 모순을 제시했다. 동쪽 리치에는 해안선이 없다.",
     failText:"스몰트가 기다리고 있다. 조사관은 아직 시장 구역 입구에 나타나지 않았다.",
     npc:"magistra_elara_muffat",
@@ -12352,14 +12352,14 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
             const inv = S_story.inventory = S_story.inventory || [];
             inv.push({ name:"Clot's Glow", icon:'🟡', type:'misc', desc:'혈액 진드기 클롯이 남긴 발광 혹. 온기가 보이게 된 것. 따뜻한 호박색 빛, 반경 30피트, 1시간. 일회용.', sell:50 });
             S_story.knowledge = S_story.knowledge || [];
-            S_story.knowledge.push("The Warmth: a colonial microorganism producing mild social bonding chemistry. Transmits through close contact. Non-toxic. Makes hosts warmly friendly toward creatures they encounter. Thrives in warm liquid environments. Not hostile. Extremely agreeable.");
-            storyMsg('🟡 Clot detaches cleanly when you examine it — no resistance. The pustule it leaves glows warm amber.\n\nThe organism inside is colonial. Under examination: it produces a compound structurally similar to oxytocin. It makes hosts feel warmly friendly toward other creatures they encounter. Clot has been on Pip for two months. Pip and Smalt have been friends for two months.\n\nBrannick has been in the hold for ten days. The rats have not bitten him once.\n\nThe Warmth identified. Knowledge entry added. Clot\'s Glow added to inventory. +200gp. +200 XP.');
+            S_story.knowledge.push("온기: 온화한 사회적 결합 화학물질을 만들어내는 집락 미생물. 밀접 접촉으로 전염된다. 무독성. 숙주가 만나는 생물에게 따뜻한 호감을 갖게 한다. 따뜻한 액체 환경에서 번성한다. 적대적이지 않다. 지극히 온순하다.");
+            storyMsg('🟡 클롯은 살펴보자 깨끗이 떨어져 나온다. 저항이 없다. 남은 농포가 따뜻한 호박색으로 빛난다.\n\n안의 유기체는 집락성이다. 검사 결과: 옥시토신과 구조가 유사한 화합물을 생산한다. 숙주가 만나는 다른 생물에게 따뜻한 호감을 느끼게 한다. 클롯은 핍에게 두 달째 붙어 있었다. 핍과 스말트는 두 달째 친구다.\n\n브래닉은 선창에 열흘째 있다. 쥐들은 그를 한 번도 물지 않았다.\n\n온기가 확인되었다. 지식 항목 추가. 클롯의 빛이 인벤토리에 추가되었다. +200gp. +200 XP.');
           } },
         ],
         onFail:[],
       },
     ],
-    disposition:'"They never bit me once. Even when I had the net. It didn\'t feel right to use the net after a while." — Brannick, rat catcher, Tilbury Star hold',
+    disposition:'『나를 한 번도 물지 않았다. 그물을 들고 있었을 때도. 어느 순간부터는 그물을 쓰는 것이 옳지 않게 느껴졌다.』 — 브래닉, 쥐잡이, 틸버리 스타 선창',
     passText:"클로트의 호박색 빛은 부패가 아니다. 브래닉의 쥐들은 아무도 물지 않았다. 그 진드기는 해충이 아니라 매개체다.",
     failText:"핍의 귀에 붙은 피 진드기는 아직 살펴보지 않았다. 브래닉은 아직 차분한 쥐들과 함께 화물창에 있다.",
     npc:"ship_captain",
@@ -12382,13 +12382,13 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
             S_story.xp = (S_story.xp||0) + 300;
             const inv = S_story.inventory = S_story.inventory || [];
             inv.push({ name:'Letter of Safe Passage', icon:'📜', type:'misc', desc:'틸버리 스타 선장의 서명. 틸버리와 연결 항구들에서 유효. 온기 사건 해결에 대한 플레이어의 공로를 인정한다.', sell:0 });
-            storyMsg('🔍 The chain runs: Clot (Pip\'s tick, 2 months) → Pip wandering the hold during the voyage → the warm perfume vats (ideal colony environment) → full Warmth bloom in three casks.\n\nThe "murder victim" is forty-seven bottles of Merchant\'s Reserve Floral. They now smell like the feeling of finding someone you didn\'t know you missed.\n\nThe monster is identified. It is not dangerous. It makes things friendly. The perfumes are commercially ruined and spiritually interesting.\n\nBrannick says: "I was going to file a report. I kept not wanting to."\n\nLetter of Safe Passage received from the captain. +300gp. +300 XP.');
+            storyMsg('🔍 사슬은 이렇게 이어진다. 클롯(핍의 진드기, 두 달) → 항해 중 선창을 배회한 핍 → 따뜻한 향수 통(이상적인 집락 환경) → 세 통에서 온기 만개.\n\n「살해 피해자」는 상인 특선 플로럴 마흔일곱 병이었다. 이제 그 병들은, 그리운 줄도 몰랐던 누군가를 다시 만난 느낌의 냄새가 난다.\n\n괴물이 확인되었다. 위험하지 않다. 것들을 다정하게 만든다. 향수는 상업적으로는 망했고 영적으로는 흥미롭다.\n\n브래닉이 말한다. 『보고서를 올리려고 했는데, 계속 하고 싶지 않더라고.』\n\n선장에게서 안전 통행서를 받았다. +300gp. +300 XP.');
           } },
         ],
         onFail:[],
       },
     ],
-    disposition:'"You solved it without removing anything." — Inspector Wren-Pembury, watching from the deck, thinking about himself',
+    disposition:'『당신은 아무것도 제거하지 않고 그것을 풀었다.』 — 렌-펨버리 조사관, 갑판에서 지켜보며, 자신에 대해 생각하며',
     passText:"당신은 아무것도 제거하지 않고 풀었다. 클로트에서 향료 통까지의 사슬이 추적됐다.",
     failText:"따뜻한 냄새의 근원은 아직 밝혀지지 않았다. 화물창 조사는 미완료다.",
     npc:"ship_captain",
@@ -12414,7 +12414,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
       { kind:'narrative', msg:'📜 알도스가 왕의 칙서를 찢는다.\n\n천천히. 조심스럽게 한 번 찢고, 또 한 번 찢은 뒤 남은 것을 접어 부두 계류주 위에 올려둔다. 외투 주머니에서 핍의 우정 구슬을 꺼낸다(틸버리 스타 시절부터 품고 다니던 것이다) 당신의 손에 얹는다.\n\n『내 이름은 알도스다. 제독은 존재하지 않는다. 영지도 존재하지 않는다. 솔트윅은 존재한다. 존재하지 않았으면 좋겠지만. 내가 여기 여섯 달 있는 이유는, 내가 훨씬 더 짧게 있기를 바라는 자들이 있기 때문이다. 나는 증언했다. 왕실은 나에게 인쇄기와 새 이름을 주었다. 렌-펨버리는 충분히 중요해 보이는 첫 조합이었다.』\n\n그는 부탁받지도 않았는데 안전 통행 서한을 써 준다.\n\n『여섯 항구에 연줄이 있다. 어떤 적하목록에도 없는 것이 필요하면 나에게 말하면 된다.』\n\n조화의 사슬 완성. 스몰트, 핍, 클롯, 온기체, 알도스. 다섯 존재, 모두 이제 친구다.\n\n안전 통행 서한 추가. +400gp. +400 XP. 알도스가 동맹이 되었다.' },
     ],
     xpAward:0,
-    disposition:'"You showed kindness to a cat. Then a mouse. Then a tick. Then a parasite that spoiled forty-seven bottles of perfume by making them smell too much like love. I have been watching. I cannot keep doing the voice." — Aldous, formerly Wren-Pembury',
+    disposition:'『당신은 고양이에게 친절을 보였다. 그다음 쥐에게. 그다음 진드기에게. 그다음에는, 사랑 냄새가 너무 진하게 나게 해서 향수 마흔일곱 병을 망친 기생충에게. 나는 지켜보고 있었다. 나는 이 목소리를 계속할 수 없다.』 — 올더스, 전 렌-펨버리',
     passText:"목소리를 더는 유지할 수 없다. 알더스가 연기를 내려놓았다. 세 개의 모순, 한 사람, 더는 숨지 않는.",
     failText:"세 가지 불일치는 아직 추궁되지 않았다. 렌-펨버리 조사관은 아직 연기 중이다.",
     npc:"magistra_elara_muffat",
@@ -12437,7 +12437,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
       { kind:'narrative', msg:'⚓ 틸버리 스타가 잔잔한 물로 미끄러져 들어간다. 선원들이 조용해진다.\n\n수배 중인 배 두 척이 나란히 닻을 내렸다. 갹선도 없다. 고함도 없다. 레드마스트 선원 하나가 분명한 열정으로 매듭 종류를 설명하고 있다. 솔트윅 사내가 메모를 하고 있다.\n\n선체 아래. 호박색. 움직인다. 크다.\n\nSeaStrangenessNoticed. +100 XP. 퀘스트: 온기 장어 활성화.' },
     ],
     xpAward:0,
-    disposition:'"It has been like this for eight days. We stopped trying to fight on day two. I\'m not sure we could anymore — it just doesn\'t seem important." — Redmast Quartermaster',
+    disposition:'『여덟 날째 이렇다. 이틀째에 싸우려는 시도를 그만두었다. 이제는 할 수 있을지도 모르겠다. 그저 중요하지 않게 느껴질 뿐이다.』 — 레드마스트 선장관',
     passText:"레드마스트 선원들이 밧줄 꼬기를 가르치고 있다. 그 정적은 여기 팔 일째다. 이제 더는 중요해 보이지 않을 뿐이다.",
     failText:"틸버리 동쪽의 잔잔한 바다는 아직 조사되지 않았다. 두 척의 배는 아직 닻을 내리고 있다.",
     npc:"ship_captain",
@@ -12460,14 +12460,14 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
             S_story.gold = (S_story.gold||0) + 200;
             S_story.xp = (S_story.xp||0) + 200;
             S_story.knowledge = S_story.knowledge || [];
-            S_story.knowledge.push("The Deep Warmth Eel: progenitor organism of The Warmth colony. CR 4. Bioluminescent. Non-aggressive. Produces a three-mile calm radius of social bonding chemistry in the water. Related to Clot's Glow — same organism, different scale. Has been at this location for eight days. Predator/prey disruption: fish clustering, pirate cooperation, unusual gull absence. Not dangerous. Extremely content.");
-            storyMsg('🟡 The eel is sixty feet long. Bioluminescent amber — the same chemistry as Clot\'s Glow, the same organism at a different scale. It has been here eight days because the water temperature at this depth is ideal for colony blooming.\n\nThe predator/prey chain within its radius: disrupted. The fish are clustering oddly. The gulls have gone where things are less warm. The pirates stopped fighting because nothing within three miles of this eel wants to fight anything.\n\nThe Saltwick Dockmasters\' crew, notably, includes three men who testified against Aldous and four who did not. They are playing cards.\n\nKnowledge entry added: The Deep Warmth Eel. +200gp. +200 XP.');
+            S_story.knowledge.push("깊은 온기 장어: 온기 집락의 원조 유기체. CR 4. 생물 발광. 비공격적. 수중에 반경 3마일의 사회적 결합 화학물질의 잔잔함을 만들어낸다. 클롯의 빛과 같은 유기체, 다른 규모. 여덟 날째 이 위치에 있다. 포식-먹이 교란: 물고기 군집, 해적의 협력, 비정상적 갈매기 부재. 위험하지 않다. 지극히 만족해한다.");
+            storyMsg('🟡 장어는 길이가 60피트다. 생물 발광 호박색. 클롯의 빛과 같은 화학, 다른 규모의 같은 유기체. 이 깊이의 수온이 집락 개화에 이상적이어서 여덟 날째 여기 있다.\n\n반경 안의 포식-먹이 사슬: 교란됨. 물고기가 이상하게 군집한다. 갈매기는 덜 따뜻한 곳으로 갔다. 해적들이 싸움을 멈춘 것은, 이 장어의 반경 3마일 안에 있는 것은 무엇이든 아무것과도 싸우고 싶어 하지 않기 때문이다.\n\n솔트윅 도크마스터의 선원단에는, 특기할 만하게, 올더스에게 불리한 증언을 한 세 명과 하지 않은 네 명이 포함된다. 그들은 카드놀이를 하고 있다.\n\n지식 항목 추가: 깊은 온기 장어. +200gp. +200 XP.');
           } },
         ],
         onFail:[],
       },
     ],
-    disposition:'"It goes right under us. Every few hours. I tried to be frightened about it on day one. By day three I just watched." — Saltwick Dockmasters\' Mate',
+    disposition:'『우리 바로 아래로 지나간다. 몇 시간마다. 첫날에는 무서워하려고 노력했다. 사흘째에는 그저 지켜보았다.』 — 솔트윅 도크마스터의 일등 항해사',
     passText:"그것은 우리 바로 아래로 간다. 그 온기 장어가 팔 일째 맴돌고 있었다. 그 정적은 그것의 소행이다. 당신은 그것을 보았다.",
     failText:"선체 아래에 무언가가 있지만 아직 확인되지 않았다. 호박색 빛은 아직 살펴보지 않았다.",
     npc:"redmast_quartermaster",
@@ -12492,13 +12492,13 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
             S_story.xp = (S_story.xp||0) + 400;
             const inv = S_story.inventory = S_story.inventory || [];
             inv.push({ name:'Joint Pirate Debt Note', icon:'⚓', type:'misc', desc:'레드마스트 선장관과 솔트윅 도크마스터의 일등 항해사 양쪽의 서명. 바다에서 각각 한 번씩 부탁을 청할 수 있다. 두 선원단은 부탁받지 않고 이것에 합의했다.', sell:0 });
-            storyMsg('⚓ The eel responds to the approach: slow movement parallel to its direction, no sudden actions, presence acknowledged but not threatening. After forty minutes it adjusts its arc, heading south into the trench depth.\n\nThe water begins to chop again within twenty minutes. The gulls return. A fish breaks the surface.\n\nThe Redmast Quartermaster and the Saltwick First Mate both come to the rail. They have apparently discussed this.\n\n"You moved it without hurting it," the Quartermaster says. "We owe you."\n\n"Both of us," says the Mate. He looks like this surprises him somewhat.\n\nThey produce a joint note, which they sign together. The ink is slightly different colours.\n\nJoint Pirate Debt Note added. +400gp. +400 XP. Sea route OW→LW now clear. Both pirate crews: allied.');
+            storyMsg('⚓ 장어가 접근에 응한다. 진행 방향과 나란한 느린 움직임, 급격한 동작 없음, 존재는 인정하되 위협하지 않음. 사십 분 뒤 장어는 호를 조정해 남쪽 해구 깊이로 향한다.\n\n이십 분 안에 물결이 다시 거칠어지기 시작한다. 갈매기가 돌아온다. 물고기가 수면을 튄다.\n\n레드마스트 선장관과 솔트윅 일등 항해사가 둘 다 난간으로 온다. 이미 이야기를 나눈 모양이다.\n\n『다치게 하지 않고 옮겼군,』 선장관이 말한다. 『우리가 빚졌어.』\n\n『둘 다 말이오,』 일등 항해사가 말한다. 자신도 그것이 다소 놀랍다는 표정이다.\n\n그들은 공동 차용증을 내놓고 함께 서명한다. 잉크 색이 미묘하게 다르다.\n\n해적 공동 채무 증서가 추가되었다. +400gp. +400 XP. 해로 OW→LW 개통. 양쪽 해적 선원단: 동맹.');
           } },
         ],
         onFail:[],
       },
     ],
-    disposition:'"We have been wanting to fight each other for three years. We will get back to that. But not today." — Redmast Quartermaster, waving from the rail as you sail east',
+    disposition:'『우리는 삼 년 동안 서로 싸우고 싶어 했다. 그것으로 돌아갈 것이다. 하지만 오늘은 아니다.』 — 레드마스트 선장관, 당신이 동쪽으로 항해하는 것을 난간에서 손 흔들며',
     passText:"장어가 더 깊은 물로 동쪽으로 갔다. 레드마스트와 솔트윅 브리그는 벌써 멀어지고 있다. 다시 서로 싸우겠지만. 오늘은 아니다.",
     failText:"온기 장어는 아직 선체 아래에 있다. 교역로는 아직 교란되어 있다.",
     npc:"redmast_quartermaster",
@@ -12514,12 +12514,12 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // verbatim for parity (flagged in docs, not fixed).
   quest_sb_01: { id:'quest_sb_01', schema:'UQF-1.0', type:'side',
     title:'사략 위임장',
-    desc:'Captain Vera Keel of the intercept brig holds a Commission pennant. She claims the right to search and retain the Tilbury Star for undeclared cargo. The gap between the ships is still open. 진영을 선택하세요.',
+    desc:'요격 브리그의 베라 킬 선장이 위임장 기를 들고 있다. 미신고 화물을 이유로 틸버리 스타를 수색하고 보류할 권리를 주장한다. 두 배 사이의 간격은 아직 열려 있다. 진영을 선택하세요.',
     hint:'요격에서 당신의 선원 역할을 정하라. 세 가지 선택지: 말하기, 조사, 싸우기.',
     activateNode:'GCI', gate:{},
     completion:{ flags:['sbApproachSeen'] }, bits:[],
     waypointNode:'GCI', reward:0,
-    disposition:'"The Commission authorizes search and retention. We both know what the eastern run carries." — Captain Vera Keel, holding the pennant where you can read it',
+    disposition:'『위임장은 수색과 보류를 승인한다. 동부 항로가 무엇을 싣는지 우리 둘 다 알고 있지.』 — 베라 킬 선장, 당신이 읽을 수 있게 기를 들어 보이며',
     passText:"당신은 자리를 잡았다. 요격이 걸렸다. 말하거나, 살피거나, 싸우거나 — 선택은 됐다.",
     failText:"킬 선장이 기다리고 있다. 배들 사이의 틈은 아직 열려 있다. 위치는 아직 정해지지 않았다.",
     npc:"captain_vera_keel",
@@ -12536,7 +12536,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
       { kind:'reward', items:[{ name:'Letter of Marque (Keel)', icon:'📜', type:'misc', desc:'베라 킬 선장의 위임장. 차단 후 사략 브리그의 해도실에서 회수. 동부 리치 인장 날짜는 열네 달 지났다. 기록을 확인하지 않은 동부 항구 세 곳에서 유효.', sell:15 }] },
       { kind:'narrative', msg:'✅ 사략 선원들이 정리되었다. 브리그는 항해 동안 당신의 것이다.\n\n해도실에는 위임장. 동부 리치의 인장. 날짜는 열네 달 지났다. 발급 관청은 이 위임장이 제시되기 전에 해산되었다.\n\n틸버리 스타의 선장이 편지를 회수해 해도 탁자 위에 놓는다. 그녀는 킬에 대해 아무 말도 하지 않는다. 동쪽으로 항로를 잡는다.\n\n사략 허가장(킬) 추가. +200gp. +400 XP.' },
     ],
-    disposition:'"She was testing the eastern run. Whatever she was looking for — she didn\'t find it here." — Tilbury Star Captain, afterward',
+    disposition:'『그녀는 동부 항로를 시험하고 있었습니다. 무엇을 찾고 있었든, 여기서는 찾지 못했습니다.』 — 틸버리 스타 선장, 그 후',
     passText:"그녀는 동쪽 항로를 시험하고 있었다. 무엇을 찾고 있었든, 여기서는 찾지 못했다. 그 브리그는 깨끗하다.",
     failText:"사략선 선원들은 아직 배에 남아 있다. 요격 브리그는 아직 제압되지 않았다.",
     npc:"captain_vera_keel",
@@ -12561,18 +12561,18 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
             S_story.xp = (S_story.xp||0) + 350;
             const inv = S_story.inventory = S_story.inventory || [];
             inv.push({ name:'Letter of Marque (Keel)', icon:'📜', type:'misc', desc:'베라 킬 선장의 위임장, 승인 및 부서명 완료. 소지자에게 동부 항로 통항권을 청구할 권한을 준다. 킬이 개인 주석을 달았다. 『솔트윅 항로를 상대로는 사용할 수 없음.』 자신의 관대함이 재미있어 보였다.', sell:0 });
-            storyMsg('Keel keeps the pennant raised throughout the conversation. She is not threatening — she is establishing the frame.\n\nYou name the frame back to her: she is not here for the Star\'s cargo. She is here because someone told her the Star has been running a specific item for three crossings and she wants to know what it is.\n\nKeel is quiet.\n\n"Eighty gold," she says. "For the crossing question not becoming a boarding question." She lowers the pennant. "And I\'ll sign the Commission letter for you. You\'ll find it useful at the eastern ports." She sounds sincere. She probably is.\n\nThe gap stays open. The gangplanks stay racked.\n\n-80gp. Letter of Marque (Keel) added. +350 XP. No boarding.');
+            storyMsg('킬은 대화 내내 기를 내리지 않는다. 위협이 아니다. 틀을 세우는 것이다.\n\n당신은 그 틀을 되돌려 말한다. 그녀는 스타호의 화물 때문에 온 것이 아니다. 누군가 스타호가 세 번의 횡단 동안 특정 물품을 운반해 왔다고 말했고, 그녀는 그것이 무엇인지 알고 싶은 것이다.\n\n킬이 조용해진다.\n\n『팔십 골드,』 그녀가 말한다. 『통항 문제가 강제 검선 문제가 되지 않는 대가로.』 그녀가 기를 내린다. 『그리고 위임장에 서명해 주지. 동부 항구들에서 쓸모가 있을 거야.』 진심으로 들린다. 아마 진심일 것이다.\n\n간격은 유지된다. 갱판은 걸린 채로다.\n\n-80gp. 사략 위임장(킬)이 추가되었다. +350 XP. 강제 검선 없음.');
           } },
         ],
         onFail:[
           { kind:'_legacy_fn', fn:() => {
             S_story.sbChosenRole = 'fight';
-            storyMsg('Keel nods once, slowly, the way someone nods when a conversation has reached its end.\n\n"Gangplanks out," she says to her first officer. She does not raise her voice.\n\nThe fight option is now the only option. See the encounter panel.');
+            storyMsg('킬이 천천히 한 번 고개를 끄덕인다. 대화가 끝에 도달했을 때 사람이 끄덕이는 방식으로.\n\n『갱판을 내놓아,』 일등 항해사에게 말한다. 목소리를 높이지 않는다.\n\n이제 싸움 선택지만 남았다. 조우 패널을 보라.');
           } },
         ],
       },
     ],
-    disposition:'"Eighty gold for the question not becoming a boarding. I am being generous." — Captain Vera Keel',
+    disposition:'『팔십 골드에 문제가 강제 검선이 되지 않는 것이다. 나는 관대한 것이다.』 — 베라 킬 선장',
     passText:"질문이 승선 검사가 되지 않은 대가 팔십 금. 킬은 관대했다. 갱판은 나가지 않았다.",
     failText:"킬 선장은 난간에 있다. 협상은 아직 매듭지어지지 않았다.",
     npc:"captain_vera_keel",
