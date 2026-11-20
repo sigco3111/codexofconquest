@@ -4092,7 +4092,7 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
         <div class="stat-row"><span class="stat-lbl">🧪 물약</span><span class="stat-val" id="s-potions">×0</span></div>
         <div class="stat-row"><span class="stat-lbl">💰 골드</span><span class="stat-val" id="s-gold">50gp</span></div>
         <div class="stat-row"><span class="stat-lbl">📅 일차</span><span class="stat-val" id="s-day">1/49</span></div>
-        <div class="stat-row"><span class="stat-lbl">📜 스토리</span><span class="stat-val" id="s-story-act" title="The campaign act: one per shard held. The badge above names the region you stand in.">1막</span></div>
+        <div class="stat-row"><span class="stat-lbl">📜 스토리</span><span class="stat-val" id="s-story-act" title="캠페인의 막: 보유한 파편당 1막. 위 배지가 현재 서 있는 지역명입니다.">1막</span></div>
         <div class="stat-row"><span class="stat-lbl">🌙 휴식</span><span class="stat-val" id="s-rests">3/3</span></div>
         <div class="stat-row"><span class="stat-lbl">⏱ 시간</span><span class="stat-val" id="s-hours">0h</span></div>
         <div class="stat-row"><span class="stat-lbl">😴 깨어 있음</span><span class="stat-val" id="s-awake">0h</span></div>
@@ -4104,7 +4104,7 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
         <div class="stat-row" id="s-dis-row" style="display:none"><span class="stat-lbl">😴 불리</span><span class="stat-val danger" id="s-dis-count"></span></div>
         <div class="stat-row"><span class="stat-lbl">⚠ 악명</span><span class="stat-val" id="s-notoriety">3</span></div>
         <div class="stat-row"><span class="stat-lbl">🏁 CP</span><span class="stat-val" id="s-checkpoint">시작</span></div>
-        <div class="stat-row"><span class="stat-lbl">🎵 오르간</span><button class="stat-val" id="s-organ" onclick="_organToggle()" style="background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer" title="Play the organ under the story">끔</button></div>
+        <div class="stat-row"><span class="stat-lbl">🎵 오르간</span><button class="stat-val" id="s-organ" onclick="_organToggle()" style="background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer" title="스토리 하단에서 오르간을 연주합니다">끔</button></div>
       </div>
     </div>
 
@@ -4198,7 +4198,7 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
 
       <!-- §MESH-01a — multiplayer strip (display-only; hidden logic never touches the mover) -->
       <div id="mp-bar">
-        <button id="mp-toggle" onclick="mpToggle(event)" title="Multiplayer — click: connect · Shift+click: server browser / paste magnet">🌐</button>
+        <button id="mp-toggle" onclick="mpToggle(event)" title="멀티플레이 — 클릭: 연결 · Shift+클릭: 서버 브라우저 / 마그넷 붙여넣기">🌐</button>
         <button id="mp-chat-toggle" onclick="mpChatToggle()" title="Chat history">💬<span id="mp-chat-badge"></span></button>
         <span id="mp-status">끔</span>
         <span id="mp-presence"></span>
@@ -4307,7 +4307,7 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
         </div>
         <div id="prebatt-actions">
           <button id="btn-start-battle">⚔ 전투 시작</button>
-          <button id="btn-prebatt-cancel" title="Leave without fighting — no cost, no penalty">← 후퇴 (안전)</button>
+          <button id="btn-prebatt-cancel" title="전투 없이 떠납니다 — 비용·페널티 없음">← 후퇴 (안전)</button>
         </div>
       </div>
 
@@ -4507,12 +4507,12 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
         <div id="msub-world" class="map-subpane">
           <!-- §MP-MAPTABS: player-centered regional overview (61×41 window), responsive + click-to-travel -->
           <div id="world-tab-hd" class="maptab-hd">🌍 지역 월드 — <span style="color:#ff5030">■ 나</span> · 타일을 클릭해 이동</div>
-          <div id="world-tab-wrap"><canvas id="world-tab-canvas" width="600" height="400" title="Click a tile to travel"></canvas></div>
+          <div id="world-tab-wrap"><canvas id="world-tab-canvas" width="600" height="400" title="타일을 클릭해 이동합니다"></canvas></div>
         </div><!-- /msub-world -->
         <div id="msub-full" class="map-subpane">
           <!-- §MP-MAPTABS: the whole world (rows 0–89 × cols 140–255), responsive + click-to-travel -->
           <div id="full-map-hd" class="maptab-hd">🛰 전체 월드 — <span style="color:#e0c040">▭ 월드 패널</span> · <span style="color:#ffd700">▭ 주변 지도</span> · <span style="color:#ff5030">■ 나</span> · 타일을 클릭해 이동</div>
-          <div id="full-map-wrap"><canvas id="full-map-canvas" width="464" height="360" title="Click a tile to travel"></canvas></div>
+          <div id="full-map-wrap"><canvas id="full-map-canvas" width="464" height="360" title="타일을 클릭해 이동합니다"></canvas></div>
         </div><!-- /msub-full -->
         <div id="msub-connect" class="map-subpane">
           <!-- §MESH-02c: status card + connect controls; reuses mpToggle/mpJoin/mpResolveMagnet -->
@@ -4660,7 +4660,7 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
             <button class="dpad-btn" id="btn-N">↑ N</button>
             <button class="dpad-btn dpad-corner" id="btn-waypoint" title="Waypoint">WP</button>
             <button class="dpad-btn" id="btn-W">← W</button>
-            <button class="dpad-btn dpad-hunt" id="btn-hunt" title="Hunt Mode — favor lower-level monsters, more encounters">🎯</button><!-- §KG-01: Hunt Mode toggle -->
+            <button class="dpad-btn dpad-hunt" id="btn-hunt" title="사냥 모드 — 저레벨 몬스터 위주로, 조우가 늘어납니다">🎯</button><!-- §KG-01: Hunt Mode toggle -->
             <button class="dpad-btn" id="btn-E">E →</button>
             <button class="dpad-btn dpad-corner" id="btn-dpad-rest" title="Short Rest">🛌</button>
             <button class="dpad-btn" id="btn-S">↓ S</button>
@@ -4973,7 +4973,7 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
       <span id="sbo-title">⚔ 전투</span>
       <span id="sbo-round">라운드 1</span>
       <span id="sbo-turn-badge">내 차례</span>
-      <button id="btn-sbo-advanced" title="Reveal God Mode / Practice debug panels">⚙ 신 모드</button>
+      <button id="btn-sbo-advanced" title="갓 모드 / 연습 디버그 패널을 표시합니다">⚙ 신 모드</button>
     </div>
     <div class="az-divider"></div>
     <div id="sbo-combat-row">
@@ -5009,7 +5009,7 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
     <div id="sbo-action-row">
       <button class="sbo-btn sbo-btn-attack" id="btn-sbo-attack">⚔ 공격</button>
       <button class="sbo-btn sbo-btn-offhand" id="btn-sbo-offhand" style="display:none">🗡 보조 무기</button>
-      <button class="sbo-btn sbo-btn-surge" id="btn-sbo-surge" style="display:none" title="Action Surge — take a second full attack action (once per battle)">⚡ 급습</button>
+      <button class="sbo-btn sbo-btn-surge" id="btn-sbo-surge" style="display:none" title="행동 촉진 — 전투당 한 번, 두 번째 전체 공격 행동을 합니다">⚡ 급습</button>
       <button class="sbo-btn sbo-btn-flee" id="btn-sbo-flee">🏃 도망</button>
       <button class="sbo-btn sbo-btn-wimper" id="btn-sbo-wimper">😬 패스</button>
     </div>
@@ -28838,7 +28838,7 @@ function _mpRenderMapPresence() {
   const writable = MP.act ? Object.values(MP.remotes || {})
     .filter(p => p && p.kind !== 'sentry' && p.ledgerPid && /^[0-9a-f]{8}:[0-9a-f]{8}$/.test(p.pid)).slice(0, 12) : [];
   const write = writable.length ? '<div class="mp-hint">✉ Write privately to: ' + writable.map(p =>
-    '<button class="mp-trade-btn" title="Send a private message" onclick="mpDmTo(MP.remotes[\'' + p.pid + '\'])">✉ ' + _mpEsc(p.name) + '</button>').join(' ') + '</div>' : '';
+    '<button class="mp-trade-btn" title="개인 메시지를 보냅니다" onclick="mpDmTo(MP.remotes[\'' + p.pid + '\'])">✉ ' + _mpEsc(p.name) + '</button>').join(' ') + '</div>' : '';
   if (!players.length) {
     el.innerHTML = '🟢 접속: ' + _mpEsc(MP.name || '?') + ' · 이 칸에는 다른 사람이 없습니다'
       + (remotes ? ' · 세계 다른 곳에 여행자 ' + remotes + '명.' : '.') + write;
@@ -29714,7 +29714,7 @@ function _mpRenderPresence() {
   el.innerHTML = '👥 함께 있는 사람: ' + MP.players.map((p, i) =>
     _mpEsc(label(p)) + (p.ledgerPid && p.kind !== 'sentry'
       ? ' <button class="mp-trade-btn" title="Offer a trade" onclick="mpTradeOpen(MP.players[' + i + '])">⇄</button>'
-        + (MP.act ? '<button class="mp-trade-btn" title="Send a private message" onclick="mpDmTo(MP.players[' + i + '])">✉</button>' : '')
+        + (MP.act ? '<button class="mp-trade-btn" title="개인 메시지를 보냅니다" onclick="mpDmTo(MP.players[' + i + '])">✉</button>' : '')
         + (!p.server ? '<button class="mp-duel-btn" title="결투 신청" onclick="mpDuelChallenge(MP.players[' + i + '])">⚔</button>' : '')
       : '')
   ).join(', ');
@@ -29797,7 +29797,7 @@ function _mpServerRowHtml(s, i, pingPfx) {
     '<span>' + _mpEsc(s.addr) + '</span>' +
     '<span>👥 ' + (s.playerCount | 0) + '</span>' +
     '<span id="' + (pingPfx || 'mp-srv-ping-') + i + '">… ms</span>' +
-    (evOk ? '' : '<span style="color:#d4a017" title="different game build (' + _mpEsc(s.engineVer) + ' vs ' + _mpEsc(ENGINE_VER) + ')">⚠ build</span>') +
+    (evOk ? '' : '<span style="color:#d4a017" title="다른 게임 빌드(' + _mpEsc(s.engineVer) + ' vs ' + _mpEsc(ENGINE_VER) + ')">⚠ build</span>') +
     '<span id="' + (pingPfx || 'mp-srv-ping-').replace(/ping-$/, 'world-') + i + '"></span>' +
     '<button class="mp-srv-join" onclick="mpJoin(\'' + _mpEsc(s.addr) + '\')">Join</button></div>';
 }
@@ -29806,9 +29806,9 @@ function _mpServerRowHtml(s, i, pingPfx) {
 function _mpWorldBadge(s, ref) {
   if (!ref || !s.universeHash || !ref.universeHash) return '';
   if (s.universeHash !== ref.universeHash)
-    return '<span style="color:#e07a7a" title="different map or engine: players there cannot meet players here">⚠ other universe</span>';
+    return '<span style="color:#e07a7a" title="다른 맵 또는 엔진: 해당 서버의 플레이어와는 만날 수 없습니다">⚠ other universe</span>';
   if (s.contentHash && ref.contentHash && s.contentHash !== ref.contentHash)
-    return '<span style="color:#8fc0f0" title="same universe, content differs: you can meet and chat; trades wait until the content matches">≈ same universe, content differs</span>';
+    return '<span style="color:#8fc0f0" title="같은 세계지만 콘텐츠가 다릅니다: 만나서 대화할 수 있으며, 거래는 콘텐츠가 일치해야 가능합니다">≈ same universe, content differs</span>';
   return '';
 }
 const _mpRefMan = {};
@@ -30045,9 +30045,9 @@ function _mdRenderSources() {
   if (!sources.length) { cont.innerHTML = '<div class="msub-placeholder">No sources yet — add a list URL above.</div>'; return; }
   cont.innerHTML = sources.map((s, i) =>
     '<div class="md-src-row"><span class="md-src-url" title="' + _mpEsc(s.url) + '">' + _mpEsc(s.url) + '</span>' +
-    '<label title="load automatically when this pane opens — honored only for whitelisted hosts">' +
+    '<label title="이 창을 열 때 자동으로 로드 — 화이트리스트에 등록된 호스트에만 적용됩니다">' +
     '<input type="checkbox" class="md-src-auto" data-i="' + i + '"' + (s.auto ? ' checked' : '') + '> auto</label>' +
-    (s.auto && !_mdHostApproved(s.url) ? '<span style="color:#d4a017" title="host not on your whitelist (🛡 Lists) — will NOT auto-load">⚠</span>' : '') +
+    (s.auto && !_mdHostApproved(s.url) ? '<span style="color:#d4a017" title="화이트리스트(🛡 목록)에 없는 호스트 — 자동 로드되지 않습니다">⚠</span>' : '') +
     '<button onclick="mdLoadSource(' + i + ')">📥 Load</button>' +
     '<button onclick="mdRemoveSource(' + i + ')" title="remove source">✕</button></div>').join('');
   cont.querySelectorAll('.md-src-auto').forEach(cb => cb.addEventListener('change', () => {
@@ -31399,7 +31399,7 @@ function storyRenderInventory() {
       + (item.type === 'key'     ? ' key-item'      : '');
     div.innerHTML = '<span class="inv-icon">' + item.icon + '</span>'
       + '<span class="inv-name">' + item.name
-      + (item.mintKey ? ' <span class="inv-tag" title="Minted on the ledger — tradeable in multiplayer">🔗</span>' : '')
+      + (item.mintKey ? ' <span class="inv-tag" title="원장에 주조됨 — 멀티플레이에서 거래 가능">🔗</span>' : '')
       + '</span>'
       + '<span class="inv-src">' + (node ? node.name : (item.code || '')) + '</span>';
     div.title = item.desc || '';
