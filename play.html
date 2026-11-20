@@ -11100,7 +11100,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     onComplete:[ // §ARCH-01 W7c — conditional annotation append stays _legacy_fn
       { kind:'flag_write', set:['vaArchitectureKnown'] },
       { kind:'reward', gold:500 },
-      { kind:'_legacy_fn', fn:S => { const annotated = (S.inventory || []).find(i => i.name === "Benedikt's Annotated Copy"); if (annotated) annotated.desc += '\n나중에 더해진 주석 하나: 『그녀가 맞았다. 네 번째 고리는 버텼다.』'; } },
+      { kind:'_legacy_fn', fn:S => { const annotated = (S.inventory || []).find(i => _itemNameEq(i.name, "Benedikt's Annotated Copy")); if (annotated) annotated.desc += '\n나중에 더해진 주석 하나: 『그녀가 맞았다. 네 번째 고리는 버텼다.』'; } },
       { kind:'narrative', msg:'📙 +500gp. 건축물의 정체를 알게 되었다. 사슬은 이어진다.' },
     ],
     desc:"베네딕트 라스프가 삼 주째 무언가를 조립하고 있다 — 당신이 마지막으로 그의 독서 모임에 있던 때부터. 그에게는 건축자의 기록이 있고, 프로베르거의 여백 메모가 있고, 당신의 이름이 있고, 말하기 전에 확인을 기다린 조각이 하나 더 있다. 기다린 것은, 그 소식이 가야 할 사람이 당신 같은 사람인지 확신하고 싶었기 때문이다. 그는 당신이 그렇다고 결론 내렸다. 학자 구역으로 돌아가라. 그는 사슬에 대한 이야기라고 한다. 그가 말하는 것은 버티는 것에 대한 이야기다.",
@@ -11151,7 +11151,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
       { kind:'reward', gold:300 },
       { kind:'_legacy_fn', fn:S => { S.inventory.push({ name:"Ori's Account", icon:'📜', type:'readable', sell:0,
         readText:'그녀는 배에 오른 것을 설명한다. 해적이 아니다. 폭풍도 아니다. 물속의 형상, 아주 큰, 무언가를 찾는 듯이 움직이는 것. 그리고 그것은 배를 찾아냈다.'
-          + ((S.inventory || []).find(i => i.name === "Froberger's Field Notes") ? '\n\n프로베르거는 썼다: 『압력은, 올 줄 알면 견딜 수 있다.』 오리는 형상이 거기 있음을 알고 그것이 부딪히기 전에 선밖으로 몸을 던졌기에 살아남았다.' : '') }); } },
+          + ((S.inventory || []).find(i => _itemNameEq(i.name, "Froberger's Field Notes")) ? '\n\n프로베르거는 썼다: 『압력은, 올 줄 알면 견딜 수 있다.』 오리는 형상이 거기 있음을 알고 그것이 부딪히기 전에 선밖으로 몸을 던졌기에 살아남았다.' : '') }); } },
       { kind:'narrative', msg:'📜 +300gp. 오리의 증언 획득. 레나우가 절친이 되었다.' },
     ],
     desc:'해로우호의 생존자가 틸버리에 도착했다. 3주를 걸어왔다. 이름은 오리. 그녀는 무슨 일이 있었는지 안다.',
@@ -26823,6 +26823,10 @@ const FISH_GOLD_VALUES = { // → doc: docs/mechanics/mechanics-combat.md §Fish
   legendary:  { common:75, rare:120, enchanted:175, golden:225, legendary:300 },
 };
 
+// §I18N-COMPAT: KR-named items granted during a brief i18n deploy window (2026-11-20) must still match EN lookup keys
+const _ITEM_NAME_ALIAS = { '프로버거의 현장 노트': "Froberger's Field Notes", '베네딕트의 주석본': "Benedikt's Annotated Copy", '건설자의 일지': "The Constructor's Log" };
+function _itemNameEq(a, b) { return a === b || _ITEM_NAME_ALIAS[a] === b; }
+
 const FISHING_RODS = [
   { name:'Fishing Rod',   tier:0, rodBonus:0, price:20,  icon:'🎣', sell:10,  desc:'표준 낚싯대. 줄을 내보낸다.' },
   { name:'River Rod +1',  tier:1, rodBonus:1, price:75,  icon:'🎣', sell:30,  desc:'균형이 더 좋다. 포획 판정 +1.' },
@@ -28073,7 +28077,7 @@ function _storyWmArchiveModal(wrap) {
       logBtn.addEventListener('click', () => {
         S_story.vaLogFound = true;
         if (!S_story.inventory) S_story.inventory = [];
-        if (!S_story.inventory.find(i => i.name === "The Constructor's Log")) {
+        if (!S_story.inventory.find(i => _itemNameEq(i.name, "The Constructor's Log"))) {
           S_story.inventory.push({ name:"The Constructor's Log", icon:'📜', type:'readable', sell:0,
             readText:'일곱 개의 항목. 그녀의 필체. 3번 항목은 프로베르거의 여백 메모와 한 단어까지 일치한다.' });
           S_story.inventory.push({ name:'Antecedent Seal', icon:'🏛️', type:'relic', sell:0,
@@ -32262,7 +32266,7 @@ function _nodeHookVoidArchaeology(node) {
     }
     // MT tunnel button
     if (node.code === 'GVA' && S_story.vaLogFound && !S_story.vaLastWardVisited) {
-      const _hasKey = (S_story.inventory || []).some(i => i.name === 'Antecedent Seal' || i.name === "Froberger's Field Notes");
+      const _hasKey = (S_story.inventory || []).some(i => i.name === 'Antecedent Seal' || _itemNameEq(i.name, "Froberger's Field Notes"));
       if (_hasKey) {
         const tunnelBtn = document.createElement('button');
         tunnelBtn.className = 'inv-use-btn';
@@ -32304,7 +32308,7 @@ function _nodeHookVoidShamanWarden(node) {
     }
     const _wardenBtnGroup = document.createElement('div');
     _wardenBtnGroup.style.cssText = 'display:flex;flex-direction:column;gap:3px;margin-top:6px;';
-    const _hasLog = (S_story.inventory || []).some(i => i.name === "The Constructor's Log");
+    const _hasLog = (S_story.inventory || []).some(i => _itemNameEq(i.name, "The Constructor's Log"));
     if (_hasLog) {
       const logBtn = document.createElement('button');
       logBtn.className = 'inv-use-btn';
