@@ -28473,7 +28473,7 @@ function storyCheckVictory(node) {
       : '"Froberger had seven Shards and no names. You have seven Shards and names."\n\nHe says them:';
     const outro = '\n"That\'s the covenant. Not the sealing. That\'s what the sealing is for." He looks at the Cradle. "The world is worth saving when you\'ve been paying attention to who\'s in it. You were."';
     const nameBlock = namingLines.length > 0 ? '\n\n' + namingLines.join('\n') : '\n\n(No one. You moved through without stopping.)';
-    endingEl.textContent = 'Sweelinck reads Entry 41 aloud. Then he sets the journal down.\n\n' + intro + nameBlock + outro + standingSpoken;
+    endingEl.textContent = '스베일링크가 기록 41을 소리 내어 읽는다. 그리고 일지를 내려놓는다.\n\n' + intro + nameBlock + outro + standingSpoken;
     endingEl.style.display = '';
   } else if (curse <= 0) {
     endingEl.textContent = 'Sweelinck reads Entry 41 aloud.\n\n"Froberger got this far. He had all seven. He chose not to seal it — he said the world didn\'t deserve it yet."\n\nHe looks at the Cradle. "He was wrong. The world doesn\'t have to deserve it. That\'s not how covenants work. A covenant is: I will do this because it needs to be done and I am able to do it. Not because they asked correctly. Not because they thanked you. Just: because."\n\nHe steps back. "He couldn\'t stay uncertain with them. You did. That\'s the difference."' + standingSpoken;
@@ -29876,7 +29876,7 @@ async function mpResolveMagnet(ui) {
     return;
   }
   url = url.replace(/\/+$/, '');
-  note.textContent = '🔭 asking ' + url + '…';
+  note.textContent = '🔭 요청 중 ' + url + '…';
   // A tracker answers /api/tracker/peers; a plain game server 410s it (or has
   // no announce table) — fall back to treating the URL as the server itself.
   try {
@@ -30041,7 +30041,7 @@ function mdAddSource() {
   const inp = document.getElementById('md-source-input');
   const note = document.getElementById('md-note');
   const url = (inp.value || '').trim().replace(/\/+$/, '');
-  if (!/^https?:\/\//i.test(url)) { note.textContent = 'A source is an http(s) URL serving a server list.'; return; }
+  if (!/^https?:\/\//i.test(url)) { note.textContent = '소스는 서버 목록을 제공하는 http(s) URL이에요.'; return; }
   const sources = _mpClientLists().sources;
   if (sources.some(s => s.url === url)) { note.textContent = '이미 목록에 있어요.'; return; }
   sources.push({ url, auto: false });
@@ -30228,9 +30228,9 @@ async function mlPeerFetch() {
   prev.innerHTML = ''; _ML_PEER = null;
   let url = (document.getElementById('ml-peer-input').value || '').trim();
   if (/^[\w.-]+:\d+$/.test(url)) url = 'http://' + url;
-  if (!/^https?:\/\//i.test(url)) { note.textContent = 'A peer is host:port or an http(s) URL.'; return; }
+  if (!/^https?:\/\//i.test(url)) { note.textContent = '피어는 host:port 또는 http(s) URL이에요.'; return; }
   url = url.replace(/\/+$/, '');
-  note.textContent = '📥 asking ' + url + '…';
+  note.textContent = '📥 요청 중 ' + url + '…';
   let data = null, status = 0;
   try { const r = await fetch(url + '/api/mesh/blocklist'); status = r.status; data = await r.json(); } catch {}
   if (!data) { note.textContent = '🔴 Nothing answered at ' + url + '.'; return; }
@@ -31330,13 +31330,13 @@ function storyRenderQuests() {
       const titleRow = document.createElement('div');
       titleRow.className = 'quest-title';
       const titleSpan = document.createElement('span');
-      titleSpan.textContent = 'Hunt: ' + customWp.label;
+      titleSpan.textContent = '사냥: ' + customWp.label;
       titleRow.appendChild(titleSpan);
       titleRow.insertAdjacentHTML('beforeend', '<span class="quest-badge side">CUSTOM</span>');
       div.appendChild(titleRow);
       const descDiv = document.createElement('div');
       descDiv.className = 'quest-desc';
-      descDiv.textContent = 'Navigate to ' + (dest ? dest.label : customWp.node) + ' to explore ' + customWp.label + ' terrain.';
+      descDiv.textContent = (dest ? dest.label : customWp.node) + '(으)로 이동해 ' + customWp.label + ' 지형을 탐험하세요.';
       div.appendChild(descDiv);
       const wpBtn = document.createElement('button');
       wpBtn.className = 'quest-set-wp-btn active-wp';
@@ -32693,7 +32693,7 @@ function _nodeHookBirkaPachelbelLedger(node, { npcRowDiv }) {
           [2,3].forEach(n => {
             const entry = document.createElement('pre');
             entry.style.cssText = 'font-size:11px;line-height:1.7;white-space:pre-wrap;color:#8090b8;font-family:"Courier New",monospace;margin:0;border-top:1px solid #2a3050;padding-top:10px;';
-            entry.textContent = 'Entry ' + n + '\n\n' + PACHELBEL_LEDGER[n];
+            entry.textContent = '기록 ' + n + '\n\n' + PACHELBEL_LEDGER[n];
             sub.appendChild(entry);
           });
           _plWrap.appendChild(sub);
@@ -33443,7 +33443,7 @@ function _nodeHookBirkaLampChoice(node, { npcRowDiv }) {
         choiceDiv.style.cssText = 'margin-top:4px;display:flex;flex-direction:column;gap:3px;';
         const prompt = document.createElement('div');
         prompt.style.cssText = 'font-size:12px;color:#5A3A10;font-style:italic;margin-bottom:2px;';
-        prompt.textContent = 'Brynn: ' + BRYNN_KEEPER_STORY.choicePrompt;
+        prompt.textContent = '브린: ' + BRYNN_KEEPER_STORY.choicePrompt;
         choiceDiv.appendChild(prompt);
         const keepBtn = document.createElement('button');
         keepBtn.className = 'inv-use-btn';
@@ -34676,14 +34676,14 @@ function _nodeHookSsjTournament(node, { row, _mkSection, _mkCard }) {
         const _card = _mkCard({
           lbl: opp.competence.toUpperCase(), main: opp.name,
           hint: opp.title + ' · Stake: ' + opp.stake + 'gp',
-          btn: 'Challenge', btnClass: 'btn-hunt',
+          btn: '도전', btnClass: 'btn-hunt',
           btnClick: () => {
             const _btn = _card.querySelector('.story-card-btn');
             if (_tourAccordion) {
               _tourAccordion.classList.remove('open');
               const _c = _tourAccordion; setTimeout(() => _c.remove(), 270);
               _tourAccordion = null;
-              if (_btn) _btn.textContent = 'Challenge';
+              if (_btn) _btn.textContent = '도전';
               return;
             }
             const acc = document.createElement('div');
@@ -34763,7 +34763,7 @@ function _nodeHookSsjTournament(node, { row, _mkSection, _mkCard }) {
               acc.classList.remove('open');
               const _c = acc; setTimeout(() => _c.remove(), 270);
               _tourAccordion = null;
-              if (_btn) _btn.textContent = 'Challenge';
+              if (_btn) _btn.textContent = '도전';
             });
             acc.appendChild(retreatEl);
             _tourAccordion = acc;
@@ -36358,8 +36358,8 @@ function storyRender(node, prefix) {
         hint: slept
           ? '⏱ 8시간 · 완전 회복 · 하루 진행 — 필요할 때마다 다시 휴식 가능'
           : '⏱ 8시간 · HP 완전 회복 · 🏕 첫 휴식 = 2배 회복',
-        tag: slept ? '✓ Rested' : '8h', tagClass: slept ? 'transferred' : '',
-        btn: slept ? 'Rest Again' : 'Rest', btnClass: 'btn-rest',
+        tag: slept ? '✓ 휴식 완료' : '8h', tagClass: slept ? 'transferred' : '',
+        btn: slept ? '다시 휴식' : '휴식', btnClass: 'btn-rest',
         btnClick: () => storySleep(node)
       }));
     } else {
@@ -36377,7 +36377,7 @@ function storyRender(node, prefix) {
         body.appendChild(_mkCard({
           lbl: '여관', main: '가장 가까운 여관: ' + nearest.label.split(' — ')[0] + ' (' + nearest.code + ')',
           hint: wpSetHere
-            ? '📍 Waypoint active — tap WP or the arrows to travel here'
+            ? '📍 경유지 설정됨 — WP 버튼이나 화살표로 이동'
             : nearestDist + '칸 거리 — 경유지를 설정하면 안내',
           tag: wpSetHere ? '📍 이동 중' : nearestDist + '칸',
           tagClass: wpSetHere ? 'transferred' : '',
@@ -36385,10 +36385,10 @@ function storyRender(node, prefix) {
           btnClick: () => {
             if (S_story.waypoint === nearest.code) {
               S_story.waypoint = null;
-              storyMsg('📍 Waypoint cleared.');
+              storyMsg('📍 경유지를 해제했다.');
             } else {
               S_story.waypoint = nearest.code;
-              storyMsg('📍 Waypoint set: ' + nearest.label);
+              storyMsg('📍 경유지 설정: ' + nearest.label);
             }
             _updateWaypointBtn();
             storyRender(NODE_MAP[S_story.currentCode]);
@@ -36401,7 +36401,7 @@ function storyRender(node, prefix) {
     body.appendChild(_mkCard({
       lbl: '짧은 휴식', main: '🌙 짧은 휴식',
       hint: rests > 0 ? '⏱ 1시간 · HD 굴리기 · HP 회복' : '남은 짧은 휴식 없음',
-      tag: rests + '/3 left',
+      tag: rests + '/3 남음',
       tagClass: rests === 0 ? '' : '',
       btn: rests > 0 ? '짧은 휴식' : null,
       btnClass: 'btn-rest',
@@ -36430,7 +36430,7 @@ function storyRender(node, prefix) {
             const _closing = _talkAccordion;
             setTimeout(() => _closing.remove(), 270);
             _talkAccordion = null;
-            if (_talkBtn) _talkBtn.textContent = 'Talk';
+            if (_talkBtn) _talkBtn.textContent = '대화';
           } else {
             _talkAccordion = document.createElement('div');
             _talkAccordion.className = 'npc-talk-accordion';
@@ -37300,7 +37300,7 @@ function _updatePreBattSummary() {
   hd.classList.add('show');
   const parts = [..._selectedConds].map(i => _availableConds[i].condition.toUpperCase());
   sum.textContent     = parts.join(' + ');
-  preview.textContent = 'Total cost: ' + total + 'gp (you have ' + S_story.gold + 'gp)';
+  preview.textContent = '총 비용: ' + total + 'gp (보유 ' + S_story.gold + 'gp)';
 }
 
 function storyCommitBattle() {
@@ -38180,7 +38180,7 @@ function _renderMiniMap() {
         cell.textContent = '★';
         cell.style.color = '#ffd700';
         cell.style.fontWeight = 'bold';
-        cell.title = 'Waypoint: ' + (NODE_MAP[S_story.waypoint] ? NODE_MAP[S_story.waypoint].label : S_story.waypoint);
+        cell.title = '경유지: ' + (NODE_MAP[S_story.waypoint] ? NODE_MAP[S_story.waypoint].label : S_story.waypoint);
       }
 
       // §MAP-NAV: click any non-self, non-sea tile → adjacent step or auto-travel
