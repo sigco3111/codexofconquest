@@ -6887,8 +6887,8 @@ function _resolveQuestUQF(questId) {
   const roll = QuestRuntime._rollSkill(sc.stat, sc.adv);
   const pass = roll.total >= sc.dc;
   const modStr   = (roll.mod >= 0 ? '+' : '') + roll.mod;
-  const iodineStr = roll.iodineBonus > 0 ? ' + Iodine(+' + roll.iodineBonus + ')' : '';
-  const lmStr     = roll.lmAll > 0 ? ' + LakeMagic(+' + roll.lmAll + ')' : '';
+  const iodineStr = roll.iodineBonus > 0 ? ' + 아이오딘(+' + roll.iodineBonus + ')' : '';
+  const lmStr     = roll.lmAll > 0 ? ' + 호수 마법(+' + roll.lmAll + ')' : '';
   // passText/failText (string or fn) ride in the card's dmg slot, matching the
   // legacy resolver's presentation; the big narrative still comes from a
   // narrative bit in onPass/onFail.
@@ -30567,8 +30567,8 @@ function _rollKeyEvent(id) {
   const modStr = (mod >= 0 ? '+' : '') + mod;
   _appendStoryHcard({
     round: (S_story.day || 1) + '일차',
-    actor: evt.abilityLabel.toUpperCase(),
-    formula: 'd20(' + d20 + ') + ' + evt.abilityLabel + '(' + modStr + ') + 숙련(+' + prof + ')',
+    actor: _itemDisplayName(evt.abilityLabel).toUpperCase(),
+    formula: 'd20(' + d20 + ') + ' + _itemDisplayName(evt.abilityLabel) + '(' + modStr + ') + 숙련(+' + prof + ')',
     outcome: total + ' 대 DC ' + evt.dc + ' — ' + (passed ? '성공 ✓' : '실패 ✗'),
     dmg: passed ? evt.successText : evt.failText,
   });
