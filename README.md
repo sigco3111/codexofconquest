@@ -13,6 +13,18 @@
 
 싱글플레이에는 계정이나 별도 서버가 필요하지 않습니다. 멀티플레이와 콘텐츠 편집 도구는 별도 기능이며, 한국어 싱글플레이를 시작하기 위한 필수 조건이 아닙니다.
 
+## 실행 화면
+
+배포된 한국어판을 직접 실행해 캡처한 화면입니다 (2026-11-20, GitHub Pages 배포본).
+
+| 스토리 | 퀘스트 |
+| --- | --- |
+| ![스토리 화면 - 도시 거리](assets/screenshots/1-kr-story.png) | ![퀘스트 로그](assets/screenshots/2-kr-quests.png) |
+| **캐릭터** | **지도** |
+| ![캐릭터 시트](assets/screenshots/3-kr-character.png) | ![월드 지도](assets/screenshots/4-kr-map.png) |
+| **전투** | **가방** |
+| ![전투 화면](assets/screenshots/5-kr-combat.png) | ![인벤토리](assets/screenshots/6-kr-inventory.png) |
+
 ## 현재 번역 범위
 
 2026-11-20 기준입니다.
