@@ -26890,7 +26890,7 @@ function _tourRoll(bonus) { // → doc: docs/archive/plan-archive-verbatim-2026-
   const die  = Math.ceil(Math.random() * 20);
   const tot  = die + bonus;
   const size = tot <= 5 ? null : tot <= 10 ? 'small' : tot <= 16 ? 'medium' : tot <= 19 ? 'large' : tot <= 21 ? 'very_large' : 'legendary';
-  if (!size) return { die, tot, fishRank:0, fishName:'nothing', size:null };
+  if (!size) return { die, tot, fishRank:0, fishName:'없음', size:null };
   const tier = FISH_SIZE_TIERS.find(t => t.size === size);
   const pool = FISH_POOL.filter(f => f.rank >= tier.minRank && f.rank <= tier.maxRank);
   const fish = pool[Math.floor(Math.random() * pool.length)] || FISH_POOL[0];
@@ -34743,8 +34743,8 @@ function _nodeHookSsjTournament(node, { row, _mkSection, _mkCard }) {
               let outcome = pRoll.fishRank > nRoll.fishRank ? 'win' : pRoll.fishRank < nRoll.fishRank ? 'lose' : 'tie';
               // Display
               const pMod = (playerBonus>=0?'+':'')+playerBonus, nMod = (opp.bonus>=0?'+':'')+opp.bonus;
-              let html = 'You: d20('+pRoll.die+')'+pMod+'='+pRoll.tot+' → <strong>'+pRoll.fishName+'</strong> (Rank '+pRoll.fishRank+')<br>';
-              html += opp.name+': d20('+nRoll.die+')'+nMod+'='+nRoll.tot+' → <strong>'+nRoll.fishName+'</strong> (Rank '+nRoll.fishRank+')<br><br>';
+              let html = '당신: d20('+pRoll.die+')'+pMod+'='+pRoll.tot+' → <strong>'+pRoll.fishName+'</strong> (랭크 '+pRoll.fishRank+')<br>';
+              html += opp.name+': d20('+nRoll.die+')'+nMod+'='+nRoll.tot+' → <strong>'+nRoll.fishName+'</strong> (랭크 '+nRoll.fishRank+')<br><br>';
               if (outcome === 'win') {
                 S_story.gold += opp.stake;
                 if (!S_story.yugurtTourBeat) S_story.yugurtTourBeat = {};
