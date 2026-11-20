@@ -12595,18 +12595,18 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
             S_story.xp = (S_story.xp||0) + 300;
             const inv = S_story.inventory = S_story.inventory || [];
             inv.push({ name:'Letter of Marque (Keel)', icon:'📜', type:'misc', desc:'베라 킬 선장의 위임장. 발급 관청의 인장은 동부 리치 항구 관청의 것이다. 열네 달 전에 해산된. 킬은 당신이 그것을 찾을 것을 알았다. 당신이 그렇게 말할지 시험한 것이다.', sell:0 });
-            storyMsg('The Commission seal is from the Eastern Reach harbor office.\n\nThe Eastern Reach harbor office dissolved fourteen months ago. A dissolved office cannot issue an active Commission. Keel\'s Letter of Marque is not forged — it was real when it was issued — but it has no standing authority behind it now.\n\nYou call it across the gap. You say it exactly once, without elaboration.\n\nKeel is quiet for a long time.\n\n"You read fast." She throws the Letter across the gap. It lands on the Star\'s deck with the seal face up. "Keep it. It\'ll get you past three eastern ports that haven\'t updated their records yet."\n\nThe intercept brig comes about. The pennant comes down.\n\nLetter of Marque (Keel) added. +300 XP. No boarding. The flaw was planted — she was testing you.');
+            storyMsg('위임장의 인장은 동부 리치 항구 관청의 것이다.\n\n동부 리치 항구 관청은 열네 달 전에 해산했다. 해산된 관청은 유효한 위임장을 발급할 수 없다. 킬의 사략 위임장은 위조가 아니다. 발급될 때는 진짜였다. 하지만 지금은 그 뒤에 서 있는 권한이 없다.\n\n당신은 간격 너머로 그것을 외친다. 부연 없이, 정확히 한 번.\n\n킬이 오랫동안 조용하다.\n\n『빨리 읽는군.』 그녀가 위임장을 간격 너머로 던진다. 스타호 갑판에 인장이 위로 향하게 떨어진다. 『가져. 아직 기록을 갱신하지 않은 동부 항구 세 곳은 통과시켜 줄 거야.』\n\n요격 브리그가 돌아선다. 기가 내려간다.\n\n사략 위임장(킬)이 추가되었다. +300 XP. 강제 검선 없음. 결함은 심어진 것이었다. 그녀는 당신을 시험하고 있었다.');
           } },
         ],
         onFail:[
           { kind:'_legacy_fn', fn:() => {
             S_story.sbChosenRole = 'fight';
-            storyMsg('The letter is held at the right distance and the right angle for reading. The flaw is there but it requires knowing what to look for. You don\'t have enough — yet.\n\nKeel notices that you looked. She comes to the rail.\n\n"Gangplanks out," she says.');
+            storyMsg('편지는 읽기에 알맞은 거리와 각도로 들려 있다. 결함은 거기에 있지만 무엇을 찾아야 하는지 알아야 한다. 당신은 아직 충분히 알지 못한다. 아직은.\n\n킬은 당신이 살펴본 것을 알아챈다. 그녀가 난간으로 온다.\n\n『갱판을 내놓아,』 그녀가 말한다.');
           } },
         ],
       },
     ],
-    disposition:'"You read fast." — Captain Vera Keel, throwing the Letter across the gap',
+    disposition:'『빨리 읽는군.』 — 베라 킬 선장, 위임장을 간격 너머로 던지며',
     passText:"당신은 빨리 읽었다. 위조가 발견됐다. 킬이 그 서신을 틈 사이로 던지고 선원들에게 물러서라 신호했다.",
     failText:"위임장은 아직 살펴보지 않았다. 킬은 아직 난간에서 그것을 들고 있다.",
     npc:"captain_vera_keel",
@@ -12619,11 +12619,11 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'고원지대 호수의 켈피를 처리한 뒤 던폴에 도착하라.',
     activateNode:'DNF', 
     waypointNode:'DNF', reward:0,
-    disposition:'"You cleared the ford. We opened the doors." — Mairén Fionn, the entire explanation',
+    disposition:'『너희가 포구를 치웠다. 우리는 문을 열었다.』 — 메이렌 피온, 그것이 설명의 전부',
     passText:"당신은 여울을 치웠다. 우리는 문을 열었다. 마이렌 피온은 말을 낭비하지 않는다.",
     failText:"던폴 항구는 아직 폐쇄되어 있다. 건널목은 아직 확보되지 않았다.",
     npc:"mairén_fionn",
-    rumor:"Dunfall barred its doors for a season and lost three men to a closed ford. The ford is clear now. The Warrant wants word that the harbor stays open.",
+    rumor:"던폴은 한 계절 동안 문을 걸었고 닫힌 포구 때문에 세 명을 잃었다. 포구는 이제 안전하다. 《영장》은 항구가 열려 있다는 소식을 원한다.",
   },
   // §ARCH-01 Wave 1v — migrated legacy → UQF v1.0 (2026-06-29). Highland trade pair
   // (df_02 Dunfall barter, sk_02 Saltwick consignment — both checkStat skill_checks carrying a
@@ -12639,7 +12639,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'던폴에서 마이렌과 거래하라. WIS 통찰 DC 11.',
     activateNode:'DNF', gate:{ flags:['dunfallAccessed'] },
     retryable:true,
-    disposition:'"The name of the third ingredient is Dunfall\'s." — Mairén Fionn',
+    disposition:'『세 번째 재료의 이름은 던폴의 것이다.』 — 메이렌 피온',
     passText:"거래가 됐다. 세 번째 재료의 이름은 던폴의 재산이다. 마이렌은 그걸 거저 주지 않는다.",
     failText:"마이렌과의 거래는 아직 완료되지 않았다. 약초 주머니는 아직 그녀 쪽에 있다.",
     npc:"mairén_fionn",
@@ -12652,12 +12652,12 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
           S_story.xp = (S_story.xp||0) + 250;
           const inv = S_story.inventory = S_story.inventory || [];
           inv.push({ name:'Highland Herb Pouch', icon:'🌿', type:'consumable', desc:'던폴 고지 목초지의 말린 무어랜드 약초. 야로, 늪머틀, 그리고 마이렌이 이름을 대지 않는 무언가. 연안에서 약용. 교역 가치: 높음. 던폴을 통해서만 구할 수 있다.', sell:40 });
-          storyMsg('The exchange Mairén is looking for is not gold-to-goods — it is acknowledgment-to-goods. She wants to know that you understand the three men who did not come back, that the closed-door period was real, that the harbor opening is a decision not a default.\n\nYou understand this without being told. She notices.\n\nShe places the herb pouch on the dock ledge.\n\n"The myrtle is from the upper pasture. You won\'t find it below the loch. The name of the third ingredient is Dunfall\'s." She does not say it is secret. She says it is theirs.\n\nHighland Herb Pouch added. +100gp equivalent. +250 XP.');
+          storyMsg('메이렌이 찾는 교환은 금 대 물건이 아니다. 인정 대 물건이다. 그녀는 당신이 돌아오지 않은 세 명을 이해하고, 문을 걸었던 시기가 진짜였으며, 항구를 여는 것이 기본값이 아니라 결정임을 알기를 원한다.\n\n당신은 말해주지 않아도 이것을 이해한다. 그녀가 알아챈다.\n\n그녀는 허브 주머니를 부두 턱 위에 놓는다.\n\n『머틀은 위쪽 목초지에서 난다. 호수 아래에서는 찾지 못할 것이다. 세 번째 재료의 이름은 던폴의 것이다.』 그녀는 그것이 비밀이라고 말하지 않는다. 그들의 것이라고 말한다.\n\n고지대 허브 주머니가 추가되었다. +100gp 상당. +250 XP.');
         } },
       ],
       onFail:[
         { kind:'_legacy_fn', fn:() => {
-          storyMsg('Mairén looks at the gold. She does not reach for it.\n\n"Come back when you\'ve walked the ford path. Not the road — the ford, where the water comes up to the knee and you can see the crossing markers the village set three generations ago." She turns back to the ledger.\n\nThe exchange requires something the gold cannot offer yet.');
+          storyMsg('메이렌이 금을 바라본다. 손을 뻗지 않는다.\n\n『포구 길을 걸어보고 돌아오게. 길이 아니라 포구 말일세. 무릎까지 물이 차고, 마을이 삼 대 전에 세워둔 건널목 표지가 보이는 곳.』 그녀는 장부로 돌아선다.\n\n이 교환에는 아직 금이 줄 수 없는 무언가가 필요하다.');
         } },
       ] }],
   },
@@ -12669,7 +12669,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'신임장을 지니고 솔트윅에 도착하라. 알더스의 편지도, 해적 연합 쪽지도 통한다.',
     activateNode:'MME', 
     waypointNode:'MME', reward:0,
-    disposition:'"You\'re in Aldous\'s column. That\'s enough." — Harbormaster Dorit',
+    disposition:'『당신은 올더스의 칸에 있군요. 그걸로 충분해요.』 — 항만관리관 도리트',
     passText:"당신은 알더스의 단에 올랐다. 그걸로 충분하다. 항만청장 도리트가 부두를 열었다.",
     failText:"솔트윅 부두는 증명서 없이는 출입이 막혀 있다. 알더스의 편지나 해적 공동 쪽지가 필요하다.",
     npc:"harbormaster_dorit",
@@ -12684,7 +12684,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
       { kind:'reward', xp:200 },
       { kind:'narrative', msg:'✅ 금이 간 외판이 교체되었다. 건조선고는 던폴 고지대 목재를 쓴다. 저지대 참나무보다 가깝고 나뭇결이 좋다. 선장이 아무 말 없이 작업을 검수하는데, 그것이 그녀가 주는 최고의 찬사다.\n\n스타가 세 번의 항해 만에 처음으로 깨끗이 돌아간다.\n\n+200 XP. 틸버리 스타. 선체 수리 완료.' },
     ],
-    disposition:'"The timber\'s from the Highland Loch. Better grain. She\'ll hold the deep crossing without complaint now." — Saltwick Dry Dock Worker',
+    disposition:'『목재는 고지대 호수산입니다. 결이 더 좋아요. 이제 깊은 바다 횡단도 불평 없이 견딜 겁니다.』 — 솔트윅 조선소 노동자',
     passText:"더 좋은 곡물. 하이랜드 로흐 목재. 이제 그녀는 불평 없이 깊은 건넘을 버틸 것이다.",
     failText:"틸버리 스타의 금이 간 외판은 아직 수리되지 않았다. 솔트윅 드라이독을 200gp에 이용할 수 있다.",
     npc:"harbormaster_dorit",
@@ -12698,7 +12698,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'솔트윅에서 도릿에게 실종된 위탁 화물에 대해 물어라. CHA 설득 DC 12.',
     activateNode:'MME', gate:{ flags:['saltwickAccessed'] },
     retryable:true,
-    disposition:'"The chandler\'s name was Pembury. No relation, probably. There are a lot of Pemburys." — Harbormaster Dorit',
+    disposition:'『첸들러의 성이 펨버리였습니다. 아마 친척은 아니겠죠. 펨버리는 흔하니까요.』 — 항만관리관 도리트',
     passText:"그 잡화상의 이름은 펨버리였다. 아마 친척은 아니다. 펨버리는 많다. 도리트가 단서를 줬다.",
     failText:"도릿은 아직 사라진 위탁 화물의 세부 사항을 알려주지 않았다. 솔트윅에서 설득 DC 12.",
     npc:"harbormaster_dorit",
@@ -12711,12 +12711,12 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
           S_story.xp = (S_story.xp||0) + 400;
           const inv = S_story.inventory = S_story.inventory || [];
           inv.push({ name:'Saltwick Bill of Lading', icon:'📄', type:'misc', desc:'솔트윅 선하증권. 서명도 날짜도 없지만, 도릿의 『유효』 정의를 공유하는 여섯 항구에서 유효하다. 적하 목록: 『잡화』. 잡화의 정의는 당신의 몫이다.', sell:0 });
-          storyMsg('Dorit closes her ledger — the one in her head.\n\n"The consignment was twelve crates of amber glass. Decorative. No value except to whoever ordered them. The buyer was using a Tilbury address. The Tilbury address was a chandler\'s shop that closed the morning of the delivery."\n\nShe looks at you.\n\n"The chandler\'s name was Pembury. No relation, probably. There are a lot of Pemburys."\n\nShe opens a drawer. Places a bill of lading on the dock ledge between you.\n\n"For your trouble. Goods: sundries. You decide what that means."\n\nSaltwick Bill of Lading added. +600gp. +400 XP.');
+          storyMsg('도리트가 장부를 닫는다. 머릿속의 장부를.\n\n『위탁 화물은 호박색 유리 열두 상자였습니다. 장식용. 주문한 사람에게만 가치가 있는 물건이었죠. 구매자는 틸버리 주소를 썼습니다. 그 틸버리 주소는 배송 당일 아침에 문을 닫은 첸들러 상점이었어요.』\n\n그녀가 당신을 본다.\n\n『첸들러의 성은 펨버리였습니다. 아마 친척은 아니겠죠. 펨버리는 흔하니까요.』\n\n그녀는 서랍을 열어 선적 서류 한 장을 둘 사이의 부두 턱 위에 놓는다.\n\n『수고한 값이에요. 품목: 잡화. 무슨 뜻인지는 당신이 정하세요.』\n\n솔트윅 선적 서류가 추가되었다. +600gp. +400 XP.');
         } },
       ],
       onFail:[
         { kind:'_legacy_fn', fn:() => {
-          storyMsg('Dorit looks at you without expression for a long moment.\n\n"Come back when you\'ve been vouched by someone else. One column isn\'t always enough for the second conversation."');
+          storyMsg('도리트가 오랫동안 무표정하게 당신을 본다.\n\n『다른 누군가의 보증을 받고 오세요. 두 번째 대화에는 칸 하나로 충분하지 않을 때가 있어요.』');
         } },
       ] }],
   },
@@ -12743,11 +12743,11 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
       { kind:'narrative', msg:'🪧 당신은 그 굽이를 테시의 말들이 읽는 방식으로 읽는다. 길은 억류되어 있고, 『산적』은 진짜 이름을 말하지 않을 때 사람들이 쓰는 단어다. 영장은 그 형태를 알기 위해 생물의 이름을 필요로 하지 않는다. 『어떤 것이 닫아 버린 교차로, 순찰대는 얼버무리는데. 내가 이것이 잘 끝나는 것을 본 것은 딱 한 번이다.』 영장이 당신을 해안을 따라 던폴로 가리킨다. 같은 방식으로 닫혔다가 다시 열린 항구, 마이렌 피온이 억류된 교차로를 깨는 비용이 무엇인지 말해 줄 수 있는 곳. 영장 게시판에 현상금이 올라왔다.' },
       { kind:'unlock', quests:['quest_df_01'] } ], // §ARCH-01 W7c · §BOARD-01-FU6 diamond convergence (right arm)
     waypointNode:'WRO', reward:0,
-    disposition:'"Six years on this road. There are no bandits in those fields. The horses know something the road wardens don\'t." — Tessie, already walking',
+    disposition:'『이 길에서 육 년이에요. 저 들판에 산적은 없어요. 말들은 도로 감시관들이 모르는 뭔가를 알고 있어요.』 — 테시, 이미 걸으면서',
     passText:"갈림길 북쪽 길은 살펴봤다. 말들이 알았다. 저 들판에는 강도가 없다.",
     failText:"테시의 경고는 아직 추적되지 않았다. J1 갈림길 북쪽의 역마길을 조사해야 한다.",
     npc:"the_elder_fisherwoman",
-    rumor:"The relay horses will not take the fork road past the bend. The wardens filed it under bandits; the Warrant files it under unfinished. Find what holds the road.",
+    rumor:"중계 마차의 말들이 굽이 이후의 갈림길을 가려 하지 않는다. 감시관들은 산적으로 분류했다. 《영장》은 미완결로 분류한다. 길을 붙들고 있는 것을 찾아라.",
   },
   quest_hunt2_02: { id:'quest_hunt2_02', schema:'UQF-1.0', type:'skill_check',
     title:'길 읽기',
@@ -12761,19 +12761,19 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
           { kind:'_legacy_fn', fn:() => {
             S_story.bendRoadClue = true;
             S_story.knowledge = S_story.knowledge || [];
-            S_story.knowledge.push("Relay Road Investigation: The relay horses stop precisely 200 paces from the sleeping post. Not random fear — a territorial line. Something operates from the sleeping post northward. Night hag territory markings are invisible to humans but horses perceive them. The road wardens' bandit theory is wrong.");
+            S_story.knowledge.push("중계 도로 조사: 중계 마차의 말들이 숙소 표지에서 정확히 이백 보 앞에서 멈춘다. 무작위한 공포가 아니다. 영역의 경계선. 무언가가 숙소 표지에서 북쪽으로 활동한다. 밤 마녀의 영역 표시는 인간에게는 보이지 않지만 말은 감지한다. 도로 감시관들의 산적 이론은 틀렸다.");
             S_story.xp = (S_story.xp||0) + 150;
-            storyMsg('The hoof marks are consistent: every horse stopped at the same point. Not together — different horses, different days. They all stopped at the same invisible line two hundred paces south of the sleeping post.\n\nThis is territorial behavior from the horses\' side. Something has marked that stretch as dangerous in a way horses can perceive and humans cannot. The road wardens\' bandit fires theory does not explain a precise stopping line.\n\nKnowledge entry added: Relay Road Investigation. +150 XP. Relay road north accessible.');
+            storyMsg('발굽 자국은 일관된다. 모든 말이 같은 지점에서 멈췄다. 함께가 아니다. 다른 말들, 다른 날들. 모두 숙소 표지에서 이백 보 남쪽의 같은 보이지 않는 선에서 멈췄다.\n\n이것은 말들 쪽의 영역 행동이다. 무언가가 그 구간을 말은 감지하고 인간은 감지 못 하는 방식으로 위험하다고 표시해 두었다. 도로 감시관들의 산적 모닥불 이론으로는 정확한 정지선이 설명되지 않는다.\n\n지식 항목 추가: 중계 도로 조사. +150 XP. 북쪽 중계 도로 진입 가능.');
           } },
         ],
         onFail:[
           { kind:'_legacy_fn', fn:() => {
-            storyMsg('The mud is too churned by the relay traffic to read clearly. The bend is just north — the evidence may be clearer at the source.');
+            storyMsg('진흙이 중계 통행으로 너무 뒤섞여 판독이 어렵다. 굽이는 바로 북쪽이다. 증거는 발생지에서 더 선명할 것이다.');
           } },
         ],
       },
     ],
-    disposition:'"The horses know. They always know first." — Tessie',
+    disposition:'『말들은 알아요. 언제나 말들이 가장 먼저 알아요.』 — 테시',
     passText:"말들은 멈췄지, 겁먹지 않았다. 발굽 자국이 읽혔다. 테시는 진흙이 말한 것에 대해 옳았다.",
     failText:"J1 교차로의 발굽 자국은 아직 살펴보지 않았다. WIS 지각 DC 11 필요.",
     npc:"the_elder_fisherwoman",
@@ -12790,17 +12790,17 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
           { kind:'_legacy_fn', fn:() => {
             S_story.bendLairFound = true;
             S_story.xp = (S_story.xp||0) + 200;
-            storyMsg('The tether rings have been worn in a spiral pattern — not the linear wear of horses pulling against them, but circular, as if something circled the post repeatedly over several nights.\n\nIn the soil beside the post: a handprint. Too long in the fingers. The weight distribution is wrong for a human — the heel sank deep, the fingers left no marks. A night hag moves this way — all heel, no toe, light-fingered in both senses.\n\nThe fires the road wardens saw are the hag\'s working light. She rides the sleeping horses at night from this post, draining them. The exhausted horses refuse the road the following day — not because they\'re afraid of the road, but because they remember what happened at the post.\n\n+200 XP. Night Hag confirmed. The source is here.');
+            storyMsg('매듭 고리가 나선형으로 마모되어 있다. 말이 잡아당겨 생기는 직선 마모가 아니라 원형이다. 무언가가 여러 밤에 걸쳐 기둥 주위를 빙빙 돈 것처럼.\n\n기둥 옆 흙 속에 손자국이 있다. 손가락이 너무 길다. 무게 배분이 인간과 다르다. 뒤꿈치가 깊이 가라앉았고 손가락은 자국을 남기지 않았다. 밤 마녀는 이렇게 움직인다. 뒤꿈치만 무겁고 발끝은 없이, 두 가지 의미로 손가락이 가볍게.\n\n도로 감시관들이 본 불빛은 마녀의 작업 불빛이다. 그녀는 이 숙소에서 밤마다 잠든 말을 타고 그들을 갉아먹는다. 지친 말들은 다음 날 길을 거부한다. 길이 두려워서가 아니라, 숙소에서 무슨 일이 있었는지 기억하기 때문이다.\n\n+200 XP. 밤 마녀 확인. 발생지는 여기다.');
           } },
         ],
         onFail:[
           { kind:'_legacy_fn', fn:() => {
-            storyMsg('The post\'s wear pattern is unusual but inconclusive. The evidence is in the soil beside it — look more carefully.');
+            storyMsg('기둥의 마모 패턴은 특이하지만 결론을 내릴 수 없다. 증거는 옆의 흙 속에 있다. 더 자세히 보라.');
           } },
         ],
       },
     ],
-    disposition:'"The fires moved every night. Bandits build camps and stay. This one moved." — Road Warden, reconsidering',
+    disposition:'『불빛이 매일 밤 옮겨 다녔습니다. 산적은 야영지를 짓고 머뭅니다. 이것은 옮겨 다녔어요.』 — 도로 감시관, 재고하며',
     passText:"불은 매일 밤 옮겨졌다. 이건 강도가 아니었다. 매는 고리의 마모 무늬가 확증한다.",
     failText:"동쪽 굽이의 숙소는 아직 살펴보지 않았다. INT 조사 DC 13 필요.",
     npc:"the_elder_fisherwoman",
@@ -12817,10 +12817,10 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
       { kind:'flag_write', set:['hagDefeated2'] },
       { kind:'reward', xp:600, gold:400 },
       { kind:'reward', items:[{ name:'Relay Station Token', icon:'🪙', type:'misc', desc:'비르카 중계 권한 표식이 찍힌 황동 토큰. 중계소장은 길의 장애물을 치운 사람에게 하나씩 준다. 동부 길의 어느 중계소에서나 하룻밤 숙박으로 교환할 수 있다.', sell:20 }],
-        knowledge:"Night Hag, Eastern Bend: A night hag had claimed the relay sleeping post north of J1, riding the station horses nightly and leaving them unable to work. The road warden bandit theory was wrong. Investigation: territory line + spiral tether wear + heel-only handprint. Resolution: hag driven out, relay road open." },
+        knowledge:"밤 마녀, 동쪽 굽이: 밤 마녀가 J1 북쪽의 중계 숙소 표지를 차지하고 매일 밤 역마를 타서 일을 못 하게 만들었다. 도로 감시관의 산적 이론은 틀렸다. 조사: 영역 경계선 + 나선형 매듭 마모 + 뒤꿈치뿐인 손자국. 해결: 마녀를 쫓아냄, 중계 도로 개통." },
       { kind:'narrative', msg:'✅ 숙영지에서 마녀가 사라졌다.\n\n한 시간 안에 중계소장이 도착한다. 황동 토큰, 비르카 중계 권한 표식을 가져왔다. 격식 없이 건넨다. 『말들이 오늘 아침 굽이를 지나갔소. 나흘 만에 처음이오.』\n\n순찰대의 산적설에 대해서는 아무 말도 하지 않는다.\n\n중계소 토큰이 소지품에 추가. +400gp. +600 XP. 동부 중계로 확보.' },
     ],
-    disposition:'"The horses went past the bend this morning. First time in four days." — Relay Station Master',
+    disposition:'『말들이 오늘 아침 굽이를 지나갔습니다. 나흘 만에 처음입니다.』 — 중계소장',
     passText:"말들이 오늘 아침 굽이를 지나갔다. 나흘 만에 처음. 그 장소는 깨끗하다.",
     failText:"밤 마녀가 아직 동쪽 굽이를 장악하고 있다. 역마들이 지나갈 수 없다.",
     npc:"the_elder_fisherwoman",
@@ -12846,11 +12846,11 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
       { kind:'narrative', msg:'🪧 영장 담당자가 노파 어부의 말을 끝까지 듣는다. 끌린 자국들, 멈춰 선 배들, 결코 영물이 아니었던 영물에게 바쳐진 길드의 말린 생선. 그녀는 『호수 생물』이라고 쓰지 않는다. 대신 쓴다. 당국이 틀린 원인을 지목했고, 자국들이 진짜 원인을 지목했다. 이어서 그녀가 같은 형태의 오래된 보고서 두 건을 탁자 위로 밀어 보낸다. 켈피가 물길을 쥐고 있는 고지대 호수, 피온 노파의 마을은 해가 지면 건너지 않는다. J1 분기점 북쪽의 중계로, 말들이 굽이를 거부하고, 순찰대는 산적이라 외치고, 마부 테시와 진흙은 진실을 안다. 『교차로 두 곳, 둘 다 닫혔고, 둘 다 부인되었다. 마음에 드는 실타래를 잡아당겨라.』 영장 게시판에 현상금 두 건이 올라왔다.' },
       { kind:'unlock', quests:['sq_2','quest_hunt2_01'] } ], // §ARCH-01 W7c · §BOARD-01-FU6 diamond fork (apex)
     waypointNode:'HFT', reward:0,
-    disposition:'"The Guild is wrong. You cannot appease what ate those boats with dried fish." — The Elder Fisherwoman',
+    disposition:'『길드가 틀렸어. 저 배들을 먹어치운 것을 말린 생선으로 달랠 수는 없어.』 — 연로한 여어부',
     passText:"연로한 여성 어부의 말이 들렸다. 끌린 자국이 증거다. 길드는 그 영에 대해 틀렸다.",
     failText:"남쪽 기슭 부두의 늙은 여어부와 아직 이야기하지 않았다.",
     npc:"the_elder_fisherwoman",
-    rumor:"The Warrant does not pay for offerings. Three boats gone off the north end of the lake, and the only honest witness is the drag marks. Ask the old fisherwoman, not the Guild.",
+    rumor:"《영장》은 공물에 대한 비용을 지급하지 않는다. 호수 북쪽 끝에서 배 세 척이 사라졌고, 유일하게 정직한 증인은 끌림 자국이다. 길드가 아니라 늙은 여어부에게 물어라.",
   },
   quest_hunt_02: { id:'quest_hunt_02', schema:'UQF-1.0', type:'skill_check',
     title:'선체의 비늘 자국',
@@ -12864,19 +12864,19 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
           { kind:'_legacy_fn', fn:() => {
             S_story.lakeClueFound = true;
             S_story.knowledge = S_story.knowledge || [];
-            S_story.knowledge.push('Lake Investigation: The hull marks are physical — claw drag at waterline. Not spirit-made. Consistent with a creature large enough to capsize a fishing boat from below. The Guild\'s spirit offering theory is incorrect.');
+            S_story.knowledge.push('호수 조사: 선체 자국은 물리적이다. 수선에서 발톱으로 끈 흔적. 영혼이 만든 것이 아니다. 아래에서 낚시배를 뒤집을 만큼 큰 생물과 일치한다. 길드의 영혼 공물 이론은 옳지 않다.');
             S_story.xp = (S_story.xp||0) + 200;
-            storyMsg('The marks are not spirit signs. They are physical impressions — claw drag at the waterline, consistent with something that approached from below and gripped the hull.\n\nThe Guild\'s assessment is wrong. The creature is real, large, and has been living at the north end. The boats did not drift — they were stopped.\n\nKnowledge entry added: Lake Investigation. +200 XP.');
+            storyMsg('자국은 영혼의 표식이 아니다. 물리적 압흔이다. 수선의 발톱 끌림. 아래에서 접근해 선체를 움켜쥔 무언가와 일치한다.\n\n길드의 판정은 틀렸다. 생물은 실재하고, 크고, 북쪽 끝에 살고 있었다. 배들은 떠내려간 것이 아니다. 멈춰 세워진 것이다.\n\n지식 항목 추가: 호수 조사. +200 XP.');
           } },
         ],
         onFail:[
           { kind:'_legacy_fn', fn:() => {
-            storyMsg('The marks are unclear from this angle. The hull is damaged further toward the bow — more evidence is on the north shore path.');
+            storyMsg('이 각도에서는 자국이 불분명하다. 선체 손상은 뱃머리 쪽으로 더 심하다. 더 많은 증거가 북쪽 기슭 길에 있다.');
           } },
         ],
       },
     ],
-    disposition:'"Those are not offering-marks. Those are grip-marks. Something held the boat." — Harbor Guild Master, reading the hull a second time',
+    disposition:'『저것은 공물 자국이 아니라 움켜쥔 자국이오. 무언가가 배를 붙잡았던 것이오.』 — 항구 길드장, 선체를 두 번째로 읽으며',
     passText:"저건 잡은 자국이다. 무언가가 배를 붙들고 있었다. 길드장이 선체를 두 번째로 읽었다.",
     failText:"호수 항구에서 인양한 선체는 아직 살펴보지 않았다. INT 조사 DC 12 필요.",
     npc:"harbor_guild_master",
@@ -12893,17 +12893,17 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
           { kind:'_legacy_fn', fn:() => {
             S_story.lakeLairLocated = true;
             S_story.xp = (S_story.xp||0) + 250;
-            storyMsg('The tracks are consistent — something heavy, moving in and out of the water at the north end of the path. The drag marks lead to where the shelf collapsed. That is where it denned after the collapse opened the space.\n\nThe lair is north of here. Three of them, from the track spacing. They moved in this season.\n\nNorth Shore Den is now accessible. +250 XP.');
+            storyMsg('발자국은 일관된다. 무거운 무언가가 길 북쪽 끝에서 물을 드나든다. 끌림 자국은 선반대가 무너진 곳으로 이어진다. 붕괴가 공간을 연 뒤 그곳에 둥지를 튼 것이다.\n\n소굴은 여기서 북쪽이다. 발자국 간격으로 보아 세 마리. 이번 계절에 이주해 왔다.\n\n북쪽 기슭 소굴 진입 가능. +250 XP.');
           } },
         ],
         onFail:[
           { kind:'_legacy_fn', fn:() => {
-            storyMsg('The mud is scuffed. The disturbance is there but the pattern is unclear from the path. Move further along the shelf to get a cleaner read.');
+            storyMsg('진흙이 짓이겨져 있다. 교란은 있으나 길에서는 패턴이 불분명하다. 선반대를 따라 더 이동하면 더 깨끗한 판독이 가능하다.');
           } },
         ],
       },
     ],
-    disposition:'"North. Past where the shelf fell in. They nest where the rock came down." — Elder Fisherwoman, from memory alone',
+    disposition:'『북쪽이야. 선반대가 무너진 곳을 지나. 그것들은 바위가 무너져 내린 곳에 둥지를 틀었어.』 — 연로한 여어부, 기억만으로',
     passText:"북쪽. 선반이 꺼져 내린 곳 너머. 추적이 읽혔다. 굴 위치가 확인됐다.",
     failText:"북쪽 기슭 길의 흐트러진 흔적은 아직 추적하지 않았다. WIS 지각 DC 13 필요.",
     npc:"harbor_guild_master",
@@ -12920,10 +12920,10 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
       { kind:'flag_write', set:['drownersDefeated'] },
       { kind:'reward', xp:500, gold:500 },
       { kind:'reward', items:[{ name:'Drowned Compass', icon:'🧭', type:'misc', desc:'난파선 목재와 함께 소굴에서 발견되었다. 호수 퇴적물에 봉인된 황동 나침반. 아직 북쪽을 가리킨다. 길드 선장의 이름이 케이스에 새겨져 있다.', sell:80 }],
-        knowledge:'Lake Monster Hunt: Three drowners moved into the north shore shelf den after the rock collapse this season. All three boats were taken from below. The Guild captain\'s compass was in the den. The Guild\'s spirit theory was wrong from the first offering.' },
+        knowledge:'호수 괴물 사냥: 드라우너 세 마리가 이번 계절의 암반 붕괴 뒤 북쪽 기슭 선반대 소굴로 이주했다. 세 척 모두 아래에서 끌려갔다. 길드 선장의 나침반이 소굴에 있었다. 길드의 영혼 이론은 첫 공물부터 틀렸다.' },
       { kind:'narrative', msg:'✅ 소굴이 정리되었다.\n\n드라우너 셋은 기회주의자들이었다. 암석 붕괴와 함께 도착해, 길드가 남쪽 기슭에서 물고기를 바치는 동안 북쪽 끝에 자리를 잡았다.\n\n암반 선반 아래 잔해 속에 황동 나침반. 퇴적물에 봉인된 채 아직도 북쪽을 가리킨다. 길드 선장의 이름이 케이스에 새겨져 있다.\n\n물에 빠진 나침반이 소지품에 추가. +500gp. +500 XP. 지식 항목 추가.' },
     ],
-    disposition:'"The Guild will dispute this for two seasons before agreeing you were right and the spirit theory was wrong. That is what Guilds do." — Elder Fisherwoman',
+    disposition:'『길드는 두 계절 동안 이의를 제기하다가 네가 옳았고 영혼 이론이 틀렸다는 데 동의할 거야. 길드라는 것이 그래.』 — 연로한 여어부',
     passText:"굴이 치워졌다. 길드는 동의하기까지 두 계절을 다툴 것이다. 길드라는 게 그렇다.",
     failText:"드라우너들이 아직 북쪽 단애 붕괴 지점의 소굴을 장악하고 있다. 호수의 배들이 안전하게 돌아올 수 없다.",
     npc:"harbor_guild_master",
@@ -12941,7 +12941,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     activateNode:'DNF', gate:{ flags:['dunfallAccessed'] },
     completion:{ flags:['spark2HookReceived'] }, bits:[],
     waypointNode:'DNF', reward:0,
-    disposition:'"By order of the Inland Revenue, the animal currently impeding the tax ledger must be — it is sitting on my pen." — Commissioner Halvard Fehn',
+    disposition:'『내륙 세무당국의 명령으로, 현재 세금 장부를 방해하고 있는 동물은, 그 동물이 제 펜 위에 앉아 있습니다.』 — 할바르트 펜 집행관',
     passText:"위원이 투입됐다. 부두 고양이는 아직 만년필 위에 있다. 내륙 세무청 명령으로 — 그 동물은 그래야만 한다. 내 만년필 위에 앉아 있으니.",
     failText:"던폴의 위원 할바르드 펜과 아직 이야기하지 않았다.",
     npc:"mairén_fionn",
