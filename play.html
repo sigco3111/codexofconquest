@@ -4165,7 +4165,7 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
                 <span id="s-node-act">1막</span>
               </div>
               <!-- §PLAY-01-A The Courier's Map — persistent objective (Froberger's map) -->
-              <div id="objective-chip" title="Return all 7 Codex Shards, reach Level 20, and defeat Commander Auros at the Codex. Time is generous — the seals hold well past any honest journey; the Void gains only slowly, and only while you sleep.">
+              <div id="objective-chip" title="코덱스 조각 7개를 모두 회수하고, 레벨 20에 도달하고, 코덱스에서 사령관 아우로스를 쓰러뜨릴 것. 시간은 넉넉하다 — 봉인은 어떤 정직한 여정보다도 오래 버틴다. 공허는 천천히, 그리고 당신이 잠든 동안에만 진행한다.">
                 <span class="obj-shards" id="obj-shards"></span>
                 <span class="obj-sep">·</span>
                 <span class="obj-leg" id="obj-lvl">⭐ 레벨 <b>1</b>/20</span>
@@ -32417,21 +32417,21 @@ function _nodeHookCodexCoreChamber(node) {
     const _ccDiv = document.createElement('div');
     _ccDiv.className = 'sweelinck-variant';
     _ccDiv.style.cssText = 'margin-top:10px;border-left-color:#9060c0;';
-    _ccDiv.innerHTML = '<div style="color:#c090f0;font-weight:700;margin-bottom:6px;">⚡ The Codex Core Chamber</div>'
+    _ccDiv.innerHTML = '<div style="color:#c090f0;font-weight:700;margin-bottom:6px;">⚡ 코덱스 핵심 방</div>'
       + '<div style="font-size:12px;color:#bba;margin-bottom:10px;">'
-      + 'The chamber hums like a tuning fork. The Codex — not all of it, not yet, but the architecture of it — is visible here as a standing column of light, each Shard spinning in its locked position. Six of them yours now. The seventh is here. Has been here. The chamber built itself around the seventh Shard centuries ago and the whole CO node is structured around keeping anything from touching it. Commander Auros is not guarding the Codex. She is part of the seal. She does not know this. When she attacks you, she is executing a Scholar King failsafe that has been running in her bones for thirty years.'
-      + (S_story.priorCarrierSeen ? '<br><br><em>The Prior Carrier said "Tell Sweelinck I found the seventh entry." You are standing in the room where that entry was written. This is not a metaphor. The Codex recorded you before you arrived. The blank page is not blank.</em>' : '')
+      + '실이 소리굿쇠처럼 울린다. 코덱스 — 전부는 아니다, 아직은 — 하지만 그 구조가, 서 있는 빛의 기둥으로 여기 보인다. 각 조각이 잠긴 자리에서 돌고 있다. 그중 여섯은 이제 당신의 것이다. 일곱째가 여기 있다. 언제나 여기 있었다. 이 방은 수백 년 전 일곱째 조각을 중심으로 스스로를 지었고, 코덱스 핵 구역 전체가 무엇이든 그것에 닿지 못하게 하는 구조다. 사령관 아우로스는 코덱스를 지키고 있는 것이 아니다. 그녀는 봉인의 일부다. 그녀는 이것을 모른다. 그녀가 당신을 공격할 때, 그녀는 삼십 년째 그녀의 뼛속에서 돌고 있던 학자 왕의 안전장치를 실행하고 있는 것이다.'
+      + (S_story.priorCarrierSeen ? '<br><br><em>이전 운반자가 말했다. 「스베일링크에게 일곱 번째 항목을 찾았다고 전해주시오.」 당신은 그 항목이 쓰인 방에 서 있다. 이것은 비유가 아니다. 코덱스는 당신이 도착하기 전에 당신을 기록했다. 빈 페이지는 비어 있지 않다.</em>' : '')
       + '</div>'
       + '<div style="display:flex;flex-direction:column;gap:5px;">'
-      + '<button class="inv-use-btn" id="cc-stabilize-btn">🔵 Stabilize — take the Shard, face Auros (standard)</button>'
-      + '<button class="inv-use-btn" id="cc-destroy-btn">⚡ Destroy the housing — STR Ceremonia Roll DC 15 (bypass Auros, +curseScore)</button>'
-      + '<button class="inv-use-btn" id="cc-claim-btn">🟣 Claim as power — CHA Ceremonia Roll DC 17 (surge +2, voidPressure +3, Auros fight required)</button>'
+      + '<button class="inv-use-btn" id="cc-stabilize-btn">🔵 안정화 — 조각을 가져가고 아우로스와 맞선다 (표준)</button>'
+      + '<button class="inv-use-btn" id="cc-destroy-btn">⚡ 외함 파괴 — STR 세레모니아 굴림 DC 15 (아우로스 우회, +저주 수치)</button>'
+      + '<button class="inv-use-btn" id="cc-claim-btn">🟣 힘으로 거머쥔다 — CHA 세레모니아 굴림 DC 17 (서지 +2, 공허 압력 +3, 아우로스 전투 필수)</button>'
       + '</div>';
     document.getElementById('story-text-box').insertAdjacentElement('afterend', _ccDiv);
     document.getElementById('cc-stabilize-btn').addEventListener('click', () => {
       S_story.codexCoreChosen = 'stabilize';
       _ccDiv.remove();
-      storyMsg('You reach for the column. The seventh Shard accepts your hand. Commander Auros turns. She is already in motion.\n\nShe doesn\'t know why she\'s attacking. She only knows the failsafe says to.');
+      storyMsg('기둥에 손을 뻗는다. 일곱 번째 조각이 당신의 손을 받아들인다. 사령관 아우로스가 돌아선다. 그녀는 이미 움직이고 있다.\n\n그녀는 자신이 왜 공격하는지 모른다. 안전장치가 그러라고 한다는 것만 알 뿐이다.');
       storyAutoSave();
     });
     document.getElementById('cc-destroy-btn').addEventListener('click', () => {
@@ -32447,11 +32447,11 @@ function _nodeHookCodexCoreChamber(node) {
         S_story.defeatedBattles['TLS'] = true;
         S_story.curseScore = (S_story.curseScore || 0) + 5;
         _ccDiv.remove();
-        storyMsg('The column shatters. The seventh Shard falls into your hand — whole, warm, done waiting.\n\nAuros staggers. The failsafe that has been running in her bones for thirty years cuts off mid-sentence.\n\nShe looks at her hands. She does not recognize them without the compulsion.\n\n⚠ You broke something that could not be rebuilt. [curseScore +5]');
+        storyMsg('기둥이 부서진다. 일곱 번째 조각이 당신의 손에 떨어진다 — 온전하고, 따뜻하고, 기다림이 끝났다.\n\n아우로스가 비틀거린다. 삼십 년 동안 그녀의 뼛속에서 돌던 안전장치가 문장 중간에서 끊긴다.\n\n그녀는 자기 손을 본다. 강제 없는 그 손을 알아보지 못한다.\n\n⚠ 당신은 다시 만들 수 없는 무언가를 부쉈다. [저주 수치 +5]');
         storyCheckQuests(node);
         storyAutoSave();
       } else {
-        storyMsg('The column does not yield. The housing was built by seven Scholar Kings who expected exactly this. Try again when you are ready.\n[STR Ceremonia Roll: '+_total+' vs DC '+_dc+' — failed]');
+        storyMsg('기둥이 물러서지 않는다. 외함은 바로 이것을 예상한 일곱 학자 왕이 만들었다. 준비가 되면 다시 시도하라.\n[STR Ceremonia Roll: '+_total+' vs DC '+_dc+' — 실패]');
       }
     });
     document.getElementById('cc-claim-btn').addEventListener('click', () => {
@@ -32466,10 +32466,10 @@ function _nodeHookCodexCoreChamber(node) {
         S_story.surgeCharges = Math.min((S_story.surgeCharges || 0) + 2, 5);
         _addVoidPressure(3);
         _ccDiv.remove();
-        storyMsg('The column recognizes you. Not who you are now — who you were before the loop.\n\nThe Shard comes free. The housing remains, reshaped around the absence.\n\nAuros stops mid-step. "You shouldn\'t be able to do that."\n\nShe attacks anyway. The failsafe doesn\'t care what the Codex decided.\n\n[Action Surge charges +2 · voidPressure +3]');
+        storyMsg('기둥이 당신을 알아본다. 지금의 당신이 아니라 — 순환 이전의 당신을.\n\n조각이 풀려난다. 외함은 남아, 부재에 맞게 다시 형태를 갖춘다.\n\n아우로스가 걸음을 멈춘다. 「그럴 수 있을 리 없어.」\n\n그래도 그녀는 공격한다. 안전장치는 코덱스가 무엇을 결정했든 신경 쓰지 않는다.\n\n[서지 충전 +2 · 공허 압력 +3]');
         storyAutoSave();
       } else {
-        storyMsg('The column waits. You are asserting ownership of something you have not yet fully remembered.\n\nTry again tomorrow. It has waited this long.\n[CHA Ceremonia Roll: '+_total+' vs DC '+_dc+' — failed]');
+        storyMsg('기둥이 기다린다. 당신은 아직 완전히 기억해 내지 못한 무언가의 소유를 주장하고 있다.\n\n내일 다시 시도하라. 이 정도는 기다려 왔으니.\n[CHA Ceremonia Roll: '+_total+' vs DC '+_dc+' — 실패]');
         S_story.codexCoreEntered = false;
         storyAutoSave();
       }
@@ -32543,7 +32543,7 @@ function _nodeHookScholarWorkshop(node) {
     if (S_story.aurosBlueprintKnown && !S_story.defeatedBattles['TLS']) {
       const _wkHint = document.createElement('div');
       _wkHint.style.cssText = 'font-size:10px;color:var(--gold);border-left:2px solid var(--gold);padding-left:6px;';
-      _wkHint.textContent = '📜 Blueprint known: Auros\'s left pauldron is AC -4 in the Convergence fight.';
+      _wkHint.textContent = '📜 설계도 파악됨: 아우로스의 왼쪽 어깨갑은 컨버전스 전투에서 AC -4.';
       _wkDiv.appendChild(_wkHint);
     }
     if (_wkDiv.children.length > 0) {
@@ -33181,8 +33181,8 @@ function _nodeHookBirkaS6JointConversation(node) {
         S_story.s6JointDelivered = true;
         const voidActive = !!(S_story.quests && S_story.quests['quest_void_below'] === 'active');
         const jointLine = voidActive
-          ? "You arrive mid-conversation. Weckmann: \"If you go down there—\" Auros: \"I know.\" A pause. \"I've mapped the whole floor.\" Weckmann: \"I know you have.\"\n\nThey both stop talking when they see you."
-          : "Weckmann and Auros are talking when you arrive. Something about the structural load on the north corridor. Auros is drawing on a piece of paper. Weckmann is asking questions.\n\nThey stop when they see you. Auros: \"The load is fine.\" Weckmann: \"I wasn't worried.\" Neither of them looks like they've been talking long.";
+          ? "대화 도중에 도착한다. 베크만: 「그 아래로 내려간다면—」 아우로스: 「알아.」 잠시 멈춤. 「그 층은 전부 지도를 그렸어.」 베크만: 「알고 있네.」\n\n둘 다 당신을 보고 말을 멈춘다."
+          : "도착했을 때 베크만과 아우로스가 이야기 중이다. 북쪽 복도의 구조 하중에 대한 얘기다. 아우로스가 종이에 무언가를 그리고 있다. 베크만이 질문하고 있다.\n\n당신을 보고 멈춘다. 아우로스: 「하중은 문제없어.」 베크만: 「걱정한 게 아니네.」 둘 다 이야기를 시작한 지 오래되어 보이지는 않는다.";
         setTimeout(() => storyMsg(jointLine), 400);
       }
 }
@@ -33258,7 +33258,7 @@ function _nodeHookBirkaWeckmannLog(node, { npcRowDiv }) {
           && !S_story.undercitySurveyDelivered) {
         const delBtn = document.createElement('button');
         delBtn.className = 'inv-use-btn';
-        delBtn.textContent = '🗺 Show Auros the undercity survey.';
+        delBtn.textContent = '🗺 아우로스에게 언더시티 측량을 보여준다.';
         delBtn.style.cssText = 'margin-top:4px;';
         delBtn.addEventListener('click', () => {
           S_story.undercitySurveyDelivered = true;
@@ -35858,7 +35858,7 @@ function storyRender(node, prefix) {
     if (node.code === 'HKG' && S_story.froberger_last_note_read && _npcFavor('auros') >= 2
         && !S_story.frobergerBruhnsLineDelivered) {
       S_story.frobergerBruhnsLineDelivered = true;
-      setTimeout(() => storyMsg("Auros: \"You found one of his notes. He left several. I found one in the depth access shaft — it described a structural feature that took me a year to verify was real. He'd been there in maybe three hours. He always knew exactly what to look for. I sometimes think the curse isn't that he couldn't connect — it's that he could see everything else so clearly that people just looked slow by comparison.\""), 500);
+      setTimeout(() => storyMsg("아우로스: 「그의 쪽지를 하나 찾았군요. 그는 여러 장을 남겼어요. 깊은 곳 접근 통로에서 하나 찾았어요 — 실재하는지 확인하는 데 일 년이 걸린 구조적 특징이 적혀 있었죠. 그는 어쩌면 세 시간 만에 거기 있었어요. 무엇을 찾아야 하는지 항상 정확히 아는 사람이었죠. 가끔은 생각해요. 저주란 그가 연결되지 못했다는 게 아니라 — 다른 모든 것을 너무 선명하게 본 나머지, 사람들이 그에 비하면 느려 보였다는 것뿐 아닐까 하고.」"), 500);
     }
     // ── L45-K: 거친 위스키 × Brynn cross-item ──
     if (node.code === 'TLL' && _npcFavor('brynn') >= 1
