@@ -33117,21 +33117,21 @@ function _nodeHookBirkaCyMadnessGate(node) {
         const _cyTotal = _cyRoll + _wisMod + _profB;
         const _cyDC = 12;
         const _CY_MADNESS = [
-          'The walls are breathing. You are fairly certain this is incorrect.',
-          'The data wraith turns toward you before you enter the room. You didn\'t make a sound.',
-          'A maintenance log on the wall is dated 300 years ago and your name is on it.',
-          'For three seconds, the neon is beautiful and you know exactly why.',
-          'You can read the void-script on the relays. You do not know this language. You have always known this language.',
-          'Someone else is wearing your footsteps.',
-          'The Corrupted Androids look at you like they recognize you.',
-          'The map in your hand matches this building\'s blueprint exactly. It shouldn\'t.',
-          'You almost said hello to the data wraith before combat started.',
-          'This is fine. This is all fine. You have been here before and it was fine then too.',
+          '벽이 숨을 쉬고 있다. 이것은 옳지 않다고 꽤 확신한다.',
+          '데이터 레이스가 당신이 방에 들어서기도 전에 돌아본다. 소리는 내지 않았다.',
+          '벽의 정비 기록은 300년 전 날짜이고, 당신의 이름이 적혀 있다.',
+          '3초 동안, 네온이 아름답고 당신은 그 이유를 정확히 안다.',
+          '중계기의 공허 문자를 읽을 수 있다. 이 언어를 모른다. 언제나 알고 있었다.',
+          '다른 누군가가 당신의 발자국을 신고 걷고 있다.',
+          '오염된 안드로이드들이 당신을 알아보는 듯 쳐다본다.',
+          '손안의 지도가 이 건물의 설계도와 정확히 일치한다. 일치해서는 안 되는데.',
+          '전투가 시작되기 전, 데이터 레이스에게 거의 인사를 할 뻔했다.',
+          '괜찮다. 전부 괜찮다. 전에도 여기 와 본 적이 있고 그때도 괜찮았다.',
         ];
         if (_cyTotal >= _cyDC) {
           S_story.cyMadnessRoll = 'clear';
           _appendStoryHcard({ round:'Day '+S_story.day, actor:'VOID', formula:'WIS Save d20+'+_wisMod, outcome:'= '+_cyTotal+' ✓ DC '+_cyDC,
-            dmg:'Scholar King infrastructure — copper wiring, bioluminescent void growth. The data wraiths are corrupted maintenance programs.' });
+            dmg:'학자 왕 인프라 — 구리 배선, 생물발광 공허 증식체. 데이터 레이스는 오염된 정비 프로그램이다.' });
         } else {
           const _dIdx = Math.floor(Math.random() * 10);
           const _madText = _CY_MADNESS[_dIdx];
@@ -33152,16 +33152,16 @@ function _nodeHookBirkaCyMaintenancePlate(node) {
           _platDiv.className = 'sweelinck-variant';
           if (S_story.cyOriginKnown) {
             _platDiv.style.cssText = 'margin-top:10px;border-left-color:#5a4a8a;color:#c8b8f8;font-size:12px;';
-            _platDiv.textContent = '🪧 The plate is behind you now. Your designation in Scholar King notation, copper-cast three centuries ago. The Neon Undercity is yours. You built it. You forgot. The plate did not.';
+            _platDiv.textContent = '🪧 명판이 이제 당신 뒤에 있다. 학자 왕 표기로 새겨진 당신의 지위명, 300년 전 구리 주조. 네온 언더시티는 당신의 것이다. 당신이 만들었다. 당신은 잊었다. 명판은 잊지 않았다.';
           } else if (S_story.cyMaintenanceDecoded) {
             _platDiv.style.cssText = 'margin-top:10px;border-left-color:#3a3a6a;color:#9090d0;font-size:12px;';
-            _platDiv.textContent = '🪧 The cipher is partially decoded. The builder\'s designation matches Froberger\'s fragment. One more session to confirm the translation.';
+            _platDiv.textContent = '🪧 암호가 부분적으로 해독되었다. 건설자의 지위명이 프로베르거의 단편과 일치한다. 번역 확정까지 한 번의 세션이 더 필요하다.';
           } else if (S_story.d0207_a1_passed) {
             _platDiv.style.cssText = 'margin-top:10px;border-left-color:#4a3a2a;color:#b08050;font-size:12px;';
-            _platDiv.textContent = '🪧 The copper plate is on the north wall — three centuries old, Scholar King cipher, your name not yet fully translated. INT Arcana DC 13 to decode it. Defeat the Data Wraith first.';
+            _platDiv.textContent = '🪧 구리 명판이 북쪽 벽에 있다. 300년 된 학자 왕 암호, 아직 완전히 번역되지 않은 당신의 이름. 해독에는 INT 아르카나 DC 13. 먼저 데이터 레이스를 쓰러뜨릴 것.';
           } else {
             _platDiv.style.cssText = 'margin-top:10px;border-left-color:#2a2a2a;color:#808060;font-size:12px;';
-            _platDiv.textContent = '🔍 Something on the north wall is very quiet against the neon. Copper, old. WIS Perception DC 10 to focus on it — see quest panel.';
+            _platDiv.textContent = '🔍 북쪽 벽의 무언가가 네온 사이에서 유난히 고요하다. 구리, 오래된. 집중하려면 WIS 감지 DC 10 — 퀘스트 패널을 볼 것.';
           }
           document.getElementById('story-text-box').insertAdjacentElement('afterend', _platDiv);
         }
@@ -33171,7 +33171,7 @@ function _nodeHookBirkaCyNgPlusLine(node) {
       // ── §D01-07: HKG NG+ remembered line (no save, just flavor) ──
       if (node.code === 'HKG' && (S_story.ngPlusRun || 0) >= 1 && !S_story.cyNgPlusLineDelivered) {
         S_story.cyNgPlusLineDelivered = true;
-        setTimeout(() => storyMsg('The Neon Undercity looks exactly as you remember it. Which is the problem — you should not remember it at all.'), 300);
+        setTimeout(() => storyMsg('네온 언더시티는 당신이 기억하는 그대로다. 그것이 문제다. 전혀 기억하고 있으면 안 되는데.'), 300);
       }
 }
 function _nodeHookBirkaS6JointConversation(node) {
@@ -35601,8 +35601,8 @@ function storyRender(node, prefix) {
       S_story.priorCarrierSpoke = true;
       _pcDiv.remove();
       S_story.inventory = S_story.inventory || [];
-      S_story.inventory.push({ name:"Prior Carrier's Token", icon:'🪙', type:'flavor', sell:0, desc:'Worn smooth. It is not a gift. It is the thing they carried when they last stood where you are standing.' });
-      storyMsg('They nod. A long pause before they speak.\n\n"It always does. Tell Sweelinck I found the seventh entry."\n\nThey extend their hand. In it: a token, worn smooth.\n\n"You\'ll need this less than you think. But you\'ll be glad you have it."\n\n[Received: Prior Carrier\'s Token 🪙]');
+      S_story.inventory.push({ name:"Prior Carrier's Token", icon:'🪙', type:'flavor', sell:0, desc:'닳아 매끄럽다. 선물이 아니다. 그들이 마지막으로 당신이 서 있는 곳에 섰을 때 지니고 있던 것이다.' });
+      storyMsg('그들이 고개를 끄덕인다. 말하기 전 긴 침묵.\n\n「언제나 그렇소. 스베일링크에게 일곱 번째 항목을 찾았다고 전해주시오.」\n\n그들이 손을 내민다. 그 안에는 닳아 매끄러운 토큰.\n\n「당신은 생각보다 이것이 덜 필요할 거요. 하지만 가지고 있으면 다행일 거요.」\n\n[획득: 이전 운반자의 토큰 🪙]');
       storyAutoSave();
     });
     document.getElementById('pc-no-btn').addEventListener('click', () => {
@@ -35610,22 +35610,22 @@ function storyRender(node, prefix) {
       S_story.priorCarrierSpoke = true;
       _pcDiv.remove();
       S_story.inventory = S_story.inventory || [];
-      S_story.inventory.push({ name:"Prior Carrier's Token", icon:'🪙', type:'flavor', sell:0, desc:'Worn smooth. It is not a gift. It is the thing they carried when they last stood where you are standing.' });
-      storyMsg('"Then you\'re ahead of me."\n\nThey look almost relieved. They extend their hand. In it: a token, worn smooth.\n\n"Take this anyway. The timing is different each run. The token isn\'t."\n\n[Received: Prior Carrier\'s Token 🪙]');
+      S_story.inventory.push({ name:"Prior Carrier's Token", icon:'🪙', type:'flavor', sell:0, desc:'닳아 매끄럽다. 선물이 아니다. 그들이 마지막으로 당신이 서 있는 곳에 섰을 때 지니고 있던 것이다.' });
+      storyMsg('「그럼 당신이 나보다 앞선 거요.」\n\n그들은 거의 안도한 듯 보인다. 손을 내민다. 그 안에는 닳아 매끄러운 토큰이 있다.');
       storyAutoSave();
     });
     document.getElementById('pc-ignore-btn').addEventListener('click', () => {
       S_story.priorCarrierSeen = true;
       S_story.priorCarrierSpoke = false;
       _pcDiv.remove();
-      storyMsg('You walk past. They do not call after you.\n\nFrom behind: the sound of someone settling back against a wall that has held them a long time.');
+      storyMsg('당신은 지나간다. 그들은 불러 세우지 않는다.\n\n뒤에서 들린다. 오랫동안 그들을 지탱해 온 벽에 누군가 다시 기대어 앉는 소리.');
       storyAutoSave();
     });
   } else if (node.code === 'NUE' && S_story.priorCarrierSeen) {
     const _pcRemDiv = document.createElement('div');
     _pcRemDiv.className = 'sweelinck-variant';
     _pcRemDiv.style.cssText = 'margin-top:8px;border-left-color:#507090;font-size:12px;';
-    _pcRemDiv.textContent = '👤 The cell. They are still there. They look at you the same way.';
+    _pcRemDiv.textContent = '👤 감방. 그들은 아직 거기 있다. 같은 눈으로 당신을 본다.';
     document.getElementById('story-text-box').insertAdjacentElement('afterend', _pcRemDiv);
   }
   // ── §D01-02: Codex Inquisitor button at WM (lower archive access) ──
@@ -35633,9 +35633,9 @@ function storyRender(node, prefix) {
     const _iqDiv = document.createElement('div');
     _iqDiv.className = 'sweelinck-variant';
     _iqDiv.style.cssText = 'margin-top:10px;border-left-color:#4a7040;';
-    _iqDiv.innerHTML = '<div style="color:#a0d080;font-weight:700;margin-bottom:6px;">🗿 The Codex Inquisitor</div>'
-      + '<div style="font-size:12px;color:#bba;margin-bottom:8px;">Behind the final archive door: a stone judge with an outstretched hand. Three centuries of patience. The hand has been extended since the archive was sealed.</div>'
-      + '<button class="inv-use-btn" id="iq-shake-btn">🤝 Shake the hand.</button>';
+    _iqDiv.innerHTML = '<div style="color:#a0d080;font-weight:700;margin-bottom:6px;">🗿 코덱스 심문관</div>'
+      + '<div style="font-size:12px;color:#bba;margin-bottom:8px;">마지막 기록고 문 뒤: 손을 내민 돌 심판관. 300년의 인내. 그 손은 기록고가 봉해진 때부터 내밀어져 있다.</div>'
+      + '<button class="inv-use-btn" id="iq-shake-btn">🤝 손을 잡는다.</button>';
     document.getElementById('story-text-box').insertAdjacentElement('afterend', _iqDiv);
     document.getElementById('iq-shake-btn').addEventListener('click', () => {
       S_story.inquisitorMet = true;
@@ -35649,7 +35649,7 @@ function storyRender(node, prefix) {
     const _iqRemDiv = document.createElement('div');
     _iqRemDiv.className = 'sweelinck-variant';
     _iqRemDiv.style.cssText = 'margin-top:8px;border-left-color:#4a7040;font-size:12px;';
-    _iqRemDiv.textContent = '🗿 The Inquisitor waits. The hand is still extended.';
+    _iqRemDiv.textContent = '🗿 심문관이 기다린다. 손은 여전히 내밀어져 있다.';
     document.getElementById('story-text-box').insertAdjacentElement('afterend', _iqRemDiv);
   }
   // ── §D01-01: Themed Dungeon Doctrine — EB approach room flavor panels ──
@@ -35659,9 +35659,9 @@ function storyRender(node, prefix) {
     const _bkMazeDiv = document.createElement('div');
     _bkMazeDiv.className = 'sweelinck-variant';
     _bkMazeDiv.style.cssText = 'margin-top:10px;border-left-color:#2a1a3a;';
-    _bkMazeDiv.innerHTML = '<div style="color:#7a5090;font-weight:700;margin-bottom:4px;">🌀 Void Fracture Maze — Approach</div>'
+    _bkMazeDiv.innerHTML = '<div style="color:#7a5090;font-weight:700;margin-bottom:4px;">🌀 공허 균열 미로 — 접근</div>'
       + '<div style="font-size:12px;color:#a090b0;line-height:1.5;">'
-      + 'Past the Warrant Hall, at the end of the corridor Mordus never mentions and his staff never enters, the passage begins to rotate. Not metaphorically. The walls are on a mechanism the Scholar Kings put there to prevent exactly the kind of approach you are making. The chalk mark is your idea. It is not a bad idea. The maze has seen worse. It has a counterpoint prepared.'
+      + '워런트 홀을 지나, 모르두스가 결코 언급하지 않고 그의 직원들이 결코 들어가지 않는 복도 끝에서, 통로가 회전하기 시작한다. 비유가 아니다. 벽은 학자 왕들이 설치한 장치 위에 있다. 바로 당신이 지금 하고 있는 종류의 접근을 막기 위해서. 분필 표시는 당신의 아이디어다. 나쁘지 않은 아이디어다. 미로는 더 나쁜 것도 보았다. 대응책이 준비되어 있다.'
       + '</div>';
     document.getElementById('story-text-box').insertAdjacentElement('afterend', _bkMazeDiv);
   }
