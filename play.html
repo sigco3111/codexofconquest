@@ -4662,7 +4662,7 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
             <button class="dpad-btn" id="btn-W">← W</button>
             <button class="dpad-btn dpad-hunt" id="btn-hunt" title="사냥 모드 — 저레벨 몬스터 위주로, 조우가 늘어납니다">🎯</button><!-- §KG-01: Hunt Mode toggle -->
             <button class="dpad-btn" id="btn-E">E →</button>
-            <button class="dpad-btn dpad-corner" id="btn-dpad-rest" title="Short Rest">🛌</button>
+            <button class="dpad-btn dpad-corner" id="btn-dpad-rest" title="짧은 휴식">🛌</button>
             <button class="dpad-btn" id="btn-S">↓ S</button>
             <span class="dpad-corner-spacer"></span>
           </div>
@@ -25954,9 +25954,9 @@ function storyShortRest(nodeCode) {
       S_story.waypoint = bestCode;
       _updateWaypointBtn();
       const dest = NODE_MAP[bestCode];
-      storyMsg('😴 No short rests left. Waypoint set → ' + dest.label + ' (' + bestLen + ' hop' + (bestLen !== 1 ? 's' : '') + '). Sleep there to restore full HP and reset rests.');
+      storyMsg('😴 남은 짧은 휴식이 없습니다. 웨이포인트 설정 → ' + dest.label + ' (' + bestLen + '구간). 그곳에서 자면 HP가 완전 회복되고 휴식이 초기화됩니다.');
     } else {
-      storyBlock('😴 남은 짧은 휴식 없음 today. Find an inn to sleep.');
+      storyBlock('😴 오늘 남은 짧은 휴식이 없습니다. 잠잘 여관을 찾으세요.');
     }
     return;
   }
@@ -36331,20 +36331,20 @@ function storyRender(node, prefix) {
 
   // ── REST section ───────────────────────────────────
   {
-    const { sec, body } = _mkSection(null, '🛌', 'Rest');
+    const { sec, body } = _mkSection(null, '🛌', '휴식');
     // Inn / Long Rest
     if (node.sleep) {
       const slept = !!S_story.sleptAtNodes[node.code];
-      const cost = node.sleepCost === 0 ? 'free' : node.sleepCost + 'gp';
+      const cost = node.sleepCost === 0 ? '무료' : node.sleepCost + 'gp';
       // §REST-AGAIN: sleptAtNodes is a permanent "first-rest double-heal claimed"
       // flag, not a per-day lock — inns are reusable (storyConfirmSleep handles the
       // revisit roll). Always offer another rest instead of dead-ending on "Done".
       body.appendChild(_mkCard({
-        lbl: 'INN',
-        main: (slept ? 'Rest Again (' : 'Long Rest (') + cost + ')',
+        lbl: '여관',
+        main: (slept ? '다시 휴식 (' : '긴 휴식 (') + cost + ')',
         hint: slept
-          ? '⏱ 8h · heal to full & advance a day — rest as often as you need'
-          : '⏱ 8 hours · full HP recovery · 🏕 first rest = double heal',
+          ? '⏱ 8시간 · 완전 회복 · 하루 진행 — 필요할 때마다 다시 휴식 가능'
+          : '⏱ 8시간 · HP 완전 회복 · 🏕 첫 휴식 = 2배 회복',
         tag: slept ? '✓ Rested' : '8h', tagClass: slept ? 'transferred' : '',
         btn: slept ? 'Rest Again' : 'Rest', btnClass: 'btn-rest',
         btnClick: () => storySleep(node)
@@ -36362,7 +36362,7 @@ function storyRender(node, prefix) {
         // it blindly re-routes on every tap. Set → En route (Clear); unset → Waypoint.
         const wpSetHere = S_story.waypoint === nearest.code;
         body.appendChild(_mkCard({
-          lbl: 'INN', main: '가장 가까운 여관: ' + nearest.label.split(' — ')[0] + ' (' + nearest.code + ')',
+          lbl: '여관', main: '가장 가까운 여관: ' + nearest.label.split(' — ')[0] + ' (' + nearest.code + ')',
           hint: wpSetHere
             ? '📍 Waypoint active — tap WP or the arrows to travel here'
             : nearestDist + '칸 거리 — 경유지를 설정하면 안내',
@@ -36386,7 +36386,7 @@ function storyRender(node, prefix) {
     // Short Rest
     const rests = S_story.shortRests || 0;
     body.appendChild(_mkCard({
-      lbl: 'SHORT', main: '🌙 짧은 휴식',
+      lbl: '짧은 휴식', main: '🌙 짧은 휴식',
       hint: rests > 0 ? '⏱ 1시간 · HD 굴리기 · HP 회복' : '남은 짧은 휴식 없음',
       tag: rests + '/3 left',
       tagClass: rests === 0 ? '' : '',
@@ -37103,7 +37103,7 @@ function storyCheckVoidTide() {
   // Increment void pressure at each tide event (Layer 59: mercy window)
   if ((S_story.void_mercy_count || 0) > 0) {
     S_story.void_mercy_count--;
-    setTimeout(() => storyMsg('💤 You sleep fitfully. The Void holds its breath with you.'), 600);
+    setTimeout(() => storyMsg('💤 뒤척이며 잠듭니다. 공허가 당신과 함께 숨을 참습니다.'), 600);
   } else {
     _addVoidPressure(1);
   }
@@ -37124,7 +37124,7 @@ function storyCheckMissedSleep() {
     // Each exhaustion cycle also advances the void — neglecting rest hastens the breach
     _addVoidPressure(1);
     if (S_story.voidPressure >= 10) { storyVoidDefeat('void'); return; }
-    storyMsg('😴 Exhausted — DIS on next 2 battles. Void pressure rising. Sleep soon.');
+    storyMsg('😴 탈진 — 다음 전투 2회 불리. 공허 압력 상승 중. 곧 수면하세요.');
   }
 }
 
