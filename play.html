@@ -11029,7 +11029,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_wm_02: { id:'quest_wm_02', type:'side', schema:'UQF-1.0', gate:{ questsDone:['quest_wm_01'] }, bits:[], completion:{ flags:['wmDoc1Read','wmDoc2Read','wmDoc3Read'] }, title:'이졸데: 하층 기록보관소',
     onComplete:[ { kind:'flag_write', set:['wmArchiveComplete'] }, { kind:'favor', npc:"isolde_voss", set:1 }, { kind:'narrative', msg:'📗 프로버거의 현장 노트(고서) 획득. 이졸데가 우호적이 되었다.' } ], // §ARCH-01 W7c
-    itemChain:[{action:'grant',name:'프로버거의 현장 노트',icon:'📗',type:'tome',sell:0,bonus:{deathSave:1},silent:true,desc:'여백의 메모. 『압력은, 올 줄 알면 견딜 수 있다.』'}], // §EDITOR-01-D-FU(b) b2b
+    itemChain:[{action:'grant',name:'Froberger\'s Field Notes',icon:'📗',type:'tome',sell:0,bonus:{deathSave:1},silent:true,desc:'여백의 메모. 『압력은, 올 줄 알면 견딜 수 있다.』'}], // §EDITOR-01-D-FU(b) b2b
     desc:'하층 문서고의 문서 세 건. 무효화 서한, 현장 보고서, 인사 파일. 셋 다 읽어라.',
     hint:'학자 구역을 방문해 기록고 문서들을 살펴보라.',
     activateNode:'NUE', onActivate:null,
@@ -11049,7 +11049,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_wm_04: { id:'quest_wm_04', type:'side', schema:'UQF-1.0', gate:{ flags:['wmBenediktCircleComplete'] }, bits:[], completion:{ flags:['wmFirstResearcherKnown'] }, title:'베네딕트: 최초의 연구자',
     onComplete:[{kind:'reward',gold:300},{kind:'narrative',msg:'📙 베네딕트의 주석본(고서) 획득. +300gp. 첫 연구자의 정체를 알게 되었다.'}], // §ARCH-01 W7c
-    itemChain:[{action:'grant',name:'베네딕트의 주석본',icon:'📙',type:'tome',sell:0,bonus:{atkWhileQuestActive:1},silent:true,desc:'『이번에도 그가 맞았다.』 B. 라스프.'}], // §EDITOR-01-D-FU(b) b2b
+    itemChain:[{action:'grant',name:'Benedikt\'s Annotated Copy',icon:'📙',type:'tome',sell:0,bonus:{atkWhileQuestActive:1},silent:true,desc:'『이번에도 그가 맞았다.』 B. 라스프.'}], // §EDITOR-01-D-FU(b) b2b
     desc:'베네딕트는 첫 연구자가 누구였는지 안다. 당신이 들을 만한 사람인지 확인하기 위해 세 차례를 기다렸다.',
     hint:'하층 기록보관소로 돌아가 삭제되지 않은 인사 문서를 읽어라.',
     activateNode:'NUE', onActivate:null,
@@ -11079,7 +11079,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_va_02: { id:'quest_va_02', type:'side', schema:'UQF-1.0', gate:{}, bits:[], completion:{ flags:['vaLogFound'] }, title:'건축: 건설자의 기록',
     onComplete:[ { kind:'flag_write', set:['vaLogFound'] }, { kind:'narrative', msg:'📜 The Constructor\'s Log와 Antecedent Seal 획득.' } ], // §ARCH-01 W7c
-    itemChain:[{action:'grant',name:'건설자의 일지',icon:'📜',type:'readable',sell:0,silent:true,readText:'일곱 개의 항목. 그녀의 필체. 3번 항목은 프로베르거의 여백 메모와 한 단어까지 일치한다.'},{action:'grant',name:'Antecedent Seal',icon:'🏛️',type:'relic',sell:0,silent:true,desc:'『선행자 격리 규약. 봉인 7. 발동.』'}], // §EDITOR-01-D-FU(b) b2b
+    itemChain:[{action:'grant',name:'The Constructor\'s Log',icon:'📜',type:'readable',sell:0,silent:true,readText:'일곱 개의 항목. 그녀의 필체. 3번 항목은 프로베르거의 여백 메모와 한 단어까지 일치한다.'},{action:'grant',name:'Antecedent Seal',icon:'🏛️',type:'relic',sell:0,silent:true,desc:'『선행자 격리 규약. 봉인 7. 발동.』'}], // §EDITOR-01-D-FU(b) b2b
     desc:'하층 문서고에 네 번째 문서가 나타났다. 이졸데가 소장품을 목록화할 때는 없었다. 혹은 있었지만 보이지 않았다. 문서고가 공식적으로 인정하지 않는 구별이다. 일곱 항목. 그녀의 필적. 마지막 항목은 이렇게 읽힌다. 『누군가 이것을 읽고 있다면, 봉인 장치가 발동한 것이다. 우리가 닫혔다. 미안하다.』 그녀는 그 줄을 쓰고 나서, 누가 찾았는지 확인하러 돌아오지 않을 것을 알고 문서고를 걸어 나갔다.',
     hint:'학자 구역 하층 기록고로 돌아가라.',
     activateNode:null, 
