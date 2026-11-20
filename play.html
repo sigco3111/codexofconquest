@@ -38413,7 +38413,7 @@ function storyRenderCharSheet() {
     for (let fl = 1; fl <= 20; fl++) {
       const gained = lv >= fl;
       if (fl === 1) {
-        rows.push(`<div class="cs-prog-row"><span class="cs-feat-lvl">Lv1</span><span class="cs-feature-icon">⚔</span><span class="cs-feat-name">Fighter Champion</span><span class="cs-feat-tag">d10 HP · All armor</span></div>`);
+        rows.push(`<div class="cs-prog-row"><span class="cs-feat-lvl">Lv1</span><span class="cs-feature-icon">⚔</span><span class="cs-feat-name">파이터 챔피언</span><span class="cs-feat-tag">d10 HP · All armor</span></div>`);
         continue;
       }
       const feat = FIGHTER_FEATURES[fl];
@@ -38440,21 +38440,21 @@ function storyRenderCharSheet() {
       <div class="cs-section-title">Fighter Champion · Level ${lv}</div>
       <div class="cs-row"><span class="cs-row-lbl">HP</span><span class="cs-row-val">${S_story.hp} / ${S_story.hpMax}</span></div>
       <div class="cs-row"><span class="cs-row-lbl">AC</span><span class="cs-row-val">${ac}</span></div>
-      <div class="cs-row"><span class="cs-row-lbl">Proficiency</span><span class="cs-row-val">${m(profBonus)}</span></div>
-      <div class="cs-row"><span class="cs-row-lbl">Attack Bonus</span><span class="cs-row-val">${m(atkTotal)} (${atkAb.label}${m(strMod)} + Prof${m(profBonus)}${lvlAtk ? ' + bonus'+m(lvlAtk) : ''})</span></div>
-      <div class="cs-row"><span class="cs-row-lbl">Crit Range</span><span class="cs-row-val">${critMin}–20</span></div>
+      <div class="cs-row"><span class="cs-row-lbl">숙련</span><span class="cs-row-val">${m(profBonus)}</span></div>
+      <div class="cs-row"><span class="cs-row-lbl">공격 보너스</span><span class="cs-row-val">${m(atkTotal)} (${atkAb.label}${m(strMod)} + Prof${m(profBonus)}${lvlAtk ? ' + bonus'+m(lvlAtk) : ''})</span></div>
+      <div class="cs-row"><span class="cs-row-lbl">치명타 범위</span><span class="cs-row-val">${critMin}–20</span></div>
       <div class="cs-row"><span class="cs-row-lbl">XP</span><span class="cs-row-val">${(S_story.xp||0).toLocaleString()} / ${(XP_LEVELS[lv]||'—').toLocaleString()}</span></div>
-      ${surgeCharges > 0 ? `<div class="cs-row"><span class="cs-row-lbl">⚡ Surge</span><span class="cs-row-val">${surgeCharges} charge${surgeCharges>1?'s':''}</span></div>` : ''}
-      ${indomCharges > 0 ? `<div class="cs-row"><span class="cs-row-lbl">🛡 Indomitable</span><span class="cs-row-val">${indomCharges} charge</span></div>` : ''}
+      ${surgeCharges > 0 ? `<div class="cs-row"><span class="cs-row-lbl">⚡ 서지</span><span class="cs-row-val">${surgeCharges} charge${surgeCharges>1?'s':''}</span></div>` : ''}
+      ${indomCharges > 0 ? `<div class="cs-row"><span class="cs-row-lbl">🛡 불굴</span><span class="cs-row-val">${indomCharges} charge</span></div>` : ''}
       ${(() => {
         if ((S_story.shards || 0) >= 1) {
           const cs = _covenantStanding();
-          return `<div class="cs-row" style="flex-direction:column;align-items:flex-start;gap:2px"><span class="cs-row-lbl">Covenant Standing</span><span class="cs-row-val" style="color:#6A4808">${cs.label}</span><span style="font-size:10px;color:#333333;font-style:italic;padding-left:2px">"${cs.desc}"</span></div>`;
+          return `<div class="cs-row" style="flex-direction:column;align-items:flex-start;gap:2px"><span class="cs-row-lbl">조약 지위</span><span class="cs-row-val" style="color:#6A4808">${cs.label}</span><span style="font-size:10px;color:#333333;font-style:italic;padding-left:2px">"${cs.desc}"</span></div>`;
         }
-        return `<div class="cs-row"><span class="cs-row-lbl">Covenant Standing</span><span class="cs-row-val" style="color:#333333">Unknown</span></div>`;
+        return `<div class="cs-row"><span class="cs-row-lbl">조약 지위</span><span class="cs-row-val" style="color:#333333">알 수 없음</span></div>`;
       })()}
-      ${(S_story.pitPerks||[]).length >= 5 ? `<div class="cs-row"><span class="cs-row-lbl">Combat Style</span><span class="cs-row-val" style="color:#6A4808">Weckmann's Student</span></div>` : ''}
-      ${S_story.saulConverted ? `<div class="cs-row" style="flex-direction:column;align-items:flex-start;gap:2px"><span class="cs-row-lbl" style="color:#806040">Thorn (Permanent)</span><span style="font-size:10px;color:#555540;font-style:italic;padding-left:2px">"My grace is sufficient for you, for my power is made perfect in weakness."</span></div>` : ''}
+      ${(S_story.pitPerks||[]).length >= 5 ? `<div class="cs-row"><span class="cs-row-lbl">전투 스타일</span><span class="cs-row-val" style="color:#6A4808">Weckmann's Student</span></div>` : ''}
+      ${S_story.saulConverted ? `<div class="cs-row" style="flex-direction:column;align-items:flex-start;gap:2px"><span class="cs-row-lbl" style="color:#806040">가시 (영구)</span><span style="font-size:10px;color:#555540;font-style:italic;padding-left:2px">"My grace is sufficient for you, for my power is made perfect in weakness."</span></div>` : ''}
     </div>
     <div class="cs-section">
       <div class="cs-section-title">Ability Scores</div>
@@ -38472,9 +38472,9 @@ function storyRenderCharSheet() {
     </div>
     <div class="cs-section">
       <div class="cs-section-title">Equipment</div>
-      <div class="cs-row"><span class="cs-row-lbl">Main Hand</span><span class="cs-row-val">${mw ? mw.name+' ('+mw.count+'d'+mw.die+(mw.magicBonus?(mw.magicBonus>=0?'+':'')+mw.magicBonus:'')+')' : 'Unarmed'}</span></div>
-      <div class="cs-row"><span class="cs-row-lbl">Off Hand</span><span class="cs-row-val">${dagger ? dagger.name+' (atk '+m(dagger.atkBonus||0)+')' : shield ? shield.name+' (AC +'+(shield.acBonus||0)+')' : '—'}</span></div>
-      <div class="cs-row"><span class="cs-row-lbl">Gold</span><span class="cs-row-val">${(S_story.gold||0).toLocaleString()} gp</span></div>
+      <div class="cs-row"><span class="cs-row-lbl">주무기</span><span class="cs-row-val">${mw ? mw.name+' ('+mw.count+'d'+mw.die+(mw.magicBonus?(mw.magicBonus>=0?'+':'')+mw.magicBonus:'')+')' : 'Unarmed'}</span></div>
+      <div class="cs-row"><span class="cs-row-lbl">보조무기</span><span class="cs-row-val">${dagger ? dagger.name+' (atk '+m(dagger.atkBonus||0)+')' : shield ? shield.name+' (AC +'+(shield.acBonus||0)+')' : '—'}</span></div>
+      <div class="cs-row"><span class="cs-row-lbl">골드</span><span class="cs-row-val">${(S_story.gold||0).toLocaleString()} gp</span></div>
     </div>
     <div class="cs-section">
       <div class="cs-section-title">Progression — ${lv}/20 Levels · ${(S_story.tattoos||[]).length} Tattoos</div>
@@ -38489,7 +38489,7 @@ function storyRenderCharSheet() {
       </div>`;
     })()}
     <div class="cs-section">
-      <div class="cs-section-title">Chronicle</div>
+      <div class="cs-section-title">연대기</div>
       ${(() => {
         const cs = S_story.careerStats || {};
         const rs = S_story.runStats    || {};
