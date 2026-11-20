@@ -24067,10 +24067,9 @@ function storyNewGamePlus() {
     const gp     = bodies.reduce((s, q) => s + (q.goldDropped || 0), 0);
     const items  = bodies.reduce((s, q) => s + ((q.items || []).length), 0);
     const where  = [...new Set(bodies.map(q => q.nodeName))].join(', ');
-    const ok = window.confirm('⚠ You still have ' + bodies.length + ' unrecovered '
-      + (bodies.length === 1 ? 'body' : 'bodies') + ' out there (' + where + ') carrying '
-      + items + '개와 ' + gp + 'gp. 뉴 게임+를 시작하면 모두 영원히 남겨두게 됩니다.\n\n'
-      + 'Begin New Game+ anyway?');
+    const ok = window.confirm('⚠ 아직 회수하지 못한 시신 ' + bodies.length + '구가 (' + where + ') 에 남아 있고, '
+      + '아이템 ' + items + '개와 ' + gp + 'gp를 지니고 있습니다. 뉴 게임+를 시작하면 모두 영원히 남겨두게 됩니다.\n\n'
+      + '그래도 뉴 게임+를 시작할까요?');
     if (!ok) return;   // player chose to retrieve first — NG+ aborted, nothing wiped
   }
   const ngOverlay = document.getElementById('ng-plus-title-overlay');
@@ -28839,7 +28838,7 @@ function _mpMapChatRender() {
     (e.server ? '<span class="mp-chat-srv">@' + _mpEsc(String(e.server).slice(0, 8)) + '</span>' : '') +
     ': ' + _mpEsc(e.msg) + '</div>').join('')
     || '<div class="mp-chat-line" style="color:#9ab0c4">' +
-       (MP.chatScope === 'local' ? 'Nobody nearby has spoken. Switch to 🌍 World to hear everyone.' : 'No chat yet. Connect (🌐) and say something.') + '</div>';
+       (MP.chatScope === 'local' ? '근처에서 아무도 말하지 않았습니다. 🌍 세계로 바꾸면 모두를 들을 수 있습니다.' : '아직 채팅이 없습니다. (🌐) 연결 후 말을 걸어 보세요.') + '</div>';
   list.scrollTop = list.scrollHeight;
 }
 
@@ -28864,7 +28863,7 @@ function mpSetAdvertise(on) {
   const cb = document.getElementById('mp-advertise-cb');
   if (cb) cb.checked = MP.advertise;
   if (MP.advertise && MP.on) mpBeacon({ force: true });
-  if (!MP.advertise && MP.on) storyMsg('📢 Position hidden — others will stop seeing you move.');
+  if (!MP.advertise && MP.on) storyMsg('📢 위치 숨김 — 다른 플레이어가 더 이상 당신의 움직임을 볼 수 없습니다.');
 }
 
 // Mirror the co-present roster into the map pane (fuller than the strip line).
@@ -28893,7 +28892,7 @@ function _mpRenderMapPresence() {
 function mpSayMap() {
   const inp = document.getElementById('mp-map-chat-input');
   if (!(inp && inp.value || '').trim()) return;
-  if (!MP.on) { storyMsg('🌐 Connect to a world server first (Multiplayer pane, above).'); return; }
+  if (!MP.on) { storyMsg('🌐 먼저 월드 서버에 연결하세요 (위의 멀티플레이 창).'); return; }
   // §MP-CHAT-GLOBAL: the channel you're reading is the channel you speak into —
   // 🌍 World sends worldwide (broadcastAll + mesh), 📍 Local stays proximity.
   _mpSend(inp);
@@ -29184,19 +29183,19 @@ function _sentryDayTick() {
 // Network wrapper: deploy a sentry at the current node. Requires a live server
 // connection (a sentry only exists as server presence) and an affordable cost.
 async function mpDeploySentry() {
-  if (!MP.on || !MP.session) { storyMsg('🛡 Connect to a world server (🌐) to post a sentry.'); return; }
+  if (!MP.on || !MP.session) { storyMsg('🛡 보초를 두려면 월드 서버에 연결하세요 (🌐).'); return; }
   const node = S_story.currentCode;
-  if (!node || !NODE_MAP[node]) { storyMsg('🛡 Stand at a junction town to post a sentry.'); return; }
+  if (!node || !NODE_MAP[node]) { storyMsg('🛡 보초는 갈림길 마을에 서 있을 때만 둘 수 있습니다.'); return; }
   if (_sentryOwnedAt(node)) { storyMsg('🛡 이미 여기 보초를 두고 있어요.'); return; }
-  if ((S_story.gold || 0) < SENTRY_ECON.deployCost) { storyMsg('🛡 A sentry costs ' + SENTRY_ECON.deployCost + 'g to post.'); return; }
+  if ((S_story.gold || 0) < SENTRY_ECON.deployCost) { storyMsg('🛡 보초 배치 비용은 ' + SENTRY_ECON.deployCost + 'g입니다.'); return; }
   try {
     const r = await _mpFetch('/api/sentry/deploy', { node, dailyFee: SENTRY_ECON.dailyFee });
-    if (!r.ok) { storyMsg('🛡 ' + (r.error || 'Could not post a sentry here.')); return; }
+    if (!r.ok) { storyMsg('🛡 ' + (r.error || '여기에 보초를 둘 수 없습니다.')); return; }
     const rec = _sentryDeployCharge(r.sentryId, node, r.dailyFee);
     if (!rec) { _mpFetch('/api/sentry/recall', { sentryId: r.sentryId }).catch(() => {}); storyMsg('🛡 배치 비용을 낼 수 없어요.'); return; }
-    storyMsg('🛡 Sentry posted at ' + (NODE_MAP[node] ? NODE_MAP[node].label : node) + ' — ' + SENTRY_ECON.deployCost + 'g, then ' + rec.dailyFee + 'g/day.');
+    storyMsg('🛡 ' + (NODE_MAP[node] ? NODE_MAP[node].label : node) + '에 보초 배치 — ' + SENTRY_ECON.deployCost + 'g, 이후 하루 ' + rec.dailyFee + 'g.');
     storyUpdateStatus(); storyRenderQuests();
-  } catch { storyMsg('🛡 No world server — start one with ./bin/wbapi start.'); }
+  } catch { storyMsg('🛡 월드 서버가 없습니다 — ./bin/wbapi start 로 시작하세요.'); }
 }
 async function mpRecallSentry(id) {
   if (id) _mpFetch('/api/sentry/recall', { sentryId: id }).catch(() => {});
@@ -29377,8 +29376,8 @@ async function mpDmSend(to, text) {
   const id = MP.act && MP.act.id;
   if (!MP.on || !id) return { ok: false, error: '개인 메시지는 플레이어 키를 증명한 연결이 필요합니다' };
   const k = await fetch(MP.base + '/api/session/dmkey?pid=' + encodeURIComponent(to.ledgerPid)).then(r => r.json()).catch(() => null);
-  if (!k || !k.ok) return { ok: false, error: (k && k.error) || 'no message key for ' + to.name };
-  if (!await _mpVerify(k.pub, `codex-xpub-v1\n${k.xpub}`, k.xsig)) return { ok: false, error: to.name + '\'s message key is not signed by their player key; not sent' };
+  if (!k || !k.ok) return { ok: false, error: (k && k.error) || to.name + '의 메시지 키가 없습니다' };
+  if (!await _mpVerify(k.pub, `codex-xpub-v1\n${k.xpub}`, k.xsig)) return { ok: false, error: to.name + '의 메시지 키가 플레이어 키로 서명되지 않았습니다. 전송하지 않았습니다' };
   const eph = k.xpub.startsWith('x25519:')
     ? await crypto.subtle.generateKey({ name: 'X25519' }, true, ['deriveBits'])
     : await crypto.subtle.generateKey({ name: 'ECDH', namedCurve: 'P-256' }, true, ['deriveBits']);
@@ -29450,10 +29449,10 @@ async function mpTransferRequest() {
 }
 async function mpTransferAuthorize(reqCode) {
   const req = _mpUncode('codex-req1', reqCode);
-  if (!req || !req.to || !req.h) return { ok: false, error: 'that is not a request code (it starts codex-req1.)' };
+  if (!req || !req.to || !req.h) return { ok: false, error: '요청 코드가 아닙니다 (codex-req1. 으로 시작해야 합니다)' };
   if (req.h !== await _mpCharHash()) return { ok: false, error: '다른 캐릭터에 대한 요청입니다' };
   const id = await _mpIdentity();
-  if (!id) return { ok: false, error: 'this browser holds no key for this character' };
+  if (!id) return { ok: false, error: '이 브라우저에는 이 캐릭터의 키가 없습니다' };
   if (_mpPubId(req.to) === _mpPubId(id.pub)) return { ok: false, error: '이 브라우저에서 보낸 요청입니다' };
   const params = id.alg === 'Ed25519' ? { name: 'Ed25519' } : { name: 'ECDSA', hash: 'SHA-256' };
   const sig = new Uint8Array(await crypto.subtle.sign(params, id.privateKey,
@@ -29463,7 +29462,7 @@ async function mpTransferAuthorize(reqCode) {
 }
 async function mpTransferAccept(certCode) {
   const cert = _mpUncode('codex-xfer1', certCode);
-  if (!cert || !Array.isArray(cert.chain) || !cert.chain.length) return { ok: false, error: 'that is not a transfer code (it starts codex-xfer1.)' };
+  if (!cert || !Array.isArray(cert.chain) || !cert.chain.length) return { ok: false, error: '전송 코드가 아닙니다 (codex-xfer1. 으로 시작해야 합니다)' };
   if (cert.h !== await _mpCharHash()) return { ok: false, error: '다른 캐릭터에 대한 전송입니다' };
   const id = await _mpIdentity();
   if (!id || _mpPubId(cert.chain[cert.chain.length - 1].to) !== _mpPubId(id.pub)) return { ok: false, error: '다른 브라우저에서 만든 전송입니다' };
@@ -29477,9 +29476,9 @@ async function mlTransfer(step) {
     : step === 'authorize' ? await mpTransferAuthorize(box.value) : await mpTransferAccept(box.value);
   if (!r.ok) { note.textContent = '🔴 ' + r.error; return; }
   if (r.code) box.value = r.code;
-  note.textContent = step === 'request' ? '📋 Paste this request code into the browser that plays this character now, and press Authorize there.'
-    : step === 'authorize' ? '✍ Paste this transfer code into the new browser, and press Accept there.'
-    : '✅ Accepted. Save the game; this browser now connects as this character on every server.';
+  note.textContent = step === 'request' ? '📋 이 요청 코드를 현재 이 캐릭터를 플레이하는 브라우저에 붙여넣고, 거기서 승인을 누르세요.'
+    : step === 'authorize' ? '✍ 이 전송 코드를 새 브라우저에 붙여넣고, 거기서 수락을 누르세요.'
+    : '✅ 수락됨. 게임을 저장하세요. 이제 이 브라우저가 모든 서버에서 이 캐릭터로 접속합니다.';
 }
 async function mpToggle(ev) {
   if (ev && ev.shiftKey) return mpBrowserOpen();   // §MESH-01-FU 2: Shift+🌐 = server browser
@@ -29577,7 +29576,7 @@ function _mpOpenStream() {
   // S_story.inventory and the modal.
   es.addEventListener('trade_proposed', ev => {
     const d = JSON.parse(ev.data);
-    storyMsg('⇄ Trade offer from ' + (d.from || 'a player') + ' — 60s to answer.');
+    storyMsg('⇄ ' + (d.from || '한 플레이어') + ' 님의 거래 제안 — 60초 안에 응답하세요.');
     mpTradeIncoming(d);
   });
   es.addEventListener('trade_completed', ev => {
@@ -29712,7 +29711,7 @@ async function _mpResume() {
       if (inp) inp.style.display = 'inline-block';
       _mpRenderPresence();
       _mpRepaintMaps();
-      storyMsg('🌐 Multiplayer resumed as ' + MP.name + '.');
+      storyMsg('🌐 멀티플레이 재개: ' + MP.name);
       _mpChatBacklog(look);   // §MESH-01-FU 13: a reloaded tab missed the SSE stream too
       _mpChatHistory();       // §MESH-02(h): and the history log catches up the same way
       _mpFootprints(look);    // §MESH-02(j)
@@ -29921,11 +29920,11 @@ async function mpResolveMagnet(ui) {
       return;
     }
   } catch {}
-  note.textContent = '🔴 Nothing answered at ' + url + ' — not a tracker or world server.';
+  note.textContent = '🔴 ' + url + ' 에서 응답이 없습니다 — 트래커나 월드 서버가 아닙니다.';
 }
 function mpJoin(addr) {
   // §MESH-02e: the client blacklist refuses Join no matter which surface asked
-  if (_mpBlacklisted(addr)) { storyMsg('🚫 ' + addr + ' is on your blacklist — remove it in 🛡 Lists to join.'); return; }
+  if (_mpBlacklisted(addr)) { storyMsg('🚫 ' + addr + ' 은(는) 차단 목록에 있습니다 — 참가하려면 🛡 목록에서 제거하세요.'); return; }
   const base = /^https?:\/\//.test(addr) ? addr : 'http://' + addr;
   try { localStorage.setItem('mpServer', base); } catch {}
   mpBrowserClose();
@@ -29975,7 +29974,7 @@ function mcConnect() {
   if (!raw) { if (!MP.on) mpToggle(); return; }
   if (mpParseMagnet(raw)) return mcFind();   // a magnet names a WORLD, not a server — resolve to joinable rows
   if (!/^https?:\/\//.test(raw) && !/^[\w.-]+:\d+$/.test(raw)) {
-    if (note) note.textContent = 'Not a server address (host:port / URL) or magnet — try 🔭 Find servers.';
+    if (note) note.textContent = '서버 주소(host:port / URL)나 매그넷이 아닙니다 — 🔭 서버 찾기를 이용해 보세요.';
     return;
   }
   mpJoin(raw);
@@ -30049,7 +30048,7 @@ async function mdScanLocal() {
       worldTag: man.worldTag, engineVer: man.engineVer, playerCount: 0,
       universeHash: man.universeHash, contentHash: man.contentHash } : null;
   }))).filter(Boolean);
-  note.textContent = rows.length ? rows.length + ' local server(s):'
+  note.textContent = rows.length ? '로컬 서버 ' + rows.length + '곳:'
     : 'localhost에서 수신 중인 WBAPI 서버 없음:' + _MD_SCAN_PORTS[0] + '–' + _MD_SCAN_PORTS[1] + '.';
   _mpRenderServerRows(rows, 'md-server-rows');
 }
@@ -30120,7 +30119,7 @@ function _mdShowRows(rows, label) {
   const note = document.getElementById('md-note');
   const seen = new Set();
   rows = rows.filter(r => r && r.addr && !seen.has(r.addr) && seen.add(r.addr));
-  note.textContent = rows.length ? rows.length + ' server(s) from ' + label + ':' : 'Nothing joinable in ' + label + '.';
+  note.textContent = rows.length ? label + ' 출처 서버 ' + rows.length + '곳:' : label + ' 에서 참가 가능한 서버가 없습니다.';
   _mpRenderServerRows(rows, 'md-server-rows');
 }
 async function mdLoadSource(i) {
@@ -30130,9 +30129,9 @@ async function mdLoadSource(i) {
   note.textContent = '📥 loading ' + s.url + '…';
   let text = '';
   try { const r = await fetch(s.url); if (!r.ok) throw new Error(r.status); text = await r.text(); }
-  catch { note.textContent = '🔴 Could not fetch ' + s.url + '.'; return; }
+  catch { note.textContent = '🔴 ' + s.url + ' 을(를) 가져오지 못했습니다.'; return; }
   const entries = mpParseServerList(text);
-  if (!entries.length) { note.textContent = 'No server entries in that list (host:port / URL / coc:?… per line, or a JSON array).'; return; }
+  if (!entries.length) { note.textContent = '목록에 서버 항목이 없습니다 (줄마다 host:port / URL / coc:?… 또는 JSON 배열).'; return; }
   _mdShowRows((await Promise.all(entries.map(_mdResolveEntry))).flat(), s.url);
 }
 // Pane open: paint the source list, then auto-load every source that is BOTH
@@ -30142,7 +30141,7 @@ async function _mdOnOpen() {
   const auto = _mpClientLists().sources.filter(s => s.auto && _mdHostApproved(s.url));
   if (!auto.length) return;
   const note = document.getElementById('md-note');
-  note.textContent = '📥 auto-loading ' + auto.length + ' whitelisted source(s)…';
+  note.textContent = '📥 허용된 출처 ' + auto.length + '곳 자동 불러오는 중…';
   const rows = [];
   for (const s of auto) {
     try {
@@ -30211,7 +30210,7 @@ async function _mlAclLoad() {
   try { data = await (await fetch(base + '/api/mesh/acl')).json(); } catch {}
   if (!data || !data.ok) {   // offline → hint, not an error — the quick-lists above still work
     ed.style.display = 'none';
-    note.textContent = '🔌 No server at ' + base + ' — start yours (./bin/wbapi start) to edit its ACL.';
+    note.textContent = '🔌 ' + base + ' 에 서버가 없습니다 — ACL을 편집하려면 ./bin/wbapi start 로 시작하세요.';
     return;
   }
   ed.style.display = 'flex';
@@ -30233,16 +30232,16 @@ async function mlAclSave() {
     const r = await fetch(base + '/api/mesh/acl', { method: 'PUT',
       headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
     const data = await r.json();
-    if (!data.ok) { note.textContent = '🔴 server refused: ' + (data.error || r.status); return; }
+    if (!data.ok) { note.textContent = '🔴 서버 거부: ' + (data.error || r.status); return; }
     for (const k of _ML_ACL_LISTS) document.getElementById('ml-acl-' + k).value = (data.acl[k] || []).join('\n');
     const isolated = data.acl.mode === 'allowlist'
       && !['allowServerIds', 'allowIps', 'allowWorldHashes'].some(k => (data.acl[k] || []).length);
     note.textContent = (isolated
-      ? '⚠ saved — allowlist mode with every allow list empty admits no peer, so this server is now isolated. '
-        + 'Add a server id, IP or world hash to let someone in. '
-      : '✅ saved — mode ' + data.acl.mode + ', ') + 'blocklist '
-      + (data.acl.shareBlocklist ? 'shared' : 'private') + '; applies on the next mesh packet (hot-reload).';
-  } catch { note.textContent = '🔴 could not reach ' + base + ' — is the server still up?'; }
+      ? '⚠ 저장됨 — 허용 목록이 모두 비어 있는 허용리스트 모드는 누구도 받지 않으므로 이 서버는 지금 격리 상태입니다. '
+        + '누군가 들어오게 하려면 서버 id, IP 또는 월드 해시를 추가하세요. '
+      : '✅ 저장됨 — 모드 ' + data.acl.mode + ', ') + '차단리스트 '
+      + (data.acl.shareBlocklist ? '공유' : '비공개') + '; 다음 메시 패킷부터 적용됩니다 (핫 리로드).';
+  } catch { note.textContent = '🔴 ' + base + ' 에 닿지 못했습니다 — 서버가 아직 켜져 있나요?'; }
 }
 let _ML_PEER = null;   // last fetched peer blocklist awaiting the explicit merge click (D2)
 async function mlPeerFetch() {
@@ -30256,11 +30255,11 @@ async function mlPeerFetch() {
   note.textContent = '📥 요청 중 ' + url + '…';
   let data = null, status = 0;
   try { const r = await fetch(url + '/api/mesh/blocklist'); status = r.status; data = await r.json(); } catch {}
-  if (!data) { note.textContent = '🔴 Nothing answered at ' + url + '.'; return; }
+  if (!data) { note.textContent = '🔴 ' + url + ' 에서 응답이 없습니다.'; return; }
   if (!data.ok) {
     note.textContent = data.reason === 'not-shared'
-      ? '🤐 ' + url + ' does not share its blocklist (sharing is the operator’s opt-in).'
-      : '🔴 ' + url + ' refused (' + (data.reason || status) + ').';
+      ? '🤐 ' + url + ' 은(는) 차단리스트를 공유하지 않습니다 (공유는 운영자 선택입니다).'
+      : '🔴 ' + url + ' 거부 (' + (data.reason || status) + ').';
     return;
   }
   _ML_PEER = { url, data };
@@ -30284,8 +30283,8 @@ function mlPeerMerge() {
   _mpSaveList('mpBlacklist', list);
   _mlRenderClientLists();
   document.getElementById('ml-peer-note').textContent = added
-    ? '✅ merged ' + added + ' new entrie(s) into your blacklist.'
-    : '✅ nothing new — every entry was already on your blacklist.';
+    ? '✅ 새 항목 ' + added + '개를 차단 목록에 병합했습니다.'
+    : '✅ 새로운 항목 없음 — 모든 항목이 이미 차단 목록에 있습니다.';
   document.getElementById('ml-peer-preview').innerHTML = '';
   _ML_PEER = null;
 }
@@ -30542,7 +30541,7 @@ function _mpDuelPlayback(evt) {
     log.scrollTop = log.scrollHeight;
     setTimeout(tick, i >= lines.length ? 0 : 200);
   })();
-  storyMsg('⚔ Duel ' + (iWon ? 'WON' : 'lost') + ' vs ' + name(iWon ? b.loser : b.winner) + ' in ' + b.rounds + ' rounds' + (verified ? '.' : ' (⚠ replay mismatch).'));
+  storyMsg('⚔ 결투 ' + (iWon ? '승리' : '패배') + ' vs ' + name(iWon ? b.loser : b.winner) + ' (' + b.rounds + ' 라운드)' + (verified ? '.' : ' (⚠ 리플레이 불일치).'));
 }
 function mpDuelClose() {
   const m = document.getElementById('mp-duel-modal');
@@ -30553,7 +30552,7 @@ function mpDuelClose() {
 function mpDuelPvpToggle(off) {
   S_story.pvpOff = !!off;
   storyAutoSave();
-  storyMsg(off ? '⚔ PvP switched off — challenges will be refused from your next connect.' : '⚔ PvP switched on — you can be challenged from your next connect.');
+  storyMsg(off ? '⚔ PvP 꺼짐 — 다음 접속부터 도전이 거부됩니다.' : '⚔ PvP 켜짐 — 다음 접속부터 도전받을 수 있습니다.');
 }
 
 function _rollKeyEvent(id) {
