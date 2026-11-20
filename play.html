@@ -32495,7 +32495,7 @@ function _nodeHookLaRivaRow(node) {
     // First visit — Connie auto-dialogue and connieMet
     if (qs['quest_la_riva_01'] === 'active' && !S_story.connieMet) {
       S_story.connieMet = true;
-      setTimeout(() => storyMsg('The woman at the end of the path turns when she hears you.\n\nConnie Tuna. Tortoiseshell apron, hands that know what work looks like. She does not look surprised. She looks like someone who has been here long enough that new arrivals have stopped surprising her.\n\n"You came." Not a question. A registration.\n\n"The Corrupted Cats showed up after the Cat-King went down. Thinner now. But they\'re still here. They\'re in the rubble where the south stall was. I can\'t clear them myself."\n\nShe does not ask why you came. She seems to have decided that you being here is enough.\n\n📋 Quest: The Weight of a Net — accepted.'), 500);
+      setTimeout(() => storyMsg('길 끝에 선 여자가 당신의 발소리를 듣고 돌아봅니다.\n\n코니 투나. 얼룩무늬 앞치마, 일이 무엇인지 아는 손. 그녀는 놀라지 않습니다. 새로 온 이들이 더는 그녀를 놀라게 하지 못할 만큼 오래 이곳에 있던 사람의 표정입니다.\n\n「왔군.」 묻는 말이 아닙니다. 기록입니다.\n\n「고양이 왕이 쓰러진 뒤 타락한 고양이들이 나타났어. 수는 줄었지. 하지만 아직 여기 있어. 남쪽 노점이 있던 잔해 속에 있어. 내 힘으로는 못 쫓아내.」\n\n그녀는 당신이 왜 왔는지 묻지 않습니다. 당신이 여기 있는 것만으로 충분하다고 이미 정한 듯합니다.\n\n📋 퀘스트: 그물의 무게 — 수락.'), 500);
       S_story.quests['quest_la_riva_02'] = 'active';
     }
     const frDiv = document.createElement('div');
