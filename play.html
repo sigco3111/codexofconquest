@@ -34013,14 +34013,14 @@ function _nodeHookWisVsUnderground(node) {
       const _ugDiv = document.createElement('div');
       _ugDiv.id = 'story-vs-underground'; _ugDiv.className = 'sweelinck-variant';
       _ugDiv.style.cssText = 'margin-top:10px;border-left-color:#1a1a3a;color:#7080b0;font-size:12px;';
-      _ugDiv.textContent = '🕯 The main archive has a lower level. Roen mentioned it four times in passing — always the same detail: "It shows you something." He did not elaborate. The passage down is behind the southeast stack, below the cartography section. Eight steps.';
+      _ugDiv.textContent = '🕯 본 기록보관소에는 하층부가 있다. 로엔이 스치듯 네 번 언급했다. 매번 같은 말: 「무언가를 보여 줘요.」 부연은 없었다. 내려가는 통로는 남동쪽 서가 뒤, 지도 섹션 아래에 있다. 여덟 계단.';
       const _ugBtn = document.createElement('button');
       _ugBtn.className = 'inv-use-btn'; _ugBtn.style.marginTop = '6px';
-      _ugBtn.textContent = '🕯 Descend to the lower archive level';
+      _ugBtn.textContent = '🕯 하층 기록보관소로 내려간다';
       _ugBtn.addEventListener('click', () => {
         _ugBtn.disabled = true;
         S_story.visbyUnderground = true;
-        storyMsg('🕯 The lower level is cut stone over older stone. No windows. The air is cold in the way that archives are cold — not temperature, but attention. Three alcoves and one central chamber. The central chamber has a standing mirror, obsidian, no frame. The shadow room is here.');
+        storyMsg('🕯 하층부는 더 오래된 돌 위에 다듬은 돌로 되어 있다. 창이 없다. 공기는 기록보관소 특유의 차가움이다. 기온이 아니라 시선의 차가움이다. 세 개의 벽감과 하나의 중앙 방. 중앙 방에는 틀 없는 흑요석 입식 거울이 있다. 그림자의 방이 여기 있다.');
         storyRender(node);
       });
       _ugDiv.appendChild(_ugBtn);
@@ -34044,12 +34044,12 @@ function _nodeHookWisVsHub(node) {
       const _allFive = _p1 && _p2 && _p3 && _p4 && _p5;
       const _allSix = _allFive && _p6;
       if (S_story.personalLegendMature) {
-        _wDiv.textContent = '📚 Ardley\'s Complete Laws sits on the archive shelf. Roen\'s foreword: "These are not rules. They are a pair of glasses."';
+        _wDiv.textContent = '📚 아들리의 법칙 전집이 기록보관소 선반에 놓여 있다. 로엔의 머리말: 「이것은 규칙이 아니다. 한 쌍의 안경이다.」';
       } else if (S_story.wisHookReceived && _allSix) {
-        _wDiv.textContent = '📖 Roen has all six sections laid out. He says: "The treasurer scattered the text. Sixteen years later his family lost the dock contracts to a Baltic competitor who had read a copy. The laws worked whether or not anyone wanted them to." He looks at the pile. "Shall we bind it?"';
+        _wDiv.textContent = '📖 로엔이 여섯 부분 전부를 펼쳐 놓았다. 그의 말: 「재무관이 텍스트를 흩어 버렸어요. 16년 뒤, 그의 집안은 필사본을 읽은 발트해 경쟁자에게 부두 계약을 빼앗겼죠. 법칙들은 누가 원하든 원하지 않든 작동했어요.」 그가 더미를 본다. 「제본할까요?」';
         const _bindBtn = document.createElement('button');
         _bindBtn.className = 'inv-use-btn'; _bindBtn.style.marginTop = '6px';
-        _bindBtn.textContent = '📚 Bind Ardley\'s manuscript';
+        _bindBtn.textContent = '📚 아들리의 원고를 제본한다';
         _bindBtn.addEventListener('click', () => {
           _bindBtn.disabled = true;
           S_story.personalLegendMature = true;
@@ -34058,26 +34058,26 @@ function _nodeHookWisVsHub(node) {
           const inv = S_story.inventory = S_story.inventory || [];
           const pIdx = inv.findIndex(i => i.name === 'Pages of the Ardley Manuscript');
           if (pIdx !== -1) inv.splice(pIdx, 1);
-          inv.push({ name:"Ardley's Complete Laws", icon:'📚', type:'misc', desc:"All six sections of Master Fenn Ardley's 'A Complete Account of Human Nature in Its Unreformed State.' The masks law. The aggression law. Each man's thumbscrew. The shortsightedness law. The formlessness law. The shadow law. Roen has added a foreword in his own handwriting. It says: 'These are not rules. They are a pair of glasses.'", sell:50 });
+          inv.push({ name:"Ardley's Complete Laws", icon:'📚', type:'misc', desc:"펜 아들리 선생의 『개선되지 않은 상태의 인간 본성에 대한 완전한 기록』 여섯 부분 전부. 가면의 법칙. 공격성의 법칙. 각자의 엄지나사. 근시의 법칙. 무형의 법칙. 그림자의 법칙. 로엔이 직접 손으로 머리말을 덧붙였다. 거기에는 이렇게 적혀 있다: 「이것은 규칙이 아니다. 한 쌍의 안경이다.」", sell:50 });
           S_story.knowledge = S_story.knowledge || [];
-          S_story.knowledge.push("Ardley's Laws: Master Fenn Ardley documented six laws of human behavior and was dismissed for naming the court treasurer's behavior publicly. The text was scattered; its dispersal east eventually cost the treasurer's dynasty their dock contracts. The laws were proven by the act of suppressing them. Roen's foreword: 'These are not rules. They are a pair of glasses. Ardley did not invent what he described. He noticed it.'");
-          storyMsg('📚 Roen binds the six sections. He writes the foreword in three minutes — he has been composing it since the first fragment.\n\n"These are not rules. They are a pair of glasses. Ardley did not invent what he described. He noticed it. The court treasurer, in removing the text, confirmed it. The Baltic competitor, in using it, proved it. The laws existed before Ardley. They will exist after you finish reading. You are already using them. Now you know what to call the thing you are doing."\n\nArdley\'s Complete Laws added. Pages of the Ardley Manuscript removed.\n+400gp, +600 XP. Knowledge entry added.');
+          S_story.knowledge.push("아들리의 법칙들: 펜 아들리 선생은 인간 행동의 여섯 법칙을 기록했고, 궁정 재무관의 행동을 공개적으로 이름 지어 지적했다가 파면되었다. 텍스트는 흩어졌고, 동쪽으로 퍼진 그것이 결국 재무관 일가의 부두 계약을 앗아 갔다. 법칙들은 억누르는 행위 자체로 증명되었다. 로엔의 머리말: 「이것은 규칙이 아니다. 한 쌍의 안경이다. 아들리는 자신이 서술한 것을 발명하지 않았다. 알아챘을 뿐이다.」");
+          storyMsg('📚 로엔이 여섯 부분을 제본한다. 그가 3분 만에 머리말을 쓴다. 첫 조각부터 계속 마음속으로 다듬어 왔던 것이다.\\n\\n「이것은 규칙이 아니다. 한 쌍의 안경이다. 아들리는 자신이 서술한 것을 발명하지 않았다. 알아챘을 뿐이다. 궁정 재무관은 그 텍스트를 없애면서 그것을 확증했다. 발트해의 경쟁자는 그것을 써서 증명했다. 법칙들은 아들리 이전에도 존재했다. 당신이 읽기를 마친 뒤에도 존재할 것이다. 당신은 이미 그것들을 쓰고 있다. 이제 당신은 자신이 하고 있는 일에 뭐라고 이름 붙여야 할지 알게 되었다.」\\n\\nArdley\'s Complete Laws 획득. Pages of the Ardley Manuscript 제거.\\n+400gp, +600 XP. 지식 항목 추가.');
           storyRender(node);
         });
         _wDiv.appendChild(_bindBtn);
       } else if (S_story.wisHookReceived && !_p6) {
         const _foundSoFar = [_p1,_p2,_p3,_p4,_p5].filter(Boolean).length;
-        _wDiv.textContent = '🔮 ' + _foundSoFar + ' of the five scattered sections found. The sixth — Ardley\'s chapter on the repressed shadow — has been traced to a room in the lower Visby level, and it does not wait its turn. Roen has been there four times. He says: "It shows you something. I gave it a formal nod. It seemed appropriate." Two paths: accept what it reflects (WIS Insight DC 14), or fight what you find.';
+        _wDiv.textContent = '🔮 ' + _foundSoFar + '개 발견. 흩어진 부분은 모두 다섯. 여섯 번째, 억눌린 그림자에 대한 아들리의 장은 비스뷔 하층부의 한 방에 있는 것으로 추적되었으며, 그것은 자기 순서를 기다리지 않는다. 로엔이 네 번 다녀왔다. 그의 말: 「무언가를 보여 줘요. 정중하게 고개를 끄덕여 줬어요. 적절해 보였으니까요.」 두 갈래 길: 그것이 비추는 것을 받아들이거나(WIS 통찰 DC 14), 마주한 것과 싸우거나.';
         const _acceptBtn = document.createElement('button');
         _acceptBtn.className = 'inv-use-btn'; _acceptBtn.style.marginTop = '6px';
-        _acceptBtn.textContent = '🔮 Accept the reflection (receive the shadow\'s observation)';
+        _acceptBtn.textContent = '🔮 비추는 것을 받아들인다(그림자의 관찰을 받는다)';
         _acceptBtn.addEventListener('click', () => {
           _acceptBtn.disabled = true;
           _rollCeremonia('quest_wis_06');
         });
         const _shadowBtn = document.createElement('button');
         _shadowBtn.className = 'inv-use-btn'; _shadowBtn.style.marginTop = '4px';
-        _shadowBtn.textContent = '⚔️ Descend and fight the shadow construct';
+        _shadowBtn.textContent = '⚔️ 내려가서 그림자 구성체와 싸운다';
         _shadowBtn.addEventListener('click', () => {
           _shadowBtn.disabled = true;
           setTimeout(() => storyPreBattle({ ...node, code:'VS_SHADOW', battle:{ label:'섀도 — 거울 구조물', key:'shadow', count:1 } }), 400);
@@ -34086,19 +34086,19 @@ function _nodeHookWisVsHub(node) {
         _wDiv.appendChild(_shadowBtn);
       } else if (S_story.wisHookReceived) {
         const _found = [_p1,_p2,_p3,_p4,_p5,_p6].filter(Boolean).length;
-        _wDiv.textContent = '📖 Roen\'s portfolio is open on the archive table. ' + _found + ' of 6 Ardley sections found. Remaining fragments: W1 at Tilbury Docks (WIS 13), W2 at Saltwick (WIS 12), W3 at the Intercept (INT 11), W4 at Visby Tavern (INT 12), W5 at Athens (WIS 12), W6 here (WIS 14 or combat).';
+        _wDiv.textContent = '📖 로엔의 포트폴리오가 기록보관소 탁자 위에 펼쳐져 있다. ' + _found + '개 발견, 아들리의 부분은 모두 여섯. 남은 조각: W1 틸버리 부두(WIS 13), W2 솔트윅(WIS 12), W3 요격선(INT 11), W4 비스뷔 선술집(INT 12), W5 아테네(WIS 12), W6 여기(WIS 14 또는 전투).';
       } else {
-        _wDiv.textContent = '📖 Roen is at the Visby archive with a battered portfolio. The guild has a copy of a suppressed text by court historian Master Fenn Ardley. Six more sections survive, scattered. Roen: "He was right. That\'s why they scattered it."';
+        _wDiv.textContent = '📖 로엔이 낡은 포트폴리오를 들고 비스뷔 기록보관소에 있다. 길드가 궁정 역사가 펜 아들리 선생의 금서 필사본을 갖고 있다. 여섯 부분이 더 남아, 흩어져 있다. 로엔: 「그는 옳았어요. 그래서 그들이 흩어 버린 거예요.」';
         const _hookBtn = document.createElement('button');
         _hookBtn.className = 'inv-use-btn'; _hookBtn.style.marginTop = '6px';
-        _hookBtn.textContent = '📖 Help Roen collect Ardley\'s pages';
+        _hookBtn.textContent = '📖 로엔이 아들리의 페이지들을 모으는 것을 돕는다';
         _hookBtn.addEventListener('click', () => {
           _hookBtn.disabled = true;
           S_story.wisHookReceived = true;
           S_story.xp = (S_story.xp||0) + 100;
           const inv = S_story.inventory = S_story.inventory || [];
           inv.push({ name:'Pages of the Ardley Manuscript', icon:'📖', type:'misc', desc:"A growing portfolio of Master Fenn Ardley's fragments, collected by Roen. Six sections needed. Title page: 'A Complete Account of Human Nature in Its Unreformed State.' The author's name is in very small type, as if he was already worried about who might read it.", sell:0 });
-          storyMsg('📖 Roen sets the portfolio on the table.\n\nThe guild archivist kept his copy in the lower archive for twenty years, knowing someone would eventually come looking. Ardley wrote six sections in one year — then gave a lecture to the full court council, named the treasurer\'s behavior patterns by chapter, and was dismissed before the applause finished.\n\nThe treasurer scattered the text. He held the city dock contracts for sixteen more years. Then a Baltic competitor who had read a dispersed copy outbid him on every route that mattered.\n\nRoen: "He was right. That\'s why they scattered it."\n\nPages of the Ardley Manuscript added. +100 XP. Quests W1–W6 now active at their respective nodes.');
+          storyMsg('📖 로엔이 포트폴리오를 탁자에 놓는다.\\n\\n길드 기록관은 언젠가 누군가 찾으러 올 것을 알고, 20년간 필사본을 하층 기록보관소에 두었다. 아들리는 1년 만에 여섯 부분을 썼다. 그리고 전체 궁정 회의를 상대로 한 강연에서 재무관의 행동 패턴을 장별로 이름 지어 지적했고, 박수가 끝나기도 전에 파면되었다.\\n\\n재무관이 텍스트를 흩어 버렸다. 그는 그 뒤로도 16년간 도시 부두 계약을 쥐고 있었다. 그러다 흩어진 필사본을 읽은 발트해의 경쟁자가 중요한 모든 항로에서 그를 제쳤다.\\n\\n로엔: 「그는 옳았어요. 그래서 그들이 흩어 버린 거예요.」\\n\\nPages of the Ardley Manuscript 획득. +100 XP. 퀘스트 W1-W6가 각 거점에서 활성화.');
           storyRender(node);
         });
         _wDiv.appendChild(_hookBtn);
