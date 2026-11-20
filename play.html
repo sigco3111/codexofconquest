@@ -34484,24 +34484,24 @@ function _nodeHookPortMmeSaltwick(node) {
         _hullDiv.className = 'sweelinck-variant';
         if (S_story.shipRepaired) {
           _hullDiv.style.cssText = 'margin-top:6px;border-left-color:#2a5a3a;color:#70b880;font-size:12px;';
-          _hullDiv.textContent = '✅ Hull repaired. The Tilbury Star runs clean.';
+          _hullDiv.textContent = '✅ 선체 수리 완료. 틸버리 스타호가 깨끗하게 운항한다.';
         } else {
           _hullDiv.style.cssText = 'margin-top:6px;border-left-color:#4a3a2a;color:#b09060;font-size:12px;';
-          _hullDiv.textContent = '⚓ The dry dock is available. The Tilbury Star has been running with a cracked strake — three crossings. Repair costs 200gp at Saltwick rates. See quest panel.';
+          _hullDiv.textContent = '⚓ 건조 선거를 이용할 수 있다. 틸버리 스타호가 선판 금이 간 채로 세 번의 횡단을 운항했다. 수리 비용은 솔트윅 요금으로 200gp. 퀘스트 패널을 볼 것.';
           const _hullBtn = document.createElement('button');
           _hullBtn.className = 'inv-use-btn'; _hullBtn.style.marginTop = '6px';
-          _hullBtn.textContent = '⚓ Commission hull repair — 200gp';
+          _hullBtn.textContent = '⚓ 선체 수리 발주 — 200gp';
           _hullBtn.addEventListener('click', () => {
             // §VM-01-G-FU-d — the price is the `cost` leaf now (the SEVENTH hand-written gold
             // site, the §11 census correction). _uqfRunChain pays-or-refuses in place: short of
             // coin, Dorit's own line refuses through storyBlock (the house shake) and nothing
             // is spent; on success the leaf has already taken the 200gp, so the hand-written
             // subtraction is gone. Everything below is the verbatim inline body.
-            const _hullCtx = _uqfRunChain([{ kind:'cost', gold:200, refuse:'Dorit looks at your coin. "Short. Come back when the purse is right."' }]);
+            const _hullCtx = _uqfRunChain([{ kind:'cost', gold:200, refuse:'도리트가 당신의 동전을 본다. 「모자라네. 지갑이 맞으면 다시 오게.」' }]);
             if (_hullCtx._refused) return;
             _hullBtn.disabled = true;
             S_story.shipRepaired = true;
-            storyMsg('⚓ The dry dock crew has the Star out of the water before the tide turns.\n\nThe cracked strake is replaced. Highland timber — better grain than lowland oak, tighter ring spacing. The captain inspects the hull without speaking, which is the most approval she gives.\n\n"She\'ll hold the deep crossing now," the dock worker says. He does not look at the captain when he says it. He does not need to. She has already gone back aboard.\n\n-200gp. +200 XP. Tilbury Star: hull repaired.');
+            storyMsg('⚓ 건조 선거 작업반이 조수가 바뀌기 전에 스타호를 물 밖으로 끌어냈다.\\n\\n금이 간 선판이 교체되었다. 고지대 목재. 저지대 참나무보다 결이 좋고, 나이테 간격이 촘촘하다. 선장이 말없이 선체를 검사하는데, 그것이 그녀가 주는 최대의 승인이다.\\n\\n「이제 깊은 횡단을 견딜 거요,」 부두 노동자가 말한다. 그는 말할 때 선장을 보지 않는다. 그럴 필요가 없다. 그녀는 이미 배로 돌아갔다.\\n\\n-200gp. +200 XP. 틸버리 스타호: 선체 수리 완료.');
             storyRender(node);
           });
           _hullDiv.appendChild(_hullBtn);
@@ -34534,16 +34534,16 @@ function _nodeHookLxxCanDoc(node) {
       _canDiv.id = 'story-can-doc';
       _canDiv.className = 'sweelinck-variant';
       _canDiv.style.cssText = 'margin-top:10px;border-left-color:#3a3a5a;color:#a0a8c8;font-size:12px;';
-      _canDiv.textContent = '📜 The document in the output tray. Pre-written. It has been waiting for you.';
+      _canDiv.textContent = '📜 출력 트레이의 문서. 미리 작성되어 있었다. 당신을 기다리고 있었다.';
       const _canBtn = document.createElement('button');
       _canBtn.className = 'inv-use-btn'; _canBtn.style.marginTop = '6px';
-      _canBtn.textContent = '📜 읽기 the post-event document';
+      _canBtn.textContent = '📜 사후 문서를 읽는다';
       _canBtn.addEventListener('click', () => {
         _canBtn.disabled = true;
         S_story.conclaveResponseRead = true;
         S_story.knowledge = S_story.knowledge || [];
-        S_story.knowledge.push("Cycle 4 — Post-Event Note: The archive answered. The interval is confirmed. 'The person who followed the chain receives this note because they are the archivist the protocol was designed to identify.' — Conclave Archivist");
-        storyMsg('📜 SCHOLAR KINGS — CONCLAVE ROUTING / Post-Event. Class 1. No further routing.\n\nThe Gate opened at the expected terminus of the chain. The monitoring infrastructure was not in position to intervene. The note placed in the requisition materials was a record of the intent, not a successful instruction.\n\nThe archive answered. The Antecedent\'s question is closed. The containment holds — the closure of the question does not dissolve the structure; it changes the character of the pressure within it.\n\nCycle 4 proceeds on the adjusted timeline: post-event monitoring. The interval is now confirmed.\n\nThe person who followed the chain receives this note because they are the archivist the protocol was designed to identify. The note is for them.\n\nAuthorization: Conclave Archivist.\n[No countersignature required.]\n[No date required.]\n\n— Post-Event Note added to the Necklace of Knowledge.');
+        S_story.knowledge.push("주기 4 — 사후 기록: 기록보관소가 응답했다. 간격이 확정되었다. 「사슬을 따라온 사람이 이 기록을 받는 것은, 그 사람이 프로토콜이 식별하도록 설계된 기록관이기 때문이다.」 — 콘클라베 기록관");
+        storyMsg('📜 학자왕 — 콘클라베 경로 지정 / 사후. 1급. 추가 경로 지정 없음.\\n\\n관문이 사슬의 예상 종점에서 열렸다. 감시 기반 시설은 개입할 위치에 있지 않았다. 청구 자료에 끼워진 쪽지는 의도의 기록이었지, 성공한 지시가 아니었다.\\n\\n기록보관소가 응답했다. 선행자의 질문은 종결되었다. 격리는 유지된다. 질문의 종결이 구조를 해소하지는 않는다. 그 안의 압력의 성질을 바꿀 뿐이다.\\n\\n주기 4는 조정된 시간표로 진행된다: 사후 감시. 간격이 이제 확정되었다.\\n\\n사슬을 따라온 사람이 이 기록을 받는 것은, 그 사람이 프로토콜이 식별하도록 설계된 기록관이기 때문이다. 이 기록은 그 사람을 위한 것이다.\\n\\n승인: 콘클라베 기록관.\\n[부서명 불필요.]\\n[날짜 불필요.]\\n\\n— 사후 기록이 지식의 목걸이에 추가되었다.');
         storyRender(node);
       });
       _canDiv.appendChild(_canBtn);
@@ -34578,7 +34578,7 @@ function _nodeHookLxxDa2Gate(node) {
         });
         _gateDiv.appendChild(_gateBtn);
       } else if (!S_story.inscriptionRead) {
-        _gateDiv.textContent = '🔱 The mechanism is visible but the sequence is not yet clear. The inscription in the hall above describes the correct order.';
+        _gateDiv.textContent = '🔱 장치는 보이지만 순서는 아직 분명하지 않다. 위층 홀의 명문이 올바른 순서를 서술하고 있다.';
       } else {
         _gateDiv.textContent = '🔱 장치에는 바다 원소가 필요하다 — 위층 용광로에서 나온 아틀란티스 합금. 용광로는 순서를 알고, 관문은 합금을 안다.';
       }
@@ -34595,10 +34595,10 @@ function _nodeHookLxxDa3Depth(node) {
       _depthDiv.id = 'story-da3-depth';
       _depthDiv.className = 'sweelinck-variant';
       _depthDiv.style.cssText = 'margin-top:10px;border-left-color:#1a2a4a;color:#7090b8;font-size:12px;';
-      _depthDiv.textContent = '⚓ The tidal configuration of the Antecedent is active. This installation has been waiting since the Gate was sealed — a second chamber on the same foundation as the one above the archive, built by the same Constructor for a different question with the same required answer.';
+      _depthDiv.textContent = '⚓ 선행자의 조수 배열이 활성 상태다. 이 설비는 관문이 봉인된 이후로 기다려 왔다. 기록보관소 위의 것과 같은 기반 위에 세워진 두 번째 방으로, 다른 질문을 위해 같은 건설자가 지었고, 요구되는 답은 같다.';
       const _depthBtn = document.createElement('button');
       _depthBtn.className = 'inv-use-btn'; _depthBtn.style.marginTop = '6px';
-      _depthBtn.textContent = '⚓ Acknowledge the closing — both chains end here';
+      _depthBtn.textContent = '⚓ 종결을 확인한다 — 두 사슬 모두 여기서 끝난다';
       _depthBtn.addEventListener('click', () => {
         _depthBtn.disabled = true;
         // §LXX-01-FU FIX — flag only (the la_riva/hg1 shape): quest_depth_01 completes on
@@ -34622,13 +34622,13 @@ function _nodeHookLxxDsjEels(node) {
       _eelsDiv.id = 'story-dsj-eels';
       _eelsDiv.className = 'sweelinck-variant';
       _eelsDiv.style.cssText = 'margin-top:10px;border-left-color:#2a4a3a;color:#80c0a0;font-size:12px;';
-      _eelsDiv.textContent = '⚡ The channel is held by two Giant Eels. They have been stationed here longer than the forge has been sealed. They are not predatory — they are present, which is a different kind of obstruction.';
+      _eelsDiv.textContent = '⚡ 수로는 대왕장어 두 마리가 지키고 있다. 대장간이 봉인된 것보다 더 오래 이곳에 배치되어 있다. 그들은 포식성이 아니다. 그저 존재한다. 그것은 다른 종류의 방해다.';
       const _eelsBtn = document.createElement('button');
       _eelsBtn.className = 'inv-use-btn'; _eelsBtn.style.marginTop = '6px';
       _eelsBtn.textContent = '⚡ Clear the channel';
       _eelsBtn.addEventListener('click', () => {
         _eelsBtn.disabled = true;
-        storyMsg('The two eels move toward each other as you enter the channel — not to attack, but to close it. The current changes. The discharge is enough to arc across the water.');
+        storyMsg('당신이 수로에 들어서자 두 장어가 서로를 향해 움직인다. 공격하기 위해서가 아니라 수로를 닫기 위해서다. 흐름이 바뀐다. 방전은 물을 가로질러 아크를 그리기에 충분하다.');
         setTimeout(() => storyPreBattle({ ...node, code:'DSJ_EELS', battle:{ label:'거대 장어 × 2 — 해초 수로', key:'giant_eel', count:2 } }), 400);
       });
       _eelsDiv.appendChild(_eelsBtn);
