@@ -29622,7 +29622,7 @@ function _mpOpenStream() {
     const d = JSON.parse(ev.data);
     if (MP.duel && MP.duel.duelId === d.duelId) {
       MP.duel = null; mpDuelClose();
-      storyMsg('⚔ Duel cancelled (' + (d.reason || 'cancelled') + ').');
+      storyMsg('⚔ 결투 취소 (' + (d.reason || '취소됨') + ').');
     }
   });
   es.onerror = () => { if (MP.on) _mpSetStatus('🟠 재접속 중…'); };
@@ -29679,9 +29679,9 @@ function _mpFootprints(look) {
   const here = new Set((look.players || []).map(p => p.pid));
   for (const f of look.footprints) {
     if (!f.pid || f.pid === MP.pid || here.has(f.pid)) continue;
-    const ago = f.agoMs < 90000 ? 'moments ago' : Math.round(f.agoMs / 60000) + ' min ago';
-    storyMsg('👣 ' + f.name + ' passed through here ' + ago + '.');
-    _mpChatPush({ pid: f.pid, name: f.name, msg: '👣 passed through (' + look.r + ',' + look.c + ')', ts: Date.now() - f.agoMs });
+    const ago = f.agoMs < 90000 ? '방금 전' : Math.round(f.agoMs / 60000) + '분 전';
+    storyMsg('👣 ' + f.name + ' 님이 이곳을 지나갔습니다 (' + ago + ').');
+    _mpChatPush({ pid: f.pid, name: f.name, msg: '👣 지나감 (' + look.r + ',' + look.c + ')', ts: Date.now() - f.agoMs });
   }
 }
 // §MESH-01-FU 5 — auto-reconnect on page load. sessionStorage.mpSession is
@@ -30315,7 +30315,7 @@ function _mpTradeableInv() {
 }
 function _mpTradeRow(side, mintKey, name, icon) {
   return '<label class="mp-trade-row"><input type="checkbox" data-side="' + side + '" data-mint="' + _mpEsc(mintKey) + '"> '
-    + (icon ? _mpEsc(icon) + ' ' : '') + _mpEsc(name) + '</label>';
+    + (icon ? _mpEsc(icon) + ' ' : '') + _mpEsc(_itemDisplayName(name)) + '</label>';
 }
 // Outgoing offer: tick give (my minted items, known locally) and want (theirs,
 // read from the ledger's owned surface), then Propose. `p` is a co-present
@@ -30324,16 +30324,16 @@ function _mpTradeRow(side, mintKey, name, icon) {
 async function mpTradeOpen(p) {
   if (!MP.on || !p) return;
   if (!p.ledgerPid) { await mpBeacon({ force: true }); p = MP.players.find(q => q.pid === p.pid) || p; }
-  if (!p.ledgerPid) { storyMsg('⇄ ' + (p.name || 'That player') + ' has no trade identity yet (their game may not carry a player key).'); return; }
+  if (!p.ledgerPid) { storyMsg('⇄ ' + (p.name || '그 플레이어') + ' 님은 아직 거래 신원이 없습니다 (상대 게임에 플레이어 키가 없을 수 있습니다).'); return; }
   MP.trade = { dir: 'out', to: p.ledgerPid, toName: p.name, tradeId: null };
   let theirs = [];
   try { const r = await _mpFetch('/api/ledger/owned?pid=' + encodeURIComponent(p.ledgerPid)); if (r && r.ok) theirs = r.items || []; } catch {}
   _mpTradeRender({
-    title: '⇄ TRADE WITH ' + (p.name || p.ledgerPid),
+    title: '⇄ 거래 상대: ' + (p.name || p.ledgerPid),
     note: '주는 것과 요구하는 것을 체크한 뒤 제안하세요. 주조된(🔗) 아이템만 거래할 수 있습니다. 제안은 60초 뒤 만료됩니다.',
     give: _mpTradeableInv().map(i => _mpTradeRow('give', i.mintKey, i.name, i.icon)),
     want: theirs.map(t => _mpTradeRow('want', t.mintKey, (t.item && t.item.name) || t.mintKey)),
-    primary: 'Propose',
+    primary: '제안',
   });
 }
 // Incoming offer (over SSE trade_proposed): d.give = items the proposer hands
@@ -30351,10 +30351,10 @@ async function mpTradeIncoming(d) {
   for (const i of (S_story.inventory || [])) if (i.mintKey) mineByKey[i.mintKey] = i.name;
   _mpTradeRender({
     title: '⇄ 거래 제안',
-    note: (d.from || '한 플레이어') + ' proposes a trade — Accept or ✕ to decline. The offer expires in 60 seconds.',
-    give: (d.want || []).map(k => '<div class="mp-trade-row">' + _mpEsc(mineByKey[k] || k) + '</div>'),
-    want: (d.give || []).map(k => '<div class="mp-trade-row">' + _mpEsc(names[k] || k) + '</div>'),
-    primary: 'Accept',
+    note: (d.from || '한 플레이어') + ' 님이 거래를 제안했습니다 — 수락하거나 ✕ 로 거절하세요. 제안은 60초 뒤 만료됩니다.',
+    give: (d.want || []).map(k => '<div class="mp-trade-row">' + _mpEsc(_itemDisplayName(mineByKey[k] || k)) + '</div>'),
+    want: (d.give || []).map(k => '<div class="mp-trade-row">' + _mpEsc(_itemDisplayName(names[k] || k)) + '</div>'),
+    primary: '수락',
   });
 }
 function _mpTradeRender(v) {
@@ -30362,8 +30362,8 @@ function _mpTradeRender(v) {
   if (!modal) return;
   document.getElementById('mp-trade-title').textContent = v.title;
   document.getElementById('mp-trade-note').textContent = v.note;
-  document.getElementById('mp-trade-give').innerHTML = v.give.join('') || '<div class="mp-hint">— nothing —</div>';
-  document.getElementById('mp-trade-want').innerHTML = v.want.join('') || '<div class="mp-hint">— nothing —</div>';
+  document.getElementById('mp-trade-give').innerHTML = v.give.join('') || '<div class="mp-hint">— 없음 —</div>';
+  document.getElementById('mp-trade-want').innerHTML = v.want.join('') || '<div class="mp-hint">— 없음 —</div>';
   const btn = document.getElementById('mp-trade-primary');
   btn.textContent = v.primary; btn.style.display = '';
   modal.classList.add('visible');
@@ -30387,14 +30387,14 @@ async function mpTradePrimary() {
     // Accept: the server re-validates ownership and appends ONE co-signed
     // dual-chain event; inventory updates arrive via trade_completed SSE.
     const r = await _mpFetch('/api/trade/accept', { tradeId: t.tradeId, sessionId: MP.session }).catch(() => null);
-    if (!r || !r.ok) { storyMsg('⇄ Trade failed: ' + ((r && r.error) || 'server unreachable') + '.'); MP.trade = null; mpTradeClose(); }
+    if (!r || !r.ok) { storyMsg('⇄ 거래 실패: ' + ((r && r.error) || '서버 연결 불가') + '.'); MP.trade = null; mpTradeClose(); }
     return;
   }
   const checked = side => Array.from(document.querySelectorAll('#mp-trade-modal input[data-side="' + side + '"]:checked')).map(el => el.dataset.mint);
   const give = checked('give'), want = checked('want');
   if (!give.length && !want.length) { storyMsg('⇄ 거래할 물품을 하나 이상 선택하세요.'); return; }
   const r = await _mpFetch('/api/trade/propose', { sessionId: MP.session, to: t.to, give, want }).catch(() => null);
-  if (!r || !r.ok) { storyMsg('⇄ Proposal refused: ' + ((r && r.error) || 'server unreachable') + '.'); return; }
+  if (!r || !r.ok) { storyMsg('⇄ 제안 거부됨: ' + ((r && r.error) || '서버 연결 불가') + '.'); return; }
   t.tradeId = r.tradeId;
   document.getElementById('mp-trade-note').textContent = '교환 제안을 보냈습니다: ' + (t.toName || t.to) + ' — 응답 대기 중 (60초)…';
   document.getElementById('mp-trade-primary').style.display = 'none';
@@ -30420,8 +30420,8 @@ async function _mpTradeApply(evt) {
     }
   }
   if (gained.length || lost.length) {
-    storyMsg('⇄ 거래 완료' + (lost.length ? ' — gave ' + lost.join(', ') : '')
-      + (gained.length ? (lost.length ? '; received ' : ' — received ') + gained.join(', ') : '') + '.');
+    storyMsg('⇄ 거래 완료' + (lost.length ? ' — 건넨 것: ' + lost.map(_itemDisplayName).join(', ') : '')
+      + (gained.length ? (lost.length ? '; 받은 것: ' : ' — 받은 것: ') + gained.map(_itemDisplayName).join(', ') : '') + '.');
     try { storyRenderInventory(); } catch {}
     storyAutoSave();
   }
@@ -30474,17 +30474,17 @@ async function mpDuelChallenge(p) {
   if (!MP.on || !p || !p.ledgerPid) return;
   if (MP.duel) { storyMsg('⚔ 이미 결투 중이에요.'); return; }
   const r = await _mpFetch('/api/duel/challenge', { sessionId: MP.session, to: p.ledgerPid }).catch(() => null);
-  if (!r || !r.ok) { storyMsg('⚔ Challenge refused: ' + ((r && r.error) || 'server unreachable') + '.'); return; }
+  if (!r || !r.ok) { storyMsg('⚔ 도전 거부됨: ' + ((r && r.error) || '서버 연결 불가') + '.'); return; }
   MP.duel = { duelId: r.duelId, role: 'A', opp: p.ledgerPid, oppName: p.name, phase: 'challenged' };
-  _mpDuelRender('⚔ 결투 — 도전장 발송', 'Waiting for ' + (p.name || 'them') + ' to accept (30s)… Walking away cancels the challenge.', null);
+  _mpDuelRender('⚔ 결투 — 도전장 발송', (p.name || '상대') + ' 의 수락 대기 중 (30초)… 자리를 뜨면 도전이 취소됩니다.', null);
 }
 // Incoming challenge (over SSE duel_challenged) — Accept = consent + commit.
 function mpDuelIncoming(d) {
   if (MP.duel) return;   // already mid-duel; the challenge will expire
   MP.duel = { duelId: d.duelId, role: 'B', opp: d.from, oppName: d.fromName, phase: 'challenged' };
   _mpDuelRender('⚔ 결투 — 도전을 받았어요',
-    (d.fromName || d.from) + ' challenges you! Accepting locks in your current stats (commit-reveal: neither side can steer the dice or peek at the other\'s build). ✕ or walking away declines.',
-    'Accept');
+    (d.fromName || d.from) + ' 님이 결투를 신청했습니다! 수락하면 현재 능력치가 확정됩니다 (커밋-공개: 어느 쪽도 주사위를 조종하거나 상대의 빌드를 엿볼 수 없습니다). ✕ 또는 자리를 뜨면 거절됩니다.',
+    '수락');
 }
 async function mpDuelPrimary() {
   const d = MP.duel;
@@ -30499,7 +30499,7 @@ async function _mpDuelCommit() {
   d.statBlock = _duelStatBlock();
   d.nonce = _mpDuelNonce();
   const r = await _mpFetch('/api/duel/accept', { duelId: d.duelId, sessionId: MP.session, commit: DUEL.commitOf(d.nonce, d.statBlock) }).catch(() => null);
-  if (!r || !r.ok) { storyMsg('⚔ Duel failed: ' + ((r && r.error) || 'server unreachable') + '.'); MP.duel = null; mpDuelClose(); return; }
+  if (!r || !r.ok) { storyMsg('⚔ 결투 실패: ' + ((r && r.error) || '서버 연결 불가') + '.'); MP.duel = null; mpDuelClose(); return; }
   d.phase = r.phase;
   const n = document.getElementById('mp-duel-note');
   if (n) n.textContent = '능력치 확정. 공개를 기다리는 중…';
@@ -30508,7 +30508,7 @@ async function _mpDuelReveal() {
   const d = MP.duel;
   if (!d || !d.nonce) return;
   const r = await _mpFetch('/api/duel/reveal', { duelId: d.duelId, sessionId: MP.session, nonce: d.nonce, statBlock: d.statBlock }).catch(() => null);
-  if (!r || !r.ok) { storyMsg('⚔ Reveal failed: ' + ((r && r.error) || 'server unreachable') + '.'); MP.duel = null; mpDuelClose(); }
+  if (!r || !r.ok) { storyMsg('⚔ 공개 실패: ' + ((r && r.error) || '서버 연결 불가') + '.'); MP.duel = null; mpDuelClose(); }
   // The outcome arrives as duel_completed over SSE (both parties).
 }
 // Playback: re-run DUEL:CORE from the event's committed inputs and verify the
@@ -30518,21 +30518,21 @@ function _mpDuelPlayback(evt) {
   if (!b) return;
   const me = MP.ledgerPid;
   const iWon = b.winner === me;
-  const name = pid => pid === me ? 'You' : ((MP.duel && MP.duel.oppName) || String(pid).slice(0, 8));
+  const name = pid => pid === me ? '당신' : ((MP.duel && MP.duel.oppName) || String(pid).slice(0, 8));
   if (b.forfeit) {
-    storyMsg('⚔ Duel ended by forfeit — ' + name(b.loser) + (b.loser === me ? ' (you) walked away.' : ' walked away. You win!'));
+    storyMsg('⚔ 기권으로 결투 종료 — ' + name(b.loser) + (b.loser === me ? ' (당신) 이 자리를 떠났습니다.' : ' 님이 자리를 떠났습니다. 당신의 승리!'));
     MP.duel = null; mpDuelClose();
     return;
   }
   const rep = DUEL.run(b.statA, b.statB, b.duelSeed);
   const verified = rep.winner === b.winner && rep.rounds === b.rounds;
-  _mpDuelRender('⚔ DUEL — ' + (iWon ? 'VICTORY' : 'DEFEAT'), 'd20s from the shared seed neither of you chose:', null);
+  _mpDuelRender('⚔ 결투 — ' + (iWon ? '승리' : '패배'), '어느 쪽도 고르지 않은 공유 시드의 d20:', null);
   const log = document.getElementById('mp-duel-log');
   log.classList.add('visible');
   const lines = rep.transcript.map(t =>
-    'R' + String(t.round).padStart(2) + '  ' + name(t.attacker) + (t.hit ? (t.crit ? ' CRIT for ' : ' hit for ') + t.dmg : ' miss') + '   [' + t.hpA + ' / ' + t.hpB + ']');
-  lines.push('— ' + name(b.winner) + (b.winner === me ? ' win' : ' wins') + ' in ' + b.rounds + ' round(s). '
-    + (verified ? '리플레이 검증됨 ✓' : '⚠ REPLAY MISMATCH — the server\'s verdict disagrees with the pure resolver!'));
+    'R' + String(t.round).padStart(2) + '  ' + name(t.attacker) + (t.hit ? (t.crit ? ' 치명타 피해 ' : ' 명중, 피해 ') + t.dmg : ' 빗나감') + '   [' + t.hpA + ' / ' + t.hpB + ']');
+  lines.push('— ' + name(b.winner) + (b.winner === me ? ' 승리' : ' 승리') + ' (' + b.rounds + ' 라운드). '
+    + (verified ? '리플레이 검증됨 ✓' : '⚠ 리플레이 불일치 — 서버의 판정이 순수 리졸버와 다릅니다!'));
   let i = 0;
   (function tick() {
     if (!log.isConnected || i >= lines.length) { MP.duel = null; return; }
