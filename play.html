@@ -27850,7 +27850,7 @@ function _getYaelLocation() {
 
 function _buildWeckmannLog() {
   const wins = S_story.pitTrainingWins || 0;
-  const playerName = S_story.playerName || 'the fighter';
+  const playerName = S_story.playerName || '그 격투가';
   const entries = ['게임 1일차: 새 격투가 — ' + playerName + '. 서명 없이 나타남.\n좋은 직감. 왼쪽을 과하게 바로잡음. 가능성 있음. 지켜볼 것.'];
   if (wins >= 1) entries.push('3일차: 나아짐. 듣기 시작함.');
   if (wins >= 2) entries.push('7일차: 이제 분위기를 읽음. 반응만 하는 게 아님.');
@@ -33193,7 +33193,7 @@ function _nodeHookBirkaWeckmannLog(node, { npcRowDiv }) {
         _logWrap.style.cssText = 'display:flex;flex-direction:column;gap:0;';
         const logBtn = document.createElement('button');
         logBtn.className = 'inv-use-btn';
-        logBtn.textContent = '📓 The training log.';
+        logBtn.textContent = '📓 훈련 일지.';
         logBtn.style.cssText = 'margin-top:4px;';
         logBtn.addEventListener('click', () => {
           if (document.getElementById('weckmann-log-sub')) return;
@@ -33203,7 +33203,7 @@ function _nodeHookBirkaWeckmannLog(node, { npcRowDiv }) {
           sub.style.cssText = 'margin-top:6px;padding:12px 14px;background:#080c08;border-left:3px solid #506050;border-radius:4px;';
           const hd = document.createElement('div');
           hd.style.cssText = 'font-size:10px;font-weight:700;letter-spacing:1.5px;color:#708070;text-transform:uppercase;margin-bottom:8px;';
-          hd.textContent = '📓 Training Log';
+          hd.textContent = '📓 훈련 일지';
           const body = document.createElement('pre');
           body.style.cssText = 'font-size:11px;line-height:1.7;white-space:pre-wrap;color:#90a890;font-family:"Courier New",monospace;margin:0;';
           body.textContent = _buildWeckmannLog();
