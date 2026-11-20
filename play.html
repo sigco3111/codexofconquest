@@ -29375,7 +29375,7 @@ async function _mpDmKey(privateKey, peerId, from, to, usage) {
 }
 async function mpDmSend(to, text) {
   const id = MP.act && MP.act.id;
-  if (!MP.on || !id) return { ok: false, error: 'private messages need a connection that proved a player key' };
+  if (!MP.on || !id) return { ok: false, error: '개인 메시지는 플레이어 키를 증명한 연결이 필요합니다' };
   const k = await fetch(MP.base + '/api/session/dmkey?pid=' + encodeURIComponent(to.ledgerPid)).then(r => r.json()).catch(() => null);
   if (!k || !k.ok) return { ok: false, error: (k && k.error) || 'no message key for ' + to.name };
   if (!await _mpVerify(k.pub, `codex-xpub-v1\n${k.xpub}`, k.xsig)) return { ok: false, error: to.name + '\'s message key is not signed by their player key; not sent' };
@@ -29451,10 +29451,10 @@ async function mpTransferRequest() {
 async function mpTransferAuthorize(reqCode) {
   const req = _mpUncode('codex-req1', reqCode);
   if (!req || !req.to || !req.h) return { ok: false, error: 'that is not a request code (it starts codex-req1.)' };
-  if (req.h !== await _mpCharHash()) return { ok: false, error: 'that request is for a different character' };
+  if (req.h !== await _mpCharHash()) return { ok: false, error: '다른 캐릭터에 대한 요청입니다' };
   const id = await _mpIdentity();
   if (!id) return { ok: false, error: 'this browser holds no key for this character' };
-  if (_mpPubId(req.to) === _mpPubId(id.pub)) return { ok: false, error: 'that request came from this browser' };
+  if (_mpPubId(req.to) === _mpPubId(id.pub)) return { ok: false, error: '이 브라우저에서 보낸 요청입니다' };
   const params = id.alg === 'Ed25519' ? { name: 'Ed25519' } : { name: 'ECDSA', hash: 'SHA-256' };
   const sig = new Uint8Array(await crypto.subtle.sign(params, id.privateKey,
     new TextEncoder().encode(`codex-transfer-v1\n${req.h}\n${_mpPubId(req.to)}`)));
@@ -29464,9 +29464,9 @@ async function mpTransferAuthorize(reqCode) {
 async function mpTransferAccept(certCode) {
   const cert = _mpUncode('codex-xfer1', certCode);
   if (!cert || !Array.isArray(cert.chain) || !cert.chain.length) return { ok: false, error: 'that is not a transfer code (it starts codex-xfer1.)' };
-  if (cert.h !== await _mpCharHash()) return { ok: false, error: 'that transfer is for a different character' };
+  if (cert.h !== await _mpCharHash()) return { ok: false, error: '다른 캐릭터에 대한 전송입니다' };
   const id = await _mpIdentity();
-  if (!id || _mpPubId(cert.chain[cert.chain.length - 1].to) !== _mpPubId(id.pub)) return { ok: false, error: 'that transfer was made for another browser' };
+  if (!id || _mpPubId(cert.chain[cert.chain.length - 1].to) !== _mpPubId(id.pub)) return { ok: false, error: '다른 브라우저에서 만든 전송입니다' };
   S_story.keyTransfers = cert.chain;
   return { ok: true, links: cert.chain.length };
 }
@@ -29494,7 +29494,7 @@ async function mpToggle(ev) {
       // save came from another browser). Never regenerate the durable key (it
       // owns chains on other servers) — connect keyless here and say so loudly.
       console.warn('[ledger] trade identity refused on this server — connecting keyless:', start.error);
-      storyMsg('⚠ This server refused your trade identity (' + (/collision/i.test(start.error) ? 'id collision' : 'bound to a key held by another browser — 🛡 Lists → 🔑 moves it here') + ') — connected without it; trades here use a temporary id.');
+      storyMsg('⚠ 서버가 거래 신원을 거부했습니다 (' + (/collision/i.test(start.error) ? 'ID 충돌' : '다른 브라우저가 보유한 키에 귀속됨 — 🛡 목록 → 🔑 에서 이곳으로 옮길 수 있습니다') + ') — 신원 없이 접속합니다. 이곳의 거래는 임시 ID를 사용합니다.');
       start = await _mpFetch('/api/session/start', { name });
     }
     if (!start.ok) throw new Error(start.error || 'start failed');
@@ -29508,12 +29508,12 @@ async function mpToggle(ev) {
     _mpSetStatus('🟢 ' + MP.name);
     const inp = document.getElementById('mp-chat-input');
     if (inp) inp.style.display = 'inline-block';
-    storyMsg('🌐 Multiplayer connected as ' + MP.name + '.');
+    storyMsg('🌐 멀티플레이 접속: ' + MP.name);
   } catch (e) {
     MP.on = false; MP.session = null;
     _mpSetStatus('🔴 서버 없음');
-    storyMsg('🌐 No world server at ' + MP.base + ' — start one with ./bin/wbapi start.');
-    mpBrowserOpen('No server at ' + MP.base + ' — paste a magnet or a server URL to find one.');
+    storyMsg('🌐 ' + MP.base + ' 에 월드 서버가 없습니다 — ./bin/wbapi start 로 시작하세요.');
+    mpBrowserOpen(MP.base + ' 에 서버가 없습니다 — 매그넷이나 서버 URL을 붙여넣어 찾으세요.');
   }
 }
 function mpDisconnect(msg) {
@@ -29837,18 +29837,18 @@ function _mpServerRowHtml(s, i, pingPfx) {
     '<span>' + _mpEsc(s.addr) + '</span>' +
     '<span>👥 ' + (s.playerCount | 0) + '</span>' +
     '<span id="' + (pingPfx || 'mp-srv-ping-') + i + '">… ms</span>' +
-    (evOk ? '' : '<span style="color:#d4a017" title="다른 게임 빌드(' + _mpEsc(s.engineVer) + ' vs ' + _mpEsc(ENGINE_VER) + ')">⚠ build</span>') +
+    (evOk ? '' : '<span style="color:#d4a017" title="다른 게임 빌드(' + _mpEsc(s.engineVer) + ' vs ' + _mpEsc(ENGINE_VER) + ')">⚠ 빌드</span>') +
     '<span id="' + (pingPfx || 'mp-srv-ping-').replace(/ping-$/, 'world-') + i + '"></span>' +
-    '<button class="mp-srv-join" onclick="mpJoin(\'' + _mpEsc(s.addr) + '\')">Join</button></div>';
+    '<button class="mp-srv-join" onclick="mpJoin(\'' + _mpEsc(s.addr) + '\')">참가</button></div>';
 }
 // §MESH-03c: a row is compared with the server this client points at. Servers of one
 // universe share presence and chat even when their content differs.
 function _mpWorldBadge(s, ref) {
   if (!ref || !s.universeHash || !ref.universeHash) return '';
   if (s.universeHash !== ref.universeHash)
-    return '<span style="color:#e07a7a" title="다른 맵 또는 엔진: 해당 서버의 플레이어와는 만날 수 없습니다">⚠ other universe</span>';
+    return '<span style="color:#e07a7a" title="다른 맵 또는 엔진: 해당 서버의 플레이어와는 만날 수 없습니다">⚠ 다른 세계</span>';
   if (s.contentHash && ref.contentHash && s.contentHash !== ref.contentHash)
-    return '<span style="color:#8fc0f0" title="같은 세계지만 콘텐츠가 다릅니다: 만나서 대화할 수 있으며, 거래는 콘텐츠가 일치해야 가능합니다">≈ same universe, content differs</span>';
+    return '<span style="color:#8fc0f0" title="같은 세계지만 콘텐츠가 다릅니다: 만나서 대화할 수 있으며, 거래는 콘텐츠가 일치해야 가능합니다">≈ 같은 세계 · 콘텐츠 상이</span>';
   return '';
 }
 const _mpRefMan = {};
@@ -29871,7 +29871,7 @@ function _mpRenderServerRows(rows, contId) {
   rows.forEach(async (s, i) => {
     const el = () => document.getElementById(pingPfx + i);
     try { const ms = await _mpPing('http://' + s.addr); if (el()) el().textContent = ms + ' ms'; }
-    catch { if (el()) { el().textContent = 'unreachable'; el().style.color = '#c05555'; } }
+    catch { if (el()) { el().textContent = '연결 불가'; el().style.color = '#c05555'; } }
   });
   _mpRefManifest().then(ref => rows.forEach((s, i) => {
     const el = document.getElementById(pingPfx.replace(/ping-$/, 'world-') + i);
@@ -30924,7 +30924,7 @@ function _storyEbReturnBeat(ebCode) {
     const si = items[d.specialItem];
     if (si) {
       S_story.inventory.push({ name: si.name, desc: si.desc, icon: si.icon || '✨' });
-      storyMsg('Received: ' + si.name + '.');
+      storyMsg('획득: ' + si.name + '.');
     }
   }
   const returnId = 'quest_' + ebCode.toLowerCase() + '_return';
@@ -32569,7 +32569,7 @@ function _nodeHookScholarWorkshop(node) {
       const _wandBtn = document.createElement('button');
       _wandBtn.className = 'story-card-btn';
       _wandBtn.textContent = '⚗ Examine the Prototype Wand on the shelf.';
-      _wandBtn.onclick = () => { storyMsg('The wand hums faintly. You will need to prove you can handle it first. (See quest: Act II — The Prototype)'); };
+      _wandBtn.onclick = () => { storyMsg('지팡이가 희미하게 울립니다. 다룰 자격을 먼저 증명해야 합니다. (퀘스트: 2막 — 프로토타입)'); };
       _wkDiv.appendChild(_wandBtn);
     }
     // Spirit encounter info after blueprint known
@@ -33268,12 +33268,12 @@ function _nodeHookBirkaWeckmannLog(node, { npcRowDiv }) {
           const _pcAccept = document.createElement('button');
           _pcAccept.className = 'inv-use-btn';
           _pcAccept.style.cssText = 'flex:1;background:#3a2000;border-color:#c08030;color:#f0c060;font-weight:700;';
-          _pcAccept.textContent = '🏆 Accept the match';
+          _pcAccept.textContent = '🏆 대결 수락';
           _pcAccept.addEventListener('click', () => { _pcSub.remove(); _startPitChampionBattle(); });
           const _pcLater = document.createElement('button');
           _pcLater.className = 'inv-use-btn';
           _pcLater.style.cssText = 'flex:1;';
-          _pcLater.textContent = 'Not yet';
+          _pcLater.textContent = '나중에';
           _pcLater.addEventListener('click', () => _pcSub.remove());
           _pcBtns.appendChild(_pcAccept); _pcBtns.appendChild(_pcLater);
           _pcSub.appendChild(_pcHd); _pcSub.appendChild(_pcBody); _pcSub.appendChild(_pcBtns);
@@ -33668,7 +33668,7 @@ function _nodeHookCdgKenickieMarket(node, { cqDiv }) {
           const buyBtn = document.createElement('button');
           buyBtn.className = 'inv-use-btn';
           buyBtn.style.cssText = 'white-space:nowrap;font-size:10px;padding:3px 8px;';
-          buyBtn.textContent = 'Buy';
+          buyBtn.textContent = '구매';
           buyBtn.addEventListener('click', () => {
             if (S_story.gold < stock.price) { storyBlock('💰 금화가 부족해요.'); return; }
             S_story.gold -= stock.price;
@@ -34681,7 +34681,7 @@ function _nodeHookSsjTournament(node, { row, _mkSection, _mkCard }) {
   if (node.code === 'SSJ') {
     const hasRod = (S_story.inventory||[]).some(i => (i.name||'').toLowerCase().includes('fishing rod'));
     if (hasRod) {
-      const { sec, body } = _mkSection(null, '🏆', 'Tournament');
+      const { sec, body } = _mkSection(null, '🏆', '토너먼트');
       const currentTitle = S_story.yugurtTourTitle;
       if (currentTitle) {
         const titleBadge = document.createElement('div');
@@ -35988,7 +35988,7 @@ function storyRender(node, prefix) {
   // ── FISH section (§TIMELESS-01: hunt/stalk feature removed) ──
   const hasFish = node.isFishingLake;
   if (hasFish) {
-    const { sec, body } = _mkSection(null, '🎣', 'Fish');
+    const { sec, body } = _mkSection(null, '🎣', '낚시');
     body.appendChild(_mkCard({
       lbl: '낚시', main: '낚싯대를 던진다',
       btn: 'Fish', btnClass: 'btn-hunt',
@@ -36353,7 +36353,7 @@ function storyRender(node, prefix) {
   }
   // Corpse loot
   if ((S_story.corpsesQuests || []).some(q => q.nodeCode === node.code)) {
-    const { sec, body } = _mkSection(null, '🦴', 'Remains');
+    const { sec, body } = _mkSection(null, '🦴', '유해');
     S_story.corpsesQuests.filter(q => q.nodeCode === node.code).forEach(q => {
       body.appendChild(_mkCard({
         lbl: '시신', main: q.items.length + '개',
@@ -36476,7 +36476,7 @@ function storyRender(node, prefix) {
       }));
     }
     if (worldCards.length) {
-      const { sec, body } = _mkSection(null, '🌐', 'World');
+      const { sec, body } = _mkSection(null, '🌐', '세계');
       worldCards.forEach(c => body.appendChild(c));
       row.appendChild(sec);
     }
