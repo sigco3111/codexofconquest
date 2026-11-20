@@ -24946,7 +24946,7 @@ function _storyDrinkPotion(tier) {
   S_story.hp = Math.min(S_story.hpMax, S_story.hp + p.heal);
   S.player.hp = S_story.hp;
   refreshLeftPanel();
-  _sboLog(p.icon + ' Drank ' + p.name + ' — restored ' + healed + ' HP. Bonus action used.');
+  _sboLog(p.icon + ' 마심: ' + p.name + ' — ' + healed + ' HP 회복. 보너스 행동 사용됨.');
   S_story.usedBonusAction = true;
   S_story.battleTurn = 'enemy';
   _updateBattleOverlay();
@@ -31493,13 +31493,13 @@ function storyRenderInventory() {
               const idx = S_story.inventory.indexOf(it);
               if (idx >= 0) S_story.inventory.splice(idx, 1);
               storyUpdateStatus(); storyRenderInventory();
-              storyMsg('[Void Flux] Heal → Hurt. ' + potionTier.icon + ' Drank ' + potionTier.name + '. ' + _vfHalf + ' HP healed, ' + _vfHalf + ' HP inverted as damage. Net: +' + (potionTier.heal - _vfHalf - _vfHalf) + ' HP.');
+              storyMsg('[공허 융류] 회복 → 피해. ' + potionTier.icon + ' 마심: ' + potionTier.name + '. ' + _vfHalf + ' HP 회복, ' + _vfHalf + ' HP 피해로 반전. 순변화: +' + (potionTier.heal - _vfHalf - _vfHalf) + ' HP.');
             } else {
               S_story.hp = Math.min(S_story.hpMax, S_story.hp + potionTier.heal);
               const idx = S_story.inventory.indexOf(it);
               if (idx >= 0) S_story.inventory.splice(idx, 1);
               storyUpdateStatus(); storyRenderInventory();
-              storyMsg(potionTier.icon + ' Drank ' + potionTier.name + '. Restored ' + potionTier.heal + ' HP.');
+              storyMsg(potionTier.icon + ' 마심: ' + potionTier.name + ' — 회복: ' + potionTier.heal + ' HP.');
             }
           });
           div.appendChild(useBtn);
@@ -31516,12 +31516,12 @@ function storyRenderInventory() {
               const _vfHalf = Math.floor(it.heal / 2);
               S_story.hp = Math.max(1, Math.min(S_story.hpMax, S_story.hp + it.heal - _vfHalf - _vfHalf));
               storyUpdateStatus(); storyRenderInventory();
-              storyMsg('[Void Flux] Heal → Hurt. ' + it.icon + ' ' + it.name + '. ' + _vfHalf + ' HP healed, ' + _vfHalf + ' inverted. Net: +' + (it.heal - _vfHalf - _vfHalf) + ' HP.');
+              storyMsg('[공허 융류] 회복 → 피해. ' + it.icon + ' ' + it.name + '. ' + _vfHalf + ' HP 회복, ' + _vfHalf + ' 반전. 순변화: +' + (it.heal - _vfHalf - _vfHalf) + ' HP.');
             } else {
               const healed = Math.min(it.heal, S_story.hpMax - S_story.hp);
               S_story.hp = Math.min(S_story.hpMax, S_story.hp + it.heal);
               storyUpdateStatus(); storyRenderInventory();
-              storyMsg(it.icon + ' ' + it.name + '. Restored ' + healed + ' HP.');
+              storyMsg(it.icon + ' ' + it.name + ' — 회복: ' + healed + ' HP.');
             }
           });
           div.appendChild(useBtn);
