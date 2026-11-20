@@ -6982,7 +6982,7 @@ function battKillEvent() {
   }
   if (S_story.active && ['sea_spawn','kelpie','giant_octopus','electric_eel','sea_snake'].includes(S.enemy.key)) {
     S_story.inventory = S_story.inventory || [];
-    S_story.inventory.push({ name:'늪지 해초', icon:'🪸', sell:2, type:'craft', desc:'Mire seaweed. Burns to trace iodine salt at the inn hearth.' });
+    S_story.inventory.push({ name:'늪지 해초', icon:'🪸', sell:2, type:'craft', desc:'늪지 해초. 여관의 난로에서 태우면 미량의 요오드 소금이 남는다.' });
   }
   // Layer 47: override fish drop sell value with size×rarity gold
   if (drop && S_story._fishBattleGold) {
@@ -10674,7 +10674,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_es_primary: { id:'quest_es_primary', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ battles:['SDR'] }, title:'가라앉은 제단',
     desc:'장로 히드라가 가라앉은 제단에서 기다린다. 약초학자 그윈이 당신의 귀환을 기다리고 있다.',
-    hint:'약초학자 그윈, Swamp. Enter the sunken altar to the east.',
+    hint:'약초학자 그윈, 늪지. 동쪽의 가라앉은 제단으로 들어가라.',
     activateNode:'MSY', waypointNode:'SDR',
     passText:"마지막 머리가 알기 전에 모든 머리가 떨어진다. 가라앉은 제단이 갈라진다. 물이 맑아진다.",
     failText:"장로 히드라는 아직 재생 중이다. 제단은 버티고 있다. 약초학자 그윈은 SDR에서 기다리고 있다.",
@@ -10698,7 +10698,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_eo_primary: { id:'quest_eo_primary', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ battles:['KUN'] }, title:'리바이어던의 눈',
     desc:"진정한 리바이어던이 리바이어던의 눈에서 기다린다. 항해사 카시우스가 당신의 귀환을 기다리고 있다.",
-    hint:'항해사 카시우스, Deep Sea. Descend to the trench to the south.',
+    hint:'항해사 카시우스, 심해. 남쪽의 해구로 내려가라.',
     activateNode:'SID', waypointNode:'KUN',
     passText:"리바이어던이 마지막으로 눈을 감는다. 바다가 그 부재 주위로 다시 가라앉는다.",
     failText:"진정한 리바이어던 is still watching. 항해사 카시우스 is at KUN, waiting.",
@@ -10706,7 +10706,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_ei_primary: { id:'quest_ei_primary', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ battles:['ACE'] }, title:'용의 왕관 섬',
     desc:'고대 해룡이 고룡 왕관의 섬에서 기다린다. 섬의 장로 마리스가 당신의 귀환을 기다리고 있다.',
-    hint:'섬의 장로 마리스, Islands. Cross to the isle to the west.',
+    hint:'섬의 장로 마리스, 섬들. 서쪽의 섬으로 건너가라.',
     activateNode:'PDL', waypointNode:'ACE',
     passText:"고대 해룡이 옆으로 넘어간다. 왕관 제도가 이제 당신 것이다.",
     failText:"해룡이 아직 섬 주위를 맴돌고 있다. 장로 마리스는 ACE에 있다. 아직 돌아가지 마라.",
@@ -10714,7 +10714,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_ea_primary: { id:'quest_ea_primary', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ battles:['IST'] }, title:'심연의 필경실',
     desc:'색인 수호자 아볼레스가 심연 필경소에서 기다린다. 드레이크타이드 선장이 당신의 귀환을 기다리고 있다.',
-    hint:'셀린 드레이크타이드 선장, Atlantis. Descend to the scriptorium to the north.',
+    hint:'셀린 드레이크타이드 선장, 아틀란티스. 북쪽의 필사실로 내려가라.',
     activateNode:'RAI', waypointNode:'IST',
     passText:"색인 수호자가 자기 잉크 속으로 무너진다. 필사실이 침묵한다.",
     failText:"색인 수호자가 아직 필사실을 장악하고 있다. 드레이크타이드 선장은 IST에 있다.",
@@ -10722,7 +10722,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_ec_primary: { id:'quest_ec_primary', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ battles:['SOF'] }, title:'학자 왕들의 대장간',
     desc:"대장간 파수꾼이 학자 왕들의 대장간에서 기다린다. 룬장인 오시안이 당신의 귀환을 기다리고 있다.",
-    hint:'룬장인 오시안, Sea Cavern. Enter the sealed forge to the east.',
+    hint:'룬장인 오시안, 바다 동굴. 동쪽의 봉인된 대장간으로 들어가라.',
     activateNode:'GIB', waypointNode:'SOF',
     passText:"대장간 감독관이 지키라고 만들어진 돌 위에서 부서진다. 대장간이 식는다.",
     failText:"The Forge Warden still burns. 룬장인 오시안 is at SOF, waiting.",
@@ -10730,7 +10730,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_el_primary: { id:'quest_el_primary', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ battles:['BEG'] }, title:'가라앉은 신의 옥좌',
     desc:"폭풍 거인 타이탄이 가라앉은 신의 옥좌에서 기다린다. 강 상인 알두스가 당신의 귀환을 기다리고 있다.",
-    hint:'강 상인 알두스, Freshwater Lake. Enter the flooded chamber to the west.',
+    hint:'강 상인 알두스, 담수호. 서쪽의 물에 잠긴 방으로 들어가라.',
     activateNode:'TRF', waypointNode:'BEG',
     passText:"폭풍 거인 타이탄이 떨어진다. 옥좌의 방이 당신 뒤에서 천천히 물에 잠긴다.",
     failText:"타이탄은 여전히 왕좌를 지키고 있다. 강 상인 알두스는 BEG에서 기다리고 있다.",
@@ -10738,7 +10738,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_ed_primary: { id:'quest_ed_primary', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ battles:['OTP'] }, title:'해구의 거신',
     desc:'카리브디스 프라임이 해구 거신에서 기다린다. 일등 항해사 다로가 당신의 귀환을 기다리고 있다.',
-    hint:'일등 항해사 다로, Deep Sea. Descend to the hadal zone via the southwest passage.',
+    hint:'일등 항해사 다로, 심해. 남서쪽 통로로 초심해층으로 내려가라.',
     activateNode:'SID', waypointNode:'OTP',
     passText:"카리브디스 프라임이 나온 해구로 소용돌이치며 내려간다. 물이 잠잠해진다.",
     failText:"카리브디스 프라임 still holds the trench. 일등 항해사 다로 is at OTP.",
@@ -10746,7 +10746,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_em_primary: { id:'quest_em_primary', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ battles:['WAW'] }, title:"한낮망령 여왕's Field",
     desc:"한낮망령 여왕이 한낮망령 여왕의 들판에서 기다린다. 농부 렌이 당신의 귀환을 기다리고 있다.",
-    hint:'농부 렌, Midlands. Enter the field to the south.',
+    hint:'농부 렌, 중부. 남쪽의 밭으로 들어가라.',
     activateNode:'MAN', waypointNode:'WAW',
     passText:"한낮망령 여왕이 빛이 바뀌는 순간에 녹아 사라진다. 들판은 그저 들판이 된다.",
     failText:"한낮망령 여왕은 여전히 한낮의 들판을 걷고 있다. 농부 렌은 WAW에 있다.",
@@ -10754,7 +10754,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_ee_primary: { id:'quest_ee_primary', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ battles:['CAI'] }, title:'파라오의 금고',
     desc:"금고 파라오가 파라오의 금고에서 기다린다. 대상단장 제피린이 당신의 귀환을 기다리고 있다.",
-    hint:'대상단장 제피린, Desert. Descend to the vault to the south.',
+    hint:'대상단장 제피린, 사막. 남쪽의 지하 보관실로 내려가라.',
     activateNode:'AHB', waypointNode:'CAI',
     passText:"금고 파라오가 나왔어서는 안 됐던 석관으로 다시 쓰러진다.",
     failText:"The Vault Pharaoh still holds the door. 대상단장 제피린 is at CAI.",
@@ -10762,7 +10762,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_ev_primary: { id:'quest_ev_primary', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ battles:['MCT'] }, title:'지니 군주의 궁전',
     desc:"장로 마리드가 진 군주의 궁전에서 기다린다. 이자도르 알라순이 당신의 귀환을 기다리고 있다.",
-    hint:'이자도르 알라순, Desert Caravan. Enter the palace to the west.',
+    hint:'이자도르 알라순, 사막 상단. 서쪽의 궁전으로 들어가라.',
     activateNode:'DOH', waypointNode:'MCT',
     passText:"장로 마리드가 물과 바람으로 흩어진다. 궁전이 비어 고요히 서 있다.",
     failText:"The 장로 마리드 holds the palace. 이자도르 알라순 is at MCT.",
@@ -10770,7 +10770,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_ej_primary: { id:'quest_ej_primary', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ battles:['SJO'] }, title:'수관 대성당',
     desc:'대성당 고룡이 수관 대성당에서 기다린다. 약초학자 마엘이 당신의 귀환을 기다리고 있다.',
-    hint:'약초학자 마엘, Jungle. Enter the cathedral to the east.',
+    hint:'약초학자 마엘, 정글. 동쪽의 대성당으로 들어가라.',
     activateNode:'BEL', waypointNode:'SJO',
     passText:"대성당 윔이 천개를 놓는다. 한 세대 만에 처음으로 빛이 들어온다.",
     failText:"대성당 웜은 여전히 첨탑에 둥지를 틀고 있다. 약초학자 마엘은 SJO에서 기다리고 있다.",
@@ -10778,7 +10778,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_et_primary: { id:'quest_et_primary', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ battles:['KTM'] }, title:'최장로의 봉우리',
     desc:'정상 고룡이 최장로의 봉우리에서 기다린다. 대장장이 도라 플린트가 당신의 귀환을 기다리고 있다.',
-    hint:'대장장이 도라 플린트, Birka Quarter. Climb to the peak to the west.',
+    hint:'대장장이 도라 플린트, 비르카 구역. 서쪽의 봉우리로 올라가라.',
     activateNode:'ERF', waypointNode:'KTM',
     passText:"정상 윔이 봉우리에서 굴러 오래도록 떨어진다. 정상이 열렸다.",
     failText:"정상의 웜이 아직 산봉우리를 차지하고 있다. 도라 플린트는 KTM에 있다.",
@@ -10786,7 +10786,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_er_primary: { id:'quest_er_primary', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ battles:['RKV'] }, title:'서리 감시자의 옥좌',
     desc:"서리 거인 야를 콜브로스가 서리 감시관의 옥좌에서 기다린다. 모피상 시그리드가 당신의 귀환을 기다리고 있다.",
-    hint:'모피상 시그리드, Arctic. Cross into the frozen waste to the north.',
+    hint:'모피상 시그리드, 북극. 북쪽의 얼어붙은 황야로 건너가라.',
     activateNode:'LYR', waypointNode:'RKV',
     passText:"야를 콜브로스가 옥좌에서 떨어진다. 얼음은 갈라지지 않는다. 그저 그를 거기 붙들고 있다.",
     failText:"Kolvros still holds the throne. 모피상 시그리드 is at RKV.",
@@ -10794,7 +10794,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_ek_primary: { id:'quest_ek_primary', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ battles:['MAD'] }, title:'부서진 세라프의 첨탑',
     desc:"타락천사 바리엘이 부서진 치천사의 첨탑에서 기다린다. 지상에 묶인 치천사 이티엘이 당신의 귀환을 기다리고 있다.",
-    hint:'지상에 묶인 치천사 이티엘, Heavenly Clouds. Ascend via the spire.',
+    hint:'지상에 묶인 치천사 이티엘, 천상의 구름. 첨탑을 통해 올라가라.',
     activateNode:'CTU', waypointNode:'MAD',
     passText:"바리엘이 마지막으로 날개를 접는다. 첨탑의 노래가 멈춘다.",
     failText:"바리엘은 여전히 첨탑을 지키고 있다. 지상에 묶인 치천사 이티엘은 MAD에서 기다리고 있다.",
@@ -10802,7 +10802,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   quest_ep_primary: { id:'quest_ep_primary', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ battles:['HAV'] }, title:'제독의 마지막 후미',
     desc:"제독의 유령이 제독의 마지막 만에서 기다린다. 장물업자 두목 캐릭이 당신의 귀환을 기다리고 있다.",
-    hint:'장물업자 두목 캐릭, Pirate Cave. Descend to the cove to the south.',
+    hint:'장물업자 두목 캐릭, 해적 동굴. 남쪽의 작은 만으로 내려가라.',
     activateNode:'NAS', waypointNode:'HAV',
     passText:"제독의 유령이 조류와 함께 흩어진다. 그 후미는 이제 그저 물이다.",
     failText:"제독의 유령은 여전히 그 후미를 지배하고 있다. 장물업자 두목 캐릭은 HAV에서 기다리고 있다.",
@@ -11171,7 +11171,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     vignetteText:"세 번째 선석은 화요일부터 무언가가 잘못되어 있다. 명세서에는 밸러스트라고 적혀 있다. 크레인 기사들은 그쪽으로 가려 하지 않는다. 머펏은 사흘째 선적창고의 학자 왕들 통관 도장을 지켜보고 있다 — 그것은 항구 수색을 막고, 그녀는 그것을 안다. 당신에게는 Trade Seal이 있다. 부두에 오를 수 있다. 항구 감시는 주 선석을 지킨다. 세 번째는 크레인 장비에 가까워 그림자가 접근로를 덮는다. 충분히 가깝다.",
     passText:"상자가 거기 있다. 학자왕 유통 인장, 맞는 명세 번호 없음. 그것을 머펫에게 가져간다. 그녀는 그것을 조리대에 놓고, 명세서를 보는 그녀의 방식으로 본다: 바르게, 그리고 그것이 뭘 뜻하는지에 대한 환상 없이.",
     failText:'감시가 그림자 경계를 벗어나기 전에 움직임을 알아챈다. 물러난다. 상자는 그 자리에 남는다. 감시가 엉뚱한 장부의 여백에 적어 둔다.',
-    disposition:'"There are three things on that berth that should not be there. The crate is one of them." — 마기스트라 엘라라 무파트',
+    disposition:'「저 선착장에는 있어서는 안 되는 것이 세 개 있다. 그 상자가 그중 하나다.」 — 마기스트라 엘라라 무파트',
     desc:'마지스트라 머펏이 사흘째 세 번째 계류장을 지켜보고 있다. 선적창고의 학자 왕들 통관 도장이 항구 수색을 막아 준다. 당신은 Trade Seal을 가지고 있다. 크레인 장비가 접근로에 그림자를 드리운다. 감시는 주 계류장을 지키지 세 번째는 아니다. 지금이 기회다.',
     npc:"magistra_elara_muffat",
   },
@@ -11183,7 +11183,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'항구 부두의 마지스트라 머펏에게 돌아가라 — 보여 줄 것이 있다.',
     activateNode:'LCY', // CO-002: activates same visit as Solm direction
     xpAward:150, waypointNode:'LCY', reward:200,
-    disposition:'"They were not reacting to the signal. They were already in motion." — 마기스트라 엘라라 무파트',
+    disposition:'「그들은 신호에 반응한 게 아니다. 그들은 이미 움직이고 있었다.」 — 마기스트라 엘라라 무파트',
     passText:"머펫이 손글씨 쪽지를 두 번 읽는다. 그 필적을 모른다. 콘클라베 기록관 승인 인장은 진짜다.",
     failText:"학자왕의 상자들은 항만 부두의 머펏 선반에 아직 뜯지 않은 채 놓여 있다.",
     npc:"magistra_elara_muffat",
@@ -11232,7 +11232,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'주파수 열 동쪽의 7번 관측소를 찾아 송신 기록을 읽어라.',
     activateNode:'LCY', 
     xpAward:300, waypointNode:'SVO', reward:350,
-    disposition:'"The signal character was non-mechanical. Three occurrences, each longer than the last. The fourth was long enough to contain something. We do not know what it contained. The station operator does." — 마기스트라 엘라라 무파트',
+    disposition:'「그 신호의 성격은 기계적이지 않았다. 세 번의 발생, 매번 이전보다 길었다. 네 번째는 무언가를 담을 만큼 길었다. 무엇이 담겼는지 우리는 모른다. 관제소 운영자는 안다.」 — 마기스트라 엘라라 무파트',
     passText:"기록이 항목 중간에 끝난다. 펜이 아직 출력 트레이에 있다. 조작자는 무언가가 응답하고 있음을 알았다. 조작자가 어디 있는지는 우리도 모른다.",
     failText:"7번 기지는 주파수 열 동쪽에 있다. 전송 로그는 아직 읽지 않았다.",
     npc:"magistra_elara_muffat",
@@ -13605,7 +13605,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'기술 파브리카 바닥에서 파브리카 집행관 3명을 쓰러뜨려라.',
     killGoals:[{key:'fabrika_enforcer',need:3,label:'파브리카 집행관'}], killCounter:'monsterKills',
     activateNode:'FBR', waypointNode:'FBR', reward:50,
-    disposition:'"Three enforcers down. They do not feel honor — you fought them with it anyway. That is for you, not them. The chair is safe now." — 기술자 이오시프',
+    disposition:'「집행자 셋이 쓰러졌다. 그들은 명예를 느끼지 못한다 — 그럼에도 너는 그것을 지니고 싸웠다. 그것은 그들이 아니라 너를 위한 것이다. 이제 그 의자는 안전하다.」 — 기술자 이오시프',
     passText:'집행자 셋이 쓰러졌다. 그들은 명예를 느끼지 않는다. 그럼에도 당신은 그것을 지니고 싸웠다. 그것은 그들이 아니라 당신을 위한 것이다. 의자는 이제 안전하다.',
     failText:'집행자들이 의자 주변에서 아직 달아올라 있다. 이오시프가 당신을 앉히려면 셋을 치워라.',
     npc:'technician_iosif',
@@ -25513,7 +25513,7 @@ function _storyBattleVictory() {
   if (pb && pb.nodeCode === S_story.frobergerNoteNode && !S_story.froberger_last_note_found) {
     S_story.froberger_last_note_found = true;
     const noteItem = {name:"프로베르거의 마지막 쪽지",icon:'📜',type:'key_item',sell:0,
-      desc:'A scrap of parchment. Froberger\'s handwriting — but lighter than the journal. Like it was written carefully. Like it was meant to last.'};
+      desc:'양피지 조각 하나. 프로베르거의 필적 — 그러나 그 일지보다 가볍다. 정성껏 쓰인 것처럼. 오래 남기를 바란 것처럼.'};
     S_story.inventory.push(noteItem);
     dropsThisBattle.push({icon:'📜',name:"프로베르거의 마지막 쪽지",type:'key_item'});
   }
