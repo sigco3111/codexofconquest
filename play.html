@@ -26843,7 +26843,7 @@ function _itemNameEq(a, b) { return a === b || _ITEM_NAME_ALIAS[a] === b; }
 // (identity/logic keys: itemsAll gates, itemChain take, name=== checks, alias map).
 // Renderers call _itemDisplayName; logic keeps the raw name. Fallback: the name itself.
 const _ITEM_DISPLAY_KR = { "Benedikt's Annotated Copy": "베네딕트의 주석본", "Froberger's Field Notes": "프로버거의 현장 노트", "The Constructor's Log": "건설자의 일지",
-  "Crone Staff": "크론의 지팡이", "Scholar's Ink (dismissed notes)": "학자의 잉크 (폐기된 노트)", "Encoded Letter (partial decrypt)": "암호 편지 (부분 해독)", "Fishing Guide": "낚시 안내서", "Free Rod Coupon": "낚싯대 무료 교환권", "Fuzzy Tribble": "복슬복슬 트리블",
+  "Crone Staff": "크론의 지팡이", "Scholar's Ink (dismissed notes)": "학자의 잉크 (폐기된 노트)", "Encoded Letter (partial decrypt)": "암호 편지 (부분 해독)", "Letter of Safe Passage": "안전 통행 문서", "Letter of True Passage": "진정한 통행 문서", "Highland Letter of Clearance": "하이랜드 통행 문서", "Dunfall Drift Spore": "던폴 부유 포자", "Pages of the Ardley Manuscript": "아들리 원고 페이지", "Ardley's Complete Laws": "아들리의 완전한 법칙들", "Fishing Guide": "낚시 안내서", "Free Rod Coupon": "낚싯대 무료 교환권", "Fuzzy Tribble": "복슬복슬 트리블",
   "Worn Ledger Book": "낡은 장부", "Sealed Scholar Box": "봉인된 학자 상자", "Prior Carrier's Token": "선행 운반자의 토큰",
   "Undercity Survey (Partial)": "언더시티 측량서 (일부)", "Certified Skill-Chit": "공인 기량 증서", "Clean-Card Trophy": "클린 카드 트로피",
   "Rod of Self-Discovery": "자기 발견의 낚싯대", "Scholar Kings Requisition (Handwritten)": "학자왕들의 징발장 (친필)",
@@ -34416,7 +34416,7 @@ function _nodeHookSparkDnfHarmony(node) {
           const dsIdx = inv.findIndex(i => i.name === 'Dunfall Drift Spore');
           if (dsIdx !== -1) inv.splice(dsIdx, 1);
           inv.push({ name:'Highland Letter of Clearance', icon:'📃', type:'misc', desc:'할바르드 펜 위원의 진짜 자격 증명. 던폴과 솔트윅을 포함한 고지대 항구 네 곳에서 유효한 통행 문서. 그의 실제 이름으로 발급되었다: 할바르드 제스트, 항구 세관 정보원, 제9순회구. 서명이 위원의 것보다 안정되어 있다.', sell:0 });
-          storyMsg('📃 당신이 세 가지를 나열한다: 세입부. 고지대 함대. 임명 날짜.\n\n펜이 조용해진다. 부유 포자의 반경은 여섯 자이고 두 사람 모두 그 안에 있다.\n\n「내 이름은 할바르드 제스트일세. 위원은 만들어진 존재야. 밀수 사건이 종결되는 동안 나를 눈에 띄고 바쁘게 유지하려고 그들이 이름과 위임장을 준 걸세.」 그가 평가 양식을 원래의 주름을 따라 접는다. 「사건은 9년 전에 종결됐어. 통지가 발송됐는지는 나도 확실하지 않아.」\n\n그가 당신의 손에서 부유 포자 유리병을 가져간다. 연다. 호박색이 부두 공기 속으로 흩어진다.\n\n「브람은 내가 도착한 때부터 내 장부에 있었어. 처음 사흘은 그를 옮기려 했지. 그는 무게가 없으면서 움직이지 않아. 이제야 알겠네. 그가 봉사를 하고 있었다는 걸.」\n\n그는 요청받지 않았는데 하이랜드 통행 문서를 써 준다. 필적이 위원의 서명과 다르다. 더 안정되고, 더 오래됐다.\n\n「네 항구에서 유효해. 던폴도 그중 하나야. 솔트윅은 제9순회구 인장을 알아볼 걸세.」 그가 브람을 본다. 브람이 항구를 본다.\n\nDunfall Drift Spore 소모. Highland Letter of Clearance 획득. +400gp. +400 XP. 던폴 조화의 사슬 완성.');
+          storyMsg('📃 당신이 세 가지를 나열한다: 세입부. 고지대 함대. 임명 날짜.\n\n펜이 조용해진다. 부유 포자의 반경은 여섯 자이고 두 사람 모두 그 안에 있다.\n\n「내 이름은 할바르드 제스트일세. 위원은 만들어진 존재야. 밀수 사건이 종결되는 동안 나를 눈에 띄고 바쁘게 유지하려고 그들이 이름과 위임장을 준 걸세.」 그가 평가 양식을 원래의 주름을 따라 접는다. 「사건은 9년 전에 종결됐어. 통지가 발송됐는지는 나도 확실하지 않아.」\n\n그가 당신의 손에서 부유 포자 유리병을 가져간다. 연다. 호박색이 부두 공기 속으로 흩어진다.\n\n「브람은 내가 도착한 때부터 내 장부에 있었어. 처음 사흘은 그를 옮기려 했지. 그는 무게가 없으면서 움직이지 않아. 이제야 알겠네. 그가 봉사를 하고 있었다는 걸.」\n\n그는 요청받지 않았는데 하이랜드 통행 문서를 써 준다. 필적이 위원의 서명과 다르다. 더 안정되고, 더 오래됐다.\n\n「네 항구에서 유효해. 던폴도 그중 하나야. 솔트윅은 제9순회구 인장을 알아볼 걸세.」 그가 브람을 본다. 브람이 항구를 본다.\n\n던폴 부유 포자 소모. 하이랜드 통행 문서 획득. +400gp. +400 XP. 던폴 조화의 사슬 완성.');
           storyRender(node);
         });
         _spk2Div.appendChild(_fehnBtn);
@@ -34498,7 +34498,7 @@ function _nodeHookPortMmeSaltwick(node) {
         _skDiv.appendChild(_skBtn);
       } else if (S_story.aldousConfessed) {
         _skDiv.style.cssText = 'margin-top:10px;border-left-color:#4a3a2a;color:#b09060;font-size:12px;';
-        _skDiv.textContent = '📜 알더스의 Letter of True Passage. 솔트윅은 그의 여섯 항구 중 하나다. 알더스가 그녀의 계약업자들에게 불리한 증언을 했을 때 도리트는 항만청장이었다. 그녀가 편지를 읽는다. 놀란 기색이 없다. 그녀가 부두 문을 연다.';
+        _skDiv.textContent = '📜 알더스의 진정한 통행 문서. 솔트윅은 그의 여섯 항구 중 하나다. 알더스가 그녀의 계약업자들에게 불리한 증언을 했을 때 도리트는 항만청장이었다. 그녀가 편지를 읽는다. 놀란 기색이 없다. 그녀가 부두 문을 연다.';
         const _skBtn2 = document.createElement('button');
         _skBtn2.className = 'inv-use-btn'; _skBtn2.style.marginTop = '6px';
         _skBtn2.textContent = '📜 솔트윅으로 들어간다 — 알더스의 편지';
@@ -38492,8 +38492,8 @@ function storyRenderCharSheet() {
         }
         return `<div class="cs-row"><span class="cs-row-lbl">조약 지위</span><span class="cs-row-val" style="color:#333333">알 수 없음</span></div>`;
       })()}
-      ${(S_story.pitPerks||[]).length >= 5 ? `<div class="cs-row"><span class="cs-row-lbl">전투 스타일</span><span class="cs-row-val" style="color:#6A4808">Weckmann's Student</span></div>` : ''}
-      ${S_story.saulConverted ? `<div class="cs-row" style="flex-direction:column;align-items:flex-start;gap:2px"><span class="cs-row-lbl" style="color:#806040">가시 (영구)</span><span style="font-size:10px;color:#555540;font-style:italic;padding-left:2px">"My grace is sufficient for you, for my power is made perfect in weakness."</span></div>` : ''}
+      ${(S_story.pitPerks||[]).length >= 5 ? `<div class="cs-row"><span class="cs-row-lbl">전투 스타일</span><span class="cs-row-val" style="color:#6A4808">베크만의 제자</span></div>` : ''}
+      ${S_story.saulConverted ? `<div class="cs-row" style="flex-direction:column;align-items:flex-start;gap:2px"><span class="cs-row-lbl" style="color:#806040">가시 (영구)</span><span style="font-size:10px;color:#555540;font-style:italic;padding-left:2px">"내 은혜가 네게 족하도다. 내 능력이 네 약한 데서 온전하여짐이라."</span></div>` : ''}
     </div>
     <div class="cs-section">
       <div class="cs-section-title">Ability Scores</div>
