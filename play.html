@@ -35258,8 +35258,8 @@ function storyRender(node, prefix) {
           + '<div style="font-size:12px;color:#bba;margin-bottom:8px;">페이지가 비어 있다. 그의 필체가 마흔한 개의 기록을 채웠다. 마지막인 이것은 비어 있다. 그는 그것을 다른 누군가를 위해 남겨 두었다. 당신이 그 누군가다.</div>'
           + '<textarea id="entry42-textarea" placeholder="42번 항목을 쓰거나, 비워 두세요." style="width:100%;height:80px;background:#0e0a06;color:#ddc;border:1px solid #5c3311;border-radius:3px;padding:6px;font-size:12px;resize:vertical;box-sizing:border-box;"></textarea>'
           + '<div style="display:flex;gap:6px;margin-top:6px;">'
-          + '<button class="inv-use-btn" id="entry42-write-btn">✍️ Write it.</button>'
-          + '<button class="inv-use-btn" id="entry42-blank-btn">— Leave it blank.</button>'
+          + '<button class="inv-use-btn" id="entry42-write-btn">✍️ 기록한다.</button>'
+          + '<button class="inv-use-btn" id="entry42-blank-btn">— 비워 둔다.</button>'
           + '</div>';
         document.getElementById('story-text-box').insertAdjacentElement('afterend', e42Div);
         document.getElementById('entry42-write-btn').addEventListener('click', () => {
@@ -35268,15 +35268,15 @@ function storyRender(node, prefix) {
           S_story.entry42Text = txt || '';
           e42Div.remove();
           storyMsg(txt
-            ? '📖 You wrote Entry 42. Forty-two entries. You are the last one.'
-            : '📖 You left Entry 42 blank. Some things need not be written to be true.');
+            ? '📖 당신은 항목 42를 썼다. 마흔두 개의 항목. 마지막은 당신이다.'
+            : '📖 당신은 항목 42를 비워 두었다. 어떤 것들은 기록되지 않아도 참이다.');
           storyAutoSave();
         });
         document.getElementById('entry42-blank-btn').addEventListener('click', () => {
           S_story.entry42Written = true;
           S_story.entry42Text = '';
           e42Div.remove();
-          storyMsg('📖 You close the journal. The page remains empty. That is your entry.');
+          storyMsg('📖 당신은 일지를 닫는다. 페이지는 빈 채로 남는다. 그것이 당신의 항목이다.');
           storyAutoSave();
         });
       } else {
@@ -35308,7 +35308,7 @@ function storyRender(node, prefix) {
           const ageDiv = document.createElement('div');
           ageDiv.className = 'sweelinck-variant';
           ageDiv.style.marginTop = '6px';
-          ageDiv.textContent = "He says, unprompted: \"The city you came from wasn't always called that. Neither was the one before it. The Void predates the naming.\" He doesn't explain further. He seems to consider it said.";
+          ageDiv.textContent = "그가 묻지 않았는데 말한다. 「당신이 온 도시는 언제나 그 이름이 아니었소. 그 전의 도시도 마찬가지요. 공허는 이름보다 오래되었소.」 더 설명하지 않는다. 말할 것을 말했다고 생각하는 모양이다.";
           document.getElementById('story-text-box').insertAdjacentElement('afterend', ageDiv);
         }
       }
@@ -35320,7 +35320,7 @@ function storyRender(node, prefix) {
           const mapLineDiv = document.createElement('div');
           mapLineDiv.className = 'sweelinck-variant';
           mapLineDiv.style.marginTop = '6px';
-          mapLineDiv.textContent = "He gestures at the map on the wall. \"That's not current. The city has moved twice since the cartographer drew it. The river used to run east of the Conclave district.\" A pause. \"The Void has always been at the center. That part is accurate.\"";
+          mapLineDiv.textContent = "그가 벽의 지도를 가리킨다. 「저것은 현재가 아니오. 지도 제작자가 그린 뒤로 도시가 두 번 옮겨갔소. 강은 원래 콘클라베 구역의 동쪽으로 흘렀지.」 잠시 멈춘다. 「공허는 언제나 중심에 있었소. 그 부분은 정확하오.」";
           document.getElementById('story-text-box').insertAdjacentElement('afterend', mapLineDiv);
         }
       }
@@ -35338,16 +35338,16 @@ function storyRender(node, prefix) {
       const _cgDiv = document.createElement('div');
       _cgDiv.className = 'sweelinck-variant';
       _cgDiv.style.cssText = 'margin-top:8px;border-left-color:#3a5a2a;font-size:12px;';
-      _cgDiv.innerHTML = '<div style="color:#80b060;font-weight:700;margin-bottom:4px;">⚡ Scholar Seal — Surge Lock</div>'
-        + '<div style="color:#bba;margin-bottom:6px;">The lower archive seal responds to concentrated force. An Action Surge — the full burst of it — might break it. The charge would be spent permanently. The surge doesn\'t come back for this door.</div>'
-        + '<button class="inv-use-btn" style="background:#2a3a2a;" id="cg-surge-btn">⚡ Break the seal (spends 1 Action Surge charge permanently)</button>';
+      _cgDiv.innerHTML = '<div style="color:#80b060;font-weight:700;margin-bottom:4px;">⚡ 학자 봉인 — 서지 자물쇠</div>'
+        + '<div style="color:#bba;margin-bottom:6px;">하부 기록고의 봉인은 집중된 힘에 반응한다. 액션 서지 — 그 전폭이라면 — 부술 수 있을지도 모른다. 충전은 영구히 소모된다. 이 문에는 서지가 돌아오지 않는다.</div>'
+        + '<button class="inv-use-btn" style="background:#2a3a2a;" id="cg-surge-btn">⚡ 봉인을 부순다 (액션 서지 충전 1개를 영구 소모)</button>';
       document.getElementById('story-text-box').insertAdjacentElement('afterend', _cgDiv);
       document.getElementById('cg-surge-btn').addEventListener('click', () => {
         S_story.surgeCharges = Math.max(0, (S_story.surgeCharges || 0) - 1);
         S_story.classGateUsed = true;
         S_story.wmLowerArchiveUnlocked = true;
         _cgDiv.remove();
-        storyMsg('The seal cracks. Not gracefully — the surge shreds it. The lower archive door swings open.\n\n[Action Surge charge spent permanently · Lower Archive: Unlocked]');
+        storyMsg('봉인에 금이 간다. 우아하지 않게 — 서지가 그것을 찢어발긴다. 하부 기록고의 문이 열린다.\n\n[액션 서지 충전 영구 소모 · 하부 기록고: 잠금 해제]');
         storyUpdateStatus();
         storyAutoSave();
       });
@@ -35361,8 +35361,8 @@ function storyRender(node, prefix) {
       const today = S_story.gameDay || 0;
       const alreadyToday = sessions.includes(today);
       circleBtn.textContent = alreadyToday
-        ? '📖 The circle meets again tomorrow.'
-        : '📖 Attend Benedikt\'s reading circle (' + sessions.length + '/3)';
+        ? '📖 모임은 내일 다시 열린다.'
+        : '📖 베네딕트의 독서 모임에 참석한다 (' + sessions.length + '/3)';
       circleBtn.disabled = alreadyToday;
       circleBtn.style.cssText = 'margin-top:4px;';
       circleBtn.addEventListener('click', () => {
@@ -35371,9 +35371,9 @@ function storyRender(node, prefix) {
         S_story.wmSessionsDays.push(today);
         const n = S_story.wmSessionsDays.length;
         const lines = [
-          '"Froberger\'s early theory is here. Before the credentials. Before the revocation. When he was just curious." Benedikt opens to the first chapter.',
-          '"The Void tide advance, page 14. He wrote \'survivable if you know it\'s coming\' in the margin before he had evidence. He turned out to be right." Benedikt pauses. "He usually was."',
-          '"The third session is the one where it stops being reading and starts being understanding. You\'ve been here three times. That tells me something." Benedikt closes the book.',
+          '「프로베르거의 초기 이론이 여기 있소. 자격 이전의. 해임 이전의. 그가 그저 호기심 많던 시절의.」 베네딕트가 첫 장을 펼친다.',
+          '「공허 조수의 진행, 14페이지. 그는 증거를 갖기 전에 여백에 『오는 것을 알면 견딜 수 있다』고 적었소. 결국 그가 맞았지.」 베네딕트가 멈춘다. 「대체로 그랬소.」',
+          '「세 번째 모임이 읽기가 그만하고 이해가 시작되는 자리요. 당신은 세 번 왔소. 그것이 말해주는 것이 있소.」 베네딕트가 책을 닫는다.',
         ];
         storyMsg(lines[n - 1] || 'Benedikt nods.');
         if (n >= 3) S_story.wmBenediktCircleComplete = true;
@@ -35390,32 +35390,32 @@ function storyRender(node, prefix) {
     _sgDiv.className = 'sweelinck-variant';
     _sgDiv.id = 'secret-gate-panel';
     _sgDiv.style.cssText = 'margin-top:10px;border-left-color:#4a2a5a;';
-    _sgDiv.innerHTML = '<div style="color:#9060a0;font-weight:700;margin-bottom:4px;">🔮 The Void Toll Rune</div>'
+    _sgDiv.innerHTML = '<div style="color:#9060a0;font-weight:700;margin-bottom:4px;">🔮 공허 통행세 룬</div>'
       + '<div style="font-size:12px;color:#bba;margin-bottom:8px;">'
-      + 'A rune in the stone here predates everything else in the Unbanked Quarter. It has one word above it in Scholar King notation: <em>SPEAK</em>. The rune will accept one thing: a secret. Something true. Something not yet said aloud.<br><br>'
-      + 'If you speak it, the rune records it. It will appear in the ending — anonymous, undated, just the truth you said here.'
+      + '이 돌의 룬은 언뱅크드 구역의 그 무엇보다 오래되었다. 위에는 학자 왕 표기로 한 단어가 있다: <em>말하라</em>. 룬은 한 가지만 받아들인다. 비밀. 참된 것. 아직 소리 내어 말해지지 않은 것.<br><br>'
+      + '그것을 말하면, 룬이 기록한다. 그것은 엔딩에 나타날 것이다. 익명으로, 날짜 없이, 당신이 여기서 말한 진실만.'
       + '</div>'
       + '<textarea id="sg-secret-input" placeholder="비밀을 입력하세요..." style="width:100%;height:60px;background:#1a1a2a;color:#ccc;border:1px solid #5a4060;border-radius:3px;padding:6px;font-size:12px;box-sizing:border-box;resize:vertical;"></textarea>'
       + '<div style="display:flex;gap:8px;margin-top:6px;flex-wrap:wrap;">'
-      + '<button class="inv-use-btn" id="sg-speak-btn">🔮 Speak it aloud</button>'
-      + '<button class="inv-use-btn" style="background:#2a2a2a;" id="sg-pass-btn">— Walk past without speaking.</button>'
+      + '<button class="inv-use-btn" id="sg-speak-btn">🔮 소리 내어 말한다</button>'
+      + '<button class="inv-use-btn" style="background:#2a2a2a;" id="sg-pass-btn">— 말하지 않고 지나간다.</button>'
       + '</div>';
     document.getElementById('story-text-box').insertAdjacentElement('afterend', _sgDiv);
     document.getElementById('sg-speak-btn').addEventListener('click', () => {
       const _secretText = (document.getElementById('sg-secret-input').value || '').trim();
-      if (!_secretText) { storyMsg('The rune waits. It requires something true.'); return; }
+      if (!_secretText) { storyMsg('룬이 기다린다. 참된 무언가를 요구한다.'); return; }
       S_story._voidTollSecret = _secretText;
       S_story.secretGatePassed = true;
       S_story.xp = (S_story.xp || 0) + 100;
       _checkLevelUp();
       _sgDiv.remove();
-      storyMsg('The rune accepts it. The stone absorbs the words — not the letters, the weight behind them.\n\nYou feel lighter. The rune is darker. The fields are the same as before.\n\n[Secret recorded · +100 XP]');
+      storyMsg('룬이 그것을 받아들인다. 돌이 말을 흡수한다. 글자가 아니라, 그 뒤의 무게를.\n\n당신은 가벼워진다. 룬은 어두워진다. 들판은 전과 같다.\n\n[비밀 기록됨 · +100 XP]');
       storyAutoSave();
     });
     document.getElementById('sg-pass-btn').addEventListener('click', () => {
       S_story.secretGatePassed = true;
       _sgDiv.remove();
-      storyMsg('The rune waits. You walk past. From behind: nothing. The rune does not pursue.');
+      storyMsg('룬이 기다린다. 당신은 지나간다. 뒤에서는 아무것도 없다. 룬은 쫓아오지 않는다.');
       storyAutoSave();
     });
   }
@@ -35431,10 +35431,10 @@ function storyRender(node, prefix) {
       hbBtn.textContent = '📋 Harbor Board';
       hbBtn.style.cssText = 'margin-top:6px;';
       hbBtn.addEventListener('click', () => {
-        storyMsg('Harbor Board — Empty berths: HARROW (Day 17), SILVER MARCH (Day 24), CORMORANT (Day 31), BRINE OATH (Day 44), VELVET DAWN (Day 52), KESSLER (Day 61), THE ROOK (Day 73), PALE MERIDIAN (Day 88), ANCHOR & WHEEL (Day 95), SUNDRESS (Day 107).\n\nThe Harbor Master adds a note: "Any information about the HARROW — cargo, crew, last position — should be reported immediately. Harbor Master Rennau."');
+        storyMsg('항만 게시판 — 빈 선석: 해로우 (17일차), 실버 마치 (24일차), 코모란트 (31일차), 브라인 오스 (44일차), 벨벳 던 (52일차), 케슬러 (61일차), 더 룩 (73일차), 페일 메리디안 (88일차), 앵커 & 휠 (95일차), 선드레스 (107일차).\n\n항만청장이 메모를 덧붙인다. 「해로우에 대한 정보는 — 화물, 선원, 최종 위치 — 즉시 보고할 것. 항만청장 레나우.」');
         S_story.tlManifestFound = true;
         setTimeout(() => {
-          storyMsg('🔍 Behind the berth list, tacked through with the same nail: a consignment slip for the HARROW. Rennau keeps the ledger. Bring her this.');
+          storyMsg('🔍 선석 명단 뒤에, 같은 못으로 함께 꽂혀 있다: 해로우의 위탁 전표. 레나우가 장부를 보관한다. 이것을 그녀에게 가져갈 것.');
         }, 400);
         hbBtn.remove();
         storyAutoSave();
@@ -35465,10 +35465,10 @@ function storyRender(node, prefix) {
       solvakBtn.textContent = '⚖️ Speak with Solvak.';
       solvakBtn.style.cssText = 'margin-top:6px;';
       solvakBtn.addEventListener('click', () => {
-        const harrowNote = S_story.tlLedgerRead ? ' "We lost a ship around the same time. The Harrow. Unrelated, probably."' : '';
-        storyMsg('Solvak: "The Conclave hired me to collect 2,000gp from Mordus — the price of a weapons shipment that never arrived."' + harrowNote + '\n\n"Mordus does not respond to threats. He responds to leverage. I don\'t have any. You might. He\'ll talk to you — you\'re not Conclave."');
+        const harrowNote = S_story.tlLedgerRead ? ' 「같은 시기에 배 한 척을 잃었네. 해로우. 아마 무관하겠지만.」' : '';
+        storyMsg('솔박: 「콘클라베가 나를 고용해 모르두스에게서 2,000gp를 거둬오라고 했네. 도착하지 않은 무기 선적의 대금이야.」' + harrowNote + '\n\n「모르두스는 위협에 반응하지 않아. 지렛대에 반응하지. 나한테는 없고, 자네한테는 있을지 몰라. 자네와는 이야기할 걸. 자네는 콘클라베가 아니니까.」');
         setTimeout(() => {
-          storyMsg('Mordus, inside Visby: "The debt will be paid when the weapons are returned. The weapons will be returned when I know where they went. I do not know where they went."\n\nHe is telling the truth.');
+          storyMsg('비스뷔 안쪽, 모르두스: 「빚은 무기가 돌아오면 갚힐 것이오. 무기는 어디로 갔는지 알면 돌아올 것이오. 나는 그것들이 어디로 갔는지 모르오.」\n\n그는 진실을 말하고 있다.');
           S_story.vsDebtProbed = true;
           _setNpcFavor('solvak', 1);
           if (!S_story.quests['quest_vs_02']) S_story.quests['quest_vs_02'] = 'active';
@@ -35485,13 +35485,13 @@ function storyRender(node, prefix) {
     if ((S_story.quests || {})['quest_vs_03'] === 'active' && S_story.vsWeaponsFound && !S_story.vsDebtSettled) {
       const payBtn = document.createElement('button');
       payBtn.className = 'inv-use-btn';
-      payBtn.textContent = '🖤 Deliver the Hollow Hands Seal to Solvak.';
+      payBtn.textContent = '🖤 Hollow Hands Seal을 솔박에게 전달한다.';
       payBtn.style.cssText = 'margin-top:4px;';
       payBtn.addEventListener('click', () => {
         S_story.vsDebtSettled = true;
         S_story.inventory = (S_story.inventory || []).filter(i => i.name !== 'Hollow Hands Seal');
-        setTimeout(() => storyMsg('Mordus: "The Hollow Hands are mine to deal with now that I know what they are. You found what I needed to find them. That\'s worth something."'), 600);
-        storyMsg('The Void shaman operates inside Mordus\'s territory. You know this. Solvak does not.');
+        setTimeout(() => storyMsg('모르두스: 「할로우 핸즈는 내가 처리하겠소. 이제 그들이 무엇인지 알았으니. 당신이 찾아준 것이 그들을 찾는 데 필요한 것이었소. 그것은 값어치가 있소.」'), 600);
+        storyMsg('공허 주술사는 모르두스의 영역 안에서 활동한다. 당신은 이것을 안다. 솔박은 모른다.');
         payBtn.remove();
         storyAutoSave();
       });
@@ -35509,7 +35509,7 @@ function storyRender(node, prefix) {
   if (node.code === 'NUE' && S_story.vsShamanPersuaded && _npcFavor('benedikt_rasp') >= 2 && !S_story.vsShamanBenediktDelivered) {
     S_story.vsShamanBenediktDelivered = true;
     setTimeout(() => storyMsg(
-      'Benedikt: "You found the Warden. She planted them, didn\'t she — the First Researcher. She planted a guardian at the tunnel and didn\'t write it down anywhere official. I didn\'t know the chain went that far. Neither did she, I think — she thought she was planting a safeguard. She planted a 200-year misunderstanding. The difference between those things might be very small."'
+      '베네딕트: 「관리인을 찾았군요. 그녀가 심어둔 거였죠, 그렇지 않소 — 첫 번째 연구자가. 터널에 수호자를 심어두고 공식 기록 어디에도 쓰지 않았소. 사슬이 그렇게 멀리까지 뻗어 있는 줄 나는 몰랐소. 그녀도 몰랐을 거요. 그녀는 안전장치를 심는다고 생각했소. 그녀가 심은 것은 200년짜리 오해였소. 그 둘의 차이는 아주 작을지도 모르오.」'
     ), 700);
     storyAutoSave();
   }
@@ -35519,19 +35519,19 @@ function storyRender(node, prefix) {
     const _letterDiv = document.createElement('div');
     _letterDiv.className = 'sweelinck-variant';
     _letterDiv.style.cssText = 'margin-top:10px;border-left-color:#7a6040;';
-    _letterDiv.innerHTML = '<div style="color:#f0c070;font-weight:700;margin-bottom:6px;">📜 A sealed letter — Froberger\'s handwriting</div>'
+    _letterDiv.innerHTML = '<div style="color:#f0c070;font-weight:700;margin-bottom:6px;">📜 봉인된 편지 — 프로베르거의 필적</div>'
       + '<div style="font-size:12px;color:#bba;">'
-      + '"If you are reading this, you completed the run once already. That means you know how it ends. '
-      + 'I am sorry about the ending. You deserved a better one.<br><br>'
-      + 'The Observatory is still here. So am I, in the pages. Come back when you\'re ready. '
-      + 'There\'s one more thing to do." — F.'
+      + '「이것을 읽고 있다면, 당신은 이미 한 번 완주한 것이오. 결말을 안다는 뜻이오. '
+      + '결말에 대해서는 미안하오. 당신은 더 나은 결말을 받을 자격이 있었소.<br><br>'
+      + '관측소는 아직 여기 있소. 나도, 페이지 속에. 준비되면 돌아오시오. '
+      + '할 일이 하나 더 있소.」 — F.'
       + '</div>'
-      + '<button class="inv-use-btn" style="margin-top:6px;" id="froberger-letter-btn">📜 Take the letter.</button>';
+      + '<button class="inv-use-btn" style="margin-top:6px;" id="froberger-letter-btn">📜 편지를 가져간다.</button>';
     document.getElementById('story-text-box').insertAdjacentElement('afterend', _letterDiv);
     document.getElementById('froberger-letter-btn').addEventListener('click', () => {
       S_story.frobergerLetterFound = true;
       _letterDiv.remove();
-      storyMsg('📜 You take the letter. It is lighter than it looks. It always is.');
+      storyMsg('📜 당신은 편지를 가져간다. 보기보다 가볍다. 언제나 그렇다.');
       storyAutoSave();
     });
   }
@@ -35541,11 +35541,11 @@ function storyRender(node, prefix) {
     _mgDiv.className = 'sweelinck-variant';
     _mgDiv.id = 'memory-gate-panel';
     _mgDiv.style.cssText = 'margin-top:10px;border-left-color:#7a4a9a;';
-    _mgDiv.innerHTML = '<div style="color:#c0a0e0;font-weight:700;margin-bottom:6px;">⬛ Catacombs Entrance — Memory Gate</div>'
+    _mgDiv.innerHTML = '<div style="color:#c0a0e0;font-weight:700;margin-bottom:6px;">⬛ 지하묘지 입구 — 기억의 문</div>'
       + '<div style="font-size:12px;color:#bba;margin-bottom:8px;">'
-      + 'The entrance to the Codex catacombs is sealed by an old void-script inscription. '
-      + 'The runes are not decorative. They are asking for something.<br><br>'
-      + 'You can read the inscription and satisfy it. Or force through — the gate will resist.'
+      + '코덱스 지하묘지의 입구는 오래된 공허 문자 비문으로 봉해져 있다. '
+      + '룬들은 장식이 아니다. 무언가를 요구하고 있다.<br><br>'
+      + '비문을 읽고 그것을 충족시킬 수 있다. 혹은 힘으로 뚫는다. 문은 저항할 것이다.'
       + '</div>'
       + '<div style="display:flex;gap:8px;flex-wrap:wrap;">'
       + '<button class="inv-use-btn" id="mg-read-btn">📜 읽기 the inscription</button>'
@@ -35562,7 +35562,7 @@ function storyRender(node, prefix) {
       S_story.memorGateBypassUsed = true;
       S_story.memorGatePassedEntry = true;
       S_story.hp = Math.max(1, (S_story.hp || 1) - 15);
-      storyMsg('You drive through the seal by force. The void-script tears as you pass. The gate does not forget. The catacombs entrance opens. You are fifteen points worse for it. The name on the far side is carved where you cannot read it.');
+      storyMsg('당신은 힘으로 봉인을 뚫고 지나간다. 공허 문자가 찢어진다. 문은 잊지 않는다. 지하묘지 입구가 열린다. 15점만큼 상했다. 저편에 새겨진 이름은 당신이 읽을 수 없는 곳에 있다.');
       storyUpdateStatus();
       storyAutoSave();
     });
@@ -35588,12 +35588,12 @@ function storyRender(node, prefix) {
     const _pcDiv = document.createElement('div');
     _pcDiv.className = 'sweelinck-variant';
     _pcDiv.style.cssText = 'margin-top:10px;border-left-color:#507090;';
-    _pcDiv.innerHTML = '<div style="color:#90b8d0;font-weight:700;margin-bottom:6px;">👤 The Cell — behind the archive door</div>'
-      + '<div style="font-size:12px;color:#bba;margin-bottom:8px;">A figure sits against the wall. Their clothes are Scholar King era — not fantasy, not cyberpunk. Just old. Their eyes are tired. The cell door is locked from the inside. They look up when they hear you.</div>'
+    _pcDiv.innerHTML = '<div style="color:#90b8d0;font-weight:700;margin-bottom:6px;">👤 감방 — 기록고 문 뒤</div>'
+      + '<div style="font-size:12px;color:#bba;margin-bottom:8px;">한 인물이 벽에 기대어 앉아 있다. 옷차림은 학자 왕 시대의 것이다. 판타지도, 사이버펑크도 아닌. 그저 낡은. 눈은 지쳐 있다. 감방 문은 안쪽에서 잠겨 있다. 당신을 듣고 고개를 든다.</div>'
       + '<div style="display:flex;flex-direction:column;gap:4px;">'
-      + '<button class="inv-use-btn" id="pc-yes-btn">💬 "Yes. The Void opened again."</button>'
-      + '<button class="inv-use-btn" id="pc-no-btn">💬 "No. Not yet."</button>'
-      + '<button class="inv-use-btn" id="pc-ignore-btn">— Walk past without speaking.</button>'
+      + '<button class="inv-use-btn" id="pc-yes-btn">💬 「그렇소. 공허가 다시 열렸소.」</button>'
+      + '<button class="inv-use-btn" id="pc-no-btn">💬 「아니오. 아직이오.」</button>'
+      + '<button class="inv-use-btn" id="pc-ignore-btn">— 말하지 않고 지나간다.</button>'
       + '</div>';
     document.getElementById('story-text-box').insertAdjacentElement('afterend', _pcDiv);
     document.getElementById('pc-yes-btn').addEventListener('click', () => {
