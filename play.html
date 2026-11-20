@@ -24935,7 +24935,7 @@ function _renderSboPotions() {
     if (!count) return;
     const btn = document.createElement('button');
     btn.className = 'sbo-btn-potion';
-    btn.textContent = p.icon + ' ' + p.name.replace(' Healing Potion','').replace(' Potion','') + ' (' + count + ') +' + p.heal + 'hp';
+    btn.textContent = p.icon + ' ' + p.name + ' (' + count + ') +' + p.heal + 'hp';
     btn.onclick = () => _storyDrinkPotion(tier);
     row.appendChild(btn);
   });
@@ -24976,15 +24976,15 @@ function _renderSboSpells() {
     const btn = document.createElement('button');
     if (item.type === 'spell') {
       btn.className = 'sbo-btn-spell';
-      btn.title = 'DC ' + dc + ' skill check (d20 vs 내 AC−2) — pass = ADV on next attack';
-      btn.innerHTML = item.icon + ' ' + item.name;
+      btn.title = 'DC ' + dc + ' 판정 (d20 vs 내 AC−2) — 성공 시 다음 공격에 이점';
+      btn.innerHTML = item.icon + ' ' + _itemDisplayName(item.name);
       btn.addEventListener('click', () => _storyUseSpellScroll(idx));
       row.appendChild(btn);
     } else if (item.type === 'flashbang') {
       btn.className = 'sbo-btn-spell';
       btn.style.borderColor = '#c84a00';
-      btn.title = 'Throw flashbang — guaranteed ADV on next attack (no DC check). Costs bonus action.';
-      btn.innerHTML = item.icon + ' ' + item.name;
+      btn.title = '섬광탄 투척 — 다음 공격에 확정 이점 (판정 없음). 보조 행동 소모.';
+      btn.innerHTML = item.icon + ' ' + _itemDisplayName(item.name);
       btn.addEventListener('click', () => _storyUseFlashbang(idx));
       row.appendChild(btn);
     }
