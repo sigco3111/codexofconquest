@@ -4575,7 +4575,7 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
           <div class="mp-hint">빠른 목록은 이 브라우저에 저장되며 보이는 것과 접속 대상을 결정합니다. 서버 ACL은 메시 게이트 그 자체로, 자신의 서버에서 편집합니다. 친구가 공유한 차단 목록은 가져와서 미리 보고, 클릭할 때만 병합됩니다 — 자동으로 가져오지 않습니다.</div>
           <div class="md-sec-hd">🚫 내 차단 목록</div>
           <div class="mp-hint">모든 서버 목록에서 숨기고 접속을 거부합니다. 항목: <code>호스트:포트</code>, serverId 또는 월드 해시.</div>
-          <input id="ml-black-input" placeholder="host:port · serverId · world hash"
+          <input id="ml-black-input" placeholder="host:port · 서버 id · 월드 해시"
                  onkeydown="if(event.key==='Enter')mlAddEntry('black')">
           <div style="display:flex;gap:8px;flex-wrap:wrap"><button id="ml-black-add" onclick="mlAddEntry('black')">＋ 추가</button></div>
           <div id="ml-black-rows"></div>
@@ -4604,7 +4604,7 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
               <label>serverId 허용<textarea id="ml-acl-allowServerIds" placeholder="one per line"></textarea></label>
               <label>IP 허용<textarea id="ml-acl-allowIps" placeholder="one per line"></textarea></label>
               <label>월드 해시 허용<textarea id="ml-acl-allowWorldHashes" placeholder="one per line"></textarea></label>
-              <label>신뢰하는 팩 제작자<textarea id="ml-acl-allowAuthors" placeholder="one public key per line"></textarea></label>
+              <label>신뢰하는 팩 제작자<textarea id="ml-acl-allowAuthors" placeholder="줄마다 공개 키 하나"></textarea></label>
             </div>
             <div class="mp-hint">신뢰하는 제작자가 서명한 퀘스트 팩은 가져오는 즉시 수락되며, 적용 전에 검토를 통과해야 합니다.</div>
             <div id="ml-acl-save-note" class="mp-hint"></div>
@@ -4618,7 +4618,7 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
           <div id="ml-peer-preview"></div>
           <div class="md-sec-hd">🔑 이 캐릭터를 다른 브라우저로 옮기기</div>
           <div class="mp-hint">캐릭터의 거래 신원은 만든 브라우저를 떠나지 않는 키입니다. 새 브라우저에서 세이브를 불러오고 Request를 누르고, 이전 브라우저에서 그 코드를 붙여넣고 Authorize를 누른 뒤, 다시 새 브라우저에서 답을 붙여넣고 Accept를 누르세요.</div>
-          <textarea id="ml-xfer-code" placeholder="paste a codex-req1. or codex-xfer1. code"></textarea>
+          <textarea id="ml-xfer-code" placeholder="codex-req1. 또는 codex-xfer1. 코드를 붙여넣으세요"></textarea>
           <div style="display:flex;gap:8px;flex-wrap:wrap">
             <button onclick="mlTransfer('request')">📋 요청</button>
             <button onclick="mlTransfer('authorize')">✍ 승인</button>
@@ -23778,7 +23778,7 @@ function _renderNpcCard(key, container) {
   if (key === 'pachelbel' && S_story.quests['quest_couperin_lute'] === 'active'
       && !(S_story.inventory||[]).some(i => i.name === "Quill's Lute")) {
     S_story.inventory.push({name:"Quill's Lute",icon:'🪗',type:'quest_item',sell:0,questId:'quest_couperin_lute'});
-    storyMsg("🪗 Pachelbel: \"I kept it because it didn't look like something that should be left under a chair in here.\" He hands over the lute.");
+    storyMsg("🪗 파헬벨: \"여기 의자 밑에 두고 갈 물건으로 보이지 않아서 보관했네.\" 그가 류트를 건넨다.");
   }
   // Yael escort button
   if (fav >= 1 && key === 'yael' && staticProfile.special) {
@@ -28364,9 +28364,9 @@ function _buildEpilogueScroll() {
       "당신은 혼자, 혹은 거의 혼자 봉인했어요. 작업은 완료됐어요. 계약은 유지돼요.",
       "스베일링크는 이 패턴을 열일곱 번 보았어요. 열일곱 번의 순환에서 여기 도착한 관리인은 유능하고, 헌신적이고, 효율적이었죠. 해야 할 일을 알았고, 그것을 했어요.",
       "그중 열여섯 번은 한 세대 안에 공허가 다시 열렸어요.",
-      "In the seventeenth — not yet. That one is still running.",
-      "He believes the eighteenth will be different.",
-      "He believes that about all of them, until the evidence arrives.",
+      "열일곱 번째에는 — 아직. 그 하나는 아직 진행 중이에요.",
+      "그는 열여덟 번째는 다를 거라 믿어요.",
+      "증거가 도착하기 전까지는, 그는 그들 모두에 대해 그렇게 믿어요.",
       FROBERGER_EPILOGUE.cursed
     ];
   }
@@ -31744,8 +31744,8 @@ function storyRenderInventory() {
             if (idx >= 0) S_story.inventory.splice(idx, 1);
             S_story.gold = (S_story.gold || 0) + 30;
             storyUpdateStatus();
-            storyMsg("The lens clarifies something you've been carrying. What you thought was worth less is worth more. (+30 gold)");
-            setTimeout(() => storyMsg("The handle has instructions written in tiny letters. Whoever taught Raison to do this was very careful about what not to forget."), 600);
+            storyMsg("렌즈가 당신이 지니고 있던 것을 선명하게 한다. 가치가 낮다고 여긴 것이 더 가치 있었다. (+30 골드)");
+            setTimeout(() => storyMsg("손잡이에 아주 작은 글씨로 사용법이 적혀 있다. 레종에게 이걸 가르친 사람은 무엇을 잊지 말아야 하는지에 대해 매우 꼼꼼했다."), 600);
             storyRenderInventory();
           });
           div.appendChild(useBtn);
@@ -32666,7 +32666,7 @@ function _nodeHookBirkaVargaWatch(node, { npcRowDiv }) {
               S_story.s8VargaWatches = vargaWatches + 1;
               if (S_story.s8VargaWatches >= 3) {
                 S_story.s8VargaClueUnlocked = true;
-                storyMsg("He leaves at the same moment as the courier from the harbor. Not together — just the same moment.\n\nYael mentioned him: Varga. The pigeon route changed three times this season. The coin is moving toward the docks.\n\nPachelbel would know what that means.");
+                storyMsg("그가 항구의 전령과 같은 순간에 떠난다. 함께가 아니라 — 그저 같은 순간에.\n\n야엘이 그를 언급했다: 바르가. 이번 계절에 비둘기 경로가 세 번 바뀌었다. 동전이 부두 쪽으로 움직이고 있다.\n\n파헬벨이라면 그것이 무슨 뜻인지 알 것이다.");
               } else {
                 storyMsg(S_story.s8VargaWatches === 1
                   ? "그는 술을 하나 더 주문한다. 손도 대지 않는다."
@@ -32799,9 +32799,9 @@ function _nodeHookBirkaBrynnMaintenance(node, { npcRowDiv }) {
           pre.style.cssText = 'font-size:11px;line-height:1.7;white-space:pre;color:#8090b8;font-family:"Courier New",monospace;margin:0;';
           pre.innerHTML = "BRYNN'S INN — MONTH LEDGER\n"
             + "—————————————————————————\n"
-            + "Room nights (14 beds avg 60% fill):  235 copper\n"
-            + "Meals served:                         84 copper\n"
-            + "Kitchen staff (part-time):           -45 copper\n"
+            + "숙박 (14개 침상 평균 60% 가동):  235 동전\n"
+            + "제공된 식사:                       84 동전\n"
+            + "주방 인부 (시간제):               -45 동전\n"
             + "Supplies (food, candles, linen):    -112 copper\n"
             + "Repairs (ongoing):                   -" + (24 - (S_story.brynThirdStepFixed ? 4 : 0)) + " copper\n"
             + "—————————————————————————\n"
@@ -32810,7 +32810,7 @@ function _nodeHookBirkaBrynnMaintenance(node, { npcRowDiv }) {
           _ledgerWrap.appendChild(sub);
           if (bal >= 0 && !S_story._brynLedgerZeroShown) {
             S_story._brynLedgerZeroShown = true;
-            setTimeout(() => storyMsg("Brynn: \"Oh. That's the first time in three years.\" Beat. \"Thank you.\""), 300);
+            setTimeout(() => storyMsg("브린: \"아. 삼 년 만에 처음이야.\" 잠깐. \"고마워.\""), 300);
           }
         });
         _ledgerWrap.appendChild(ledgerBtn);
@@ -33305,8 +33305,8 @@ function _nodeHookBirkaWeckmannLog(node, { npcRowDiv }) {
           const idx = (S_story.inventory||[]).findIndex(i => i.name === 'Undercity Survey (Partial)');
           if (idx >= 0) S_story.inventory.splice(idx, 1);
           S_story.gold = (S_story.gold || 0) + 40; storyUpdateStatus();
-          let surveyMsg = "She takes it from you without asking where you got it.\n\nShe reads the pressure annotations. A long pause.\n\n\"This was taken around Year Ten. The survey team documented six sectors. Four of them match the Void-advance indicators I flagged in Year Twelve.\"\n\nShe folds it.\n\n\"Two years. They had two years of lead time and this never reached the tactical desk. Someone decided it wasn't worth forwarding.\" (+40 gold)\n\n\"If you find the second half, bring it.\"";
-          if (S_story.s29LineDelivered) surveyMsg += "\n\n\"Froberger walked the same sectors in Year Thirteen. One year after this survey was buried. If he'd known it existed, he would have understood earlier.\"";
+          let surveyMsg = "그녀가 어디서 얻었는지 묻지 않고 당신에게서 받아 든다.\n\n그녀가 압력 주석을 읽는다. 긴 침묵.\n\n\"이건 십년 경에 측량됐어요. 측량팀이 여섯 구획을 기록했죠. 그중 넷이 제가 십이년에 표시한 공허 진전 지표와 일치해요.\"\n\n그녀가 그것을 접는다.\n\n\"이 년. 이 년의 여유가 있었는데 이것은 전술 책상에 도착하지 않았어요. 누군가 전달할 가치가 없다고 결정한 거예요.\" (+40 골드)\n\n\"나머지 절반을 찾으면 가져와요.\"";
+          if (S_story.s29LineDelivered) surveyMsg += "\n\n\"프로베르거는 십삼년에 같은 구획들을 걸었어요. 이 측량이 묻히고 일 년 뒤에. 존재를 알았다면 그는 더 일찍 이해했을 거예요.\"";
           storyMsg(surveyMsg);
           delBtn.remove();
         });
@@ -33856,7 +33856,7 @@ function _nodeHookHuntHftElder(node) {
         _lsBtn.disabled = true;
         S_story.huntHookReceived = true;
         S_story.xp = (S_story.xp||0) + 100;
-        storyMsg('🎣 She says: three boats. North end. Since the rock shelf fell in spring.\n\n"The Guild has been here four times. They brought offerings. The offerings go before morning — something takes them. They say the spirit is appeased. I say the spirit is hungry. I say it is not a spirit."\n\nShe points toward the harbor. "There is a recovered hull at the dock. The Guild master will tell you what the marks mean. Look at the marks yourself."\n\nShe looks back at the water. She is not asking you to go. She is telling you what she knows.\n\nQuest: Something in the Lake — active. Quest: Scale Marks on the Hull — active at the Lake Harbor. +100 XP.');
+        storyMsg('🎣 She says: three boats. North end. Since the rock shelf fell in spring.\n\n"길드가 네 번 다녀갔어. 공물을 가져왔지. 아침 전에 공물은 사라져 — 무언가가 가져가. 사람들은 정령이 달랐다고 해. 나는 정령이 배고프다고 말해. 그리고 그건 정령이 아니라고 말해."\n\n그녀가 항구를 가리킨다. "부두에 인양한 선체가 있어. 길드 마스터가 그 흔적들이 무슨 뜻인지 말해 줄 거야. 직접 봐."\n\nShe looks back at the water. She is not asking you to go. She is telling you what she knows.\n\nQuest: Something in the Lake — active. Quest: Scale Marks on the Hull — active at the Lake Harbor. +100 XP.');
         storyRender(node);
       });
       _lsDiv.appendChild(_lsBtn);
