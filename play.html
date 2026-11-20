@@ -23852,6 +23852,18 @@ function _migrateItemNames(st){
   for (const it of inv) { if (it && typeof it.name === 'string' && _ITEM_NAME_MIGRATION[it.name]) it.name = _ITEM_NAME_MIGRATION[it.name]; }
 }
 
+// Bad-window compat (b23b): mid-chain saves from the broken build can keep quest items whose
+// turn-in flags are already set (KR gate could not consume EN-named items). Those leftovers can
+// never be consumed again — every grant/consume path for them is flag-gated — so remove them on load.
+function _removeOrphanQuestItems(st){
+  const inv = st && st.inventory;
+  if (!Array.isArray(inv)) return;
+  st.inventory = inv.filter(it => !it || !(
+    (st.oatMet && it.name === "브람의 물고기 비늘") ||
+    (st.fightersTokenGiven && it.name === "격투사의 토큰")
+  ));
+}
+
 function storyLoadSave(key) {
   try {
     const raw = localStorage.getItem(key);
@@ -23860,6 +23872,7 @@ function storyLoadSave(key) {
     // visitedCells) must not leave it undefined — cellMove crashed on such saves.
     Object.assign(S_story, _S_DEFAULTS(), JSON.parse(raw));
     _migrateItemNames(S_story);
+    _removeOrphanQuestItems(S_story);
     _splitWorldNotesFromTrail();
     _splitCouperiDebtMeaning();
     _advanceStoryAct();
