@@ -23852,6 +23852,39 @@ function _migrateItemNames(st){
   for (const it of inv) { if (it && typeof it.name === 'string' && _ITEM_NAME_MIGRATION[it.name]) it.name = _ITEM_NAME_MIGRATION[it.name]; }
 }
 
+// One-time cleanup for saves written by the 2026-11-20 19:39 KST build (c9c16836),
+// which mis-inserted 15 shard-display entries into the level-up asiChanges object.
+// Only exact key+value matches are removed; real stat keys and any other keys are kept.
+const _ASI_GARBAGE_PAIRS = {
+  "Trade Seal (Shard #1)": "교역 인장 (조각 #1)",
+  "교역 인장 (Shard #1)": "교역 인장 (조각 #1)",
+  "Grove Token (Shard #2)": "숲의 증표 (조각 #2)",
+  "숲의 증표 (Shard #2)": "숲의 증표 (조각 #2)",
+  "Tidal Rune (Shard #3)": "조수 룬 (조각 #3)",
+  "조수 룬 (Shard #3)": "조수 룬 (조각 #3)",
+  "Crimson Warrant (Shard #4)": "진홍 영장 (조각 #4)",
+  "진홍 영장 (Shard #4)": "진홍 영장 (조각 #4)",
+  "Sand Cipher (Shard #5)": "모래 암호 (조각 #5)",
+  "모래 암호 (Shard #5)": "모래 암호 (조각 #5)",
+  "Codex Shard #6": "코덱스 조각 (조각 #6)",
+  "코덱스 조각 (Shard #6)": "코덱스 조각 (조각 #6)",
+  "Weimar Fragment (Shard #7)": "바이마르 파편 (조각 #7)",
+  "바이마르 파편 (Shard #7)": "바이마르 파편 (조각 #7)",
+  "Void Virus Canister": "공허 바이러스 캐니스터"
+};
+function _sanitizeAsiChanges(st){
+  const tats = st && st.tattoos;
+  if (!Array.isArray(tats)) return;
+  for (const t of tats) {
+    const asi = t && t.asiChanges;
+    if (!asi || typeof asi !== 'object') continue;
+    for (const k of Object.keys(_ASI_GARBAGE_PAIRS)) {
+      if (asi[k] === _ASI_GARBAGE_PAIRS[k]) delete asi[k];
+    }
+    if (Object.keys(asi).length === 0) delete t.asiChanges;
+  }
+}
+
 // Bad-window compat (b23b): mid-chain saves from the broken build can keep quest items whose
 // turn-in flags are already set (KR gate could not consume EN-named items). Those leftovers can
 // never be consumed again — every grant/consume path for them is flag-gated — so remove them on load.
@@ -23872,6 +23905,7 @@ function storyLoadSave(key) {
     // visitedCells) must not leave it undefined — cellMove crashed on such saves.
     Object.assign(S_story, _S_DEFAULTS(), JSON.parse(raw));
     _migrateItemNames(S_story);
+    _sanitizeAsiChanges(S_story);
     _removeOrphanQuestItems(S_story);
     _splitWorldNotesFromTrail();
     _splitCouperiDebtMeaning();
@@ -23893,6 +23927,7 @@ function storyCheckContinue() {
     if (save.hp === 0) {
       Object.assign(S_story, _S_DEFAULTS(), save);
       _migrateItemNames(S_story);
+      _sanitizeAsiChanges(S_story);
       _splitWorldNotesFromTrail();
       _splitCouperiDebtMeaning();
       _advanceStoryAct();
