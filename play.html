@@ -23611,17 +23611,17 @@ function _getNPCDialogue(npcKey) {
   // L45-I: Room 6 line — Brynn Dear Friend after room6 visited
   if (npcKey === 'brynn' && S_story.brynRoom6Line && !S_story.brynRoom6LineDelivered) {
     S_story.brynRoom6LineDelivered = true;
-    return { quote: "He didn't say goodbye. I used to think that was the hard part. Now I think the hard part was that he thought he was coming back.", meta: d.meta, fav };
+    return { quote: "그는 작별 인사를 하지 않았어요. 그게 어려운 부분이라고 생각했어요. 이제는, 그가 돌아올 거라고 생각했다는 것이 어려운 부분이었다고 생각해요.", meta: d.meta, fav };
   }
   // Layer 64: Weckmann championship line — injected once when pitChampionWon
   if (npcKey === 'crov' && fav >= 2 && S_story.pitChampionWon && !S_story.crovChampionLineDelivered) {
     S_story.crovChampionLineDelivered = true;
-    return { quote: '"Ogundimu asked after you, the last time she came through. I told her you\'d moved on. She said that was the right answer."', meta: d.meta, fav };
+    return { quote: '『오건디무가 지난번에 지나가며 너를 물었어. 떠났다고 했지. 그게 옳은 대답이라고 하더군.』', meta: d.meta, fav };
   }
   // §LI: Isolde Gurt acknowledgment — one-time delivery after player reads the Y. Gurt archive file
   if (npcKey === 'isolde_voss' && S_story.wmGurtFileRead && !S_story.isoldeGurtAckDelivered) {
     S_story.isoldeGurtAckDelivered = true;
-    return { quote: '"The shore smells like cold stone and fish oil in the morning. He had a fire going when I arrived. He looked at me the way he looks at the water — checking whether something had changed. I filed the note when I got back. That is the only part that was protocol."', meta: d.meta, fav };
+    return { quote: '『아침의 해안은 차가운 돌과 생선 기름 냄새가 납니다. 제가 도착했을 때 그는 불을 피워 두었더군요. 물을 보는 그 눈으로 저를 보았습니다 — 무언가 달라졌는지 확인하듯이. 돌아와서 기록을 올렸습니다. 절차였던 부분은 그것뿐이에요.』', meta: d.meta, fav };
   }
   // S29: Auros theory — handled via HKG node render (Layer 67b); s29LineDelivered set there
   // Layer 59: void pressure line — Dear Friends at pressure ≥ 6
@@ -27555,11 +27555,11 @@ const GIGAULT_STALL_STATES = [ // → doc: lab-reports/lab-report-living-world.m
 ];
 
 const WORLD_PROGRESSION_EVENTS = [ // → doc: world.md §FL4 — Rest & Void Tide (condition-gated journal notes; run per node visit)
-  { id:'auros_report',   condition: () => S_story.storyAct >= 3 && S_story.bruhnsDepthsReported,        journalNote: "Structural assessment submitted — Auros's name on the cover page.", action: ()=>{} },
-  { id:'raison_family',  condition: () => S_story.storyAct >= 4 && S_story.pachelbelPaidBack,           journalNote: "A courier delivered something to BA. Pachelbel signed for it.", action: ()=>{} },
-  { id:'brynn_letter',   condition: () => S_story.storyAct >= 3 && S_story.brynnsJournalRead,           journalNote: "A letter arrived for Brynn at the inn. The seal is from the Heartwood district.", action: ()=>{} },
-  { id:'yael_report',    condition: () => S_story.storyAct >= 5 && S_story.yaelEscortUsed,              journalNote: "City records show a new internal affairs submission. Source: anonymous. It wasn't anonymous.", action: ()=>{} },
-  { id:'weckmann_class', condition: () => S_story.storyAct >= 6 && _npcFavor('crov') >= 3,             journalNote: "Weckmann added a second training session. Thursdays, younger fighters.", action: ()=>{} },
+  { id:'auros_report',   condition: () => S_story.storyAct >= 3 && S_story.bruhnsDepthsReported,        journalNote: "구조 조사가 제출되었다 — 표지에 아우로스의 이름이 있다.", action: ()=>{} },
+  { id:'raison_family',  condition: () => S_story.storyAct >= 4 && S_story.pachelbelPaidBack,           journalNote: "배달원이 BA에 무언가를 전했다. 파헬벨이 서명해 받았다.", action: ()=>{} },
+  { id:'brynn_letter',   condition: () => S_story.storyAct >= 3 && S_story.brynnsJournalRead,           journalNote: "브린에게 여관으로 편지가 도착했다. 봉인은 심재 구역의 것이다.", action: ()=>{} },
+  { id:'yael_report',    condition: () => S_story.storyAct >= 5 && S_story.yaelEscortUsed,              journalNote: "시 기록에 새로운 내부 감사 제출이 보인다. 출처: 익명. 익명이 아니었다.", action: ()=>{} },
+  { id:'weckmann_class', condition: () => S_story.storyAct >= 6 && _npcFavor('crov') >= 3,             journalNote: "베크만이 두 번째 훈련 강습을 추가했다. 목요일, 더 어린 격투가들이다.", action: ()=>{} },
   { id:'quill_debt',     condition: () => S_story.storyAct >= 4 && !S_story.quillQuestComplete,        journalNote: null, action: () => { S_story.couperiDebtDegraded = true; } }
 ];
 
@@ -27808,8 +27808,8 @@ function _renderFinalMap() {
   });
   // ── Layer 66b: S55 Map Caption ──
   const caption = S_story.s49SweelinckDelivered
-    ? 'He walked every corridor. So did you. Sweelinck has the record.'
-    : 'He walked every corridor. So did you. The map remembers.';
+    ? '그는 모든 회랑을 걸었다. 당신도 그랬다. 스베일링크가 그 기록을 가지고 있다.'
+    : '그는 모든 회랑을 걸었다. 당신도 그랬다. 지도는 기억한다.';
   const captionEl = document.createElement('div');
   captionEl.id = 'final-map-caption';
   captionEl.style.cssText = 'position:absolute;bottom:12%;left:0;right:0;text-align:center;color:#bbb;font-style:italic;font-size:0.9em;opacity:0;transition:opacity 0.8s;pointer-events:none;';
@@ -27851,15 +27851,15 @@ function _getYaelLocation() {
 function _buildWeckmannLog() {
   const wins = S_story.pitTrainingWins || 0;
   const playerName = S_story.playerName || 'the fighter';
-  const entries = ['Game Day 1: New fighter — ' + playerName + '. Showed up without signing in.\nGood instincts. Overcorrects left. Potential. Will see.'];
+  const entries = ['게임 1일차: 새 격투가 — ' + playerName + '. 서명 없이 나타남.\n좋은 직감. 왼쪽을 과하게 바로잡음. 가능성 있음. 지켜볼 것.'];
   if (wins >= 1) entries.push('3일차: 나아짐. 듣기 시작함.');
   if (wins >= 2) entries.push('7일차: 이제 분위기를 읽음. 반응만 하는 게 아님.');
-  if (wins >= 3) entries.push('Day 12: Controlled. Still aggressive at the wrong moments. Getting there.');
+  if (wins >= 3) entries.push('12일차: 절제됨. 아직 엉뚱한 순간에 공격적임. 나아지는 중.');
   if (wins >= 4) entries.push('18일차: 좋음. 이제 실전 같은 느낌이 들기 시작함.');
-  if (wins >= 5) entries.push("Day 25: The lesson's in. Don't know when it happened. That's when you know.");
+  if (wins >= 5) entries.push("25일차: 교훈이 몸에 뱀. 언제 그렇게 됐는지 모름. 그럴 때 아는 것임.");
   // ── Layer 64: Championship entry ──
   const champEntry = S_story.pitChampionWon
-    ? '\n\n────────────────────────\nFight 6: Ogundimu, the Iron Standard\nResult: WIN\nNote: She chose the match. That matters.\n      You chose to accept. That matters more.'
+    ? '\n\n────────────────────────\n여섯 번째 시합: 오건디무, 무쇠의 기치\n결과: 승리\n비고: 그녀가 시합을 골랐음. 그것은 중요함.\n      당신은 받아들이기를 골랐음. 그것은 더 중요함.'
     : '';
   return WECKMANN_TRAINING_LOG.replace('{PLAYER_ENTRIES}', entries.join('\n')).replace('{CHAMP_ENTRY}', champEntry);
 }
@@ -27925,61 +27925,61 @@ const YAEL_PATROL_NODES = [ // → doc: world.md §Yael's Patrol Arc
 ];
 
 const WECKMANN_TRAINING_LOG = // → doc: world.md §Weckmann Training Log (Layer 68b — contains riot funding evidence; yaelNamedReport cross-ref)
-`WECKMANN'S TRAINING LOG — Undercity Fighting Pit
-————————————————————————————————————————————————
+`베크만의 훈련 일지 — 지하도시 격투 구덩이
+────────────────────────────────────────────────
 
-Year 6, Day 14
-New fighter — Cabanilles. Strong, untrained. Good instincts, no patience.
-Note: patience is teachable. Instincts aren't. Worth the time.
+6년 14일
+새 격투가 — 카바니예스. 강하고, 훈련되지 않았음. 좋은 직감, 인내심 없음.
+비고: 인내심은 가르칠 수 있음. 직감은 안 됨. 시간을 들일 가치 있음.
 
-Year 6, Day 31
-Cabanilles left for the east contracts. Said he'd be back. He wasn't.
-Good fighter. Hope he's using it.
+6년 31일
+카바니예스는 동쪽 계약으로 떠남. 돌아오겠다고 했음. 돌아오지 않았음.
+좋은 격투가였음. 그 재능을 쓰고 있기를.
 
-Year 12, Day 8
-Bruna — first session. Best natural footwork I've seen in six years.
-He drops his left when he's tired. Told him. He'll fix it.
+12년 8일
+브루나 — 첫 수업. 육 년 만에 본 최고의 타고난 발놀림.
+피곤하면 왼손이 내려감. 알려 줌. 고칠 것임.
 
-Year 12, Day 23
-Bruna — pushed too far.
-Note for next time: when a fighter says they're fine, check the footwork.
-If they're still dropping the left, they're not fine.
+12년 23일
+브루나 — 너무 멀리 몰아붙였음.
+다음을 위한 비고: 격투가가 괜찮다고 말하면, 발놀림을 확인할 것.
+왼손이 여전히 내려가 있으면, 괜찮지 않은 것임.
 
-[gap of two years]
+[두 해의 공백]
 
-Year 14, Day 3
-Back.
-Running legal fights only.
+14년 3일
+돌아옴.
+합법 시합만 운영함.
 
-Year 15, Day 9
-New fighter — Reincken. Off the ore road. No history, no bad habits either.
-She checks her own footwork before I ask. That part isn't teachable.
+15년 9일
+새 격투가 — 라인켄. 광석길 출신. 전력도, 나쁜 버릇도 없음.
+내가 묻기 전에 스스로 발놀림을 확인함. 그 부분은 가르칠 수 없음.
 
-Year 17, Day 22
-Reincken took one to the ribs and said she was fine.
-Checked the footwork. She wasn't fine. Sat her down a month. She came back.
-Note: this is the entry I did not write in Year 12.
+17년 22일
+라인켄이 갈비뼈에 한 대 맞고 괜찮다고 했음.
+발놀림을 확인했음. 괜찮지 않았음. 한 달 앉혀 뒀음. 돌아왔음.
+비고: 이것이 12년에 내가 쓰지 못한 항목임.
 
-Year 19, Day 6
-Kerll — fast hands. Argues with the floor every time it comes up.
-Told him the floor has never lost that argument. Day 40: he paid and left.
-Note: some of them come here to be told they're finished. That counts too.
+19년 6일
+케를 — 빠른 손. 바닥 이야기가 나올 때마다 바닥과 말다툼함.
+바닥은 그 논쟁에서 진 적이 없다고 했음. 40일차: 돈을 내고 떠남.
+비고: 어떤 이들은 끝났다는 말을 들으러 여기 옴. 그것도 계산에 넣음.
 
-Year 21, Day 4
-Reincken — ten years on this floor. Third one to reach it.
-Never the best in the room on a given night. Came back the nights she wasn't.
-That turns out to be the whole thing.
+21년 4일
+라인켄 — 이 바닥에서 십 년. 세 번째로 도달함.
+주어진 밤에 최고인 적은 없었음. 최고가 아니었던 밤에도 돌아왔음.
+그것이 결국 전부로 드러남.
 
-Year 22, Day 30
-Promoters came with good money for a fight that already had its ending.
-Closed the floor a week instead. Lost the week. Kept the floor.
-Roberday worked the corner all week for nothing. Writing that down.
+22년 30일
+주최자들이 좋은 돈을 가져왔음. 결말이 정해진 시합에.
+대신 일 주일 바닥을 닫았음. 그 주를 잃었음. 바닥을 지켰음.
+로베르데가 일 주일 내내 공짜로 코너를 맡았음. 적어 둠.
 
 {PLAYER_ENTRIES}{CHAMP_ENTRY}`;
 
 // ── Layer 64: Pit Championship ──
 const PIT_CHAMPION_OGUNDIMU = { // → doc: world.md §Pit Championship (non-dialogue NPC; appears once at HKG; pitChampionWon)
-  name: 'Ogundimu, the Iron Standard',
+  name: '오건디무, 무쇠의 기치',
   icon: '🏆',
   ac: 16,
   hp: 42,
@@ -27992,31 +27992,18 @@ const PIT_CHAMPION_OGUNDIMU = { // → doc: world.md §Pit Championship (non-dia
   drop: null,
   tier: 'elite',
   isChampion: true,
-  flavorPre: 'She arrives without ceremony. Shortsword, buckler, no introduction. She looks at your weapon and nods once — the kind of nod that means she\'s already thought about how she\'d answer it.\n\n"I retired," she says. "Not from this."',
-  flavorWin: 'She doesn\'t fall. She steps back, shield lowering.\n\n"좋아요. 잘됐네요."\n\nShe means it.\n\nShe picks up her bag. At the door she turns back.\n"다섯 번째네요. 이제 운이라 할 수 없어요."',
-  flavorLoss: 'She doesn\'t follow up. She steps back and waits.\n\n"Different day," she says. "Same champion."\n\nShe means it as an invitation, not an insult.',
+  flavorPre: '그녀는 의식 없이 도착한다. 숏소드, 버클러, 소개도 없이. 당신의 무기를 보고 한 번 고개를 끄덕인다 — 어떻게 받아칠지 이미 생각해 뒀다는 종류의 끄덕임이다.\n\n『은퇴했어요.』 그녀가 말한다. 『이것으로부터는 아니지만요.』',
+  flavorWin: '그녀는 쓰러지지 않는다. 한 걸음 물러서며 방패를 내린다.\n\n『좋아요. 잘됐네요.』\n\n진심이다.\n\n가방을 집어 든다. 문에서 돌아본다.\n『다섯 번째네요. 이제 운이라 할 수 없어요.』',
+  flavorLoss: '그녀는 덤벼들지 않는다. 물러서서 기다린다.\n\n『다른 날에요.』 그녀가 말한다. 『같은 챔피언으로요.』\n\n모욕이 아니라 초대의 뜻으로 한 말이다.',
 };
 // ── Layer 51: §XVI Weimar Scholar Gate — lower archive modal ──
 const WM_ARCHIVE_DOCS = [ // → doc: world.md §Weimar Scholar Gate (Layer 51 — ⚠️ PLANNED; reading room documents)
   { key:'wmDoc1Read', title:'프로베르거 — 접근 권한 회수 서한',
-    body:'Scholar Kings Protocol on Speculative Endangerment, Article 7:\n\n'
-      + '"Researcher J.H. Froberger, Tier 2. Application for extended field access to Void-adjacent sites — DENIED. Risk classification: Speculative, Category A. The researcher has demonstrated a pattern of extrapolating from incomplete data toward conclusions not supportable under current methodology.\n\n'
-      + 'Access revoked effective 14th of the Third Moon.\n\n'
-      + 'Signed: Archivist I. Voss. Senior Archivist, First Tier."\n\n'
-      + '— [Filed six months before Froberger\'s death in the field]' },
-  { key:'wmDoc2Read', title:'Scholar Kings Field Report — Early Void Signs',
-    body:'Subject: Void Atmospheric Anomalies, Eastern Territories (Draft, Uncatalogued)\n\n'
-      + '"Three separate reports from independent observers, covering the same phenomenon: localized atmospheric darkening at specific geographic coordinates, occurring on the same day in consecutive years. Duration: 3–7 minutes. Observers: a shepherd, a river surveyor, a traveling merchant.\n\n'
-      + 'Cross-referencing is not warranted. These are anecdotal accounts from unaffiliated individuals with no research credentials. The probability of correlation is low.\n\n'
-      + '— Filed, Third Moon. Note: filed before subsequent confirmation of coordinates as Void-adjacent."\n\n'
-      + '[Froberger\'s handwriting in margin: "I talked to the shepherd. He was describing a Void pressure event. They wrote this before they knew. So did I."]' },
-  { key:'wmDoc3Read', title:'Personnel File — The First Researcher [REDACTED]',
-    body:'File: Research Category — Containment. Date: [REDACTED]. Classification: Archive Only.\n\n'
-      + '"Researcher [REDACTED], formerly Tier 1. Primary investigation: early Void event documentation, coordinate mapping, containment theory. Access status: Revoked — Protocol 3.\n\n'
-      + 'Research notes: sealed. Published findings: none. Institutional record: archived, restricted access.\n\n'
-      + 'Note filed by: Archivist [REDACTED]. \'The researcher\'s conclusions were not wrong. The timing was wrong. The world was not ready for them.\'\n\n'
-      + '[Two archivists. The second stopped mid-sentence.]"\n\n'
-      + '— [Dates in this file precede the Scholar Kings\' official founding by a generation]' },
+    body:'학자왕 사변적 위험 규약, 제7조:\n\n『연구자 J.H. 프로베르거, 2등급. 공허 인접 구역 장기 현장 접근 신청 — 기각. 위험 분류: 사변적, A 등급. 해당 연구자는 불완전한 데이터를 현재 방법론으로 뒷받침할 수 없는 결론으로 비약하는 경향을 보여 왔습니다.\n\n접근 권한은 세 번째 달 14일부로 회수됩니다.\n\n서명: 기록관 I. 보스. 수석 기록관, 1등급.』\n\n— [프로베르거의 현장 사망 육 개월 전에 접수됨]' },
+  { key:'wmDoc2Read', title:'학자왕 현장 보고서 — 초기 공허 징후',
+    body:'주제: 공허 대기 이상 현상, 동부 지역 (초안, 미등록)\n\n『서로 무관한 관찰자 셋이 같은 현상을 각각 보고했습니다. 특정 지리 좌표에서의 국지적 대기 암화로, 연속된 해의 같은 날에 발생했습니다. 지속 시간: 3~7분. 관찰자: 양치기 한 명, 하천 측량사 한 명, 행상인 한 명.\n\n교차 확인은 필요하지 않습니다. 연구 자격이 없는 비소속 개인들의 일화적 진술입니다. 상관관계일 확률은 낮습니다.\n\n— 세 번째 달에 접수. 비고: 이후 해당 좌표가 공허 인접으로 확인되기 전에 접수됨.』\n\n[여백의 프로베르거 필적: 「그 양치기를 만나 봤다. 그는 공허 압력 사건을 묘사하고 있었다. 그들은 알기 전에 이걸 썼다. 나도 그랬다.」]' },
+  { key:'wmDoc3Read', title:'인사 기록 — 최초의 연구자 [삭제됨]',
+    body:'기록: 연구 분야 — 억제. 날짜: [삭제됨]. 분류: 기록 보관 전용.\n\n『연구자 [삭제됨], 전 1등급. 주요 조사: 초기 공허 사건 문서화, 좌표 측량, 억제 이론. 접근 상태: 회수됨 — 규약 3.\n\n연구 노트: 봉인. 공표된 결과: 없음. 기관 기록: 보관됨, 접근 제한.\n\n비고 작성: 기록관 [삭제됨]. 「연구자의 결론은 틀리지 않았다. 시기가 틀렸다. 세상이 아직 받아들일 준비가 되지 않았다.」\n\n[두 명의 기록관. 두 번째는 문장을 끝맺지 못했다.]』\n\n— [이 기록의 날짜들은 학자왕의 공식 창립보다 한 세대 앞선다]' },
 ];
 
 function _storyWmArchiveModal(wrap) {
@@ -28030,7 +28017,7 @@ function _storyWmArchiveModal(wrap) {
   sub.style.cssText = 'margin-top:6px;padding:12px 14px;background:#0c0804;border-left:3px solid #5c3311;border-radius:4px;display:flex;flex-direction:column;gap:8px;';
   const hd = document.createElement('div');
   hd.style.cssText = 'font-size:10px;font-weight:700;letter-spacing:1.5px;color:#a07030;text-transform:uppercase;margin-bottom:2px;';
-  hd.textContent = '📚 Lower Archive — 학자 구역';
+  hd.textContent = '📚 하층 기록실 — 학자 구역';
   sub.appendChild(hd);
   const _makeDoc = (borderColor, labelColor, label, bodyHtml, readBtn) => {
     const card = document.createElement('div');
@@ -28276,67 +28263,67 @@ const YAEL_NAMED_REPORT_SCENE = { // → doc: world.md §Yael's Named Report Sce
 
 // ── Layer 73: §XXXVIII Brynn Heartwood Letter ──
 const BRYNN_HEARTWOOD_SCENE = { // → doc: world.md §The Heartwood Letter (Layer 73; TLL Act IV+; s2DaughterDelivered)
-  friendly: '"편지가 왔어요. 석 달 만의 첫 편지."\n\nShe slides it off the counter, folds it back into the envelope.\n\n"She\'s working with a surveyor in the Heartwood district. Measuring things. She says she\'s good at it." A pause. "She wrote \'expedition\' in the letter. She said she learned that word from a traveler who stayed here years ago."\n\nShe puts the envelope away. "좋은 방은 여전히 당신 거예요."',
-  dearFriend: '"편지가 왔어요."\n\nShe sets the letter on the counter between you, then picks it back up.\n\n"She\'s with a surveyor in the Heartwood district. Learning to measure property lines, well depth — things you can\'t see the end of. She says she has patience for it."\n\nShe reads the last line aloud:\n\n"\'I don\'t know if it\'s patience or stubbornness. I signed this expedition because I couldn\'t decide.\'"\n\nBrynn folds the letter. Her daughter pressed hard when she wrote it — the impressions are visible through the back of the envelope.\n\n"She found a word for what she\'s doing."\n\nShe doesn\'t say anything else for a moment. Then: "The good room has a window that faces east."',
+  friendly: '『편지가 왔어요. 석 달 만의 첫 편지.』\n\n그녀는 편지를 카운터 너머로 밀었다가, 봉투에 다시 접어 넣는다.\n\n『심재 구역에서 측량사와 일하고 있어요. 뭔가를 재는 일이래요. 잘한다고 하네요.』 잠시 멈칫. 『편지에 「원정」이라고 썼어요. 몇 년 전에 여기 묵었던 여행자에게 배운 단어래요.』\n\n봉투를 치운다. 『좋은 방은 여전히 당신 거예요.』',
+  dearFriend: '『편지가 왔어요.』\n\n편지를 카운터 위, 당신과의 사이에 놓았다가 다시 집어 든다.\n\n『심재 구역의 측량사와 함께 있어요. 지적선 재는 법, 우물 깊이 같은 걸 배운답니다 — 끝이 보이지 않는 것들이요. 인내심이 있다고 하네요.』\n\n마지막 줄을 소리 내어 읽는다.\n\n『인내심인지 고집인지 모르겠대요. 결정할 수가 없어서 이번 원정에 서명했대요.』\n\n브린이 편지를 접는다. 딸이 쓸 때 힘주어 눌렀다 — 봉투 뒷면으로 자국이 보인다.\n\n『자기가 하는 일을 가리키는 단어를 찾았어요.』\n\n잠시 아무 말도 하지 않는다. 이어서. 『좋은 방에는 동쪽을 향한 창이 있어요.』',
 };
 
 // ── Layer 72: §XXXVII Commander Bruhns TLS Scene ──
 const BRUHNS_CO_SCENE = { // → doc: story.md §The Final Confrontation: Commander Bruhns's CO Scene (Layer 68a; TLS node; dearFriendWithTheory cross-ref s29LineDelivered)
-  friendly: '"You got this far. Froberger made it this far too, more than once."\n\nA pause. The cordon behind her is steady.\n\n"He didn\'t finish. I need you to finish. So does the city."',
-  dearFriend: '"내가 여기서 뭘 했는지 알잖아요."\n\nIt isn\'t a question. She looks at the Codex Cradle, then at you.\n\n"The Circle classified every report I submitted for eleven years. I\'ve been buying time the only way the Circle\'s rules allow — holding command. As long as I hold this platform, no Circle delegate can lock that Cradle without going through me. And they won\'t move against a standing Commander without cause."\n\nShe meets your eyes.\n\n"You beating me is cause. Documented, witnessed, legitimate. After that, I don\'t hold command and I don\'t hold the Codex. You do. And the Circle can\'t classify that — you\'d be the one who opened it."\n\nA beat.\n\n"I\'m going to do everything I can to stop you. That\'s not negotiable. The Circle is watching and I need this to look like I meant it."\n\nShe doesn\'t wait for a response.',
-  dearFriendWithTheory: '"You understood the tactical model. That meant you understood what getting this wrong would cost. Anyone who understood that and still came here — I can trust them to open it."',
+  friendly: '『여기까지 왔군요. 프로베르거도 여기까지 왔었어요. 한 번 이상.』\n\n잠시 멈칫. 그녀 뒤의 봉쇄선은 흔들림이 없다.\n\n『그는 끝내지 못했어요. 당신은 끝내야 해요. 이 도시도 그래야 하고요.』',
+  dearFriend: '『내가 여기서 뭘 했는지 알잖아요.』\n\n반문이 아니다. 그녀는 코덱스 받침대를, 이어서 당신을 본다.\n\n『서클은 제가 십일 년간 올린 보고서를 전부 기밀로 분류했어요. 저는 서클의 규칙이 허락하는 유일한 방법으로 시간을 벌었습니다 — 지휘권을 유지하는 것. 이 단상을 지키고 있는 한, 어떤 서클 대표도 저를 거치지 않고는 저 받침대를 잠글 수 없어요. 그리고 그들은 사유 없이 현직 사령관에게 맞서지 않습니다.』\n\n당신의 눈을 마주한다.\n\n『당신이 저를 이기는 것이 사유예요. 기록되고, 목격되고, 정당한. 그 뒤에는 저는 지휘권도 코덱스도 쥐지 않습니다. 당신이 쥐어요. 그리고 서클은 그것을 기밀로 할 수 없습니다 — 당신이 그것을 연 사람일 테니까요.』\n\n한 박자.\n\n『저는 당신을 막기 위해 할 수 있는 모든 것을 할 거예요. 그건 협상 불가예요. 서클이 보고 있고, 저는 이것이 진심으로 보여야 합니다.』\n\n그녀는 대답을 기다리지 않는다.',
+  dearFriendWithTheory: '『전술 모형을 이해하셨군요. 그건 이것을 잘못했을 때의 대가를 이해했다는 뜻이에요. 그것을 이해하고도 여기 온 사람이라면 — 그것을 여는 것을 믿고 맡길 수 있어요.』',
 };
 
 // ── Layer 71: §XXXVI Arc Epilogue Conditions ──
 const ARC_EPILOGUE_CONDITIONS = [ // → doc: story.md §Epilogue (Layer 71; conditional appends to NPC_EPILOGUES at victory)
   // §XXIX — Pit Championship (uses pitChampionWon, not defeatedBattles['CF'])
   { cond: () => !!(S_story.pitChampionWon),
-    line: "Ogundimu offered her hand after. You shook it. She's still undefeated in her mind — she says you were the floor, not the ceiling." },
+    line: "오건디무가 뒤에 손을 내밀었다. 당신이 잡았다. 자기 생각 속에서는 여전히 무패다 — 당신은 천장이 아니라 바닥이었다고 그녀는 말한다." },
   // §XXX — Entry 41 Echo (both)
   { cond: () => !!(S_story.s49BrynnDelivered && S_story.s49SweelinckDelivered),
-    line: "Both of them have Entry 41. They haven't compared notes. They don't need to." },
+    line: "둘 모두 41번째 기록을 가지고 있다. 서로 맞춰 보지 않았다. 그럴 필요가 없다." },
   // §XXX — Entry 41 Echo (Sweelinck only)
   { cond: () => !!(S_story.s49SweelinckDelivered && !S_story.s49BrynnDelivered),
-    line: "Sweelinck has the journal. He keeps it at the right height on the shelf. You know which one." },
+    line: "스베일링크가 일지를 가지고 있다. 선반의 맞는 높이에 둔다. 당신은 어느 칸인지 안다." },
   // §XXX — Entry 41 Echo (Brynn only)
   { cond: () => !!(S_story.s49BrynnDelivered && !S_story.s49SweelinckDelivered),
-    line: "Brynn read Entry 41 twice, quietly, and set it down. She hasn't mentioned it since. She hasn't needed to." },
+    line: "브린은 41번째 기록을 조용히 두 번 읽고 내려놓았다. 그 뒤로 언급하지 않았다. 그럴 필요가 없었다." },
   // §XXXI — Joint Witness (S54)
   { cond: () => !!(S_story.s54JointMomentDelivered),
-    line: "Brynn and Yael stood in the same light at the same time. They both looked at you. The light held." },
+    line: "브린과 야엘이 같은 순간 같은 빛 속에 섰다. 둘 다 당신을 보았다. 빛은 유지되었다." },
   // §XXXII — Varga Watch (S8)
   { cond: () => !!(S_story.s8PachelbelTold),
-    line: "Pachelbel recognized the forwarding route without being told what it was. She hasn't mentioned Varga by name since. She doesn't need to." },
+    line: "파헬벨은 그것이 무엇인지 듣지 않고도 전달 경로를 알아보았다. 그 뒤로 바르가의 이름을 입에 올리지 않았다. 그럴 필요가 없다." },
   // §XXXII — Auros Theory (S29)
   { cond: () => !!(S_story.s29LineDelivered),
-    line: "Auros had the complete picture. The structural survey and the tactical theory were filed together. That's new." },
+    line: "아우로스가 전체 그림을 손에 넣었다. 구조 조사와 전술 이론이 함께 접수되었다. 그것은 처음 있는 일이다." },
   // §XXXIII — Archive Letter
   { cond: () => !!(S_story.archiveLetterObtained),
-    line: "The archive letter is in Weimar. The footnote that said 'no restriction required' is on record. It's no longer the last word." },
+    line: "기록실 서한은 바이마르에 있다. 『제한 불필요』라던 각주가 기록에 남았다. 더 이상 그것이 최종 결론은 아니다." },
   // §XXXIII — Survey to Auros (uses undercitySurveyDelivered, not surveyDeliveredToAuros)
   { cond: () => !!(S_story.undercitySurveyDelivered),
-    line: "Auros has the Year Ten pressure data. The sectors match her Year Twelve projections. She's drafting a unified report." },
+    line: "아우로스가 10년차 압력 데이터를 가지게 되었다. 구역들이 그녀의 12년차 예측과 일치한다. 통합 보고서를 작성 중이다." },
   // §XXXIV — Couperin Ledger (arc complete + debt resolved)
   { cond: () => !!(S_story.quillQuestComplete && S_story.couperiDebtReleased),
-    line: "Quill plays the family theme on request. He calls it 'the one that came back.' The lute is still in tune." },
+    line: "퀼이 청하면 가문의 주제곡을 연주한다. 『돌아온 곡』이라고 부른다. 류트는 여전히 조율이 맞아 있다." },
   // §XXXIV — Couperin Ledger (arc complete, debt not yet resolved)
   { cond: () => !!(S_story.quillQuestComplete && !S_story.couperiDebtReleased),
-    line: "Quill has the lute. He knows what a number means. He hasn't found the words for the last part yet." },
+    line: "퀼이 류트를 되찾았다. 숫자가 무슨 의미인지 안다. 아직 마지막 부분을 위한 말은 찾지 못했다." },
   // §XXXV — First Inn Light (choice: keep)
   { cond: () => !!(S_story.brynnLightChoiceMade && S_story.brynnLightKept),
-    line: "The lamp at the First Inn is still burning. Brynn checked it this morning." },
+    line: "첫 여관의 등불은 아직 타고 있다. 브린이 오늘 아침 확인했다." },
   // §XXXV — First Inn Light (choice: rest)
   { cond: () => !!(S_story.brynnLightChoiceMade && !S_story.brynnLightKept),
-    line: "The lamp at the First Inn burned down quietly. Brynn says it did its work. She's right." },
+    line: "첫 여관의 등불이 조용히 다 타들어갔다. 브린은 할 일을 다 했다고 말한다. 맞는 말이다." },
   // §XXXV — First Inn Light (story told, choice never offered)
   { cond: () => !!(S_story.brynnKeeperStoryTold && !S_story.brynnLightChoiceMade),
-    line: "Brynn never asked what you wanted for the lamp. She kept tending it. It's still burning." },
+    line: "브린은 등불을 어떻게 하길 원하는지 묻지 않았다. 계속 돌보았다. 아직 타고 있다." },
   // §XXXVIII — Heartwood Letter (uses s2DaughterDelivered per §XXXVIII reconciliation note)
   { cond: () => !!(S_story.s2DaughterDelivered),
-    line: "Brynn's daughter wrote 'expedition' at the bottom of the letter. She's measuring property lines in the Heartwood district. She's good at it." },
+    line: "브린의 딸이 편지 끝에 「원정」이라고 썼다. 심재 구역에서 지적선을 재고 있다. 잘한다." },
   // §XXXIX — Yael's Named Report
   { cond: () => !!(S_story.yaelNamedReportDelivered),
-    line: "Yael kept three copies of the second report. She knows exactly where each one is." },
+    line: "야엘은 두 번째 보고서의 사본 세 부를 보관했다. 각각이 어디 있는지 정확히 안다." },
 ];
 
 function _buildEpilogueScroll() {
@@ -33246,7 +33233,7 @@ function _nodeHookBirkaWeckmannLog(node, { npcRowDiv }) {
           _pcHd.textContent = '🏆 Weckmann — The Pit Championship';
           const _pcBody = document.createElement('div');
           _pcBody.style.cssText = 'font-size:12px;line-height:1.8;color:#c8a870;white-space:pre-wrap;';
-          _pcBody.textContent = 'Weckmann is cleaning the forge when you arrive. He sets the brush down.\n\n"Five. You know what five means?"\n\nHe doesn\'t wait for an answer.\n\n"It means I\'ve been holding back a name. Ogundimu. The Iron Standard — that\'s what they called her, before the dispute. She doesn\'t fight for rankings anymore. She fights because she wants to know if she\'s still herself."\n\nHe picks the brush back up.\n\n"I told her about you. She said yes. That means something — she says no to most people."';
+          _pcBody.textContent = '당신이 도착했을 때 베크만은 대장간을 닦고 있다. 솔을 내려놓는다.\n\n『다섯. 다섯이 무슨 뜻인지 알아?』\n\n대답을 기다리지 않는다.\n\n『이름 하나를 아껴 두고 있었다는 뜻이야. 오건디무. 무쇠의 기치 — 논쟁이 있기 전에는 다들 그렇게 불렀지. 그녀는 더 이상 순위를 위해 싸우지 않아. 자기가 아직 자기인지 알고 싶어서 싸울 뿐이야.』\n\n솔을 다시 집어 든다.\n\n『그녀에게 네 이야기를 했어. 좋다고 하더군. 그건 의미가 있어 — 그녀는 대부분에게 아니라고 하거든.』';
           const _pcBtns = document.createElement('div');
           _pcBtns.style.cssText = 'display:flex;gap:8px;';
           const _pcAccept = document.createElement('button');
