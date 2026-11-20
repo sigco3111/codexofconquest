@@ -13107,7 +13107,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
           { kind:'_legacy_fn', fn:() => {
             S_story.whodunit2WitnessRead = true;
             S_story.xp = (S_story.xp||0) + 200;
-            storyMsg('🎯 Delt\'s recall is specific. Cold from below, not the air. The smell is ocean-deep — not tidal, not harbor. Something from deep water in a confined space. The "reading sound" is sea spawn handling objects — they move things with gill-finned arms in a pattern that sounds like paper.\n\nThey took the tallow (food). The rope (nesting material). The charts were on top of the tallow and got displaced in the process.\n\nTwo creatures — the second followed the first through the drain within the first day. Delt was sedated by the proximity paralytic sea spawn use on prey. It disperses in air. He was not harmed. He was just in the way.\n\n+200 XP. Quest: 빌지 소탕 now active.');
+            storyMsg('🎯 델트의 기억은 구체적이다. 아래에서 오는 냉기. 공기가 아니다. 냄새는 바다 깊은 곳의 것 — 밀물도, 항구도 아니다. 좁은 공간의 깊은 물에서 온 무언가다. 그 "읽는 소리"는 씨 스폰이 물건을 다루는 소리다 — 그들은 아가미 지느러미 팔로 종이 같은 소리가 나는 패턴으로 물건을 움직인다.\n\n그들은 수지(음식)를 가져갔다. 밧줄(둥지 재료)도. 해도는 수지 위에 있었고 그 과정에서 밀려났다.\n\n두 마리 — 두 번째가 첫날 안에 첫 번째를 따라 배수구로 들어왔다. 델트는 씨 스폰이 먹잇감에 쓰는 근접 마취제에 마취됐었다. 공기 중에 흩어진다. 그는 다치지 않았다. 그저 경로에 있었을 뿐이다.\n\n+200 XP. 퀘스트: 빌지 소탕 활성화.');
           } },
         ],
         onFail:[
@@ -22444,9 +22444,9 @@ const NPC_DIALOGUE = { // → doc: story.md §FL7
     : '『그 파발은 나를 위해 일했어. 그가 죽기 전에 너에게 무슨 말을 했든, 그건 1막이었어. 2막에 온 걸 환영해.』' },
   LGW: { name:'상인 미라',                     quote:'『영주들은 그것을 잔치 재주에 쓰지. 무대 스태프는 장면 전환에 쓰고. 영리한 사람들은 다른 일에 써.』 알 듯 말 듯한 눈빛.' },
   STN: { name:'주인 더스크', quoteFn:() => S_story.solmFound // §LVII
-    ? '"She left this morning. Before the cinnamon stalls opened." He straightens a map that does not need straightening. "She took her notebook. She left the field file." He sets a slim folder on the counter — three months of entries, small handwriting, entirely composed. "For the archive, she said. Whoever closes the record should hold it." He looks at you. "기록을 닫았어요."'
+    ? '"그녀는 오늘 아침에 떠났어. 계피 노점이 열기 전에." 바로잡을 필요가 없는 지도를 그가 바로잡는다. "공책은 가져갔어. 야전 파일은 두고 갔지." 그가 얇은 폴더를 카운터에 올린다 — 석 달 치 기록, 작은 글씨, 전부 정돈되어 있다. "기록 보관소를 위해서라고 했어. 기록을 닫는 사람이 가져야 한다고." 그가 당신을 본다. "기록을 닫았어요."'
     : S_story.antecedentMet && !S_story.solmFound // §LVII
-    ? ((() => { S_story.solmFound = true; return '"뒷방." He lifts the hinged counter without ceremony. "Three months. She reorganized the shelf twice." He says it the way he says everything — as a fact, without opinion about it.\n\nAnalyst Solm is at the back desk with a notebook open to a fresh page. She looks up once. Her pen does not move.\n\n"The transmission lasted three seconds and eleven tenths. I had stopped writing because I was listening so carefully I forgot to log. When it cut — I understood what had happened before I understood what I had heard."\n\nShe sets the pen down.\n\n"I did not return to Station 7. I came here instead. Classified knowledge you can no longer safely carry — Magistra Muffat is the only institutional function that makes sense for that." A pause. "You were down there." Not a question. She looks at the entry she wrote this morning. "Was it —"\n\nShe stops.\n\n"Confirmed," she says quietly. "That\'s sufficient." She writes it once more, cleanly, and closes the volume.'; })())
+    ? ((() => { S_story.solmFound = true; return '"뒷방." 그가 예의 없이 경첩 카운터를 들어 올린다. "석 달. 선반을 두 번 재정리했어." 그는 모든 것을 말하는 방식으로 말한다 — 사실로서, 의견 없이.\n\n분석관 솔름이 새 페이지를 펼친 공책을 앞에 두고 뒷 책상에 앉아 있다. 그녀가 한 번 올려다본다. 펜은 움직이지 않는다.\n\n"송신은 3초와 11/10초 동안 지속됐어요. 너무 주의 깊게 듣느라 기록하는 걸 잊어서 쓰기를 멈췄어요. 끊겼을 때 — 무엇을 들었는지 이해하기 전에 무슨 일이 일어났는지 이해했어요."\n\n그녀가 펜을 내려놓는다.\n\n"스테이션 7로는 돌아가지 않았어요. 대신 여기로 왔어요. 더 이상 안전하게 지니고 다닐 수 없는 기밀 지식 — 마기스트라 무파트가 그런 것에 해당하는 유일한 기관 기능이에요." 잠깐의 멈칫. "아래에 있었군요." 묻는 말이 아니다. 그녀가 오늘 아침에 쓴 기록을 본다. "설마 —"\n\n그녀가 멈춘다.\n\n"확인됐어요," 그녀가 조용히 말한다. "그걸로 충분해요." 그녀가 그것을 한 번 더, 깨끗하게 적고 책을 덮는다.'; })())
     : '『문에 간판이 없는 건 의도된 거야. 네가 찾아냈다는 건, 찾아내기로 되어 있었다는 뜻이야. 나는 십일 년째 그것이 필요한 누군가를 기다리며 진짜 지도를 보관하고 있었어.』' },
   // §AUDIT-03j: this slot used to be the Ship Captain alone, and the §SPARK-01 hold
   // investigation's speaker sat beside it under the key `MS_SPARK` — the legacy code
@@ -22468,20 +22468,20 @@ const NPC_DIALOGUE = { // → doc: story.md §FL7
   JRS: { name:'바르나흐', quoteFn:() => S_story.hellenistsThreaten // §LXI
     ? '『그들이 성문에 있어. 집회장에도 있고. 광장에도 있어.』 그는 그들이 무엇을 원하는지에 시간을 쓰지 않는다. 둘 다 아는 것이다. 『보름이 이 도시가 이 긴장을 견딜 준비가 된 기간이었어. 견뎌냈어.』 그가 서문 쪽을 본다. 『타르수스. 타르수스로 가. 너는 타르수스 출신이야. 그들은 타르수스까지는 따라오지 않아.』'
     : S_story.barnachVouchedHR // §LXI — Barnach has vouched; counting days
-    ? '"이 일에 대한 도시의 태도는 복잡해요." He means it as information, not complaint. "Some people are afraid. Some people are glad. Both groups have grounds. You have been arguing in the assembly hall." He does not say this is a problem. He says it the way he says things that are true and will continue to be true for some number of days that he has a specific number for and is not sharing yet.'
+    ? '"이 일에 대한 도시의 태도는 복잡해요." 불평이 아니라 정보로서 말한다. "어떤 사람들은 두려워해요. 어떤 사람들은 기뻐하고요. 둘 다 근거가 있어요. 당신은 집회장에서 논쟁해 왔고요." 그는 이것이 문제라고 말하지 않는다. 참이고 앞으로도 얼마간 계속 참일 것들을 말하는 그의 방식으로 말한다 — 정확한 일수를 알고 있지만 아직 공유하지 않는다.'
     : S_story.saulConverted // §LXI — return: first Barnach meeting
-    ? ((() => { S_story.barnachVouchedHR = true; return '"그는 거기 있었어요. 나는 없었고요." He says it simply, the way someone says the one true thing they have that applies to the situation. "I am vouching for what he told me, which is everything he has."\n\nThe people in the room are afraid. Some of them have reasonable grounds for being afraid of him and some have reasonable grounds for being afraid of what he represents and some are afraid in the way people are afraid when two things they held separately have become the same thing.\n\nBarnach looks at them all and says: he was there.\n\nIt is enough. For now.'; })())
+    ? ((() => { S_story.barnachVouchedHR = true; return '"그는 거기 있었어요. 나는 없었고요." 상황에 해당하는 단 하나의 참된 말을 가진 사람이 그것을 말하는 방식으로, 그는 담담히 말한다. "나는 그가 내게 말한 것을 보증해요. 그것이 그가 가진 전부예요."\n\n방 안의 사람들은 두려워하고 있다. 어떤 이들은 그를 두려워할 합리적 근거가 있고, 어떤 이들은 그가 대표하는 것을 두려워할 합리적 근거가 있고, 어떤 이들은 따로 지니고 있던 두 가지가 같은 것이 되었을 때 사람들이 두려워하는 방식으로 두려워한다.\n\n바르나흐가 그들 모두를 보고 말한다: 그는 거기 있었다.\n\n충분하다. 지금은.'; })())
     : '『영장은 부서된다. 세 부: 하나는 너, 하나는 호위 지휘관, 하나는 다마스쿠스 치안판사에게. 죄수들은 처리를 위해 예루살렘으로 돌려보내져야 한다. 다마스쿠스에서 처리하지 마라. 다마스쿠스 치안판사에게는 기각할 권한이 있고 우리 치안판사에게는 없다.』' },
   DAM: { name:'아나스', quoteFn:() => S_story.anathSightRestored // §LIX
     ? '『삼 년 동안 당신이 두려웠습니다. 그 문을 두드릴 때도 당신이 두려웠어요. 나는 그것이 문제가 되지 않게 하기로 선택했습니다.』 그가 대접을 든다. 그는 당신을 직접 보지 않는다. 거부감에서가 아니라, 자신이 할 수 있는 줄 몰랐던 일을 하고 아직 그게 무슨 뜻인지 알아내는 중인 사람 특유의 침착함에서다. 창으로 길이 보인다. 그것은 언제나 거기 있었다.'
     : S_story.blindDaysKS >= 3 // Day 3 — Anath arrives
-    ? ((() => { S_story.anathSightRestored = true; return '"I was told you were here. I was told to come." He sets the bowl down on the table beside the window. His hands are steady. His voice is not quite steady. "I have heard what you did to the people in Jerusalem. I have heard what you were coming here to do."\n\nHe does not say: I was afraid of you. He does not need to.\n\n"어쨌든 나는 여기 있어요."\n\nHe places his hands. The light returns.'; })())
+    ? ((() => { S_story.anathSightRestored = true; return '"당신이 여기 있다는 말을 들었습니다. 오라는 말을 들었습니다." 그가 창가 탁자에 대접을 내려놓는다. 손은 떨리지 않는다. 목소리는 조금 떨린다. "당신이 예루살렘의 사람들에게 한 일을 들었습니다. 당신이 여기 오러 온 이유도 들었습니다."\n\n그는 말하지 않는다: 당신이 두려웠습니다. 그럴 필요가 없다.\n\n"어쨌든 나는 여기 있어요."\n\n그가 손을 얹는다. 빛이 돌아온다.'; })())
     : '「방이 조용하다. 사흘. 여관 주인이 정오에 음식을 가져오고 아무것도 묻지 않는다. 다른 누군가의 하인이 아침에 물을 가져온다. 문은 닫혀 있다. ' + (S_story.blindDaysKS || 0) + '일째.\n\n당신은 기다린다.」' },
   // §LXIV: LT — Timael (does not explain his loyalty)
   KYA: { name:'티마엘', quoteFn:() => S_story.timaelaJoined // §LXIV
-    ? '"I am from Lystra. The city does not need me in the way it needed the man at the gate to stay. I can leave." He looks at the road. He looks at Paul. "나는 안 떠나요."'
+    ? '"나는 리스트라 출신이에요. 이 도시는 성문의 그 사람이 남아야 했던 방식으로는 나를 필요로 하지 않아요. 나는 떠날 수 있어요." 그가 길을 본다. 바울을 본다. "나는 안 떠나요."'
     : S_story.stoningEvent // Stoning: Timael stayed
-    ? ((() => { S_story.timaelaJoined = true; return 'He was watching from the market square when it started. He did not leave when the crowd turned. He did not leave when the stones came. He did not leave after.\n\n"He got up," Timael says. He has been standing here since the crowd went home. "다들 떠났어요. 나는 남기로 했고요."\n\nHe is young. He is watching the road. He has not examined why he stayed and does not appear to need to. "다음엔 어디로 가시나요?"'; })())
+    ? ((() => { S_story.timaelaJoined = true; return '시작되었을 때 그는 시장 광장에서 지켜보고 있었다. 군중이 돌아섰을 때도 떠나지 않았다. 돌이 날아왔을 때도 떠나지 않았다. 그 후에도 떠나지 않았다.\n\n"그가 일어났어요," 티마엘이 말한다. 군중이 집으로 돌아간 뒤로 그는 여기 서 있었다. "다들 떠났어요. 나는 남기로 했고요."\n\n그는 젊다. 그가 길을 보고 있다. 왜 남았는지 따져 보지도 않았고 그럴 필요도 없어 보인다. "다음엔 어디로 가시나요?"'; })())
     : S_story.lameManHealed // After healing — crowd response
     ? '『그들은 그를 신이라 불렀어요. 그는 그들을 바로잡았습니다. 장황하게. 그들은 신에게 제물을 바칠 준비가 되어 있었죠.』 티마엘이 성문에서 흩어지는 군중을 본다. 그는 방금 본 것이 무엇인지 모르겠지만 그것이 실제였다는 것은 확실하다. 『그는 그 남자를 보았어요. 군중이 아니라. 말했죠. 일어서라. 남자는 일어섰어요.』 그가 길을 지켜본다. 『군중은 화가 났습니다. 그들은 받은 것과 다른 무언가를 기대하고 왔어요.』'
     : '『성문의 그 남자는 내 평생 거기 있었어요. 그는 길을 지켜봅니다. 오랫동안 지켜봐 왔어요.』 잠깐의 멈칫. 『오늘 그는 특별히 바울을 지켜보고 있어요. 내가 알아챘죠.』' },
@@ -22500,11 +22500,11 @@ const NPC_DIALOGUE = { // → doc: story.md §FL7
         return '이 기록에서 그가 처음으로 바울로 불린다.\n\n총회 장로가 두 손을 탁자에 납작하게 올린다. 『우리가 당신을 보냅니다. 바르나흐가 함께 갑니다. 실라르가 함께 갑니다. 필요한 것을 가져가세요. 사명은 이것입니다. 닿을 수 있는 도시들로 가서 당신이 아는 것을 말하시오. 그것이 전부입니다.』\n\n바르나흐는 이미 문가에 있다. 실라르는 물 저장량을 확인하고 있다. 바울은 탁자를 본다. 그는 전에도 궁정에서 보내진 적이 있다. 자기 권위로 보내진 적도 있다. 양방향으로 자신에게 책임이 있는 사람들에게 보내진 것은 처음이다.\n\n『사명은 단순합니다.』 장로가 말한다. 『일이 단순하지 않기 때문이죠.』';
       })()) },
   ADA: { name:'바르나흐', quoteFn:() => S_story.barnachFoundPaul // §LXI
-    ? '"일 년 동안 당신을 찾아다녔어요. 안티오크가 당신을 필요로 해요. 나도요." He does not say: come back. He is standing in the doorway of a city you grew up in and he is not telling you what to do. He is telling you that you are needed, which is different from telling you what to do, which is one of the things that is different about who he is now. "I am not going to tell you it\'s safe — you know it isn\'t. I am going to tell you it\'s time."'
-    : ((() => { S_story.barnachFoundPaul = true; return 'He comes through the gate in the early afternoon, when the tentmaking quarter is quiet and the light is flat. He has the look of someone who has been traveling a long time and not sleeping particularly well and has kept going anyway.\n\n"일 년 동안 당신을 찾아다녔어요."\n\nThe tent canvas is on the frame behind you. The tools are on the bench. The city has had no particular opinion about this work and you have required none.\n\n"안티오크가 당신을 필요로 해요. 나도요." He looks at the canvas. He looks at you. "때가 됐어요."'; })()) },
+    ? '"일 년 동안 당신을 찾아다녔어요. 안티오크가 당신을 필요로 해요. 나도요." 그는 말하지 않는다: 돌아와요. 그는 당신이 자란 도시의 문간에 서서 무엇을 하라고 말하지 않는다. 그는 당신이 필요하다고 말한다. 무엇을 하라는 것과는 다른 것이고, 그것은 지금의 그가 달라진 것들 중 하나다. "안전하다고는 말하지 않을 거예요 — 아니라는 걸 아시잖아요. 때가 됐다고 말할 거예요."'
+    : ((() => { S_story.barnachFoundPaul = true; return '이른 오후, 천막 제작 지구가 조용하고 빛이 평평할 때 그가 문을 지나온다. 오랫동안 여행하고 잠을 그리 잘 자지 못했으면서도 계속 걸어온 사람의 얼굴이다.\n\n"일 년 동안 당신을 찾아다녔어요."\n\n천막 천이 뒤의 틀에 걸려 있다. 도구들은 작업대 위에 있다. 도시는 이 일에 아무 의견도 없었고 당신도 요구한 적 없다.\n\n"안티오크가 당신을 필요로 해요. 나도요." 그가 천을 본다. 당신을 본다. "때가 됐어요."'; })()) },
   // §SIREN-01: Littoral Courts NPCs
   LC1: { name:'아우렐 부인', quoteFn:() => S_story.aurelTideRead
-    ? '"봉인은 당신 것이에요." She closes the tide table. It is the first time you have seen her close it. "You did not wait for the window. You made yourself the appointment." She sets the table aside. The harbor below continues without her consultation. "그 해석이 맞아요."'
+    ? '"봉인은 당신 것이에요." 그녀가 물때표를 닫는다. 그녀가 그것을 닫는 것을 당신이 본 것은 처음이다. "당신은 물때를 기다리지 않았어요. 스스로 약속을 만들었어요." 그녀가 표를 옆으로 치운다. 아래 항구는 그녀의 의논 없이 계속된다. "그 해석이 맞아요."'
     : S_story.betrayalThought
     ? '『조사는 완료됐어요. 내일 두 번째 물때에 오세요.』 그녀는 다정하게 말한다. 그녀는 모든 것을 다정하게 말한다. 그 다정은 진짜다. 분납도 진짜다. 당신은 아직 자신이 몇 회차인지 묻지 않았다.'
     : '『물때표는 사 주 앞까지 나와 있어요. 모든 약속, 모든 도선 시간, 모든 화물 흘수, 전부 여기에요.』 그녀는 말하면서 읽는다. 읽으면서 말한다. 『남쪽 의뢰는 이번 주에 벌써 세 번째예요. 다음 시간에 뵙죠. 오래 걸리지 않을 거예요.』' },
@@ -22623,7 +22623,7 @@ const NPC_DIALOGUE = { // → doc: story.md §FL7
     ? '『간수가 한밤중에 온 식구를 데리고 내려왔어요. 그렇게 빨리 결정하는 사람은 처음 봤어요. 문이 열리는 것을 보고, 검에 손이 갔다가, 눈 깜빡일 새도 없이 검을 내려놓더라고요. 누군가 마음을 완전히 바꿀 때 어떤 모습인지가 그것이에요.』 그녀는 객실 계단을 본다. 『위에 일곱, 그다음 다섯. 방을 정리할 때 세어 봤어요.』'
     : S_story.lyraConverted
     ? '『말하기 전에 결정했어요. 말하는 것은 확인이었죠.』 그녀는 자줏빛 천을, 결정한 것들을 정리할 때의 방식으로 정리해 두었다. 의식이 아니라 정성으로. 그녀에게는 참된 것을 중심으로 삶을 재편하고 더 이상 그 배치를 의심하지 않는 사람의 기질이 있다.'
-    : ((() => { S_story.lyraConverted = true; return 'She has been watching from across the bridge for two days. She has evaluated the quality of the teaching and the character of the teacher and the question underneath both and has come to a conclusion.\n\n"이 얘기를 더 듣고 싶어요." She says it the way a purple-cloth merchant says things she has already priced — a final assessment, not an inquiry.\n\n"Come to the house. Bring whoever is with you."\n\nShe does not say: I believe you. She does not need to say it. She has already arranged the household.\n\nShe points toward the stairs. "Seven up, then a landing, then five more. The guest room is reliable. Sleep before the prison problem gets worse."'; })()) },
+    : ((() => { S_story.lyraConverted = true; return '그녀는 이틀 동안 다리 건너편에서 지켜보고 있었다. 가르침의 질과 가르치는 사람의 품성, 그리고 그 둘 아래 놓인 질문을 저울질하고 결론에 도달했다.\n\n"이 얘기를 더 듣고 싶어요." 자줏빛 천 상인이 이미 값을 매긴 것들을 말하는 방식으로 그녀는 말한다 — 묻는 것이 아니라 최종 평가로.\n\n"집으로 오세요. 함께 있는 사람도 데려오세요."\n\n그녀는 말하지 않는다: 당신을 믿어요. 말할 필요가 없다. 집안 준비는 이미 끝냈다.\n\n그녀가 계단을 가리킨다. "일곱 개를 오르면 참, 그리고 다섯 개 더. 객실은 믿을 만해요. 감옥 문제가 나빠지기 전에 주무세요."'; })()) },
   ATH: { name:'아테네 시장 관리인', quoteFn:() => S_story.areopagusSpeech
     ? '『그 제단은 이백 년 동안 거기 있었습니다. 우리는 온전히 이해하지 못하는 것을 관리합니다. 당신은 그것이 무엇을 의미해야 하는가가 아니라 늘 무엇을 의미해 왔는가로 그것을 설명한 첫 사람이오.』 그는 비문 패를 바로잡는다. 바로잡을 필요는 없다. 『아레오파고스는 이 대화를 기억할 것이오. 어떤 이들은 다른 이들보다 더 오래 곱씹겠지요.』'
     : '『알 수 없는 이에게. 이백 년의 관리. 그것을 세운 이들 중 살아 있는 이는 없습니다. 우리는 모든 제단을 관리하기에 그것을 관리합니다. 시정으로서의 신학적 완비성이죠. 당신은 그 앞에 꽤 오래 서 계셨습니다.』 그는 멈칫한다. 『저희는, 거기서 무엇을 보시기에 이토록 주의가 필요한지 궁금합니다.』' },
@@ -22699,14 +22699,14 @@ const BIRKA_NPC_PROFILES = { // → doc: world.md §PART FOUR-B — THE BIRKA SI
     friendly: { greeting:'그대가 계단을 다 오르기도 전에 그녀는 좋은 방을 준비해 두었어요.',
                 dialogue:'"우리 딸이 지난주에 공책에 『원정대』라고 썼어요. 연필을 아주 꾹 눌러서요. 진심이에요." 브린이 장부를 보며 웃어요. "어떤 원정인지는 아직 말하지 않았어요. 나도 묻지 않았고요."' },
     dearFriend:{ greeting:'브린이 찻주전자를 탁자에 올려요. 그대는 시키지 않았어요.',
-                 dialogue:'"She came back. My daughter. She\'d been to three cities and back in six weeks." A quiet moment. "She asked about the map. The one you carried. I told her what I knew." She refills the cup. "늦게까지 깨어 있었어요."' },
+                 dialogue:'"돌아왔어요. 제 딸이요. 여섯 주 만에 도시 세 곳을 다녀왔어요." 잠시 고요해진다. "지도에 대해 묻더군요. 그대가 가졌던 그것. 아는 대로 말해 줬어요." 그녀가 잔을 채운다. "늦게까지 깨어 있었어요."' },
   },
   quill: {
     key:'quill', name:"음유시인 토마스 쿠프랭", occupation:'무허가 음유시인', node:'MHQ',
     neutral:  { greeting:'음유시인이 휘갈겨 쓴 노트에서 힐끗 고개를 들어요.',
                 dialogue:'"오래된 노래예요. 도시보다 오래됐고, 콘클레이브보다 오래됐죠. 선율은 단순하지만 가사가 열쇠를 기다리는 자물쇠예요. 술 한 잔과 은화 한 닢이면 들려드리죠."' },
     friendly: { greeting:'쿠프랭이 그대가 술집 카운터에 닿기 전에 손을 흔들어 불러요.',
-                dialogue:'"I\'ve been working on something. Not the cipher song — something else. Something I don\'t know the title of yet. It\'s about someone who keeps returning." He plays three chords and stops. "준비되면 알려드릴게요."' },
+                dialogue:'"뭔가 작업 중이에요. 암호 노래는 아니고 — 다른 거요. 아직 제목을 모르는 곡이에요. 계속 돌아오는 어떤 사람에 대한 노래예요." 그가 세 코드를 연주하고 멈춘다. "준비되면 알려드릴게요."' },
     dearFriend:{ greeting:'들어서니 쿠프랭이 연주 중이에요. 그는 프레이즈를 끝까지 마치고 나서 고개를 들어요.',
                  dialogue:'"제목은 『돌아오는 사람들』이에요. 지난 금요일에 완성했죠. 이제 매주 금요일마다 연주해요." 그가 악기를 내려놓아요. "당신에 대한 노래예요. 좋은 의미로요. 노래 속 사람이 돌아오고 도시가 그대로 있고, 그게 중요한 일이었다는 의미에서요."' },
   },
@@ -22735,12 +22735,12 @@ const BIRKA_NPC_PROFILES = { // → doc: world.md §PART FOUR-B — THE BIRKA SI
     friendly: { greeting:'들어서자 브룬스가 고갯짓해요. 단말기에는 지도가 두 장 올라와 있어요.',
                 dialogue:'"하층도시는 비르카보다 삼백 년 앞서요. 학자왕들이 안전장치로 지은 거예요 — 천계 신호가 약해질 때를 대비한 보조 중계소죠. 그들이 죽은 뒤로 무인으로 돌아가고 있어요." 그녀가 지도를 따라 손가락을 움직여요. "누군가는 이걸 알아야 해요. 나타난 그 누군가가 그대라서 말하는 거예요."' },
     dearFriend:{ greeting:'그대가 묻기도 전에 그녀가 학자의 노트를 건네요.',
-                 dialogue:'"The depth readings are consistent now. The Void is weakening its intrusion — whatever you\'ve been doing in the outer nodes is working." A pause. "I filed a report. The commissioners don\'t read depth reports. I included your name in the field observation section." She turns back to the terminal. "누군가는 그 일이 있었다는 걸 알아야 해요."' },
+                 dialogue:'"깊이 측정값이 이제 일관돼요. 공허가 침투를 약화시키고 있어요 — 그대가 바깥 노드에서 해 온 일이 무엇이든 먹히고 있어요." 잠깐 멈춤. "보고서를 올렸어요. 위원들은 깊이 보고서를 읽지 않지만. 야전 관측 항목에 그대 이름을 넣었어요." 그녀가 단말로 돌아선다. "누군가는 그 일이 있었다는 걸 알아야 해요."' },
   },
   emmer: {
     key:'emmer', name:"에머 핀치", occupation:'견습 어부', node:'SSJ',
     neutral: { greeting:'물가의 청년이 낚싯대를 들고, 옆으로 기운 낚싯줄을 바라보고 있어요.',
-               dialogue:'"그게 정상인가요?" He is smiling. He has total confidence in the question. The rod is a market rod. The guide ring is cracked. He does not know any of this is wrong.' },
+               dialogue:'"그게 정상인가요?" 그는 웃고 있다. 질문에 전적인 확신이 있다. 낚싯대는 시장표다. 가이드 링은 금이 갔다. 이 중 무엇이 잘못인지 그는 모른다.' },
     friendly: { greeting:'에머가 이제 낚싯대를 올바른 손에 쥐었어요. 그립은 여전히 틀렸지만 덜 틀렸어요.',
                 dialogue:'"어제 한 시간 동안 던지지 않고 낚시꾼을 지켜봤어요. 시간 낭비처럼 느껴질 줄 알았는데 아니었어요." 그가 생각하지 않고 그립을 고쳐 쥐어요. "뭔가가 옳은 방향으로 움직이고 있어요. 뭔지는 아직 말 못 하겠어요."',
                 special:'🎣 함께 낚시' },
@@ -22762,9 +22762,9 @@ const BIRKA_NPC_PROFILES = { // → doc: world.md §PART FOUR-B — THE BIRKA SI
     neutral: { greeting:'열람 탁자의 사내가 상당한 목소리로 필사자의 주석이 왜 틀렸는지 설명하고 있어요.',
                dialogue:'주석은 틀리지 않아요. 문간에서도 알 수 있어요. 그의 손이 너무 많이 움직이고, 공방이라는 단어를 말할 때 목소리가 낮아져요. 그것이 증거예요.' },
     friendly: { greeting:'피어가 이제는 조용해요. 설명이 아니라 읽고 있어요.',
-                dialogue:'"Someone said: there\'s a way through. I have been where you are." He sets the book down. "I did not believe it at first. Then I thought: they knew the shape of it. Nobody describes it that way by accident." He picks the book up again. "출구를 찾는 중이에요. 시간이 걸려요."' },
+                dialogue:'"누군가 말했어요: 지나가는 길이 있다고. 나는 당신이 있는 곳에 있었어요." 그가 책을 내려놓는다. "처음에는 믿지 않았어요. 그러다 생각했죠: 그들은 그 형태를 알고 있었다고. 우연히 그런 식으로 묘사하는 사람은 없어요." 그가 다시 책을 든다. "출구를 찾는 중이에요. 시간이 걸려요."' },
     dearFriend: { greeting:'피어가 늘 앉는 자리에 있어요. 새 잉크병을 가져왔어요.',
-                  dialogue:'"I filed for provisional re-registration. The guild clerk said it takes ninety days. I said: that\'s fine." A pause. "Six months ago I would not have said that\'s fine." He dips the quill. "진전이란 이상한 모양이에요."' },
+                  dialogue:'"임시 재등록을 신청했어요. 길드 서기가 구십 일 걸린대요. 나는 괜찮다고 했어요." 잠깐 멈춤. "육 개월 전의 나라면 괜찮다고 하지 않았을 거예요." 그가 깃펜을 담근다. "진전이란 이상한 모양이에요."' },
   },
   ser_bardo: { key:"ser_bardo", name:"세르 바르도 알비치", occupation:"길드 상인", node:"PSAGLD" },
   ser_taddeo: { key:"ser_taddeo", name:"세르 타데오 보르기니", occupation:"은퇴한 판사", node:"PISNOT" },
@@ -32166,7 +32166,7 @@ const NODE_PANELS = [
   { id:'story-alch-is', nodes:['PDL'],
     when:st => st.roenAtSea && !st.roenOracleRead,
     css:'margin-top:10px;border-left-color:#3a2a5a;color:#9080c8;font-size:12px;',
-    text:'🐑 The 신탁의 견습생 gave Roen a reading. He is staring at it. "She said: \'the gold is below the water that has already been cleared.\' This is almost word-for-word the same as the fortune teller in Birka." He shows you both. They are. "Either the universe is being extremely consistent, or both these women know something I don\'t." He looks at the fortune slip you\'ve been holding. "CHA Persuasion DC 11 to argue with the universe on my behalf."' },
+    text:'🐑 신탁의 견습생이 로엔에게 점을 쳐 주었다. 그는 그것을 뚫어지게 보고 있다. "그녀가 말했어: 「금은 이미 걸러진 물 아래에 있다」고. 이건 비르카의 점술가와 거의 글자 그대로 같아." 그가 둘 다 보여 준다. 정말 그렇다. "우주가 극도로 일관적이든가, 아니면 이 두 여자가 내가 모르는 뭔가를 알고 있든가." 그가 당신이 들고 있던 점괘 쪽지를 본다. "나 대신 우주와 논쟁해 줘 — CHA 설득 DC 11."' },
   { id:'story-alch-is', nodes:['PDL'],
     when:st => st.roenAtSea && st.roenOracleRead,
     css:'margin-top:10px;border-left-color:#2a5a3a;color:#70b880;font-size:12px;',
