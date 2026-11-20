@@ -10986,7 +10986,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'절친한 친구 단계에 도달한 NPC 세 명을 방문하라.',
     activateNode:'LHR', onActivate:null, boardExempt:true,
     waypointNode:'LHR', reward:500,
-    disposition:'"The journal says: the world does not reset. The people do not reset. Only the monsters reset. You have always been here." — Froberger, Entry 41 marginal note',
+    disposition:'"『일지는 말한다. 세계는 리셋되지 않는다. 사람은 리셋되지 않는다. 괴물만 리셋된다. 당신은 언제나 여기 있었다.』 — 프로베르거, 41번 기록 여백 메모" — Froberger, Entry 41 marginal note',
     npc:"yael",
   },
   quest_ng_02: { id:'quest_ng_02', type:'side', schema:'UQF-1.0', gate:{ countMin:[{ path:'ngPlusRun', min:1 }], flags:['priorQuestMinusOne'] }, bits:[], completion:{ flags:['entry42Written'] }, title:'프로베르거: 열린 페이지',
@@ -10995,7 +10995,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'비르카 시내에서 열린 페이지를 찾아라.',
     activateNode:'LHR', onActivate:null, boardExempt:true,
     waypointNode:'LHR', reward:0,
-    disposition:'"Forty-two. I stopped there on purpose. Someone else will finish this one." — Froberger\'s margin note',
+    disposition:'"『마흔둘. 일부러 거기서 멈췄다. 다른 누군가가 이것을 끝낼 것이다.』 — 프로베르거의 여백 메모" — Froberger\'s margin note',
     npc:"yael",
   },
   quest_ng_03: { id:'quest_ng_03', type:'side', schema:'UQF-1.0', gate:{ countMin:[{ path:'ngPlusRun', min:1 }] }, bits:[], completion:{ flags:['frobergerLetterFound'] }, title:'프로베르거: 편지',
@@ -11004,7 +11004,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'해안 관측소로 돌아가라.',
     activateNode:'LHR', onActivate:null, boardExempt:true,
     waypointNode:'TLS', reward:300,
-    disposition:'"If you are reading this, you completed the run once already. I am sorry about the ending. You deserved a better one." — Froberger\'s sealed letter',
+    disposition:'"『이것을 읽고 있다면, 당신은 이미 여정을 한 번 끝냈다. 결말에 대해서는 미안하다. 당신은 더 나은 결말을 받을 자격이 있었다.』 — 프로베르거의 봉인된 편지" — Froberger\'s sealed letter',
     npc:"yael",
   },
   // ── Layer 51: Weimar Scholar Gate quests ──
@@ -11023,28 +11023,28 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     activateNode:'NUE', // §VM-01-G3 — the Layer-51 storyRender stanza is retired; the act≥6 leg was vestigial (NUE is an act-6+ node and actNumber = node.act on arrival)
     onActivate:{ msg:'『프로버거를 물으시는군요. 요즘 이곳에 오는 사람은 모두 프로버거를 묻습니다.』 문지기의 기록관 이졸데 포스의 말.', delayMs:500 },
     waypointNode:'NUE', reward:0,
-    disposition:'"You\'re asking about Froberger. Everyone who comes here lately is asking about Froberger. His access was revoked pursuant to the Scholar Kings Protocol on Speculative Endangerment." — Archivist Isolde Voss',
+    disposition:'『프로베르거를 묻는군요. 요즘 여기 오는 사람은 모두 프로베르거를 묻습니다. 그의 출입 권한은 학자 왕들의 사변적 위험 규약에 따라 회수되었습니다.』 — 기록관 이졸데 포스',
     npc:"archivus_sweelinck",
-    rumor:"A scholar's record was revoked and the proof scattered into seals. Isolde in Weimar is short three of them. The Warrant wants the record made whole.",
+    rumor:"한 학자의 기록이 회수되었고, 증거는 인장들로 흩어졌다. 바이마르의 이졸데에게는 세 개가 모자란다. 《영장》은 기록의 복구를 원한다.",
   },
   quest_wm_02: { id:'quest_wm_02', type:'side', schema:'UQF-1.0', gate:{ questsDone:['quest_wm_01'] }, bits:[], completion:{ flags:['wmDoc1Read','wmDoc2Read','wmDoc3Read'] }, title:'이졸데: 하층 기록보관소',
     onComplete:[ { kind:'flag_write', set:['wmArchiveComplete'] }, { kind:'favor', npc:"isolde_voss", set:1 }, { kind:'narrative', msg:'📗 프로버거의 현장 노트(고서) 획득. 이졸데가 우호적이 되었다.' } ], // §ARCH-01 W7c
     itemChain:[{action:'grant',name:'Froberger\'s Field Notes',icon:'📗',type:'tome',sell:0,bonus:{deathSave:1},silent:true,desc:'여백의 메모. 『압력은, 올 줄 알면 견딜 수 있다.』'}], // §EDITOR-01-D-FU(b) b2b
     desc:'하층 문서고의 문서 세 건. 무효화 서한, 현장 보고서, 인사 파일. 셋 다 읽어라.',
-    hint:'Visit the 학자 구역 and examine the archive documents.',
+    hint:'학자 구역을 방문해 기록고 문서들을 살펴보라.',
     activateNode:'NUE', onActivate:null,
     waypointNode:'NUE', reward:0,
-    disposition:'"He left his research notes in the lower archive. I moved them there myself. I told myself it was protocol. I\'ve been thinking about that since you came in." — Isolde Voss (Friendly)',
+    disposition:'"『그는 연구 노트를 하층 기록고에 두고 갔습니다. 제가 직접 옮겼어요. 규정이라고 스스로에게 말했습니다. 당신이 들어온 뒤로 계속 그 생각을 하고 있습니다.』 — 이졸데 포스 (우호)" — Isolde Voss (Friendly)',
     npc:"isolde_voss",
   },
   quest_wm_03: { id:'quest_wm_03', type:'side', schema:'UQF-1.0', gate:{ flags:['wmArchiveComplete'] }, bits:[], completion:{ flags:['wmBenediktCircleComplete'] }, title:'베네딕트: 독서 모임',
     onComplete:[{kind:'flag_write',set:['wmBenediktCircleComplete','wmDoc3Unredacted']},{kind:'favor',npc:'benedikt_rasp',set:2},{kind:'narrative',msg:'📘 학자 왕들의 역사(고서) 획득. 베네딕트가 절친이 되었다.'}], // §ARCH-01 W7c
     itemChain:[{action:'grant',name:'Scholar Kings\' History',icon:'📘',type:'tome',sell:0,bonus:{initiative:2},silent:true,desc:'『먼저 지식, 그다음 결정, 그다음 행동. 순서를 바꾸지 마라.』'}], // §EDITOR-01-D-FU(b) b2b
     desc:'베네딕트 라스프가 제본소 노점에서 독서 모임을 연다. 세 차례. 사흘에 걸쳐.',
-    hint:'Attend 3 reading circle sessions at the 학자 구역 (one per day).',
+    hint:'학자 구역의 독서 모임에 세 차례 참석하라 (하루 한 차례).',
     activateNode:'NUE', onActivate:null,
     waypointNode:'NUE', reward:0,
-    disposition:'"The third one\'s always the hardest. Not because the material is harder — because by then you realize the first two were already enough and you stayed anyway." — Benedikt Rasp',
+    disposition:'"『세 번째가 언제나 가장 어렵다. 내용이 어려워서가 아니라 — 그쯤이면 처음 두 번으로 이미 충분했는데도 그래도 남았다는 것을 깨닫기 때문이다.』 — 베네딕트 라스프" — Benedikt Rasp',
     npc:"benedikt_rasp",
   },
   quest_wm_04: { id:'quest_wm_04', type:'side', schema:'UQF-1.0', gate:{ flags:['wmBenediktCircleComplete'] }, bits:[], completion:{ flags:['wmFirstResearcherKnown'] }, title:'베네딕트: 최초의 연구자',
@@ -11054,7 +11054,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'하층 기록보관소로 돌아가 삭제되지 않은 인사 문서를 읽어라.',
     activateNode:'NUE', onActivate:null,
     waypointNode:'NUE', reward:300,
-    disposition:'"The Scholar Kings didn\'t erase her. They just stopped saying the name. Froberger said it in his margin notes every time. That\'s how I found her. And now you know how I found him." — Benedikt Rasp',
+    disposition:'"『학자 왕들은 그녀를 지우지 않았다. 그저 이름 말하기를 멈췄을 뿐이다. 프로베르거는 여백 메모에서 매번 그 이름을 말했다. 나는 그렇게 그녀를 찾았다. 그리고 이제 당신은 내가 그를 어떻게 찾았는지 안다.』 — 베네딕트 라스프" — Benedikt Rasp',
     npc:"benedikt_rasp",
   },
   quest_wm_05: { id:'quest_wm_05', type:'side', schema:'UQF-1.0', gate:{flags:['wmLowerArchiveUnlocked'],itemsAll:['Y. Gurt Field Survey']}, bits:[], completion:{ flags:['wmGurtFileRead'] }, title:'열린 문서', // §L
@@ -11064,27 +11064,27 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     activateNode:'NUE', 
 
     xpAward:200, waypointNode:'NUE', reward:200,
-    disposition:'"We continue to file them." — Scholar Kings Personnel Record, Y. Gurt (Field Absence: Ongoing)',
+    disposition:'"『우리는 계속 접수해 둔다.』 — 학자 왕들 인사 기록, Y. 거트 (현장 부재: 지속 중)" — Scholar Kings Personnel Record, Y. Gurt (Field Absence: Ongoing)',
     npc:"archivus_sweelinck",
   },
   // ── Layer 52: Void Archaeology quests ──
   quest_va_01: { id:'quest_va_01', type:'side', schema:'UQF-1.0', gate:{}, bits:[], completion:{ flags:['vaAllMarksFound'] }, title:'건축: 다섯 표식',
     onComplete:[ { kind:'narrative', msg:'🏛️ 표식 다섯 개 발견. 배열이 완성되었다.' } ], // §ARCH-01 W7c
     desc:'이백 년 전 누군가 다섯 곳을 지나며 표식을 남겼다. 표식은 당신이 이미 방문한 곳들에 있다. 모르고 지나쳤다. 아는 사람 중 살아남아 말해 줄 이가 없어서 아무도 말해 주지 않았다. 대신 당신에게는 프로버거의 여백 메모가 있다. 지나가다 보고 설명할 수 없어 다시 찾지 않은 것을 말하는 방식으로 표식들을 언급한다. 흔적을 따라가라. 각 지점이 그가 어디에 있었고 얼마나 전이었는지 말할 것이다.',
-    hint:"Investigate: City Streets, Birka Slums, the Unbanked Quarter, 학자 구역, Mountain Pass.",
+    hint:"조사 지점: 도시 거리, 비르카 빈민가, 은행 없는 지구, 학자 구역, 산 고개.",
     activateNode:null, 
     waypointNode:'LHR', reward:0,
-    disposition:'"Five marks. One pattern. She was everywhere before anyone was looking." — Froberger, Entry 7 marginal note (between the lines)',
+    disposition:'"『다섯 개의 표식. 하나의 배열. 누구도 주목하기 전에 그녀는 어디에나 있었다.』 — 프로베르거, 7번 기록 여백 메모 (행간)" — Froberger, Entry 7 marginal note (between the lines)',
     npc:"benedikt_rasp",
   },
   quest_va_02: { id:'quest_va_02', type:'side', schema:'UQF-1.0', gate:{}, bits:[], completion:{ flags:['vaLogFound'] }, title:'건축: 건설자의 기록',
     onComplete:[ { kind:'flag_write', set:['vaLogFound'] }, { kind:'narrative', msg:'📜 The Constructor\'s Log와 Antecedent Seal 획득.' } ], // §ARCH-01 W7c
     itemChain:[{action:'grant',name:'The Constructor\'s Log',icon:'📜',type:'readable',sell:0,silent:true,readText:'일곱 개의 항목. 그녀의 필체. 3번 항목은 프로베르거의 여백 메모와 한 단어까지 일치한다.'},{action:'grant',name:'Antecedent Seal',icon:'🏛️',type:'relic',sell:0,silent:true,desc:'『선행자 격리 규약. 봉인 7. 발동.』'}], // §EDITOR-01-D-FU(b) b2b
     desc:'하층 문서고에 네 번째 문서가 나타났다. 이졸데가 소장품을 목록화할 때는 없었다. 혹은 있었지만 보이지 않았다. 문서고가 공식적으로 인정하지 않는 구별이다. 일곱 항목. 그녀의 필적. 마지막 항목은 이렇게 읽힌다. 『누군가 이것을 읽고 있다면, 봉인 장치가 발동한 것이다. 우리가 닫혔다. 미안하다.』 그녀는 그 줄을 쓰고 나서, 누가 찾았는지 확인하러 돌아오지 않을 것을 알고 문서고를 걸어 나갔다.',
-    hint:'Return to the 학자 구역 lower archive.',
+    hint:'학자 구역 하층 기록고로 돌아가라.',
     activateNode:null, 
     waypointNode:'NUE', reward:0,
-    disposition:'"If someone is reading this, the sealing mechanism has activated. The cage is closed. I am sorry. I did not have a better answer." — The Constructor\'s Log, Entry 7',
+    disposition:'"『누군가 이것을 읽고 있다면, 봉인 장치가 발동한 것이다. 우리는 닫혔다. 미안하다. 더 나은 답이 없었다.』 — 건축자의 기록, 7번 항목" — The Constructor\'s Log, Entry 7',
     npc:"benedikt_rasp",
   },
   quest_va_03: { id:'quest_va_03', type:'side', schema:'UQF-1.0', gate:{}, bits:[], completion:{ flags:['vaLastWardVisited'] }, title:'건축: 봉인된 터널',
@@ -11093,21 +11093,21 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'산 고개의 터널로 가라.',
     activateNode:null, 
     waypointNode:'GVA', reward:200,
-    disposition:'"The Antecedent was here. It is not anymore. You know where it is now." — Sealed chamber inscription',
+    disposition:'"『선행자는 여기 있었다. 이제는 아니다. 그것이 지금 어디 있는지 당신은 안다.』 — 봉인된 방의 명문" — Sealed chamber inscription',
     npc:"benedikt_rasp",
   },
   quest_va_04: { id:'quest_va_04', type:'side', schema:'UQF-1.0', gate:{}, bits:[], completion:{ flags:['vaArchitectureKnown'] }, title:'건축: 사슬',
     onComplete:[ // §ARCH-01 W7c — conditional annotation append stays _legacy_fn
       { kind:'flag_write', set:['vaArchitectureKnown'] },
       { kind:'reward', gold:500 },
-      { kind:'_legacy_fn', fn:S => { const annotated = (S.inventory || []).find(i => i.name === "Benedikt's Annotated Copy"); if (annotated) annotated.desc += '\n"One annotation, added later: \'She was right. The fourth link held.\'"'; } },
+      { kind:'_legacy_fn', fn:S => { const annotated = (S.inventory || []).find(i => i.name === "Benedikt's Annotated Copy"); if (annotated) annotated.desc += '\n나중에 더해진 주석 하나: 『그녀가 맞았다. 네 번째 고리는 버텼다.』'; } },
       { kind:'narrative', msg:'📙 +500gp. 건축물의 정체를 알게 되었다. 사슬은 이어진다.' },
     ],
-    desc:"Benedikt Rasp has been assembling something for three weeks, since the last time you were in his reading circle. He has the Constructor's Log, Froberger's margin notes, your name, and one other piece he waited to confirm before speaking. He waited because he wanted to be certain you were the kind of person the message should go to. He has decided you are. Return to the 학자 구역. He says it is about a chain. He means it is about what holds.",
+    desc:"베네딕트 라스프가 삼 주째 무언가를 조립하고 있다 — 당신이 마지막으로 그의 독서 모임에 있던 때부터. 그에게는 건축자의 기록이 있고, 프로베르거의 여백 메모가 있고, 당신의 이름이 있고, 말하기 전에 확인을 기다린 조각이 하나 더 있다. 기다린 것은, 그 소식이 가야 할 사람이 당신 같은 사람인지 확신하고 싶었기 때문이다. 그는 당신이 그렇다고 결론 내렸다. 학자 구역으로 돌아가라. 그는 사슬에 대한 이야기라고 한다. 그가 말하는 것은 버티는 것에 대한 이야기다.",
     hint:'Return to the 학자 구역.',
     activateNode:null, 
     waypointNode:'NUE', reward:500,
-    disposition:'"She built it. You closed it. Froberger found the mechanism. You followed him. Entry 42 is the fourth link. Four links is a chain. A chain holds." — Benedikt Rasp',
+    disposition:'"『그녀가 지었다. 당신이 닫았다. 프로베르거가 장치를 찾았다. 당신이 그를 따라왔다. 42번 기록이 네 번째 고리다. 고리 네 개면 사슬이다. 사슬은 버틴다.』 — 베네딕트 라스프" — Benedikt Rasp',
     npc:"benedikt_rasp",
   },
   // ── Layer 54: Tilbury Harbor Arc quests ──
@@ -11116,8 +11116,8 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
       { kind:'flag_write', set:['tlLedgerRead'] },
       { kind:'favor', npc:"rennau", set:1 },
       { kind:'_legacy_fn', fn:S => { S.inventory.push({ name:'The Harrow Manifest', icon:'📄', type:'readable', sell:0,
-        readText:'Cargo: 40 crates, Scholar Kings correspondence, sealed. Consignee: Weimar, Archivist I. Voss. Departure: Day 17. Expected arrival: Day 20. Status: Weather Loss.'
-          + (S.wmFirstResearcherKnown ? '\n\nIsolde Voss\'s name on a ship manifest from eleven months ago. Before the revocation. Whatever she was sending arrived nowhere.' : '') }); } },
+        readText:'적하: 상자 40개, 학자 왕들 서신, 봉인. 수하인: 바이마르, 기록관 I. 포스. 출발: 17일차. 도착 예정: 20일차. 상태: 기상 손실.'
+          + (S.wmFirstResearcherKnown ? '\n\n십일 개월 전 선적 명세서에 있는 이졸데 포스의 이름. 회수 이전이다. 그녀가 보낸 것이 무엇이든, 어디에도 도착하지 않았다.' : '') }); } },
       { kind:'narrative', msg:'📄 해로우호 선적 명세서 획득. 레나우가 우호적이 되었다.' },
       { kind:'narrative', msg:'🪧 레나우가 명세서를 두 번 읽더니 두 번째 장부를 밀어 보낸다. 긴급 규약 7호로 항구가 3주째 폐쇄되어 있다. 닫힌 항구로 실종 선박을 추적할 수는 없다. 본 부관이 틸버리에서 인장을 쥐고 있다. 영장 게시판에 새 현상금이 올라왔다.' }, /* §BOARD-01-FU6 referral edge */
       { kind:'unlock', quests:['quest_tl_02'] },
@@ -11126,11 +11126,11 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'상점가 부두의 항구 게시판에서 해로우 위탁 화물을 찾아 레나우에게 가져가라.',
     activateNode:'STN', onActivate:null, // §VM-01-G3 — was "LCY", a wrong-target dead-code remap (710bb75 SF→LCY; SF meant the Storefront = STN, where Rennau, the Harbor Board, and the whole arc live)
     waypointNode:'STN', reward:0,
-    disposition:'"The Conclave calls the ones that haven\'t come back \'weather losses.\' I stopped calling them that six weeks ago." — Harbor Master Rennau',
+    disposition:'"『비밀회의는 돌아오지 않은 배들을 「기상 손실」이라 부른다. 나는 육 주 전에 그렇게 부르기를 그만두었다.』 — 항만관리관 레나우" — Harbor Master Rennau',
     passText:"레나우가 장부 항목을 보여준다. 하로우 명세서가 이제 당신 손에 있다. 그녀가 당신의 이름을 조사에 추가한다.",
     failText:"해로우 선적 명세서는 항만 기록 어딘가에 있다. 항만관리관 레나우는 조선소에 있다.",
     npc:"rennau",
-    rumor:"Harbor Master Rennau keeps a ledger of ships that never came back. The newest line is the Harrow. The Warrant wants its manifest found.",
+    rumor:"항만관리관 레나우는 돌아오지 않은 배들의 장부를 보관한다. 가장 최근 항목은 해로우호다. 《영장》은 그 선적 명세서의 발견을 원한다.",
   },
   quest_tl_02: { id:'quest_tl_02', type:'side', schema:'UQF-1.0', gate:{ flags:['tlLedgerRead'] }, bits:[], completion:{ flagsAny:['tlEmbargoChallenged','tlEmbargoDismissed'] }, title:'레나우: 통상 금지',
     onComplete:[ { kind:'narrative', msg:'📋 통상금지 결정이 기록되었다.' }, { kind:'narrative', msg:'🪧 그때 부두가 어떤 규약도 해내지 못한 것을 배달한다. 해로우호의 생존자, 3주를 걸어와 항만관리관을 이름으로 찾는다. 오리. 레나우는 그녀가 말할 때 당신이 자리에 있길 원한다. 영장 게시판에 새 현상금이 올라왔다.' }, { kind:'unlock', quests:['quest_tl_03'] } ], // §ARCH-01 W7c · §BOARD-01-FU6 referral edge
@@ -11138,11 +11138,11 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'틸버리의 본 부관과 이야기한 뒤 선박 적하 목록을 어떻게 처리할지 정하라.',
     activateNode:"TL", onActivate:null, // §VM-01-G3 — deduped (the entry carried BOTH the authored null and an appended "TL"; last-key-wins made "TL" effective, kept)
     waypointNode:'TL', reward:0,
-    disposition:'"The embargo is a legitimate Conclave instrument. The fact that it\'s bad policy is above my grade." — Adjutant Vonn',
+    disposition:'"『통상 금지는 비밀회의의 정당한 수단이다. 그것이 나쁜 정책이라는 사실은 내 등급 위의 문제다.』 — 본 부관" — Adjutant Vonn',
     passText:"본은 그 건 전반에 정중하다. 항구는 닫힌 채다. 명세서를 어떻게 할지는 당신이 정했다.",
     failText:"항만은 프로토콜 7에 따라 아직 폐쇄되어 있다. 폰 부관은 틸버리에 있다.",
     npc:"rennau",
-    rumor:"An embargo has sealed the harbor politely and completely — and buried a manifest with it. The Warrant wants the paper out from under Protocol 7. Mind Adjutant Vonn.",
+    rumor:"통상 금지가 항구를 정중하고도 완전하게 봉쇄했다 — 그리고 명세서를 그 아래에 묻었다. 《영장》은 규약 7호 아래에서 그 서류를 꺼내기를 원한다. 본 부관을 조심하라.",
   },
   quest_tl_03: { id:'quest_tl_03', type:'side', schema:'UQF-1.0', gate:{ questsDone:['quest_tl_02'], notFlags:['tlMissingShipSolved'] }, bits:[], completion:{ flags:['tlMissingShipSolved'] }, title:'레나우: 사라진 배',
     onComplete:[ // §ARCH-01 W7c — account item built at runtime (description branches on Field Notes possession) → _legacy_fn
@@ -11150,25 +11150,25 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
       { kind:'favor', npc:"rennau", set:2 },
       { kind:'reward', gold:300 },
       { kind:'_legacy_fn', fn:S => { S.inventory.push({ name:"Ori's Account", icon:'📜', type:'readable', sell:0,
-        readText:'She describes what boarded them. Not pirates. Not storm. A shape in the water, very large, that moved like it was looking for something. Then it found the ship.'
-          + ((S.inventory || []).find(i => i.name === "Froberger's Field Notes") ? '\n\nFroberger wrote: "The pressure is survivable if you know it\'s coming." Ori survived because she knew the shape was there and went over the side before it hit.' : '') }); } },
+        readText:'그녀는 배에 오른 것을 설명한다. 해적이 아니다. 폭풍도 아니다. 물속의 형상, 아주 큰, 무언가를 찾는 듯이 움직이는 것. 그리고 그것은 배를 찾아냈다.'
+          + ((S.inventory || []).find(i => i.name === "Froberger's Field Notes"\n\n프로베르거는 썼다: 『압력은, 올 줄 알면 견딜 수 있다.』 오리는 형상이 거기 있음을 알고 그것이 부딪히기 전에 선밖으로 몸을 던졌기에 살아남았다."The pressure is survivable if you know it\'s coming." Ori survived because she knew the shape was there and went over the side before it hit.' : '') }); } },
       { kind:'narrative', msg:'📜 +300gp. 오리의 증언 획득. 레나우가 절친이 되었다.' },
     ],
     desc:'해로우호의 생존자가 틸버리에 도착했다. 3주를 걸어왔다. 이름은 오리. 그녀는 무슨 일이 있었는지 안다.',
     hint:'상점가의 오리와 이야기하라. 그녀의 증언을 레나우에게 가져가라.',
     activateNode:'STN', onActivate:null, // §VM-01-G3 — deduped; the appended "LCY" was the same 710bb75 SF→LCY mis-remap as tl_01 (Ori is at the Storefront)
     waypointNode:'STN', reward:300,
-    disposition:'"Ori said the thing that boarded them didn\'t have a name. Things that don\'t have names are the Void\'s specialty." — Harbor Master Rennau',
+    disposition:'"『오리가 말했다. 배에 오른 것에는 이름이 없었다고. 이름 없는 것들은 공허의 전문 분야다.』 — 항만관리관 레나우" — Harbor Master Rennau',
     passText:"오리가 자기 진술을 한다. 레나우가 멈추지 않고 읽는다. 그녀가 그 이름을 장부의 다른 단에 — 답이 있는 단에 — 추가한다.",
     failText:"오리가 삼 주를 걸어 틸버리에 도착했다. 아직 그녀와 이야기하지 않았다.",
     npc:"rennau",
-    rumor:"A survivor of the Harrow reached Tilbury on foot, three weeks walking. Her name is Ori and she knows what happened. The Warrant wants her account brought to Rennau.",
+    rumor:"해로우호의 생존자가 삼 주를 걸어 틸버리에 닿았다. 이름은 오리, 그녀는 무슨 일이 있었는지 안다. 《영장》은 그녀의 증언이 레나우에게 전해지기를 원한다.",
   },
   // ── §LI: Muffat — The Third Berth ──
   quest_muffat_01: { id:'quest_muffat_01', type:'skill_check', schema:'UQF-1.0', gate:{itemsAll:['Trade Seal (Shard #1)']}, bits:[{ kind:'skill_check', stat:'DEX', skill:'Stealth', dc:13, onPass:[{ kind:'mission_bit', flag:'muffatBerthReached', label:'머펏 선석' }, { kind:'reward', xp:150, gold:150 }], onFail:[] }], title:'세 번째 선석', // §LI
     hint:'항구 감시에게 걸리지 않고 세 번째 선석에 도달하라 (DEX · 은신 DC 13).',
     activateNode:'LCY', retryable:true, retryGateDays:1,
-    vignetteText:"The third berth has been wrong since Tuesday. The manifest says ballast. The crane operators won\'t take that side. Muffat has been watching the Scholar Kings clearance stamp on the hold for three days — it prevents harbor search and she knows it. You have the Trade Seal, which gets you onto the dock. The harbor watch works the main berths. The third is close enough to the crane rigging that the shadow covers the approach. Close enough.",
+    vignetteText:"세 번째 선석은 화요일부터 무언가가 잘못되어 있다. 명세서에는 밸러스트라고 적혀 있다. 크레인 기사들은 그쪽으로 가려 하지 않는다. 머펏은 사흘째 선적창고의 학자 왕들 통관 도장을 지켜보고 있다 — 그것은 항구 수색을 막고, 그녀는 그것을 안다. 당신에게는 Trade Seal이 있다. 부두에 오를 수 있다. 항구 감시는 주 선석을 지킨다. 세 번째는 크레인 장비에 가까워 그림자가 접근로를 덮는다. 충분히 가깝다.",
     passText:"상자가 거기 있다. 학자왕 유통 인장, 맞는 명세 번호 없음. 그것을 머펫에게 가져간다. 그녀는 그것을 조리대에 놓고, 명세서를 보는 그녀의 방식으로 본다: 바르게, 그리고 그것이 뭘 뜻하는지에 대한 환상 없이.",
     failText:'감시가 그림자 경계를 벗어나기 전에 움직임을 알아챈다. 물러난다. 상자는 그 자리에 남는다. 감시가 엉뚱한 장부의 여백에 적어 둔다.',
     disposition:'"There are three things on that berth that should not be there. The crate is one of them." — 마기스트라 엘라라 무파트',
@@ -11178,7 +11178,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // ── §LVIII: Cycle 4 ──
   quest_muffat_05: { id:'quest_muffat_05', type:'side', schema:'UQF-1.0', gate:{ flags:['antecedentMet'] }, bits:[], completion:{ flags:['cycle4NoteRead'] }, title:'주기 4',
     onComplete:[ { kind:'reward', gold:200 }, { kind:'flag_write', set:['cycle4NoteRead'] }, { kind:'narrative', msg:'💰 +200gp. 📜 학자 왕들의 징발장 획득. 제4주기, 비밀회의 기록관 승인. 『문서고가 대답하게 두지 마라.』' } ], // §ARCH-01 W7c
-    itemChain:[{action:'grant',name:'Scholar Kings Requisition (Handwritten)', icon:'📜', type:'readable', sell:0, readText:"SCHOLAR KINGS — INTERNAL ROUTING\nHandwritten. Class 3. No copy to be made.\n\nStation 7 monitoring capacity is to be maintained through the current cycle and expanded in advance of Cycle 4. The Antecedent Containment Protocol requires adjustment at the interval. Equipment delivered per the attached schedule is adequate for the extension only. Cycle 4 components to follow under separate authority.\n\nAuthorization: Conclave Archivist.\nNo countersignature required.\nNo date required.\n\n[Below the fold, a single line in different ink:]\nThe archive knows what it holds.\nDo not let the archive answer.",silent:true}], // §EDITOR-01-D-FU(b) b2b
+    itemChain:[{action:'grant',name:'Scholar Kings Requisition (Handwritten)', icon:'📜', type:'readable', sell:0, readText:"학자 왕들 — 내부 회람\n손글씨. 3등급. 사본 작성 금지.\n\n7호 관측소의 감시 역량은 현 주기 내내 유지하고 제4주기에 앞서 확장할 것. 선행자 격리 규약은 간격마다 조정을 필요로 한다. 첨부 일정에 따라 납품된 장비는 연장분에만 충분하다. 제4주기 부품은 별도 권한으로 후속 이송될 것이다.\n\n승인: 비밀회의 기록관.\n부서명 불요.\n날짜 불요.\n\n[접힌 곳 아래, 다른 잉크로 한 줄:]\n기록고는 자신이 품은 것을 안다.\n기록고가 대답하게 두지 마라.",silent:true}], // §EDITOR-01-D-FU(b) b2b
     desc:'머펏의 선반에는 학자 왕들의 상자 세 개가 이 년째 미개봉으로 있었다. 도장이 항구 수색을 막았다. 질문은 이제 종결되었다. 그녀가 하나를 연다. 안의 수신 배열은 예상된 것. 포장재 속 손글씨 징발 메모는 예상 밖이다.',
     hint:'항구 부두의 마지스트라 머펏에게 돌아가라 — 보여 줄 것이 있다.',
     activateNode:'LCY', // CO-002: activates same visit as Solm direction
@@ -11191,12 +11191,12 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // ── §LVII: The Field Analyst ──
   quest_solm_01: { id:'quest_solm_01', type:'side', schema:'UQF-1.0', gate:{ flags:['antecedentMet'] }, bits:[], completion:{ flags:['solmFound'] }, title:'현장 분석관',
     onComplete:[ { kind:'reward', gold:150 }, { kind:'narrative', msg:'💰 +150gp. 📋 분석관 솔름의 현장 파일 획득. 파일은 종결되었다. 문서고에는 여전히 기록관이 있다.' } ], // §ARCH-01 W7c
-    itemChain:[{action:'grant',name:'Analyst Solm Field File', icon:'📋', type:'readable', sell:0, readText:"FIELD FILE — ANALYST I. SOLM\nStation 7, Frequency 14.225 Monitoring Assignment\nClass 3, Scholar Kings Research Division\n\n[Vol. 1, Day 1 — three months prior:]\nTransmission cut mid-entry. Suppressor origin: Undercity access corridor. Operator unknown to me. I do not believe the suppression was deliberate interference — the timing and mechanism suggest an automated device, not a hand on a dial. I have nonetheless lost the fourth transmission before it completed.\n\nI cannot return to Station 7. The Scholar Kings will not acknowledge the record. I am here instead, where things that cannot be officially held are held unofficially.\n\n[Vol. 1, Days 2–87:]\nTransmission confirmed, bearing 047°, no repeat. [repeated daily, same hand, same composure]\n\n[Vol. 1, Day 88 — closing entry, ink slightly different pressure:]\nRecord from the terminus received. Source confirmed: contained, non-hostile, question answered. Absence confirmed on 14.225. The archive still has an archivist.\n\nFile closed.\n\n— I. Solm",silent:true}], // §EDITOR-01-D-FU(b) b2b
+    itemChain:[{action:'grant',name:'Analyst Solm Field File', icon:'📋', type:'readable', sell:0, readText:"현장 파일 — 분석관 I. 솔름\n7호 관측소, 주파수 14.225 감시 임무\n3등급, 학자 왕들 연구부\n\n[1권, 1일차 — 석 달 전:]\n송신이 항목 도중 절단되었다. 차단 발신지: 지하도시 출입 회랑. 조작자는 알 수 없음. 이 차단이 의도적 방해였다고는 믿지 않는다 — 시점과 방식은 다이얼에 손을 댄 것이 아니라 자동 장치를 가리킨다. 그럼에도 네 번째 송신은 완료되기 전에 잃었다.\n\n나는 7호 관측소로 돌아갈 수 없다. 학자 왕들은 그 기록을 인정하지 않을 것이다. 나는 대신 여기 있다. 공식적으로 보관할 수 없는 것들이 비공식적으로 보관되는 곳에.\n\n[1권, 2–87일차:]\n송신 확인, 방위 047°, 재발신 없음. [매일 반복, 같은 필체, 같은 침착함]\n\n[1권, 88일차 — 종결 항목, 잉크 압력이 미묘하게 다름:]\n종점의 기록 수신. 발신지 확인: 격리됨, 비적대적, 질문 응답됨. 14.225에서의 부재 확인. 기록고에는 여전히 기록관이 있다.\n\n파일 종결.\n\n— I. 솔름",silent:true}], // §EDITOR-01-D-FU(b) b2b
     desc:'7호 관측소 관리원이 석 달 전 더는 안전하게 가지고 다닐 수 없는 기밀 지식을 가지고 마지스트라 머펏을 찾아갔다. 머펏은 그녀를 지도 가게로 보냈다. 더스크는 이유를 묻지 않고 것들을 보관한다. 그는 그녀를 보관하고 있었다.',
     hint:'지도 가게에서 분석관 솔름을 찾아라. 그녀는 자신이 끝내지 못한 것을 끝낸 사람을 기다려 왔다.',
     activateNode:'LCY', 
     xpAward:200, waypointNode:'STN', reward:150,
-    disposition:'"Confirmed. That\'s sufficient." — Analyst I. Solm, closing entry, Field File Vol. 1',
+    disposition:'"『확인. 그것으로 충분하다.』 — 분석관 I. 솔름, 종결 항목, 현장 파일 1권" — Analyst I. Solm, closing entry, Field File Vol. 1',
     npc:"proprietor_dusk",
   },
   // ── §LV: The Antecedent ──
@@ -11206,7 +11206,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'선행 봉인을 지니고 지하도시 검문소 아래로 내려가라. 방은 남쪽이다.',
     activateNode:'HKG', 
     xpAward:400, waypointNode:'HAJ', reward:0,
-    disposition:'"The question is closed." — The Antecedent',
+    disposition:'"『질문은 종결되었다.』 — 선행자" — The Antecedent',
     passText:"그 질문은 닫혔다. 수신 배열이 꺼진다. 마흔한 권, 그리고 이것.",
     failText:"질문을 던져온 존재가 아직 기다리고 있다. 방은 언더시티 남쪽, 깊이 십팔 미터다.",
     npc:"auros",
@@ -11214,12 +11214,12 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // ── §LIV: The Warrant ──
   quest_signal_01: { id:'quest_signal_01', type:'side', schema:'UQF-1.0', gate:{ flags:['station7LogRead'] }, bits:[], completion:{atNode:'HKG'}, title:'영장',
     onComplete:[ { kind:'reward', gold:300 }, { kind:'flag_write', set:['suppressorLogRead'] }, { kind:'narrative', msg:'💰 +300gp. 📡 영장 차단기 로그 회수. 차단 세 차례, 14일차 송신 도중 절단. 발신지 방위 047°, 수심 18m. 발신지는 재발신하지 않았다.' } ], // §ARCH-01 W7c
-    itemChain:[{action:'grant',name:'Warrant Suppressor Log', icon:'📡', type:'readable', sell:0, readText:"WARRANT SUPPRESSOR — AUTOMATIC SIGNAL LOG\nDevice ID: WSP-NU-04 (Neon Undercity, Station Corridor)\nOperator: Commander S. Bruhns (unaware of logging function)\n\n[Months 1–41: 14.225 monitored. No structured transmission detected. Log: confirmed absent. Cross-reference with Frequency Row Vol. 1–41: consistent.]\n\nDay 3, Vol. 41: Auto-suppression fired. Signal on 14.225, duration 0.4s, character: non-mechanical, subsurface origin — depth est. 18m, bearing 047° from HM. Suppression effective. Signal terminated.\nDay 9, Vol. 41: Auto-suppression fired. Signal on 14.225, duration 1.1s, character: non-mechanical, partial internal structure. Suppression effective. Signal terminated.\nDay 14, Vol. 41: Auto-suppression fired. Signal on 14.225, duration 3.1s, character: non-mechanical, structured content, transmission in progress at suppression. Suppression effective. Signal terminated mid-transmission.\n\n[Post-Day 14: 14.225 monitored. No structured transmission detected. Source remains at bearing 047°, depth 18m.]\n\nAuto-assessment: Signal suppression achieved. Source has not repeated transmission.\n\nNote: Either source ceased voluntarily, or source is aware of suppression.\n\n[End of log. Device continues active monitoring.]",silent:true}], // §EDITOR-01-D-FU(b) b2b
+    itemChain:[{action:'grant',name:'Warrant Suppressor Log', icon:'📡', type:'readable', sell:0, readText:"영장 차단기 — 자동 신호 로그\n장치 ID: WSP-NU-04 (네온 지하도시, 관측소 회랑)\n조작자: S. 브룬스 사령관 (기록 기능은 인지하지 못함)\n\n[1–41개월: 14.225 감시. 구조화된 송신 미탐지. 로그: 부재 확인. 주파수 열 1–41권과 교차 대조: 일치.]\n\n41권 3일차: 자동 차단 발동. 14.225 신호, 지속 0.4초, 특성: 비기계적, 지표 아래 발신 — 심도 추정 18m, HM 기준 방위 047°. 차단 유효. 신호 종료.\n41권 9일차: 자동 차단 발동. 14.225 신호, 지속 1.1초, 특성: 비기계적, 부분적 내부 구조. 차단 유효. 신호 종료.\n41권 14일차: 자동 차단 발동. 14.225 신호, 지속 3.1초, 특성: 비기계적, 구조화된 내용, 차단 시점에 송신 진행 중. 차단 유효. 송신 도중 신호 종료.\n\n[14일차 이후: 14.225 감시. 구조화된 송신 미탐지. 발신지는 방위 047°, 심도 18m에 그대로.]\n\n자동 평가: 신호 차단 달성. 발신지는 송신을 반복하지 않았다.\n\n비고: 발신지가 자발적으로 멈췄거나, 발신지가 차단을 인지하고 있거나.\n\n[로그 끝. 장치는 감시를 계속한다.]",silent:true}], // §EDITOR-01-D-FU(b) b2b
     desc:'7호 관측소의 로그는 항목 도중에 끝난다. 방위 047°는 네온 지하도시를 가리킨다. 세라핀 브룬스가 당신이 도착하기 전부터 아래에서 영장 차단기를 돌리고 있다. 차단기는 구조화된 송신에 자동으로 발사된다. 로그를 남긴다. 그녀는 로그를 남기는지 몰랐다.',
     hint:'네온 지하도시의 세라핀 브룬스 사령관에게 돌아가 억제기 기록에 대해 물어라.',
     activateNode:"SVO", 
     xpAward:250, waypointNode:'HKG', reward:300,
-    disposition:'"Either the source ceased voluntarily, or the source is aware of suppression." — Warrant Suppressor Log, auto-entry, Day 14',
+    disposition:'"『발신지가 자발적으로 멈췄거나, 발신지가 차단을 인지하고 있거나.』 — 영장 차단기 로그, 자동 항목, 14일차" — Warrant Suppressor Log, auto-entry, Day 14',
     passText:"세라핀이 기록 항목을 두 번 읽는다. 그것이 기록을 남기는지 몰랐다. 항목은 말한다: 소스가 자발적으로 멈췄거나, 소스가 억제를 인지하고 있거나.",
     failText:"억제기 로그는 네온 언더시티에 있다. 브룬스 사령관이 아직 읽지 않았다.",
     npc:"auros",
@@ -11227,7 +11227,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // ── §LIII: Station 7 ──
   quest_muffat_03: { id:'quest_muffat_03', type:'side', schema:'UQF-1.0', gate:{ flags:['muffatManifestRead'] }, bits:[], completion:{atNode:'SVO'}, title:'어둠의 관측소',
     onComplete:[ { kind:'reward', gold:350 }, { kind:'flag_write', set:['station7LogRead'] }, { kind:'narrative', msg:'💰 +350gp. 📡 7호 관측소 송신 로그 회수. 탐지 세 차례, 방위 047°, 로그는 항목 도중 끊겼다.' } ], // §ARCH-01 W7c
-    itemChain:[{action:'grant',name:'Station 7 Transmission Log', icon:'📡', type:'readable', sell:0, readText:"STATION 7 — AUTOMATED TRANSMISSION LOG\nFrequency 14.225 — Scholar Kings Monitoring Annex (Class 3)\nOperator: [field redacted per Class 3 protocol]\n\n[Volumes 1–40: confirmed absence. Cross-referenced with Frequency Row Vol. 1–40. Consistent.]\n\nVol. 41, Day 3: SIGNAL DETECTED — 14.225 — Duration: 0.4s — Character: non-mechanical — Source: subsurface, bearing 047° — Repeat: none. Logged per protocol. Notified Class 3 oversight. No response from oversight.\nVol. 41, Day 4: Absence confirmed.\nVol. 41, Day 9: SIGNAL DETECTED — 14.225 — Duration: 1.1s — Character: non-mechanical — Source: subsurface, bearing 047° — Repeat: none. Signal contains partial structure. Not noise. Logged. No response from oversight.\nVol. 41, Day 14: SIGNAL DETECTED — 14.225 — Duration: 3.1s — Character: non-mechanical — Source: subsurface, bearing 047° — Signal contains—\n\n[Log ends. The entry is incomplete. The pen is in the output tray. The receiver is still active. Bearing 047° from Station 7 points toward the Neon Undercity access corridor.]",silent:true}], // §EDITOR-01-D-FU(b) b2b
+    itemChain:[{action:'grant',name:'Station 7 Transmission Log', icon:'📡', type:'readable', sell:0, readText:"7호 관측소 — 자동 송신 로그\n주파수 14.225 — 학자 왕들 감시 별관 (3등급)\n조작자: [3등급 규약에 따라 삭제]\n\n[1–40권: 부재 확인. 주파수 열 1–40권과 교차 대조. 일치.]\n\n41권 3일차: 신호 탐지 — 14.225 — 지속: 0.4초 — 특성: 비기계적 — 발신지: 지표 아래, 방위 047° — 재발신: 없음. 규약대로 기록. 3등급 감독부에 통보. 감독부 응답 없음.\n41권 4일차: 부재 확인.\n41권 9일차: 신호 탐지 — 14.225 — 지속: 1.1초 — 특성: 비기계적 — 발신지: 지표 아래, 방위 047° — 재발신: 없음. 신호에 부분적 구조 포함. 잡음 아님. 기록. 감독부 응답 없음.\n41권 14일차: 신호 탐지 — 14.225 — 지속: 3.1초 — 특성: 비기계적 — 발신지: 지표 아래, 방위 047° — 신호에 포함된—\n\n[로그 끝. 항목이 미완이다. 펜은 출력 트레이에 있다. 수신기는 아직 켜져 있다. 7호 관측소 기준 방위 047°는 네온 지하도시 출입 회랑을 가리킨다.]",silent:true}], // §EDITOR-01-D-FU(b) b2b
     desc:'7호 관측소가 명세서에 배송 종착지로 적혀 있다. 침묵한 관측소. 명세서에는 주소가 있다. 베르타의 로그에는 달라진 부재가 있다. 관측소에는 항목 도중 끝난 송신 로그가 있다.',
     hint:'주파수 열 동쪽의 7번 관측소를 찾아 송신 기록을 읽어라.',
     activateNode:'LCY', 
@@ -11240,12 +11240,12 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   // ── §LII: Muffat — The Distribution Pattern ──
   quest_muffat_02: { id:'quest_muffat_02', type:'side', schema:'UQF-1.0', gate:{ flags:['muffatBerthReached'] }, bits:[], completion:{atNode:'DUS'}, title:'배포 패턴',
     onComplete:[ { kind:'reward', gold:300 }, { kind:'flag_write', set:['muffatManifestRead'] }, { kind:'narrative', msg:'💰 +300gp. 📦 선적 명세서(가로챈 것) 획득. 7호 관측소, 14.225, 6주 일정. 배열이 완성되었다.' } ], // §ARCH-01 W7c
-    itemChain:[{action:'grant',name:'Shipping Manifest (Intercepted)', icon:'📦', type:'readable', sell:0, readText:"SCHOLAR KINGS DISTRIBUTION — INTERNAL ROUTING\nStamp: Non-Standard Clearance (Class 3 Seal)\nOrigin: Tilbury Harbor, Third Berth\nDestination: Station 7 (Frequency Row Monitoring Annex)\nDelivery Frequency: Every 6 weeks\nContents: Monitoring equipment, Category 4 (no itemisation required)\nDistribution Reference: Frequency 14.225 — passive reception array maintenance\n\n[Handwritten annotation, margin:]\nStation 7 last confirmed operational — see Freq. Row log, Vol. 38.\nStation 7 status as of Vol. 41: no confirmation received.\nField note: Station may have been decommissioned without notice to monitoring staff.\n\n[Second annotation, different hand:]\nStation 7 was not decommissioned.\n—M.E.M.",silent:true}], // §EDITOR-01-D-FU(b) b2b
+    itemChain:[{action:'grant',name:'Shipping Manifest (Intercepted)', icon:'📦', type:'readable', sell:0, readText:"학자 왕들 배포 — 내부 회람\n도장: 비표준 통관 (3등급 인)\n출발지: 틸버리 항구, 세 번째 선석\n목적지: 7호 관측소 (주파수 열 감시 별관)\n배송 주기: 6주마다\n내용물: 감시 장비, 분류 4 (품목 기재 불요)\n배포 참조: 주파수 14.225 — 수신 배열 유지보수\n\n[손글씨 주석, 여백:]\n7호 관측소 마지막 가동 확인 — 주파수 열 로그, 38권 참조.\n41권 현재 7호 관측소 상태: 확인 없음.\n현장 메모: 관측소가 감시 인원에 통보 없이 폐기되었을 수 있음.\n\n[두 번째 주석, 다른 필체:]\n7호 관측소는 폐기되지 않았다.\n—M.E.M.",silent:true}], // §EDITOR-01-D-FU(b) b2b
     desc:'머펏의 선반 위 상자에는 배포 도장과 주파수 참조가 있다. 14.225. 베르타 노뱅크의 주파수다. 아무것도 없는 주파수. 마흔한 권의 무.',
     hint:'주파수 열에서 베르타 노뱅크를 찾아 14.225의 달라진 부재에 대해 물어라.',
     activateNode:'LCY', 
     xpAward:250, waypointNode:'DUS', reward:300,
-    disposition:'"Volume forty-one is when the absence changed. I do not know what changed it. I logged the change. That is the function of the log." — Bertha No-Bank',
+    disposition:'"『마흔한 권은 부재가 달라진 지점이다. 무엇이 그것을 바꾸었는지 나는 모른다. 나는 그 변화를 기록했다. 그것이 로그의 기능이다.』 — 베르타 노뱅크" — Bertha No-Bank',
     passText:"명세서는 14.225의 스테이션 7을 종착으로 적는다. 스테이션 7은 석 달 전에 꺼졌다. 버사는 무엇이 바뀌었는지 모른 채 바뀐 부재를 기록해 왔다.",
     failText:"상자에는 유통 도장이 찍혀 있다: 주파수 14.225. 선적 명세서는 아직 항만 부두의 머펏 선반에 있다.",
     npc:"magistra_elara_muffat",
