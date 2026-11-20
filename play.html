@@ -28045,7 +28045,7 @@ function _storyWmArchiveModal(wrap) {
     const body = unread
       ? null
       : (unsealed && S_story.wmFirstResearcherKnown
-          ? doc.body.replace('[REDACTED]','Marta Eilene Vass').replace(/\[REDACTED\]/g,'Marta Eilene Vass — First Tier, Tier-1 Researcher')
+          ? doc.body.replace('[삭제됨]','마르타 에일렌 바스').replace(/\[삭제됨\]/g,'마르타 에일렌 바스 — 1등급, 1급 연구자')
           : doc.body);
     let btn = null;
     if (!body) {
@@ -28131,8 +28131,8 @@ function _onPitChampionLoss() {
 // S36: EB node NG+ first-lines (one per node, shown once on first NG+ revisit)
 const EB_NG_PLUS_LINES = { // → doc: story.md §EB_NG_PLUS_LINES (per-node one-time NG+ recognition text at EB wounds)
   PRN: "또 검은 나무껍질이에요. 똑같아요.",
-  INV: "The figures still walk below. They don't notice you're back.",
-  SDR: "The altar stones unchanged. The water hasn't moved in centuries. You have.",
+  INV: "아래에서 형상들은 여전히 걷고 있다. 당신이 돌아온 것을 알아차리지 못한다.",
+  SDR: "제단 돌들은 그대로다. 물은 수백 년째 움직이지 않았다. 당신은 움직였다.",
   PMO: "그 냄새는 같다 — 그동안 마주한 무엇보다 오래되었다.",
   FLR: "선창은 여전히 움직인다. 지난번에 살아남은 것은 더 많은 시간을 가졌다.",
   KUN: "당신은 그 형상을 기억한다. 그것은 그것이 무언가를 바꾸는지 모른다.",
@@ -28218,7 +28218,7 @@ function storyPreFinalBattle() {
   // Override the threat badge for Bruhns
   const threatEl = document.getElementById('prebatt-threat');
   if (threatEl) {
-    threatEl.innerHTML = '<span class="threat-tier threat-deadly">DEADLY ⚠ FINAL BOSS</span>'
+    threatEl.innerHTML = '<span class="threat-tier threat-deadly">치명적 ⚠ 최종 보스</span>'
       + 'AC 22 · HP 300 · ATK +12 · DMG 3d8+6';
     threatEl.style.display = '';
   }
