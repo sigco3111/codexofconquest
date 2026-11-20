@@ -11151,7 +11151,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
       { kind:'reward', gold:300 },
       { kind:'_legacy_fn', fn:S => { S.inventory.push({ name:"Ori's Account", icon:'📜', type:'readable', sell:0,
         readText:'그녀는 배에 오른 것을 설명한다. 해적이 아니다. 폭풍도 아니다. 물속의 형상, 아주 큰, 무언가를 찾는 듯이 움직이는 것. 그리고 그것은 배를 찾아냈다.'
-          + ((S.inventory || []).find(i => i.name === "Froberger's Field Notes"\n\n프로베르거는 썼다: 『압력은, 올 줄 알면 견딜 수 있다.』 오리는 형상이 거기 있음을 알고 그것이 부딪히기 전에 선밖으로 몸을 던졌기에 살아남았다."The pressure is survivable if you know it\'s coming." Ori survived because she knew the shape was there and went over the side before it hit.' : '') }); } },
+          + ((S.inventory || []).find(i => i.name === "Froberger's Field Notes") ? '\n\n프로베르거는 썼다: 『압력은, 올 줄 알면 견딜 수 있다.』 오리는 형상이 거기 있음을 알고 그것이 부딪히기 전에 선밖으로 몸을 던졌기에 살아남았다.' : '') }); } },
       { kind:'narrative', msg:'📜 +300gp. 오리의 증언 획득. 레나우가 절친이 되었다.' },
     ],
     desc:'해로우호의 생존자가 틸버리에 도착했다. 3주를 걸어왔다. 이름은 오리. 그녀는 무슨 일이 있었는지 안다.',
