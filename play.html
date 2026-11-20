@@ -26650,7 +26650,7 @@ const FISH_POOL = [ // → doc: docs/mechanics/mechanics-combat.md §Fishing Ite
   { rank:16, key:'fish_16', name:'Yugurt Viper Fish',       desc:'호수의 이름을 땄다. 알려진 것은 한 마리뿐. 지금까지는.' },
   { rank:17, key:'fish_17', name:'Barbed Leviathan Trout',  desc:'육 피트. 지느러미 가시가 한 뼘 길이. 걸려도 도망치지 않는다. 당신 쪽으로 돌아선다.' },
   { rank:18, key:'fish_18', name:'The Spine King',          desc:'낚고 살아남은 이가 없다. 이것은 도전이거나 경고다. 호수는 명시하지 않는다.' },
-  { rank:19, key:'fish_19', name:'Dread Catfish of Yugurt', desc:'유구르트가 이것을 오두막 벽에 그렸다. 누군가에게 경고하려던 것이다. 누구에게인지는 명시하지 않았다.' },
+  { rank:19, key:'fish_19', name:'유구르트의 공포 메기', desc:'유구르트가 이것을 오두막 벽에 그렸다. 누군가에게 경고하려던 것이다. 누구에게인지는 명시하지 않았다.' },
   { rank:20, key:'fish_20', name:"유구르트의 공포",          desc:'존재했던 모든 호수의 최상위 포식자. 호수 사이를 헤엄쳐 다닌다.' },
 ];
 const NIGHT_FISH_POOL = [ // §XLVIII — nocturnal species, 유구르트 호수 after hour ≥ 20 or ≤ 5 (ranks 6–14; medium/large tier)
@@ -26669,9 +26669,9 @@ const LAKE_MAGIC_DB = { // Lake magic items — found via high-rank fishing; sta
   lake_mag_03: { key:'lake_mag_03', name:"유구르트의 눈",               icon:'👁', type:'lake_magic', sell:0, effect:'fishing_dc',    base:1, levelScale:0,   luckScale:1,   minRank:12, minLevel:2, desc:'호수에서 가장 오래된 물고기의 룬 새김 뼛조각. 낚시 포획 난이도를 소지자의 행운 보정치만큼 낮춘다.' },
   lake_mag_04: { key:'lake_mag_04', name:'공허에 물든 지느러미',           icon:'🌀', type:'lake_magic', sell:0, effect:'atk_bonus',     base:1, levelScale:0.2, luckScale:0,   minRank:16, minLevel:5, desc:'고인 물에서도 움직인다. 공격 보너스가 레벨에 비례한다. 지느러미는 공허가 사물을 가속하던 방식을 기억한다.' },
   lake_mag_05: { key:'lake_mag_05', name:'생물발광 샘',       icon:'🏮', type:'lake_magic', sell:0, effect:'night_type',    base:2, levelScale:0,   luckScale:0.5, minRank:11, minLevel:2, desc:'모든 밤낚시 캐스트의 어종 판정에 보너스를 준다. 그것이 만드는 빛은 낚는 것 외 모든 것에는 어울리지 않는 색이다.' },
-  lake_mag_06: { key:'lake_mag_06', name:'리바이어던 비늘 갑판',      icon:'🛡', type:'lake_magic', sell:0, effect:'ac_bonus',      base:2, levelScale:0.1, luckScale:0.5, minRank:17, minLevel:6, desc:'AC bonus that scales with both level and luck. The plate grew from one fish over one century. It protected the fish from everything except you.' },
-  lake_mag_07: { key:'lake_mag_07', name:'가시왕의 관',         icon:'👑', type:'lake_magic', sell:0, effect:'atk_bonus',     base:0, levelScale:0,   luckScale:1,   minRank:18, minLevel:7, desc:'Attack bonus equals the bearer\'s luck modifier, exactly. The Spine King never needed more than that.' },
-  lake_mag_08: { key:'lake_mag_08', name:"유구르트의 꿈비늘",       icon:'💠', type:'lake_magic', sell:0, effect:'all_ability',   base:1, levelScale:0.1, luckScale:0.3, minRank:20, minLevel:8, desc:'A +1 to all ability checks, scaling with level and luck. Yugurt dreamed this scale into existence the night before he disappeared. Nobody saw him leave.' },
+  lake_mag_06: { key:'lake_mag_06', name:'리바이어던 비늘 갑판',      icon:'🛡', type:'lake_magic', sell:0, effect:'ac_bonus',      base:2, levelScale:0.1, luckScale:0.5, minRank:17, minLevel:6, desc:'레벨과 행운 모두에 비례하는 방어 보너스. 이 갑옷은 한 마리 물고기에서 한 세기에 걸쳐 자랐다. 그것은 그 물고기를 모든 것으로부터 지켰다. 당신만 제외하고.' },
+  lake_mag_07: { key:'lake_mag_07', name:'가시왕의 관',         icon:'👑', type:'lake_magic', sell:0, effect:'atk_bonus',     base:0, levelScale:0,   luckScale:1,   minRank:18, minLevel:7, desc:'공격 보너스는 정확히 소지자의 행운 보정치와 같다. 가시왕에게는 그 이상이 필요 없었다.' },
+  lake_mag_08: { key:'lake_mag_08', name:"유구르트의 꿈비늘",       icon:'💠', type:'lake_magic', sell:0, effect:'all_ability',   base:1, levelScale:0.1, luckScale:0.3, minRank:20, minLevel:8, desc:'모든 능력 판정에 +1, 레벨과 행운에 비례. 유구르트는 사라지기 전날 밤 이 비늘을 꿈으로 존재하게 했다. 그가 떠나는 것을 본 사람은 없다.' },
 };
 // ◆◆◆ WORLDBUILDER:LAKE_MAGIC:END ◆◆◆
 
@@ -26690,35 +26690,35 @@ const JUNCTION_VIGNETTES = { // → doc: story.md §Junction Vignettes
   //   A child's toy on the road        → BNX  The Eastern Bend — Relay Road (the bend
   //                                           Tessie's surviving WRO vignette warns of)
   //   Cold fire ring, broken cart wheel→ OKD  The Oak at the Crossroads ("the tree line")
-  WRO: { npc:'Tessie', tag:'상인의 심부름꾼', lines:['"My employer hasn\'t paid me in three weeks. I\'m still running the routes. I don\'t know why."','She adjusts the pack on her shoulders. She\'s not looking for an answer.','"Good road. Watch the eastern bend — something spooked the relay horses yesterday."'], help:'You hand Tessie 10 gold. She looks at it for a long moment. "I\'ll take it. Thank you."' },
-  DAR: { npc:'늙은 페론', tag:'퇴역 군인', lines:['"I fought the first Tide. Told everyone it would come back. I was very boring at parties."','He has a scar that runs from his left ear to his collarbone. He doesn\'t cover it.','"Don\'t make the same mistake twice. The second time, I knew what to do. The first time I just survived. Only one of those is actually useful."'], help:'늙은 페론 looks at the gold. Slides it back. "Keep it. You\'ll need it for something."' },
-  PCR: { npc:'Mira', tag:'Refugee', actMin:3, lines:['"We left Tilbury before the harbor closed. I don\'t think we\'ll go back."','She has three children, none older than ten. They\'re asleep against a pack.','"My husband is still there. He was arranging the last cargo. That was eight days ago."'], help:'She takes the gold. Doesn\'t say thank you. Says: "There\'s an inn two leagues east. Tell them Mira sent you — they\'ll know what that means."' },
-  J13: { npc:'지도제작자', tag:'Unknown', lines:['"I\'ve been mapping these roads for twelve years. I still find new ones. That used to frighten me."','Her map covers three sheets and is rolled tight in an oilskin tube.','"The road you came from has changed since I drew it. Most of them have. I stopped correcting the old maps. I just make new ones."'], help:'She waves it off. "I don\'t carry gold. Maps are my currency. Here." She tears a small section from a corner sheet. "The coastline. More accurate than what you\'ll find printed."' },
-  ADN: { npc:'Wren', tag:'학자왕의 전령', lines:['"I carry messages for the Scholar Kings. I stopped reading them two years ago. Better that way."','She moves fast. She was walking before you arrived. She pauses at the junction.','"The Scholar Kings archive at Weimar lost three shelves last month. \'Reorganization.\' That\'s what they called it." She moves on.'], help:'당신이 뭘 건네기도 전에 그녀는 사라져 있어요.' },
-  BLW: { npc:null, lines:[null, null, null], env:'A note pinned to a post: "전액 지불됨. —S." No signature beyond that initial. No context. The road is quiet.' },
-  BNX: { npc:null, lines:[null, null, null], env:'A child\'s toy on the road. No NPC. No explanation. You leave it where it is.' },
-  OKD: { npc:null, lines:[null, null, null], env:'A cleared verge. The fire ring is cold. A broken cart wheel leans against the tree line. Someone stopped here recently and kept moving.' },
+  WRO: { npc:'Tessie', tag:'상인의 심부름꾼', lines:['『고용주가 삼 주째 품삯을 안 줘요. 그래도 노선을 돌고 있어요. 왜인지는 모르겠어요.』','그녀는 어깨의 짐을 고쳐 멘다. 답을 찾고 있는 것은 아니다.','『길 조심해요. 동쪽 커브 조심하고요. 어제 뭔가가 중계 마차의 말들을 놀라게 했어요.』'], help:'당신은 테시에게 10골드를 건넨다. 그녀는 그것을 오래 바라본다. 『받을게요. 고마워요.』' },
+  DAR: { npc:'늙은 페론', tag:'퇴역 군인', lines:['『나는 첫 번째 대물때와 싸웠어. 다들에게 돌아올 거라고 말했지. 모임에서 아주 지루한 사람이었어.』','그에게는 왼쪽 귀에서 쇄골까지 이어지는 흉터가 있다. 그는 그것을 가리지 않는다.','『같은 실수를 두 번 하지 마. 두 번째에는 뭘 해야 할지 알았어. 첫 번째에는 그냥 살아남았고. 실제로 쓸모 있는 건 둘 중 하나뿐이야.』'], help:'늙은 페론이 금을 본다. 그것을 다시 밀어 돌린다. 『가져가. 뭔가에 필요할 거야.』' },
+  PCR: { npc:'Mira', tag:'Refugee', actMin:3, lines:['『우리는 항구가 닫히기 전에 틸버리를 떠났어요. 돌아갈 것 같지는 않아요.』','그녀에게는 열 살 넘지 않은 아이 셋이 있다. 짐에 기대어 잠들어 있다.','『남편은 아직 거기 있어요. 마지막 화물을 정리하고 있었죠. 그게 여드레 전이에요.』'], help:'그녀는 금을 받는다. 고맙다는 말은 하지 않는다. 대신 말한다. 『동쪽으로 두 리그쯤 가면 여관이 있어요. 미라가 보냈다고 해요. 무슨 뜻인지 알 거예요.』' },
+  J13: { npc:'지도제작자', tag:'Unknown', lines:['『십이 년째 이 길들을 지도로 그리고 있어요. 아직도 새 길을 찾아내요. 예전에는 그게 두려웠죠.』','그녀의 지도는 세 장에 걸쳐 있고 기름종이 통에 단단히 말려 있다.','『당신이 온 길은 내가 그린 이후로 변했어요. 대부분이 그래요. 나는 옛 지도를 고치는 걸 그만뒀어요. 그냥 새로 만들어요.』'], help:'그녀는 손사래를 친다. 『나는 금을 안 가지고 다녀요. 지도가 내 화폐예요. 자요.』 그녀는 모서리 장에서 작은 부분을 찢어 준다. 『해안선이에요. 인쇄된 것들보다 정확해요.』' },
+  ADN: { npc:'Wren', tag:'학자왕의 전령', lines:['『나는 학자왕들의 서신을 나르고 있어요. 이 년 전부터는 읽지 않아요. 그게 나아요.』','그녀는 빠르게 움직인다. 당신이 도착하기 전부터 걷고 있었다. 그녀는 갈림길에서 잠시 멈춘다.','『바이마르의 학자왕 기록 보관소에서 지난달 선반 셋이 사라졌어요. 「재편」. 그들은 그렇게 불렀죠.』 그녀는 다시 걷는다.'], help:'당신이 뭘 건네기도 전에 그녀는 사라져 있어요.' },
+  BLW: { npc:null, lines:[null, null, null], env:'말뚝에 핀으로 고정된 쪽지: 「전액 지불됨. —S.」 그 이니셜 외의 서명은 없다. 맥락도 없다. 길은 조용하다.' },
+  BNX: { npc:null, lines:[null, null, null], env:'길 위의 아이 장난감. 주인도 없고, 설명도 없다. 당신은 그대로 두고 떠난다.' },
+  OKD: { npc:null, lines:[null, null, null], env:'치워진 길가. 화덕 자리는 식었다. 부러진 수레바퀴가 수림선에 기대어 있다. 누군가 최근에 여기 멈췄다가 계속 움직였다.' },
 };
 const COMPANION_LINES = { // → doc: story.md §Road Companion
-  2: { name:'Dessa', ctx:'Carrying supplies between Birka and Tilbury', line:'The harbor master in Tilbury keeps a ledger of every ship that left since the Tide started. He won\'t show it to anyone. I\'ve seen him writing in it.' },
-  3: { name:'Olaf', ctx:'소속 없는 여행 연구자', line:'Weimar\'s upper district has been closed to independent researchers for eleven years. That\'s exactly when the Void reports started.' },
-  4: { name:'Maret', ctx:'집으로 가는 군인', line:'Visby fell twice before. Both times, they held the west gate. They tell new recruits that story on the first day.' },
-  5: { name:'Pilgrim', ctx:'산길로 가는 중', line:'Someone sealed that tunnel before the Scholar Kings existed. I\'ve been trying to find out who for forty years.' },
-  6: { name:null, ctx:null, line:'For the first time in days, no one else is on the road. You walk alone. It is not lonely — it is quiet in a different way.' },
+  2: { name:'Dessa', ctx:'비르카와 틸버리 사이에서 보급품을 나르는 중', line:'『틸버리의 항구 관리인은 대물때가 시작된 이후 떠난 모든 배의 장부를 두고 있어요. 아무에게도 보여 주지 않죠. 그가 거기 쓰는 걸 봤어요.』' },
+  3: { name:'Olaf', ctx:'소속 없는 여행 연구자', line:'『바이마르 윗구역은 십일 년째 독립 연구자들에게 닫혀 있어요. 정확히 공허 보고가 시작된 때죠.』' },
+  4: { name:'Maret', ctx:'집으로 가는 군인', line:'『비스뷔는 전에도 두 번 함락됐어. 두 번 다 서문을 지켜냈지. 신병들에게는 첫날에 그 이야기를 해 줘.』' },
+  5: { name:'Pilgrim', ctx:'산길로 가는 중', line:'『누군가 학자왕들이 존재하기 전에 그 터널을 봉인했어. 누군지 사십 년째 알아내려 하고 있지.』' },
+  6: { name:null, ctx:null, line:'며칠 만에 처음으로 길에 아무도 없다. 당신은 혼자 걷는다. 외롭지 않다. 다른 방식으로 고요할 뿐이다.' },
 };
 
 /* ── Layer 61: Corelli the Wandering Merchant ── */
 const CORELLI_ITEMS = { // → doc: world.md §Corelli the Wandering Merchant (5 unique items across 5 appearances)
   scholar_ink:   { name:'Scholar\'s Ink (dismissed notes)', icon:'📝', type:'readable', sell:0, price:120,
-    readText:'A dismissed scholar\'s notes on voidPressure accumulation. Written margins-first, then the main text written around them. The margins say: "If they fire me for asking, they have already decided not to answer." The main text: threshold event at P3 — behavioral change in urban animals. P6 — Void-touched sightings increase 300%. P9 — structural convergence. The scholar was correct on all three. They were fired at P2.' },
+    readText:'voidPressure 축적에 관한 파면 학자의 노트. 여백부터 쓰고, 본문은 그 둘레에 썼다. 여백에는 이렇게 적혀 있다. 『묻는다고 해고한다면, 그들은 이미 답하지 않기로 결정한 것이다.』 본문: P3에서 문턱 현상, 도시 동물의 행동 변화. P6, 공허 닿음 목격 300퍼센트 증가. P9, 구조적 수렴. 학자는 셋 다 맞았다. 그는 P2에서 해고되었다.' },
   false_warrant: { name:'위조 영장 서류', icon:'📋', type:'consumable', sell:0, price:200,
-    readText:'Scholar Kings patrol documentation. Convincing at a distance. Useless when the Void has already corrupted the patrol — they no longer recognize authority, only movement.' },
+    readText:'학자왕 순찰 증빙 서류. 멀리서는 그럴듯하다. 공허가 이미 순찰대를 침식했을 때는 무용하다. 그들은 더 이상 권위를 알아보지 못하고 움직임만을 알아본다.' },
   encoded_letter:{ name:'Encoded Letter (partial decrypt)', icon:'🔐', type:'readable', sell:0, price:80,
-    readText:'Partially decrypted Scholar King correspondence. The legible portion: "...the Antecedent\'s route has been reassigned per Protocol 7. Reclassify all associated materials under Classification Level 7. Distribution suppressed. Do not destroy — destruction leaves a record." The rest is still encoded.' },
+    readText:'부분 해독된 학자왕 서신. 읽히는 부분: 『…선행자의 경로는 규약 7에 따라 재지정되었다. 관련 자료 전부를 분류 등급 7로 재분류하라. 배포는 억제한다. 파기하지 마라. 파기는 기록을 남긴다.』 나머지는 아직 암호다.' },
   kings_seal:    { name:"학자왕의 야전 인장", icon:'🔏', type:'trinket', sell:0, price:350,
-    readText:'A wax seal press bearing the Scholar Kings\' distributed authority mark. It still functions. Carries +1 to death saving throws — old-world authority still holds some weight, even under the Void.' },
+    readText:'학자왕들의 분산 권한 표장을 새긴 밀랍 인장기. 아직 작동한다. 죽음의 내성 굴림에 +1. 구세계의 권위는 공허 아래서도 얼마간 무게를 지닌다.' },
   last_cipher:   { name:'최후의 암호', icon:'🔐', type:'readable', sell:0, price:0,
-    readText:'A Scholar King administrative cipher key — the kind used to decode sealed distribution correspondence. At the bottom, in a different hand: "Antecedent Containment Protocol, cycle 3. All materials reclassified. Distribution route: suppressed. Reason on file: CLASSIFICATION LEVEL 7." Beneath that, scratched with a nail rather than written with a pen: "She built it to save us. They hid it to save themselves."' },
+    readText:'학자왕 행정 암호 열쇠, 봉인된 배포 서신을 해독하는 종류다. 맨 아래에 다른 필체로: 『선행자 격리 규약, 순환 3. 모든 자료 재분류됨. 배포 경로: 억제됨. 사유 기록됨: 분류 등급 7.』 그 아래에, 펜이 아니라 손톱으로 긁은 듯: 『그녀는 우리를 구하려고 그것을 만들었다. 그들은 자신들을 구하려고 그것을 숨겼다.』' },
 };
 // → doc: world.md §Corelli the Wandering Merchant
 // The old 26×16 codes were DK/RD/BK/SQ/IN
@@ -26730,27 +26730,27 @@ const CORELLI_ITEMS = { // → doc: world.md §Corelli the Wandering Merchant (5
 // §AUDIT-03j: stop 2 was `LDE` = the
 // legacy `RD` road node §WALK removed, so it never fired — reassigned to WRO (Midlands
 // Road Fork, act 3), the surviving road fork on the Tilbury→Visby corridor his opener
-// describes ("the road between here and the coast", "the Wilds road").
+// describes ("여기와 해안 사이의 길", "the Wilds road").
 const CORELLI_APPEARANCES = [
-  { nodeCode:'LCY', actMin:2, index:1, opener:'New in Tilbury? Thought so. You have the look of someone who just arrived and hasn\'t decided if they trust the harbor yet.',
-    openerFriendly:'We\'ve met before. Tilbury, if I remember right — and I always remember. The ink sold well, I take it?',
-    openerTrusted:'Back again. I\'ve been following the same road you have, more or less. Just a different axis. I keep quieter notes.',
+  { nodeCode:'LCY', actMin:2, index:1, opener:'『틸버리는 처음이죠? 그럴 줄 알았어요. 막 도착해서 항구를 믿을지 아직 결정 못 한 사람의 표정이에요.』',
+    openerFriendly:'『전에 만났죠. 내 기억이 맞다면 틸버리에서. 그리고 나는 늘 기억해요. 잉크는 잘 팔렸나 보죠?』',
+    openerTrusted:'『또 왔군요. 나도 당신과 같은 길을 따라왔어요, 대충은요. 축만 다를 뿐. 나는 더 조용한 기록을 두고 있어요.』',
     itemKey:'scholar_ink', itemLabel:'📝 Scholar\'s Ink (dismissed notes) — 120gp' },
-  { nodeCode:'WRO', actMin:3, index:2, opener:'We meet again. I saw you in Tilbury — don\'t be alarmed, I remember everyone I sell to.',
-    openerFriendly:'The road between here and the coast has been strange lately. You\'ve felt it too, I can see.',
-    openerTrusted:'I\'ve been on the Wilds road four times this season. Every time it looks different. The land is shifting. Or we are.',
+  { nodeCode:'WRO', actMin:3, index:2, opener:'『또 만났군요. 틸버리에서 봤어요. 놀라지 마세요, 나는 판매 상대를 전부 기억하니까.』',
+    openerFriendly:'『여기와 해안 사이의 길이 요즘 이상해요. 당신도 느꼈죠, 표정이 보여요.』',
+    openerTrusted:'『이번 계절에 황야 길을 네 번 다녔어요. 갈 때마다 모습이 달라요. 땅이 움직이고 있어요. 아니면 우리가.』',
     itemKey:'false_warrant', itemLabel:'📋 위조 영장 서류 — 200gp' },
-  { nodeCode:'BK', actMin:5, index:3, opener:'Visby. Well. You\'ve been going places. I\'ve been going places too, just different ones. Still — here we are.',
-    openerFriendly:'Mordus runs a tight tavern. Good for business — settled debts, predictable clientele. I prefer predictable.',
-    openerTrusted:'I haven\'t worked for them in six years. But I kept the seal. It still opens most of their archives.',
+  { nodeCode:'BK', actMin:5, index:3, opener:'『비스뷔라. 음. 여기저기 다니셨군요. 나도 여기저기 다녔어요, 다른 곳들이지만. 그래도, 이렇게 만났네요.』',
+    openerFriendly:'『모르두스는 주막을 빈틈없이 운영해. 장사에 좋지. 결산된 빚, 예측 가능한 손님. 나는 예측 가능이 좋아.』',
+    openerTrusted:'『그들 밑에서 일한 건 육 년 전이에요. 하지만 인장은 가지고 있죠. 그들의 기록 보관소 대부분은 아직 그걸로 열려요.』',
     itemKey:'encoded_letter', itemLabel:'🔐 Encoded Letter (partial decrypt) — 80gp' },
-  { nodeCode:'NUE', actMin:6, index:4, opener:'The Ivory Circle makes me nervous. I used to work adjacent to them. I try not to stay in Weimar long. But you — you look like you\'ve been asking questions here. Good. Keep asking.',
-    openerFriendly:'You\'ve been here before. The Circle doesn\'t like questions. Neither do I, but for different reasons.',
-    openerTrusted:'I stopped reading their correspondence two years before I left. The last one I read — it changed what I carry.',
+  { nodeCode:'NUE', actMin:6, index:4, opener:'『아이보리 서클은 나를 불안하게 해요. 예전에 그들 주변 일을 했거든요. 바이마르에 오래 머물지 않으려 해요. 하지만 당신은, 여기서 뭔가를 캐묻고 다닌 표정이에요. 좋아요. 계속 물어요.』',
+    openerFriendly:'『전에 와 봤군요. 서클은 질문을 좋아하지 않아요. 나도요, 다른 이유지만.』',
+    openerTrusted:'『그만두기 이 년 전부터 그들의 서신을 읽지 않았어요. 마지막으로 읽은 것, 그것이 내가 나르는 것을 바꿨죠.』',
     itemKey:'kings_seal', itemLabel:'🔏 학자왕의 야전 인장 — 350gp' },
-  { nodeCode:'TLL', actMin:8, index:5, opener:'End of the road. Or the beginning of one, depending. You look like you\'ve come the whole way. I have too. I always end up back here.',
-    openerFriendly:'The road closes. The city opens. I\'ve watched this loop more than once from the outside.',
-    openerTrusted:'I have something for you. Not for sale. It was never mine to sell.',
+  { nodeCode:'TLL', actMin:8, index:5, opener:'『길의 끝. 경우에 따라서는 시작이고요. 당신은 길 전부를 걸어온 표정이에요. 나도 그랬어요. 나는 결국 늘 여기로 돌아와요.』',
+    openerFriendly:'『길은 닫히고 도시는 열려요. 나는 이 순환을 바깥에서 한 번 이상 지켜봤어요.』',
+    openerTrusted:'『당신에게 줄 게 있어요. 팔 물건이 아니에요. 애초에 내가 팔 수 있는 것이 아니었어요.』',
     itemKey:'last_cipher', itemLabel:null },
 ];
 
