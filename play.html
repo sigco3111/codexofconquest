@@ -33925,7 +33925,7 @@ function _nodeHookAlchKirDream(node) {
           S_story.xp = (S_story.xp||0) + 50;
           const inv = S_story.inventory = S_story.inventory || [];
           inv.push({ name:"Shepherd's Fortune Slip", icon:'📜', type:'misc', desc:'로엔을 위한 점술가의 풀이: 「조짐을 따르세요. 세상이 가르쳐 줄 것입니다. 금은 이미 맑아진 물 아래에 있습니다.」 로엔이 계속 잘못 읽어서 다른 해석이 필요하다며 당신에게 준 것이다.', sell:0 });
-          storyMsg('🐑 「훌륭해요.」 로엔이 갈림길 돌 뒤에서 작은 꾸러미를 꺼낸다. 이걸 준비해 두었던 것이다.\\n\\n「점술가가 말했어요: 조짐을 따르세요. 세상이 가르쳐 줄 것입니다. 금은 이미 맑아진 물 아래에 있습니다.」 그가 쪽지를 건넨다. 「이걸 6개월째 갖고 다녔어요. 읽을 때마다 다르게 이해돼요. 때가 왔을 때 올바르게 읽어 줄 사람이 갖고 있었으면 해요.」\\n\\n그가 호수를 본다. 그다음 남쪽 길을 본다.\\n\\n「저는 금이 지중해의 어느 섬에 있다고 믿어요. 할머니는 뒷마당에 있다고 하셨고요. 둘 중 하나가 비유를 쓰고 있어요. 저는 그게 할머니라고 믿고 있어요.」 어느 쪽인지는 그가 틀렸다.\\n\\nShepherd\'s Fortune Slip 획득. +50 XP. 로엔이 당신과 동행한다. 퀘스트: 정오 평원이 미들랜드에서 활성화된다.');
+          storyMsg('🐑 「훌륭해요.」 로엔이 갈림길 돌 뒤에서 작은 꾸러미를 꺼낸다. 이걸 준비해 두었던 것이다.\\n\\n「점술가가 말했어요: 조짐을 따르세요. 세상이 가르쳐 줄 것입니다. 금은 이미 맑아진 물 아래에 있습니다.」 그가 쪽지를 건넨다. 「이걸 6개월째 갖고 다녔어요. 읽을 때마다 다르게 이해돼요. 때가 왔을 때 올바르게 읽어 줄 사람이 갖고 있었으면 해요.」\\n\\n그가 호수를 본다. 그다음 남쪽 길을 본다.\\n\\n「저는 금이 지중해의 어느 섬에 있다고 믿어요. 할머니는 뒷마당에 있다고 하셨고요. 둘 중 하나가 비유를 쓰고 있어요. 저는 그게 할머니라고 믿고 있어요.」 어느 쪽인지는 그가 틀렸다.\\n\\nShepherd\'s Fortune Slip 획득. +50 XP. 로엔이 당신과 동행한다. 퀘스트: 정오의 평원 미들랜드에서 활성화.');
           storyRender(node);
         });
         _aDiv.appendChild(_aBtn);
@@ -33941,15 +33941,15 @@ function _nodeHookAlchManNoon(node) {
       const _aDiv = document.createElement('div');
       _aDiv.id = 'story-alch-mi'; _aDiv.className = 'sweelinck-variant';
       _aDiv.style.cssText = 'margin-top:10px;border-left-color:#8a7a2a;color:#c8b050;font-size:12px;';
-      _aDiv.textContent = '🐑 Roen is in the noon plain watching his shadow disappear under his feet. "At noon the plain has no shadow. My grandmother said: don\'t take the shadow personally. I thought this was a metaphor. Now I think she meant: the shadow is just an absence of light, not a judgment. You can\'t take an absence personally." He watches the horizon. "That creature over there, however — I would take that personally."';
+      _aDiv.textContent = '🐑 로엔이 정오의 평원에서 자신의 그림자가 발밑에서 사라지는 것을 보고 있다. 「정오가 되면 평원에는 그림자가 없어요. 할머니가 말씀하셨죠: 그림자를 인격적으로 받아들이지 말라고. 저는 그게 비유인 줄 알았어요. 이제 생각하면 이런 뜻이었던 것 같아요. 그림자는 그저 빛의 부재이지 심판이 아니라고. 부재를 인격적으로 받아들일 수는 없잖아요.」 그가 지평선을 본다. 「하지만 저쪽의 저것만큼은, 인격적으로 받아들이겠어요.」';
       const _aBtn = document.createElement('button');
       _aBtn.className = 'inv-use-btn'; _aBtn.style.marginTop = '6px';
-      _aBtn.textContent = '🐑 Discuss the shadow with Roen';
+      _aBtn.textContent = '🐑 로엔과 그림자에 대해 이야기한다';
       _aBtn.addEventListener('click', () => {
         _aBtn.disabled = true;
         S_story.roenMidlandsWisdom = true;
         S_story.xp = (S_story.xp||0) + 150;
-        storyMsg('🐑 "The second agreement," Roen says, watching the noonwraith on the horizon, "is: don\'t take anything personally. The noonwraith doesn\'t want to destroy you specifically. It wants to destroy anyone who stands in the noon plain without knowing to leave." He pauses. "Although I suppose not leaving is somewhat personal. On my part."\n\nHe takes the stone out and holds it up. It\'s warm.\n\n"The stone gets warm when the sun is directly overhead. I\'ve taken this personally for forty years." He puts it back. "I\'m practicing not taking it personally. It is a process. Also the stone is from the loch shallows. My grandmother called it a loch stone. I thought that just meant it was from the loch. I wonder now if that was more specific than I understood."\n\nHe turns south, toward the road.\n\n+150 XP. Quest: The Ship Remembers activates at the Tilbury Star.');
+        storyMsg('🐑 「두 번째 약속은,」 지평선의 정오의 망령을 보며 로엔이 말한다. 「어떤 것도 인격적으로 받아들이지 말 것이에요. 정오의 망령은 꼭 당신을 파괴하려는 게 아니에요. 떠나야 하는 줄 모르고 정오의 평원에 서 있는 사람은 누구든 파괴하려는 거죠.」 그가 잠시 멈춘다. 「뭐, 떠나지 않은 건 좀 인격적인 일이긴 해요. 제 쪽에서요.」\\n\\n그가 돌을 꺼내 들어 올린다. 돌이 따뜻하다.\\n\\n「태양이 정수리 바로 위에 있으면 돌이 따뜻해져요. 저는 이걸 40년간 인격적으로 받아들였어요.」 그가 돌을 도로 넣는다. 「인격적으로 받아들이지 않는 연습을 하고 있어요. 과정이 필요하더라고요. 그리고 이 돌은 호수 여울에서 온 거예요. 할머니는 호수 돌이라고 부르셨죠. 저는 그냥 호수에서 났다는 뜻인 줄 알았어요. 이제 와 생각하면 그보다 구체적인 뜻이었는지도 몰라요.」\\n\\n그가 남쪽으로, 길을 향해 돌아선다.\\n\\n+150 XP. 퀘스트: 배는 기억한다 틸버리 스타호에서 활성화');
         storyRender(node);
       });
       _aDiv.appendChild(_aBtn);
@@ -33964,7 +33964,7 @@ function _nodeHookAlchSenShip(node) {
       const _aDiv = document.createElement('div');
       _aDiv.id = 'story-alch-ms'; _aDiv.className = 'sweelinck-variant';
       _aDiv.style.cssText = 'margin-top:10px;border-left-color:#2a3a6a;color:#8090c8;font-size:12px;';
-      _aDiv.textContent = '🐑 Roen is at the ship\'s rail. First time at sea. "The ship doesn\'t make assumptions about where the sea ends. It goes until it arrives. I\'ve been making assumptions about where the gold is for forty years. The ship is doing better than I am." He\'s not looking away from the water. "The stone is heavy in my pocket today. It\'s been heavy since the plains."';
+      _aDiv.textContent = '🐑 로엔이 배의 난간에 서 있다. 처음 타보는 뱃길이다. 「배는 바다가 어디서 끝나는지 억측하지 않아요. 도착할 때까지 갈 뿐이죠. 저는 40년간 금이 어디 있는지 억측하고 있었어요. 배가 저보다 낫네요.」 그는 물에서 눈을 떼지 않는다. 「오늘은 주머니 속 돌이 무거워요. 평원에서부터 계속 무거웠어요.」';
       const _aBtn = document.createElement('button');
       _aBtn.className = 'inv-use-btn'; _aBtn.style.marginTop = '6px';
       _aBtn.textContent = '🐑 Stand at the rail with Roen';
@@ -33972,7 +33972,7 @@ function _nodeHookAlchSenShip(node) {
         _aBtn.disabled = true;
         S_story.roenAtSea = true;
         S_story.xp = (S_story.xp||0) + 200;
-        storyMsg('🐑 The rail. The water. A shepherd who has never been on a ship.\n\n"The sea doesn\'t remember the ships that crossed it. Only the ships remember the sea. I\'ve been waiting for the world to remember me. I think I have that backwards." He holds the stone over the rail — not dropping it, considering.\n\n"The stone is warm again. It\'s the water." He pulls it back. "My grandmother grew up near the loch. She said the stone came from the loch shallows. She called it a loch stone. I thought that just meant it was from the loch. I wonder now if that was more specific." He is getting closer to understanding something. He does not know how close.\n\n+200 XP. Quest: The Oracle\'s Reading activates at the Oracle\'s Island.');
+        storyMsg('🐑 난간. 물. 배를 타본 적 없는 양치기.\\n\\n「바다는 건너간 배들을 기억하지 않아요. 배들만이 바다를 기억하죠. 저는 세상이 저를 기억해 주기를 기다렸어요. 제가 뭔가를 거꾸로 하고 있었던 것 같아요.」 그가 돌을 난간 너머로 들고 있다. 떨어뜨리는 게 아니라, 생각에 잠긴 것이다.\\n\\n「돌이 다시 따뜻해요. 물 때문이에요.」 그가 돌을 거둔다. 「할머니는 호수 근처에서 자라셨어요. 돌이 호수 여울에서 왔다고 하셨죠. 호수 돌이라고 부르셨고요. 저는 그냥 호수에서 났다는 뜻인 줄 알았어요. 이제 와 생각하면 그보다 구체적이었는지도 몰라요.」 그가 무언가를 이해하는 데 가까워지고 있다. 얼마나 가까운지는 그도 모른다.\\n\\n+200 XP. 퀘스트: 신탁의 풀이 신탁의 섬에서 활성화');
         storyRender(node);
       });
       _aDiv.appendChild(_aBtn);
@@ -33987,10 +33987,10 @@ function _nodeHookAlchAthStoic(node) {
       const _aDiv = document.createElement('div');
       _aDiv.id = 'story-alch-ae'; _aDiv.className = 'sweelinck-variant';
       _aDiv.style.cssText = 'margin-top:10px;border-left-color:#3a2a3a;color:#a080a0;font-size:12px;';
-      _aDiv.textContent = '🐑 Near the altar to an unknown god: an old man who has been on the same stone since before the current magistrates were born. He looked at Roen\'s fortune slip and immediately said: "You\'ve already found it." Roen: "I haven\'t." Old man: "You have the stone. Your grandmother said the stone knows where the gold is. So: the stone has the knowledge. The knowledge is the gold. You\'ve been carrying gold for forty years." Roen has been staring at him for ten minutes.';
+      _aDiv.textContent = '🐑 이름 없는 신의 제단 근처: 현직 치안관들이 태어나기 전부터 같은 돌 위에 있던 노인이 있다. 그는 로엔의 점술 쪽지를 보자마자 말했다. 「이미 찾았네.」 로엔: 「아니요.」 노인: 「그 돌을 가지고 있지. 할머니가 돌은 금이 어디 있는지 안다고 했다며. 그러니, 돌이 그 지식을 가진 걸세. 지식이 곧 금이야. 자네는 40년간 금을 갖고 다닌 걸세.」 로엔은 10분째 그를 빤히 보고 있다.';
       const _aBtn = document.createElement('button');
       _aBtn.className = 'inv-use-btn'; _aBtn.style.marginTop = '6px';
-      _aBtn.textContent = '🐑 Let Roen give the fortune slip to the old man';
+      _aBtn.textContent = '🐑 로엔이 점술 쪽지를 노인에게 건네게 한다';
       _aBtn.addEventListener('click', () => {
         _aBtn.disabled = true;
         S_story.roenAlchemistMet = true;
@@ -33998,7 +33998,7 @@ function _nodeHookAlchAthStoic(node) {
         const inv = S_story.inventory = S_story.inventory || [];
         const slipIdx = inv.findIndex(i => i.name === "Shepherd's Fortune Slip");
         if (slipIdx !== -1) inv.splice(slipIdx, 1);
-        storyMsg('🐑 Roen holds out the slip. The old man reads it. Sets it on the stone beside him.\n\n"\'Below the water that has already been cleared.\'" He does not elaborate.\n\nRoen: "What does that mean?"\n\nOld man: "You already know."\n\nRoen: "The Highland loch. The kelpie was cleared."\n\nOld man: "Yes."\n\nRoen: "My grandmother\'s backyard."\n\nOld man: "Yes."\n\nRoen: "She wasn\'t using a metaphor."\n\nOld man: "Shepherds rarely do."\n\nRoen is quiet. Then: "I paid a fortune teller in Birka. An oracle on an island. I walked to Athens and found you on a rock. You all said the same thing. In progressively fewer words." He looks at the stone. "My grandmother told me for free. In four words."\n\nThe old man folds the slip into his coat. "You would not have understood it then. The journey was not to find the gold. The journey was to understand what your grandmother already knew."\n\nRoen nods once.\n\n"That\'s very annoying," he says. He says it with complete warmth.\n\nShepherd\'s Fortune Slip consumed. +250 XP. Quest: The Gold Was Home activates at the Irish Highlands.');
+        storyMsg('🐑 로엔이 쪽지를 내민다. 노인이 그것을 읽는다. 옆의 돌 위에 내려놓는다.\\n\\n「『이미 맑아진 물 아래에 있습니다.』」 그는 부연하지 않는다.\\n\\n로엔: 「무슨 뜻이에요?」\\n\\n노인: 「자네는 이미 알고 있네.」\\n\\n로엔: 「하이랜드 호수요. 켈피가 정리됐어요.」\\n\\n노인: 「그래.」\\n\\n로엔: 「할머니의 뒷마당.」\\n\\n노인: 「그래.」\\n\\n로엔: 「비유를 쓰신 게 아니었어요.」\\n\\n노인: 「양치기는 좀처럼 비유를 쓰지 않네.」\\n\\n로엔이 조용해진다. 이윽고: 「저는 비르카의 점술가에게 돈을 냈어요. 섬의 신탁에게도요. 아테네까지 걸어가서 바위 위의 당신을 찾았고요. 모두 같은 말을 했어요. 점점 더 적은 단어로요.」 그가 돌을 본다. 「할머니는 공짜로 알려 주셨어요. 네 단어로.」\\n\\n노인이 쪽지를 접어 외투에 넣는다. 「그때는 이해하지 못했을 걸세. 여정은 금을 찾기 위한 게 아니었어. 여정은 자네 할머니가 이미 알고 계신 것을 이해하기 위한 것이었네.」\\n\\n로엔이 한 번 고개를 끄덕인다.\\n\\n「참 얄밉네요.」 그가 말한다. 완전한 온기를 담아 말한다.\\n\\nShepherd\'s Fortune Slip 소모. +250 XP. 퀘스트: 금은 집에 있었다 아일랜드 하이랜드에서 활성화');
         storyRender(node);
       });
       _aDiv.appendChild(_aBtn);
