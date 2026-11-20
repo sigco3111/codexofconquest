@@ -25432,7 +25432,7 @@ function _storyBattleVictory() {
   }
   if (pb && pb.nodeCode === 'CQ_KING') {
     S_story.catKingDefeated = true;
-    storyMsg('👑 The Cat-King is defeated. Three city blocks of flying fur and claws — done.\n\nKenickie Clawnickie Mancuso: "Yo. YO. You actually killed the Cat-King. Nobody\'s done that. The community\'s gonna be talking about this for like... three whole days. Then they\'ll forget. They\'re cats."\n\nJimmy Two-Tails: "Listen. I want you to know something. You did good. Real good. You\'re like... honorary Ally Cat now. Don\'t tell nobody. It ain\'t a thing we advertise."');
+    storyMsg('👑 캣킹이 쓰러졌다. 날아다니는 털과 발톱 세 블록 — 끝.\n\n케니키 클로니키 만쿠소: "요. 요! 너 진짜로 캣킹을 잡았어. 아무도 못 한 거야. 동네에서 한 사흘쯤은 이러쿵저러쿵할 거다. 그다음엔 잊혀져. 고양이들이잖아."\n\n지미 투테일즈: "이봐. 하나 알아둬. 잘했어. 진짜 잘했어. 너 이제… 명예 골목 고양이야. 아무한테도 말하지 마. 우리가 광고하고 다니는 게 아니거든."');
     if (!(S_story.quests || {})['quest_la_riva_01']) {
       setTimeout(() => {
         S_story.quests['quest_la_riva_01'] = 'active';
