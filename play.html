@@ -26840,6 +26840,29 @@ const FISH_GOLD_VALUES = { // → doc: docs/mechanics/mechanics-combat.md §Fish
 const _ITEM_NAME_ALIAS = { '프로버거의 현장 노트': "Froberger's Field Notes", '베네딕트의 주석본': "Benedikt's Annotated Copy", '건설자의 일지': "The Constructor's Log" };
 function _itemNameEq(a, b) { return a === b || _ITEM_NAME_ALIAS[a] === b; }
 
+// §I18N-DISP — display-only KR labels for items whose STORAGE names stay English
+// (identity/logic keys: itemsAll gates, itemChain take, name=== checks, alias map).
+// Renderers call _itemDisplayName; logic keeps the raw name. Fallback: the name itself.
+const _ITEM_DISPLAY_KR = { "Benedikt's Annotated Copy": "베네딕트의 주석본", "Froberger's Field Notes": "프로버거의 현장 노트", "The Constructor's Log": "건설자의 일지",
+  "Crone Staff": "크론의 지팡이", "Fishing Guide": "낚시 안내서", "Free Rod Coupon": "낚싯대 무료 교환권", "Fuzzy Tribble": "복슬복슬 트리블",
+  "Worn Ledger Book": "낡은 장부", "Sealed Scholar Box": "봉인된 학자 상자", "Prior Carrier's Token": "선행 운반자의 토큰",
+  "Undercity Survey (Partial)": "언더시티 측량서 (일부)", "Certified Skill-Chit": "공인 기량 증서", "Clean-Card Trophy": "클린 카드 트로피",
+  "Rod of Self-Discovery": "자기 발견의 낚싯대", "Scholar Kings Requisition (Handwritten)": "학자왕들의 징발장 (친필)",
+  "Stripped Reactor Core": "해체된 원자로 코어", "Y. Gurt Field Survey": "Y. 구르트 현장 측량서", "Ori's Account": "오리의 장부",
+  "Glut's Gift": "글럿의 선물", "Scholar King's Name Plate": "학자왕의 명판", "Quill's Lute": "퀼의 류트",
+  "Scholar King's Prototype Wand": "학자왕의 시제 지팡이", "The Warden's Token": "간수의 토큰",
+  "Abandoned Pack": "버려진 꾸러미", "Abandoned Scholar Pack": "버려진 학자 배낭", "Ancient Road Marker": "고대 도로 표지석",
+  "Neurotoxin Dip": "신경독 담금액", "Cargo Manifest": "화물 명세서", "Catacomb Map": "지하묘지 지도",
+  "Desert Crossroads Marker": "사막 갈림길 표지", "Fishing Rod": "낚싯대", "Highland Horse": "고지대 말",
+  "Letter of Marque": "사략장", "Relay Station Token": "중계소 토큰", "River Blessing (shrine offering)": "강의 축복 (신단 봉납)",
+  "Runed Stone": "룬 새김 돌", "Scholar King Marker": "학자왕 표지", "Signal Torch": "신호 횃불", "Supply Pack": "보급 꾸러미",
+  "Fragment Rubbing": "파편 탁본", "Tentmaking Tools": "천막 제작 도구", "The Real Map (all 42 nodes)": "진짜 지도 (42개 노드 전부)",
+  "Three Jerusalem Warrants": "예루살렘 영장 세 장", "Order of Escort": "호위 명령서", "Thunderstone ×2": "천둥석 ×2",
+  "Treasure Crate (25gp)": "보물 상자 (25gp)", "Nautical Chart": "해도", "Oilskin case on the far ledge": "저쪽 선반의 기름천 상자",
+  "Olympian Key": "올림포스의 열쇠", "Corrupted Meme Fragment ×2": "타락한 밈 조각 ×2", "Tiny Fedora": "작은 페도라",
+  "바실리스크의 눈 Flask": "바실리스크의 눈 플라스크" };
+function _itemDisplayName(name) { return _ITEM_DISPLAY_KR[name] || name; }
+
 const FISHING_RODS = [
   { name:'Fishing Rod',   tier:0, rodBonus:0, price:20,  icon:'🎣', sell:10,  desc:'표준 낚싯대. 줄을 내보낸다.' },
   { name:'River Rod +1',  tier:1, rodBonus:1, price:75,  icon:'🎣', sell:30,  desc:'균형이 더 좋다. 포획 판정 +1.' },
@@ -31415,7 +31438,7 @@ function storyRenderInventory() {
       + (item.type === 'shard'   ? ' shard-item'   : '')
       + (item.type === 'key'     ? ' key-item'      : '');
     div.innerHTML = '<span class="inv-icon">' + item.icon + '</span>'
-      + '<span class="inv-name">' + item.name
+      + '<span class="inv-name">' + _itemDisplayName(item.name)
       + (item.mintKey ? ' <span class="inv-tag" title="원장에 주조됨 — 멀티플레이에서 거래 가능">🔗</span>' : '')
       + '</span>'
       + '<span class="inv-src">' + (node ? (node.label || node.name).split(' — ')[0] : (item.code || '')) + '</span>';
@@ -31433,7 +31456,7 @@ function storyRenderInventory() {
       const div = document.createElement('div');
       div.className = 'inv-item';
       div.innerHTML = '<span class="inv-icon">' + sh.icon + '</span>'
-        + '<span class="inv-name">' + sh.name + ' <span class="inv-tag">+' + sh.acBonus + ' AC</span></span>'
+        + '<span class="inv-name">' + _itemDisplayName(sh.name) + ' <span class="inv-tag">+' + sh.acBonus + ' AC</span></span>'
         + '<span class="inv-src">장착됨</span>';
       const unBtn = document.createElement('button');
       unBtn.className = 'inv-use-btn';
@@ -31453,7 +31476,7 @@ function storyRenderInventory() {
       const div = document.createElement('div');
       div.className = 'inv-item';
       div.innerHTML = '<span class="inv-icon">' + wp.icon + '</span>'
-        + '<span class="inv-name">' + wp.name + ' <span class="inv-tag">+' + wp.atkBonus + ' ATK 보조</span></span>'
+        + '<span class="inv-name">' + _itemDisplayName(wp.name) + ' <span class="inv-tag">+' + wp.atkBonus + ' ATK 보조</span></span>'
         + '<span class="inv-src">장착됨</span>';
       const unBtn = document.createElement('button');
       unBtn.className = 'inv-use-btn';
@@ -31462,7 +31485,7 @@ function storyRenderInventory() {
         S_story.inventory.push(S_story.equippedWeapon);
         S_story.equippedWeapon = null;
         storyUpdateStatus(); storyRenderInventory();
-        storyMsg('🗡 ' + wp.name + ' 해제.');
+        storyMsg('🗡 ' + _itemDisplayName(wp.name) + ' 해제.');
       });
       div.appendChild(unBtn);
       list.appendChild(div);
@@ -31474,7 +31497,7 @@ function storyRenderInventory() {
       const div = document.createElement('div');
       div.className = 'inv-item';
       div.innerHTML = '<span class="inv-icon">' + mw.icon + '</span>'
-        + '<span class="inv-name">' + mw.name + ' <span class="inv-tag">' + tag + '</span></span>'
+        + '<span class="inv-name">' + _itemDisplayName(mw.name) + ' <span class="inv-tag">' + tag + '</span></span>'
         + '<span class="inv-src">주 손</span>';
       const unBtn = document.createElement('button');
       unBtn.className = 'inv-use-btn';
@@ -31483,7 +31506,7 @@ function storyRenderInventory() {
         S_story.inventory.push(S_story.equippedMainWeapon);
         S_story.equippedMainWeapon = null;
         storyUpdateStatus(); storyRenderInventory();
-        storyMsg('⚔ ' + mw.name + ' 해제.');
+        storyMsg('⚔ ' + _itemDisplayName(mw.name) + ' 해제.');
       });
       div.appendChild(unBtn);
       list.appendChild(div);
@@ -31611,7 +31634,7 @@ function storyRenderInventory() {
           S_story.equippedShield = it;
           S.char.ac = _calcPlayerAc();
           storyUpdateStatus(); storyRenderInventory();
-          storyMsg('🛡 ' + it.name + ' equipped — AC is now ' + S.char.ac + '. Dagger moved to inventory.');
+          storyMsg('🛡 ' + _itemDisplayName(it.name) + ' 장착 — 현재 AC ' + S.char.ac + '. 단도가 인벤토리로 이동했다.');
         });
         div.appendChild(eqBtn);
       });
