@@ -28350,7 +28350,7 @@ function _buildEpilogueScroll() {
   ARC_EPILOGUE_CONDITIONS.forEach(({ cond, line }) => { if (cond()) lines.push(line); });
   // §D01-04 Secret Gate — anonymous recorded truth from the Unbanked Quarter toll rune
   if (S_story._voidTollSecret) {
-    lines.push('At the Unbanked Quarter, before the end, someone knelt at the void rune and spoke one true thing aloud. The rune recorded it. It is here now. Anonymous. Undated. Just the truth as it was said:\n\n"' + _mpEsc(S_story._voidTollSecret) + '"');
+    lines.push('언뱅크트 쿼터에서, 최후가 오기 전, 누군가 공허 룬 앞에 무릎 꿇고 진실 하나를 소리 내어 말했다. 룬이 그것을 기록했다. 그것이 지금 여기 있다. 익명. 날짜 없음. 말해진 그대로의 진실뿐이다:\\n\\n「' + _mpEsc(S_story._voidTollSecret) + '」');
   }
   return lines;
 }
