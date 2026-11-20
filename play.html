@@ -4199,10 +4199,10 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
       <!-- §MESH-01a — multiplayer strip (display-only; hidden logic never touches the mover) -->
       <div id="mp-bar">
         <button id="mp-toggle" onclick="mpToggle(event)" title="멀티플레이 — 클릭: 연결 · Shift+클릭: 서버 브라우저 / 마그넷 붙여넣기">🌐</button>
-        <button id="mp-chat-toggle" onclick="mpChatToggle()" title="Chat history">💬<span id="mp-chat-badge"></span></button>
+        <button id="mp-chat-toggle" onclick="mpChatToggle()" title="대화 기록">💬<span id="mp-chat-badge"></span></button>
         <span id="mp-status">끔</span>
         <span id="mp-presence"></span>
-        <input id="mp-chat-input" placeholder="say…" maxlength="500" style="display:none"
+        <input id="mp-chat-input" placeholder="메시지 입력…" maxlength="500" style="display:none"
                onkeydown="if(event.key==='Enter')mpSay();else if(event.key==='Escape')mpDmTo(null)">
       </div>
 
@@ -4211,7 +4211,7 @@ body.act-three .npc-card-chip { filter: saturate(0.85); }
         <div id="mp-browser-card">
           <h3>🌐 월드 서버</h3>
           <div class="mp-hint">친구의 마그넷(<code>coc:?…</code>), 트래커 URL 또는 서버 URL을 붙여넣고 같은 월드의 서버에 접속하세요. 접속은 멀티플레이 서버만 설정할 뿐 게임 데이터는 바뀌지 않습니다.</div>
-          <input id="mp-magnet-input" placeholder="coc:?p=…&amp;ev=…&amp;wh=…&amp;tr=…  ·  or  http://host:1367"
+          <input id="mp-magnet-input" placeholder="coc:?p=…&amp;ev=…&amp;wh=…&amp;tr=…  ·  http://host:1367"
                  onkeydown="if(event.key==='Enter')mpResolveMagnet()">
           <div style="display:flex;gap:8px">
             <button id="mp-browser-resolve" onclick="mpResolveMagnet()">🔭 서버 찾기</button>
@@ -28808,7 +28808,7 @@ function _mpChatRender() {
     '<div class="mp-chat-line' + (String(e.msg).startsWith('👣') ? ' mp-chat-fp' : '') + '"><span class="mp-chat-ts">' + hhmm(e.ts) + '</span> ' + (e.scope === 'world' ? '🌍 ' : '') + '<b>' + _mpEsc(e.name) + '</b>' +
     (e.server ? '<span class="mp-chat-srv">@' + _mpEsc(String(e.server).slice(0, 8)) + '</span>' : '') +
     ': ' + _mpEsc(e.msg) + '</div>').join('')
-    || '<div class="mp-chat-line" style="color:var(--dim)">No chat yet. Connect (🌐) and say something.</div>';
+    || '<div class="mp-chat-line" style="color:var(--dim)">아직 대화가 없습니다. 🌐로 연결하고 말을 걸어 보세요.</div>';
   list.scrollTop = list.scrollHeight;
 }
 function mpChatToggle() {
@@ -28899,9 +28899,9 @@ function _mpRenderMapPresence() {
       + (remotes ? ' · 세계 다른 곳에 여행자 ' + remotes + '명.' : '.') + write;
     return;
   }
-  el.innerHTML = '🟢 <b>' + _mpEsc(MP.name || '?') + '</b> · Also here: '
+  el.innerHTML = '🟢 <b>' + _mpEsc(MP.name || '?') + '</b> · 함께 있는 사람: '
     + players.map(p => _mpEsc(p.name)).join(', ')
-    + (remotes > players.length ? ' · ' + (remotes) + ' traveler(s) worldwide.' : '.') + write;
+    + (remotes > players.length ? ' · 월드 전체에 여행자 ' + (remotes) + '명.' : '.') + write;
 }
 
 // Send from the map pane's chat input (mirrors mpSay, different input element).
@@ -29424,7 +29424,7 @@ function mpDmTo(p) {
     const inp = document.getElementById(inpId);
     if (!inp) continue;
     if (!inp.dataset.say) inp.dataset.say = inp.placeholder;
-    inp.placeholder = MP.dmTo ? '✉ private to ' + MP.dmTo.name + '… (Esc cancels)' : inp.dataset.say;
+    inp.placeholder = MP.dmTo ? '✉ ' + MP.dmTo.name + '에게 귓속말… (Esc 취소)' : inp.dataset.say;
   }
   const inp = document.getElementById('mp-chat-input');
   if (MP.dmTo && inp && inp.style.display !== 'none') inp.focus();
@@ -29716,7 +29716,7 @@ async function _mpResume() {
   try {
     const look = await _mpFetch('/api/session/pos', { sessionId: sid, r: S_story.playerR, c: S_story.playerC });
     if (look && look.ok) {
-      MP.session = sid; MP.pid = look.pid || null; MP.ledgerPid = look.ledgerPid || null; MP.name = look.name || S_story.playerName || 'Wanderer'; MP.on = true;
+      MP.session = sid; MP.pid = look.pid || null; MP.ledgerPid = look.ledgerPid || null; MP.name = look.name || S_story.playerName || '방랑자'; MP.on = true;
       MP.players = look.players || [];
       MP.nearby = look.nearby || [];
       MP.remotes = {};
@@ -29768,7 +29768,7 @@ function _mpRenderPresence() {
   // Index-addressed onclick so player names never enter the JS attribute.
   el.innerHTML = '👥 함께 있는 사람: ' + MP.players.map((p, i) =>
     _mpEsc(label(p)) + (p.ledgerPid && p.kind !== 'sentry'
-      ? ' <button class="mp-trade-btn" title="Offer a trade" onclick="mpTradeOpen(MP.players[' + i + '])">⇄</button>'
+      ? ' <button class="mp-trade-btn" title="거래 제안" onclick="mpTradeOpen(MP.players[' + i + '])">⇄</button>'
         + (MP.act ? '<button class="mp-trade-btn" title="개인 메시지를 보냅니다" onclick="mpDmTo(MP.players[' + i + '])">✉</button>' : '')
         + (!p.server ? '<button class="mp-duel-btn" title="결투 신청" onclick="mpDuelChallenge(MP.players[' + i + '])">⚔</button>' : '')
       : '')
@@ -30283,9 +30283,9 @@ async function mlPeerFetch() {
   const total = n('blockServerIds') + n('blockIps') + n('blockWorldHashes');
   note.textContent = '';
   prev.innerHTML = '<div class="md-src-row"><span class="md-src-url">'
-    + _mpEsc(url.replace(/^https?:\/\//, '')) + ' shares ' + total + ' entrie(s) — '
-    + n('blockServerIds') + ' serverId · ' + n('blockIps') + ' IP · ' + n('blockWorldHashes') + ' world hash</span>'
-    + (total ? '<button onclick="mlPeerMerge()">Merge into my blacklist</button>' : '') + '</div>';
+    + _mpEsc(url.replace(/^https?:\/\//, '')) + ' 공유 ' + total + '건 — '
+    + n('blockServerIds') + ' 서버ID · ' + n('blockIps') + ' IP · ' + n('blockWorldHashes') + ' 월드 해시</span>'
+    + (total ? '<button onclick="mlPeerMerge()">내 차단 목록에 병합</button>' : '') + '</div>';
 }
 function mlPeerMerge() {
   if (!_ML_PEER) return;
@@ -31159,11 +31159,11 @@ function storyFishing() {
       '<div class="fish-name-line">' + fish.name + '</div>'
       + '<div class="fish-rank-line"><span class="fish-tier-badge" style="background:' + tc + '22;color:' + tc + ';border:1px solid ' + tc + '">' + tier.label.toUpperCase() + '</span>'
       + '&nbsp;<span style="color:' + _rarityColor(rarity) + '">' + _rarityLabel(rarity) + '</span></div>'
-      + '<div class="fish-stat-line">AC ' + mp.ac + ' · HP ' + mp.hp + ' · ATK +' + mp.atk + '</div>'
+      + '<div class="fish-stat-line">AC ' + mp.ac + ' · HP ' + mp.hp + ' · 공격 +' + mp.atk + '</div>'
       + '<div class="fish-desc-line">' + fish.desc + '</div>';
     revealEl.style.display = '';
 
-    castBtn.textContent = '⚔ Fight ' + fish.name + '!'; castBtn.style.display = '';
+    castBtn.textContent = '⚔ 전투: ' + _itemDisplayName(fish.name) + '!'; castBtn.style.display = '';
     recastBtn.style.display = ''; recastBtn.textContent = '🪣 Throw Back';
     recastBtn.onclick = () => { revealEl.style.display='none'; rollEl.style.display='none'; recastBtn.style.display='none'; castBtn.textContent='🎣 줄 던지기'; castBtn.onclick=doCast; lakeText.textContent='놓아줍니다.'; _renderBait(); };
     castBtn.onclick = () => {
@@ -34701,7 +34701,7 @@ function _nodeHookSsjTournament(node, { row, _mkSection, _mkCard }) {
       if (currentTitle) {
         const titleBadge = document.createElement('div');
         titleBadge.style.cssText = 'font-size:11px;color:var(--gold);padding:4px 0 2px;letter-spacing:.4px;';
-        titleBadge.textContent = '🏆 Your title: ' + currentTitle;
+        titleBadge.textContent = '🏆 칭호: ' + currentTitle;
         body.appendChild(titleBadge);
       }
       NPC_TOUR_OPPONENTS.forEach(opp => {
