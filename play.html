@@ -25178,8 +25178,8 @@ function _overlayOffhandAttack() {
   let finalDmg = 0, logMsg;
   if (!isHit || isNat1) {
     const _ex = _grantMissEffortXp();
-    logMsg = (isNat1 ? '✗ 보조 무기 NAT 1 — 빗나감!' : '✗ Offhand miss. ' + atkTotal + ' vs AC ' + S.enemy.ac)
-      + (_ex ? ' (+' + _ex + ' XP effort)' : '');
+    logMsg = (isNat1 ? '✗ 보조 무기 NAT 1 — 빗나감!' : '✗ 보조 무기 빗나감. ' + atkTotal + ' vs AC ' + S.enemy.ac)
+      + (_ex ? ' (+' + _ex + ' XP 노력)' : '');
   } else {
     const dmgCount = isCrit ? S.offhand.count * 2 : S.offhand.count;
     const dmgRolls = rollN(S.offhand.die, dmgCount);
@@ -25189,9 +25189,9 @@ function _overlayOffhandAttack() {
     refreshLeftPanel();
     _statTally('dmgDealt', finalDmg);
     _statTally('attacksHit', 1);
-    logMsg = (isCrit ? '★ Offhand CRIT! ' : '✓ Offhand hit! ') + atkTotal + ' vs AC ' + S.enemy.ac + ' — ' + finalDmg + ' dmg.';
+    logMsg = (isCrit ? '★ 보조 무기 크리티컬! ' : '✓ 보조 무기 명중! ') + atkTotal + ' vs AC ' + S.enemy.ac + ' — ' + finalDmg + ' 피해.';
   }
-  _sboLog('OFFHAND: ' + logMsg);
+  _sboLog('보조 무기: ' + logMsg);
   S_story.usedBonusAction = true;
   _updateBattleOverlay();
   if (S.opp.hp <= 0) { _storyBattleVictory(); return; }
