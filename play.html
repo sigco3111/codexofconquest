@@ -26868,7 +26868,7 @@ const FROBERGER_MEMORIAL_TEXT = { // → doc: world.md §The Froberger Memorial 
 const FROBERGER_MEMORIAL_BOOK = [ // → doc: world.md §The Froberger Memorial (5 anonymous entries; player adds via MEMORIAL_PLAYER_CHOICES)
   { attr: '',                            text: '나는 매주 새 물을 가져다놓는다.' },
   { attr: 'B.M.',                        text: '그는 마지막까지 여관에 외상이 있었다. 나는 한 번도 갚으라 하지 않았다.' },
-  { attr: 'W. of the Crossroads Forge',  text: '그는 길 건너 벤치에서 모든 훈련을 지켜보았다. 누구에게도 내기를 걸지 않았다.' },
+  { attr: '교차로 대장간의 W.',  text: '그는 길 건너 벤치에서 모든 훈련을 지켜보았다. 누구에게도 내기를 걸지 않았다.' },
   { attr: '',                            text: '조수에 대해 그가 옳았다.' },
   { attr: '',                            text: '서른두 번째 회랑. 지도와 일치한다.' },
 ];
@@ -32811,7 +32811,7 @@ function _nodeHookBirkaNiversPasses(node, { npcRowDiv }) {
       // ── L45-D/E: Nivers at LHR ──
       if (node.code === 'LHR') {
         const nivers = document.createElement('div');
-        nivers.innerHTML = '<div class="npc-ambient">The guard on the corner — same post, same stillness. She\'s there when you arrive. She\'ll be there when you leave. She says: <em>"' + NIVERS_DIALOGUE + '"</em></div>';
+        nivers.innerHTML = '<div class="npc-ambient">모퉁이의 경비병 — 같은 초소, 같은 정적. 당신이 도착할 때도 그녀는 거기 있다. 당신이 떠날 때도 그녀는 거기 있을 것이다. 그녀가 말한다: <em>"' + NIVERS_DIALOGUE + '"</em></div>';
         const niversPasses = (S_story.niversPasses || 0) + 1;
         S_story.niversPasses = niversPasses;
         // Yael Dear Friend addition after 3+ Nivers passes
@@ -32940,7 +32940,7 @@ function _nodeHookBirkaFrobergerMemorial(node, { npcRowDiv }) {
           sub.appendChild(pq);
           const bookHd = document.createElement('div');
           bookHd.style.cssText = 'font-size:10px;color:#666;border-top:1px solid #3a2a0a;padding-top:6px;letter-spacing:1px;';
-          bookHd.textContent = '— Memorial Book —';
+          bookHd.textContent = '— 추모록 —';
           sub.appendChild(bookHd);
           FROBERGER_MEMORIAL_BOOK.forEach(e => {
             const el = document.createElement('div');
@@ -32959,7 +32959,7 @@ function _nodeHookBirkaFrobergerMemorial(node, { npcRowDiv }) {
           if (!S_story.frobergerMemorialFlowers) {
             const flBtn = document.createElement('button');
             flBtn.className = 'inv-use-btn';
-            flBtn.textContent = '🌸 Leave Flowers (10gp)';
+            flBtn.textContent = '🌸 꽃을 바친다 (10gp)';
             flBtn.addEventListener('click', () => {
               if ((S_story.gold || 0) < 10) { storyMsg('🌸 골드가 부족하다 (10gp 필요).'); return; }
               S_story.gold -= 10; S_story.frobergerMemorialFlowers = true;
@@ -33009,10 +33009,10 @@ function _nodeHookBirkaNoFishingSign(node, { npcRowDiv }) {
           signBtn.addEventListener('click', () => {
             if (!_tabReady) {
               _tabReady = true;
-              signBtn.textContent = '↩ Pull the tab.';
+              signBtn.textContent = '↩ 탭을 뜯는다.';
               const readSub = document.createElement('div');
               readSub.style.cssText = 'margin-top:6px;padding:10px 12px;background:#080c08;border-left:3px solid #406040;border-radius:4px;font-size:11px;color:#80a080;line-height:1.7;font-style:italic;';
-              readSub.textContent = 'The notice is bolted at chest height. Block letters, official ink: "NO FISHING IN THE CITY LIMITS. By Order of the Watch."\n\nBelow the ordinance, in smaller hand: "...unless you know what you\'re doing. Tear here."\n\nA perforated tab hangs from the bottom edge. It reads: FISHING AT YUGURT LAKE · FREE ROD FOR NEW ANGLERS · BRING THIS COUPON · MEET THE FISHERMAN.';
+              readSub.textContent = '공고가 가슴 높이에 못 박혀 있다. 활자체, 공식 잉크: "시 경계 내 낚시 금지. 치안대 명령에 의함."\n\n조례 아래, 더 작은 글씨로: "…뭘 하는지 아는 사람이라면 말이오. 여기를 뜯으시오."\n\n하단 가장자리에 미싱선 탭이 달려 있다. 적힌 내용: 유구르트 호수 낚시 · 초보 낚시꾼 무료 낚싯대 · 이 쿠폰 지참 · 낚시꾼을 만나시오.';
               _fishWrap.appendChild(readSub);
             } else {
               S_story.noFishingSignRead = true;
@@ -33052,7 +33052,7 @@ function _nodeHookBirkaNoFishingSign(node, { npcRowDiv }) {
           const signDiv = document.createElement('div');
           signDiv.className = 'npc-ambient';
           signDiv.style.cssText = 'font-size:11px;color:var(--muted);margin-top:4px;';
-          signDiv.innerHTML = 'The NO FISHING notice is still bolted to the lamppost. The pull-tab is gone.';
+          signDiv.innerHTML = '낚시 금지 공고가 여전히 가로등 기둥에 못 박혀 있다. 뜯는 탭은 사라졌다.';
           npcRowDiv.appendChild(signDiv);
         }
       }
