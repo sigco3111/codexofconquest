@@ -34398,24 +34398,24 @@ function _nodeHookSparkDnfHarmony(node) {
           const bsIdx = inv.findIndex(i => i.name === "Bram's Fish Scale");
           if (bsIdx !== -1) inv.splice(bsIdx, 1);
           inv.push({ name:"Oat's Harbor Bead", icon:'🪡', type:'misc', desc:'계류 부두에서 온 작은 끈 조각. 브람이 오트 곁에 앉았을 때 오트가 당신의 발 가까이에 놓은 것이다. 그 몸짓의 뜻은: 인정했다. 위원이 자기 삼촌의 임명장에 대해 뭔가 말하고 있다.', sell:0 });
-          storyMsg('🐭 At the south dock joint, half-inside the grain pile: Oat.\n\nOat is white-gray, harbor-sized, with the expression of a mouse who has been in this grain pile since before the Commissioner arrived and intends to be in it after.\n\nBram walks to Oat and sits beside him with no other apparent purpose.\n\nThe Commissioner catches up. "My uncle held the rank of Commodore-Provisional in the Northern Admiralty." He sounds pleased with this. There is no Northern Admiralty. There is no Commodore-Provisional rank.\n\nOat places a small cord fragment near your foot. An acknowledgment.\n\nBram\'s Fish Scale consumed (Bram ate it as endorsement). Oat\'s Harbor Bead added. +100 XP. Quest: What Oat Carries active.');
+          storyMsg('🐭 남쪽 부두 이음매, 곡물 더미에 반쯤 들어간 채로: 오트.\\n\\n오트는 흰빛 회색에, 부두 체구에, 위원이 도착하기 전부터 이 곡물 더미에 있었고 그 이후에도 있을 작정인 쥐의 표정을 하고 있다.\\n\\n브람이 오트에게 걸어가 딱히 다른 목적 없이 곁에 앉는다.\\n\\n위원이 따라잡는다. 「제 삼촌은 북부 제독부에서 임시 준장 계급이었습니다.」 그는 이 말이 마음에 드는 모양이다. 북부 제독부는 존재하지 않는다. 임시 준장 계급도 존재하지 않는다.\\n\\n오트가 작은 끈 조각을 당신의 발 가까이에 놓는다. 인정의 표시다.\\n\\nBram\'s Fish Scale 소모(브람이 지지로 먹어 버렸다). Oat\'s Harbor Bead 획득. +100 XP. 퀘스트: 오트가 나르는 것 활성화.');
           storyRender(node);
         });
         _spk2Div.appendChild(_oatBtn);
       } else if (S_story.spark2HookReceived && !S_story.bramBefriended) {
         _spk2Div.style.cssText = 'margin-top:10px;border-left-color:#6a4a2a;color:#c09070;font-size:12px;';
-        _spk2Div.textContent = '🐈 Bram is on the ledger. He has been on the ledger for three years. He weighs nothing and does not move. He is watching a specific point on the south dock wall — not the Commissioner, not you. Something at the wall joint. WIS Animal Handling DC 11. See quest panel.';
+        _spk2Div.textContent = '🐈 브람이 장부 위에 있다. 3년째 장부 위에 있었다. 그는 무게가 없으면서 움직이지 않는다. 남쪽 부두 벽의 한 지점을 보고 있다. 위원도, 당신도 아니다. 벽 이음매의 무언가다. WIS 동물 조련 DC 11. 퀘스트 패널을 볼 것.';
       } else {
         _spk2Div.style.cssText = 'margin-top:10px;border-left-color:#8a6a2a;color:#c8a860;font-size:12px;';
-        _spk2Div.textContent = '📋 A man in pressed wool stands at the south end of the dock with an embossed leather case. The harbor cat — salt-gray, three years resident — is sitting directly on his assessment ledger. His writ identifies him: Commissioner Halvard Fehn, Inland Revenue, Loch Assessment Division. He is waiting for someone to solve his problem.';
+        _spk2Div.textContent = '📋 다림질된 양모 옷을 입은 남자가 양각 가죽 케이스를 들고 부두 남쪽 끝에 서 있다. 부두의 고양이, 소금기 회색, 3년차 거주자, 가 그의 평가 장부 위에 정확히 앉아 있다. 그의 위임장이 신원을 밝힌다: 할바르드 펜 위원, 내지 세입부, 호수 평가과. 그는 누군가 자기 문제를 해결해 주기를 기다리고 있다.';
         const _fehnHookBtn = document.createElement('button');
         _fehnHookBtn.className = 'inv-use-btn'; _fehnHookBtn.style.marginTop = '6px';
-        _fehnHookBtn.textContent = '📋 Speak to Commissioner Fehn';
+        _fehnHookBtn.textContent = '📋 펜 위원과 이야기하기';
         _fehnHookBtn.addEventListener('click', () => {
           _fehnHookBtn.disabled = true;
           S_story.spark2HookReceived = true;
           S_story.xp = (S_story.xp||0) + 50;
-          storyMsg('📋 "By order of the Inland Revenue, Loch Assessment Division, the animal currently impeding the harbor assessment ledger must be relocated within twenty-four hours." He hands you the assessment writ. Heavy paper. Embossed seal. The seal reads: Western Revenue Office, Third Circuit.\n\nThe Western Revenue Office, Third Circuit, closed thirteen years ago. A closed office does not issue active assessments.\n\n"The Fehn family has served the Revenue for four generations. My grandfather commanded the Highland Revenue Survey of — " He stops. He seems to be remembering which grandfather he is currently citing.\n\nThe cat looks at you. She is not afraid. She is waiting to see if you are worth following.\n\nQuest: Bram and the Ledger active. WIS Animal Handling DC 11 — see quest panel. +50 XP.');
+          storyMsg('📋 「내지 세입부 호수 평가과의 명에 따라, 현재 항구 평가 장부를 방해하고 있는 동물은 24시간 이내에 이전되어야 한다.」 그가 평가 위임장을 건넨다. 두꺼운 종이. 양각 인장. 인장에는 이렇게 적혀 있다: 서부 세무청, 제3순회구.\\n\\n서부 세무청 제3순회구는 13년 전에 폐쇄되었다. 폐쇄된 관청은 현행 평가를 발급하지 않는다.\\n\\n「펜 가문은 4대에 걸쳐 세무에 봉직했습니다. 제 할아버지는 고지대 세무 조사를 지휘하셨는데, 그게…」 그가 멈춘다. 지금 어느 할아버지를 인용하고 있었는지 기억해 내는 것 같다.\\n\\n고양이가 당신을 본다. 두려워하는 것이 아니다. 당신이 따라갈 가치가 있는지 보고 있는 것이다.\\n\\n퀘스트: 브람과 장부 활성화. WIS 동물 조련 DC 11 — 퀘스트 패널을 볼 것. +50 XP.');
           storyRender(node);
         });
         _spk2Div.appendChild(_fehnHookBtn);
@@ -34439,41 +34439,41 @@ function _nodeHookPortMmeSaltwick(node) {
       _skDiv.className = 'sweelinck-variant';
       if (S_story.saltwickJobAccepted) {
         _skDiv.style.cssText = 'margin-top:10px;border-left-color:#2a5a3a;color:#70b880;font-size:12px;';
-        _skDiv.textContent = '✅ Saltwick is open. Dorit\'s ledger has your name in it. The Saltwick Bill of Lading is in your pack. The amber glass consignment is someone else\'s problem now.';
+        _skDiv.textContent = '✅ 솔트윅이 열렸다. 도리트의 장부에 당신의 이름이 올라 있다. Saltwick Bill of Lading이 당신의 가방에 있다. 호박색 유리 위탁 화물은 이제 다른 사람의 문제다.';
       } else if (S_story.saltwickAccessed) {
         _skDiv.style.cssText = 'margin-top:10px;border-left-color:#3a4a2a;color:#90a860;font-size:12px;';
-        _skDiv.textContent = '🟡 Saltwick is open to you. Dorit has a job — something went missing from the warehouse while the Dockmasters\' brig was at the Warmth Calm. She needs someone who can ask at Tilbury without producing paperwork. CHA Persuasion DC 12. See quest panel.';
+        _skDiv.textContent = '🟡 솔트윅이 당신에게 열려 있다. 도리트에게 일이 하나 있다. 도크마스터 브리그선이 잔잔한 바다에 가 있는 동안 창고에서 무언가가 사라졌다. 서류를 만들지 않고 틸버리에서 물어볼 수 있는 사람이 필요하다. CHA 설득 DC 12. 퀘스트 패널을 볼 것.';
       } else if (S_story.pirateCrew_allied) {
         _skDiv.style.cssText = 'margin-top:10px;border-left-color:#2a4a5a;color:#6090b0;font-size:12px;';
-        _skDiv.textContent = '⚓ The joint pirate debt note. Both crews are in Dorit\'s column. She reads the note without touching it — she has read it in her head before you finish unfolding it. "The Redmast and the Saltwick brig. Together." She looks at you differently now. "You moved the eel." She opens the dock gate.';
+        _skDiv.textContent = '⚓ 공동 해적 부채 증서. 두 선단이 모두 도리트의 장부 칸에 있다. 그녀는 증서에 손대지 않고 읽는다. 당신이 펼치기도 전에 머릿속으로 다 읽은 것이다. 「레드마스트와 솔트윅 브리그선이. 함께.」 그녀가 이제 당신을 다르게 본다. 「장어를 움직였군.」 그녀가 부두 문을 연다.';
         const _skBtn = document.createElement('button');
         _skBtn.className = 'inv-use-btn'; _skBtn.style.marginTop = '6px';
-        _skBtn.textContent = '⚓ Enter Saltwick — pirate crew credential';
+        _skBtn.textContent = '⚓ 솔트윅으로 들어간다 — 해적단 자격 증명';
         _skBtn.addEventListener('click', () => {
           _skBtn.disabled = true;
           S_story.saltwickAccessed = true;
           S_story.xp = (S_story.xp||0) + 150;
-          storyMsg('⚓ Dorit looks at the note for a long time.\n\n"Both of them. Together. For an eel." She sets the note back on the dock ledge. "I\'ve been running this port fourteen years. The Redmast and the Dockmasters\' brig have been trying to sink each other for twelve of them." She sounds genuinely interested. "You must have done something unusual."\n\nThe dock gate opens. You are in Dorit\'s ledger.\n\nSaltwick is accessible. +150 XP.');
+          storyMsg('⚓ 도리트가 증서를 오랫동안 본다.\\n\\n「둘 다. 함께. 장어 하나 때문에.」 그녀가 증서를 부두 선반에 도로 놓는다. 「나는 14년째 이 항구를 운영하고 있어. 레드마스트와 도크마스터 브리그선은 그중 12년을 서로 침몰시키려 했지.」 진심으로 흥미로워하는 말투다. 「뭔가 보통 아닌 짓을 했겠네.」\\n\\n부두 문이 열린다. 당신은 도리트의 장부에 올랐다.\\n\\n솔트윅에 들어갈 수 있다. +150 XP.');
           storyRender(node);
         });
         _skDiv.appendChild(_skBtn);
       } else if (S_story.aldousConfessed) {
         _skDiv.style.cssText = 'margin-top:10px;border-left-color:#4a3a2a;color:#b09060;font-size:12px;';
-        _skDiv.textContent = '📜 Aldous\'s Letter of True Passage. Saltwick is one of his six ports. Dorit was the Harbormaster when Aldous testified against her contractors. She reads the letter. She does not look surprised. She opens the dock gate.';
+        _skDiv.textContent = '📜 알더스의 Letter of True Passage. 솔트윅은 그의 여섯 항구 중 하나다. 알더스가 그녀의 계약업자들에게 불리한 증언을 했을 때 도리트는 항만청장이었다. 그녀가 편지를 읽는다. 놀란 기색이 없다. 그녀가 부두 문을 연다.';
         const _skBtn2 = document.createElement('button');
         _skBtn2.className = 'inv-use-btn'; _skBtn2.style.marginTop = '6px';
-        _skBtn2.textContent = '📜 Enter Saltwick — Aldous\'s letter';
+        _skBtn2.textContent = '📜 솔트윅으로 들어간다 — 알더스의 편지';
         _skBtn2.addEventListener('click', () => {
           _skBtn2.disabled = true;
           S_story.saltwickAccessed = true;
           S_story.xp = (S_story.xp||0) + 150;
-          storyMsg('📜 Dorit reads the letter without expression.\n\n"Aldous." She folds it along its original creases. "He named us." She sets it down. "Of course he did. The six ports he listed are the six ports where his testimony means nothing, because we already knew. He was protecting his contacts, not his credit."\n\nShe opens the dock gate.\n\n"He showed kindness to a cat." She says it flatly. "The entire dock heard about it. That kind of thing travels." She looks at you. "You were there."\n\nSaltwick is accessible. +150 XP.');
+          storyMsg('📜 도리트가 무표정으로 편지를 읽는다.\\n\\n「알더스.」 그녀가 원래의 주름을 따라 접는다. 「그가 우리를 지목했어.」 그녀가 내려놓는다. 「물론이지. 그가 나열한 여섯 항구는 그의 증언이 아무 의미도 없는 여섯 항구야. 우리는 이미 알고 있었으니까. 그는 자기 신용이 아니라 자기 연줄을 지킨 거야.」\\n\\n그녀가 부두 문을 연다.\\n\\n「고양이에게 친절을 보였대.」 그녀가 담담하게 말한다. 「부두 전체가 그 얘기를 들었어. 그런 건 소문이 나거든.」 그녀가 당신을 본다. 「네가 거기 있었지.」\\n\\n솔트윅에 들어갈 수 있다. +150 XP.');
           storyRender(node);
         });
         _skDiv.appendChild(_skBtn2);
       } else {
         _skDiv.style.cssText = 'margin-top:10px;border-left-color:#5a3a3a;color:#b07070;font-size:12px;';
-        _skDiv.textContent = '🚫 The dock gate is closed. Saltwick runs on vouches. You don\'t have one. The woman at the end of the dock is reading something. She has not looked up. She will not look up until someone she recognizes arrives — or until you are recognizable.';
+        _skDiv.textContent = '🚫 부두 문이 닫혀 있다. 솔트윅은 보증으로 돌아간다. 당신에게는 보증이 없다. 부두 끝의 여자가 무언가를 읽고 있다. 그녀는 고개를 들지 않았다. 아는 사람이 도착하기 전까지, 또는 당신이 알아볼 수 있는 사람이 되기 전까지, 고개를 들지 않을 것이다.';
       }
       document.getElementById('story-text-box').insertAdjacentElement('afterend', _skDiv);
       // Hull repair panel (separate, below access panel)
