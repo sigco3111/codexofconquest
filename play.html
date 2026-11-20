@@ -34756,7 +34756,7 @@ function _nodeHookSsjTournament(node, { row, _mkSection, _mkCard }) {
                 // exactly opp.xp for every act (pip 100 … master 1000, verified equal). The old
                 // inline '=complete'+opp.xp shortcut was a redundant second completion path.
                 storyCheckQuests(node); // complete this act (engine) + activate the next in the chain
-                html += '✓ <strong>YOU WIN</strong> — +'+opp.stake+'gp · <em>'+TOUR_TITLES[opp.key]+'</em>';
+                html += '✓ <strong>승리</strong> — +'+opp.stake+'gp · <em>'+TOUR_TITLES[opp.key]+'</em>';
                 if (opp.key === 'bog') { // CO-001: Bog's losing beat
                   S_story.bogDefeated = true;
                   html += '<br><br><em>그가 낚싯대를 무릎에 얹고 기슭에 앉는다. 그는 당신을 보지 않는다. 호수를 본다.<br><br>「나는 저 오두막이 서기 전부터 여기 왔어. 낚시꾼 이전부터. 부두 이전부터.」 그가 낚싯대를 한 번 뒤집는다. 「호수에 기분이 있다고 생각한 적이 있어. 뭘 줄지 고른다고. 이제는 그렇게 생각하지 않아.」 잠시 멈춤. 「호수는 그냥 있는 그대로고, 의미를 원하는 건 우리 쪽이야.」<br><br>그가 일어난다. 양동이를 든다. 물고기 한 마리, 중간 크기, 훌륭한. 「좋은 던지기였어,」 그가 말한다. 물고기에게 한 말이 아니다.</em>';
@@ -34766,7 +34766,7 @@ function _nodeHookSsjTournament(node, { row, _mkSection, _mkCard }) {
                 setTimeout(() => storyRender(node), 500);
               } else if (outcome === 'lose') {
                 S_story.gold = Math.max(0, (S_story.gold||0) - opp.stake);
-                html += '✗ <strong>YOU LOSE</strong> — −'+opp.stake+'gp';
+                html += '✗ <strong>패배</strong> — −'+opp.stake+'gp';
                 castBtn.disabled = (S_story.gold||0) < opp.stake;
                 castBtn.textContent = (S_story.gold||0) >= opp.stake ? '🎣 Cast again — '+opp.stake+'gp' : '💰 Need '+opp.stake+'gp to re-enter';
                 storyAutoSave();
