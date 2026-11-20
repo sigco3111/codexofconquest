@@ -10145,12 +10145,12 @@ function describeCell(world, pos) {
   let title, sub;
   if (codes.length) {
     title = world.nodeLabel(codes[0]);
-    sub = codes.length > 1 ? codes.length + ' locales share this ground' : info.label;
+    sub = codes.length > 1 ? codes.length + '곳의 지역이 이 땅을 공유함' : info.label;
   } else {
     title = info.label;
     sub = landmarks.length
-      ? 'Near ' + __roomShortLabel(world.nodeLabel(landmarks[0].code)) + ' · ' + r + ',' + c
-      : 'Deep wilderness · ' + r + ',' + c;
+      ? __roomShortLabel(world.nodeLabel(landmarks[0].code)) + ' 근처 · ' + r + ',' + c
+      : '깊은 황야 · ' + r + ',' + c;
   }
 
   return { icon: info.icon, title, sub, terrain, prose, exits, signposts, landmarks };
@@ -23572,8 +23572,8 @@ function _getNPCDialogue(npcKey) {
   // L44-E / Layer 69 / S30 — the debt Quill released, and the debt he stopped looking at
   if (npcKey === 'quill' && (S_story.couperiDebtReleased || S_story.couperiDebtDegraded)) {
     const debtLine = S_story.couperiDebtReleased
-      ? '"Elder Couperin wrote \'just a number\' on the original debt notice. Not minimizing. Describing. A debt that has done its work becomes just a number. That\'s when you can release it."'
-      : '"The number is a number now. I don\'t look at it anymore."';
+      ? '"쿠프랭 장로가 원래의 빚 고지서에 \'그저 숫자\'라고 적었어. 축소가 아니라 기술이야. 제 일을 다한 빚은 그저 숫자가 돼. 그때가 놓아줄 수 있는 때야."'
+      : '"이제 그 숫자는 숫자일 뿐이야. 더는 쳐다보지 않아."';
     if (!pool.includes(debtLine)) {
       pool = [...pool, debtLine];
     }
@@ -23803,7 +23803,7 @@ function _renderNpcCard(key, container) {
   container.appendChild(card);
 }
 function _yaelEscortAction() {
-  const narration = "Yael walks beside you. She names each block as you pass: Skalder's corner, eleven years. The fountain — Nivers stands there until the second bell, every shift. The alley where the riot report she filed sits unread in a commissioner's drawer. \"The city talks if you know the language,\" she says. \"Most people never learn it. They just pass through.\"";
+  const narration = "야엘이 곁에서 걷는다. 지나가는 블록마다 이름을 붙여 준다: 스칼더의 모퉁이, 십일 년. 분수 — 니베르스가 매 근무마다 두 번째 종까지 서 있는 곳. 그녀가 올린 폭동 보고서가 위원의 서랍에서 읽히지 않은 채 있는 골목. 「언어를 알면 도시가 말을 해요,」 그녀가 말한다. 「대부분은 배우지 않아요. 그저 지나칠 뿐.」";
   if (!S_story.yaelEscortUsed) { S_story.yaelEscortUsed = true; _checkDearFriendUpgrade('yael'); }
   const ov = document.getElementById('story-npc-modal');
   document.getElementById('npc-card-name').textContent = '🛡 야엘 — 순찰 중';
@@ -28485,23 +28485,23 @@ function storyCheckVictory(node) {
       standingEl.style.color = '#FEA712';
     }
   }
-  const standingSpoken = '\n\nAt the door he says the word the ledger has for you. "' + _covenantStanding().label + '." He does not explain it.';
+  const standingSpoken = '\n\n문에서 그가 장부가 당신에게 가진 단어를 말한다. 「' + _covenantStanding().label + '.」 설명은 하지 않는다.';
   if (missionDone && curse <= 0) {
     // 계약 수호자 Ending — Sweelinck names each person (L42-O / L43-K)
     const namingLines = _buildSweelinckNamingSequence();
     // ── Layer 65: s49 계약 수호자 opening patch ──
     const intro = S_story.s49SweelinckDelivered
-      ? '"You know where to find me.\nYou found me."\n\nA pause. The lamp is on here too.\n\n"Good."\n\n"Froberger had seven Shards and no names. You have seven Shards and names."\n\nHe says them:'
-      : '"Froberger had seven Shards and no names. You have seven Shards and names."\n\nHe says them:';
-    const outro = '\n"That\'s the covenant. Not the sealing. That\'s what the sealing is for." He looks at the Cradle. "The world is worth saving when you\'ve been paying attention to who\'s in it. You were."';
-    const nameBlock = namingLines.length > 0 ? '\n\n' + namingLines.join('\n') : '\n\n(No one. You moved through without stopping.)';
+      ? '「어디에 있는지는 알고 있었죠.\n찾아냈군요.」\n\n잠시 멈춤. 여기에도 램프가 켜져 있다.\n\n「좋아.」\n\n「프로베르거는 일곱 파편을 가졌지만 이름이 없었습니다. 당신은 일곱 파편과 이름을 가졌습니다.」\n\n그가 그 이름들을 말한다:'
+      : '「프로베르거는 일곱 파편을 가졌지만 이름이 없었습니다. 당신은 일곱 파편과 이름을 가졌습니다.」\n\n그가 그 이름들을 말한다:';
+    const outro = '\n「그것이 계약입니다. 봉인이 아니라. 봉인은 바로 그것을 위해 있습니다.」 그가 요람을 본다. 「누가 그 안에 있는지 주의를 기울여 왔을 때 세계는 구할 가치가 있습니다. 당신은 그랬습니다.」';
+    const nameBlock = namingLines.length > 0 ? '\n\n' + namingLines.join('\n') : '\n\n(아무도 없다. 당신은 멈추지 않고 지나쳤다.)';
     endingEl.textContent = '스베일링크가 기록 41을 소리 내어 읽는다. 그리고 일지를 내려놓는다.\n\n' + intro + nameBlock + outro + standingSpoken;
     endingEl.style.display = '';
   } else if (curse <= 0) {
-    endingEl.textContent = 'Sweelinck reads Entry 41 aloud.\n\n"Froberger got this far. He had all seven. He chose not to seal it — he said the world didn\'t deserve it yet."\n\nHe looks at the Cradle. "He was wrong. The world doesn\'t have to deserve it. That\'s not how covenants work. A covenant is: I will do this because it needs to be done and I am able to do it. Not because they asked correctly. Not because they thanked you. Just: because."\n\nHe steps back. "He couldn\'t stay uncertain with them. You did. That\'s the difference."' + standingSpoken;
+    endingEl.textContent = '스베일링크가 기록 41을 소리 내어 읽는다.\n\n「프로베르거는 여기까지 왔었습니다. 일곱 개 전부 가지고. 그는 봉인하지 않기로 했습니다 — 세계가 아직 그럴 자격이 없다고 했죠.」\n\n그가 요람을 본다. 「그는 틀렸습니다. 세계가 자격을 갖출 필요는 없습니다. 계약은 그렇게 작동하지 않으니까. 계약이란: 해야 하고 내가 할 수 있기에 하는 것입니다. 그들이 올바르게 청해서가 아니라. 감사해서가 아니라. 그저, 그래서입니다.」\n\n그가 물러선다. 「그는 그들과 함께 불확실한 채로 있지 못했습니다. 당신은 있었습니다. 그것이 차이입니다.」' + standingSpoken;
     endingEl.style.display = '';
   } else if (curse >= 15) {
-    endingEl.textContent = 'Sweelinck sets the journal on the table without opening it.\n\n"공허가 봉인됐어요. The curse is not in the Void."\n\nA long pause.\n\n"Froberger sealed it seventeen times. Different configurations of the same person. Each time he stood here, he was faster than before. More capable. Less present."\n\nHe looks at you. "You sealed it. That\'s real. That\'s not nothing."\n\nAnother pause.\n\n"I\'ve said this seventeen times. I believe it will land differently the eighteenth. That is either wisdom or stubbornness. I\'ve been unable to determine which for three hundred years."\n\nHe turns back to the relay terminal. "Come back when you\'re ready. The floor will be honest."' + standingSpoken;
+    endingEl.textContent = '스베일링크가 일지를 열지 않고 탁자에 내려놓는다.\n\n「공허가 봉인됐어요. 저주는 공허 안에 있지 않습니다.」\n\n긴 침묵.\n\n「프로베르거는 열일곱 번 봉인했습니다. 같은 사람의 다른 형태들로. 여기 설 때마다 그는 전보다 빨라졌습니다. 더 유능하게. 더 부재하게.」\n\n그가 당신을 본다. 「당신은 봉인했습니다. 그건 사실입니다. 그건 아무것도 아닌 게 아닙니다.」\n\n다시 침묵.\n\n「이 말을 열일곱 번 했습니다. 열여덟 번째는 다르게 닿을 거라 믿습니다. 그게 지혜인지 고집인지 삼백 년째 알아내지 못했습니다.」\n\n그가 중계 단말로 돌아선다. 「준비되면 돌아오세요. 바닥은 정직할 겁니다.」' + standingSpoken;
     endingEl.style.display = '';
   } else {
     endingEl.textContent = 'Sweelinck reads Entry 41 aloud.\n\n"Froberger had seven. He could have sealed it." He looks at the Cradle. "당신이 봉인했어요. 그것이 계약이에요."\n\nA pause. "There are people who are still waiting. You know their names." He does not elaborate. "The world is saved. The rest is yours to decide."' + standingSpoken;
@@ -30866,11 +30866,11 @@ function _storyEbNpcModal(ebCode) {
       const actSection = document.getElementById('eb-npc-actions');
 
       document.getElementById('eb-npc-anger-text').textContent =
-        npcName + ' goes silent. Then he moves — knee into your gut before you can speak, fist at your shoulder as you double over, and he shoves you face-first into the ground. He stands over you. His chest is heaving. He says nothing for a moment.';
+        npcName + ' (이)가 말을 멈춘다. 그리고 움직인다 — 말할 틈도 없이 무릎이 배에, 몸이 굽는 순간 주먹이 어깨에, 그리고 그가 당신을 얼굴부터 바닥에 밀어 넘어뜨린다. 그가 위에 서 있다. 가슴이 오르내린다. 잠시 아무 말도 없다.';
       document.getElementById('eb-npc-calm-text').textContent =
-        'Then he crouches down. “...I\'m fine. You\'re right about the money. ' + d.negotiateLine + '” He means it.';
+        '그리고 그가 웅크려 앉는다. “...괜찮네. 돈 얘기는 자네가 맞아. ' + d.negotiateLine + '” 진심이다.';
       document.getElementById('eb-npc-damage-text').textContent =
-        '💢 ' + dmg + ' non-lethal damage — HP ' + S_story.hp + ' / ' + S_story.hpMax;
+        '💢 비치명 피해 ' + dmg + ' — HP ' + S_story.hp + ' / ' + S_story.hpMax;
 
       paySection.style.display = 'none';
       actSection.style.display = 'none';
@@ -31718,11 +31718,11 @@ function storyRenderInventory() {
             const body = document.createElement('div');
             body.style.cssText = 'font-size:12px;line-height:1.9;color:#c8b080;font-style:italic;font-family:Georgia,serif;display:flex;flex-direction:column;gap:8px;';
             [
-              'If you find this — you\'re somewhere difficult.',
-              'The person you\'re becoming is visible from outside. People can see the shape of it before you can.',
-              'Check in with someone who knew you before you got good at this. Ask them what\'s different.',
-              'They\'ll tell you something true. It might not be comfortable. That\'s how you know it\'s true.',
-              'Whatever they say — stay long enough to hear the second sentence.',
+              '이걸 발견했다면 — 당신은 어려운 곳에 있는 것이다.',
+              '당신이 되어 가는 모습은 밖에서 보인다. 사람들은 당신보다 먼저 그 윤곽을 본다.',
+              '당신이 이 일에 익숙해지기 전의 당신을 아는 사람을 찾아가라. 무엇이 달라졌는지 물어라.',
+              '그들은 진짜를 말해 줄 것이다. 편하지 않을 수도 있다. 그래서 그것이 진짜인 줄 아는 것이다.',
+              '그들이 뭐라 하든 — 두 번째 문장까지는 듣고 있어라.',
             ].forEach(t => { const p = document.createElement('p'); p.style.margin = '0'; p.textContent = t; body.appendChild(p); });
             const sig = document.createElement('div');
             sig.style.cssText = 'text-align:right;font-style:italic;color:#9a7840;font-size:13px;';
@@ -31917,7 +31917,7 @@ function _openBlueShuttersContent(wrap) {
       S_story.archiveUndercitySurveyTaken = true;
       S_story.inventory.push({name:'Undercity Survey (Partial)',icon:'🗺',type:'key_item',sell:0,
         desc:"푸른 창문 기록보관소에 기탁된 프로베르거의 깊이 표기. 하부도시 구역 지하 구조의 응력 지점들을 기술한다. 여백에는 이렇게 적혀 있다: ‘이건 세 사람과 하나의 이유가 필요하겠군.’"});
-      storyMsg("You take the notation. You're not supposed to. The catalogue entry lists it as a water assessment, which you now know it isn't.");
+      storyMsg("당신은 표기를 가져간다. 원래는 안 되는 일이다. 목록에는 수질 평가로 적혀 있지만, 당신은 이제 그것이 아님을 안다.");
       surveyBtn.remove();
     });
     sub.appendChild(surveyBtn);
@@ -32103,7 +32103,7 @@ const NODE_PANELS = [
     css:'margin-top:10px;border-left-color:#7a5a9a;',
     text:st => {
       const m = S_story.croneMarks || 0;
-      let _hcaText = '🟤 Crone Marks: ' + m + ' accumulated across the three crowns.\n\n';
+      let _hcaText = '🟤 크론 표식: ' + m + ' — 세 왕관에 걸쳐 축적됨.\n\n';
       if (m >= 15) {
         S_story.abilityScores = S_story.abilityScores || {};
         S_story.abilityScores.wis = (S_story.abilityScores.wis || 8) + 1;
@@ -32856,7 +32856,7 @@ function _nodeHookBirkaNiversPasses(node, { npcRowDiv }) {
         // Yael Dear Friend addition after 3+ Nivers passes
         if (niversPasses >= 3 && _npcFavor('yael') >= 2 && !S_story.niversYaelLineDelivered) {
           S_story.niversYaelLineDelivered = true;
-          setTimeout(() => storyMsg("Yael: \"Nivers's been on that corner for eleven years. You know what that takes? Not skill. Presence. The willingness to be there every single day when the world is not watching. I've tried to understand it. I think it's the thing I should be learning from her instead of the other way around.\""), 600);
+          setTimeout(() => storyMsg("야엘: 「니베르스는 십일 년째 그 모퉁이에 있었어요. 그게 뭘 의미하는지 아세요? 기술이 아니에요. 존재감. 세계가 보지 않을 때도 매일 거기 있겠다는 의지요. 이해하려고 했어요. 제가 그녀에게 배워야 할 것은 그 반대가 아니라 바로 그것이라고 생각해요.」"), 600);
         }
         npcRowDiv.appendChild(nivers);
         // L45-F: Yael "Who is the guard?" dialogue option
@@ -32924,7 +32924,7 @@ function _nodeHookBirkaBlueShutters(node, { npcRowDiv }) {
             hd.textContent = '🔵 블루 셔터스 기록고 — 야엘';
             const body = document.createElement('div');
             body.style.cssText = 'font-size:12px;line-height:1.8;color:#a0b0c8;font-style:italic;';
-            body.textContent = '"The Blue Shutters. Scholar King archive, restricted stack. I have a standing letter of introduction — patrol business. You can use it."\n\nShe writes your name in the margin. "Don\'t take anything. Don\'t ask about the depth surveys. They\'ll know what you\'re looking for."\n\nShe hands you the letter.';
+            body.textContent = '「블루 셔터스. 학자왕 기록고, 제한 서가. 상시 소개장이 있어요 — 순찰 업무용. 쓸 수 있어요.」\n\n그녀가 여백에 당신의 이름을 적는다. 「아무것도 가져가지 마세요. 깊이 측량에 대해 묻지도 마세요. 당신이 뭘 찾는지 그들이 알아챌 테니까.」\n\n그녀가 편지를 건넨다.';
             const enterBtn = document.createElement('button');
             enterBtn.className = 'inv-use-btn';
             enterBtn.textContent = '🔵 블루 셔터스 기록고에 들어간다.';
@@ -33068,7 +33068,7 @@ function _nodeHookBirkaNoFishingSign(node, { npcRowDiv }) {
               sub.style.cssText = 'margin-top:6px;padding:10px 12px;background:#080c08;border-left:3px solid #406040;border-radius:4px;display:flex;flex-direction:column;gap:8px;';
               const txt = document.createElement('div');
               txt.style.cssText = 'font-size:12px;color:#90b890;line-height:1.7;';
-              txt.textContent = '🎫 The tab is in your hand. Somewhere in the lake country is a man who will give you a rod if you show him this. The sign said so. You have no reason to distrust a sign.';
+              txt.textContent = '🎫 교환권이 손에 있다. 호수 지방 어딘가에 이걸 보여 주면 낚싯대를 줄 사람이 있다. 표지판이 그렇게 말했다. 표지판을 의심할 이유는 없다.';
               const wpBtn = document.createElement('button');
               wpBtn.className = 'inv-use-btn';
               wpBtn.textContent = '📍 Set waypoint → 유구르트 호수';
@@ -35904,7 +35904,7 @@ function storyRender(node, prefix) {
         && (S_story.inventory || []).some(i => i.name && i.name.toLowerCase().includes('rough whiskey'))
         && !S_story.roughWhiskeyBrynLineDelivered) {
       S_story.roughWhiskeyBrynLineDelivered = true;
-      setTimeout(() => storyMsg("Brynn: \"Pachelbel's selling that now? He used to turn it away — said the margin didn't justify the trouble it causes. Must have changed his policy. Things do.\""), 400);
+      setTimeout(() => storyMsg("브린: 「파헬벨이 이제 그걸 팔아? 예전에는 거절했는데 — 마진이 일어날 소동에 못 미친다고 했어. 방침을 바꿨나 보군. 그런 법이지.」"), 400);
     }
     // ── §DESIGN-03: quest_brynn_firewood — woodpile at TLL ── → NODE_VERBS (§VM-01-G4c; the
     //    handler's storyCheckQuests/storyUpdateStatus/storyAutoSave tail is the re-render the
@@ -35913,7 +35913,7 @@ function storyRender(node, prefix) {
     // Layer 69 §XXXIV — Quill Beat 3: The Debt Released (checked before Beat 2 so it can't fire same visit)
     if (node.code === 'MHQ' && S_story.quillQuestComplete && !S_story.couperiDebtReleased) {
       S_story.couperiDebtReleased = true;
-      setTimeout(() => storyMsg(S34_QUILL_BEAT3 + '\n\n── The Couperin debt has done its work. ──'), 600);
+      setTimeout(() => storyMsg(S34_QUILL_BEAT3 + '\n\n── 쿠프랭의 빚은 제 일을 다했다. ──'), 600);
     }
     // Layer 69 §XXXIV — Quill Beat 2: Couperin's Song (fires first MHQ visit after lute returned)
     if (node.code === 'MHQ' && !S_story.couperiSongReceived
@@ -35935,7 +35935,7 @@ function storyRender(node, prefix) {
     if (node.code === 'KRN' && S_story.quests['quest_pachelbel_shipment'] === 'active'
         && !(S_story.inventory||[]).some(i => i.name === 'Sealed Scholar Box')) {
       S_story.inventory.push({name:'Sealed Scholar Box',icon:'📦',type:'quest_item',sell:0,questId:'quest_pachelbel_shipment'});
-      storyMsg('📦 You find the Sealed Scholar Box in the first chamber of the crypt — exactly where Pachelbel described it.');
+      storyMsg('📦 지하묘지 첫 번째 방에서 봉인된 학자 상자를 찾았습니다 — 파헬벨이 설명한 바로 그 자리에.');
     }
   }
   // ── Section-based UI rendering ──
