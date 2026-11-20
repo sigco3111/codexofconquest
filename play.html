@@ -10590,7 +10590,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     npc:"yael",
   },
   mq_5: { id:'mq_5', type:'main', schema:'UQF-1.0', gate:{}, bits:[], completion:{ items:['모래 암호 (Shard #5)'] }, title:'지니의 속박',
-    desc:"이자도르 알라순 has spent eleven years studying the djinn who has held Shard #5 for two centuries. He will take you there — not because he trusts you with it, but because there is no other way to settle a question that has been eating at him for eleven years: whether something that has held a thing for two centuries understands what it is holding, or whether it is simply holding it because no one has yet asked it to stop.",
+    desc:"이자도르 알라순은 2세기 동안 파편 #5를 쥐고 있는 진을 11년간 연구해 왔다. 그는 당신을 그곳으로 데려갈 것이다 — 당신을 믿어서가 아니라, 11년 동안 그를 갉아먹은 질문을 매듭지을 다른 방법이 없기 때문이다: 2세기 동안 무언가를 쥐고 있는 존재가 자신이 쥔 것이 무엇인지 이해하고 있는지, 아니면 아직 아무도 멈추라 하지 않아서 쥐고 있을 뿐인지.",
     hint:'깊은 사막의 지니를 쓰러뜨리거나 협상하라.',
     passText:'그 지니는 누구도 멈추라고 하지 않아서 이백 년 동안 암호를 들고 있었다. 당신이 부탁했다. 그것은 잠시 이를 숙고한다. 그러고는 멈춘다.',
     failText:'지니가 아직 그것을 쥐고 있다. 이자도르가 말한다, 이번이 마지막 접근은 아니라고.',
@@ -10637,7 +10637,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     failText:'켈피가 아직 여울에 있다. 마을은 어두워진 뒤에는 호수를 건너지 않는다.',
     activateNode:'KIR', waypointNode:'KIR',
     npc:"yael",
-    rumor:"A crossing at the highland loch is closed by something wearing a horse's shape. The Warrant wants the ford opened — not explained.",
+    rumor:"고지대 호수의 건널목이 말의 형상을 한 무언가에 의해 봉쇄되었다. 《영장》은 그 여울이 열리기를 원한다 — 설명이 아니라.",
   },
   sq_battling: { id:'sq_battling', type:'side', schema:'UQF-1.0', gate:{}, bits:[], completion:{ countMin:[{ path:'dropsCollected', min:3 }] }, title:'전투 — 명성을 쌓아라',
     desc:'전투에서 이겼다. 이제 증거를 모아라. 쓰러진 적에게서 무기 전리품 3개를 확보하라.',
@@ -10669,7 +10669,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'양치기 로나, 아일랜드 고원지대. 서쪽의 호수로 들어가라.',
     activateNode:'KIR', waypointNode:'INV',
     passText:"고지대 아볼레스가 의전 없이 가라앉는다. 호수가 고요해지고 고요한 채로 있다.",
-    failText:"The 고지대 아볼레스 is still below. The loch is wrong. 양치기 로나 is at INV.",
+    failText:"고지대 아볼레스는 아직 아래에 있다. 호수가 뒤틀려 있다. 양치기 로나는 INV에 있다.",
     npc:"shepherd_rona",
   },
   quest_es_primary: { id:'quest_es_primary', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ battles:['SDR'] }, title:'가라앉은 제단',
@@ -10677,7 +10677,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'약초학자 그윈, Swamp. Enter the sunken altar to the east.',
     activateNode:'MSY', waypointNode:'SDR',
     passText:"마지막 머리가 알기 전에 모든 머리가 떨어진다. 가라앉은 제단이 갈라진다. 물이 맑아진다.",
-    failText:"The 장로 히드라 is still regrowing. The altar holds. 약초학자 그윈 is waiting at SDR.",
+    failText:"장로 히드라는 아직 재생 중이다. 제단은 버티고 있다. 약초학자 그윈은 SDR에서 기다리고 있다.",
     npc:"herbalist_gwynne",
   },
   quest_ew_primary: { id:'quest_ew_primary', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ battles:['PMO'] }, title:'마녀 어미의 요람',
@@ -10685,7 +10685,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'웨인, 마녀 늪. 서쪽의 요람으로 들어가라.',
     activateNode:'SDQ', waypointNode:'PMO',
     passText:"마녀 어미가 천천히, 그러다 한꺼번에 무너진다. 요람의 윙윙거림이 멈춘다.",
-    failText:"The cradle still hums. The 대마녀 여왕 is inside it. Wane is at PMO.",
+    failText:"요람은 여전히 울리고 있다. 대마녀 여왕이 그 안에 있다. 웨인은 PMO에 있다.",
     npc:"wane",
   },
   quest_eb_primary: { id:'quest_eb_primary', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ battles:['FLR'] }, title:'부서지지 않은 자의 난파선',
@@ -10693,7 +10693,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'항만관리관 툴라, 해변. 서쪽의 난파선으로 들어가라.',
     activateNode:'BGI', waypointNode:'FLR',
     passText:"흡혈귀 해적왕이 갑판에 닿기 전에 연기가 된다. 언브로큰이 조용해진다.",
-    failText:"The Pirate Lord still commands the Unbroken. 항만관리관 툴라 is waiting at FLR.",
+    failText:"해적왕은 여전히 언브로큰을 지휘하고 있다. 항만관리관 툴라는 FLR에서 기다리고 있다.",
     npc:"harbormaster_tula",
   },
   quest_eo_primary: { id:'quest_eo_primary', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ battles:['KUN'] }, title:'리바이어던의 눈',
@@ -10733,7 +10733,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'강 상인 알두스, Freshwater Lake. Enter the flooded chamber to the west.',
     activateNode:'TRF', waypointNode:'BEG',
     passText:"폭풍 거인 타이탄이 떨어진다. 옥좌의 방이 당신 뒤에서 천천히 물에 잠긴다.",
-    failText:"The Titan still holds the throne. 강 상인 알두스 is waiting at BEG.",
+    failText:"타이탄은 여전히 왕좌를 지키고 있다. 강 상인 알두스는 BEG에서 기다리고 있다.",
     npc:"river_trader_aldous",
   },
   quest_ed_primary: { id:'quest_ed_primary', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ battles:['OTP'] }, title:'해구의 거신',
@@ -10749,7 +10749,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'농부 렌, Midlands. Enter the field to the south.',
     activateNode:'MAN', waypointNode:'WAW',
     passText:"한낮망령 여왕이 빛이 바뀌는 순간에 녹아 사라진다. 들판은 그저 들판이 된다.",
-    failText:"The 한낮망령 여왕 still walks the field at midday. 농부 렌 is at WAW.",
+    failText:"한낮망령 여왕은 여전히 한낮의 들판을 걷고 있다. 농부 렌은 WAW에 있다.",
     npc:"farmer_wren",
   },
   quest_ee_primary: { id:'quest_ee_primary', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ battles:['CAI'] }, title:'파라오의 금고',
@@ -10773,7 +10773,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'약초학자 마엘, Jungle. Enter the cathedral to the east.',
     activateNode:'BEL', waypointNode:'SJO',
     passText:"대성당 윔이 천개를 놓는다. 한 세대 만에 처음으로 빛이 들어온다.",
-    failText:"The Cathedral Wyrm still nests in the spire. 약초학자 마엘 is at SJO.",
+    failText:"대성당 웜은 여전히 첨탑에 둥지를 틀고 있다. 약초학자 마엘은 SJO에서 기다리고 있다.",
     npc:"herbalist_mael",
   },
   quest_et_primary: { id:'quest_et_primary', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ battles:['KTM'] }, title:'최장로의 봉우리',
@@ -10797,7 +10797,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'지상에 묶인 치천사 이티엘, Heavenly Clouds. Ascend via the spire.',
     activateNode:'CTU', waypointNode:'MAD',
     passText:"바리엘이 마지막으로 날개를 접는다. 첨탑의 노래가 멈춘다.",
-    failText:"Variel still holds the spire. 지상에 묶인 치천사 이티엘 is at MAD, waiting.",
+    failText:"바리엘은 여전히 첨탑을 지키고 있다. 지상에 묶인 치천사 이티엘은 MAD에서 기다리고 있다.",
     npc:"grounded_seraph_ithiel",
   },
   quest_ep_primary: { id:'quest_ep_primary', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ battles:['HAV'] }, title:'제독의 마지막 후미',
@@ -10805,7 +10805,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     hint:'장물업자 두목 캐릭, Pirate Cave. Descend to the cove to the south.',
     activateNode:'NAS', waypointNode:'HAV',
     passText:"제독의 유령이 조류와 함께 흩어진다. 그 후미는 이제 그저 물이다.",
-    failText:"The Admiral's Ghost still commands the cove. 장물업자 두목 캐릭 is at HAV.",
+    failText:"제독의 유령은 여전히 그 후미를 지배하고 있다. 장물업자 두목 캐릭은 HAV에서 기다리고 있다.",
     npc:"fence_boss_carrick",
   },
   quest_eg_primary: { id:'quest_eg_primary', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ battles:['TBS'] }, title:'공허 주술사의 성소',
@@ -10818,7 +10818,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   },
   // ── Layer 39 — Epic Battleground return quests (auto-activated on EB boss defeat in L39-N) ──
   quest_ef_return: { id:'quest_ef_return', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ flagsPath:['ebReturnDone.PRN'] }, title:'Return: 나무꾼 브램',
-    desc:"나무꾼 브램 has been at the forest edge since you went in. He did not follow. He said he would wait, and he has been standing there in the particular stillness of someone who has made a decision to trust a stranger and is now living inside that decision. He will pay what he offered. He will not say he was afraid you wouldn't come back. You will be able to tell anyway.",
+    desc:"나무꾼 브램은 당신이 들어간 뒤로 줄곧 숲 가장자리에 있었다. 따라오지 않았다. 기다리겠다고 말했고, 낯선 이를 믿기로 결정한 사람 특유의 정적 속에, 그 결정 안에 살며 서 있었다. 그는 약속한 보수를 지불할 것이다. 당신이 돌아오지 않을까 두려웠다고는 말하지 않을 것이다. 어차피 당신은 알아볼 것이다.",
     hint:'동쪽 신록의 숲에서 나무꾼 브램을 찾아라.',
     passText:"브램은 전부를 듣는다. 그러고는 자르던 일로 돌아간다. 그걸로 알 수 있다.",
     failText:"브램은 아직 PRN에서 기다리고 있다. 가시숲 왕은 아직 죽지 않았다.",
@@ -10858,7 +10858,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     npc:"harbormaster_tula",
   },
   quest_eo_return: { id:'quest_eo_return', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ flagsPath:['ebReturnDone.KUN'] }, title:'Return: 항해사 카시우스',
-    desc:"항해사 카시우스 charted the lane as open the moment you came back up. He had the chart ready before you surfaced — which means he was certain, which means something about the way you went down told him you were the kind of person who comes back. The Deep Sea lane is navigable for the first time in recorded history. He will put your name in the margin. He always puts the name of the person who opened a road.",
+    desc:"항해사 카시우스는 당신이 올라오는 순간 항로를 개통으로 기록했다. 당신이 수면 위로 나타나기 전에 이미 해도를 준비해 두었다 — 확신하고 있었다는 뜻이고, 당신이 내려가는 모습의 무언가가, 당신이 돌아오는 사람이라는 것을 그에게 알려 주었다는 뜻이다. 심해 항로는 기록된 역사상 처음으로 항해 가능해졌다. 그는 여백에 당신의 이름을 적을 것이다. 그는 길을 연 사람의 이름을 언제나 여백에 적는다.",
     hint:'남쪽 심해에서 항해사 카시우스를 찾아라.',
     passText:"카시우스가 해도를 펼친다. 항로를 표기하기 시작한다. 바다가 다시 항해 가능하다.",
     failText:"카시우스는 KUN에 있다. 리바이어던이 아직 지켜보고 있다.",
@@ -10954,7 +10954,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     npc:"fur_trader_sigrid",
   },
   quest_ek_return: { id:'quest_ek_return', type:'epic', schema:'UQF-1.0', gate:{}, bits:[], completion:{ flagsPath:['ebReturnDone.MAD'] }, title:'Return: 지상에 묶인 치천사 이티엘',
-    desc:"There is no payment in gold. 지상에 묶인 치천사 이티엘 has no gold and considers this beside the point. What she has is a 별 조각 she has been carrying since before the Spire fell — something she held back from the institution that would have catalogued it and lost it in protocol. She kept it for the person who would climb the Spire and come down again. You climbed the Spire. You came down. She has been carrying it a very long time.",
+    desc:"보수는 금이 아니다. 지상에 묶인 치천사 이티엘에게는 금이 없고, 그녀는 그것을 문제 삼지 않는다. 그녀가 가진 것은 첨탑이 무너지기 전부터 지니고 다닌 별 조각이다 — 목록을 만들어 규약 속에서 잃어버렸을 기관에 내주지 않고 간직해 온 것이다. 그녀는 그것을, 첨탑을 오르고 다시 내려올 사람을 위해 간직해 두었다. 당신은 첨탑을 올랐다. 그리고 내려왔다. 그녀는 그것을 아주 오랫동안 품고 다녔다.",
     hint:'첨탑을 통해 천상의 구름에서 지상에 묶인 치천사 이티엘을 찾아라.',
     passText:"이티엘이 당신이 도착하자 고개를 든다. 숨을 내쉰다. 공기 중 무언가가 가라앉는다.",
     failText:"이티엘은 MAD에 있다. 바리엘이 아직 첨탑을 장악하고 있다.",
@@ -17720,7 +17720,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
   plw_02_act2: { id:"plw_02_act2", type:"skill_check", schema:'UQF-1.0', gate:{ flags:['plwC2A1Done'] }, bits:[{ kind:'skill_check', stat:'CHA', dc:12, onPass:[{ kind:'mission_bit', flag:'plwC2A2Done' }], onFail:[] }], title:"찢어진 사면장의 조각들 — 수도원", desc:'그 수사는 자기 조각을 액자에 넣었다. 그것은 읽힌다. 바울의 증거와 함께 영구히 사면됨. 문맥 없이 읽으면, 수사들의 세속적 책임으로부터의 영구 면제처럼 들린다. 그는 조각이 무엇이라 말하는지에 대해 거짓말하지 않는다. 그는 사면의 나머지가 무엇이라 말하는지 말하지 않음으로써 그것이 무엇을 뜻하는지에 대해 거짓말한다. 그를 거짓말쟁이라 부르지 않고 그의 논증을 헤쳐 가게. 당신의 첫 조각을 그의 것 곁에 놓고 합쳐진 텍스트가 말하게 하게.', passText:"'함께 읽어 보세요,' 당신이 말한다. 그가 그렇게 한다. 전체 원문은 그의 조각만으로와는 다르고 그도 그것을 안다. 그는 학문에의 기여로 그것을 건넨다. 수도사의 조각이 가방에 추가된다.", failText:"당신이 논한다. 그가 맞받아 논한다. 당신은 학자의 위임을 원용해 조각을 얻는다, 그가 법적으로 존중할 의무는 없는.", activateNode:"WM",
     npc:"alvise_grimani",
   },
-  plw_02_act3: { id:"plw_02_act3", type:"skill_check", schema:'UQF-1.0', gate:{ flags:['plwC2A2Done'] }, bits:[{ kind:'skill_check', stat:'CHA', dc:13, onPass:[{ kind:'mission_bit', flag:'plwC2A3Done' }], onFail:[] }], title:"찢어진 사면장의 조각들 — 시장", desc:"면죄부 판매인 has set up a stall in the market with his fragment in a glass case — 'Certified by the original!' His piece reads '...remit of sins here set forth...' and he is using it to authenticate his own indulgences. He will not give it up while it generates revenue. But he cannot refuse a public comparison. Hold the First Fragment up in the market, publicly, beside his, so the crowd can hear the full phrase.", passText:"군중이 셈을 한다. 그들이 끝내기 전에 그가 스스로 진열함에서 조각을 꺼낸다. '정직한 비교로군. 나는 언제나 정직한 비교를 존경해 왔네.' 사면 판매자의 조각이 추가된다.", failText:"그가 당신이 읽기를 마치기 전에 서류철을 닫고 값을 부른다. 당신은 조각을 얻지만 시장가를 치른다.", activateNode:"WM",
+  plw_02_act3: { id:"plw_02_act3", type:"skill_check", schema:'UQF-1.0', gate:{ flags:['plwC2A2Done'] }, bits:[{ kind:'skill_check', stat:'CHA', dc:13, onPass:[{ kind:'mission_bit', flag:'plwC2A3Done' }], onFail:[] }], title:"찢어진 사면장의 조각들 — 시장", desc:"면죄부 판매인이 조각을 유리 진열함에 넣고 시장에 노점을 차렸다 — 『원본 인증!』이라며. 그의 조각에는 『...remit of sins here set forth...』라고 적혀 있고, 그는 그것으로 자기 면죄부들을 인증하고 있다. 수익이 나는 한 내놓지 않을 것이다. 하지만 공개 비교는 거절할 수 없다. 시장에서 첫 번째 조각을 들어 그의 것 옆에 공개적으로 나란히 세워, 군중이 전체 문구를 듣게 하라.", passText:"군중이 셈을 한다. 그들이 끝내기 전에 그가 스스로 진열함에서 조각을 꺼낸다. '정직한 비교로군. 나는 언제나 정직한 비교를 존경해 왔네.' 사면 판매자의 조각이 추가된다.", failText:"그가 당신이 읽기를 마치기 전에 서류철을 닫고 값을 부른다. 당신은 조각을 얻지만 시장가를 치른다.", activateNode:"WM",
     npc:"alvise_grimani",
   },
   plw_02_act4: { id:"plw_02_act4", type:"skill_check", schema:'UQF-1.0', gate:{ flags:['plwC2A3Done'] }, bits:[{ kind:'skill_check', stat:'WIS', dc:13, onPass:[{ kind:'mission_bit', flag:'plwC2A4Done' }], onFail:[] }], title:"찢어진 사면장의 조각들 — 회계소", desc:'상인의 집사가 세 번째 조각을 가졌다. 상인의 자선 기부가 무엇의 이름으로 행한 선행들과 일치한다고 단언하는 증명서와 함께 접수된. 하지만 이웃 조각이 그 증명서의 문구가 견딜 수 없는 방식으로 그 구절을 완성한다. 다른 조각들 중 하나에서 그 증명서의 주장을 기술적으로 성립 불가하게 만드는 바로 그 구절을 찾게.', passText:"'행한 자의 이름이 아니라 진실의 이름으로 행해진 선행.' 집사가 그것을 세 번 읽고 서류철에서 조각을 꺼낸다. 상인의 조각이 추가된다. 넷 중 셋.", failText:"집사가 협조적인 서기를 부른다. 법률 논쟁이 저녁까지 간다. 당신은 조각을 얻지만 탐욕의 대리인이 추가 시간을 가졌다.", activateNode:"WM",
@@ -32789,7 +32789,7 @@ function _nodeHookBirkaBrynnMaintenance(node, { npcRowDiv }) {
             mBtn.textContent = '🔧 ' + task.label + (task.cost_gold > 0 ? ' (' + task.cost_gold + 'g)' : '');
             mBtn.addEventListener('click', () => {
               if (task.cost_gold > 0 && S_story.gold < task.cost_gold) {
-                storyBlock('Not enough gold.'); return;
+                storyBlock('골드가 부족합니다.'); return;
               }
               if (task.cost_gold > 0) { S_story.gold -= task.cost_gold; storyUpdateStatus(); }
               task.action();
@@ -35841,7 +35841,7 @@ function storyRender(node, prefix) {
               // chain in place, with no re-render, because a re-render would replace these lines
               // with "…has moved on" — junctionsSeen was set at the top of this very render.
               helpBtn.addEventListener('click', () => {
-                const _ctx = _uqfRunChain([{ kind:'cost', gold:10, refuse:'Not enough gold.' },
+                const _ctx = _uqfRunChain([{ kind:'cost', gold:10, refuse:'골드가 부족합니다.' },
                                            { kind:'narrative', msg:vig.help }]);
                 if (_ctx._refused) return;
                 helpBtn.remove();
@@ -37296,7 +37296,7 @@ function storyCommitBattle() {
   // Gold-cost condition deduction (no longer consumes inventory items)
   const condCost = _selectedCondsTotalCost();
   if (condCost > S_story.gold) {
-    storyBlock('💰 Not enough gold for selected conditions (' + condCost + 'gp needed).');
+    storyBlock('💰 선택한 조건에 골드가 부족합니다 (' + condCost + 'gp 필요).');
     return;
   }
   if (condCost > 0) S_story.gold -= condCost;
