@@ -24826,7 +24826,7 @@ function _updateBattleOverlay() {
 
   // Initiative note (L16-G: spell ADV indicator)
   document.getElementById('sbo-init-note').textContent =
-    '선공: 나 ' + S_story.battlePRoll + ' vs 상대 ' + S_story.battleERoll +
+    '선공: 나 ' + S_story.battlePRoll + ' 대 상대 ' + S_story.battleERoll +
     (S_story.surpriseAdvantage ? ' · 은신 ADV 준비!' : '') +
     (S_story.spellAdvantageReady ? ' · 📜 주문 ADV 준비!' : '');
 
@@ -25124,7 +25124,7 @@ function _overlayPlayerAttack() {
       logMsg = lbl + '✗ NAT 1 — 자동 빗나감!' + (_ex ? ' (+' + _ex + ' XP 노력)' : '');
     } else if (!isHit) {
       const _ex = _grantMissEffortXp();
-      logMsg = lbl + '✗ 빗나감. ' + atkTotal + ' vs AC ' + S.enemy.ac + (_ex ? ' (+' + _ex + ' XP 노력)' : '');
+      logMsg = lbl + '✗ 빗나감. ' + atkTotal + ' 대 AC ' + S.enemy.ac + (_ex ? ' (+' + _ex + ' XP 노력)' : '');
     } else {
       const dmgCount = (isCrit ? S.weapon.count * 2 : S.weapon.count) * S.dmgMultiplier;
       const dmgRolls = rollN(S.weapon.die, dmgCount);
@@ -25139,11 +25139,11 @@ function _overlayPlayerAttack() {
       refreshLeftPanel();
       _statTally('dmgDealt', finalDmg);
       _statTally('attacksHit', 1);
-      logMsg = lbl + (isCrit ? '★ 크리티컬! ' : '✓ 명중! ') + atkTotal + ' vs AC ' + S.enemy.ac + ' — ' + finalDmg + ' 피해.' + (_fsBonus > 0 ? ' [+' + _fsBonus + ' 선제타격]' : '');
+      logMsg = lbl + (isCrit ? '★ 크리티컬! ' : '✓ 명중! ') + atkTotal + ' 대 AC ' + S.enemy.ac + ' — ' + finalDmg + ' 피해.' + (_fsBonus > 0 ? ' [+' + _fsBonus + ' 선제타격]' : '');
     }
     appendCard({ round: S.round, actor:'YOU',
       formula: 'd20(' + d20Val + ')+' + atkMod + '(mod)+' + profB + '(prof)' + (allyAtk ? '+' + allyAtk + '(ally)' : '') + '=' + atkTotal,
-      outcome: isNat1 ? 'NAT 1 — 빗나감' : (isHit ? (isCrit?'★ 크리티컬':'✓ 명중') + ' vs AC ' + S.enemy.ac : '✗ 빗나감'),
+      outcome: isNat1 ? 'NAT 1 — 빗나감' : (isHit ? (isCrit?'★ 크리티컬':'✓ 명중') + ' 대 AC ' + S.enemy.ac : '✗ 빗나감'),
       dmg: finalDmg ? '적 HP: ' + S.opp.hp + '/' + S.opp.maxHp : '' });
     _sboLog('내 공격: ' + logMsg);
 
@@ -25177,7 +25177,7 @@ function _overlayOffhandAttack() {
   let finalDmg = 0, logMsg;
   if (!isHit || isNat1) {
     const _ex = _grantMissEffortXp();
-    logMsg = (isNat1 ? '✗ 보조 무기 NAT 1 — 빗나감!' : '✗ 보조 무기 빗나감. ' + atkTotal + ' vs AC ' + S.enemy.ac)
+    logMsg = (isNat1 ? '✗ 보조 무기 NAT 1 — 빗나감!' : '✗ 보조 무기 빗나감. ' + atkTotal + ' 대 AC ' + S.enemy.ac)
       + (_ex ? ' (+' + _ex + ' XP 노력)' : '');
   } else {
     const dmgCount = isCrit ? S.offhand.count * 2 : S.offhand.count;
@@ -25188,7 +25188,7 @@ function _overlayOffhandAttack() {
     refreshLeftPanel();
     _statTally('dmgDealt', finalDmg);
     _statTally('attacksHit', 1);
-    logMsg = (isCrit ? '★ 보조 무기 크리티컬! ' : '✓ 보조 무기 명중! ') + atkTotal + ' vs AC ' + S.enemy.ac + ' — ' + finalDmg + ' 피해.';
+    logMsg = (isCrit ? '★ 보조 무기 크리티컬! ' : '✓ 보조 무기 명중! ') + atkTotal + ' 대 AC ' + S.enemy.ac + ' — ' + finalDmg + ' 피해.';
   }
   _sboLog('보조 무기: ' + logMsg);
   S_story.usedBonusAction = true;
@@ -25295,7 +25295,7 @@ function _storyEnemyTurn() {
   if (isNat1) {
     logMsg = '✗ 적 NAT 1 — 빗나감!';
   } else if (!isHit) {
-    logMsg = '✓ Enemy miss. ' + atkTotal + ' vs 내 AC ' + S.char.ac;
+    logMsg = '✓ 적 빗나감. ' + atkTotal + ' 대 내 AC ' + S.char.ac;
   } else {
     const dmgCount = isCrit ? S.enemy.dmgCount * 2 : S.enemy.dmgCount;
     const dmgRolls = rollN(S.enemy.dmgDie, dmgCount);
@@ -25306,10 +25306,10 @@ function _storyEnemyTurn() {
     refreshLeftPanel();
     storyUpdateStatus();
     _statTally('dmgReceived', finalDmg);
-    logMsg = (isCrit ? '★ 적 크리티컬! ' : '⚔ 적 명중! ') + atkTotal + ' vs 내 AC ' + S.char.ac + ' — ' + finalDmg + ' 피해를 받았습니다!';
+    logMsg = (isCrit ? '★ 적 크리티컬! ' : '⚔ 적 명중! ') + atkTotal + ' 대 내 AC ' + S.char.ac + ' — ' + finalDmg + ' 피해를 받았습니다!';
   }
   appendCard({ round: S.round, actor:'OPP',
-    formula: 'd20(' + d20Val + ')+' + S.enemy.atk + '=' + atkTotal + ' vs AC ' + S.char.ac,
+    formula: 'd20(' + d20Val + ')+' + S.enemy.atk + '=' + atkTotal + ' 대 AC ' + S.char.ac,
     outcome: isNat1 ? '적 NAT 1' : (isHit ? (isCrit?'★ 적 크리티컬':'⚔ 적 명중') : '✗ 빗나감'),
     dmg: finalDmg ? '받은 피해 ' + finalDmg + ' — 내 HP: ' + S.player.hp + '/' + S.player.maxHp : '' });
   S_story.battleRound++;
@@ -29013,7 +29013,7 @@ function _hirelingStrike() {
   if (res.nat1) {
     msg = '✗ ' + h.name + ' NAT 1 — misses.';
   } else if (!res.hit) {
-    msg = '✗ ' + h.name + ' misses. ' + res.total + ' vs AC ' + S.enemy.ac;
+    msg = '✗ ' + h.name + ' 빗나감. ' + res.total + ' 대 AC ' + S.enemy.ac;
   } else {
     const count = res.crit ? (h.dmgCount || 1) * 2 : (h.dmgCount || 1);
     const rolls = rollN(h.dmgDie || 6, count);
@@ -29021,11 +29021,11 @@ function _hirelingStrike() {
     dmg = applyDmgMod(raw, S.opp.dmgMod);
     S.opp.hp = Math.max(0, S.opp.hp - dmg);
     if (typeof refreshLeftPanel === 'function') refreshLeftPanel();
-    msg = (res.crit ? '★ ' + h.name + ' CRIT! ' : '✓ ' + h.name + ' hits! ') + res.total + ' vs AC ' + S.enemy.ac + ' — ' + dmg + ' dmg.';
+    msg = (res.crit ? '★ ' + h.name + ' 크리티컬! ' : '✓ ' + h.name + ' 명중! ') + res.total + ' 대 AC ' + S.enemy.ac + ' — ' + dmg + ' 피해.';
   }
   appendCard({ round: S.round, actor: 'ALLY',
     formula: 'd20(' + res.d20 + ')+' + (h.atkBonus || 0) + '=' + res.total,
-    outcome: res.nat1 ? 'NAT 1 — 빗나감' : (res.hit ? (res.crit ? '★ 크리티컬' : '✓ 명중') + ' vs AC ' + S.enemy.ac : '✗ 빗나감'),
+    outcome: res.nat1 ? 'NAT 1 — 빗나감' : (res.hit ? (res.crit ? '★ 크리티컬' : '✓ 명중') + ' 대 AC ' + S.enemy.ac : '✗ 빗나감'),
     dmg: dmg ? '적 HP: ' + S.opp.hp + '/' + S.opp.maxHp : '' });
   _sboLog('용병: ' + msg);
   return dmg;
@@ -29045,7 +29045,7 @@ function _sentryStrike() {
   if (res.nat1) {
     msg = '✗ ' + h.name + ' NAT 1 — misses.';
   } else if (!res.hit) {
-    msg = '✗ ' + h.name + ' misses. ' + res.total + ' vs AC ' + S.enemy.ac;
+    msg = '✗ ' + h.name + ' 빗나감. ' + res.total + ' 대 AC ' + S.enemy.ac;
   } else {
     const count = res.crit ? (h.dmgCount || 1) * 2 : (h.dmgCount || 1);
     const rolls = rollN(h.dmgDie || 8, count);
@@ -29053,11 +29053,11 @@ function _sentryStrike() {
     dmg = applyDmgMod(raw, S.opp.dmgMod);
     S.opp.hp = Math.max(0, S.opp.hp - dmg);
     if (typeof refreshLeftPanel === 'function') refreshLeftPanel();
-    msg = (res.crit ? '★ ' + h.name + ' CRIT! ' : '✓ ' + h.name + ' hits! ') + res.total + ' vs AC ' + S.enemy.ac + ' — ' + dmg + ' dmg.';
+    msg = (res.crit ? '★ ' + h.name + ' 크리티컬! ' : '✓ ' + h.name + ' 명중! ') + res.total + ' 대 AC ' + S.enemy.ac + ' — ' + dmg + ' 피해.';
   }
   appendCard({ round: S.round, actor: 'SENTRY',
     formula: 'd20(' + res.d20 + ')+' + (h.atkBonus || 0) + '=' + res.total,
-    outcome: res.nat1 ? 'NAT 1 — 빗나감' : (res.hit ? (res.crit ? '★ 크리티컬' : '✓ 명중') + ' vs AC ' + S.enemy.ac : '✗ 빗나감'),
+    outcome: res.nat1 ? 'NAT 1 — 빗나감' : (res.hit ? (res.crit ? '★ 크리티컬' : '✓ 명중') + ' 대 AC ' + S.enemy.ac : '✗ 빗나감'),
     dmg: dmg ? '적 HP: ' + S.opp.hp + '/' + S.opp.maxHp : '' });
   _sboLog('파수병: ' + msg);
   return dmg;
@@ -31041,11 +31041,11 @@ function storyFishing() {
         baitSearch.style.display = 'none'; baitSearch.innerHTML = '';
         castBtn.style.display = '';
         if (total < dc) {
-          rollEl.innerHTML = '<strong>생존:</strong> ' + die + (Math.floor(wisMod) >= 0 ? '+' : '') + Math.floor(wisMod) + ' = ' + total + ' vs DC ' + dc + ' — <span style="color:#e04040">실패</span>';
+          rollEl.innerHTML = '<strong>생존:</strong> ' + die + (Math.floor(wisMod) >= 0 ? '+' : '') + Math.floor(wisMod) + ' = ' + total + ' 대 DC ' + dc + ' — <span style="color:#e04040">실패</span>';
           rollEl.style.display = ''; lakeText.textContent = '쓸 만한 것을 찾지 못했습니다.'; _renderBait(); return;
         }
         const bait = BAIT_TABLES[loc][Math.floor(Math.random() * 6)];
-        rollEl.innerHTML = '<strong>생존:</strong> ' + die + (Math.floor(wisMod) >= 0 ? '+' : '') + Math.floor(wisMod) + ' = ' + total + ' vs DC ' + dc + ' — <span style="color:#60e060">성공</span><br>발견: ' + bait.icon + ' <strong>' + bait.name + '</strong>';
+        rollEl.innerHTML = '<strong>생존:</strong> ' + die + (Math.floor(wisMod) >= 0 ? '+' : '') + Math.floor(wisMod) + ' = ' + total + ' 대 DC ' + dc + ' — <span style="color:#60e060">성공</span><br>발견: ' + bait.icon + ' <strong>' + bait.name + '</strong>';
         rollEl.style.display = '';
         const ei = (S_story.inventory||[]).findIndex(i => i.name === bait.name && i.type === 'bait');
         if (ei >= 0) { S_story.inventory[ei].count = (S_story.inventory[ei].count || 1) + 1; }
@@ -32508,7 +32508,7 @@ function _nodeHookCodexCoreChamber(node) {
         storyMsg('기둥이 당신을 알아본다. 지금의 당신이 아니라 — 순환 이전의 당신을.\n\n조각이 풀려난다. 외함은 남아, 부재에 맞게 다시 형태를 갖춘다.\n\n아우로스가 걸음을 멈춘다. 「그럴 수 있을 리 없어.」\n\n그래도 그녀는 공격한다. 안전장치는 코덱스가 무엇을 결정했든 신경 쓰지 않는다.\n\n[서지 충전 +2 · 공허 압력 +3]');
         storyAutoSave();
       } else {
-        storyMsg('기둥이 기다린다. 당신은 아직 완전히 기억해 내지 못한 무언가의 소유를 주장하고 있다.\n\n내일 다시 시도하라. 이 정도는 기다려 왔으니.\n[CHA Ceremonia Roll: '+_total+' vs DC '+_dc+' — 실패]');
+        storyMsg('기둥이 기다린다. 당신은 아직 완전히 기억해 내지 못한 무언가의 소유를 주장하고 있다.\n\n내일 다시 시도하라. 이 정도는 기다려 왔으니.\n[CHA 세레모니아 판정: '+_total+' 대 DC '+_dc+' — 실패]');
         S_story.codexCoreEntered = false;
         storyAutoSave();
       }
@@ -36133,8 +36133,8 @@ function storyRender(node, prefix) {
               const dc = 5 + Math.floor(Math.random() * 12);
               const roll = Math.ceil(Math.random() * 20);
               const pass = roll >= dc;
-              if (pass) { S_story.surpriseAdvantage = true; stealthResult.style.color='var(--grn-lt)'; stealthResult.textContent='✓ d20='+roll+' vs DC '+dc+' — ADV on first attack!'; }
-              else       { stealthResult.style.color='var(--red-lt)'; stealthResult.textContent='✗ d20='+roll+' vs DC '+dc+' — Detected.'; }
+              if (pass) { S_story.surpriseAdvantage = true; stealthResult.style.color='var(--grn-lt)'; stealthResult.textContent='✓ d20='+roll+' 대 DC '+dc+' — ADV on first attack!'; }
+              else       { stealthResult.style.color='var(--red-lt)'; stealthResult.textContent='✗ d20='+roll+' 대 DC '+dc+' — Detected.'; }
               setTimeout(launch, 700);
             } else { launch(); }
           });
@@ -39251,11 +39251,11 @@ document.getElementById('btn-stealth-attempt').addEventListener('click', () => {
   if (pass) {
     S_story.surpriseAdvantage = true;
     el.style.color = 'var(--grn-lt)';
-    el.textContent = '✓ 은신 성공! d20=' + roll + ' vs DC ' + dc + ' — 선공 + 첫 공격 이점!';
+    el.textContent = '✓ 은신 성공! d20=' + roll + ' 대 DC ' + dc + ' — 선공 + 첫 공격 이점!';
   } else {
     S_story.surpriseAdvantage = false;
     el.style.color = 'var(--red-lt)';
-    el.textContent = '✗ Detected. d20=' + roll + ' vs DC ' + dc + ' — No advantage.';
+    el.textContent = '✗ 발각됨. d20=' + roll + ' 대 DC ' + dc + ' — 이점 없음.';
   }
 });
 // Battle focus overlay buttons
