@@ -27008,12 +27008,12 @@ function _getTownCrierLine() {
 // ── Layer 60: Act VIII Farewell Beats ──
 const ACT8_FAREWELL_BEATS = { // → doc: world.md §The Homecoming: Act VIII NPC Farewell Beats (6 NPCs; gifts: brynns_loaf/pachelbels_sketch/champions_tincture)
   yael: {
-    text: '"You came back. I wasn\'t certain you would — I\'m not being unkind, I just know what the road between here and the Convergence costs people.\n\nWhile you were gone I\'ve been building something. Not a movement, not a cause. Just a list. Names. People who know what happened here — what the Void is, what the Scholar Kings suppressed, what it cost to hold it back. People who will tell the truth about this, after.\n\nWhatever \'after\' looks like — whether you come back or not — the truth will be harder to erase than it\'s been. That\'s the only kind of victory I know how to build.\n\nGo do the other kind."',
+    text: '『돌아오셨군요. 오실 거라 확신하지는 않았어요. 매정하게 굴려는 게 아니라, 여기와 수렴 사이의 길이 사람들에게 무엇을 치르게 하는지 저는 알아요.\\n\\n당신이 없는 동안 저는 뭔가를 만들고 있었어요. 운동도 아니고 대의도 아니에요. 그냥 명부요. 이름들. 여기서 무슨 일이 있었는지 아는 사람들, 공허가 무엇인지, 학자왕들이 무엇을 감췄는지, 그것을 막아 내는 데 무엇이 들었는지 아는 사람들. 이 일이 끝난 뒤에 진실을 말해 줄 사람들이요.\\n\\n「뒤」가 어떤 모습이든, 당신이 돌아오든 오지 않든, 진실은 지금까지보다 지우기 어려워질 거예요. 그게 제가 지을 줄 아는 유일한 종류의 승리예요.\\n\\n가서 다른 종류를 이루세요.』',
     gift: null,
   },
   brynn: {
     text: () => {
-      const base = '"Sit down. I made too much bread today — I always do when I\'m worried, and I\'ve been worried since Act III, so there\'s quite a lot of it.\n\nDon\'t argue about the room cost. Don\'t argue about the bread. You\'ve been traveling on short rations and I can tell. You have the look of someone who\'s been eating just enough to keep moving.\n\nTake it. It\'ll keep."';
+      const base = '『앉으세요. 오늘 빵을 너무 많이 구웠어요. 걱정될 때면 늘 그래요. 3막 이후로 계속 걱정이라, 빵이 꽤 많아요.\\n\\n방값 얘기는 말리지 마세요. 빵 얘기도요. 계속 부족하게 먹으며 여행한 게 보여요. 움직일 만큼만 먹은 사람의 얼굴이에요.\\n\\n받아 두세요. 두고 먹어도 되는 빵이에요.』';
       let lampLine;
       if (!S_story.brynnKeeperStoryTold) {
         lampLine = BRYNN_KEEPER_STORY.farewellNoStory;
@@ -27031,39 +27031,39 @@ const ACT8_FAREWELL_BEATS = { // → doc: world.md §The Homecoming: Act VIII NP
   },
   quill: {
     text: () => {
-      const base = '"I\'ve been going through the old ledgers. All the debts that seemed so significant. The Couperin estate. The back payments. The interest that had been accumulating for longer than either of us had been keeping accounts.\n\nThey balance now. Some were paid. Some were forgiven. Some just stopped mattering — which is its own kind of payment.\n\nI think I understand the note Couperin left better now. \'Just a number.\' He didn\'t mean the debt was meaningless. He meant it had served its purpose and could be released. He was teaching me something. It just took me this long to learn it.\n\nGood luck out there. I\'ll keep the books straight here."';
+      const base = '『낡은 장부들을 들춰 보고 있었어요. 그렇게 중요하게 여겨지던 빚들을요. 쿠프랭 가의 몫. 밀려 있던 지불금. 우리 둘 중 누가 장부를 쓰기 시작하기보다 더 오래 쌓여 있던 이자.\\n\\n이제는 맞아떨어져요. 갚은 것도 있어요. 탕감해 준 것도 있어요. 그냥 더는 중요하지 않게 된 것도 있어요. 그것도 그것 나름의 지불이에요.\\n\\n쿠프랭이 남긴 쪽지를 이제는 더 잘 이해하겠어요. 「그저 숫자일 뿐」. 빚이 무의미하다는 뜻이 아니었어요. 제 몫을 다했고 이제 놓아도 된다는 뜻이었어요. 저를 가르치려던 거예요. 배우는 데 이만큼이 걸렸을 뿐이고요.\\n\\n밖에서는 행운을 빌어요. 여기 장부는 제가 반듯하게 맞춰 둘게요.』';
       return S_story.quillQuestComplete
-        ? base + '\n\n"Pachelbel sent a note. \'Account closed, no remainder.\' I keep it in the case."'
+        ? base + '\\n\\n『파헬벨이 쪽지를 보냈어요. 「계정 마감, 잔액 없음」. 악기 통에 넣어 두었어요.』'
         : base;
     },
     gift: null,
   },
   pachelbel: {
-    text: '"I\'ve been writing something. I don\'t know if it\'s good — I\'m not sure that question is the right one anymore.\n\nIt\'s honest. That\'s the difference between the work I did before you cleared my debt and the work I\'m doing now. I was composing to prove something. Now I\'m composing because there\'s something in me that needs to come out.\n\nI\'d like you to have this. It\'s not finished — I don\'t think it should be finished by me alone. Maybe you\'ll understand it. Maybe you\'ll leave it for someone else to read."',
+    text: '『뭔가를 쓰고 있어요. 좋은지는 모르겠어요. 이제는 그게 옳은 질문인지도 확실하지 않아요.\\n\\n정직해요. 당신이 제 빚을 정리해 주기 전에 한 작업과 지금 하는 작업의 차이가 그거예요. 전에는 뭔가를 증명하려고 작곡했어요. 지금은 안에서 나와야 할 것이 있어서 작곡해요.\\n\\n이걸 가져 주셨으면 해요. 미완성이에요. 저 혼자 끝낼 곡이 아니라고 생각해요. 어쩌면 당신이 이해할지도 몰라요. 어쩌면 다른 누군가 읽도록 남겨 둘지도요.』',
     gift: { name:"파헬벨의 스케치", icon:'📄', type:'readable', sell:0, code:'LLA',
       readText:'Three lines of notation. A rest. Then three more, transposed up a fifth. The intervals spell out something — or almost spell it out, the way all honest things approach their meaning diagonally. At the bottom, in small letters: "돌아온 이에게."' },
   },
   crov: {
     text: () => S_story.pitChampionWon
-      ? '"You look different.\n\nI\'ve been in this business long enough to know what the road does to people. Most come back smaller — worn down, quieter, like something got used up. Some don\'t come back at all. You came back standing straight. That\'s rarer than it sounds.\n\nI was holding this for a champion. The kind who earns it in the pit and then earns it again out here. I\'ve seen both kinds. You\'re the second kind. Take it. You\'ll know when to use it."'
-      : '"You look different.\n\nI\'ve been in this business long enough to know what the road does to people. Most come back smaller — worn down, quieter, like something got used up. Some don\'t come back at all. You came back standing straight. That\'s rarer than it sounds.\n\nI was holding this for a champion. Not the pit-fight kind — the kind that earns it out there, where nobody\'s watching and there\'s no purse at the end. Take it. You\'ll know when to use it."',
+      ? '『달라 보이네요.\\n\\n이 일을 오래 해서 길이 사람에게 무슨 짓을 하는지 알아요. 대부분은 작아져서 돌아와요. 닳아서, 조용해져서, 무언가가 다 쓰여 버린 것처럼요. 아예 돌아오지 못하는 사람도 있어요. 당신은 허리를 펴고 돌아왔어요. 말처럼 흔한 일이 아니에요.\\n\\n이건 용사를 위해 아껴 두고 있었어요. 투기장에서 얻고 나서 여기 밖에서 다시 얻는 부류요. 두 부류를 다 봤어요. 당신은 두 번째 부류예요. 가져가세요. 언제 써야 할지 알게 될 거예요.』'
+      : '『달라 보이네요.\\n\\n이 일을 오래 해서 길이 사람에게 무슨 짓을 하는지 알아요. 대부분은 작아져서 돌아와요. 닳아서, 조용해져서, 무언가가 다 쓰여 버린 것처럼요. 아예 돌아오지 못하는 사람도 있어요. 당신은 허리를 펴고 돌아왔어요. 말처럼 흔한 일이 아니에요.\\n\\n이건 용사를 위해 아껴 두고 있었어요. 투기장에서 싸우는 부류가 아니라, 아무도 보지 않고 끝에 상금도 없는 밖에서 얻는 부류요. 가져가세요. 언제 써야 할지 알게 될 거예요.』',
     gift: { name:"용사의 팅크", icon:'⚗️', type:'consumable', effect:'advantage_next_attack', sell:0, code:'HKG', _noSell:true,
-      desc:'Grants advantage on your next attack roll. One use.' },
+      desc:'다음 공격 판정에 이점을 얻습니다. 1회용.' },
   },
   auros: {
-    text: '"I won\'t say goodbye. That\'s what people say when they\'re not sure something will work.\n\nI\'ll say: be ready. The Convergence has been waiting longer than either of us has been alive. It isn\'t patient — patience implies willingness to wait. It\'s simply there. It\'s always been there.\n\nWhat you bring to it matters. Not just the Shards — those are the key, not the reason. The reason is everything you did between collecting them. Whether you know that yet or not.\n\nI\'ll see you on the other side of it. One way or another."',
+    text: '『작별 인사는 하지 않겠어요. 무언가가 잘될지 확신하지 못할 때 사람들이 하는 말이니까요.\\n\\n대신 이렇게 말할게요. 준비하세요. 수렴은 우리 둘 중 누가 살아온 시간보다도 오래 기다려 왔어요. 참을성이 있는 건 아니에요. 인내란 기다릴 의지가 있다는 뜻이니까요. 그저 거기 있을 뿐이에요. 늘 거기 있었어요.\\n\\n그곳에 가져가는 것이 중요해요. 파편만이 아니에요. 파편은 열쇠일 뿐, 이유가 아니에요. 이유는 파편을 모으는 사이에 당신이 한 모든 일이에요. 당신이 아직 그것을 알든 모르든요.\\n\\n그 반대편에서 봬요. 어떤 식으로든요.』',
     gift: null,
   },
 };
 
 // ── Layer 59: Pressure Cascade ──
 const NPC_VOID_PRESSURE_LINES = { // → doc: world.md §The Pressure Cascade (fires when fav >= 2 && voidPressure >= 6; one per NPC)
-  yael:     'The city is holding its breath. Even the rioters have gone quiet.',
-  brynn:    'My candles won\'t stay lit past midnight. I\'ve started leaving the fire banked all night.',
-  quill:    'The numbers in the ledger keep adding up wrong. I\'ve checked them four times.',
-  pachelbel:'Three students fainted in the atelier today. The air feels thick. Like before a storm that never breaks.',
-  crov:     'I\'ve been keeping the forge running later than usual. It feels wrong to let the fire go out.',
-  auros:    'Something is moving in the Convergence. Not the Commander. Something older.',
+  yael:     '도시가 숨을 죽이고 있어요. 폭도들까지 조용해졌어요.',
+  brynn:    '자정이 지나면 촛불이 계속 켜 있지를 않아요. 밤새 불씨를 살려 두기 시작했어요.',
+  quill:    '장부의 숫자가 자꾸 틀리게 더해져요. 네 번이나 확인했어요.',
+  pachelbel:'오늘 아틀리에에서 학생 셋이 기절했어요. 공기가 무거워요. 터지지 않는 폭풍우 직전처럼요.',
+  crov:     '요즘 대장간 불을 평소보다 늦게까지 피우고 있어요. 불을 끄면 왠지 안 될 것 같아서요.',
+  auros:    '수렴 안에서 무언가가 움직이고 있어요. 사령관이 아니에요. 더 오래된 무언가요.',
 };
 function _voidFlavorLine(nodeCode) {
   const vp = S_story.voidPressure || 0;
@@ -27084,9 +27084,9 @@ function _voidFlavorLine(nodeCode) {
   const cluster = CLUSTER[nodeCode];
   if (!cluster) return '';
   const CRACK = {
-    birka:   'The cobblestones are colder than they should be.',
+    birka:   '조약돌이 있어야 할 것보다 차가워요.',
     tilbury: '바람 없이 항구의 불빛이 흔들려요.',
-    weimar:  'The scholars\' candles are burning down fast today.',
+    weimar:  '학자들의 촛불이 오늘은 빨리 타들어 가고 있어요.',
     wild:    '무언가가 바위를 뚫고 스며 나와요.',
   };
   const line = CRACK[cluster] || '';
@@ -27094,7 +27094,7 @@ function _voidFlavorLine(nodeCode) {
   if (vp >= 6) {
     const nd = NODE_MAP[nodeCode];
     const lbl = nd ? nd.label.split(' — ')[0] : nodeCode;
-    return line + '\n' + lbl + ': the air here has a quality you can\'t name. Wrong, somehow.';
+    return line + '\n' + lbl + ': 여기 공기에는 이름 붙일 수 없는 무엇이 있어요. 어딘가 잘못됐어요.';
   }
   return line;
 }
@@ -27112,59 +27112,59 @@ function _addVoidPressure(n) {
   if (cur >= 9 && !S_story.voidImminentWarned) {
     S_story.voidImminentWarned = true;
     S_story.void_mercy_count = (S_story.shards >= 5) ? 1 : 0;
-    const mercyNote = (S_story.shards >= 5) ? '\n\nYou have ' + S_story.shards + '/7 shards. One mercy rest remains.' : '';
+    const mercyNote = (S_story.shards >= 5) ? '\\n\\n보유한 파편: ' + S_story.shards + '/7. 자비의 휴식이 한 번 남았습니다.' : '';
     const margin = cur >= 10
-      ? 'The Void is already at the threshold — the next tide or missed rest takes you.'
-      : 'One more pressure point and the Void breaks through.';
-    setTimeout(() => storyMsg('⚠️ THE VOID IS IMMINENT — Pressure: ' + cur + '/10. ' + margin + '\n\nShards: ' + (S_story.shards || 0) + '/7.' + mercyNote), 400);
+      ? '공허가 이미 문턱에 와 있어요. 다음 대물때나 놓친 휴식이 당신을 데려갑니다.'
+      : '압력 지점이 하나만 더 쌓이면 공허가 뚫고 들어옵니다.';
+    setTimeout(() => storyMsg('⚠️ 공허 임박. 압력: ' + cur + '/10. ' + margin + '\\n\\n파편: ' + (S_story.shards || 0) + '/7.' + mercyNote), 400);
   }
   storyUpdateStatus();
 }
 
 // ── Layer 68b: Pachelbel Ledger ──
 const PACHELBEL_LEDGER = { // → doc: world.md §레종의 도구 (entries 2+3 readable at LLA; Dear Friend gated)
-  2: `Raison was taken at the north gate.
+  2: `레종이 북문에서 잡혔다.
 
-Someone told the Circle about the seals he'd been breaking. I need it on record that it wasn't me, even if the only record is this.
+서클에 그가 부수고 있던 봉인들을 알린 사람이 있었다. 그것이 내가 아니었다는 사실을 기록으로 남겨 두어야 한다. 이것이 유일한 기록이라 해도.
 
-They called it unauthorized research access. His tools were confiscated. His eldest was brought in for "evaluation." The Circle uses that word like it means something clean.`,
-  3: `The younger one got out. Took the southern road by night — someone had left a boat. I don't know who arranged it. I didn't ask.
+그들은 그것을 무단 연구 접근이라 불렀다. 그의 연장은 압수되었다. 그의 맏이는 「평가」를 받기 위해 끌려갔다. 서클은 그 단어를 깨끗한 것을 뜻하는 말처럼 쓴다.`,
+  3: `막내는 빠져나갔다. 밤에 남쪽 길을 탔다. 누군가 배를 대기시켜 두었더라. 누가 마련했는지는 모른다. 묻지도 않았다.
 
-The eldest is still in evaluation, which means they found something worth keeping. Raison would know what to think about that.
+맏이는 아직 평가 중이다. 간직할 만한 것을 찾아냈다는 뜻이다. 레종이라면 그것을 어떻게 받아들여야 할지 알았을 것이다.
 
-I bought the tools back at the impound auction. Paid four times what they were worth, because I could, and because someone had to.
+나는 몰수품 경매에서 그의 연장을 되샀다. 값의 네 배를 치렀다. 그럴 수 있었고, 누군가는 그래야 했으니까.
 
-I don't know what I'm going to do with them.`,
+그것들을 어떻게 해야 할지 모르겠다.`,
 };
 
 // ── Layer 69: §XXXIV Quill / Couperin Ledger scenes ──
 const S34_QUILL_BEAT2 = // → doc: world.md §Quill's Arc (Beat 2: lute returned; couperiSongReceived = true)
-`Quill takes the lute from you.
+`퀼이 당신에게서 류트를 받아 든다.
 
-He opens the case and checks the strings — they're still in tune. It has been sitting in Pachelbel's back room for two months and it is still in tune.
+그가 악기 통을 열고 현을 확인한다. 아직 조율이 맞아 있다. 파헬벨의 뒷방에 두 달을 놓아두었는데도 아직 조율이 맞아 있다.
 
-He plays a phrase. One bar, two. Something formal and very old — the same pattern as the first line of Codex Shard 1's note, though you'd have to know both to hear the connection.
+그가 한 구절을 연주한다. 한 마디, 두 마디. 격식 있고 아주 오래된 무엇. 첫 번째 파편의 쪽지 첫 줄과 같은 가락이다. 둘 다 알고 있어야 연결 고리가 들린다.
 
-"Couperin's theme," he says. "The family theme. My grandmother taught me this. I haven't played it since before the pawn."
+『쿠프랭의 곡조예요.』 그가 말한다. 『가문의 곡조죠. 할머니가 가르쳐 주셨어요. 저당 잡히기 전으로는 치지 않았어요.』
 
-He closes the case.
+그가 악기 통을 닫는다.
 
-"금화 마흔 닢. 고마워요."`;
+『금화 마흔 닢. 고마워요.』`;
 
 const S34_QUILL_BEAT3 = // → doc: world.md §Quill's Arc (Beat 3: debt released; couperiDebtReleased = true)
-`The borrowed instrument is gone. Quill has his lute.
+`빌렸던 악기는 사라졌다. 퀼에게는 류트가 있다.
 
-He's playing something quiet when you arrive — not performing, just playing. The tavern is half-empty or half-full, depending on how you count.
+당신이 도착했을 때 그는 조용한 것을 연주하고 있다. 공연이 아니라 그냥 연주다. 선술집은 세는 법에 따라 반쯤 비었거나 반쯤 차 있다.
 
-He looks up.
+그가 고개를 든다.
 
-"I've been thinking about the note Elder Couperin left on the original account. 'Just a number.' I used to find that dismissive."
+『장로 쿠프랭이 원래 계정에 남긴 쪽지를 곰곰이 생각해 봤어요. 「그저 숫자일 뿐」. 예전에는 그 말이 무성의하게 느껴졌어요.』
 
-He plays another bar.
+그가 한 마디를 더 연주한다.
 
-"I think he meant something different. He meant: this number served its purpose, which was to create an obligation, which was honored, which taught something. After that, it's just a number. You can let it go."
+『다른 뜻이었던 것 같아요. 이 숫자는 제 몫을 다했다는 뜻이었어요. 의무를 만들어 냈고, 그 의무는 지켜졌고, 무언가를 가르쳤어요. 그 뒤로는 그저 숫자일 뿐이에요. 놓아 주어도 돼요.』
 
-He turns back to his playing.`;
+그는 다시 연주로 돌아간다.`;
 
 // ── Layer 70: §XXXV First Inn Light — Brynn's Vigil Arc ──
 const BRYNN_KEEPER_STORY = { // → doc: world.md §The First Inn Light / Brynn's Vigil Arc (3-beat; brynnKeeperStoryTold/LightChoiceMade/LightKept)
