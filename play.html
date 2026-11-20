@@ -37211,11 +37211,11 @@ function _renderPreBatt() {
   const _hasExhaustion = _isExhausted();
   if (_hasExhaustion) {
     const _msgs = [];
-    if (S_story.battleDis > 0) _msgs.push(S_story.battleDis + ' battle(s) remaining from missed rest');
-    if (_awakeH >= 24) _msgs.push(_awakeH + 'h without sleep');
+    if (S_story.battleDis > 0) _msgs.push(S_story.battleDis + '회 잔여 — 놓친 휴식');
+    if (_awakeH >= 24) _msgs.push(_awakeH + '시간 무수면');
     const _recompose = (S_story.pitPerks || []).includes('crovsLesson') && !S_story.crovsLessonUsed
-      ? ' 🧘 베크만의 교훈 cancels it for this fight — once, until you sleep.' : '';
-    disEl.textContent = '😴 Exhausted — attack rolls have DIS (' + _msgs.join('; ') + '). Sleep to recover.' + _recompose;
+      ? ' 🧘 베크만의 교훈이 이번 전투에서 이를 무효화한다 — 단 한 번, 잘 때까지.' : '';
+    disEl.textContent = '😴 탈진 — 공격 굴림 불리(' + _msgs.join('; ') + '). 자면 회복된다.' + _recompose;
     disEl.classList.add('show');
   } else {
     disEl.classList.remove('show');
