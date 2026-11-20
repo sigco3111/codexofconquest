@@ -30723,13 +30723,13 @@ function storyCheckJournal(node) {
   const lines = [];
   _checkDearFriendUpgrade('brynn', m => lines.push(m));
   if (entry.readAloud) {
-    document.getElementById('journal-entry-hd').textContent = '📔 Froberger\'s Journal — Entry ' + entry.entryNum;
+    document.getElementById('journal-entry-hd').textContent = '📔 프로베르거의 일지 — 기록 ' + entry.entryNum;
     document.getElementById('journal-text').textContent = entry.text;
     const mustTag = document.getElementById('journal-must-tag');
     mustTag.classList.add('show');
     document.getElementById('story-journal-modal').classList.add('visible');
   } else {
-    lines.push('📖 Froberger\'s Journal — Entry ' + entry.entryNum + ' found.');
+    lines.push('📖 프로베르거의 일지 — 기록 ' + entry.entryNum + ' 발견.');
   }
   return lines;
 }
@@ -31868,7 +31868,7 @@ function _openBlueShuttersContent(wrap) {
   body.textContent = BLUE_SHUTTERS_ARCHIVE_TEXT;
   const entry33 = document.createElement('div');
   entry33.style.cssText = 'font-size:11px;color:#506878;font-style:italic;border-top:1px solid #1e2a3a;padding-top:8px;';
-  entry33.textContent = '📖 Froberger\'s Journal — Entry 33 found in the archive deposit.';
+  entry33.textContent = '📖 프로베르거의 일지 — 기록 33, 기록 보관소 보관함에서 발견.';
   sub.appendChild(hd); sub.appendChild(body); sub.appendChild(entry33);
   if (!S_story.archiveUndercitySurveyTaken) {
     const surveyBtn = document.createElement('button');
@@ -32713,7 +32713,7 @@ function _nodeHookBirkaDeaconCode(node, { npcRowDiv }) {
         _dcWrap.style.cssText = 'display:flex;flex-direction:column;gap:0;';
         const dcBtn = document.createElement('button');
         dcBtn.className = 'inv-use-btn';
-        dcBtn.textContent = '📋 The code on the wall.';
+        dcBtn.textContent = '📋 벽에 적힌 강령.';
         dcBtn.style.cssText = 'margin-top:4px;';
         dcBtn.addEventListener('click', () => {
           if (document.getElementById('deacon-code-sub')) return;
@@ -33456,7 +33456,7 @@ function _nodeHookBirkaQuillBrynnSong(node) {
       if (node.code === 'MHQ' && _npcFavor('quill') >= 2 && _npcFavor('brynn') >= 2
           && !S_story.s54QuillBrynnDelivered) {
         S_story.s54QuillBrynnDelivered = true;
-        setTimeout(() => storyMsg("Quill is already playing when you arrive. Something slow.\n\n\"Brynn came by yesterday,\" he says without stopping. \"Asked me to play something slow for a while. Said she had a guest who needed it.\"\n\nHe doesn't look up. He means it as high praise."), 500);
+        setTimeout(() => storyMsg("도착했을 때 퀼은 이미 연주하고 있었다. 느린 곡을.\\n\\n『브린이 어제 다녀갔어.』 그가 멈추지 않고 말한다. 『한동안 느린 곡을 쳐 달라더군. 그것이 필요한 손님이 있다고.』\\n\\n그는 고개를 들지 않는다. 최고의 찬사로 한 말이다."), 500);
       }
 }
 function _nodeHookBirkaQuillNgPlusSong(node, { npcRowDiv }) {
@@ -33464,12 +33464,12 @@ function _nodeHookBirkaQuillNgPlusSong(node, { npcRowDiv }) {
       if (node.code === 'MHQ' && (S_story.ngPlusRun || 0) > 0 && _npcFavor('quill') >= 2) {
         const s32Div = document.createElement('div');
         s32Div.style.cssText = 'margin-top:8px;padding:10px 12px;background:#E2D0A8;border-left:3px solid #B87C28;font-style:italic;font-size:12px;color:#2A1A0A;line-height:1.7;';
-        s32Div.innerHTML = '<div style="font-size:10px;color:#6A4A28;letter-spacing:2px;margin-bottom:8px;font-style:normal;">UNTITLED (SECOND SONG)</div>'
-          + '<div>The city is still there. The city is still there.</div>'
-          + '<div>You left it and it stayed. You came back and it remembered.</div>'
-          + '<div>That\'s the thing about cities — they don\'t wait for you, they just don\'t leave.</div>'
-          + '<div>That\'s a love song, I think. I\'m still deciding.</div>'
-          + '<div style="margin-top:8px;font-size:11px;color:#6A4A28;font-style:normal;">[Quill: "I reused the chord progression. It fit."]</div>';
+        s32Div.innerHTML = '<div style="font-size:10px;color:#6A4A28;letter-spacing:2px;margin-bottom:8px;font-style:normal;">무제 (두 번째 노래)</div>'
+          + '<div>도시는 아직 거기 있다. 도시는 아직 거기 있다.</div>'
+          + '<div>당신이 떠나도 도시는 남았다. 당신이 돌아오자 도시는 기억했다.</div>'
+          + '<div>도시란 그런 것이다. 당신을 기다려 주지는 않는다. 그저 떠나지 않을 뿐.</div>'
+          + '<div>사랑 노래라고 생각해. 아직 결정하는 중이야.</div>'
+          + '<div style="margin-top:8px;font-size:11px;color:#6A4A28;font-style:normal;">[퀼: 「화성 진행을 재활용했어. 어울렸거든.」]</div>';
         npcRowDiv.appendChild(s32Div);
       }
 }
@@ -33480,7 +33480,7 @@ function _nodeHookBirkaRodShop(node, { npcRowDiv }) {
         _rodShopWrap.style.cssText = 'display:flex;flex-direction:column;gap:0;margin-top:4px;';
         const shopBtn = document.createElement('button');
         shopBtn.className = 'inv-use-btn';
-        shopBtn.textContent = '🎣 Browse Rods — The Fisherman';
+        shopBtn.textContent = '🎣 낚싯대 보기 · 어부';
         shopBtn.addEventListener('click', () => {
           const existing = document.getElementById('rod-shop-sub');
           if (existing) { existing.remove(); shopBtn.disabled = false; shopBtn.style.opacity = ''; return; }
@@ -33490,7 +33490,7 @@ function _nodeHookBirkaRodShop(node, { npcRowDiv }) {
           sub.style.cssText = 'margin-top:6px;padding:10px 12px;background:#060a08;border-left:3px solid #4a7060;border-radius:4px;display:flex;flex-direction:column;gap:10px;';
           const hdr = document.createElement('div');
           hdr.style.cssText = 'font-size:10px;color:#6a9070;letter-spacing:2px;';
-          hdr.textContent = "THE FISHERMAN'S RODS";
+          hdr.textContent = "어부의 낚싯대";
           sub.appendChild(hdr);
           const hasCoupon = !S_story.fishingRodCouponRedeemed && (S_story.inventory||[]).some(i => i.name === 'Free Rod Coupon');
           FISHING_RODS.forEach(rod => {
@@ -33507,7 +33507,7 @@ function _nodeHookBirkaRodShop(node, { npcRowDiv }) {
             if (owned) {
               btn.textContent = '✓ Owned'; btn.disabled = true; btn.style.opacity = '0.5';
             } else if (rod.tier === 0 && hasCoupon) {
-              btn.textContent = '🎫 Redeem Coupon (Free)';
+              btn.textContent = '🎫 쿠폰 교환 (무료)';
               btn.addEventListener('click', () => {
                 S_story.fishingRodCouponRedeemed = true;
                 S_story.inventory = (S_story.inventory||[]).filter(i => i.name !== 'Free Rod Coupon');
@@ -33517,7 +33517,7 @@ function _nodeHookBirkaRodShop(node, { npcRowDiv }) {
                 // storyCheckQuests completes it and fires its xpAward:50 (== the old inline +50).
                 // The rod grant above is the redemption action, not the quest reward, so it stays.
                 storyCheckQuests(node);
-                storyMsg("The Fisherman takes the tab. He looks at it — he made the tab — but he looks at it like it's new each time.\n\n\"...Nice Day For Fishing. Yugurt!\"\n\nHe hands you the rod that was propped by the door.\n\n🎣 Fishing Rod obtained. ✓ Quest complete — The No-Fishing Sign. +50 XP.");
+                storyMsg("어부가 쪽지를 받아 든다. 그는 그것을 들여다본다. 자기가 만든 쪽지인데도, 매번 새것인 양 들여다본다.\\n\\n『…낚시하기 좋은 날이오. 유구르트!』\\n\\n그가 문 옆에 받쳐 두었던 낚싯대를 건넨다.\\n\\n🎣 Fishing Rod 획득. ✓ 의뢰 완료. 「낚시 금지 표지」. +50 XP.");
                 sub.remove(); shopBtn.disabled = false; shopBtn.style.opacity = ''; storyAutoSave();
               });
             } else {
@@ -33531,7 +33531,7 @@ function _nodeHookBirkaRodShop(node, { npcRowDiv }) {
                 S_story.gold = (S_story.gold || 0) - rod.price;
                 S_story.inventory = S_story.inventory || [];
                 S_story.inventory.push({ name:rod.name, icon:rod.icon, type:'tool', sell:rod.sell, code:'SSJ', rodBonus:rod.rodBonus, desc:rod.desc });
-                storyMsg('You hand over ' + rod.price + 'gp. The Fisherman nods once.\n\n🎣 ' + rod.name + ' obtained.' + (rod.rodBonus > 0 ? ' +' + rod.rodBonus + ' to Catch rolls.' : ''));
+                storyMsg('어부에게 ' + rod.price + 'gp를 건넨다. 어부가 한 번 고개를 끄덕인다.\\n\\n🎣 ' + rod.name + ' 획득.' + (rod.rodBonus > 0 ? ' 낚기 판정 +' + rod.rodBonus + '.' : ''));
                 sub.remove(); shopBtn.disabled = false; shopBtn.style.opacity = ''; storyAutoSave();
               });
             }
@@ -33588,7 +33588,7 @@ function _nodeHookCdgKenickieMarket(node, { cqDiv }) {
     if (qs['quest_cat_05'] === 'complete') {
       const kBtn = document.createElement('button');
       kBtn.className = 'inv-use-btn';
-      kBtn.textContent = '🐟 Kenickie\'s Black Market';
+      kBtn.textContent = '🐟 케니키의 암시장';
       kBtn.addEventListener('click', () => {
         kBtn.remove();
         const KENICKIE_STOCK = [
@@ -33610,7 +33610,7 @@ function _nodeHookCdgKenickieMarket(node, { cqDiv }) {
         shopDiv.style.cssText = 'margin-top:6px;display:flex;flex-direction:column;gap:5px;border:1px solid #8B4A2A;border-radius:5px;padding:10px;background:#E2D0A8;';
         const title = document.createElement('div');
         title.style.cssText = 'font-size:11px;color:#6A4A28;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid #8B4A2A;padding-bottom:4px;margin-bottom:2px;';
-        title.textContent = '🐟 Kenickie\'s Black Market';
+        title.textContent = '🐟 케니키의 암시장';
         shopDiv.appendChild(title);
         const goldLine = document.createElement('div');
         goldLine.style.cssText = 'font-size:11px;color:#6A4808;';
@@ -33639,7 +33639,7 @@ function _nodeHookCdgKenickieMarket(node, { cqDiv }) {
             S_story.kenickieMarketUsed = true;
             updateGold();
             storyAutoSave();
-            storyMsg('Kenickie: "Good choice. My guy Vinnie\'s got more next week. Maybe." 🤌');
+            storyMsg('케니키: 「좋은 선택이야. 내 사람 비니가 다음 주에 더 구해올 거야. 아마도.」 🤌');
           });
           row.appendChild(info);
           row.appendChild(buyBtn);
@@ -33673,13 +33673,13 @@ function _nodeHookWg0GateTrial(node) {
       _wg0Div.id = 'story-wg0-trial';
       _wg0Div.className = 'sweelinck-variant';
       _wg0Div.style.cssText = 'margin-top:10px;border-left-color:#204a30;color:#9acc9a;font-size:12px;';
-      _wg0Div.textContent = '🐍 The flooded crossing. Something large coils beneath the surface — visible, not hiding. It occupies the gate. The water is at chest height.';
+      _wg0Div.textContent = '🐍 물에 잠긴 건널목. 수면 아래에 무언가 큰 것이 똬리를 틀고 있다. 숨지 않고, 보인다. 그것이 문을 차지하고 있다. 물은 가슴 높이다.';
       const _wg0Btn = document.createElement('button');
       _wg0Btn.className = 'inv-use-btn'; _wg0Btn.style.marginTop = '6px';
       _wg0Btn.textContent = '🐍 Cross the flooded gate';
       _wg0Btn.addEventListener('click', () => {
         _wg0Btn.disabled = true;
-        storyMsg('The water reaches your chest at the crossing. The serpent does not retreat. It turns toward you.');
+        storyMsg('건널목에서 물이 가슴까지 닿는다. 뱀은 물러나지 않는다. 당신을 향해 돌아선다.');
         setTimeout(() => storyPreBattle({ ...node, code:'WG0_TRIAL', battle:{ label:'바다뱀 괴수 — 관문 건널목', key:'sea_serpent', count:1 } }), 400);
       });
       _wg0Div.appendChild(_wg0Btn);
@@ -33695,7 +33695,7 @@ function _nodeHookHcaLeviathan(node) {
       _levDiv.id = 'story-hca-leviathan';
       _levDiv.className = 'sweelinck-variant';
       _levDiv.style.cssText = 'margin-top:10px;border-left-color:#1a2a4a;color:#8ab0d0;font-size:12px;';
-      _levDiv.textContent = '🌊 The clearing surface breaks. Something rises from the depth that has been drawing on the swamp for a very long time — Whisper\'s silence, Glut\'s excess, Wane\'s grief, all of it accumulated below into this. The Leviathan. It surfaces here because this is where the pressure finally equals the weight above it.';
+      _levDiv.textContent = '🌊 빈터의 수면이 갈라진다. 아주 오래전부터 늪을 빨아들이고 있던 깊은 곳에서 무언가가 떠오른다. 위스퍼의 침묵, 글럿의 과잉, 웨인의 비탄. 그 모든 것이 아래에 쌓여 이것이 되었다. 리바이어던. 압력이 마침내 위의 무게와 같아진 곳이 여기이기에, 그것은 여기로 떠오른다.';
       const _levBtn = document.createElement('button');
       _levBtn.className = 'inv-use-btn'; _levBtn.style.marginTop = '6px';
       _levBtn.textContent = '🌊 Face the Leviathan';
@@ -33712,15 +33712,15 @@ function _nodeHookHcaLeviathan(node) {
           const _iIdx = _invL.findIndex(i => i.name === (_hasChL ? '충전된 아이오딘 소금' : '아이오딘 소금'));
           if (_iIdx !== -1) _invL.splice(_iIdx, 1);
           S_story.iodineBuffActive = true; S_story.iodineBuffBonus = _hasChL ? 5 : 3;
-          storyMsg(_hasChL ? '⚡🧂 Charged iodine burns blue-white at the water\'s edge. The Leviathan flinches. Atlantean craft — ancient and correct.' : '🧂 Iodine salt burns at the waterline. The smoke is chemical, sea-salt, focused. The Leviathan is sensitive to it.');
+          storyMsg(_hasChL ? '⚡🧂 충전된 요오드가 물가에서 청백색으로 탄다. 리바이어던이 움찔한다. 아틀란티스의 기술. 고대의 것이고, 정확하다.' : '🧂 요오드염이 수면선에서 탄다. 연기는 화학적이고, 바다 소금이고, 응집되어 있다. 리바이어던은 그것에 민감하다.');
         });
         _levDiv.appendChild(_iodBtn);
         _levBtn.disabled = true;
       }
       _levBtn.addEventListener('click', () => {
         _levBtn.disabled = true;
-        const _iodAtk = S_story.iodineBuffActive ? ' The iodine reaction is already in the water.' : '';
-        storyMsg('The Leviathan surfaces completely.' + _iodAtk + ' It is larger than the clearing. It has been here, below, the entire arc.');
+        const _iodAtk = S_story.iodineBuffActive ? ' 요오드 반응이 이미 물속에 퍼져 있다.' : '';
+        storyMsg('리바이어던이 온전히 수면 위로 떠오른다.' + _iodAtk + ' 그것은 빈터보다 크다. 이 이야기의 전체 동안, 그것은 줄곧 아래에 있었다.');
         setTimeout(() => storyPreBattle({ ...node, code:'HCA_BOSS', battle:{ label:'리바이어던 — 공터에서 솟아오름', key:'leviathan', count:1 } }), 400);
       });
       _levDiv.appendChild(_levBtn);
@@ -33745,7 +33745,7 @@ function _nodeHookHuntWroRelay(node) {
       _j1Div.id = 'story-hunt2-j1';
       _j1Div.className = 'sweelinck-variant';
       _j1Div.style.cssText = 'margin-top:10px;border-left-color:#4a3a2a;color:#b09060;font-size:12px;';
-      _j1Div.textContent = '🛤 At the crossroads stone: Tessie, moving east, stops. "The relay horses won\'t pass the eastern bend. Four days. Road wardens say bandits — old mill fires at night. I\'ve run this road six years. There are no bandits in those fields." She keeps moving. She has told everyone. You are the first to look like you might do something about it.';
+      _j1Div.textContent = '🛤 갈림길 돌에서: 동쪽으로 가던 테시가 멈춘다. 『역마들이 동쪽 굽이를 지나려 하지 않아요. 나흘째예요. 도로 감시원들은 도적 때문이라고 해요. 밤에 나는 낡은 방앗간 불 때문이라고요. 나는 이 길을 6년이나 달렸어요. 저 들판에 도적 같은 건 없어요.』 그녀는 계속 걷는다. 모두에게 말하고 다녔다. 뭔가 해 볼 것처럼 보이는 사람은 당신이 처음이다.';
       const _j1Btn = document.createElement('button');
       _j1Btn.className = 'inv-use-btn'; _j1Btn.style.marginTop = '6px';
       _j1Btn.textContent = '🛤 Follow up on the relay road warning';
@@ -33753,7 +33753,7 @@ function _nodeHookHuntWroRelay(node) {
         _j1Btn.disabled = true;
         S_story.huntHook2Received = true;
         S_story.xp = (S_story.xp||0) + 50;
-        storyMsg('🛤 Tessie\'s route takes her east toward Birka. But the relay road goes north from this fork — the farm stations, the sleeping posts, the eastern bend she named.\n\nFour days of horses refusing to pass. The road wardens have a theory about bandit fires. The theory does not explain why horses stop at a precise point rather than anywhere along the road.\n\nQuest: The Relay Road Warning — active. Quest: Reading the Road — active at this fork. +50 XP.');
+        storyMsg('🛤 테시의 길은 그녀를 동쪽, 비르카로 데려간다. 그런데 역마길은 이 갈림길에서 북쪽으로 간다. 그녀가 말한 농장 역, 말 쉼터, 동쪽 굽이가 그쪽에 있다.\\n\\n나흘째 말들이 지나기를 거부하고 있다. 도로 감시원들은 도적의 불이라는 설을 가지고 있다. 그 설은 말들이 길 위 아무 데서나가 아니라 정확한 한 지점에서 멈추는 이유를 설명하지 못한다.\\n\\n의뢰: 「역마길의 경고」 활성. 의뢰: 「길 읽기」 이 갈림길에서 활성. +50 XP.');
         storyRender(node);
       });
       _j1Div.appendChild(_j1Btn);
@@ -33763,7 +33763,7 @@ function _nodeHookHuntWroRelay(node) {
       const _j1DoneDiv = document.createElement('div');
       _j1DoneDiv.className = 'sweelinck-variant';
       _j1DoneDiv.style.cssText = 'margin-top:10px;border-left-color:#2a5a3a;color:#70b880;font-size:12px;';
-      _j1DoneDiv.textContent = '✅ The relay road is clear. The horses are running the eastern bend again. Tessie\'s route is unobstructed.';
+      _j1DoneDiv.textContent = '✅ 역마길이 열렸다. 말들이 다시 동쪽 굽이를 달리고 있다. 테시의 길에 방해가 없다.';
       document.getElementById('story-text-box').insertAdjacentElement('afterend', _j1DoneDiv);
     }
   }
@@ -33777,25 +33777,25 @@ function _nodeHookHuntBnxBend(node) {
       _bnDiv.className = 'sweelinck-variant';
       if ((S_story.defeatedBattles||{})['BN_NIGHTHAG']) {
         _bnDiv.style.cssText = 'margin-top:10px;border-left-color:#2a5a3a;color:#70b880;font-size:12px;';
-        _bnDiv.textContent = '✅ The sleeping post is empty. The hag\'s territory is gone. The relay horses passed the bend this morning for the first time in four days. The station master has the token ready.';
+        _bnDiv.textContent = '✅ 말 쉼터가 비었다. 마녀의 구역은 사라졌다. 역마들이 오늘 아침 나흘 만에 처음으로 굽이를 지나갔다. 역장이 증표를 준비해 두었다.';
       } else if (S_story.bendLairFound) {
         _bnDiv.style.cssText = 'margin-top:10px;border-left-color:#6a3a2a;color:#c07858;font-size:12px;';
-        _bnDiv.textContent = '⚠ Night hag confirmed. She works from the sleeping post — riding the relay horses at night, draining them, leaving the road impassable. She will return at dusk. She is here now.';
+        _bnDiv.textContent = '⚠ 밤의 마녀 확인. 그녀는 말 쉼터에서 작업한다. 밤에 역마들을 타고, 그들을 빨아들이고, 길을 통행 불가로 만든다. 그녀는 해 질 녘에 돌아온다. 지금 여기 있다.';
         const _bnBtn = document.createElement('button');
         _bnBtn.className = 'inv-use-btn'; _bnBtn.style.marginTop = '6px';
         _bnBtn.textContent = '⚔ Drive the Night Hag out — clear the relay post';
         _bnBtn.addEventListener('click', () => {
           _bnBtn.disabled = true;
-          storyMsg('At dusk the sleeping post moves. Not the post — the air around it. A hag works this way: she does not announce herself. She is simply present and then she is present in the wrong way, and by the time you notice the difference she is already between you and the exit.\n\nShe does not speak. She has been doing this since before Birka had relay stations. She has no opinion about the relay station. She has an opinion about the horses. They are hers.');
+          storyMsg('해 질 녘, 말 쉼터가 움직인다. 쉼터가 아니라 그 주변의 공기가. 마녀는 이렇게 작업한다. 자신을 알리지 않는다. 그저 존재하고, 그러다 잘못된 방식으로 존재한다. 당신이 그 차이를 알아차릴 때쯤이면 그녀는 이미 당신과 출구 사이에 있다.\\n\\n그녀는 말하지 않는다. 비르카에 역마 정거장이 생기기 전부터 그녀는 이 일을 해 왔다. 역마 정거장에 대한 의견은 그녀에게 없다. 말들에 대한 의견은 있다. 말들은 그녀의 것이다.');
           setTimeout(() => storyPreBattle({ ...node, code:'BN_NIGHTHAG', battle:{ label:'밤 마녀 — 잠든 길', key:'night_hag', count:1 } }), 400);
         });
         _bnDiv.appendChild(_bnBtn);
       } else if (S_story.bendRoadClue) {
         _bnDiv.style.cssText = 'margin-top:10px;border-left-color:#4a3a2a;color:#b09060;font-size:12px;';
-        _bnDiv.textContent = '🔍 The sleeping post is at the tree line. The tether rings are worn in a pattern that is wrong for relay horses. The soil beside the post has an impression in it. INT Investigation DC 13 to read the evidence. See quest panel to attempt the check.';
+        _bnDiv.textContent = '🔍 말 쉼터는 수풀 경계에 있다. 매는 고리들이 역마들에게는 맞지 않는 형태로 닳아 있다. 쉼터 옆 흙에는 무언가의 자국이 패어 있다. 증거를 읽으려면 INT 조사 DC 13. 시도는 의뢰 패널에서.';
       } else {
         _bnDiv.style.cssText = 'margin-top:10px;border-left-color:#3a3a3a;color:#909090;font-size:12px;';
-        _bnDiv.textContent = '🛤 The eastern bend. Hoof marks end 200 paces from the sleeping post. The relay station road continues north. The road wardens say bandit fires. The mill is empty.';
+        _bnDiv.textContent = '🛤 동쪽 굽이. 말발굽 자국이 말 쉼터 이백 걸음 못 미치는 곳에서 끊긴다. 역마 정거장 길은 북쪽으로 계속된다. 도로 감시원들은 도적의 불이라고 한다. 방앗간은 비어 있다.';
       }
       document.getElementById('story-text-box').insertAdjacentElement('afterend', _bnDiv);
     }
@@ -35254,8 +35254,8 @@ function storyRender(node, prefix) {
         e42Div.id = 'story-entry42-prompt';
         e42Div.className = 'sweelinck-variant';
         e42Div.style.cssText = 'margin-top:10px;border-left-color:#a0702a;';
-        e42Div.innerHTML = '<div style="color:#f0c070;font-weight:700;margin-bottom:6px;">📖 Froberger\'s Journal — Entry 42</div>'
-          + '<div style="font-size:12px;color:#bba;margin-bottom:8px;">The page is blank. His handwriting fills forty-one entries. This one — the last — is empty. He left it for someone else. You are the someone else.</div>'
+        e42Div.innerHTML = '<div style="color:#f0c070;font-weight:700;margin-bottom:6px;">📖 프로베르거의 일지 — 기록 42</div>'
+          + '<div style="font-size:12px;color:#bba;margin-bottom:8px;">페이지가 비어 있다. 그의 필체가 마흔한 개의 기록을 채웠다. 마지막인 이것은 비어 있다. 그는 그것을 다른 누군가를 위해 남겨 두었다. 당신이 그 누군가다.</div>'
           + '<textarea id="entry42-textarea" placeholder="42번 항목을 쓰거나, 비워 두세요." style="width:100%;height:80px;background:#0e0a06;color:#ddc;border:1px solid #5c3311;border-radius:3px;padding:6px;font-size:12px;resize:vertical;box-sizing:border-box;"></textarea>'
           + '<div style="display:flex;gap:6px;margin-top:6px;">'
           + '<button class="inv-use-btn" id="entry42-write-btn">✍️ Write it.</button>'
@@ -35284,8 +35284,8 @@ function storyRender(node, prefix) {
         e42Div.id = 'story-entry42-prompt';
         e42Div.className = 'sweelinck-variant';
         e42Div.style.cssText = 'margin-top:10px;border-left-color:#5c3311;';
-        e42Div.innerHTML = '<div style="color:#bba;font-weight:700;margin-bottom:6px;">📖 Froberger\'s Journal — Entry 42</div>'
-          + '<div style="font-size:12px;color:#998;">The forty-second page is blank, and the pen will not move. Froberger filled forty-one entries with the people who kept him. This one is waiting for someone kept by as many: three in Birka who would call you a Dear Friend. You have ' + _e42Dear + '.</div>';
+        e42Div.innerHTML = '<div style="color:#bba;font-weight:700;margin-bottom:6px;">📖 프로베르거의 일지 — 기록 42</div>'
+          + '<div style="font-size:12px;color:#998;">마흔두 번째 페이지는 비어 있고, 펜이 움직이지 않는다. 프로베르거는 마흔한 개의 기록을 자신을 지켜 준 사람들로 채웠다. 이것은 그만큼 많은 이에게 지켜진 누군가를 기다린다. 당신을 절친한 벗이라 부를 사람이 비르카에 셋 필요하다. 현재 ' + _e42Dear + '명.</div>';
         document.getElementById('story-text-box').insertAdjacentElement('afterend', e42Div);
       }
     }
