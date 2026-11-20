@@ -12964,17 +12964,17 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
             S_story.xp = (S_story.xp||0) + 150;
             const inv = S_story.inventory = S_story.inventory || [];
             inv.push({ name:"Bram's Fish Scale", icon:'🐟', type:'misc', desc:'아침 어획의 비늘 한 조각. 브람이 당신의 손 가까이 놓았다. 선물이 아니라 인정이다. 던폴 고양이들은 자신들이 실제로 보는 것을 알아차리는 사람에게만 이것을 준다.', sell:0 });
-            storyMsg('🐟 Bram is not watching the Commissioner. He is watching a point on the south dock wall — where the fish market sweep leaves grain husks at the joint where stone meets wood.\n\nSomething is there. Something small.\n\nBram places one fish scale near your hand with the gravity of a cat making a formal statement.\n\nThe Commissioner notes you are "communicating with the obstruction." His appointment certificate, visible in his open case, lists the Western Revenue Office, Third Circuit — an office that closed thirteen years ago.\n\nBram\'s Fish Scale added. +150 XP. Quest: Bram Leads South now active.');
+            storyMsg('🐟 브람은 집행관을 보고 있지 않다. 남쪽 부두 벽의 한 지점을 보고 있다. 어망 청소가 돌과 나무가 맞닿는 이음새에 곡물 껍질을 남기는 곳.\n\n무언가가 거기에 있다. 작은 무언가.\n\n브람이 공식 성명을 내는 고양이의 무게감으로 생선 비늘 한 조각을 당신의 손 가까이 놓는다.\n\n집행관은 당신이 「방해물과 소통하고 있다」고 기록한다. 열린 서류 가방에 보이는 그의 임명장에는 서부 세무청 제3순회라고 적혀 있다. 십삼 년 전에 문을 닫은 관청이다.\n\n브람의 생선 비늘이 추가되었다. +150 XP. 퀘스트: 브람이 남쪽으로 이끈다 활성화.');
           } },
         ],
         onFail:[
           { kind:'_legacy_fn', fn:() => {
-            storyMsg('Bram does not respond. He is watching something with the focused certainty of a cat who has a very specific reason. The reason is not yet apparent.');
+            storyMsg('브람은 응답하지 않는다. 아주 특정한 이유가 있는 고양이의 확고한 집중으로 무언가를 보고 있다. 그 이유는 아직 드러나지 않았다.');
           } },
         ],
       },
     ],
-    disposition:'"That is a fish scale. He gave you a fish scale. What does that mean?" — Commissioner Halvard Fehn',
+    disposition:'『저것은 생선 비늘입니다. 그가 당신에게 생선 비늘을 준 것입니다. 그게 무슨 뜻이죠?』 — 할바르트 펜 집행관',
     passText:"브램이 당신에게 물고기 비늘을 줬다. 위원은 그게 무슨 뜻인지 모른다. 하지만 당신은 안다.",
     failText:"브램의 마음은 아직 읽지 않았다. 던폴 부두에서 WIS 동물 다루기 DC 11 필요.",
     npc:"mairén_fionn",
@@ -12988,7 +12988,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     activateNode:'DNF', gate:{ flags:['bramBefriended'] },
     completion:{ flags:['oatMet'] }, bits:[],
     waypointNode:'DNF', reward:0,
-    disposition:'"A cat and a mouse. Sitting together. I was told this was a standard harbor assessment." — Commissioner Halvard Fehn',
+    disposition:'『고양이와 생쥐가. 나란히 앉아. 나는 이것이 표준 항구 실사라고 들었습니다만.』 — 할바르트 펜 집행관',
     passText:"고양이와 쥐가 나란히 앉아 있다. 브램이 당신을 오트에게 이끌었다. 위원에게는 표준 항구 평가라 전해졌다.",
     failText:"브램은 아직 남쪽으로 이끌지 않았다. 부두 고양이를 따라 생선 시장 쓸어모은 더미로 가라.",
     npc:"mairén_fionn",
@@ -13011,22 +13011,22 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
             S_story.brimFound = true;
             S_story.xp = (S_story.xp||0) + 200;
             S_story.knowledge = S_story.knowledge || [];
-            S_story.knowledge.push('Dunfall Drift Spore: A loch-shore spore colony related to Warmth Eel bioluminescence. Colonizes small mammals; produces airborne chemistry of mild social harmonization within six feet. Not mind control — gentling. Commissioner Fehn has been in the drift radius for two days. His three inconsistent identities are authentic — a man trying to remember which name he is using today.');
+            S_story.knowledge.push('던폴 부유 포자: 온기 장어 생물발광과 관련된 호숫가 포자 집락. 작은 포유류에 기생하며, 반경 6피트 안에 온화한 사회적 조화의 공중 화학물질을 만들어낸다. 정신 지배가 아니다. 온화화다. 펜 집행관은 이틀째 부유 반경 안에 있다. 그의 일관성 없는 세 개의 신원은 모두 진짜다. 오늘 자신이 어떤 이름을 쓰고 있는지 기억해내려는 사람이다.');
             const inv = S_story.inventory = S_story.inventory || [];
             const obIdx = inv.findIndex(i => i.name === "Oat's Harbor Bead");
             if (obIdx !== -1) inv.splice(obIdx, 1);
             inv.push({ name:'Dunfall Drift Spore', icon:'✨', type:'misc', desc:'작은 진흙 병에 담긴 호박색 포자 한 꼬집. 브람이 비정상적으로 정밀한 발톱 하나로 오트의 왼쪽 귀에서 채취했다. 깊은 온기 장어 화학과 관련. 공중 부유. 온화한 사회적 조화. 필요 이상으로 들이마시지 마라.', sell:0 });
-            storyMsg('✨ The glow on Oat\'s ear is a drift spore colony from the loch shallows. Same chemistry family as Clot\'s Glow and the Deep Warmth Eel — but airborne, dispersed by small mammals in the shore reeds.\n\nWithin six feet: mild social harmonization. Gentling, not compulsion.\n\nThe Commissioner has been in the drift radius for two days. His inconsistencies are not deception — they are three identities held simultaneously by a man who was given a new name and cannot entirely let go of the other two.\n\nBram harvests the spore from Oat\'s ear with one claw. He places the sealed vial on the dock ledge. Oat watches. The Commissioner says something about his grandfather\'s commission.\n\nOat\'s Harbor Bead consumed. Dunfall Drift Spore added. Knowledge entry added. +200 XP.');
+            storyMsg('✨ 오트의 귀에서 나는 빛은 호수 여울의 부유 포자 집락이다. 클롯의 빛, 깊은 온기 장어와 같은 화학 계열이지만 공중 부유형으로, 기슭 갈대의 작은 포유류가 퍼뜨린다.\n\n반경 6피트 안: 온화한 사회적 조화. 강제가 아니라 온화화다.\n\n집행관은 이틀째 부유 반경 안에 있다. 그의 모순들은 기만이 아니다. 새 이름을 받고 다른 두 개를 완전히 놓지 못하는 사람이 동시에 들고 있는 세 개의 신원이다.\n\n브람이 발톱 하나로 오트의 귀에서 포자를 채취한다. 밀봉한 병을 부두 턱 위에 놓는다. 오트가 지켜본다. 집행관은 자신의 할아버지의 위임에 대해 무언가 말한다.\n\n오트의 항구 구슬이 소모되었다. 던폴 부유 포자가 추가되었다. 지식 항목 추가. +200 XP.');
           } },
         ],
         onFail:[
           { kind:'_legacy_fn', fn:() => {
-            storyMsg('The amber glow is there — not Bram\'s eye-shine. Something biological on Oat\'s fur. The chemistry is at the edge of identification. Oat holds perfectly still while you look. This is unusual for a harbor mouse.');
+            storyMsg('호박색 빛이 거기에 있다. 브람의 눈빛이 아니다. 오트의 털에 있는 생물학적 무언가다. 화학물질은 식별 직전이다. 당신이 살펴보는 동안 오트는 완전히 가만히 있다. 항구 생쥐치고는 이례적이다.');
           } },
         ],
       },
     ],
-    disposition:'"My grandfather was the First Commodore of the Highland Fleet. This is a relevant credential." — Commissioner Halvard Fehn (there is no Highland Fleet)',
+    disposition:'『나의 조부는 고지대 함대의 초대 제독이셨습니다. 이것은 관련 있는 자격입니다.』 — 할바르트 펜 집행관 (고지대 함대라는 것은 없다)',
     passText:"오트의 귀의 표류 포자가 식별됐다. 위원이 하이랜드 함대를 언급한다. 하이랜드 함대는 없다.",
     failText:"오트의 귀에 붙은 표류 포자 군집은 아직 확인되지 않았다. INT 자연 DC 12 필요.",
     npc:"mairén_fionn",
@@ -13040,7 +13040,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     activateNode:'DNF', gate:{ flags:['brimFound'] },
     completion:{ flags:['fehnConfessed'] }, bits:[],
     waypointNode:'DNF', reward:0,
-    disposition:'"I was told to use the name until the investigation closed. It has been nine years. I am not certain anyone is still watching." — Commissioner Halvard Fehn',
+    disposition:'『조사가 끝날 때까지 그 이름을 쓰라고 들었습니다. 구 년이 지났습니다. 아직 보고 있는 사람이 있는지 확실하지 않습니다.』 — 할바르트 펜 집행관',
     passText:"그는 조사가 끝날 때까지 그 이름을 쓰라고 들었다. 구 년이 지났다. 아직 누가 지켜보는지 그도 확신하지 못한다.",
     failText:"펜 위원의 신분에 대한 세 가지 불일치는 아직 추궁되지 않았다.",
     npc:"mairén_fionn",
@@ -13059,7 +13059,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     activateNode:'SEN', gate:{ flags:['saltwickAccessed'] },
     completion:{ flags:['whodunit2HookReceived'] }, bits:[],
     waypointNode:'SEN', reward:0,
-    disposition:'"The passenger came aboard at Saltwick. Nobody from Saltwick uses their real name." — The Cook, pointing at a closed cabin door',
+    disposition:'『그 승객은 솔트윅에서 탔습니다. 솔트윅 사람은 아무도 본명을 쓰지 않아요.』 — 요리사, 닫힌 선실 문을 가리키며',
     passText:"승객은 솔트윅에서 탔다. 솔트윅 사람은 누구도 본명을 쓰지 않는다. 실종 화물 조사가 시작된다.",
     failText:"화물창에서 세 가지 물품이 사라졌고 아직 조사되지 않았다.",
     npc:"ship_captain",
@@ -13078,18 +13078,18 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
             S_story.whodunit2ClueFound = true;
             S_story.xp = (S_story.xp||0) + 200;
             S_story.knowledge = S_story.knowledge || [];
-            S_story.knowledge.push('Bilge Mystery: Port drain grate moved from inside. Scale residue: dark grey, translucent, two inches — sea spawn. Entered during Saltwick hull repair while ballast access was open three hours. Cook\'s theory (passenger Ord) is wrong. The passenger has been in his cabin.');
-            storyMsg('🔍 The grate was moved from inside. Scale residue on the iron: dark grey, translucent, two inches across. Sea spawn scales.\n\nThe creature entered through the drain during the hull repair at Saltwick — the ballast access was open for three hours while the strake was replaced. The creature used it.\n\nThe passenger Ord has been in his cabin. The creature has been in the bilge. The cook\'s theory is wrong.\n\nKnowledge entry added. +200 XP. Quest: What Delt Remembers now active.');
+            S_story.knowledge.push('빌지 미스터리: 좌현 배수 격자가 안쪽에서 움직였다. 비늘 잔여: 어두운 회색, 반투명, 2인치. 바다 스폰. 솔트윅 선체 수리 중 밸러스트 통로가 세 시간 열려 있을 때 침입. 요리사의 이론(승객 오드)은 틀렸다. 승객은 선실에 있었다.');
+            storyMsg('🔍 격자는 안쪽에서 움직였다. 철 위의 비늘 잔여: 어두운 회색, 반투명, 지름 2인치. 바다 스폰의 비늘이다.\n\n그 생물은 솔트윅 선체 수리 중 배수구로 들어왔다. 외판을 교체하는 동안 밸러스트 통로가 세 시간 열려 있었고, 그 생물이 이용했다.\n\n승객 오드는 선실에 있었다. 그 생물은 빌지에 있었다. 요리사의 이론은 틀렸다.\n\n지식 항목 추가. +200 XP. 퀘스트: 델트가 기억하는 것 활성화.');
           } },
         ],
         onFail:[
           { kind:'_legacy_fn', fn:() => {
-            storyMsg('The drain channel is partially flooded — the morning tide moved the smaller evidence. The grate position is wrong for natural movement. Interview the crewman before the physical evidence degrades further.');
+            storyMsg('배수 수로가 부분적으로 물에 잠겨 있다. 아침 밀물이 작은 증거들을 옮겼다. 격자 위치가 자연 이동으로는 맞지 않는다. 물리적 증거가 더 훼손되기 전에 선원을 면담하라.');
           } },
         ],
       },
     ],
-    disposition:'"The passenger didn\'t go below deck. I watched the door all three nights." — First Mate Carrow, reconsidering',
+    disposition:'『그 승객은 아래층으로 내려가지 않았습니다. 사흘 밤 내내 문을 지켜봤습니다.』 — 일등 항해사 캐로우, 재고하며',
     passText:"격자는 안쪽에서 옮겨졌다. 승객은 아래층으로 내려가지 않았다. 배수구는 다른 이야기를 말한다.",
     failText:"틸버리 스타의 좌현 빌지 배수구는 아직 살펴보지 않았다. INT 조사 DC 12 필요.",
     npc:"ship_captain",
@@ -13112,12 +13112,12 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
         ],
         onFail:[
           { kind:'_legacy_fn', fn:() => {
-            storyMsg('Delt\'s memory is still fragmented — whatever affected him is still clearing. He can describe the cold and the sound but not the source. The drain evidence is cleaner than the witness right now.');
+            storyMsg('델트의 기억은 아직 파편화되어 있다. 그에게 영향을 준 것이 아직 걸러지는 중이다. 그는 추위와 소리를 묘사할 수 있지만 그 출처는 말하지 못한다. 지금은 배수구 증거가 증인보다 깨끗하다.');
           } },
         ],
       },
     ],
-    disposition:'"Cold. And something that sounded like paper. I thought I was losing my mind." — Delt, crewman of the Tilbury Star',
+    disposition:'『추위. 그리고 종이 같은 소리. 나는 미치는 줄 알았습니다.』 — 델트, 틸버리 스타 선원',
     passText:"냉기. 그리고 종이 같은 소리. 델트는 제정신을 잃은 게 아니었다. 감각 기억들이 침입자를 확증한다.",
     failText:"델트에 대한 심문은 미완료다. 그가 빌지에서 들은 것을 확인하려면 WIS 통찰 DC 13 필요.",
     npc:"ship_captain",
@@ -13135,10 +13135,10 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
       { kind:'flag_write', set:['whodunit2Solved'] },
       { kind:'reward', xp:600, gold:600 },
       { kind:'reward', items:[{ name:'Sea Spawn Scale Fragment', icon:'🐚', type:'misc', desc:'빌지 바다 스폰의 어두운 회색 비늘. 선체 침입의 증거. 선장이 항해 일지에 덧붙였다. 『좌현 배수구, 구리망으로 봉함.』 승객 오드에게는 사과가 빚져 있다. 요리사는 사과를 거절했다.', sell:13 }],
-        knowledge:'Bilge Mystery Solved: Two sea spawn entered the Tilbury Star during the Saltwick hull repair. Took tallow (food) and rope (nesting). Charts displaced but undamaged. Crewman Delt proximity-sedated, not harmed. Cook\'s theory (passenger Ord) was wrong. The cook has not acknowledged this.' },
+        knowledge:'빌지 미스터리 해결: 바다 스폰 두 마리가 솔트윅 선체 수리 중 틸버리 스타에 들어왔다. 식용 수지(음식)와 밧줄(둥지 재료)을 가져갔다. 해도는 옮겨졌으나 손상되지 않았다. 선원 델트는 근접 진정되었을 뿐 다치지 않았다. 요리사의 이론(승객 오드)은 틀렸다. 요리사는 이를 인정하지 않았다.' },
       { kind:'narrative', msg:'✅ 빌지가 정리되었다.\n\n바다 스폰은 한 마리가 아니라 두 마리였다. 두 번째가 첫날 안에 배수구를 통해 따라 들어왔다. 평형수 구석에 밧줄이 말려 있다. 임시 둥지. 수지 통은 속이 파였다. 해도들은 손상 없이 쌓여 있다.\n\n승객 오드가 안전 신호가 떨어지자 선실에서 나온다. 빌지 출입구를 본다. 요리사를 본다. 요리사는 사과하지 않는다. 오드도 캐묻지 않는다. 기념품으로 수지 통을 달라고 한다. 선장이 거절한다. 그는 담담히 받아들인다.\n\n바다 스폰 비늘 조각 추가. +600gp. +600 XP. 지식 항목 추가. 빌지 확보. 동부 횡단로 장애물 없음.' },
     ],
-    disposition:'"I\'ve been cook on this ship seven years. I have never been more wrong about anything." — The Cook, to the first mate, quietly',
+    disposition:'『이 배에서 칠 년째 요리사입니다. 이렇게까지 틀린 적은 없었습니다.』 — 요리사, 일등 항해사에게, 조용히',
     passText:"빌지는 깨끗하다. 쿡은 그 승객에 대해 틀렸다. 이 배에서 칠 년, 무엇에 대해서든 이보다 틀린 적 없다.",
     failText:"두 마리의 바다 스폰이 아직 빌지에 있다. 동쪽 횡단을 안전하게 시작할 수 없다.",
     npc:"ship_captain",
@@ -13157,7 +13157,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     activateNode:'KIR', gate:{},
     completion:{ flags:['roenMet'] }, bits:[],
     waypointNode:'KIR', reward:0,
-    disposition:'"The stone knows where the gold is. I\'ve been arguing with the stone for forty years and it\'s never said anything, which I now think is the message." — Roen',
+    disposition:'『돌은 금이 어디 있는지 안다. 나는 사십 년을 돌과 논쟁했고 돌은 한 번도 아무 말도 하지 않았는데, 이제는 그것이 답이라고 생각한다.』 — 로엔',
     passText:"로엔이 당신과 합류했다. 그 돌은 사십 년간 아무 말도 하지 않았고, 그는 이제 그게 답이었다고 본다.",
     failText:"로엔은 아직 아일랜드 고원 교차로에서 기다리고 있다. 아직 만나지 못했다.",
     npc:"elder_fionn",
@@ -13170,7 +13170,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     activateNode:'MAN', gate:{ flags:['roenMet'] },
     completion:{ flags:['roenMidlandsWisdom'] }, bits:[],
     waypointNode:'MAN', reward:0,
-    disposition:'"Don\'t take the shadow personally. My grandmother said this. I applied it to a noonwraith. It mostly worked." — Roen',
+    disposition:'『그림자를 개인적으로 받아들이지 마라. 나의 할머니가 그러셨다. 나는 그것을 정오의 망령에게 적용했다. 대체로 통했다.』 — 로엔',
     passText:"그림자를 인격적으로 받지 마라. 로엔이 할머니의 조언을 한낮의 망령에게 적용했다. 대체로 먹혔다.",
     failText:"로엔과 함께 정오의 평원을 아직 가로지르지 않았다.",
     npc:"elder_fionn",
@@ -13183,7 +13183,7 @@ const QUEST_DB = { // → doc: quest.md §Quest Format
     activateNode:'SEN', gate:{ flags:['roenMidlandsWisdom'] },
     completion:{ flags:['roenAtSea'] }, bits:[],
     waypointNode:'SEN', reward:0,
-    disposition:'"The ship doesn\'t make assumptions about where the sea ends. I have spent forty years making assumptions about where the gold is. The ship is doing better than I am." — Roen',
+    disposition:'『배는 바다가 어디서 끝나는지 추정하지 않는다. 나는 사십 년을 금이 어디 있는지 추정하며 보냈다. 배가 나보다 잘하고 있다.』 — 로엔',
     passText:"그 배는 바다가 어디서 끝나는지 추정하지 않는다. 로엔에게는 사십 년의 추정이 있다. 바다 건넘이 이루어졌다.",
     failText:"틸버리 스타에 탄 로엔과의 바다 횡단은 아직 완료되지 않았다.",
     npc:"ship_captain",
